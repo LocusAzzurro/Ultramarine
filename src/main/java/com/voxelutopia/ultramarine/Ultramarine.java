@@ -1,10 +1,14 @@
 package com.voxelutopia.ultramarine;
 
 import com.mojang.logging.LogUtils;
+import com.voxelutopia.ultramarine.data.BlockRegistry;
+import com.voxelutopia.ultramarine.data.CreativeTabs;
+import com.voxelutopia.ultramarine.data.ItemRegistry;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.RegistryEvent;
+import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.InterModComms;
 import net.minecraftforge.fml.common.Mod;
@@ -18,13 +22,19 @@ import org.slf4j.Logger;
 import java.util.stream.Collectors;
 
 // The value here should match an entry in the META-INF/mods.toml file
-@Mod("ultramarine")
+@Mod(Ultramarine.MOD_ID)
 public class Ultramarine {
 
-    // Directly reference a slf4j logger
+    public static final String MOD_ID = "ultramarine";
+    public static final CreativeTabs.CreativeTab CREATIVE_TAB = new CreativeTabs.CreativeTab();
     private static final Logger LOGGER = LogUtils.getLogger();
 
     public Ultramarine() {
+
+        IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
+        BlockRegistry.BLOCKS.register(bus);
+        ItemRegistry.ITEMS.register(bus);
+
         // Register the setup method for modloading
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setup);
         // Register the enqueueIMC method for modloading
@@ -35,6 +45,8 @@ public class Ultramarine {
         // Register ourselves for server and other game events we are interested in
         MinecraftForge.EVENT_BUS.register(this);
     }
+
+    public static Logger getLogger() {return LOGGER;}
 
     private void setup(final FMLCommonSetupEvent event) {
         // Some preinit code
