@@ -17,6 +17,8 @@ public class ModItemModelProvider extends ItemModelProvider {
     @Override
     protected void registerModels() {
         blockItem(BlockRegistry.CYAN_BRICKS.get());
+        blockItem(BlockRegistry.CYAN_BRICK_SLAB.get());
+        blockItem(BlockRegistry.CYAN_BRICK_STAIRS.get());
     }
 
     private ItemModelBuilder generatedItem(Item item){

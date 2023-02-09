@@ -16,7 +16,9 @@ public class ModBlockTagProvider extends BlockTagsProvider {
     @Override
     protected void addTags() {
         tag(BlockTags.MINEABLE_WITH_PICKAXE)
-                .add(BlockRegistry.CYAN_BRICKS.get());
+                .add(BlockRegistry.CYAN_BRICKS.get())
+                .add(BlockRegistry.CYAN_BRICK_SLAB.get())
+                .add(BlockRegistry.CYAN_BRICK_STAIRS.get());
     }
 
     @Override

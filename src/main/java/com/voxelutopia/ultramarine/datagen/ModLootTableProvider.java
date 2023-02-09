@@ -14,6 +14,8 @@ public class ModLootTableProvider extends BaseLootTableProvider {
     @Override
     protected void addTables() {
         simple(BlockRegistry.CYAN_BRICKS);
+        simple(BlockRegistry.CYAN_BRICK_SLAB);
+        simple(BlockRegistry.CYAN_BRICK_STAIRS);
     }
 
     void simple(RegistryObject<? extends Block> block) {

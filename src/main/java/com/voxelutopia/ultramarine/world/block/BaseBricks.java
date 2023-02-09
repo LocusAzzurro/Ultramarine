@@ -4,9 +4,13 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.material.Material;
 
-public class BaseBrickBlock extends Block {
+public class BaseBricks extends Block {
 
-    public BaseBrickBlock(){
-        super(BlockBehaviour.Properties.of(Material.STONE));
+    public static final BlockBehaviour.Properties PROPERTIES = BlockBehaviour.Properties.of(Material.STONE);
+    public BaseBricks(){
+        super(PROPERTIES);
     }
+
+
+
 }
