@@ -18,6 +18,9 @@ public class ModLootTableProvider extends BaseLootTableProvider {
         simple(BlockRegistry.CYAN_BRICK_STAIRS);
         simple(BlockRegistry.OCTAGONAL_PALACE_LANTERN);
         simple(BlockRegistry.SQUARE_PALACE_LANTERN);
+        simple(BlockRegistry.WHITE_SKY_LANTERN);
+        simple(BlockRegistry.RED_SKY_LANTERN);
+        simple(BlockRegistry.YELLOW_SKY_LANTERN);
     }
 
     void simple(RegistryObject<? extends Block> block) {

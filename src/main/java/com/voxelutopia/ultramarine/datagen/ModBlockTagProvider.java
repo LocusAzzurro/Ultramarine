@@ -21,7 +21,10 @@ public class ModBlockTagProvider extends BlockTagsProvider {
                 .add(BlockRegistry.CYAN_BRICK_STAIRS.get());
         tag(BlockTags.MINEABLE_WITH_AXE)
                 .add(BlockRegistry.OCTAGONAL_PALACE_LANTERN.get())
-                .add(BlockRegistry.SQUARE_PALACE_LANTERN.get());
+                .add(BlockRegistry.SQUARE_PALACE_LANTERN.get())
+                .add(BlockRegistry.WHITE_SKY_LANTERN.get())
+                .add(BlockRegistry.RED_SKY_LANTERN.get())
+                .add(BlockRegistry.YELLOW_SKY_LANTERN.get());
     }
 
     @Override

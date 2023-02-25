@@ -22,17 +22,25 @@ public class ModBlockModelProvider extends BlockStateProvider {
         slabBlock((SlabBlock) BlockRegistry.CYAN_BRICK_SLAB.get(), BlockRegistry.CYAN_BRICKS.get().getRegistryName(), blockLoc(BlockRegistry.CYAN_BRICKS.get()));
         stairsBlock((StairBlock) BlockRegistry.CYAN_BRICK_STAIRS.get(), blockLoc(BlockRegistry.CYAN_BRICKS.get()));
 
-        simpleBlock(BlockRegistry.OCTAGONAL_PALACE_LANTERN.get(), models().getExistingFile(modLoc("block/octagonal_palace_lantern")));
+        existingModelBlock(BlockRegistry.OCTAGONAL_PALACE_LANTERN.get());
         getVariantBuilder(BlockRegistry.SQUARE_PALACE_LANTERN.get())
                 .partialState().with(ModBlockStateProperties.DIAGONAL, false).modelForState()
                 .modelFile(models().getExistingFile(modLoc("block/square_palace_lantern"))).addModel()
                 .partialState().with(ModBlockStateProperties.DIAGONAL, true).modelForState()
                 .modelFile(models().getExistingFile(modLoc("block/square_palace_lantern_diagonal"))).addModel();
+        existingModelBlock(BlockRegistry.WHITE_SKY_LANTERN.get());
+        existingModelBlock(BlockRegistry.RED_SKY_LANTERN.get());
+        existingModelBlock(BlockRegistry.YELLOW_SKY_LANTERN.get());
     }
 
     private ResourceLocation blockLoc(Block block){
         return modLoc("block/" + block.getRegistryName().getPath());
     }
+
+    private void existingModelBlock(Block block){
+        simpleBlock(block, models().getExistingFile(modLoc("block/" + block.getRegistryName().getPath())));
+    }
+
     @NotNull
     @Override
     public String getName() {

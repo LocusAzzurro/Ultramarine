@@ -21,6 +21,9 @@ public class ModItemModelProvider extends ItemModelProvider {
         blockItem(BlockRegistry.CYAN_BRICK_STAIRS.get());
         blockItem(BlockRegistry.OCTAGONAL_PALACE_LANTERN.get());
         blockItem(BlockRegistry.SQUARE_PALACE_LANTERN.get());
+        blockItem(BlockRegistry.WHITE_SKY_LANTERN.get());
+        blockItem(BlockRegistry.RED_SKY_LANTERN.get());
+        blockItem(BlockRegistry.YELLOW_SKY_LANTERN.get());
     }
 
     private ItemModelBuilder generatedItem(Item item){
