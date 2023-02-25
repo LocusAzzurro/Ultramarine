@@ -26,7 +26,6 @@ import java.util.stream.Collectors;
 public class Ultramarine {
 
     public static final String MOD_ID = "ultramarine";
-    public static final CreativeTabs.CreativeTab CREATIVE_TAB = new CreativeTabs.CreativeTab();
     private static final Logger LOGGER = LogUtils.getLogger();
 
     public Ultramarine() {
