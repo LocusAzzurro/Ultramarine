@@ -19,6 +19,7 @@ public class ModItemModelProvider extends ItemModelProvider {
         blockItem(BlockRegistry.CYAN_BRICKS.get());
         blockItem(BlockRegistry.CYAN_BRICK_SLAB.get());
         blockItem(BlockRegistry.CYAN_BRICK_STAIRS.get());
+        blockItem(BlockRegistry.OCTAGONAL_PALACE_LAMP.get());
     }
 
     private ItemModelBuilder generatedItem(Item item){
