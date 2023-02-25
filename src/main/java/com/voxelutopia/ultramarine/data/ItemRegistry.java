@@ -16,7 +16,7 @@ public class ItemRegistry {
     public static final RegistryObject<Item> CYAN_BRICK_SLAB = fromBlock(BlockRegistry.CYAN_BRICK_SLAB, CreativeTabs.BUILDING_BLOCKS);
     public static final RegistryObject<Item> CYAN_BRICK_STAIRS = fromBlock(BlockRegistry.CYAN_BRICK_STAIRS, CreativeTabs.BUILDING_BLOCKS);
 
-    public static final RegistryObject<Item> OCTAGONAL_PALACE_LAMP = fromBlock(BlockRegistry.OCTAGONAL_PALACE_LAMP, CreativeTabs.LAMPS);
+    public static final RegistryObject<Item> OCTAGONAL_PALACE_LAMP = fromBlock(BlockRegistry.OCTAGONAL_PALACE_LANTERN, CreativeTabs.LAMPS);
 
     private static <B extends Block> RegistryObject<Item> fromBlock(RegistryObject<B> block, CreativeModeTab tab) {
         return ITEMS.register(block.getId().getPath(), () -> new BlockItem(block.get(), new Item.Properties().tab(tab)));

@@ -14,8 +14,11 @@ import net.minecraft.world.level.material.Material;
 public class LuminousBlock extends Block {
 
     public static final BooleanProperty LIT = BlockStateProperties.LIT;
-    public LuminousBlock(Material material) {
+
+    private final int LIGHT_LEVEL;
+    public LuminousBlock(Material material, int lightLevel) {
         super(BlockBehaviour.Properties.of(material).noOcclusion());
+        this.LIGHT_LEVEL = lightLevel;
         this.registerDefaultState(this.stateDefinition.any().setValue(LIT, Boolean.TRUE));
     }
 
@@ -31,6 +34,6 @@ public class LuminousBlock extends Block {
 
     @Override
     public int getLightEmission(BlockState state, BlockGetter level, BlockPos pos) {
-        return state.getValue(LIT) ? 15 : 0;
+        return state.getValue(LIT) ? LIGHT_LEVEL : 0;
     }
 }

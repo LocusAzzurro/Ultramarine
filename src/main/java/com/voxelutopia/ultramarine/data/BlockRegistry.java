@@ -15,6 +15,6 @@ public class BlockRegistry {
     public static final RegistryObject<Block> CYAN_BRICKS = BLOCKS.register("cyan_bricks", BaseBricks::new);
     public static final RegistryObject<Block> CYAN_BRICK_SLAB = BLOCKS.register("cyan_brick_slab", BaseBrickSlab::new);
     public static final RegistryObject<Block> CYAN_BRICK_STAIRS = BLOCKS.register("cyan_brick_stairs", BaseBrickStairs::new);
-    public static final RegistryObject<Block> OCTAGONAL_PALACE_LAMP = BLOCKS.register("octagonal_palace_lamp", () -> new OffsetPalaceLamp(Material.WOOD));
+    public static final RegistryObject<Block> OCTAGONAL_PALACE_LANTERN = BLOCKS.register("octagonal_palace_lantern", () -> new OffsetLantern(Material.WOOD));
 
 }

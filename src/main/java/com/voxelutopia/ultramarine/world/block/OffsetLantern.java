@@ -6,8 +6,8 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.material.Material;
 
-public class OffsetPalaceLamp extends PalaceLamp{
-    public OffsetPalaceLamp(Material material) {
+public class OffsetLantern extends Lantern {
+    public OffsetLantern(Material material) {
         super(material);
     }
 

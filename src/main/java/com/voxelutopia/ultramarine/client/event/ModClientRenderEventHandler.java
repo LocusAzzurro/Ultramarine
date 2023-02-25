@@ -15,7 +15,7 @@ public class ModClientRenderEventHandler {
     public static void onClientSetup(FMLClientSetupEvent e){
 
         e.enqueueWork(() -> {
-            ItemBlockRenderTypes.setRenderLayer(BlockRegistry.OCTAGONAL_PALACE_LAMP.get(), RenderType.cutout());
+            ItemBlockRenderTypes.setRenderLayer(BlockRegistry.OCTAGONAL_PALACE_LANTERN.get(), RenderType.cutout());
         });
     }
 
