@@ -16,6 +16,7 @@ public class ModClientRenderEventHandler {
 
         e.enqueueWork(() -> {
             ItemBlockRenderTypes.setRenderLayer(BlockRegistry.OCTAGONAL_PALACE_LANTERN.get(), RenderType.cutout());
+            ItemBlockRenderTypes.setRenderLayer(BlockRegistry.SQUARE_PALACE_LANTERN.get(), RenderType.cutout());
         });
     }
 

@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "diagonal=false": {
+      "model": "ultramarine:block/square_palace_lantern"
+    },
+    "diagonal=true": {
+      "model": "ultramarine:block/square_palace_lantern_diagonal"
+    }
+  }
+}

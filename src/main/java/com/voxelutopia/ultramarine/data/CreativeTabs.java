@@ -27,7 +27,7 @@ public class CreativeTabs {
         }
         @Override
         public ItemStack makeIcon() {
-            return new ItemStack(ItemRegistry.OCTAGONAL_PALACE_LAMP.get());
+            return new ItemStack(ItemRegistry.OCTAGONAL_PALACE_LANTERN.get());
         }
     }
 }
