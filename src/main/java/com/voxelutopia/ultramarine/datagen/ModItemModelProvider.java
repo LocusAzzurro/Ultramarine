@@ -20,6 +20,8 @@ public class ModItemModelProvider extends ItemModelProvider {
         blockItem(BlockRegistry.CYAN_BRICKS.get());
         blockItem(BlockRegistry.CYAN_BRICK_SLAB.get());
         blockItem(BlockRegistry.CYAN_BRICK_STAIRS.get());
+
+        generatedItem(ItemRegistry.WOODEN_HAMMER.get());
         blockItem(BlockRegistry.GRAY_ROOF_TILES.get());
 
         blockItem(BlockRegistry.OCTAGONAL_PALACE_LANTERN.get());
@@ -29,6 +31,15 @@ public class ModItemModelProvider extends ItemModelProvider {
         blockItem(BlockRegistry.YELLOW_SKY_LANTERN.get());
 
         generatedItem(ItemRegistry.CYAN_BRICK.get());
+        generatedItem(ItemRegistry.GRAY_ROOF_TILE.get());
+        generatedItem(ItemRegistry.YELLOW_ROOF_TILE.get());
+        generatedItem(ItemRegistry.GREEN_ROOF_TILE.get());
+        generatedItem(ItemRegistry.BLUE_ROOF_TILE.get());
+        generatedItem(ItemRegistry.CYAN_ROOF_TILE.get());
+        generatedItem(ItemRegistry.BLACK_ROOF_TILE.get());
+
+        blockItem(BlockRegistry.JADE_ORE.get());
+        generatedItem(ItemRegistry.JADE.get());
     }
 
     private ItemModelBuilder generatedItem(Item item){

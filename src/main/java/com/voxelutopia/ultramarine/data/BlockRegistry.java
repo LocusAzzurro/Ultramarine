@@ -2,7 +2,10 @@ package com.voxelutopia.ultramarine.data;
 
 import com.voxelutopia.ultramarine.Ultramarine;
 import com.voxelutopia.ultramarine.world.block.*;
+import net.minecraft.world.item.CreativeModeTab;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.material.Material;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -22,4 +25,9 @@ public class BlockRegistry {
     public static final RegistryObject<Block> RED_SKY_LANTERN = BLOCKS.register("red_sky_lantern", () -> new Lantern(Material.BAMBOO));
     public static final RegistryObject<Block> YELLOW_SKY_LANTERN = BLOCKS.register("yellow_sky_lantern", () -> new Lantern(Material.BAMBOO));
 
+    public static final RegistryObject<Block> JADE_ORE = BLOCKS.register("jade_ore", BaseOreBlock::new);
+
+    private static RegistryObject<Block> simpleBlock(String name, Material material) {
+        return BLOCKS.register(name, () -> new Block(BlockBehaviour.Properties.of(material)));
+    }
 }

@@ -44,6 +44,8 @@ public class ModBlockModelProvider extends BlockStateProvider {
         existingModelBlock(BlockRegistry.WHITE_SKY_LANTERN.get());
         existingModelBlock(BlockRegistry.RED_SKY_LANTERN.get());
         existingModelBlock(BlockRegistry.YELLOW_SKY_LANTERN.get());
+
+        simpleBlock(BlockRegistry.JADE_ORE.get());
     }
 
     private ResourceLocation blockLoc(Block block){

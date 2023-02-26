@@ -1,6 +1,7 @@
 package com.voxelutopia.ultramarine.datagen;
 
 import com.voxelutopia.ultramarine.data.BlockRegistry;
+import com.voxelutopia.ultramarine.data.ItemRegistry;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.world.level.block.Block;
 import net.minecraftforge.registries.RegistryObject;
@@ -21,6 +22,8 @@ public class ModLootTableProvider extends BaseLootTableProvider {
         simple(BlockRegistry.WHITE_SKY_LANTERN);
         simple(BlockRegistry.RED_SKY_LANTERN);
         simple(BlockRegistry.YELLOW_SKY_LANTERN);
+
+        lootTables.put(BlockRegistry.JADE_ORE.get(), createOreTable(BlockRegistry.JADE_ORE.getId().getPath(), BlockRegistry.JADE_ORE.get(), ItemRegistry.JADE.get()));
     }
 
     void simple(RegistryObject<? extends Block> block) {

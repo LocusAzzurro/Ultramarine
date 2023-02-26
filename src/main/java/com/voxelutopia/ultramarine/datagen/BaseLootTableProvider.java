@@ -8,6 +8,7 @@ import net.minecraft.data.DataProvider;
 import net.minecraft.data.HashCache;
 import net.minecraft.data.loot.LootTableProvider;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.storage.loot.LootPool;
 import net.minecraft.world.level.storage.loot.LootTable;
@@ -41,6 +42,15 @@ public abstract class BaseLootTableProvider extends LootTableProvider {
                 .name(name)
                 .setRolls(ConstantValue.exactly(1))
                 .add(LootItem.lootTableItem(block));
+        return LootTable.lootTable().withPool(builder);
+    }
+
+    //todo add fortune modifier
+    protected LootTable.Builder createOreTable(String name, Block block, Item drops) {
+        LootPool.Builder builder = LootPool.lootPool()
+                .name(name)
+                .setRolls(ConstantValue.exactly(1))
+                .add(LootItem.lootTableItem(drops));
         return LootTable.lootTable().withPool(builder);
     }
 
