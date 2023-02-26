@@ -1,6 +1,7 @@
 package com.voxelutopia.ultramarine.datagen;
 
 import com.voxelutopia.ultramarine.data.BlockRegistry;
+import com.voxelutopia.ultramarine.data.ItemRegistry;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
@@ -19,11 +20,15 @@ public class ModItemModelProvider extends ItemModelProvider {
         blockItem(BlockRegistry.CYAN_BRICKS.get());
         blockItem(BlockRegistry.CYAN_BRICK_SLAB.get());
         blockItem(BlockRegistry.CYAN_BRICK_STAIRS.get());
+        blockItem(BlockRegistry.GRAY_ROOF_TILES.get());
+
         blockItem(BlockRegistry.OCTAGONAL_PALACE_LANTERN.get());
         blockItem(BlockRegistry.SQUARE_PALACE_LANTERN.get());
         blockItem(BlockRegistry.WHITE_SKY_LANTERN.get());
         blockItem(BlockRegistry.RED_SKY_LANTERN.get());
         blockItem(BlockRegistry.YELLOW_SKY_LANTERN.get());
+
+        generatedItem(ItemRegistry.CYAN_BRICK.get());
     }
 
     private ItemModelBuilder generatedItem(Item item){

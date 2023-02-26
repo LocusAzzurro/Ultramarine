@@ -1,0 +1,34 @@
+{
+  "variants": {
+    "facing=north,shifted=false": {
+      "model": "ultramarine:block/gray_roof_tiles",
+      "y": 180
+    },
+    "facing=south,shifted=false": {
+      "model": "ultramarine:block/gray_roof_tiles"
+    },
+    "facing=west,shifted=false": {
+      "model": "ultramarine:block/gray_roof_tiles",
+      "y": 90
+    },
+    "facing=east,shifted=false": {
+      "model": "ultramarine:block/gray_roof_tiles",
+      "y": 270
+    },
+    "facing=north,shifted=true": {
+      "model": "ultramarine:block/gray_roof_tiles_shifted",
+      "y": 180
+    },
+    "facing=south,shifted=true": {
+      "model": "ultramarine:block/gray_roof_tiles_shifted"
+    },
+    "facing=west,shifted=true": {
+      "model": "ultramarine:block/gray_roof_tiles_shifted",
+      "y": 90
+    },
+    "facing=east,shifted=true": {
+      "model": "ultramarine:block/gray_roof_tiles_shifted",
+      "y": 270
+    }
+  }
+}

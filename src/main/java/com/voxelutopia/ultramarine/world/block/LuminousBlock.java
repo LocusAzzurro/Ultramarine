@@ -11,7 +11,7 @@ import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.level.material.Material;
 
-public class LuminousBlock extends Block {
+public abstract class LuminousBlock extends Block {
 
     public static final BooleanProperty LIT = BlockStateProperties.LIT;
 

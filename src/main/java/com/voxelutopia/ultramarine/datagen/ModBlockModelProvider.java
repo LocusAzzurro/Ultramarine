@@ -8,8 +8,10 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.SlabBlock;
 import net.minecraft.world.level.block.StairBlock;
 import net.minecraftforge.client.model.generators.BlockStateProvider;
+import net.minecraftforge.client.model.generators.ConfiguredModel;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import org.jetbrains.annotations.NotNull;
+import static net.minecraft.world.level.block.state.properties.BlockStateProperties.*;
 
 public class ModBlockModelProvider extends BlockStateProvider {
 
@@ -21,6 +23,17 @@ public class ModBlockModelProvider extends BlockStateProvider {
         simpleBlock(BlockRegistry.CYAN_BRICKS.get());
         slabBlock((SlabBlock) BlockRegistry.CYAN_BRICK_SLAB.get(), BlockRegistry.CYAN_BRICKS.get().getRegistryName(), blockLoc(BlockRegistry.CYAN_BRICKS.get()));
         stairsBlock((StairBlock) BlockRegistry.CYAN_BRICK_STAIRS.get(), blockLoc(BlockRegistry.CYAN_BRICKS.get()));
+
+        getVariantBuilder(BlockRegistry.GRAY_ROOF_TILES.get())
+                .forAllStates(blockState -> {
+                    if (!blockState.getValue(ModBlockStateProperties.SHIFTED)){
+                        return ConfiguredModel.builder().modelFile(models().getExistingFile(modLoc("block/gray_roof_tiles")))
+                                .rotationY((int) blockState.getValue(HORIZONTAL_FACING).toYRot()).build();
+                    }
+                    else return ConfiguredModel.builder().modelFile(models().getExistingFile(modLoc("block/gray_roof_tiles_shifted")))
+                            .rotationY((int) blockState.getValue(HORIZONTAL_FACING).toYRot()).build();
+                });
+
 
         existingModelBlock(BlockRegistry.OCTAGONAL_PALACE_LANTERN.get());
         getVariantBuilder(BlockRegistry.SQUARE_PALACE_LANTERN.get())

@@ -20,6 +20,7 @@ public class DataGenerators {
             BlockTagsProvider blockTags = new ModBlockTagProvider(generator, fh);
             generator.addProvider(blockTags);
             generator.addProvider(new ModItemTagProvider(generator, blockTags, fh));
+            generator.addProvider(new ModRecipeProvider(generator));
             generator.addProvider(new ModLootTableProvider(generator));
         }
         if (event.includeClient()) {

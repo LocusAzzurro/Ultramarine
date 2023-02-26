@@ -6,8 +6,20 @@ import net.minecraft.world.item.ItemStack;
 
 public class CreativeTabs {
 
+    public static final MaterialsTab MATERIALS = new MaterialsTab();
     public static final BuildingBlocksTab BUILDING_BLOCKS = new BuildingBlocksTab();
     public static final LampsTab LAMPS = new LampsTab();
+
+    public static class MaterialsTab extends CreativeModeTab {
+
+        public MaterialsTab() {
+            super(Ultramarine.MOD_ID + ".materials");
+        }
+        @Override
+        public ItemStack makeIcon() {
+            return new ItemStack(ItemRegistry.CYAN_BRICK.get());
+        }
+    }
 
     public static class BuildingBlocksTab extends CreativeModeTab {
 
