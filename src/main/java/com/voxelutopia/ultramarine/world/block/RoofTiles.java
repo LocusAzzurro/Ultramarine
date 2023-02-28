@@ -45,9 +45,10 @@ public class RoofTiles extends Block implements SimpleWaterloggedBlock {
     public BlockState getStateForPlacement(BlockPlaceContext pContext) {
         BlockPos blockpos = pContext.getClickedPos();
         FluidState fluidstate = pContext.getLevel().getFluidState(blockpos);
-        return this.defaultBlockState().setValue(FACING, pContext.getHorizontalDirection()).setValue(WATERLOGGED, Boolean.valueOf(fluidstate.getType() == Fluids.WATER));
+        return this.defaultBlockState().setValue(FACING, pContext.getHorizontalDirection()).setValue(WATERLOGGED, fluidstate.getType() == Fluids.WATER);
     }
 
+    @SuppressWarnings("deprecation")
     public FluidState getFluidState(BlockState pState) {
         return pState.getValue(WATERLOGGED) ? Fluids.WATER.getSource(false) : super.getFluidState(pState);
     }
@@ -68,6 +69,19 @@ public class RoofTiles extends Block implements SimpleWaterloggedBlock {
         return RenderShape.MODEL;
     }
 
+    public enum RoofTileType implements ShiftedTileType{
+        NORMAL("roof_tiles"), STAIRS("roof_tile_stairs"), EDGE("roof_tile_edge");
+
+        String blockName;
+        RoofTileType(String blockName){
+            this.blockName = blockName;
+        }
+
+        @Override
+        public String toString() {
+            return blockName;
+        }
+    }
 
 
 }

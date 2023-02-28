@@ -2,6 +2,8 @@ package com.voxelutopia.ultramarine.datagen;
 
 import com.voxelutopia.ultramarine.data.BlockRegistry;
 import com.voxelutopia.ultramarine.data.ModBlockStateProperties;
+import com.voxelutopia.ultramarine.world.block.RoofTiles;
+import com.voxelutopia.ultramarine.world.block.ShiftedTileType;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.Block;
@@ -24,6 +26,7 @@ public class ModBlockModelProvider extends BlockStateProvider {
         slabBlock((SlabBlock) BlockRegistry.CYAN_BRICK_SLAB.get(), BlockRegistry.CYAN_BRICKS.get().getRegistryName(), blockLoc(BlockRegistry.CYAN_BRICKS.get()));
         stairsBlock((StairBlock) BlockRegistry.CYAN_BRICK_STAIRS.get(), blockLoc(BlockRegistry.CYAN_BRICKS.get()));
 
+        /*
         getVariantBuilder(BlockRegistry.GRAY_ROOF_TILES.get())
                 .forAllStates(blockState -> {
                     if (!blockState.getValue(ModBlockStateProperties.SHIFTED)){
@@ -34,6 +37,10 @@ public class ModBlockModelProvider extends BlockStateProvider {
                             .rotationY((int) blockState.getValue(HORIZONTAL_FACING).toYRot()).build();
                 });
 
+         */
+        shiftedDirectionalBlock(BlockRegistry.GRAY_ROOF_TILES.get(), "gray", RoofTiles.RoofTileType.NORMAL);
+        shiftedDirectionalBlock(BlockRegistry.GRAY_ROOF_TILE_STAIRS.get(), "gray", RoofTiles.RoofTileType.STAIRS);
+        shiftedDirectionalBlock(BlockRegistry.GRAY_ROOF_TILE_EDGE.get(), "gray", RoofTiles.RoofTileType.EDGE);
 
         existingModelBlock(BlockRegistry.OCTAGONAL_PALACE_LANTERN.get());
         getVariantBuilder(BlockRegistry.SQUARE_PALACE_LANTERN.get())
@@ -54,6 +61,21 @@ public class ModBlockModelProvider extends BlockStateProvider {
 
     private void existingModelBlock(Block block){
         simpleBlock(block, models().getExistingFile(modLoc("block/" + block.getRegistryName().getPath())));
+    }
+
+    private void shiftedDirectionalBlock(Block block, String color, ShiftedTileType type) {
+        models().withExistingParent(modLoc("block/" + color + "_" + type).getPath(), modLoc("block/" + type))
+                .texture("1", blockLoc(block)).texture("particle", mcLoc("block/" + color + "_concrete"));
+        models().withExistingParent(modLoc("block/" + color + "_" + type + "_shifted").getPath(), modLoc("block/" + type + "_shifted"))
+                .texture("1", blockLoc(block)).texture("particle", mcLoc("block/" + color + "_concrete"));;
+        getVariantBuilder(block).forAllStates(blockState -> {
+            if (!blockState.getValue(ModBlockStateProperties.SHIFTED))
+                return ConfiguredModel.builder().modelFile(models().getExistingFile(modLoc("block/" + block.getRegistryName().getPath())))
+                        .rotationY((int) blockState.getValue(HORIZONTAL_FACING).toYRot()).build();
+            else
+                return ConfiguredModel.builder().modelFile(models().getExistingFile(modLoc("block/" + block.getRegistryName().getPath() + "_shifted")))
+                        .rotationY((int) blockState.getValue(HORIZONTAL_FACING).toYRot()).build();
+        });
     }
 
     @NotNull

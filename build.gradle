@@ -123,6 +123,7 @@ processResources {
     inputs.properties replaceProperties
     replaceProperties.put 'project', project
 
+    duplicatesStrategy(DuplicatesStrategy.INCLUDE)
     filesMatching(resourceTargets) {
         expand replaceProperties
     }
