@@ -25,6 +25,12 @@ public class ModItemModelProvider extends ItemModelProvider {
         blockItem(BlockRegistry.GRAY_ROOF_TILES.get());
         blockItem(BlockRegistry.GRAY_ROOF_TILE_STAIRS.get());
         blockItem(BlockRegistry.GRAY_ROOF_TILE_EDGE.get());
+        blockItem(BlockRegistry.YELLOW_ROOF_TILES.get());
+        blockItem(BlockRegistry.YELLOW_ROOF_TILE_STAIRS.get());
+        blockItem(BlockRegistry.YELLOW_ROOF_TILE_EDGE.get());
+        blockItem(BlockRegistry.GREEN_ROOF_TILES.get());
+        blockItem(BlockRegistry.GREEN_ROOF_TILE_STAIRS.get());
+        blockItem(BlockRegistry.GREEN_ROOF_TILE_EDGE.get());
 
         blockItem(BlockRegistry.OCTAGONAL_PALACE_LANTERN.get());
         blockItem(BlockRegistry.SQUARE_PALACE_LANTERN.get());

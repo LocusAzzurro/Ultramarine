@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "ultramarine:gray_roof_tile_edge"
+    ]
+  },
+  "criteria": {
+    "has_gray_roof_tile": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "ultramarine:gray_roof_tile"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "ultramarine:gray_roof_tile_edge"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_gray_roof_tile",
+      "has_the_recipe"
+    ]
+  ]
+}

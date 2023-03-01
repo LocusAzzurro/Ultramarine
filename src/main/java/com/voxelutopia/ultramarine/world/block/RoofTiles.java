@@ -24,7 +24,8 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 
 public class RoofTiles extends Block implements SimpleWaterloggedBlock {
 
-    public static final BlockBehaviour.Properties PROPERTIES = BlockBehaviour.Properties.of(Material.STONE).noOcclusion();
+    public static final BlockBehaviour.Properties PROPERTIES = BlockBehaviour.Properties.of(Material.STONE)
+            .requiresCorrectToolForDrops().strength(1.5F, 4.0F);
     public static final DirectionProperty FACING = HorizontalDirectionalBlock.FACING;
     public static final BooleanProperty SHIFTED = ModBlockStateProperties.SHIFTED;
     public static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;

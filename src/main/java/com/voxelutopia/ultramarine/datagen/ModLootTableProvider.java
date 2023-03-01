@@ -3,8 +3,12 @@ package com.voxelutopia.ultramarine.datagen;
 import com.voxelutopia.ultramarine.data.BlockRegistry;
 import com.voxelutopia.ultramarine.data.ItemRegistry;
 import net.minecraft.data.DataGenerator;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraftforge.registries.RegistryObject;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class ModLootTableProvider extends BaseLootTableProvider {
 
@@ -12,16 +16,12 @@ public class ModLootTableProvider extends BaseLootTableProvider {
         super(pGenerator);
     }
 
+    private static final List<RegistryObject<Block>> NON_SIMPLE_BLOCKS = List.of(BlockRegistry.JADE_ORE);
     @Override
     protected void addTables() {
-        simple(BlockRegistry.CYAN_BRICKS);
-        simple(BlockRegistry.CYAN_BRICK_SLAB);
-        simple(BlockRegistry.CYAN_BRICK_STAIRS);
-        simple(BlockRegistry.OCTAGONAL_PALACE_LANTERN);
-        simple(BlockRegistry.SQUARE_PALACE_LANTERN);
-        simple(BlockRegistry.WHITE_SKY_LANTERN);
-        simple(BlockRegistry.RED_SKY_LANTERN);
-        simple(BlockRegistry.YELLOW_SKY_LANTERN);
+        BlockRegistry.BLOCKS.getEntries().stream()
+                .filter(blockRegistryObject -> !NON_SIMPLE_BLOCKS.contains(blockRegistryObject))
+                .forEach(this::simple);
 
         lootTables.put(BlockRegistry.JADE_ORE.get(), createOreTable(BlockRegistry.JADE_ORE.getId().getPath(), BlockRegistry.JADE_ORE.get(), ItemRegistry.JADE.get()));
     }
@@ -29,5 +29,6 @@ public class ModLootTableProvider extends BaseLootTableProvider {
     void simple(RegistryObject<? extends Block> block) {
         lootTables.put(block.get(), createSimpleTable(block.getId().getPath(), block.get()));
     }
+
 
 }

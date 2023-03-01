@@ -26,21 +26,15 @@ public class ModBlockModelProvider extends BlockStateProvider {
         slabBlock((SlabBlock) BlockRegistry.CYAN_BRICK_SLAB.get(), BlockRegistry.CYAN_BRICKS.get().getRegistryName(), blockLoc(BlockRegistry.CYAN_BRICKS.get()));
         stairsBlock((StairBlock) BlockRegistry.CYAN_BRICK_STAIRS.get(), blockLoc(BlockRegistry.CYAN_BRICKS.get()));
 
-        /*
-        getVariantBuilder(BlockRegistry.GRAY_ROOF_TILES.get())
-                .forAllStates(blockState -> {
-                    if (!blockState.getValue(ModBlockStateProperties.SHIFTED)){
-                        return ConfiguredModel.builder().modelFile(models().getExistingFile(modLoc("block/gray_roof_tiles")))
-                                .rotationY((int) blockState.getValue(HORIZONTAL_FACING).toYRot()).build();
-                    }
-                    else return ConfiguredModel.builder().modelFile(models().getExistingFile(modLoc("block/gray_roof_tiles_shifted")))
-                            .rotationY((int) blockState.getValue(HORIZONTAL_FACING).toYRot()).build();
-                });
-
-         */
         shiftedDirectionalBlock(BlockRegistry.GRAY_ROOF_TILES.get(), "gray", RoofTiles.RoofTileType.NORMAL);
         shiftedDirectionalBlock(BlockRegistry.GRAY_ROOF_TILE_STAIRS.get(), "gray", RoofTiles.RoofTileType.STAIRS);
-        shiftedDirectionalBlock(BlockRegistry.GRAY_ROOF_TILE_EDGE.get(), "gray", RoofTiles.RoofTileType.EDGE);
+        shiftedBlock(BlockRegistry.GRAY_ROOF_TILE_EDGE.get());
+        shiftedDirectionalBlock(BlockRegistry.YELLOW_ROOF_TILES.get(), "yellow", RoofTiles.RoofTileType.NORMAL);
+        shiftedDirectionalBlock(BlockRegistry.YELLOW_ROOF_TILE_STAIRS.get(), "yellow", RoofTiles.RoofTileType.STAIRS);
+        shiftedDirectionalBlock(BlockRegistry.YELLOW_ROOF_TILE_EDGE.get(), "yellow", RoofTiles.RoofTileType.EDGE);
+        shiftedDirectionalBlock(BlockRegistry.GREEN_ROOF_TILES.get(), "green", RoofTiles.RoofTileType.NORMAL);
+        shiftedDirectionalBlock(BlockRegistry.GREEN_ROOF_TILE_STAIRS.get(), "green", RoofTiles.RoofTileType.STAIRS);
+        shiftedDirectionalBlock(BlockRegistry.GREEN_ROOF_TILE_EDGE.get(), "green", RoofTiles.RoofTileType.EDGE);
 
         existingModelBlock(BlockRegistry.OCTAGONAL_PALACE_LANTERN.get());
         getVariantBuilder(BlockRegistry.SQUARE_PALACE_LANTERN.get())
@@ -68,6 +62,10 @@ public class ModBlockModelProvider extends BlockStateProvider {
                 .texture("1", blockLoc(block)).texture("particle", mcLoc("block/" + color + "_concrete"));
         models().withExistingParent(modLoc("block/" + color + "_" + type + "_shifted").getPath(), modLoc("block/" + type + "_shifted"))
                 .texture("1", blockLoc(block)).texture("particle", mcLoc("block/" + color + "_concrete"));;
+        shiftedBlock(block);
+    }
+
+    private void shiftedBlock(Block block) {
         getVariantBuilder(block).forAllStates(blockState -> {
             if (!blockState.getValue(ModBlockStateProperties.SHIFTED))
                 return ConfiguredModel.builder().modelFile(models().getExistingFile(modLoc("block/" + block.getRegistryName().getPath())))
