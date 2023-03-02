@@ -23,11 +23,13 @@ public class ModBlockModelProvider extends BlockStateProvider {
     @Override
     protected void registerStatesAndModels() {
         simpleBlock(BlockRegistry.CYAN_BRICKS.get());
-        slabBlock((SlabBlock) BlockRegistry.CYAN_BRICK_SLAB.get(), BlockRegistry.CYAN_BRICKS.get().getRegistryName(), blockLoc(BlockRegistry.CYAN_BRICKS.get()));
-        stairsBlock((StairBlock) BlockRegistry.CYAN_BRICK_STAIRS.get(), blockLoc(BlockRegistry.CYAN_BRICKS.get()));
+        slabAndStairs(BlockRegistry.CYAN_BRICKS.get(), BlockRegistry.CYAN_BRICK_SLAB.get(), BlockRegistry.CYAN_BRICK_STAIRS.get());
+        simpleBlock(BlockRegistry.BLACK_BRICKS.get());
+        slabAndStairs(BlockRegistry.BLACK_BRICKS.get(), BlockRegistry.BLACK_BRICK_SLAB.get(), BlockRegistry.BLACK_BRICK_STAIRS.get());
         simpleBlock(BlockRegistry.PALE_YELLOW_STONE.get());
-        slabBlock((SlabBlock) BlockRegistry.PALE_YELLOW_STONE_SLAB.get(), BlockRegistry.PALE_YELLOW_STONE.get().getRegistryName(), blockLoc(BlockRegistry.PALE_YELLOW_STONE.get()));
-        stairsBlock((StairBlock) BlockRegistry.PALE_YELLOW_STONE_STAIRS.get(), blockLoc(BlockRegistry.PALE_YELLOW_STONE.get()));
+        slabAndStairs(BlockRegistry.PALE_YELLOW_STONE.get(), BlockRegistry.PALE_YELLOW_STONE_SLAB.get(), BlockRegistry.PALE_YELLOW_STONE_STAIRS.get());
+        simpleBlock(BlockRegistry.WEATHERED_STONE.get());
+        slabAndStairs(BlockRegistry.WEATHERED_STONE.get(), BlockRegistry.WEATHERED_STONE_SLAB.get(), BlockRegistry.WEATHERED_STONE_STAIRS.get());
 
         shiftedDirectionalBlock(BlockRegistry.GRAY_ROOF_TILES.get(), "gray", RoofTiles.RoofTileType.NORMAL);
         shiftedDirectionalBlock(BlockRegistry.GRAY_ROOF_TILE_STAIRS.get(), "gray", RoofTiles.RoofTileType.STAIRS);
@@ -60,6 +62,10 @@ public class ModBlockModelProvider extends BlockStateProvider {
         simpleBlock(block, models().getExistingFile(modLoc("block/" + block.getRegistryName().getPath())));
     }
 
+    private void slabAndStairs(Block baseBlock, Block slabBlock, Block stairBlock){
+        slabBlock((SlabBlock) slabBlock, baseBlock.getRegistryName(), blockLoc(baseBlock));
+        stairsBlock((StairBlock) stairBlock, blockLoc(baseBlock));
+    }
     private void shiftedDirectionalBlock(Block block, String color, ShiftedTileType type) {
         models().withExistingParent(modLoc("block/" + color + "_" + type).getPath(), modLoc("block/" + type))
                 .texture("1", blockLoc(block)).texture("particle", mcLoc("block/" + color + "_concrete"));

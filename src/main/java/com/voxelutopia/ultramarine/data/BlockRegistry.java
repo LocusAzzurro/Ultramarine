@@ -16,9 +16,15 @@ public class BlockRegistry {
     public static final RegistryObject<Block> CYAN_BRICKS = BLOCKS.register("cyan_bricks", BaseStone::new);
     public static final RegistryObject<Block> CYAN_BRICK_SLAB = BLOCKS.register("cyan_brick_slab", BaseStoneSlab::new);
     public static final RegistryObject<Block> CYAN_BRICK_STAIRS = BLOCKS.register("cyan_brick_stairs", BaseStoneStairs::new);
+    public static final RegistryObject<Block> BLACK_BRICKS = BLOCKS.register("black_bricks", BaseStone::new);
+    public static final RegistryObject<Block> BLACK_BRICK_SLAB = BLOCKS.register("black_brick_slab", BaseStoneSlab::new);
+    public static final RegistryObject<Block> BLACK_BRICK_STAIRS = BLOCKS.register("black_brick_stairs", BaseStoneStairs::new);
     public static final RegistryObject<Block> PALE_YELLOW_STONE = BLOCKS.register("pale_yellow_stone", BaseStone::new);
     public static final RegistryObject<Block> PALE_YELLOW_STONE_SLAB = BLOCKS.register("pale_yellow_stone_slab", BaseStoneSlab::new);
     public static final RegistryObject<Block> PALE_YELLOW_STONE_STAIRS = BLOCKS.register("pale_yellow_stone_stairs", BaseStoneStairs::new);
+    public static final RegistryObject<Block> WEATHERED_STONE = BLOCKS.register("weathered_stone", BaseStone::new);
+    public static final RegistryObject<Block> WEATHERED_STONE_SLAB = BLOCKS.register("weathered_stone_slab", BaseStoneSlab::new);
+    public static final RegistryObject<Block> WEATHERED_STONE_STAIRS = BLOCKS.register("weathered_stone_stairs", BaseStoneStairs::new);
     public static final RegistryObject<Block> GRAY_ROOF_TILES = BLOCKS.register("gray_roof_tiles", RoofTiles::new);
     public static final RegistryObject<Block> GRAY_ROOF_TILE_STAIRS = BLOCKS.register("gray_roof_tile_stairs", RoofTiles::new);
     public static final RegistryObject<Block> GRAY_ROOF_TILE_EDGE = BLOCKS.register("gray_roof_tile_edge", RoofTiles::new);
