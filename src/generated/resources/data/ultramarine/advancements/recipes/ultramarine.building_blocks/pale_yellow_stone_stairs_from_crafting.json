@@ -2,17 +2,17 @@
   "parent": "minecraft:recipes/root",
   "rewards": {
     "recipes": [
-      "ultramarine:cyan_brick_stairs"
+      "ultramarine:pale_yellow_stone_stairs_from_crafting"
     ]
   },
   "criteria": {
-    "has_cyan_bricks": {
+    "has_ultramarine:pale_yellow_stone": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
             "items": [
-              "ultramarine:cyan_bricks"
+              "ultramarine:pale_yellow_stone"
             ]
           }
         ]
@@ -21,13 +21,13 @@
     "has_the_recipe": {
       "trigger": "minecraft:recipe_unlocked",
       "conditions": {
-        "recipe": "ultramarine:cyan_brick_stairs"
+        "recipe": "ultramarine:pale_yellow_stone_stairs_from_crafting"
       }
     }
   },
   "requirements": [
     [
-      "has_cyan_bricks",
+      "has_ultramarine:pale_yellow_stone",
       "has_the_recipe"
     ]
   ]

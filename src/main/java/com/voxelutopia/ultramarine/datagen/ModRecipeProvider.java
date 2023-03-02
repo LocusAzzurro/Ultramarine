@@ -47,18 +47,22 @@ public class ModRecipeProvider extends RecipeProvider {
                 .pattern("BB ")
                 .pattern("BBB")
                 .unlockedBy(baseBlockAdvancement, trigger)
-                .save(pFinishedRecipeConsumer, stairBlock.getRegistryName().getPath() + "_from_crafting");
+                .save(pFinishedRecipeConsumer,
+                        new ResourceLocation(DataGenerators.MOD_ID, stairBlock.getRegistryName().getPath() + "_from_crafting"));
         ShapedRecipeBuilder.shaped(slabBlock, 6)
                 .define('B', baseBlock)
                 .pattern("BBB")
                 .unlockedBy(baseBlockAdvancement, trigger)
-                .save(pFinishedRecipeConsumer, slabBlock.getRegistryName().getPath() + "_from_crafting");
+                .save(pFinishedRecipeConsumer,
+                        new ResourceLocation(DataGenerators.MOD_ID,slabBlock.getRegistryName().getPath() + "_from_crafting"));
         SingleItemRecipeBuilder.stonecutting(Ingredient.of(baseBlock), stairBlock)
                 .unlockedBy(baseBlockAdvancement, trigger)
-                .save(pFinishedRecipeConsumer, stairBlock.getRegistryName().getPath() + "_from_stonecutting");
+                .save(pFinishedRecipeConsumer,
+                        new ResourceLocation(DataGenerators.MOD_ID,stairBlock.getRegistryName().getPath() + "_from_stonecutting"));
         SingleItemRecipeBuilder.stonecutting(Ingredient.of(baseBlock), slabBlock, 2)
                 .unlockedBy(baseBlockAdvancement, trigger)
-                .save(pFinishedRecipeConsumer, slabBlock.getRegistryName().getPath() + "_from_stonecutting");
+                .save(pFinishedRecipeConsumer,
+                        new ResourceLocation(DataGenerators.MOD_ID,slabBlock.getRegistryName().getPath() + "_from_stonecutting"));
     }
 
     private void roofTileBlocksRecipe(String color, Consumer<FinishedRecipe> pFinishedRecipeConsumer){
