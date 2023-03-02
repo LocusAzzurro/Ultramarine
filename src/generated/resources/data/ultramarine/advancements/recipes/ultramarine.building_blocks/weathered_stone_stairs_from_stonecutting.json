@@ -6,7 +6,7 @@
     ]
   },
   "criteria": {
-    "has_ultramarine:weathered_stone": {
+    "has_weathered_stone": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
@@ -27,7 +27,7 @@
   },
   "requirements": [
     [
-      "has_ultramarine:weathered_stone",
+      "has_weathered_stone",
       "has_the_recipe"
     ]
   ]

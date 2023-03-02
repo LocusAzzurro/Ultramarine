@@ -43,12 +43,12 @@ public class ModRecipeProvider extends RecipeProvider {
 
     private void quadDecomposeRecipe(Item part, Item combined, Consumer<FinishedRecipe> pFinishedRecipeConsumer){
         ShapelessRecipeBuilder.shapeless(part, 4).requires(combined)
-                .unlockedBy("has_" + combined.getRegistryName(), InventoryChangeTrigger.TriggerInstance.hasItems(combined))
+                .unlockedBy("has_" + combined.getRegistryName().getPath(), InventoryChangeTrigger.TriggerInstance.hasItems(combined))
                 .save(pFinishedRecipeConsumer);
     }
 
     private void slabAndStairsRecipe(Item baseBlock, Item slabBlock, Item stairBlock, Consumer<FinishedRecipe> pFinishedRecipeConsumer){
-        String baseBlockAdvancement = "has_" + baseBlock.getRegistryName();
+        String baseBlockAdvancement = "has_" + baseBlock.getRegistryName().getPath();
         InventoryChangeTrigger.TriggerInstance trigger = InventoryChangeTrigger.TriggerInstance.hasItems(baseBlock);
         ShapedRecipeBuilder.shaped(stairBlock, 1)
                 .define('B', baseBlock)

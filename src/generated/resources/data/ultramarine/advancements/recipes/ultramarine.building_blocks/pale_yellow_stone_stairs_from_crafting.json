@@ -6,7 +6,7 @@
     ]
   },
   "criteria": {
-    "has_ultramarine:pale_yellow_stone": {
+    "has_pale_yellow_stone": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
@@ -27,7 +27,7 @@
   },
   "requirements": [
     [
-      "has_ultramarine:pale_yellow_stone",
+      "has_pale_yellow_stone",
       "has_the_recipe"
     ]
   ]

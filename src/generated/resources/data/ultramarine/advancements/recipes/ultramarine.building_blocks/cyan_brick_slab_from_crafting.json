@@ -6,7 +6,7 @@
     ]
   },
   "criteria": {
-    "has_ultramarine:cyan_bricks": {
+    "has_cyan_bricks": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
@@ -27,7 +27,7 @@
   },
   "requirements": [
     [
-      "has_ultramarine:cyan_bricks",
+      "has_cyan_bricks",
       "has_the_recipe"
     ]
   ]
