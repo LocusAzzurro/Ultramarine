@@ -31,15 +31,34 @@ public class ModRecipeProvider extends RecipeProvider {
                 .pattern("BB")
                 .unlockedBy("has_cyan_brick", InventoryChangeTrigger.TriggerInstance.hasItems(ItemRegistry.CYAN_BRICK.get()))
                 .save(pFinishedRecipeConsumer);
-        SingleItemRecipeBuilder.stonecutting(Ingredient.of(ItemRegistry.CYAN_BRICKS.get()), ItemRegistry.CYAN_BRICK_STAIRS.get())
-                .unlockedBy("has_cyan_bricks", InventoryChangeTrigger.TriggerInstance.hasItems(ItemRegistry.CYAN_BRICKS.get()))
-                .save(pFinishedRecipeConsumer);
-        SingleItemRecipeBuilder.stonecutting(Ingredient.of(ItemRegistry.CYAN_BRICKS.get()), ItemRegistry.CYAN_BRICK_SLAB.get(), 2)
-                .unlockedBy("has_cyan_bricks", InventoryChangeTrigger.TriggerInstance.hasItems(ItemRegistry.CYAN_BRICKS.get()))
-                .save(pFinishedRecipeConsumer);
+        slabAndStairsRecipe(ItemRegistry.CYAN_BRICKS.get(), ItemRegistry.CYAN_BRICK_SLAB.get(), ItemRegistry.CYAN_BRICK_STAIRS.get(), pFinishedRecipeConsumer);
+        slabAndStairsRecipe(ItemRegistry.PALE_YELLOW_STONE.get(), ItemRegistry.PALE_YELLOW_STONE_SLAB.get(), ItemRegistry.PALE_YELLOW_STONE_STAIRS.get(), pFinishedRecipeConsumer);
         roofTileBlocksRecipe("gray", pFinishedRecipeConsumer);
         roofTileBlocksRecipe("yellow", pFinishedRecipeConsumer);
         roofTileBlocksRecipe("green", pFinishedRecipeConsumer);
+    }
+
+    private void slabAndStairsRecipe(Item baseBlock, Item slabBlock, Item stairBlock, Consumer<FinishedRecipe> pFinishedRecipeConsumer){
+        String baseBlockAdvancement = "has_" + baseBlock.getRegistryName();
+        InventoryChangeTrigger.TriggerInstance trigger = InventoryChangeTrigger.TriggerInstance.hasItems(baseBlock);
+        ShapedRecipeBuilder.shaped(stairBlock, 1)
+                .define('B', baseBlock)
+                .pattern("B  ")
+                .pattern("BB ")
+                .pattern("BBB")
+                .unlockedBy(baseBlockAdvancement, trigger)
+                .save(pFinishedRecipeConsumer, stairBlock.getRegistryName().getPath() + "_from_crafting");
+        ShapedRecipeBuilder.shaped(slabBlock, 6)
+                .define('B', baseBlock)
+                .pattern("BBB")
+                .unlockedBy(baseBlockAdvancement, trigger)
+                .save(pFinishedRecipeConsumer, slabBlock.getRegistryName().getPath() + "_from_crafting");
+        SingleItemRecipeBuilder.stonecutting(Ingredient.of(baseBlock), stairBlock)
+                .unlockedBy(baseBlockAdvancement, trigger)
+                .save(pFinishedRecipeConsumer, stairBlock.getRegistryName().getPath() + "_from_stonecutting");
+        SingleItemRecipeBuilder.stonecutting(Ingredient.of(baseBlock), slabBlock, 2)
+                .unlockedBy(baseBlockAdvancement, trigger)
+                .save(pFinishedRecipeConsumer, slabBlock.getRegistryName().getPath() + "_from_stonecutting");
     }
 
     private void roofTileBlocksRecipe(String color, Consumer<FinishedRecipe> pFinishedRecipeConsumer){

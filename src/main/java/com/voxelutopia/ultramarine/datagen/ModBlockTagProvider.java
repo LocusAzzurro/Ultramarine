@@ -1,6 +1,9 @@
 package com.voxelutopia.ultramarine.datagen;
 
 import com.voxelutopia.ultramarine.data.BlockRegistry;
+import com.voxelutopia.ultramarine.world.block.BaseStone;
+import com.voxelutopia.ultramarine.world.block.BaseStoneSlab;
+import com.voxelutopia.ultramarine.world.block.BaseStoneStairs;
 import com.voxelutopia.ultramarine.world.block.RoofTiles;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.tags.BlockTagsProvider;
@@ -19,11 +22,12 @@ public class ModBlockTagProvider extends BlockTagsProvider {
     @Override
     protected void addTags() {
         tag(BlockTags.MINEABLE_WITH_PICKAXE)
-                .add(BlockRegistry.CYAN_BRICKS.get())
-                .add(BlockRegistry.CYAN_BRICK_SLAB.get())
-                .add(BlockRegistry.CYAN_BRICK_STAIRS.get())
                 .add(BlockRegistry.JADE_ORE.get());
-        BlockRegistry.BLOCKS.getEntries().stream().filter((blockRegistryObject -> blockRegistryObject.get() instanceof RoofTiles))
+        BlockRegistry.BLOCKS.getEntries().stream().filter((blockRegistryObject ->
+                        blockRegistryObject.get() instanceof RoofTiles ||
+                        blockRegistryObject.get() instanceof BaseStone ||
+                        blockRegistryObject.get() instanceof BaseStoneStairs ||
+                        blockRegistryObject.get() instanceof BaseStoneSlab))
                         .forEach(blockRegistryObject -> tag(BlockTags.MINEABLE_WITH_PICKAXE).add(blockRegistryObject.get()));
         tag(BlockTags.NEEDS_IRON_TOOL)
                 .add(BlockRegistry.JADE_ORE.get());

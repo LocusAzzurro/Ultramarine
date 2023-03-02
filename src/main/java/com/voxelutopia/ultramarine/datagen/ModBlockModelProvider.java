@@ -25,6 +25,9 @@ public class ModBlockModelProvider extends BlockStateProvider {
         simpleBlock(BlockRegistry.CYAN_BRICKS.get());
         slabBlock((SlabBlock) BlockRegistry.CYAN_BRICK_SLAB.get(), BlockRegistry.CYAN_BRICKS.get().getRegistryName(), blockLoc(BlockRegistry.CYAN_BRICKS.get()));
         stairsBlock((StairBlock) BlockRegistry.CYAN_BRICK_STAIRS.get(), blockLoc(BlockRegistry.CYAN_BRICKS.get()));
+        simpleBlock(BlockRegistry.PALE_YELLOW_STONE.get());
+        slabBlock((SlabBlock) BlockRegistry.PALE_YELLOW_STONE_SLAB.get(), BlockRegistry.PALE_YELLOW_STONE.get().getRegistryName(), blockLoc(BlockRegistry.PALE_YELLOW_STONE.get()));
+        stairsBlock((StairBlock) BlockRegistry.PALE_YELLOW_STONE_STAIRS.get(), blockLoc(BlockRegistry.PALE_YELLOW_STONE.get()));
 
         shiftedDirectionalBlock(BlockRegistry.GRAY_ROOF_TILES.get(), "gray", RoofTiles.RoofTileType.NORMAL);
         shiftedDirectionalBlock(BlockRegistry.GRAY_ROOF_TILE_STAIRS.get(), "gray", RoofTiles.RoofTileType.STAIRS);
