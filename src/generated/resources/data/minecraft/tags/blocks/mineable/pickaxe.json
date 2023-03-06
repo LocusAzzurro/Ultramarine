@@ -22,6 +22,9 @@
     "ultramarine:yellow_roof_tile_edge",
     "ultramarine:green_roof_tiles",
     "ultramarine:green_roof_tile_stairs",
-    "ultramarine:green_roof_tile_edge"
+    "ultramarine:green_roof_tile_edge",
+    "ultramarine:blue_roof_tiles",
+    "ultramarine:blue_roof_tile_stairs",
+    "ultramarine:blue_roof_tile_edge"
   ]
 }

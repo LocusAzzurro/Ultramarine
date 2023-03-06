@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "ultramarine:blue_roof_tiles"
+    ]
+  },
+  "criteria": {
+    "has_blue_roof_tile": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "ultramarine:blue_roof_tile"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "ultramarine:blue_roof_tiles"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_blue_roof_tile",
+      "has_the_recipe"
+    ]
+  ]
+}

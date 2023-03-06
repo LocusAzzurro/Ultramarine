@@ -40,6 +40,9 @@ public class ModBlockModelProvider extends BlockStateProvider {
         shiftedDirectionalBlock(BlockRegistry.GREEN_ROOF_TILES.get(), "green", RoofTiles.RoofTileType.NORMAL);
         shiftedDirectionalBlock(BlockRegistry.GREEN_ROOF_TILE_STAIRS.get(), "green", RoofTiles.RoofTileType.STAIRS);
         shiftedDirectionalBlock(BlockRegistry.GREEN_ROOF_TILE_EDGE.get(), "green", RoofTiles.RoofTileType.EDGE);
+        shiftedDirectionalBlock(BlockRegistry.BLUE_ROOF_TILES.get(), "blue", RoofTiles.RoofTileType.NORMAL);
+        shiftedDirectionalBlock(BlockRegistry.BLUE_ROOF_TILE_STAIRS.get(), "blue", RoofTiles.RoofTileType.STAIRS);
+        shiftedDirectionalBlock(BlockRegistry.BLUE_ROOF_TILE_EDGE.get(), "blue", RoofTiles.RoofTileType.EDGE);
 
         existingModelBlock(BlockRegistry.OCTAGONAL_PALACE_LANTERN.get());
         getVariantBuilder(BlockRegistry.SQUARE_PALACE_LANTERN.get())
