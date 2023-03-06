@@ -25,6 +25,7 @@ public class ModRecipeProvider extends RecipeProvider {
         quadComposeRecipe(ItemRegistry.CYAN_BRICK.get(), ItemRegistry.CYAN_BRICKS.get(), pFinishedRecipeConsumer);
         slabAndStairsRecipe(ItemRegistry.CYAN_BRICKS.get(), ItemRegistry.CYAN_BRICK_SLAB.get(), ItemRegistry.CYAN_BRICK_STAIRS.get(), pFinishedRecipeConsumer);
         slabAndStairsRecipe(ItemRegistry.BLACK_BRICKS.get(), ItemRegistry.BLACK_BRICK_SLAB.get(), ItemRegistry.BLACK_BRICK_STAIRS.get(), pFinishedRecipeConsumer);
+        wallRecipe(ItemRegistry.BLACK_BRICKS.get(), ItemRegistry.BLACK_BRICK_WALL.get(), pFinishedRecipeConsumer);
         slabAndStairsRecipe(ItemRegistry.PALE_YELLOW_STONE.get(), ItemRegistry.PALE_YELLOW_STONE_SLAB.get(), ItemRegistry.PALE_YELLOW_STONE_STAIRS.get(), pFinishedRecipeConsumer);
         slabAndStairsRecipe(ItemRegistry.WEATHERED_STONE.get(), ItemRegistry.WEATHERED_STONE_SLAB.get(), ItemRegistry.WEATHERED_STONE_STAIRS.get(), pFinishedRecipeConsumer);
         roofTileBlocksRecipe("gray", pFinishedRecipeConsumer);
@@ -73,6 +74,22 @@ public class ModRecipeProvider extends RecipeProvider {
                 .unlockedBy(baseBlockAdvancement, trigger)
                 .save(pFinishedRecipeConsumer,
                         new ResourceLocation(DataGenerators.MOD_ID,slabBlock.getRegistryName().getPath() + "_from_stonecutting"));
+    }
+
+    private void wallRecipe(Item baseBlock, Item wallBlock, Consumer<FinishedRecipe> pFinishedRecipeConsumer){
+        String baseBlockAdvancement = "has_" + baseBlock.getRegistryName().getPath();
+        InventoryChangeTrigger.TriggerInstance trigger = InventoryChangeTrigger.TriggerInstance.hasItems(baseBlock);
+        ShapedRecipeBuilder.shaped(wallBlock, 6)
+                .define('B', baseBlock)
+                .pattern("BBB")
+                .pattern("BBB")
+                .unlockedBy(baseBlockAdvancement, trigger)
+                .save(pFinishedRecipeConsumer,
+                        new ResourceLocation(DataGenerators.MOD_ID,wallBlock.getRegistryName().getPath() + "_from_crafting"));
+        SingleItemRecipeBuilder.stonecutting(Ingredient.of(baseBlock), wallBlock)
+                .unlockedBy(baseBlockAdvancement, trigger)
+                .save(pFinishedRecipeConsumer,
+                        new ResourceLocation(DataGenerators.MOD_ID,wallBlock.getRegistryName().getPath() + "_from_stonecutting"));
     }
 
     private void roofTileBlocksRecipe(String color, Consumer<FinishedRecipe> pFinishedRecipeConsumer){

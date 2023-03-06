@@ -1,17 +1,12 @@
 package com.voxelutopia.ultramarine.datagen;
 
 import com.voxelutopia.ultramarine.data.BlockRegistry;
-import com.voxelutopia.ultramarine.world.block.BaseStone;
-import com.voxelutopia.ultramarine.world.block.BaseStoneSlab;
-import com.voxelutopia.ultramarine.world.block.BaseStoneStairs;
-import com.voxelutopia.ultramarine.world.block.RoofTiles;
+import com.voxelutopia.ultramarine.world.block.*;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.tags.BlockTagsProvider;
 import net.minecraft.tags.BlockTags;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import org.jetbrains.annotations.Nullable;
-
-import java.util.stream.Collectors;
 
 public class ModBlockTagProvider extends BlockTagsProvider {
 
@@ -27,7 +22,8 @@ public class ModBlockTagProvider extends BlockTagsProvider {
                         blockRegistryObject.get() instanceof RoofTiles ||
                         blockRegistryObject.get() instanceof BaseStone ||
                         blockRegistryObject.get() instanceof BaseStoneStairs ||
-                        blockRegistryObject.get() instanceof BaseStoneSlab))
+                        blockRegistryObject.get() instanceof BaseStoneSlab ||
+                        blockRegistryObject.get() instanceof BaseStoneWall))
                         .forEach(blockRegistryObject -> tag(BlockTags.MINEABLE_WITH_PICKAXE).add(blockRegistryObject.get()));
         tag(BlockTags.NEEDS_IRON_TOOL)
                 .add(BlockRegistry.JADE_ORE.get());
@@ -37,6 +33,8 @@ public class ModBlockTagProvider extends BlockTagsProvider {
                 .add(BlockRegistry.WHITE_SKY_LANTERN.get())
                 .add(BlockRegistry.RED_SKY_LANTERN.get())
                 .add(BlockRegistry.YELLOW_SKY_LANTERN.get());
+        BlockRegistry.BLOCKS.getEntries().stream().filter((blockRegistryObject -> blockRegistryObject.get() instanceof BaseStoneWall))
+                .forEach(blockRegistryObject -> tag(BlockTags.WALLS).add(blockRegistryObject.get()));
     }
 
     @Override

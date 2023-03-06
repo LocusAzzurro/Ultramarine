@@ -19,6 +19,7 @@ public class BlockRegistry {
     public static final RegistryObject<Block> BLACK_BRICKS = BLOCKS.register("black_bricks", BaseStone::new);
     public static final RegistryObject<Block> BLACK_BRICK_SLAB = BLOCKS.register("black_brick_slab", BaseStoneSlab::new);
     public static final RegistryObject<Block> BLACK_BRICK_STAIRS = BLOCKS.register("black_brick_stairs", BaseStoneStairs::new);
+    public static final RegistryObject<Block> BLACK_BRICK_WALL = BLOCKS.register("black_brick_wall", BaseStoneWall::new);
     public static final RegistryObject<Block> PALE_YELLOW_STONE = BLOCKS.register("pale_yellow_stone", BaseStone::new);
     public static final RegistryObject<Block> PALE_YELLOW_STONE_SLAB = BLOCKS.register("pale_yellow_stone_slab", BaseStoneSlab::new);
     public static final RegistryObject<Block> PALE_YELLOW_STONE_STAIRS = BLOCKS.register("pale_yellow_stone_stairs", BaseStoneStairs::new);
