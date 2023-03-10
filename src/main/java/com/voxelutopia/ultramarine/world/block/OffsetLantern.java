@@ -7,8 +7,8 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.material.Material;
 
 public class OffsetLantern extends Lantern {
-    public OffsetLantern(Material material) {
-        super(material);
+    public OffsetLantern(Material material, boolean diagonallyPlaceable) {
+        super(material, diagonallyPlaceable);
     }
 
     @Override
