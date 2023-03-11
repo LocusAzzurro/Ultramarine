@@ -4,47 +4,44 @@ import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
-import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.level.material.Material;
+import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 public class Lantern extends LuminousBlock implements DiagonallyPlaceable{
 
-    public static final BooleanProperty DIAGONAL = DiagonallyPlaceable.DIAGONAL;
+    protected StateDefinition<Block, BlockState> stateDefinition;
+
     protected final boolean diagonallyPlaceable;
 
     public Lantern(Material material, boolean diagonallyPlaceable) {
         super(material, 14);
         this.diagonallyPlaceable = diagonallyPlaceable;
 
-        //if (isDiagonallyPlaceable())
-            //this.registerDefaultState(this.stateDefinition.any().setValue(DIAGONAL, false));
-        /*
-        BlockState state = this.stateDefinition.any();
-        if (isDiagonallyPlaceable()) state.setValue(DIAGONAL, Boolean.FALSE);
-        this.registerDefaultState(state);
+        var stateDefinationBuilder = new StateDefinition.Builder<Block, BlockState>(this);
+        createBlockStateDefinition(stateDefinationBuilder);
+        stateDefinition = stateDefinationBuilder.create(Block::defaultBlockState, BlockState::new);
 
-         */
+        if (isDiagonallyPlaceable()) {
+            this.registerDefaultState(this.getStateDefinition().any().setValue(DIAGONAL, false));
+        }
     }
 
     @Override
-    public StateDefinition<Block, BlockState> getStateDefinition() {
-        if (isDiagonallyPlaceable()) return this.stateDefinition;
-        else return super.getStateDefinition();
+    public @NotNull StateDefinition<Block, BlockState> getStateDefinition() {
+        return stateDefinition;
     }
 
     @Nullable
     @Override
-    public BlockState getStateForPlacement(BlockPlaceContext pContext) {
-        return setDiagonalStateForPlacement(this.defaultBlockState(), pContext, isDiagonallyPlaceable());
+    public BlockState getStateForPlacement(@NotNull BlockPlaceContext pContext) {
+        return setDiagonalStateForPlacement(this.defaultBlockState(), pContext);
     }
 
     @Override
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> pBuilder) {
-        if (isDiagonallyPlaceable()) {
-            pBuilder.add(DIAGONAL);
-        }
         super.createBlockStateDefinition(pBuilder);
+        defineDiagonalProperty(pBuilder);
     }
 
     @Override
