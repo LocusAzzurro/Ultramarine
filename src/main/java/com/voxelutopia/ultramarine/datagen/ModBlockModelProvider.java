@@ -49,11 +49,9 @@ public class ModBlockModelProvider extends BlockStateProvider {
         //</editor-fold>
 
         existingModelBlock(BlockRegistry.OCTAGONAL_PALACE_LANTERN.get());
-        getVariantBuilder(BlockRegistry.SQUARE_PALACE_LANTERN.get())
-                .partialState().with(ModBlockStateProperties.DIAGONAL, false).modelForState()
-                .modelFile(models().getExistingFile(modLoc("block/square_palace_lantern"))).addModel()
-                .partialState().with(ModBlockStateProperties.DIAGONAL, true).modelForState()
-                .modelFile(models().getExistingFile(modLoc("block/square_palace_lantern_diagonal"))).addModel();
+        diagonallyPlaceableBlock(BlockRegistry.SQUARE_PALACE_LANTERN.get());
+        diagonallyPlaceableBlock(BlockRegistry.STANDING_LAMP.get());
+        diagonallyPlaceableBlock(BlockRegistry.SMALL_STANDING_LAMP.get());
         existingModelBlock(BlockRegistry.WHITE_SKY_LANTERN.get());
         existingModelBlock(BlockRegistry.RED_SKY_LANTERN.get());
         existingModelBlock(BlockRegistry.YELLOW_SKY_LANTERN.get());
@@ -94,6 +92,14 @@ public class ModBlockModelProvider extends BlockStateProvider {
                 return ConfiguredModel.builder().modelFile(models().getExistingFile(modLoc("block/" + block.getRegistryName().getPath() + "_shifted")))
                         .rotationY((int) blockState.getValue(HORIZONTAL_FACING).toYRot()).build();
         });
+    }
+
+    private void diagonallyPlaceableBlock(Block block){
+        getVariantBuilder(block)
+                .partialState().with(ModBlockStateProperties.DIAGONAL, false).modelForState()
+                .modelFile(models().getExistingFile(blockLoc(block))).addModel()
+                .partialState().with(ModBlockStateProperties.DIAGONAL, true).modelForState()
+                .modelFile(models().getExistingFile(modLoc("block/" + block.getRegistryName().getPath() + "_diagonal"))).addModel();
     }
 
     @NotNull
