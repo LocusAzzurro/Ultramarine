@@ -10,18 +10,20 @@ import org.jetbrains.annotations.NotNull;
 
 public interface DiagonallyPlaceable {
     BooleanProperty DIAGONAL = ModBlockStateProperties.DIAGONAL;
+
     boolean isDiagonallyPlaceable();
 
     default boolean getDiagonalStateFromRotation(@NotNull BlockPlaceContext pContext){
         return Math.round((pContext.getRotation() + 180.0F ) / 45.0F) % 2 == 1;
     }
 
-    default void defineDiagonalProperty(StateDefinition.Builder<Block, BlockState> pBuilder, boolean diagonal){
-        if (diagonal) pBuilder.add(DIAGONAL);
+    default void defineDiagonalProperty(StateDefinition.Builder<Block, BlockState> pBuilder){
+        if (isDiagonallyPlaceable()) {
+            pBuilder.add(DIAGONAL);
+        }
     }
 
-    default BlockState setDiagonalStateForPlacement(@NotNull BlockState state, BlockPlaceContext pContext, boolean diagonal){
-        return diagonal ? state.setValue(DIAGONAL, getDiagonalStateFromRotation(pContext)) : state;
+    default BlockState setDiagonalStateForPlacement(@NotNull BlockState state, BlockPlaceContext pContext){
+        return isDiagonallyPlaceable() ? state.setValue(DIAGONAL, getDiagonalStateFromRotation(pContext)) : state;
     }
-
 }
