@@ -46,7 +46,7 @@ public class BlockRegistry {
     public static final RegistryObject<Block> RED_SKY_LANTERN = BLOCKS.register("red_sky_lantern", () -> new Lantern(Material.BAMBOO, false));
     public static final RegistryObject<Block> YELLOW_SKY_LANTERN = BLOCKS.register("yellow_sky_lantern", () -> new Lantern(Material.BAMBOO, false));
 
-    public static final RegistryObject<Block> JADE_ORE = BLOCKS.register("jade_ore", BaseOreBlock::new);
+    public static final RegistryObject<Block> JADE_ORE = BLOCKS.register("jade_ore",() -> new BaseOreBlock(2, 5));
 
     private static RegistryObject<Block> simpleBlock(String name, Material material) {
         return BLOCKS.register(name, () -> new Block(BlockBehaviour.Properties.of(material)));

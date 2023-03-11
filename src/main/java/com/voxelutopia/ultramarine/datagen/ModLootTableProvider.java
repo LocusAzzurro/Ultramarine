@@ -7,7 +7,6 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraftforge.registries.RegistryObject;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class ModLootTableProvider extends BaseLootTableProvider {
@@ -23,11 +22,16 @@ public class ModLootTableProvider extends BaseLootTableProvider {
                 .filter(blockRegistryObject -> !NON_SIMPLE_BLOCKS.contains(blockRegistryObject))
                 .forEach(this::simple);
 
-        lootTables.put(BlockRegistry.JADE_ORE.get(), createOreTable(BlockRegistry.JADE_ORE.getId().getPath(), BlockRegistry.JADE_ORE.get(), ItemRegistry.JADE.get()));
+        ore(BlockRegistry.JADE_ORE, ItemRegistry.JADE);
+        //lootTables.put(BlockRegistry.JADE_ORE.get(), createOreTable(BlockRegistry.JADE_ORE.getId().getPath(), BlockRegistry.JADE_ORE.get(), ItemRegistry.JADE.get()));
     }
 
     void simple(RegistryObject<? extends Block> block) {
         lootTables.put(block.get(), createSimpleTable(block.getId().getPath(), block.get()));
+    }
+
+    void ore(RegistryObject<? extends Block> block, RegistryObject<? extends Item> item){
+        lootTables.put(block.get(), createOreDrop(block.getId().getPath(), block.get(), item.get()));
     }
 
 
