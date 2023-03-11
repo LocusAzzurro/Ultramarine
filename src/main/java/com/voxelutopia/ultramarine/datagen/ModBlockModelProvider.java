@@ -50,6 +50,7 @@ public class ModBlockModelProvider extends BlockStateProvider {
 
         existingModelBlock(BlockRegistry.OCTAGONAL_PALACE_LANTERN.get());
         diagonallyPlaceableBlock(BlockRegistry.SQUARE_PALACE_LANTERN.get());
+        diagonallyPlaceableBlock(BlockRegistry.SMALL_RED_LANTERN.get());
         diagonallyPlaceableBlock(BlockRegistry.STANDING_LAMP.get());
         diagonallyPlaceableBlock(BlockRegistry.SMALL_STANDING_LAMP.get());
         existingModelBlock(BlockRegistry.WHITE_SKY_LANTERN.get());

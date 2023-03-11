@@ -40,6 +40,7 @@ public class BlockRegistry {
     public static final RegistryObject<Block> BLUE_ROOF_TILE_EDGE = BLOCKS.register("blue_roof_tile_edge", RoofTiles::new);
     public static final RegistryObject<Block> OCTAGONAL_PALACE_LANTERN = BLOCKS.register("octagonal_palace_lantern", () -> new OffsetLantern(Material.WOOD, false));
     public static final RegistryObject<Block> SQUARE_PALACE_LANTERN = BLOCKS.register("square_palace_lantern", () -> new Lantern(Material.WOOD, true));
+    public static final RegistryObject<Block> SMALL_RED_LANTERN = BLOCKS.register("small_red_lantern", () -> new Lantern(Material.WOOD, true));
     public static final RegistryObject<Block> STANDING_LAMP = BLOCKS.register("standing_lamp", () -> new Lamp(Material.WOOD, true));
     public static final RegistryObject<Block> SMALL_STANDING_LAMP = BLOCKS.register("small_standing_lamp", () -> new Lamp(Material.WOOD, true));
     public static final RegistryObject<Block> WHITE_SKY_LANTERN = BLOCKS.register("white_sky_lantern", () -> new Lantern(Material.BAMBOO, false));
