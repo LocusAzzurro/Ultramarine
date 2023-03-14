@@ -1,7 +1,7 @@
 
 modLoader="javafml"
 loaderVersion="${loader_version_range}"
-license="MIT"
+license="source and binary under BSD-3, assets under CC-BY-NC 4.0"
 issueTrackerURL="https://github.com/LocusAzzurro/Ultramarine/issues"
 [[mods]]
 modId="ultramarine"
