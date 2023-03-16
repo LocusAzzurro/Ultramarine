@@ -2,7 +2,7 @@ package com.voxelutopia.ultramarine.datagen;
 
 import com.voxelutopia.ultramarine.data.BlockRegistry;
 import com.voxelutopia.ultramarine.data.ItemRegistry;
-import com.voxelutopia.ultramarine.world.block.BaseStoneWall;
+import com.voxelutopia.ultramarine.world.block.BaseWall;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.BlockItem;
@@ -24,7 +24,7 @@ public class ModItemModelProvider extends ItemModelProvider {
 
     static {
         BlockRegistry.BLOCKS.getEntries().stream()
-                .filter(blockRegistryObject -> blockRegistryObject.get() instanceof BaseStoneWall)
+                .filter(blockRegistryObject -> blockRegistryObject.get() instanceof BaseWall)
                 .forEach(NON_SIMPLE_BLOCKS::add);
     }
 

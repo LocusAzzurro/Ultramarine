@@ -20,10 +20,10 @@ public class ModBlockTagProvider extends BlockTagsProvider {
                 .add(BlockRegistry.JADE_ORE.get());
         BlockRegistry.BLOCKS.getEntries().stream().filter((blockRegistryObject ->
                         blockRegistryObject.get() instanceof RoofTiles ||
-                        blockRegistryObject.get() instanceof BaseStone ||
-                        blockRegistryObject.get() instanceof BaseStoneStairs ||
-                        blockRegistryObject.get() instanceof BaseStoneSlab ||
-                        blockRegistryObject.get() instanceof BaseStoneWall))
+                        blockRegistryObject.get() instanceof BaseBlock ||
+                        blockRegistryObject.get() instanceof BaseStairs ||
+                        blockRegistryObject.get() instanceof BaseSlab ||
+                        blockRegistryObject.get() instanceof BaseWall))
                         .forEach(blockRegistryObject -> tag(BlockTags.MINEABLE_WITH_PICKAXE).add(blockRegistryObject.get()));
         tag(BlockTags.NEEDS_IRON_TOOL)
                 .add(BlockRegistry.JADE_ORE.get());
@@ -35,7 +35,7 @@ public class ModBlockTagProvider extends BlockTagsProvider {
                 .add(BlockRegistry.WHITE_SKY_LANTERN.get())
                 .add(BlockRegistry.RED_SKY_LANTERN.get())
                 .add(BlockRegistry.YELLOW_SKY_LANTERN.get());
-        BlockRegistry.BLOCKS.getEntries().stream().filter((blockRegistryObject -> blockRegistryObject.get() instanceof BaseStoneWall))
+        BlockRegistry.BLOCKS.getEntries().stream().filter((blockRegistryObject -> blockRegistryObject.get() instanceof BaseWall))
                 .forEach(blockRegistryObject -> tag(BlockTags.WALLS).add(blockRegistryObject.get()));
     }
 
