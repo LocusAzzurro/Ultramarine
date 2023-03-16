@@ -37,6 +37,7 @@ public class ModItemModelProvider extends ItemModelProvider {
                 .filter(blockRegistryObject -> !NON_SIMPLE_BLOCKS.contains(blockRegistryObject))
                 .forEach(this::blockItem);
         wallInventory(BlockRegistry.BLACK_BRICK_WALL.get().getRegistryName().getPath(), blockLoc(BlockRegistry.BLACK_BRICKS.get()));
+        wallInventory(BlockRegistry.BROWNISH_RED_STONE_BRICK_WALL.get().getRegistryName().getPath(), blockLoc(BlockRegistry.BROWNISH_RED_STONE_BRICKS.get()));
         ItemRegistry.ITEMS.getEntries().stream()
                 .filter(blockRegistryObject -> !NON_SIMPLE_ITEMS.contains(blockRegistryObject))
                 .filter(blockRegistryObject -> !(blockRegistryObject.get() instanceof BlockItem))

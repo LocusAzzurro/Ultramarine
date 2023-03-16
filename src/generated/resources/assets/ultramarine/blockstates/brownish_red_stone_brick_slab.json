@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=top": {
+      "model": "ultramarine:block/brownish_red_stone_brick_slab_top"
+    },
+    "type=bottom": {
+      "model": "ultramarine:block/brownish_red_stone_brick_slab"
+    },
+    "type=double": {
+      "model": "ultramarine:block/brownish_red_stone_bricks"
+    }
+  }
+}

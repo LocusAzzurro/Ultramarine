@@ -20,6 +20,10 @@ public class ItemRegistry {
     public static final RegistryObject<Item> BLACK_BRICK_SLAB = fromBlock(BlockRegistry.BLACK_BRICK_SLAB, CreativeTabs.BUILDING_BLOCKS);
     public static final RegistryObject<Item> BLACK_BRICK_STAIRS = fromBlock(BlockRegistry.BLACK_BRICK_STAIRS, CreativeTabs.BUILDING_BLOCKS);
     public static final RegistryObject<Item> BLACK_BRICK_WALL = fromBlock(BlockRegistry.BLACK_BRICK_WALL, CreativeTabs.BUILDING_BLOCKS);
+    public static final RegistryObject<Item> BROWNISH_RED_STONE_BRICKS = fromBlock(BlockRegistry.BROWNISH_RED_STONE_BRICKS, CreativeTabs.BUILDING_BLOCKS);
+    public static final RegistryObject<Item> BROWNISH_RED_STONE_BRICK_SLAB = fromBlock(BlockRegistry.BROWNISH_RED_STONE_BRICK_SLAB, CreativeTabs.BUILDING_BLOCKS);
+    public static final RegistryObject<Item> BROWNISH_RED_STONE_BRICK_STAIRS = fromBlock(BlockRegistry.BROWNISH_RED_STONE_BRICK_STAIRS, CreativeTabs.BUILDING_BLOCKS);
+    public static final RegistryObject<Item> BROWNISH_RED_STONE_BRICK_WALL = fromBlock(BlockRegistry.BROWNISH_RED_STONE_BRICK_WALL, CreativeTabs.BUILDING_BLOCKS);
     public static final RegistryObject<Item> PALE_YELLOW_STONE = fromBlock(BlockRegistry.PALE_YELLOW_STONE, CreativeTabs.BUILDING_BLOCKS);
     public static final RegistryObject<Item> PALE_YELLOW_STONE_SLAB = fromBlock(BlockRegistry.PALE_YELLOW_STONE_SLAB, CreativeTabs.BUILDING_BLOCKS);
     public static final RegistryObject<Item> PALE_YELLOW_STONE_STAIRS = fromBlock(BlockRegistry.PALE_YELLOW_STONE_STAIRS, CreativeTabs.BUILDING_BLOCKS);
