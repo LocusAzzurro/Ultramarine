@@ -27,6 +27,9 @@ public class ItemRegistry {
     public static final RegistryObject<Item> PALE_YELLOW_STONE = fromBlock(BlockRegistry.PALE_YELLOW_STONE, CreativeTabs.BUILDING_BLOCKS);
     public static final RegistryObject<Item> PALE_YELLOW_STONE_SLAB = fromBlock(BlockRegistry.PALE_YELLOW_STONE_SLAB, CreativeTabs.BUILDING_BLOCKS);
     public static final RegistryObject<Item> PALE_YELLOW_STONE_STAIRS = fromBlock(BlockRegistry.PALE_YELLOW_STONE_STAIRS, CreativeTabs.BUILDING_BLOCKS);
+    public static final RegistryObject<Item> VARIEGATED_ROCKS = fromBlock(BlockRegistry.VARIEGATED_ROCKS, CreativeTabs.BUILDING_BLOCKS);
+    public static final RegistryObject<Item> VARIEGATED_ROCK_SLAB = fromBlock(BlockRegistry.VARIEGATED_ROCK_SLAB, CreativeTabs.BUILDING_BLOCKS);
+    public static final RegistryObject<Item> VARIEGATED_ROCK_STAIRS = fromBlock(BlockRegistry.VARIEGATED_ROCK_STAIRS, CreativeTabs.BUILDING_BLOCKS);
     public static final RegistryObject<Item> WEATHERED_STONE = fromBlock(BlockRegistry.WEATHERED_STONE, CreativeTabs.BUILDING_BLOCKS);
     public static final RegistryObject<Item> WEATHERED_STONE_SLAB = fromBlock(BlockRegistry.WEATHERED_STONE_SLAB, CreativeTabs.BUILDING_BLOCKS);
     public static final RegistryObject<Item> WEATHERED_STONE_STAIRS = fromBlock(BlockRegistry.WEATHERED_STONE_STAIRS, CreativeTabs.BUILDING_BLOCKS);
