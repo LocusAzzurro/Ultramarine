@@ -34,6 +34,8 @@ public class ModRecipeProvider extends RecipeProvider {
         slabAndStairsRecipe(ItemRegistry.PALE_YELLOW_STONE.get(), ItemRegistry.PALE_YELLOW_STONE_SLAB.get(), ItemRegistry.PALE_YELLOW_STONE_STAIRS.get(), pFinishedRecipeConsumer);
         slabAndStairsRecipe(ItemRegistry.VARIEGATED_ROCKS.get(), ItemRegistry.VARIEGATED_ROCK_SLAB.get(), ItemRegistry.VARIEGATED_ROCK_STAIRS.get(), pFinishedRecipeConsumer);
         slabAndStairsRecipe(ItemRegistry.WEATHERED_STONE.get(), ItemRegistry.WEATHERED_STONE_SLAB.get(), ItemRegistry.WEATHERED_STONE_STAIRS.get(), pFinishedRecipeConsumer);
+        slabAndStairsRecipe(ItemRegistry.POLISHED_WEATHERED_STONE.get(), ItemRegistry.POLISHED_WEATHERED_STONE_SLAB.get(), ItemRegistry.POLISHED_WEATHERED_STONE_STAIRS.get(), pFinishedRecipeConsumer);
+        wallRecipe(ItemRegistry.POLISHED_WEATHERED_STONE.get(), ItemRegistry.POLISHED_WEATHERED_STONE_WALL.get(), pFinishedRecipeConsumer);
         roofTileBlocksRecipe("gray", pFinishedRecipeConsumer);
         roofTileBlocksRecipe("yellow", pFinishedRecipeConsumer);
         roofTileBlocksRecipe("green", pFinishedRecipeConsumer);
