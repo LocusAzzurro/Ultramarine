@@ -11,6 +11,7 @@ import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.Optional;
 
@@ -20,6 +21,7 @@ public class WoodenHammer extends Item {
         super(new Item.Properties().tab(CreativeTabs.BUILDING_BLOCKS).durability(100));
     }
 
+    @NotNull
     @Override
     public InteractionResult useOn(UseOnContext pContext) {
         Level level = pContext.getLevel();

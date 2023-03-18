@@ -4,7 +4,7 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.material.Material;
 
-public class BaseBlock extends Block {
+public class BaseBlock extends Block implements BaseBlockPropertyHolder {
 
     public static final BlockBehaviour.Properties PROPERTIES = BlockBehaviour.Properties.of(Material.STONE)
             .strength(1.5F, 6.0F);

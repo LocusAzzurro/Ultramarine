@@ -5,6 +5,7 @@ import com.voxelutopia.ultramarine.world.block.*;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.tags.BlockTagsProvider;
 import net.minecraft.tags.BlockTags;
+import net.minecraft.world.level.block.Block;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import org.jetbrains.annotations.Nullable;
 
@@ -16,15 +17,19 @@ public class ModBlockTagProvider extends BlockTagsProvider {
 
     @Override
     protected void addTags() {
+        BlockRegistry.BLOCKS.getEntries().stream().filter(blockRegistryObject -> blockRegistryObject.get() instanceof BaseBlockPropertyHolder)
+                        .forEach(blockRegistryObject -> {
+                            Block block = blockRegistryObject.get();
+                            BaseBlockProperty property = ((BaseBlockPropertyHolder)block).getProperty();
+                            switch (property){
+                                case WOOD -> tag(BlockTags.MINEABLE_WITH_AXE).add(block);
+                                case STONE, GLAZED -> tag(BlockTags.MINEABLE_WITH_PICKAXE).add(block);
+                            }
+                        });
+        BlockRegistry.BLOCKS.getEntries().stream().filter(blockRegistryObject -> blockRegistryObject.get() instanceof RoofTiles)
+                .forEach(blockRegistryObject -> tag(BlockTags.MINEABLE_WITH_PICKAXE).add(blockRegistryObject.get()));
         tag(BlockTags.MINEABLE_WITH_PICKAXE)
                 .add(BlockRegistry.JADE_ORE.get());
-        BlockRegistry.BLOCKS.getEntries().stream().filter((blockRegistryObject ->
-                        blockRegistryObject.get() instanceof RoofTiles ||
-                        blockRegistryObject.get() instanceof BaseBlock ||
-                        blockRegistryObject.get() instanceof BaseStairs ||
-                        blockRegistryObject.get() instanceof BaseSlab ||
-                        blockRegistryObject.get() instanceof BaseWall))
-                        .forEach(blockRegistryObject -> tag(BlockTags.MINEABLE_WITH_PICKAXE).add(blockRegistryObject.get()));
         tag(BlockTags.NEEDS_IRON_TOOL)
                 .add(BlockRegistry.JADE_ORE.get());
         tag(BlockTags.MINEABLE_WITH_AXE)
