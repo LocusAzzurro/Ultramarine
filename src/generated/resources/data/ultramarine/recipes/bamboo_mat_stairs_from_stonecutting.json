@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "ultramarine:bamboo_mat"
+  },
+  "result": "ultramarine:bamboo_mat_stairs",
+  "count": 1
+}

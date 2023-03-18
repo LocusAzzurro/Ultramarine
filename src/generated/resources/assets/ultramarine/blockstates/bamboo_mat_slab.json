@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=top": {
+      "model": "ultramarine:block/bamboo_mat_slab_top"
+    },
+    "type=bottom": {
+      "model": "ultramarine:block/bamboo_mat_slab"
+    },
+    "type=double": {
+      "model": "ultramarine:block/bamboo_mat"
+    }
+  }
+}
