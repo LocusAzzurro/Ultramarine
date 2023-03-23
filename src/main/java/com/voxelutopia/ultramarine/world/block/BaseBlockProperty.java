@@ -22,4 +22,8 @@ public enum BaseBlockProperty {
     BaseBlockProperty(BlockBehaviour.Properties properties){
         this.properties = properties;
     }
+
+    public BlockBehaviour.Properties noCollision(){
+        return this.properties.noCollission();
+    }
 }

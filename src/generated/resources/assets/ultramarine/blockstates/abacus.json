@@ -1,0 +1,34 @@
+{
+  "variants": {
+    "diagonal=false,facing=north": {
+      "model": "ultramarine:block/abacus",
+      "y": 180
+    },
+    "diagonal=true,facing=north": {
+      "model": "ultramarine:block/abacus_diagonal",
+      "y": 180
+    },
+    "diagonal=false,facing=south": {
+      "model": "ultramarine:block/abacus"
+    },
+    "diagonal=true,facing=south": {
+      "model": "ultramarine:block/abacus_diagonal"
+    },
+    "diagonal=false,facing=west": {
+      "model": "ultramarine:block/abacus",
+      "y": 90
+    },
+    "diagonal=true,facing=west": {
+      "model": "ultramarine:block/abacus_diagonal",
+      "y": 90
+    },
+    "diagonal=false,facing=east": {
+      "model": "ultramarine:block/abacus",
+      "y": 270
+    },
+    "diagonal=true,facing=east": {
+      "model": "ultramarine:block/abacus_diagonal",
+      "y": 270
+    }
+  }
+}

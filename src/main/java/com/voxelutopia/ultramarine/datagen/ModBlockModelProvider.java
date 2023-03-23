@@ -1,7 +1,9 @@
 package com.voxelutopia.ultramarine.datagen;
 
+import com.mojang.authlib.minecraft.TelemetrySession;
 import com.voxelutopia.ultramarine.data.BlockRegistry;
 import com.voxelutopia.ultramarine.data.ModBlockStateProperties;
+import com.voxelutopia.ultramarine.world.block.DecorativeBlock;
 import com.voxelutopia.ultramarine.world.block.RoofTiles;
 import com.voxelutopia.ultramarine.world.block.ShiftedTileType;
 import net.minecraft.data.DataGenerator;
@@ -59,6 +61,8 @@ public class ModBlockModelProvider extends BlockStateProvider {
         shiftedDirectionalBlock(BlockRegistry.BLUE_ROOF_TILE_EDGE.get(), "blue", RoofTiles.RoofTileType.EDGE);
         //</editor-fold>
 
+        decorativeBlock((DecorativeBlock) BlockRegistry.ABACUS.get());
+
         existingModelBlock(BlockRegistry.OCTAGONAL_PALACE_LANTERN.get());
         diagonallyPlaceableBlock(BlockRegistry.SQUARE_PALACE_LANTERN.get());
         diagonallyPlaceableBlock(BlockRegistry.SMALL_RED_LANTERN.get());
@@ -103,6 +107,21 @@ public class ModBlockModelProvider extends BlockStateProvider {
             else
                 return ConfiguredModel.builder().modelFile(models().getExistingFile(modLoc("block/" + block.getRegistryName().getPath() + "_shifted")))
                         .rotationY((int) blockState.getValue(HORIZONTAL_FACING).toYRot()).build();
+        });
+    }
+
+    private void decorativeBlock(DecorativeBlock block){
+        getVariantBuilder(block).forAllStates(blockState -> {
+            var modelFile = ConfiguredModel.builder();
+            if (block.isDiagonallyPlaceable()){
+                if (!blockState.getValue(ModBlockStateProperties.DIAGONAL))
+                    modelFile.modelFile(models().getExistingFile(modLoc("block/" + block.getRegistryName().getPath())));
+                else
+                    modelFile.modelFile(models().getExistingFile(modLoc("block/" + block.getRegistryName().getPath() + "_diagonal")));
+            }
+            if (block.isDirectional())
+                modelFile.rotationY((int) blockState.getValue(HORIZONTAL_FACING).toYRot());
+            return modelFile.build();
         });
     }
 

@@ -8,6 +8,7 @@ public class CreativeTabs {
 
     public static final MaterialsTab MATERIALS = new MaterialsTab();
     public static final BuildingBlocksTab BUILDING_BLOCKS = new BuildingBlocksTab();
+    public static final DecorationsTab DECORATIONS = new DecorationsTab();
     public static final LampsTab LAMPS = new LampsTab();
 
     public static class MaterialsTab extends CreativeModeTab {
@@ -25,6 +26,17 @@ public class CreativeTabs {
 
         public BuildingBlocksTab() {
             super(Ultramarine.MOD_ID + ".building_blocks");
+        }
+        @Override
+        public ItemStack makeIcon() {
+            return new ItemStack(ItemRegistry.CYAN_BRICKS.get());
+        }
+    }
+
+    public static class DecorationsTab extends CreativeModeTab {
+
+        public DecorationsTab() {
+            super(Ultramarine.MOD_ID + ".decorations");
         }
         @Override
         public ItemStack makeIcon() {

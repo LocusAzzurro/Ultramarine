@@ -6,9 +6,6 @@ import net.minecraft.world.level.material.Material;
 
 public class BaseBlock extends Block implements BaseBlockPropertyHolder {
 
-    public static final BlockBehaviour.Properties PROPERTIES = BlockBehaviour.Properties.of(Material.STONE)
-            .strength(1.5F, 6.0F);
-
     private final BaseBlockProperty property;
 
     public BaseBlock(){
