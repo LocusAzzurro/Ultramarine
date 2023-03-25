@@ -1,5 +1,6 @@
 package com.voxelutopia.ultramarine.world.block;
 
+import com.voxelutopia.ultramarine.data.ModBlockStateProperties;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.item.context.BlockPlaceContext;
@@ -9,6 +10,7 @@ import net.minecraft.world.level.block.DirectionalBlock;
 import net.minecraft.world.level.block.HorizontalDirectionalBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
+import net.minecraft.world.level.block.state.properties.DirectionProperty;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
@@ -18,6 +20,8 @@ public class DecorativeBlock extends HorizontalDirectionalBlock implements BaseB
 
     public static final VoxelShape CUBE_14 = Block.box(1.0D, 0.0D, 1.0D, 15.0D, 16.0D, 15.0D);
     public static final VoxelShape FLAT_MEDIUM = Block.box(2.0D, 0.0D, 2.0D, 14.0D, 2.0D, 14.0D);
+
+    public static final DirectionProperty HORIZONTAL_FACING_SHIFT = ModBlockStateProperties.HORIZONTAL_FACING_SHIFT;
 
     private final BaseBlockProperty property;
     private final VoxelShape shape;
@@ -38,7 +42,7 @@ public class DecorativeBlock extends HorizontalDirectionalBlock implements BaseB
         createBlockStateDefinition(stateDefinationBuilder);
         stateDefinition = stateDefinationBuilder.create(Block::defaultBlockState, BlockState::new);
         BlockState state = this.getStateDefinition().any();
-        if (isDiagonallyPlaceable()) state = state.setValue(DIAGONAL, false);
+        if (isDiagonallyPlaceable()) state = state.setValue(DIAGONAL, false).setValue(HORIZONTAL_FACING_SHIFT, Direction.NORTH);
         if (isDirectional()) state = state.setValue(FACING, Direction.NORTH);
         this.registerDefaultState(state);
     }
@@ -55,7 +59,12 @@ public class DecorativeBlock extends HorizontalDirectionalBlock implements BaseB
     //TODO remake angle check for placement around 45 degrees
     public BlockState getStateForPlacement(BlockPlaceContext pContext) {
         BlockState state = setDiagonalStateForPlacement(this.defaultBlockState(), pContext);
-        return !isDirectional() ? state : state.setValue(FACING, pContext.getHorizontalDirection().getOpposite());
+        if (isDirectional()) state = state.setValue(FACING, pContext.getHorizontalDirection());
+        if (isDiagonallyPlaceable()){
+            var directions = getMainAndShiftedDirections(pContext);
+            state = state.setValue(FACING, directions.getLeft()).setValue(HORIZONTAL_FACING_SHIFT, directions.getRight());
+        }
+        return state;
     }
 
     @Override
@@ -63,6 +72,7 @@ public class DecorativeBlock extends HorizontalDirectionalBlock implements BaseB
         super.createBlockStateDefinition(pBuilder);
         defineDiagonalProperty(pBuilder);
         if (isDirectional()) pBuilder.add(FACING);
+        if (isDiagonallyPlaceable()) pBuilder.add(HORIZONTAL_FACING_SHIFT);
     }
 
     @Override

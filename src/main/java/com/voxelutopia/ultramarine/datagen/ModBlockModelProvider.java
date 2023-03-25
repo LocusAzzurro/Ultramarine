@@ -6,6 +6,7 @@ import com.voxelutopia.ultramarine.data.ModBlockStateProperties;
 import com.voxelutopia.ultramarine.world.block.DecorativeBlock;
 import com.voxelutopia.ultramarine.world.block.RoofTiles;
 import com.voxelutopia.ultramarine.world.block.ShiftedTileType;
+import net.minecraft.core.Direction;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.Block;
@@ -15,10 +16,25 @@ import net.minecraft.world.level.block.WallBlock;
 import net.minecraftforge.client.model.generators.BlockStateProvider;
 import net.minecraftforge.client.model.generators.ConfiguredModel;
 import net.minecraftforge.common.data.ExistingFileHelper;
+import org.apache.commons.lang3.tuple.Pair;
 import org.jetbrains.annotations.NotNull;
+
+import java.util.Map;
+
 import static net.minecraft.world.level.block.state.properties.BlockStateProperties.*;
 
 public class ModBlockModelProvider extends BlockStateProvider {
+
+    private final Map<Pair<Direction, Direction>, Integer> rotations = Map.of(
+            Pair.of(Direction.NORTH, Direction.EAST), 0,
+            Pair.of(Direction.EAST, Direction.NORTH), 0,
+            Pair.of(Direction.EAST, Direction.SOUTH), 90,
+            Pair.of(Direction.SOUTH, Direction.EAST), 90,
+            Pair.of(Direction.SOUTH, Direction.WEST), 180,
+            Pair.of(Direction.WEST, Direction.SOUTH), 180,
+            Pair.of(Direction.WEST, Direction.NORTH), 270,
+            Pair.of(Direction.NORTH, Direction.WEST), 270
+    );
 
     public ModBlockModelProvider(DataGenerator generator, ExistingFileHelper existingFileHelper) {
         super(generator, DataGenerators.MOD_ID, existingFileHelper);
@@ -62,6 +78,7 @@ public class ModBlockModelProvider extends BlockStateProvider {
         //</editor-fold>
 
         decorativeBlock((DecorativeBlock) BlockRegistry.ABACUS.get());
+        decorativeBlock((DecorativeBlock) BlockRegistry.BOTTLE_GOURD.get());
 
         existingModelBlock(BlockRegistry.OCTAGONAL_PALACE_LANTERN.get());
         diagonallyPlaceableBlock(BlockRegistry.SQUARE_PALACE_LANTERN.get());
@@ -113,14 +130,25 @@ public class ModBlockModelProvider extends BlockStateProvider {
     private void decorativeBlock(DecorativeBlock block){
         getVariantBuilder(block).forAllStates(blockState -> {
             var modelFile = ConfiguredModel.builder();
-            if (block.isDiagonallyPlaceable()){
-                if (!blockState.getValue(ModBlockStateProperties.DIAGONAL))
+            if (block.isDirectional()){
+                if (!block.isDiagonallyPlaceable()){
                     modelFile.modelFile(models().getExistingFile(modLoc("block/" + block.getRegistryName().getPath())));
-                else
-                    modelFile.modelFile(models().getExistingFile(modLoc("block/" + block.getRegistryName().getPath() + "_diagonal")));
+                    return modelFile.rotationY((int) blockState.getValue(HORIZONTAL_FACING).toYRot()).build();
+                }
+                else {
+                    if (!blockState.getValue(ModBlockStateProperties.DIAGONAL)){
+                        modelFile.modelFile(models().getExistingFile(modLoc("block/" + block.getRegistryName().getPath())));
+                        return modelFile.rotationY((int) blockState.getValue(HORIZONTAL_FACING).toYRot()).build();
+                    }
+                    else {
+                        modelFile.modelFile(models().getExistingFile(modLoc("block/" + block.getRegistryName().getPath() + "_diagonal")));
+                        var directions = Pair.of(blockState.getValue(HORIZONTAL_FACING), blockState.getValue(ModBlockStateProperties.HORIZONTAL_FACING_SHIFT));
+                        int deg = 0;
+                        if (rotations.containsKey(directions)) deg = rotations.get(directions);
+                        return modelFile.rotationY(deg - 90).build();
+                    }
+                }
             }
-            if (block.isDirectional())
-                modelFile.rotationY((int) blockState.getValue(HORIZONTAL_FACING).toYRot());
             return modelFile.build();
         });
     }
@@ -132,6 +160,7 @@ public class ModBlockModelProvider extends BlockStateProvider {
                 .partialState().with(ModBlockStateProperties.DIAGONAL, true).modelForState()
                 .modelFile(models().getExistingFile(modLoc("block/" + block.getRegistryName().getPath() + "_diagonal"))).addModel();
     }
+
 
     @NotNull
     @Override
