@@ -1,6 +1,7 @@
 package com.voxelutopia.ultramarine.world.block;
 
 import com.voxelutopia.ultramarine.data.ModBlockStateProperties;
+import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.item.context.BlockPlaceContext;
@@ -16,6 +17,11 @@ import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import org.jetbrains.annotations.NotNull;
 
+import javax.annotation.ParametersAreNonnullByDefault;
+
+@ParametersAreNonnullByDefault
+@MethodsReturnNonnullByDefault
+@SuppressWarnings("deprecation")
 public class DecorativeBlock extends HorizontalDirectionalBlock implements BaseBlockPropertyHolder, DiagonallyPlaceable{
 
     public static final VoxelShape CUBE_14 = Block.box(1.0D, 0.0D, 1.0D, 15.0D, 16.0D, 15.0D);
@@ -42,8 +48,9 @@ public class DecorativeBlock extends HorizontalDirectionalBlock implements BaseB
         createBlockStateDefinition(stateDefinationBuilder);
         stateDefinition = stateDefinationBuilder.create(Block::defaultBlockState, BlockState::new);
         BlockState state = this.getStateDefinition().any();
-        if (isDiagonallyPlaceable()) state = state.setValue(DIAGONAL, false).setValue(HORIZONTAL_FACING_SHIFT, Direction.NORTH);
+        if (isDiagonallyPlaceable()) state = state.setValue(DIAGONAL, false);
         if (isDirectional()) state = state.setValue(FACING, Direction.NORTH);
+        if (isDiagonallyPlaceable() && isDirectional()) state = state.setValue(HORIZONTAL_FACING_SHIFT, Direction.NORTH);
         this.registerDefaultState(state);
     }
 
@@ -51,18 +58,27 @@ public class DecorativeBlock extends HorizontalDirectionalBlock implements BaseB
         this(property, shape, directional, diagonallyPlaceable, false);
     }
 
+    public static Builder with(BaseBlockProperty property){
+        return new Builder(property);
+    }
+
     @Override
     public @NotNull StateDefinition<Block, BlockState> getStateDefinition() {
         return stateDefinition;
     }
 
-    //TODO remake angle check for placement around 45 degrees
     public BlockState getStateForPlacement(BlockPlaceContext pContext) {
         BlockState state = setDiagonalStateForPlacement(this.defaultBlockState(), pContext);
-        if (isDirectional()) state = state.setValue(FACING, pContext.getHorizontalDirection());
-        if (isDiagonallyPlaceable()){
+        if (isDirectional() && isDiagonallyPlaceable()){
             var directions = getMainAndShiftedDirections(pContext);
-            state = state.setValue(FACING, directions.getLeft()).setValue(HORIZONTAL_FACING_SHIFT, directions.getRight());
+            state = state.setValue(FACING, directions.getLeft()).setValue(HORIZONTAL_FACING_SHIFT, directions.getRight())
+                    .setValue(DIAGONAL, getDiagonalState(pContext));
+        }
+        else if (isDirectional() && !isDiagonallyPlaceable()){
+            state = state.setValue(FACING, pContext.getHorizontalDirection());
+        }
+        else if (!isDirectional() && isDiagonallyPlaceable()){
+            state = state.setValue(DIAGONAL, getDiagonalState(pContext));
         }
         return state;
     }
@@ -70,9 +86,9 @@ public class DecorativeBlock extends HorizontalDirectionalBlock implements BaseB
     @Override
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> pBuilder) {
         super.createBlockStateDefinition(pBuilder);
-        defineDiagonalProperty(pBuilder);
         if (isDirectional()) pBuilder.add(FACING);
-        if (isDiagonallyPlaceable()) pBuilder.add(HORIZONTAL_FACING_SHIFT);
+        if (isDiagonallyPlaceable()) pBuilder.add(DIAGONAL);
+        if (isDirectional() && isDiagonallyPlaceable()) pBuilder.add(HORIZONTAL_FACING_SHIFT);
     }
 
     @Override
@@ -98,4 +114,44 @@ public class DecorativeBlock extends HorizontalDirectionalBlock implements BaseB
     public boolean isDirectional(){
         return directional;
     }
+
+    public static class Builder{
+
+        private final BaseBlockProperty property;
+        private VoxelShape shape = CUBE_14;
+        private boolean diagonallyPlaceable;
+        private boolean directional;
+        private boolean noCollision;
+
+        public Builder(BaseBlockProperty property){
+            this.property = property;
+        }
+
+        public Builder shaped(VoxelShape shape){
+            this.shape = shape;
+            return this;
+        }
+
+        public Builder diagonallyPlaceable(){
+            this.diagonallyPlaceable = true;
+            return this;
+        }
+
+        public Builder directional(){
+            this.directional = true;
+            return this;
+        }
+
+        public Builder noCollision(){
+            this.noCollision = true;
+            return this;
+        }
+
+        public DecorativeBlock build(){
+            return new DecorativeBlock(property, shape, directional, diagonallyPlaceable, noCollision);
+        }
+
+    }
+
+
 }

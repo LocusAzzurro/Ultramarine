@@ -56,7 +56,8 @@ public class BlockRegistry {
     public static final RegistryObject<Block> BLUE_ROOF_TILE_STAIRS = BLOCKS.register("blue_roof_tile_stairs", RoofTiles::new);
     public static final RegistryObject<Block> BLUE_ROOF_TILE_EDGE = BLOCKS.register("blue_roof_tile_edge", RoofTiles::new);
 
-    public static final RegistryObject<Block> ABACUS = BLOCKS.register("abacus", () -> new DecorativeBlock(BaseBlockProperty.WOOD, DecorativeBlock.FLAT_MEDIUM, true, true, true));
+    public static final RegistryObject<Block> ABACUS = BLOCKS.register("abacus",
+            () -> DecorativeBlock.with(BaseBlockProperty.WOOD).shaped(DecorativeBlock.FLAT_MEDIUM).directional().diagonallyPlaceable().noCollision().build());
     public static final RegistryObject<Block> BOTTLE_GOURD = BLOCKS.register("bottle_gourd", BottleGourd::new);
 
     public static final RegistryObject<Block> OCTAGONAL_PALACE_LANTERN = BLOCKS.register("octagonal_palace_lantern", () -> new OffsetLantern(Material.WOOD, false));
