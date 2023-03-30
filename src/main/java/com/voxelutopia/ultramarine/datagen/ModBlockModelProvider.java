@@ -20,6 +20,7 @@ import org.apache.commons.lang3.tuple.Pair;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.Map;
+import java.util.Objects;
 
 import static net.minecraft.world.level.block.state.properties.BlockStateProperties.*;
 
@@ -81,7 +82,8 @@ public class ModBlockModelProvider extends BlockStateProvider {
         decorativeBlock((DecorativeBlock) BlockRegistry.BOTTLE_GOURD.get());
 
         existingModelBlock(BlockRegistry.OCTAGONAL_PALACE_LANTERN.get());
-        diagonallyPlaceableBlock(BlockRegistry.SQUARE_PALACE_LANTERN.get());
+        //diagonallyPlaceableBlock(BlockRegistry.SQUARE_PALACE_LANTERN.get());
+        decorativeBlock((DecorativeBlock) BlockRegistry.SQUARE_PALACE_LANTERN.get());
         diagonallyPlaceableBlock(BlockRegistry.SMALL_RED_LANTERN.get());
         diagonallyPlaceableBlock(BlockRegistry.STANDING_LAMP.get());
         diagonallyPlaceableBlock(BlockRegistry.SMALL_STANDING_LAMP.get());
@@ -130,26 +132,34 @@ public class ModBlockModelProvider extends BlockStateProvider {
     private void decorativeBlock(DecorativeBlock block){
         getVariantBuilder(block).forAllStates(blockState -> {
             var modelFile = ConfiguredModel.builder();
-            if (block.isDirectional()){
-                if (!block.isDiagonallyPlaceable()){
-                    modelFile.modelFile(models().getExistingFile(modLoc("block/" + block.getRegistryName().getPath())));
+            String blockPath = Objects.requireNonNull(block.getRegistryName()).getPath();
+            if (!block.isDirectional() && !block.isDiagonallyPlaceable()){
+                return modelFile.modelFile(models().getExistingFile(modLoc("block/" + blockPath))).build();
+            }
+            else if (!block.isDirectional() && block.isDiagonallyPlaceable()){
+                if (blockState.getValue(ModBlockStateProperties.DIAGONAL))
+                    modelFile.modelFile(models().getExistingFile(modLoc("block/" + blockPath + "_diagonal")));
+                else
+                    modelFile.modelFile(models().getExistingFile(modLoc("block/" + blockPath)));
+                return modelFile.build();
+            }
+            else if (block.isDirectional() && !block.isDiagonallyPlaceable()){
+                modelFile.modelFile(models().getExistingFile(modLoc("block/" + blockPath)));
+                return modelFile.rotationY((int) blockState.getValue(HORIZONTAL_FACING).toYRot()).build();
+            }
+            else {
+                if (!blockState.getValue(ModBlockStateProperties.DIAGONAL)){
+                    modelFile.modelFile(models().getExistingFile(modLoc("block/" + blockPath)));
                     return modelFile.rotationY((int) blockState.getValue(HORIZONTAL_FACING).toYRot()).build();
                 }
                 else {
-                    if (!blockState.getValue(ModBlockStateProperties.DIAGONAL)){
-                        modelFile.modelFile(models().getExistingFile(modLoc("block/" + block.getRegistryName().getPath())));
-                        return modelFile.rotationY((int) blockState.getValue(HORIZONTAL_FACING).toYRot()).build();
-                    }
-                    else {
-                        modelFile.modelFile(models().getExistingFile(modLoc("block/" + block.getRegistryName().getPath() + "_diagonal")));
-                        var directions = Pair.of(blockState.getValue(HORIZONTAL_FACING), blockState.getValue(ModBlockStateProperties.HORIZONTAL_FACING_SHIFT));
-                        int deg = 0;
-                        if (rotations.containsKey(directions)) deg = rotations.get(directions);
-                        return modelFile.rotationY(deg - 90).build();
-                    }
+                    modelFile.modelFile(models().getExistingFile(modLoc("block/" + blockPath + "_diagonal")));
+                    var directions = Pair.of(blockState.getValue(HORIZONTAL_FACING), blockState.getValue(ModBlockStateProperties.HORIZONTAL_FACING_SHIFT));
+                    int deg = 0;
+                    if (rotations.containsKey(directions)) deg = rotations.get(directions);
+                    return modelFile.rotationY(deg - 90).build();
                 }
             }
-            return modelFile.build();
         });
     }
 

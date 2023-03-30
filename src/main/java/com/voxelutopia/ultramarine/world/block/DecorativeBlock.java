@@ -11,6 +11,8 @@ import net.minecraft.world.level.block.DirectionalBlock;
 import net.minecraft.world.level.block.HorizontalDirectionalBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
+import net.minecraft.world.level.block.state.properties.BlockStateProperties;
+import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.level.block.state.properties.DirectionProperty;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
@@ -24,24 +26,28 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @SuppressWarnings("deprecation")
 public class DecorativeBlock extends HorizontalDirectionalBlock implements BaseBlockPropertyHolder, DiagonallyPlaceable{
 
+    public static final VoxelShape FULL_BLOCK = Block.box(0.0D, 0.0D, 0.0D, 16.0D, 16.0D, 16.0D);
     public static final VoxelShape CUBE_14 = Block.box(1.0D, 0.0D, 1.0D, 15.0D, 16.0D, 15.0D);
     public static final VoxelShape FLAT_MEDIUM = Block.box(2.0D, 0.0D, 2.0D, 14.0D, 2.0D, 14.0D);
 
     public static final DirectionProperty HORIZONTAL_FACING_SHIFT = ModBlockStateProperties.HORIZONTAL_FACING_SHIFT;
+    public static final BooleanProperty LIT = BlockStateProperties.LIT;
 
     private final BaseBlockProperty property;
     private final VoxelShape shape;
     private final boolean diagonallyPlaceable;
     private final boolean directional;
     private final boolean noCollision;
+    private final boolean luminous;
     protected StateDefinition<Block, BlockState> stateDefinition;
 
-    public DecorativeBlock(BaseBlockProperty property, VoxelShape shape, boolean directional, boolean diagonallyPlaceable, boolean noCollision) {
+    public DecorativeBlock(BaseBlockProperty property, VoxelShape shape, boolean directional, boolean diagonallyPlaceable, boolean luminous, boolean noCollision) {
         super(property.properties);
         this.property = property;
         this.shape = shape;
         this.directional = directional;
         this.diagonallyPlaceable = diagonallyPlaceable;
+        this.luminous = luminous;
         this.noCollision = noCollision;
 
         var stateDefinationBuilder = new StateDefinition.Builder<Block, BlockState>(this);
@@ -51,11 +57,12 @@ public class DecorativeBlock extends HorizontalDirectionalBlock implements BaseB
         if (isDiagonallyPlaceable()) state = state.setValue(DIAGONAL, false);
         if (isDirectional()) state = state.setValue(FACING, Direction.NORTH);
         if (isDiagonallyPlaceable() && isDirectional()) state = state.setValue(HORIZONTAL_FACING_SHIFT, Direction.NORTH);
+        if (isLuminous()) state = state.setValue(LIT, true);
         this.registerDefaultState(state);
     }
 
     public DecorativeBlock(BaseBlockProperty property, VoxelShape shape, boolean directional, boolean diagonallyPlaceable){
-        this(property, shape, directional, diagonallyPlaceable, false);
+        this(property, shape, directional, diagonallyPlaceable,false, false);
     }
 
     public static Builder with(BaseBlockProperty property){
@@ -80,6 +87,9 @@ public class DecorativeBlock extends HorizontalDirectionalBlock implements BaseB
         else if (!isDirectional() && isDiagonallyPlaceable()){
             state = state.setValue(DIAGONAL, getDiagonalState(pContext));
         }
+        if (isLuminous()) {
+            state = state.setValue(LIT, true);
+        }
         return state;
     }
 
@@ -89,6 +99,7 @@ public class DecorativeBlock extends HorizontalDirectionalBlock implements BaseB
         if (isDirectional()) pBuilder.add(FACING);
         if (isDiagonallyPlaceable()) pBuilder.add(DIAGONAL);
         if (isDirectional() && isDiagonallyPlaceable()) pBuilder.add(HORIZONTAL_FACING_SHIFT);
+        if (isLuminous()) pBuilder.add(LIT);
     }
 
     @Override
@@ -102,6 +113,12 @@ public class DecorativeBlock extends HorizontalDirectionalBlock implements BaseB
     }
 
     @Override
+    public int getLightEmission(BlockState state, BlockGetter level, BlockPos pos) {
+        if (isLuminous()) return state.getValue(LIT) ? 14 : 0;
+        else return 0;
+    }
+
+    @Override
     public BaseBlockProperty getProperty() {
         return property;
     }
@@ -109,6 +126,10 @@ public class DecorativeBlock extends HorizontalDirectionalBlock implements BaseB
     @Override
     public boolean isDiagonallyPlaceable() {
         return diagonallyPlaceable;
+    }
+
+    public boolean isLuminous(){
+        return luminous;
     }
 
     public boolean isDirectional(){
@@ -121,6 +142,7 @@ public class DecorativeBlock extends HorizontalDirectionalBlock implements BaseB
         private VoxelShape shape = CUBE_14;
         private boolean diagonallyPlaceable;
         private boolean directional;
+        private boolean luminous;
         private boolean noCollision;
 
         public Builder(BaseBlockProperty property){
@@ -142,13 +164,18 @@ public class DecorativeBlock extends HorizontalDirectionalBlock implements BaseB
             return this;
         }
 
+        public Builder luminous(){
+            this.luminous = true;
+            return this;
+        }
+
         public Builder noCollision(){
             this.noCollision = true;
             return this;
         }
 
         public DecorativeBlock build(){
-            return new DecorativeBlock(property, shape, directional, diagonallyPlaceable, noCollision);
+            return new DecorativeBlock(property, shape, directional, diagonallyPlaceable, luminous, noCollision);
         }
 
     }
