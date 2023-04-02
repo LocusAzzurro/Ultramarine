@@ -3,6 +3,7 @@ package com.voxelutopia.ultramarine.datagen;
 import com.mojang.authlib.minecraft.TelemetrySession;
 import com.voxelutopia.ultramarine.data.BlockRegistry;
 import com.voxelutopia.ultramarine.data.ModBlockStateProperties;
+import com.voxelutopia.ultramarine.world.block.BaseWall;
 import com.voxelutopia.ultramarine.world.block.DecorativeBlock;
 import com.voxelutopia.ultramarine.world.block.RoofTiles;
 import com.voxelutopia.ultramarine.world.block.ShiftedTileType;
@@ -78,17 +79,9 @@ public class ModBlockModelProvider extends BlockStateProvider {
         shiftedDirectionalBlock(BlockRegistry.BLUE_ROOF_TILE_EDGE.get(), "blue", RoofTiles.RoofTileType.EDGE);
         //</editor-fold>
 
-        decorativeBlock((DecorativeBlock) BlockRegistry.ABACUS.get());
-        decorativeBlock((DecorativeBlock) BlockRegistry.BOTTLE_GOURD.get());
-
-        decorativeBlock((DecorativeBlock) BlockRegistry.OCTAGONAL_PALACE_LANTERN.get());
-        decorativeBlock((DecorativeBlock) BlockRegistry.SQUARE_PALACE_LANTERN.get());
-        decorativeBlock((DecorativeBlock) BlockRegistry.SMALL_RED_LANTERN.get());
-        decorativeBlock((DecorativeBlock) BlockRegistry.STANDING_LAMP.get());
-        decorativeBlock((DecorativeBlock) BlockRegistry.SMALL_STANDING_LAMP.get());
-        decorativeBlock((DecorativeBlock) BlockRegistry.WHITE_SKY_LANTERN.get());
-        decorativeBlock((DecorativeBlock) BlockRegistry.RED_SKY_LANTERN.get());
-        decorativeBlock((DecorativeBlock) BlockRegistry.YELLOW_SKY_LANTERN.get());
+        BlockRegistry.BLOCKS.getEntries().stream()
+                .filter(blockRegistryObject -> blockRegistryObject.get() instanceof DecorativeBlock)
+                .forEach(blockRegistryObject -> decorativeBlock((DecorativeBlock) blockRegistryObject.get()));
 
         simpleBlock(BlockRegistry.JADE_ORE.get());
     }

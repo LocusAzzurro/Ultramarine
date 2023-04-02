@@ -71,22 +71,12 @@ public class BlockRegistry {
     public static final RegistryObject<Block> SMALL_STANDING_LAMP = BLOCKS.register("small_standing_lamp",
             () -> DecorativeBlock.with(BaseBlockProperty.WOOD).shaped(DecorativeBlock.LAMP).diagonallyPlaceable().luminous().build());
     public static final RegistryObject<Block> WHITE_SKY_LANTERN = BLOCKS.register("white_sky_lantern",
-            () -> DecorativeBlock.with(BaseBlockProperty.BANBOO).luminous().build());
+            () -> DecorativeBlock.with(BaseBlockProperty.BAMBOO).luminous().build());
     public static final RegistryObject<Block> RED_SKY_LANTERN = BLOCKS.register("red_sky_lantern",
-            () -> DecorativeBlock.with(BaseBlockProperty.BANBOO).luminous().build());
+            () -> DecorativeBlock.with(BaseBlockProperty.BAMBOO).luminous().build());
     public static final RegistryObject<Block> YELLOW_SKY_LANTERN = BLOCKS.register("yellow_sky_lantern",
-            () -> DecorativeBlock.with(BaseBlockProperty.BANBOO).luminous().build());
+            () -> DecorativeBlock.with(BaseBlockProperty.BAMBOO).luminous().build());
 
-    /*
-    public static final RegistryObject<Block> SMALL_RED_LANTERN = BLOCKS.register("small_red_lantern", () -> new Lantern(Material.WOOD, true));
-    public static final RegistryObject<Block> STANDING_LAMP = BLOCKS.register("standing_lamp", () -> new Lamp(Material.WOOD, true));
-    public static final RegistryObject<Block> SMALL_STANDING_LAMP = BLOCKS.register("small_standing_lamp", () -> new Lamp(Material.WOOD, true));
-    public static final RegistryObject<Block> WHITE_SKY_LANTERN = BLOCKS.register("white_sky_lantern", () -> new Lantern(Material.BAMBOO, false));
-    public static final RegistryObject<Block> RED_SKY_LANTERN = BLOCKS.register("red_sky_lantern", () -> new Lantern(Material.BAMBOO, false));
-    public static final RegistryObject<Block> YELLOW_SKY_LANTERN = BLOCKS.register("yellow_sky_lantern", () -> new Lantern(Material.BAMBOO, false));
-
-
-     */
     public static final RegistryObject<Block> JADE_ORE = BLOCKS.register("jade_ore",() -> new BaseOreBlock(2, 5));
 
     private static RegistryObject<Block> simpleBlock(String name, Material material) {
