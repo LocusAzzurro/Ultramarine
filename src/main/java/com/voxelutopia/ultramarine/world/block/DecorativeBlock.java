@@ -138,7 +138,7 @@ public class DecorativeBlock extends HorizontalDirectionalBlock implements BaseB
 
     public static class Builder{
 
-        private final BaseBlockProperty property;
+        private BaseBlockProperty property;
         private VoxelShape shape = CUBE_14;
         private boolean diagonallyPlaceable;
         private boolean directional;
@@ -171,6 +171,11 @@ public class DecorativeBlock extends HorizontalDirectionalBlock implements BaseB
 
         public Builder noCollision(){
             this.noCollision = true;
+            return this;
+        }
+
+        public Builder noOcclusion(){
+            this.property.properties = this.property.properties.noOcclusion();
             return this;
         }
 

@@ -20,8 +20,8 @@ public final class BaseBlockProperty {
             .strength(1.5F, 6.0F)
             .requiresCorrectToolForDrops(), BlockTags.MINEABLE_WITH_PICKAXE);
 
-    final BlockBehaviour.Properties properties;
-    final TagKey<Block> tool;
+    BlockBehaviour.Properties properties;
+    TagKey<Block> tool;
 
     BaseBlockProperty(BlockBehaviour.Properties properties, TagKey<Block> tool){
         this.properties = properties;
