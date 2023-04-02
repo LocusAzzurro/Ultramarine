@@ -21,10 +21,7 @@ public class ModBlockTagProvider extends BlockTagsProvider {
                         .forEach(blockRegistryObject -> {
                             Block block = blockRegistryObject.get();
                             BaseBlockProperty property = ((BaseBlockPropertyHolder)block).getProperty();
-                            switch (property){
-                                case WOOD -> tag(BlockTags.MINEABLE_WITH_AXE).add(block);
-                                case STONE, GLAZED -> tag(BlockTags.MINEABLE_WITH_PICKAXE).add(block);
-                            }
+                            tag(property.getTool()).add(block);
                         });
         BlockRegistry.BLOCKS.getEntries().stream().filter(blockRegistryObject -> blockRegistryObject.get() instanceof RoofTiles)
                 .forEach(blockRegistryObject -> tag(BlockTags.MINEABLE_WITH_PICKAXE).add(blockRegistryObject.get()));
