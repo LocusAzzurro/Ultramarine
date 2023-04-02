@@ -65,6 +65,10 @@ public class DecorativeBlock extends HorizontalDirectionalBlock implements BaseB
         this(property, shape, directional, diagonallyPlaceable,false, false);
     }
 
+    public DecorativeBlock(Builder builder){
+        this(builder.property, builder.shape, builder.directional, builder.diagonallyPlaceable, builder.luminous, builder.noCollision);
+    }
+
     public static Builder with(BaseBlockProperty property){
         return new Builder(property);
     }
@@ -136,7 +140,10 @@ public class DecorativeBlock extends HorizontalDirectionalBlock implements BaseB
         return directional;
     }
 
-    public static class Builder{
+    public static abstract class AbstractBuilder<T extends AbstractBuilder<T>>{
+        public abstract T self();
+    }
+    public static class Builder extends AbstractBuilder<Builder>{
 
         private BaseBlockProperty property;
         private VoxelShape shape = CUBE_14;
@@ -180,9 +187,13 @@ public class DecorativeBlock extends HorizontalDirectionalBlock implements BaseB
         }
 
         public DecorativeBlock build(){
-            return new DecorativeBlock(property, shape, directional, diagonallyPlaceable, luminous, noCollision);
+            return new DecorativeBlock(this);
         }
 
+        @Override
+        public Builder self() {
+            return this;
+        }
     }
 
 

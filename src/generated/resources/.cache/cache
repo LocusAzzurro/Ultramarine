@@ -192,7 +192,7 @@ c588e4513180fb10c783be9248a21dd91c9a010e assets/ultramarine/models/item/yellow_r
 e7487305493a472b16b5ee41e95f93f669961d88 assets/ultramarine/models/item/yellow_roof_tile_stairs.json
 acc04bfc3e44f34feb4f43a54d0b2d373d99cb42 assets/ultramarine/models/item/yellow_roof_tiles.json
 e48e56ce7a08d5506893c975360626e425e808ea assets/ultramarine/models/item/yellow_sky_lantern.json
-cf144ae53e83b704e23c02646cc554e44677dd81 data/minecraft/tags/blocks/mineable/axe.json
+a4937ddee71384bf1d2ffceb11342d2630b7a011 data/minecraft/tags/blocks/mineable/axe.json
 bf2e3ee64d67608f078244b6dbf13de1ba04fc64 data/minecraft/tags/blocks/mineable/pickaxe.json
 17545dd0c9613eb0477c89b2b64307a497bc1d58 data/minecraft/tags/blocks/needs_iron_tool.json
 c03ce48c2ad0916eea8ad5ad8f2088aa788b0e97 data/minecraft/tags/blocks/walls.json
