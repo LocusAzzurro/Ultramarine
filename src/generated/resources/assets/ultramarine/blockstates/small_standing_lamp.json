@@ -1,9 +1,15 @@
 {
   "variants": {
-    "diagonal=false": {
+    "diagonal=false,lit=false": {
       "model": "ultramarine:block/small_standing_lamp"
     },
-    "diagonal=true": {
+    "diagonal=true,lit=false": {
+      "model": "ultramarine:block/small_standing_lamp_diagonal"
+    },
+    "diagonal=false,lit=true": {
+      "model": "ultramarine:block/small_standing_lamp"
+    },
+    "diagonal=true,lit=true": {
       "model": "ultramarine:block/small_standing_lamp_diagonal"
     }
   }

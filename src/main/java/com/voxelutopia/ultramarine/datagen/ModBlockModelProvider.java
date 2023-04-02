@@ -81,15 +81,14 @@ public class ModBlockModelProvider extends BlockStateProvider {
         decorativeBlock((DecorativeBlock) BlockRegistry.ABACUS.get());
         decorativeBlock((DecorativeBlock) BlockRegistry.BOTTLE_GOURD.get());
 
-        existingModelBlock(BlockRegistry.OCTAGONAL_PALACE_LANTERN.get());
-        //diagonallyPlaceableBlock(BlockRegistry.SQUARE_PALACE_LANTERN.get());
+        decorativeBlock((DecorativeBlock) BlockRegistry.OCTAGONAL_PALACE_LANTERN.get());
         decorativeBlock((DecorativeBlock) BlockRegistry.SQUARE_PALACE_LANTERN.get());
-        diagonallyPlaceableBlock(BlockRegistry.SMALL_RED_LANTERN.get());
-        diagonallyPlaceableBlock(BlockRegistry.STANDING_LAMP.get());
-        diagonallyPlaceableBlock(BlockRegistry.SMALL_STANDING_LAMP.get());
-        existingModelBlock(BlockRegistry.WHITE_SKY_LANTERN.get());
-        existingModelBlock(BlockRegistry.RED_SKY_LANTERN.get());
-        existingModelBlock(BlockRegistry.YELLOW_SKY_LANTERN.get());
+        decorativeBlock((DecorativeBlock) BlockRegistry.SMALL_RED_LANTERN.get());
+        decorativeBlock((DecorativeBlock) BlockRegistry.STANDING_LAMP.get());
+        decorativeBlock((DecorativeBlock) BlockRegistry.SMALL_STANDING_LAMP.get());
+        decorativeBlock((DecorativeBlock) BlockRegistry.WHITE_SKY_LANTERN.get());
+        decorativeBlock((DecorativeBlock) BlockRegistry.RED_SKY_LANTERN.get());
+        decorativeBlock((DecorativeBlock) BlockRegistry.YELLOW_SKY_LANTERN.get());
 
         simpleBlock(BlockRegistry.JADE_ORE.get());
     }
