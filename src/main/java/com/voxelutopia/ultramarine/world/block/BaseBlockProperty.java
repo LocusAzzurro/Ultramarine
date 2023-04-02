@@ -12,6 +12,10 @@ public final class BaseBlockProperty {
             .sound(SoundType.STONE)
             .strength(1.5F, 6.0F)
             .requiresCorrectToolForDrops(), BlockTags.MINEABLE_WITH_PICKAXE);
+
+    public static BaseBlockProperty PORCELAIN = new BaseBlockProperty(BlockBehaviour.Properties.of(Material.GLASS)
+            .sound(SoundType.GLASS)
+            .strength(1.0F, 1.0F), BlockTags.MINEABLE_WITH_PICKAXE);
     public static BaseBlockProperty WOOD = new BaseBlockProperty(BlockBehaviour.Properties.of(Material.WOOD)
             .sound(SoundType.WOOD)
             .strength(2.0F, 3.0F), BlockTags.MINEABLE_WITH_AXE);

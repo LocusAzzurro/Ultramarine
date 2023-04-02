@@ -13,6 +13,7 @@ import net.minecraft.data.HashCache;
 import net.minecraft.data.loot.LootTableProvider;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Block;
@@ -27,8 +28,8 @@ import net.minecraft.world.level.storage.loot.functions.ApplyExplosionDecay;
 import net.minecraft.world.level.storage.loot.functions.FunctionUserBuilder;
 import net.minecraft.world.level.storage.loot.functions.SetItemCountFunction;
 import net.minecraft.world.level.storage.loot.parameters.LootContextParamSets;
-import net.minecraft.world.level.storage.loot.predicates.LootItemCondition;
-import net.minecraft.world.level.storage.loot.predicates.MatchTool;
+import net.minecraft.world.level.storage.loot.predicates.*;
+import net.minecraft.world.level.storage.loot.providers.number.BinomialDistributionGenerator;
 import net.minecraft.world.level.storage.loot.providers.number.ConstantValue;
 import net.minecraft.world.level.storage.loot.providers.number.UniformGenerator;
 import org.slf4j.Logger;
@@ -81,6 +82,20 @@ public abstract class BaseLootTableProvider extends LootTableProvider {
 
     protected static LootTable.Builder createOreDrop(String name, Block block, Item drop) {
         return createSilkTouchDispatchTable(block, name, applyExplosionDecay(block, LootItem.lootTableItem(drop).apply(ApplyBonusCount.addOreBonusCount(Enchantments.BLOCK_FORTUNE))));
+    }
+
+    /*
+    protected static LootTable.Builder createPorcelainDrop(String name, Block block, Item drop1, Item drop2) {
+        return createSilkTouchDispatchTable(block, name, createCropDrops(block, drop1, drop2));
+    }
+
+     */
+
+    protected static LootTable.Builder createCropDrops(Block block, Item pieceItem, Item shardItem) {
+        return applyExplosionDecay(block, LootTable.lootTable().withPool(LootPool.lootPool().add(LootItem.lootTableItem(pieceItem)
+                .when(LootItemRandomChanceCondition.randomChance(0.125F)).apply(ApplyBonusCount.addUniformBonusCount(Enchantments.BLOCK_FORTUNE, 2))
+                .otherwise(LootItem.lootTableItem(shardItem)))).withPool(LootPool.lootPool().add(LootItem.lootTableItem(shardItem)
+                .apply(SetItemCountFunction.setCount(BinomialDistributionGenerator.binomial(3, 0.06666667F))))));
     }
 
     protected static LootTable.Builder createSelfDropDispatchTable(Block pBlock, String name, LootItemCondition.Builder pConditionBuilder, LootPoolEntryContainer.Builder<?> pAlternativeEntryBuilder) {
