@@ -59,6 +59,8 @@ public class BlockRegistry {
     public static final RegistryObject<Block> ABACUS = BLOCKS.register("abacus",
             () -> DecorativeBlock.with(BaseBlockProperty.WOOD).shaped(DecorativeBlock.FLAT_MEDIUM).directional().diagonallyPlaceable().noCollision().build());
     public static final RegistryObject<Block> BOTTLE_GOURD = BLOCKS.register("bottle_gourd", BottleGourd::new);
+    public static final RegistryObject<Block> BLUE_AND_WHITE_PORCELAIN_VASE = BLOCKS.register("blue_and_white_porcelain_vase",
+            () -> DecorativeBlock.with(BaseBlockProperty.PORCELAIN).shaped(DecorativeBlock.CUBE_14).diagonallyPlaceable().build());
 
     public static final RegistryObject<Block> OCTAGONAL_PALACE_LANTERN = BLOCKS.register("octagonal_palace_lantern",
             () -> OffsetDecorativeBlock.with(BaseBlockProperty.WOOD).shaped(DecorativeBlock.FULL_BLOCK).luminous().noOcclusion().build());
