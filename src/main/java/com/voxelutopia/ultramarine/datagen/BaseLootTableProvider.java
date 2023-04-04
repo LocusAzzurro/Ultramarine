@@ -84,18 +84,14 @@ public abstract class BaseLootTableProvider extends LootTableProvider {
         return createSilkTouchDispatchTable(block, name, applyExplosionDecay(block, LootItem.lootTableItem(drop).apply(ApplyBonusCount.addOreBonusCount(Enchantments.BLOCK_FORTUNE))));
     }
 
-    /*
-    protected static LootTable.Builder createPorcelainDrop(String name, Block block, Item drop1, Item drop2) {
-        return createSilkTouchDispatchTable(block, name, createCropDrops(block, drop1, drop2));
-    }
 
-     */
-
-    protected static LootTable.Builder createCropDrops(Block block, Item pieceItem, Item shardItem) {
-        return applyExplosionDecay(block, LootTable.lootTable().withPool(LootPool.lootPool().add(LootItem.lootTableItem(pieceItem)
-                .when(LootItemRandomChanceCondition.randomChance(0.125F)).apply(ApplyBonusCount.addUniformBonusCount(Enchantments.BLOCK_FORTUNE, 2))
-                .otherwise(LootItem.lootTableItem(shardItem)))).withPool(LootPool.lootPool().add(LootItem.lootTableItem(shardItem)
-                .apply(SetItemCountFunction.setCount(BinomialDistributionGenerator.binomial(3, 0.06666667F))))));
+    protected static LootTable.Builder createPorcelainDrop(String name, Block block, Item piece, Item shard) {
+        return LootTable.lootTable()
+                .withPool(LootPool.lootPool().name(name)
+                .setRolls(ConstantValue.exactly(1.0F))
+                .add(LootItem.lootTableItem(block).when(HAS_SILK_TOUCH)
+                .otherwise(LootItem.lootTableItem(piece).when(LootItemRandomChanceCondition.randomChance(0.01F)).apply(ApplyBonusCount.addUniformBonusCount(Enchantments.BLOCK_FORTUNE, 2)))
+                .otherwise(LootItem.lootTableItem(shard).apply(SetItemCountFunction.setCount(BinomialDistributionGenerator.binomial(3, 0.5F))))));
     }
 
     protected static LootTable.Builder createSelfDropDispatchTable(Block pBlock, String name, LootItemCondition.Builder pConditionBuilder, LootPoolEntryContainer.Builder<?> pAlternativeEntryBuilder) {

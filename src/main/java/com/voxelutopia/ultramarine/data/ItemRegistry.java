@@ -78,6 +78,8 @@ public class ItemRegistry {
     public static final RegistryObject<Item> CYAN_ROOF_TILE = simpleItem("cyan_roof_tile", CreativeTabs.MATERIALS);
     public static final RegistryObject<Item> BLACK_ROOF_TILE = simpleItem("black_roof_tile", CreativeTabs.MATERIALS);
 
+    public static final RegistryObject<Item> BLUE_AND_WHITE_PORCELAIN_PIECE = simpleItem("blue_and_white_porcelain_piece", CreativeTabs.MATERIALS);
+    public static final RegistryObject<Item> BLUE_AND_WHITE_PORCELAIN_SHARDS = simpleItem("blue_and_white_porcelain_shards", CreativeTabs.MATERIALS);
     public static final RegistryObject<Item> JADE_ORE = fromBlock(BlockRegistry.JADE_ORE, CreativeTabs.MATERIALS);
     public static final RegistryObject<Item> JADE = simpleItem("jade", CreativeTabs.MATERIALS);
 

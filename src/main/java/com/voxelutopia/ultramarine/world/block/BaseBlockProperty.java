@@ -11,32 +11,45 @@ public final class BaseBlockProperty {
     public static BaseBlockProperty STONE = new BaseBlockProperty(BlockBehaviour.Properties.of(Material.STONE)
             .sound(SoundType.STONE)
             .strength(1.5F, 6.0F)
-            .requiresCorrectToolForDrops(), BlockTags.MINEABLE_WITH_PICKAXE);
-
+            .requiresCorrectToolForDrops(), BlockMaterial.STONE);
     public static BaseBlockProperty PORCELAIN = new BaseBlockProperty(BlockBehaviour.Properties.of(Material.GLASS)
             .sound(SoundType.GLASS)
-            .strength(1.0F, 1.0F), BlockTags.MINEABLE_WITH_PICKAXE);
+            .strength(1.0F, 1.0F), BlockMaterial.STONE);
     public static BaseBlockProperty WOOD = new BaseBlockProperty(BlockBehaviour.Properties.of(Material.WOOD)
             .sound(SoundType.WOOD)
-            .strength(2.0F, 3.0F), BlockTags.MINEABLE_WITH_AXE);
+            .strength(2.0F, 3.0F), BlockMaterial.WOOD);
     public static BaseBlockProperty BAMBOO = new BaseBlockProperty(BlockBehaviour.Properties.of(Material.WOOD)
             .sound(SoundType.BAMBOO)
-            .strength(1.5F, 2.5F), BlockTags.MINEABLE_WITH_AXE);
+            .strength(1.5F, 2.5F), BlockMaterial.BAMBOO);
     public static BaseBlockProperty GLAZED = new BaseBlockProperty(BlockBehaviour.Properties.of(Material.STONE)
             .sound(SoundType.GLASS)
             .strength(1.5F, 6.0F)
-            .requiresCorrectToolForDrops(), BlockTags.MINEABLE_WITH_PICKAXE);
+            .requiresCorrectToolForDrops(), BlockMaterial.STONE);
 
     BlockBehaviour.Properties properties;
-    TagKey<Block> tool;
+    BlockMaterial material;
 
-    BaseBlockProperty(BlockBehaviour.Properties properties, TagKey<Block> tool){
+    BaseBlockProperty(BlockBehaviour.Properties properties, BlockMaterial material){
         this.properties = properties;
-        this.tool = tool;
+        this.material = material;
     }
 
-    public TagKey<Block> getTool(){
-        return tool;
+    public BlockMaterial getMaterial(){
+        return material;
+    }
+
+    public enum BlockMaterial{
+        STONE(BlockTags.MINEABLE_WITH_PICKAXE),
+        WOOD(BlockTags.MINEABLE_WITH_AXE),
+        PORCELAIN(BlockTags.MINEABLE_WITH_PICKAXE),
+        BAMBOO(BlockTags.MINEABLE_WITH_AXE);
+        TagKey<Block> tool;
+        public TagKey<Block> getTool(){
+            return tool;
+        }
+        BlockMaterial(TagKey<Block> tool){
+            this.tool = tool;
+        }
     }
 
 }
