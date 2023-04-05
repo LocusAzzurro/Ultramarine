@@ -40,7 +40,7 @@ public class CreativeTabs {
         }
         @Override
         public ItemStack makeIcon() {
-            return new ItemStack(ItemRegistry.CYAN_BRICKS.get());
+            return new ItemStack(ItemRegistry.BIG_BLUE_AND_WHITE_PORCELAIN_VASE.get());
         }
     }
 

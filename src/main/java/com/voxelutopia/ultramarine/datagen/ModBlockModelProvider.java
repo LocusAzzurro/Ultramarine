@@ -1,9 +1,7 @@
 package com.voxelutopia.ultramarine.datagen;
 
-import com.mojang.authlib.minecraft.TelemetrySession;
 import com.voxelutopia.ultramarine.data.BlockRegistry;
 import com.voxelutopia.ultramarine.data.ModBlockStateProperties;
-import com.voxelutopia.ultramarine.world.block.BaseWall;
 import com.voxelutopia.ultramarine.world.block.DecorativeBlock;
 import com.voxelutopia.ultramarine.world.block.RoofTiles;
 import com.voxelutopia.ultramarine.world.block.ShiftedTileType;
@@ -25,6 +23,7 @@ import java.util.Objects;
 
 import static net.minecraft.world.level.block.state.properties.BlockStateProperties.*;
 
+@SuppressWarnings("unused")
 public class ModBlockModelProvider extends BlockStateProvider {
 
     private final Map<Pair<Direction, Direction>, Integer> rotations = Map.of(

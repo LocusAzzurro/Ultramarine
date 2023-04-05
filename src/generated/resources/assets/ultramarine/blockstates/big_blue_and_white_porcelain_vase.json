@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "ultramarine:block/big_blue_and_white_porcelain_vase",
+      "y": 180
+    },
+    "facing=south": {
+      "model": "ultramarine:block/big_blue_and_white_porcelain_vase"
+    },
+    "facing=west": {
+      "model": "ultramarine:block/big_blue_and_white_porcelain_vase",
+      "y": 90
+    },
+    "facing=east": {
+      "model": "ultramarine:block/big_blue_and_white_porcelain_vase",
+      "y": 270
+    }
+  }
+}

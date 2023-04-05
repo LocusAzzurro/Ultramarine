@@ -42,7 +42,9 @@ public class ModLootTableProvider extends BaseLootTableProvider {
                 .filter(blockRegistryObject -> !NON_SIMPLE_BLOCKS.contains(blockRegistryObject))
                 .forEach(this::simple);
         ore(BlockRegistry.JADE_ORE, ItemRegistry.JADE);
+
         porcelain(BlockRegistry.BLUE_AND_WHITE_PORCELAIN_VASE, ItemRegistry.BLUE_AND_WHITE_PORCELAIN_PIECE, ItemRegistry.BLUE_AND_WHITE_PORCELAIN_SHARDS);
+        porcelain(BlockRegistry.BIG_BLUE_AND_WHITE_PORCELAIN_VASE, ItemRegistry.BLUE_AND_WHITE_PORCELAIN_PIECE, ItemRegistry.BLUE_AND_WHITE_PORCELAIN_SHARDS);
         //lootTables.put(BlockRegistry.JADE_ORE.get(), createOreTable(BlockRegistry.JADE_ORE.getId().getPath(), BlockRegistry.JADE_ORE.get(), ItemRegistry.JADE.get()));
     }
 
