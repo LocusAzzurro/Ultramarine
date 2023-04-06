@@ -38,6 +38,9 @@ public class ItemRegistry {
     public static final RegistryObject<Item> POLISHED_WEATHERED_STONE_SLAB = fromBlock(BlockRegistry.POLISHED_WEATHERED_STONE_SLAB, CreativeTabs.BUILDING_BLOCKS);
     public static final RegistryObject<Item> POLISHED_WEATHERED_STONE_STAIRS = fromBlock(BlockRegistry.POLISHED_WEATHERED_STONE_STAIRS, CreativeTabs.BUILDING_BLOCKS);
     public static final RegistryObject<Item> POLISHED_WEATHERED_STONE_WALL = fromBlock(BlockRegistry.POLISHED_WEATHERED_STONE_WALL, CreativeTabs.BUILDING_BLOCKS);
+    public static final RegistryObject<Item> LIGHT_CYAN_FLOOR_TILE = fromBlock(BlockRegistry.LIGHT_CYAN_FLOOR_TILE, CreativeTabs.BUILDING_BLOCKS);
+    public static final RegistryObject<Item> LIGHT_CYAN_FLOOR_TILE_SLAB = fromBlock(BlockRegistry.LIGHT_CYAN_FLOOR_TILE_SLAB, CreativeTabs.BUILDING_BLOCKS);
+    public static final RegistryObject<Item> LIGHT_CYAN_FLOOR_TILE_STAIRS = fromBlock(BlockRegistry.LIGHT_CYAN_FLOOR_TILE_STAIRS, CreativeTabs.BUILDING_BLOCKS);
     public static final RegistryObject<Item> BAMBOO_MAT = fromBlock(BlockRegistry.BAMBOO_MAT, CreativeTabs.BUILDING_BLOCKS);
     public static final RegistryObject<Item> BAMBOO_MAT_SLAB = fromBlock(BlockRegistry.BAMBOO_MAT_SLAB, CreativeTabs.BUILDING_BLOCKS);
     public static final RegistryObject<Item> BAMBOO_MAT_STAIRS = fromBlock(BlockRegistry.BAMBOO_MAT_STAIRS, CreativeTabs.BUILDING_BLOCKS);
