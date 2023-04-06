@@ -59,6 +59,9 @@ public class ItemRegistry {
     public static final RegistryObject<Item> CYAN_ROOF_TILES = fromBlock(BlockRegistry.CYAN_ROOF_TILES, CreativeTabs.BUILDING_BLOCKS);
     public static final RegistryObject<Item> CYAN_ROOF_TILE_STAIRS = fromBlock(BlockRegistry.CYAN_ROOF_TILE_STAIRS, CreativeTabs.BUILDING_BLOCKS);
     public static final RegistryObject<Item> CYAN_ROOF_TILE_EDGE = fromBlock(BlockRegistry.CYAN_ROOF_TILE_EDGE, CreativeTabs.BUILDING_BLOCKS);
+    public static final RegistryObject<Item> BLACK_ROOF_TILES = fromBlock(BlockRegistry.BLACK_ROOF_TILES, CreativeTabs.BUILDING_BLOCKS);
+    public static final RegistryObject<Item> BLACK_ROOF_TILE_STAIRS = fromBlock(BlockRegistry.BLACK_ROOF_TILE_STAIRS, CreativeTabs.BUILDING_BLOCKS);
+    public static final RegistryObject<Item> BLACK_ROOF_TILE_EDGE = fromBlock(BlockRegistry.BLACK_ROOF_TILE_EDGE, CreativeTabs.BUILDING_BLOCKS);
 
 
     public static final RegistryObject<Item> ABACUS = fromBlock(BlockRegistry.ABACUS, CreativeTabs.DECORATIONS);
