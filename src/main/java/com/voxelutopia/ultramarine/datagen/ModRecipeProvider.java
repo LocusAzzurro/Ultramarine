@@ -41,6 +41,7 @@ public class ModRecipeProvider extends RecipeProvider {
         roofTileBlocksRecipe("yellow", pFinishedRecipeConsumer);
         roofTileBlocksRecipe("green", pFinishedRecipeConsumer);
         roofTileBlocksRecipe("blue", pFinishedRecipeConsumer);
+        roofTileBlocksRecipe("cyan", pFinishedRecipeConsumer);
     }
 
     private void quadComposeRecipe(Item part, Item combined, Consumer<FinishedRecipe> pFinishedRecipeConsumer){
