@@ -1,8 +1,6 @@
 package com.voxelutopia.ultramarine.datagen;
 
 import com.voxelutopia.ultramarine.data.ItemRegistry;
-import net.minecraft.FieldsAreNonnullByDefault;
-import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.advancements.critereon.InventoryChangeTrigger;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.recipes.*;
@@ -13,10 +11,10 @@ import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.IForgeRegistry;
 import org.jetbrains.annotations.NotNull;
 
-import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.Objects;
 import java.util.function.Consumer;
 
+@SuppressWarnings("unused")
 public class ModRecipeProvider extends RecipeProvider {
 
     public ModRecipeProvider(DataGenerator pGenerator) {
@@ -46,7 +44,9 @@ public class ModRecipeProvider extends RecipeProvider {
         roofTileBlocksRecipe("black", pFinishedRecipeConsumer);
     }
 
+    @SuppressWarnings("null")
     private void quadComposeRecipe(Item part, Item combined, Consumer<FinishedRecipe> pFinishedRecipeConsumer){
+        assert part.getRegistryName() != null;
         ShapedRecipeBuilder.shaped(combined, 1)
                 .define('A', part)
                 .pattern("AA")
@@ -56,14 +56,19 @@ public class ModRecipeProvider extends RecipeProvider {
     }
 
     private void quadDecomposeRecipe(Item part, Item combined, Consumer<FinishedRecipe> pFinishedRecipeConsumer){
+        assert combined.getRegistryName() != null;
         ShapelessRecipeBuilder.shapeless(part, 4).requires(combined)
                 .unlockedBy("has_" + combined.getRegistryName().getPath(), InventoryChangeTrigger.TriggerInstance.hasItems(combined))
                 .save(pFinishedRecipeConsumer);
     }
 
     private void slabAndStairsRecipe(Item baseBlock, Item slabBlock, Item stairBlock, Consumer<FinishedRecipe> pFinishedRecipeConsumer){
-        String baseBlockAdvancement = "has_" + baseBlock.getRegistryName().getPath();
+        String baseBlockPath = Objects.requireNonNull(baseBlock.getRegistryName()).getPath();
+        String stairsBlockPath = Objects.requireNonNull(stairBlock.getRegistryName()).getPath();
+        String slabBlockPath = Objects.requireNonNull(slabBlock.getRegistryName()).getPath();
+        String baseBlockAdvancement = "has_" + baseBlockPath;
         InventoryChangeTrigger.TriggerInstance trigger = InventoryChangeTrigger.TriggerInstance.hasItems(baseBlock);
+
         ShapedRecipeBuilder.shaped(stairBlock, 1)
                 .define('B', baseBlock)
                 .pattern("B  ")
@@ -71,25 +76,27 @@ public class ModRecipeProvider extends RecipeProvider {
                 .pattern("BBB")
                 .unlockedBy(baseBlockAdvancement, trigger)
                 .save(pFinishedRecipeConsumer,
-                        new ResourceLocation(DataGenerators.MOD_ID, stairBlock.getRegistryName().getPath() + "_from_crafting"));
+                        new ResourceLocation(DataGenerators.MOD_ID, stairsBlockPath + "_from_crafting"));
         ShapedRecipeBuilder.shaped(slabBlock, 6)
                 .define('B', baseBlock)
                 .pattern("BBB")
                 .unlockedBy(baseBlockAdvancement, trigger)
                 .save(pFinishedRecipeConsumer,
-                        new ResourceLocation(DataGenerators.MOD_ID,slabBlock.getRegistryName().getPath() + "_from_crafting"));
+                        new ResourceLocation(DataGenerators.MOD_ID, slabBlockPath + "_from_crafting"));
         SingleItemRecipeBuilder.stonecutting(Ingredient.of(baseBlock), stairBlock)
                 .unlockedBy(baseBlockAdvancement, trigger)
                 .save(pFinishedRecipeConsumer,
-                        new ResourceLocation(DataGenerators.MOD_ID,stairBlock.getRegistryName().getPath() + "_from_stonecutting"));
+                        new ResourceLocation(DataGenerators.MOD_ID, stairsBlockPath + "_from_stonecutting"));
         SingleItemRecipeBuilder.stonecutting(Ingredient.of(baseBlock), slabBlock, 2)
                 .unlockedBy(baseBlockAdvancement, trigger)
                 .save(pFinishedRecipeConsumer,
-                        new ResourceLocation(DataGenerators.MOD_ID,slabBlock.getRegistryName().getPath() + "_from_stonecutting"));
+                        new ResourceLocation(DataGenerators.MOD_ID, slabBlockPath + "_from_stonecutting"));
     }
 
     private void wallRecipe(Item baseBlock, Item wallBlock, Consumer<FinishedRecipe> pFinishedRecipeConsumer){
-        String baseBlockAdvancement = "has_" + baseBlock.getRegistryName().getPath();
+        String baseBlockPath = Objects.requireNonNull(baseBlock.getRegistryName()).getPath();
+        String wallBlockPath = Objects.requireNonNull(wallBlock.getRegistryName()).getPath();
+        String baseBlockAdvancement = "has_" + baseBlockPath;
         InventoryChangeTrigger.TriggerInstance trigger = InventoryChangeTrigger.TriggerInstance.hasItems(baseBlock);
         ShapedRecipeBuilder.shaped(wallBlock, 6)
                 .define('B', baseBlock)
@@ -97,11 +104,11 @@ public class ModRecipeProvider extends RecipeProvider {
                 .pattern("BBB")
                 .unlockedBy(baseBlockAdvancement, trigger)
                 .save(pFinishedRecipeConsumer,
-                        new ResourceLocation(DataGenerators.MOD_ID,wallBlock.getRegistryName().getPath() + "_from_crafting"));
+                        new ResourceLocation(DataGenerators.MOD_ID,wallBlockPath + "_from_crafting"));
         SingleItemRecipeBuilder.stonecutting(Ingredient.of(baseBlock), wallBlock)
                 .unlockedBy(baseBlockAdvancement, trigger)
                 .save(pFinishedRecipeConsumer,
-                        new ResourceLocation(DataGenerators.MOD_ID,wallBlock.getRegistryName().getPath() + "_from_stonecutting"));
+                        new ResourceLocation(DataGenerators.MOD_ID,wallBlockPath + "_from_stonecutting"));
     }
 
     private void roofTileBlocksRecipe(String color, Consumer<FinishedRecipe> pFinishedRecipeConsumer){
