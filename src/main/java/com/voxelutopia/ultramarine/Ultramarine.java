@@ -1,6 +1,7 @@
 package com.voxelutopia.ultramarine;
 
 import com.mojang.logging.LogUtils;
+import com.voxelutopia.ultramarine.data.BlockEntityRegistry;
 import com.voxelutopia.ultramarine.data.BlockRegistry;
 import com.voxelutopia.ultramarine.data.CreativeTabs;
 import com.voxelutopia.ultramarine.data.ItemRegistry;
@@ -33,6 +34,7 @@ public class Ultramarine {
         IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
         BlockRegistry.BLOCKS.register(bus);
         ItemRegistry.ITEMS.register(bus);
+        BlockEntityRegistry.BLOCK_ENTITIES.register(bus);
 
         // Register the setup method for modloading
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setup);
