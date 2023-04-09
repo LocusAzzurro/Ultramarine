@@ -1,0 +1,58 @@
+{
+  "bamboo_wood_hit": {
+    "subtitle": "subtitles.block.generic.hit",
+    "sounds": [
+      "ultramarine:block_bamboo_wood_step1",
+      "ultramarine:block_bamboo_wood_step2",
+      "ultramarine:block_bamboo_wood_step3",
+      "ultramarine:block_bamboo_wood_step4",
+      "ultramarine:block_bamboo_wood_step5",
+      "ultramarine:block_bamboo_wood_step6"
+    ]
+  },
+  "bamboo_wood_place": {
+    "subtitle": "subtitles.block.generic.place",
+    "sounds": [
+      "ultramarine:block_bamboo_wood_break1",
+      "ultramarine:block_bamboo_wood_break2",
+      "ultramarine:block_bamboo_wood_break3",
+      "ultramarine:block_bamboo_wood_break4"
+    ]
+  },
+  "bamboo_wood_break": {
+    "subtitle": "subtitles.block.generic.break",
+    "sounds": [
+      "ultramarine:block_bamboo_wood_break1",
+      "ultramarine:block_bamboo_wood_break2",
+      "ultramarine:block_bamboo_wood_break3",
+      "ultramarine:block_bamboo_wood_break4"
+    ]
+  },
+  "bamboo_wood_step": {
+    "subtitle": "subtitles.block.generic.footsteps",
+    "sounds": [
+      "ultramarine:block_bamboo_wood_step1",
+      "ultramarine:block_bamboo_wood_step2",
+      "ultramarine:block_bamboo_wood_step3",
+      "ultramarine:block_bamboo_wood_step4",
+      "ultramarine:block_bamboo_wood_step5",
+      "ultramarine:block_bamboo_wood_step6"
+  ]
+  },
+  "bamboo_wood_fall": {
+    "subtitle": "subtitles.entity.generic.big_fall",
+    "sounds": [
+      "ultramarine:block_bamboo_wood_step1",
+      "ultramarine:block_bamboo_wood_step2"
+    ]
+  },
+  "wood_hammer": {
+  "subtitle": "subtitles.ultramarine.wood_hammer",
+  "sounds": [
+    "ultramarine:wood_hammer1",
+    "ultramarine:wood_hammer2",
+    "ultramarine:wood_hammer3",
+    "ultramarine:wood_hammer4"
+  ]
+}
+}

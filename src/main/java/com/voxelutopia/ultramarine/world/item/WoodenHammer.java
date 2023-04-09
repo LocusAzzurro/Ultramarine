@@ -2,7 +2,9 @@ package com.voxelutopia.ultramarine.world.item;
 
 import com.voxelutopia.ultramarine.data.CreativeTabs;
 import com.voxelutopia.ultramarine.data.ModBlockStateProperties;
+import com.voxelutopia.ultramarine.data.SoundRegistry;
 import net.minecraft.core.BlockPos;
+import net.minecraft.sounds.SoundSource;
 import net.minecraft.stats.Stats;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.item.Item;
@@ -36,6 +38,7 @@ public class WoodenHammer extends Item {
                 item.hurtAndBreak(1, player1, p -> p.broadcastBreakEvent(pContext.getHand()));
                 player1.awardStat(Stats.ITEM_USED.get(item.getItem()));
             });
+            level.playSound(player.get(),blockpos, SoundRegistry.WOOD_HAMMER.get(), SoundSource.BLOCKS,1,0.75f);
             return InteractionResult.sidedSuccess(level.isClientSide());
         }
         return super.useOn(pContext);
