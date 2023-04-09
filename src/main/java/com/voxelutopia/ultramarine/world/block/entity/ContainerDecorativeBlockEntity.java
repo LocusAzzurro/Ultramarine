@@ -1,6 +1,7 @@
 package com.voxelutopia.ultramarine.world.block.entity;
 
 import com.voxelutopia.ultramarine.data.BlockEntityRegistry;
+import com.voxelutopia.ultramarine.world.block.menu.ContainerDecorativeBlockMenu;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.NonNullList;
 import net.minecraft.core.Registry;
@@ -53,7 +54,7 @@ public class ContainerDecorativeBlockEntity extends RandomizableContainerBlockEn
     //todo add custom filtering menus
     @Override
     protected AbstractContainerMenu createMenu(int pContainerId, Inventory pInventory) {
-        return new ChestMenu(MenuType.GENERIC_9x3, pContainerId, pInventory, this, 3);
+        return new ContainerDecorativeBlockMenu(pContainerId, pInventory, 3);
     }
 
     @Override

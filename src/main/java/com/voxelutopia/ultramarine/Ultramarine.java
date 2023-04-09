@@ -32,6 +32,7 @@ public class Ultramarine {
         BlockRegistry.BLOCKS.register(bus);
         ItemRegistry.ITEMS.register(bus);
         BlockEntityRegistry.BLOCK_ENTITIES.register(bus);
+        MenuTypeRegistry.MENU_TYPES.register(bus);
         SoundRegistry.SOUND_EVENT.register(bus);
 
         // Register the setup method for modloading
