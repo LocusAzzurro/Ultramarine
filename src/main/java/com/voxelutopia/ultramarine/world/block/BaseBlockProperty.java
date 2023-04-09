@@ -1,5 +1,6 @@
 package com.voxelutopia.ultramarine.world.block;
 
+import com.voxelutopia.ultramarine.data.SoundRegistry;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.level.block.Block;
@@ -12,11 +13,18 @@ public final class BaseBlockProperty {
             .sound(SoundType.STONE)
             .strength(1.5F, 6.0F)
             .requiresCorrectToolForDrops(), BlockMaterial.STONE);
+    public static BaseBlockProperty TILE = new BaseBlockProperty(BlockBehaviour.Properties.of(Material.STONE)
+            .sound(SoundType.BONE_BLOCK)
+            .strength(1.5F, 6.0F)
+            .requiresCorrectToolForDrops(), BlockMaterial.STONE);
     public static BaseBlockProperty PORCELAIN = new BaseBlockProperty(BlockBehaviour.Properties.of(Material.GLASS)
-            .sound(SoundType.GLASS)
+            .sound(SoundRegistry.PORCELAIN)
             .strength(1.0F, 1.0F), BlockMaterial.STONE);
     public static BaseBlockProperty WOOD = new BaseBlockProperty(BlockBehaviour.Properties.of(Material.WOOD)
             .sound(SoundType.WOOD)
+            .strength(2.0F, 3.0F), BlockMaterial.WOOD);
+    public static BaseBlockProperty BAMBOO_WOOD = new BaseBlockProperty(BlockBehaviour.Properties.of(Material.WOOD)
+            .sound(SoundRegistry.BAMBOO_WOOD)
             .strength(2.0F, 3.0F), BlockMaterial.WOOD);
     public static BaseBlockProperty BAMBOO = new BaseBlockProperty(BlockBehaviour.Properties.of(Material.WOOD)
             .sound(SoundType.BAMBOO)

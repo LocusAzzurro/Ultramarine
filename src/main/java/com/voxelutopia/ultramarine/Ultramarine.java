@@ -1,10 +1,7 @@
 package com.voxelutopia.ultramarine;
 
 import com.mojang.logging.LogUtils;
-import com.voxelutopia.ultramarine.data.BlockEntityRegistry;
-import com.voxelutopia.ultramarine.data.BlockRegistry;
-import com.voxelutopia.ultramarine.data.CreativeTabs;
-import com.voxelutopia.ultramarine.data.ItemRegistry;
+import com.voxelutopia.ultramarine.data.*;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.common.MinecraftForge;
@@ -35,6 +32,7 @@ public class Ultramarine {
         BlockRegistry.BLOCKS.register(bus);
         ItemRegistry.ITEMS.register(bus);
         BlockEntityRegistry.BLOCK_ENTITIES.register(bus);
+        SoundRegistry.SOUND_EVENT.register(bus);
 
         // Register the setup method for modloading
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setup);
