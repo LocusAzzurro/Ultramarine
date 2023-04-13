@@ -6,6 +6,7 @@ import net.minecraft.world.SimpleContainer;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
+import net.minecraft.world.inventory.ChestMenu;
 import net.minecraft.world.inventory.MenuType;
 import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.item.ItemStack;
@@ -18,6 +19,10 @@ public class ContainerDecorativeBlockMenu extends AbstractContainerMenu {
 
     public ContainerDecorativeBlockMenu(int containerId, Inventory inventory, int rows) {
         this(MenuTypeRegistry.CONTAINER_DECORATIVE_BLOCK_MENU_GENERIC_9X3.get(), containerId, inventory, new SimpleContainer(9 * rows), rows);
+    }
+
+    public static ContainerDecorativeBlockMenu threeRows(int pId, Inventory pPlayer, Container pBlockEntity) {
+        return new ContainerDecorativeBlockMenu(MenuTypeRegistry.CONTAINER_DECORATIVE_BLOCK_MENU_GENERIC_9X3.get(), pId, pPlayer, pBlockEntity, 3);
     }
 
     public ContainerDecorativeBlockMenu(MenuType<?> menuType, int containerId, Inventory inventory, Container container, int rows) {
@@ -46,6 +51,10 @@ public class ContainerDecorativeBlockMenu extends AbstractContainerMenu {
 
     }
 
+    public int getRowCount(){
+        return containerRows;
+    }
+
     public ItemStack quickMoveStack(Player pPlayer, int pIndex) {
         ItemStack itemstack = ItemStack.EMPTY;
         Slot slot = this.slots.get(pIndex);
@@ -72,5 +81,14 @@ public class ContainerDecorativeBlockMenu extends AbstractContainerMenu {
     @Override
     public boolean stillValid(Player pPlayer) {
         return this.container.stillValid(pPlayer);
+    }
+
+    public void removed(Player pPlayer) {
+        super.removed(pPlayer);
+        this.container.stopOpen(pPlayer);
+    }
+
+    public Container getContainer() {
+        return this.container;
     }
 }

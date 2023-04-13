@@ -54,7 +54,7 @@ public class ContainerDecorativeBlockEntity extends RandomizableContainerBlockEn
     //todo add custom filtering menus
     @Override
     protected AbstractContainerMenu createMenu(int pContainerId, Inventory pInventory) {
-        return new ContainerDecorativeBlockMenu(pContainerId, pInventory, 3);
+        return ContainerDecorativeBlockMenu.threeRows(pContainerId, pInventory, this);
     }
 
     @Override

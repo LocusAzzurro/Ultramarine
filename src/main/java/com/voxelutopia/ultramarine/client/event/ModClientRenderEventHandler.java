@@ -1,6 +1,9 @@
 package com.voxelutopia.ultramarine.client.event;
 
+import com.voxelutopia.ultramarine.client.screen.ContainerDecorativeBlockScreen;
 import com.voxelutopia.ultramarine.data.BlockRegistry;
+import com.voxelutopia.ultramarine.data.MenuTypeRegistry;
+import net.minecraft.client.gui.screens.MenuScreens;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraftforge.api.distmarker.Dist;
@@ -24,6 +27,8 @@ public class ModClientRenderEventHandler {
             ItemBlockRenderTypes.setRenderLayer(BlockRegistry.WHITE_SKY_LANTERN.get(), RenderType.translucent());
             ItemBlockRenderTypes.setRenderLayer(BlockRegistry.RED_SKY_LANTERN.get(), RenderType.translucent());
             ItemBlockRenderTypes.setRenderLayer(BlockRegistry.YELLOW_SKY_LANTERN.get(), RenderType.translucent());
+
+            MenuScreens.register(MenuTypeRegistry.CONTAINER_DECORATIVE_BLOCK_MENU_GENERIC_9X3.get(), ContainerDecorativeBlockScreen::new);
         });
     }
 
