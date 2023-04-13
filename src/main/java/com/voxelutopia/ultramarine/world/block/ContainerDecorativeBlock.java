@@ -1,12 +1,14 @@
 package com.voxelutopia.ultramarine.world.block;
 
 import com.voxelutopia.ultramarine.world.block.entity.ContainerDecorativeBlockEntity;
+import com.voxelutopia.ultramarine.world.block.menu.ContainerDecorativeBlockMenu;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.Container;
 import net.minecraft.world.Containers;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.item.Item;
@@ -18,8 +20,12 @@ import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.material.PushReaction;
 import net.minecraft.world.phys.BlockHitResult;
+import net.minecraftforge.network.IContainerFactory;
+import org.apache.commons.lang3.function.TriFunction;
 
+import java.util.function.BiFunction;
 import java.util.function.Predicate;
+import java.util.function.Supplier;
 
 public class ContainerDecorativeBlock extends DecorativeBlock implements EntityBlock {
 
@@ -92,6 +98,10 @@ public class ContainerDecorativeBlock extends DecorativeBlock implements EntityB
         }
     }
 
+    public ContainerType getContainerType(){
+        return this.containerType;
+    }
+
     public static class Builder extends DecorativeBlock.Builder{
 
         private ContainerType containerType = ContainerType.COMMON_REGULAR;
@@ -113,17 +123,19 @@ public class ContainerDecorativeBlock extends DecorativeBlock implements EntityB
     }
 
     public enum ContainerType {
-        COMMON_REGULAR(3, i -> true),
-        COMMON_SMALL(1, i -> true),
-        FOOD_REGULAR(3, ItemStack::isEdible),
-        POTION_REGULAR(3, i -> i.is(Items.POTION));
+        COMMON_REGULAR(3, i -> true, ContainerDecorativeBlockMenu::genericThreeRows),
+        COMMON_SMALL(1, i -> true, ContainerDecorativeBlockMenu::genericOneRow),
+        FOOD_REGULAR(3, ItemStack::isEdible, ContainerDecorativeBlockMenu::genericThreeRows),//todo implement methods
+        POTION_REGULAR(3, i -> i.is(Items.POTION), ContainerDecorativeBlockMenu::genericThreeRows);
 
         private final int rows;
         private final Predicate<ItemStack> filter;
+        private final TriFunction<Integer, Inventory, ContainerDecorativeBlockEntity, ContainerDecorativeBlockMenu> menu;
 
-        ContainerType(int rows, Predicate<ItemStack> filter){
+        ContainerType(int rows, Predicate<ItemStack> filter, TriFunction<Integer, Inventory, ContainerDecorativeBlockEntity, ContainerDecorativeBlockMenu> menu){
             this.rows = rows;
             this.filter = filter;
+            this.menu = menu;
         }
 
         public boolean check(ItemStack item){
@@ -132,6 +144,10 @@ public class ContainerDecorativeBlock extends DecorativeBlock implements EntityB
 
         public int getRows(){
             return rows;
+        }
+
+        public ContainerDecorativeBlockMenu createMenu(int pId, Inventory inv, ContainerDecorativeBlockEntity blockEntity){
+            return this.menu.apply(pId, inv, blockEntity);
         }
 
     }

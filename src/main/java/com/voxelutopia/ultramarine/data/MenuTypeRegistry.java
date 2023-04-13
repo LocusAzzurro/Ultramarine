@@ -13,8 +13,8 @@ public class MenuTypeRegistry {
     public static final DeferredRegister<MenuType<?>> MENU_TYPES = DeferredRegister.create(ForgeRegistries.CONTAINERS, Ultramarine.MOD_ID);
 
     public static final RegistryObject<MenuType<ContainerDecorativeBlockMenu>> CONTAINER_DECORATIVE_BLOCK_MENU_GENERIC_9X1 = MENU_TYPES.register("container_decorative_block_menu_generic_9x1",
-            () -> IForgeMenuType.create((windowId, inv, data) -> new ContainerDecorativeBlockMenu(windowId, inv, 1)));
+            () -> IForgeMenuType.create((windowId, inv, data) -> ContainerDecorativeBlockMenu.genericOneRow(windowId, inv)));
     public static final RegistryObject<MenuType<ContainerDecorativeBlockMenu>> CONTAINER_DECORATIVE_BLOCK_MENU_GENERIC_9X3 = MENU_TYPES.register("container_decorative_block_menu_generic_9x3",
-            () -> IForgeMenuType.create((windowId, inv, data) -> new ContainerDecorativeBlockMenu(windowId, inv, 3)));
+            () -> IForgeMenuType.create((windowId, inv, data) -> ContainerDecorativeBlockMenu.genericThreeRows(windowId, inv)));
 
 }

@@ -1,15 +1,18 @@
 package com.voxelutopia.ultramarine.world.block.menu;
 
 import com.voxelutopia.ultramarine.data.MenuTypeRegistry;
+import com.voxelutopia.ultramarine.world.block.ContainerDecorativeBlock;
 import net.minecraft.world.Container;
 import net.minecraft.world.SimpleContainer;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
-import net.minecraft.world.inventory.ChestMenu;
 import net.minecraft.world.inventory.MenuType;
 import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.item.ItemStack;
+import net.minecraftforge.items.IItemHandler;
+import net.minecraftforge.items.SlotItemHandler;
+import org.jetbrains.annotations.NotNull;
 
 public class ContainerDecorativeBlockMenu extends AbstractContainerMenu {
 
@@ -17,16 +20,29 @@ public class ContainerDecorativeBlockMenu extends AbstractContainerMenu {
     private final Container container;
     private final int containerRows;
 
-    public ContainerDecorativeBlockMenu(int containerId, Inventory inventory, int rows) {
-        this(MenuTypeRegistry.CONTAINER_DECORATIVE_BLOCK_MENU_GENERIC_9X3.get(), containerId, inventory, new SimpleContainer(9 * rows), rows);
+    public ContainerDecorativeBlockMenu(MenuType<?> menuType, int containerId, Inventory inventory, ContainerDecorativeBlock.ContainerType type) {
+        this(menuType, containerId, inventory, new SimpleContainer(9 * type.getRows()), type);
     }
 
-    public static ContainerDecorativeBlockMenu threeRows(int pId, Inventory pPlayer, Container pBlockEntity) {
-        return new ContainerDecorativeBlockMenu(MenuTypeRegistry.CONTAINER_DECORATIVE_BLOCK_MENU_GENERIC_9X3.get(), pId, pPlayer, pBlockEntity, 3);
+    public static ContainerDecorativeBlockMenu genericOneRow(int pId, Inventory pPlayer) {
+        return new ContainerDecorativeBlockMenu(MenuTypeRegistry.CONTAINER_DECORATIVE_BLOCK_MENU_GENERIC_9X1.get(), pId, pPlayer, ContainerDecorativeBlock.ContainerType.COMMON_SMALL);
     }
 
-    public ContainerDecorativeBlockMenu(MenuType<?> menuType, int containerId, Inventory inventory, Container container, int rows) {
+    public static ContainerDecorativeBlockMenu genericThreeRows(int pId, Inventory pPlayer) {
+        return new ContainerDecorativeBlockMenu(MenuTypeRegistry.CONTAINER_DECORATIVE_BLOCK_MENU_GENERIC_9X3.get(), pId, pPlayer, ContainerDecorativeBlock.ContainerType.COMMON_REGULAR);
+    }
+
+    public static ContainerDecorativeBlockMenu genericOneRow(int pId, Inventory pPlayer , Container pBlockEntity) {
+        return new ContainerDecorativeBlockMenu(MenuTypeRegistry.CONTAINER_DECORATIVE_BLOCK_MENU_GENERIC_9X1.get(), pId, pPlayer, pBlockEntity, ContainerDecorativeBlock.ContainerType.COMMON_SMALL);
+    }
+
+    public static ContainerDecorativeBlockMenu genericThreeRows(int pId, Inventory pPlayer, Container pBlockEntity) {
+        return new ContainerDecorativeBlockMenu(MenuTypeRegistry.CONTAINER_DECORATIVE_BLOCK_MENU_GENERIC_9X3.get(), pId, pPlayer, pBlockEntity, ContainerDecorativeBlock.ContainerType.COMMON_REGULAR);
+    }
+
+    public ContainerDecorativeBlockMenu(MenuType<?> menuType, int containerId, Inventory inventory, Container container, ContainerDecorativeBlock.ContainerType type) {
         super(menuType, containerId);
+        int rows = type.getRows();
         checkContainerSize(container, rows * 9);
         this.container = container;
         this.containerRows = rows;
@@ -36,7 +52,7 @@ public class ContainerDecorativeBlockMenu extends AbstractContainerMenu {
         //Container
         for(int row1 = 0; row1 < this.containerRows; ++row1) {
             for(int col1 = 0; col1 < 9; ++col1) {
-                this.addSlot(new Slot(container, col1 + row1 * 9, 8 + col1 * 18, 18 + row1 * 18));
+                this.addSlot(new FilteredSlot(container, col1 + row1 * 9, 8 + col1 * 18, 18 + row1 * 18, type));
             }
         }
 
@@ -95,4 +111,20 @@ public class ContainerDecorativeBlockMenu extends AbstractContainerMenu {
     public Container getContainer() {
         return this.container;
     }
+
+    public static class FilteredSlot extends Slot {
+
+        private final ContainerDecorativeBlock.ContainerType containerType;
+
+        public FilteredSlot(Container container, int pIndex, int pX, int pY, ContainerDecorativeBlock.ContainerType containerType) {
+            super(container, pIndex, pX, pY);
+            this.containerType = containerType;
+        }
+
+        @Override
+        public boolean mayPlace(@NotNull ItemStack stack) {
+            return containerType.check(stack);
+        }
+    }
+
 }

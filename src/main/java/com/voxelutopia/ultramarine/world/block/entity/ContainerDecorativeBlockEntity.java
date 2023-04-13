@@ -1,6 +1,7 @@
 package com.voxelutopia.ultramarine.world.block.entity;
 
 import com.voxelutopia.ultramarine.data.BlockEntityRegistry;
+import com.voxelutopia.ultramarine.world.block.ContainerDecorativeBlock;
 import com.voxelutopia.ultramarine.world.block.menu.ContainerDecorativeBlockMenu;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.NonNullList;
@@ -12,11 +13,8 @@ import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.world.ContainerHelper;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.inventory.AbstractContainerMenu;
-import net.minecraft.world.inventory.ChestMenu;
-import net.minecraft.world.inventory.MenuType;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.entity.RandomizableContainerBlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 
@@ -54,7 +52,10 @@ public class ContainerDecorativeBlockEntity extends RandomizableContainerBlockEn
     //todo add custom filtering menus
     @Override
     protected AbstractContainerMenu createMenu(int pContainerId, Inventory pInventory) {
-        return ContainerDecorativeBlockMenu.threeRows(pContainerId, pInventory, this);
+        if (block instanceof ContainerDecorativeBlock container){
+            return container.getContainerType().createMenu(pContainerId, pInventory, this);
+        }
+        return ContainerDecorativeBlockMenu.genericThreeRows(pContainerId, pInventory, this);
     }
 
     @Override
