@@ -9,7 +9,9 @@ import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.EntityBlock;
 import net.minecraft.world.level.block.entity.BlockEntity;
@@ -17,14 +19,16 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.material.PushReaction;
 import net.minecraft.world.phys.BlockHitResult;
 
+import java.util.function.Predicate;
+
 public class ContainerDecorativeBlock extends DecorativeBlock implements EntityBlock {
 
-    protected final ContentType contentType;
+    protected final ContainerType containerType;
     protected final int rowCount;
 
     public ContainerDecorativeBlock(Builder builder) {
         super(builder);
-        this.contentType = builder.contentType;
+        this.containerType = builder.containerType;
         this.rowCount = builder.rowCount;
     }
 
@@ -90,29 +94,46 @@ public class ContainerDecorativeBlock extends DecorativeBlock implements EntityB
 
     public static class Builder extends DecorativeBlock.Builder{
 
-        private ContentType contentType = ContentType.ALL;
+        private ContainerType containerType = ContainerType.COMMON_REGULAR;
         private int rowCount = 3;
 
         public Builder(BaseBlockProperty property) {
             super(property);
         }
 
-        public Builder content(ContentType type){
-            this.contentType = type;
+        public Builder content(ContainerType type){
+            this.containerType = type;
+            this.rowCount = type.getRows();
             return this;
         }
 
-        public Builder rows(int rows){
-            this.rowCount = rows;
-            return this;
-        }
         public ContainerDecorativeBlock build(){
             return new ContainerDecorativeBlock(this);
         }
     }
 
-    public enum ContentType{
-        ALL, FOOD, DRINK;
+    public enum ContainerType {
+        COMMON_REGULAR(3, i -> true),
+        COMMON_SMALL(1, i -> true),
+        FOOD_REGULAR(3, ItemStack::isEdible),
+        POTION_REGULAR(3, i -> i.is(Items.POTION));
+
+        private final int rows;
+        private final Predicate<ItemStack> filter;
+
+        ContainerType(int rows, Predicate<ItemStack> filter){
+            this.rows = rows;
+            this.filter = filter;
+        }
+
+        public boolean check(ItemStack item){
+            return this.filter.test(item);
+        }
+
+        public int getRows(){
+            return rows;
+        }
+
     }
 
 }
