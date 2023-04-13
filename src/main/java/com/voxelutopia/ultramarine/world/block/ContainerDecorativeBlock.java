@@ -126,8 +126,7 @@ public class ContainerDecorativeBlock extends DecorativeBlock implements EntityB
     public enum ContainerType {
         COMMON_REGULAR(3, i -> true, ContainerDecorativeBlockMenu::genericThreeRows),
         COMMON_SMALL(1, i -> true, ContainerDecorativeBlockMenu::genericOneRow),
-        FOOD_REGULAR(3, ItemStack::isEdible, ContainerDecorativeBlockMenu::genericThreeRows),//todo implement methods
-        POTION_REGULAR(3, i -> i.is(Items.POTION), ContainerDecorativeBlockMenu::genericThreeRows);
+        FOOD_REGULAR(3, ItemStack::isEdible, ContainerDecorativeBlockMenu::foodThreeRows);
 
         private final int rows;
         private final Predicate<ItemStack> filter;

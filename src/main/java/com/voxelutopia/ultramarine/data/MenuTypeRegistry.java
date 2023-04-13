@@ -16,5 +16,7 @@ public class MenuTypeRegistry {
             () -> IForgeMenuType.create((windowId, inv, data) -> ContainerDecorativeBlockMenu.genericOneRow(windowId, inv)));
     public static final RegistryObject<MenuType<ContainerDecorativeBlockMenu>> CONTAINER_DECORATIVE_BLOCK_MENU_GENERIC_9X3 = MENU_TYPES.register("container_decorative_block_menu_generic_9x3",
             () -> IForgeMenuType.create((windowId, inv, data) -> ContainerDecorativeBlockMenu.genericThreeRows(windowId, inv)));
+    public static final RegistryObject<MenuType<ContainerDecorativeBlockMenu>> CONTAINER_DECORATIVE_BLOCK_MENU_FOOD_9X3 = MENU_TYPES.register("container_decorative_block_menu_food_9x3",
+            () -> IForgeMenuType.create((windowId, inv, data) -> ContainerDecorativeBlockMenu.foodThreeRows(windowId, inv)));
 
 }
