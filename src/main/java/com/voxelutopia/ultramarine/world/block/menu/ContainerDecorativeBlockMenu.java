@@ -32,6 +32,8 @@ public class ContainerDecorativeBlockMenu extends AbstractContainerMenu {
         return new ContainerDecorativeBlockMenu(MenuTypeRegistry.CONTAINER_DECORATIVE_BLOCK_MENU_GENERIC_9X3.get(), pId, pPlayer, ContainerDecorativeBlock.ContainerType.COMMON_REGULAR);
     }
 
+    //todo add food and potion containers
+
     public static ContainerDecorativeBlockMenu genericOneRow(int pId, Inventory pPlayer , Container pBlockEntity) {
         return new ContainerDecorativeBlockMenu(MenuTypeRegistry.CONTAINER_DECORATIVE_BLOCK_MENU_GENERIC_9X1.get(), pId, pPlayer, pBlockEntity, ContainerDecorativeBlock.ContainerType.COMMON_SMALL);
     }

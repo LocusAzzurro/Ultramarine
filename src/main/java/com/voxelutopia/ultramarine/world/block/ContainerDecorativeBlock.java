@@ -2,6 +2,7 @@ package com.voxelutopia.ultramarine.world.block;
 
 import com.voxelutopia.ultramarine.world.block.entity.ContainerDecorativeBlockEntity;
 import com.voxelutopia.ultramarine.world.block.menu.ContainerDecorativeBlockMenu;
+import com.voxelutopia.ultramarine.world.block.menu.ContainerDecorativeBlockMenuProvider;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.Container;
 import net.minecraft.world.Containers;
@@ -130,12 +131,12 @@ public class ContainerDecorativeBlock extends DecorativeBlock implements EntityB
 
         private final int rows;
         private final Predicate<ItemStack> filter;
-        private final TriFunction<Integer, Inventory, ContainerDecorativeBlockEntity, ContainerDecorativeBlockMenu> menu;
+        private final ContainerDecorativeBlockMenuProvider<ContainerDecorativeBlockMenu> menuProvider;
 
-        ContainerType(int rows, Predicate<ItemStack> filter, TriFunction<Integer, Inventory, ContainerDecorativeBlockEntity, ContainerDecorativeBlockMenu> menu){
+        ContainerType(int rows, Predicate<ItemStack> filter, ContainerDecorativeBlockMenuProvider<ContainerDecorativeBlockMenu> menuProvider){
             this.rows = rows;
             this.filter = filter;
-            this.menu = menu;
+            this.menuProvider = menuProvider;
         }
 
         public boolean check(ItemStack item){
@@ -147,7 +148,7 @@ public class ContainerDecorativeBlock extends DecorativeBlock implements EntityB
         }
 
         public ContainerDecorativeBlockMenu createMenu(int pId, Inventory inv, ContainerDecorativeBlockEntity blockEntity){
-            return this.menu.apply(pId, inv, blockEntity);
+            return this.menuProvider.getMenu(pId, inv, blockEntity);
         }
 
     }
