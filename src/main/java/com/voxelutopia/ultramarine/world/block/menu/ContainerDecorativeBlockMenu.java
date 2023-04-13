@@ -33,23 +33,27 @@ public class ContainerDecorativeBlockMenu extends AbstractContainerMenu {
         container.startOpen(inventory.player);
         int i = (this.containerRows - 4) * 18;
 
-        for(int j = 0; j < this.containerRows; ++j) {
-            for(int k = 0; k < 9; ++k) {
-                this.addSlot(new Slot(container, k + j * 9, 8 + k * 18, 18 + j * 18));
+        //Container
+        for(int row1 = 0; row1 < this.containerRows; ++row1) {
+            for(int col1 = 0; col1 < 9; ++col1) {
+                this.addSlot(new Slot(container, col1 + row1 * 9, 8 + col1 * 18, 18 + row1 * 18));
             }
         }
 
-        for(int l = 0; l < 3; ++l) {
-            for(int j1 = 0; j1 < 9; ++j1) {
-                this.addSlot(new Slot(inventory, j1 + l * 9 + 9, 8 + j1 * 18, 103 + l * 18 + i));
+        //Inventory
+        for(int row2 = 0; row2 < 3; ++row2) {
+            for(int col2 = 0; col2 < 9; ++col2) {
+                this.addSlot(new Slot(inventory, col2 + row2 * 9 + 9, 8 + col2 * 18, 103 + row2 * 18 + i));
             }
         }
 
-        for(int i1 = 0; i1 < 9; ++i1) {
-            this.addSlot(new Slot(inventory, i1, 8 + i1 * 18, 161 + i));
+        //Hot-bar
+        for(int slot = 0; slot < 9; ++slot) {
+            this.addSlot(new Slot(inventory, slot, 8 + slot * 18, 161 + i));
         }
 
     }
+
 
     public int getRowCount(){
         return containerRows;
