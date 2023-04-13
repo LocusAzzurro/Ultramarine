@@ -129,6 +129,10 @@ public class ModBlockModelProvider extends BlockStateProvider {
     }
 
     private void decorativeBlock(DecorativeBlock block){
+        decorativeBlock(block, 0);
+    }
+
+    private void decorativeBlock(DecorativeBlock block, int rotation){
         getVariantBuilder(block).forAllStates(blockState -> {
             var modelFile = ConfiguredModel.builder();
             String blockPath = Objects.requireNonNull(block.getRegistryName()).getPath();
@@ -144,12 +148,12 @@ public class ModBlockModelProvider extends BlockStateProvider {
             }
             else if (block.isDirectional() && !block.isDiagonallyPlaceable()){
                 modelFile.modelFile(models().getExistingFile(modLoc("block/" + blockPath)));
-                return modelFile.rotationY((int) blockState.getValue(HORIZONTAL_FACING).toYRot()).build();
+                return modelFile.rotationY((int) blockState.getValue(HORIZONTAL_FACING).toYRot() + rotation).build();
             }
             else {
                 if (!blockState.getValue(ModBlockStateProperties.DIAGONAL)){
                     modelFile.modelFile(models().getExistingFile(modLoc("block/" + blockPath)));
-                    return modelFile.rotationY((int) blockState.getValue(HORIZONTAL_FACING).toYRot()).build();
+                    return modelFile.rotationY((int) blockState.getValue(HORIZONTAL_FACING).toYRot() + rotation).build();
                 }
                 else {
                     modelFile.modelFile(models().getExistingFile(modLoc("block/" + blockPath + "_diagonal")));

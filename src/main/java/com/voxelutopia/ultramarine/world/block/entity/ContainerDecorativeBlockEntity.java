@@ -49,7 +49,6 @@ public class ContainerDecorativeBlockEntity extends RandomizableContainerBlockEn
         return new TextComponent(new TranslatableComponent("container." +  Registry.BLOCK.getKey(block).getPath()).getString());
     }
 
-    //todo add custom filtering menus
     @Override
     protected AbstractContainerMenu createMenu(int pContainerId, Inventory pInventory) {
         if (block instanceof ContainerDecorativeBlock container){
