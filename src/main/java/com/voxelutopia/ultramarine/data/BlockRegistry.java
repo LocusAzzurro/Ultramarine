@@ -96,6 +96,8 @@ public class BlockRegistry {
 
     public static final RegistryObject<Block> JADE_ORE = BLOCKS.register("jade_ore",() -> new BaseOreBlock(2, 5));
 
+    public static final RegistryObject<Block> WOODWORKING_WORKBENCH = BLOCKS.register("woodworking_workbench", WoodworkingWorkBench::new);
+
     private static RegistryObject<Block> simpleBlock(String name, Material material) {
         return BLOCKS.register(name, () -> new Block(BlockBehaviour.Properties.of(material)));
     }
