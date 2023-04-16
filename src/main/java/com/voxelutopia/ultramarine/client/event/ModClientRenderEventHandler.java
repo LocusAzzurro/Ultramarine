@@ -1,6 +1,7 @@
 package com.voxelutopia.ultramarine.client.event;
 
 import com.voxelutopia.ultramarine.client.screen.ContainerDecorativeBlockScreen;
+import com.voxelutopia.ultramarine.client.screen.WoodworkingWorkbenchScreen;
 import com.voxelutopia.ultramarine.data.BlockRegistry;
 import com.voxelutopia.ultramarine.data.MenuTypeRegistry;
 import net.minecraft.client.gui.screens.MenuScreens;
@@ -32,6 +33,7 @@ public class ModClientRenderEventHandler {
             MenuScreens.register(MenuTypeRegistry.CONTAINER_DECORATIVE_BLOCK_MENU_GENERIC_9X1.get(), ContainerDecorativeBlockScreen::new);
             MenuScreens.register(MenuTypeRegistry.CONTAINER_DECORATIVE_BLOCK_MENU_GENERIC_9X3.get(), ContainerDecorativeBlockScreen::new);
             MenuScreens.register(MenuTypeRegistry.CONTAINER_DECORATIVE_BLOCK_MENU_FOOD_9X3.get(), ContainerDecorativeBlockScreen::new);
+            MenuScreens.register(MenuTypeRegistry.WOODWORKING_WORKBENCH.get(), WoodworkingWorkbenchScreen::new);
         });
     }
 

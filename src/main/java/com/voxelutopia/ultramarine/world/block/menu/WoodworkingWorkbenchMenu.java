@@ -3,6 +3,7 @@ package com.voxelutopia.ultramarine.world.block.menu;
 import com.google.common.collect.Lists;
 import com.voxelutopia.ultramarine.data.BlockRegistry;
 import com.voxelutopia.ultramarine.data.MenuTypeRegistry;
+import com.voxelutopia.ultramarine.data.recipe.WoodworkingRecipe;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.Container;
@@ -30,7 +31,7 @@ public class WoodworkingWorkbenchMenu extends AbstractContainerMenu {
     private final ContainerLevelAccess access;
     private final DataSlot selectedRecipeIndex = DataSlot.standalone();
     private final Level level;
-    private List<StonecutterRecipe> recipes = Lists.newArrayList();
+    private List<WoodworkingRecipe> recipes = Lists.newArrayList();
     private ItemStack input = ItemStack.EMPTY;
     final Slot inputSlot;
     final Slot resultSlot;
@@ -87,7 +88,7 @@ public class WoodworkingWorkbenchMenu extends AbstractContainerMenu {
         return this.selectedRecipeIndex.get();
     }
 
-    public List<StonecutterRecipe> getRecipes() {
+    public List<WoodworkingRecipe> getRecipes() {
         return this.recipes;
     }
 
@@ -130,16 +131,16 @@ public class WoodworkingWorkbenchMenu extends AbstractContainerMenu {
         this.selectedRecipeIndex.set(-1);
         this.resultSlot.set(ItemStack.EMPTY);
         if (!pStack.isEmpty()) {
-            this.recipes = this.level.getRecipeManager().getRecipesFor(RecipeType.STONECUTTING, pInventory, this.level);
+            this.recipes = this.level.getRecipeManager().getRecipesFor(WoodworkingRecipe.Type.INSTANCE, pInventory, this.level);
         }
 
     }
 
     void setupResultSlot() {
         if (!this.recipes.isEmpty() && this.isValidRecipeIndex(this.selectedRecipeIndex.get())) {
-            StonecutterRecipe stonecutterrecipe = this.recipes.get(this.selectedRecipeIndex.get());
-            this.resultContainer.setRecipeUsed(stonecutterrecipe);
-            this.resultSlot.set(stonecutterrecipe.assemble(this.container));
+            WoodworkingRecipe woodworkingRecipe = this.recipes.get(this.selectedRecipeIndex.get());
+            this.resultContainer.setRecipeUsed(woodworkingRecipe);
+            this.resultSlot.set(woodworkingRecipe.assemble(this.container));
         } else {
             this.resultSlot.set(ItemStack.EMPTY);
         }
@@ -148,7 +149,7 @@ public class WoodworkingWorkbenchMenu extends AbstractContainerMenu {
     }
 
     public MenuType<?> getType() {
-        return MenuType.STONECUTTER;
+        return MenuTypeRegistry.WOODWORKING_WORKBENCH.get();
     }
 
     public void registerUpdateListener(Runnable pListener) {
@@ -177,7 +178,7 @@ public class WoodworkingWorkbenchMenu extends AbstractContainerMenu {
                 if (!this.moveItemStackTo(itemstack1, 2, 38, false)) {
                     return ItemStack.EMPTY;
                 }
-            } else if (this.level.getRecipeManager().getRecipeFor(RecipeType.STONECUTTING, new SimpleContainer(itemstack1), this.level).isPresent()) {
+            } else if (this.level.getRecipeManager().getRecipeFor(WoodworkingRecipe.Type.INSTANCE, new SimpleContainer(itemstack1), this.level).isPresent()) {
                 if (!this.moveItemStackTo(itemstack1, 0, 1, false)) {
                     return ItemStack.EMPTY;
                 }

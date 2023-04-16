@@ -1,12 +1,16 @@
 package com.voxelutopia.ultramarine.datagen;
 
 import com.voxelutopia.ultramarine.data.ItemRegistry;
+import com.voxelutopia.ultramarine.data.RecipeSerializerRegistry;
 import net.minecraft.advancements.critereon.InventoryChangeTrigger;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.recipes.*;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
+import net.minecraft.world.item.crafting.RecipeSerializer;
+import net.minecraft.world.level.ItemLike;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.IForgeRegistry;
 import org.jetbrains.annotations.NotNull;
@@ -42,10 +46,13 @@ public class ModRecipeProvider extends RecipeProvider {
         roofTileBlocksRecipe("blue", pFinishedRecipeConsumer);
         roofTileBlocksRecipe("cyan", pFinishedRecipeConsumer);
         roofTileBlocksRecipe("black", pFinishedRecipeConsumer);
+        //test
+        woodworking(Ingredient.of(Items.OAK_LOG), Items.OAK_PLANKS, 6).unlockedBy("has_" + Items.OAK_LOG.getRegistryName().getPath(), InventoryChangeTrigger.TriggerInstance.hasItems(Items.OAK_LOG)).save(pFinishedRecipeConsumer,
+                new ResourceLocation(DataGenerators.MOD_ID, "oak_cutting_test"));
     }
 
     @SuppressWarnings("null")
-    private void quadComposeRecipe(Item part, Item combined, Consumer<FinishedRecipe> pFinishedRecipeConsumer){
+    private static void quadComposeRecipe(Item part, Item combined, Consumer<FinishedRecipe> pFinishedRecipeConsumer){
         assert part.getRegistryName() != null;
         ShapedRecipeBuilder.shaped(combined, 1)
                 .define('A', part)
@@ -55,14 +62,14 @@ public class ModRecipeProvider extends RecipeProvider {
                 .save(pFinishedRecipeConsumer);
     }
 
-    private void quadDecomposeRecipe(Item part, Item combined, Consumer<FinishedRecipe> pFinishedRecipeConsumer){
+    private static void quadDecomposeRecipe(Item part, Item combined, Consumer<FinishedRecipe> pFinishedRecipeConsumer){
         assert combined.getRegistryName() != null;
         ShapelessRecipeBuilder.shapeless(part, 4).requires(combined)
                 .unlockedBy("has_" + combined.getRegistryName().getPath(), InventoryChangeTrigger.TriggerInstance.hasItems(combined))
                 .save(pFinishedRecipeConsumer);
     }
 
-    private void slabAndStairsRecipe(Item baseBlock, Item slabBlock, Item stairBlock, Consumer<FinishedRecipe> pFinishedRecipeConsumer){
+    private static void slabAndStairsRecipe(Item baseBlock, Item slabBlock, Item stairBlock, Consumer<FinishedRecipe> pFinishedRecipeConsumer){
         String baseBlockPath = Objects.requireNonNull(baseBlock.getRegistryName()).getPath();
         String stairsBlockPath = Objects.requireNonNull(stairBlock.getRegistryName()).getPath();
         String slabBlockPath = Objects.requireNonNull(slabBlock.getRegistryName()).getPath();
@@ -93,7 +100,7 @@ public class ModRecipeProvider extends RecipeProvider {
                         new ResourceLocation(DataGenerators.MOD_ID, slabBlockPath + "_from_stonecutting"));
     }
 
-    private void wallRecipe(Item baseBlock, Item wallBlock, Consumer<FinishedRecipe> pFinishedRecipeConsumer){
+    private static void wallRecipe(Item baseBlock, Item wallBlock, Consumer<FinishedRecipe> pFinishedRecipeConsumer){
         String baseBlockPath = Objects.requireNonNull(baseBlock.getRegistryName()).getPath();
         String wallBlockPath = Objects.requireNonNull(wallBlock.getRegistryName()).getPath();
         String baseBlockAdvancement = "has_" + baseBlockPath;
@@ -111,7 +118,7 @@ public class ModRecipeProvider extends RecipeProvider {
                         new ResourceLocation(DataGenerators.MOD_ID,wallBlockPath + "_from_stonecutting"));
     }
 
-    private void roofTileBlocksRecipe(String color, Consumer<FinishedRecipe> pFinishedRecipeConsumer){
+    private static void roofTileBlocksRecipe(String color, Consumer<FinishedRecipe> pFinishedRecipeConsumer){
         IForgeRegistry<Item> ITEMS = ForgeRegistries.ITEMS;
         Item tileBlock, tileItem;
         tileItem = ITEMS.getValue(new ResourceLocation(DataGenerators.MOD_ID, color + "_roof_tile"));
@@ -143,6 +150,10 @@ public class ModRecipeProvider extends RecipeProvider {
                 .pattern("TTT")
                 .unlockedBy("has_" + color + "_roof_tile", InventoryChangeTrigger.TriggerInstance.hasItems(tileItem))
                 .save(pFinishedRecipeConsumer);
+    }
+
+    public static SingleItemRecipeBuilder woodworking(Ingredient pIngredient, ItemLike pResult, int pCount) {
+        return new SingleItemRecipeBuilder(RecipeSerializerRegistry.WOODWORKING_SERIALIZER.get(), pIngredient, pResult, pCount);
     }
 
 }
