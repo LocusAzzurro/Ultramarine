@@ -90,6 +90,7 @@ public class ModBlockModelProvider extends BlockStateProvider {
                 .filter(blockRegistryObject -> blockRegistryObject.get() instanceof DecorativeBlock)
                 .forEach(blockRegistryObject -> decorativeBlock((DecorativeBlock) blockRegistryObject.get()));
 
+        horizontalBlock(BlockRegistry.WOODWORKING_WORKBENCH.get(), models().getExistingFile(blockLoc(BlockRegistry.WOODWORKING_WORKBENCH.get())));
         simpleBlock(BlockRegistry.JADE_ORE.get());
     }
 
