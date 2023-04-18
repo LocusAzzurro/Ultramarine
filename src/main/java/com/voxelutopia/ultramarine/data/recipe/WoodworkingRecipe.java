@@ -2,15 +2,16 @@ package com.voxelutopia.ultramarine.data.recipe;
 
 import com.google.gson.JsonObject;
 import com.voxelutopia.ultramarine.Ultramarine;
-import net.minecraft.core.Registry;
+import com.voxelutopia.ultramarine.data.RecipeSerializerRegistry;
+import com.voxelutopia.ultramarine.data.RecipeTypeRegistry;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.GsonHelper;
 import net.minecraft.world.Container;
+import net.minecraft.world.SimpleContainer;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.*;
 import net.minecraft.world.level.Level;
-import net.minecraftforge.common.crafting.CraftingHelper;
 import net.minecraftforge.registries.ForgeRegistries;
 
 import javax.annotation.Nullable;
@@ -22,7 +23,7 @@ public class WoodworkingRecipe extends SingleItemRecipe {
     protected final ResourceLocation id;
     protected final String group;
     public WoodworkingRecipe(ResourceLocation pId, String pGroup, Ingredient pIngredient, ItemStack pResult) {
-        super(Type.INSTANCE, Serializer.INSTANCE, pId, pGroup, pIngredient, pResult);
+        super(RecipeTypeRegistry.WOODWORKING.get(), RecipeSerializerRegistry.WOODWORKING_SERIALIZER.get(), pId, pGroup, pIngredient, pResult);
         this.id = pId;
         this.group = pGroup;
         this.ingredient = pIngredient;
@@ -30,7 +31,27 @@ public class WoodworkingRecipe extends SingleItemRecipe {
     }
     @Override
     public boolean matches(Container pContainer, Level pLevel) {
-        return false;
+        return ingredient.test(pContainer.getItem(0));
+    }
+
+    @Override
+    public ItemStack assemble(Container pContainer) {
+        return result.copy();
+    }
+
+    @Override
+    public boolean canCraftInDimensions(int pWidth, int pHeight) {
+        return true;
+    }
+
+    @Override
+    public ItemStack getResultItem() {
+        return result.copy();
+    }
+
+    @Override
+    public boolean isSpecial() {
+        return true;
     }
 
     @Override
@@ -40,22 +61,14 @@ public class WoodworkingRecipe extends SingleItemRecipe {
 
     @Override
     public RecipeType<?> getType() {
-        return Type.INSTANCE;
+        return RecipeTypeRegistry.WOODWORKING.get();
     }
 
     @Override
     public RecipeSerializer<?> getSerializer() {
-        return super.getSerializer();
+        return RecipeSerializerRegistry.WOODWORKING_SERIALIZER.get();
     }
 
-    public static class Type implements RecipeType<WoodworkingRecipe>{
-
-        private Type(){}
-
-        public static final Type INSTANCE = new Type();
-        public static final String ID = "woodworking";
-
-    }
 
     public static class Serializer implements RecipeSerializer<WoodworkingRecipe> {
 

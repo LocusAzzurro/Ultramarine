@@ -3,6 +3,7 @@ package com.voxelutopia.ultramarine.world.block.menu;
 import com.google.common.collect.Lists;
 import com.voxelutopia.ultramarine.data.BlockRegistry;
 import com.voxelutopia.ultramarine.data.MenuTypeRegistry;
+import com.voxelutopia.ultramarine.data.RecipeTypeRegistry;
 import com.voxelutopia.ultramarine.data.recipe.WoodworkingRecipe;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
@@ -131,7 +132,7 @@ public class WoodworkingWorkbenchMenu extends AbstractContainerMenu {
         this.selectedRecipeIndex.set(-1);
         this.resultSlot.set(ItemStack.EMPTY);
         if (!pStack.isEmpty()) {
-            this.recipes = this.level.getRecipeManager().getRecipesFor(WoodworkingRecipe.Type.INSTANCE, pInventory, this.level);
+            this.recipes = this.level.getRecipeManager().getRecipesFor(RecipeTypeRegistry.WOODWORKING.get(), pInventory, this.level);
         }
 
     }
@@ -178,7 +179,7 @@ public class WoodworkingWorkbenchMenu extends AbstractContainerMenu {
                 if (!this.moveItemStackTo(itemstack1, 2, 38, false)) {
                     return ItemStack.EMPTY;
                 }
-            } else if (this.level.getRecipeManager().getRecipeFor(WoodworkingRecipe.Type.INSTANCE, new SimpleContainer(itemstack1), this.level).isPresent()) {
+            } else if (this.level.getRecipeManager().getRecipeFor(RecipeTypeRegistry.WOODWORKING.get(), new SimpleContainer(itemstack1), this.level).isPresent()) {
                 if (!this.moveItemStackTo(itemstack1, 0, 1, false)) {
                     return ItemStack.EMPTY;
                 }

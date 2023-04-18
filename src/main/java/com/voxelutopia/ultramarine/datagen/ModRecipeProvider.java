@@ -6,6 +6,7 @@ import net.minecraft.advancements.critereon.InventoryChangeTrigger;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.recipes.*;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
@@ -46,9 +47,16 @@ public class ModRecipeProvider extends RecipeProvider {
         roofTileBlocksRecipe("blue", pFinishedRecipeConsumer);
         roofTileBlocksRecipe("cyan", pFinishedRecipeConsumer);
         roofTileBlocksRecipe("black", pFinishedRecipeConsumer);
-        //test
-        woodworking(Ingredient.of(Items.OAK_LOG), Items.OAK_PLANKS, 6).unlockedBy("has_" + Items.OAK_LOG.getRegistryName().getPath(), InventoryChangeTrigger.TriggerInstance.hasItems(Items.OAK_LOG)).save(pFinishedRecipeConsumer,
-                new ResourceLocation(DataGenerators.MOD_ID, "oak_cutting_test"));
+
+        woodworking(Ingredient.of(ItemTags.PLANKS), ItemRegistry.WOODEN_FRAME.get(), 2, Items.OAK_PLANKS, pFinishedRecipeConsumer);
+        ShapedRecipeBuilder.shaped(ItemRegistry.SQUARE_PALACE_LANTERN.get(), 1)
+                .define('F', ItemRegistry.WOODEN_FRAME.get())
+                .define('C', ItemTags.CANDLES)
+                .pattern(" F ")
+                .pattern("FCF")
+                .pattern(" F ")
+                .unlockedBy("has_" + Items.CANDLE, InventoryChangeTrigger.TriggerInstance.hasItems(Items.CANDLE))
+                .save(pFinishedRecipeConsumer);
     }
 
     @SuppressWarnings("null")
@@ -152,8 +160,16 @@ public class ModRecipeProvider extends RecipeProvider {
                 .save(pFinishedRecipeConsumer);
     }
 
-    public static SingleItemRecipeBuilder woodworking(Ingredient pIngredient, ItemLike pResult, int pCount) {
-        return new SingleItemRecipeBuilder(RecipeSerializerRegistry.WOODWORKING_SERIALIZER.get(), pIngredient, pResult, pCount);
+    public static void woodworking(Item input, ItemLike pResult, int pCount, Consumer<FinishedRecipe> pFinishedRecipeConsumer) {
+            var recipe = new SingleItemRecipeBuilder(RecipeSerializerRegistry.WOODWORKING_SERIALIZER.get(), Ingredient.of(input), pResult, pCount);
+            recipe.unlockedBy("has_" + input.getRegistryName().getPath(), InventoryChangeTrigger.TriggerInstance.hasItems(input))
+                .save(pFinishedRecipeConsumer);
+    }
+
+    public static void woodworking(Ingredient ingredient, ItemLike pResult, int pCount, Item unlockItem, Consumer<FinishedRecipe> pFinishedRecipeConsumer) {
+        var recipe = new SingleItemRecipeBuilder(RecipeSerializerRegistry.WOODWORKING_SERIALIZER.get(), ingredient, pResult, pCount);
+        recipe.unlockedBy("has_" + unlockItem.getRegistryName().getPath(), InventoryChangeTrigger.TriggerInstance.hasItems(unlockItem))
+                .save(pFinishedRecipeConsumer);
     }
 
 }

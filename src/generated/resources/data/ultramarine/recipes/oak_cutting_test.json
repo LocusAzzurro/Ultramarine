@@ -1,8 +1,0 @@
-{
-  "type": "ultramarine:woodworking",
-  "ingredient": {
-    "item": "minecraft:oak_log"
-  },
-  "result": "minecraft:oak_planks",
-  "count": 6
-}
