@@ -32,7 +32,7 @@ public class ModLootTableProvider extends BaseLootTableProvider {
                     if (block instanceof BaseBlockPropertyHolder baseBlock){
                         return baseBlock.getProperty().getMaterial() == BaseBlockProperty.BlockMaterial.PORCELAIN;
                     }
-                    else return false;
+                    return false;
                 })
                 .forEach(NON_SIMPLE_BLOCKS::add);
     }
@@ -45,7 +45,6 @@ public class ModLootTableProvider extends BaseLootTableProvider {
 
         porcelain(BlockRegistry.BLUE_AND_WHITE_PORCELAIN_VASE, ItemRegistry.BLUE_AND_WHITE_PORCELAIN_PIECE, ItemRegistry.BLUE_AND_WHITE_PORCELAIN_SHARDS);
         porcelain(BlockRegistry.BIG_BLUE_AND_WHITE_PORCELAIN_VASE, ItemRegistry.BLUE_AND_WHITE_PORCELAIN_PIECE, ItemRegistry.BLUE_AND_WHITE_PORCELAIN_SHARDS);
-        //lootTables.put(BlockRegistry.JADE_ORE.get(), createOreTable(BlockRegistry.JADE_ORE.getId().getPath(), BlockRegistry.JADE_ORE.get(), ItemRegistry.JADE.get()));
     }
 
     void simple(RegistryObject<? extends Block> block) {
