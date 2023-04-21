@@ -2,6 +2,8 @@ package com.voxelutopia.ultramarine.world.block;
 
 import com.voxelutopia.ultramarine.data.ModBlockStateProperties;
 import net.minecraft.core.BlockPos;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
@@ -32,31 +34,42 @@ public class ConsumableDecorativeBlock extends DecorativeBlock{
         this.registerDefaultState(this.stateDefinition.any().setValue(BITES, bites));
     }
 
-    public static ContainerDecorativeBlock.Builder with(BaseBlockProperty property){
-        return new ContainerDecorativeBlock.Builder(property);
+    public static Builder with(BaseBlockProperty property){
+        return new Builder(property);
     }
 
     @Override
     public BlockState getStateForPlacement(BlockPlaceContext pContext) {
-        return this.defaultBlockState().setValue(BITES, getBites());
+        return super.getStateForPlacement(pContext).setValue(BITES, getMaxBites());
     }
 
     @Override
     public InteractionResult use(BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, InteractionHand pHand, BlockHitResult pHit) {
         int bitesRemaining = pState.hasProperty(BITES) ? pState.getValue(BITES) : 0;
+        if (!pPlayer.canEat(false)) {
+            return InteractionResult.PASS;
+        }
         if (bitesRemaining > 0){
             pPlayer.getFoodData().eat(2, 0.1F);
+            pLevel.playSound(pPlayer, pPos, SoundEvents.GENERIC_EAT, SoundSource.PLAYERS,1,0.75f);
             pLevel.gameEvent(pPlayer, GameEvent.EAT, pPos);
             bitesRemaining--;
         }
         if (bitesRemaining <= 0){
             this.consumedAction.consume(pState, pLevel, pPos, pPlayer);
         }
+        else {
+            pLevel.setBlock(pPos, pState.setValue(BITES, bitesRemaining), Block.UPDATE_ALL);
+        }
         return InteractionResult.sidedSuccess(pLevel.isClientSide());
     }
 
-    public int getBites(){
+    public int getMaxBites(){
         return bites;
+    }
+
+    public Block getPlate(){
+        return plate;
     }
 
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> pBuilder) {
@@ -69,7 +82,7 @@ public class ConsumableDecorativeBlock extends DecorativeBlock{
         private int bites = 4;
         private Block plateBlock = Blocks.STONE_SLAB;
         private BlockConsumedAction consumedAction = ((pState, pLevel, pPos, pPlayer) -> {
-            pLevel.destroyBlock(pPos, false, pPlayer);
+            pLevel.setBlock(pPos, Blocks.AIR.defaultBlockState(), Block.UPDATE_ALL);
             ItemHandlerHelper.giveItemToPlayer(pPlayer, new ItemStack(plateBlock));
             pLevel.gameEvent(pPlayer, GameEvent.BLOCK_DESTROY, pPos);
         });

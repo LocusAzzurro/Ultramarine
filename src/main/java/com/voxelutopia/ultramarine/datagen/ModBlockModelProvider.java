@@ -2,6 +2,7 @@ package com.voxelutopia.ultramarine.datagen;
 
 import com.voxelutopia.ultramarine.data.BlockRegistry;
 import com.voxelutopia.ultramarine.data.ModBlockStateProperties;
+import com.voxelutopia.ultramarine.world.block.ConsumableDecorativeBlock;
 import com.voxelutopia.ultramarine.world.block.DecorativeBlock;
 import com.voxelutopia.ultramarine.world.block.RoofTiles;
 import com.voxelutopia.ultramarine.world.block.ShiftedTileType;
@@ -18,6 +19,7 @@ import net.minecraftforge.common.data.ExistingFileHelper;
 import org.apache.commons.lang3.tuple.Pair;
 import org.jetbrains.annotations.NotNull;
 
+import java.util.ArrayList;
 import java.util.Map;
 import java.util.Objects;
 
@@ -86,9 +88,12 @@ public class ModBlockModelProvider extends BlockStateProvider {
         shiftedBlock(BlockRegistry.BLACK_ROOF_TILE_EDGE.get());
         //</editor-fold>
 
-        BlockRegistry.BLOCKS.getEntries().stream()
-                .filter(blockRegistryObject -> blockRegistryObject.get() instanceof DecorativeBlock)
-                .forEach(blockRegistryObject -> decorativeBlock((DecorativeBlock) blockRegistryObject.get()));
+        var decorativeBlocks = new ArrayList<>(BlockRegistry.BLOCKS.getEntries().stream()
+                .filter(blockRegistryObject -> blockRegistryObject.get() instanceof DecorativeBlock).toList());
+        var consumables = decorativeBlocks.stream().filter(blockRegistryObject -> blockRegistryObject.get() instanceof ConsumableDecorativeBlock).toList();
+        consumables.forEach(blockRegistryObject -> consumableDecorativeBlock((ConsumableDecorativeBlock) blockRegistryObject.get()));
+        decorativeBlocks.removeAll(consumables);
+        decorativeBlocks.forEach(blockRegistryObject -> decorativeBlock((DecorativeBlock) blockRegistryObject.get()));
 
         horizontalBlock(BlockRegistry.WOODWORKING_WORKBENCH.get(), models().getExistingFile(blockLoc(BlockRegistry.WOODWORKING_WORKBENCH.get())));
         simpleBlock(BlockRegistry.JADE_ORE.get());
@@ -158,6 +163,46 @@ public class ModBlockModelProvider extends BlockStateProvider {
                 }
                 else {
                     modelFile.modelFile(models().getExistingFile(modLoc("block/" + blockPath + "_diagonal")));
+                    var directions = Pair.of(blockState.getValue(HORIZONTAL_FACING), blockState.getValue(ModBlockStateProperties.HORIZONTAL_FACING_SHIFT));
+                    int deg = 0;
+                    if (rotations.containsKey(directions)) deg = rotations.get(directions);
+                    return modelFile.rotationY(deg - 90).build();
+                }
+            }
+        });
+    }
+
+    private void consumableDecorativeBlock(ConsumableDecorativeBlock block){
+        consumableDecorativeBlock(block, 0);
+    }
+
+    private void consumableDecorativeBlock(ConsumableDecorativeBlock block, int rotation){
+        getVariantBuilder(block).forAllStates(blockState -> {
+            var modelFile = ConfiguredModel.builder();
+            int bites = blockState.getValue(ModBlockStateProperties.BITES);
+            bites = Math.min(bites, block.getMaxBites());
+            String blockPath = Objects.requireNonNull(block.getRegistryName()).getPath();
+            if (!block.isDirectional() && !block.isDiagonallyPlaceable()){
+                return modelFile.modelFile(models().getExistingFile(modLoc("block/" + blockPath + "_" + bites))).build();
+            }
+            else if (!block.isDirectional() && block.isDiagonallyPlaceable()){
+                if (blockState.getValue(ModBlockStateProperties.DIAGONAL))
+                    modelFile.modelFile(models().getExistingFile(modLoc("block/" + blockPath + "_" + bites + "_diagonal")));
+                else
+                    modelFile.modelFile(models().getExistingFile(modLoc("block/" + blockPath + "_" + bites)));
+                return modelFile.build();
+            }
+            else if (block.isDirectional() && !block.isDiagonallyPlaceable()){
+                modelFile.modelFile(models().getExistingFile(modLoc("block/" + blockPath + "_" + bites)));
+                return modelFile.rotationY((int) blockState.getValue(HORIZONTAL_FACING).toYRot() + rotation).build();
+            }
+            else {
+                if (!blockState.getValue(ModBlockStateProperties.DIAGONAL)){
+                    modelFile.modelFile(models().getExistingFile(modLoc("block/" + blockPath + "_" + bites)));
+                    return modelFile.rotationY((int) blockState.getValue(HORIZONTAL_FACING).toYRot() + rotation).build();
+                }
+                else {
+                    modelFile.modelFile(models().getExistingFile(modLoc("block/" + blockPath + "_" + bites + "_diagonal")));
                     var directions = Pair.of(blockState.getValue(HORIZONTAL_FACING), blockState.getValue(ModBlockStateProperties.HORIZONTAL_FACING_SHIFT));
                     int deg = 0;
                     if (rotations.containsKey(directions)) deg = rotations.get(directions);

@@ -5,6 +5,7 @@ import com.voxelutopia.ultramarine.data.ItemRegistry;
 import com.voxelutopia.ultramarine.world.block.BaseBlockProperty;
 import com.voxelutopia.ultramarine.world.block.BaseBlockPropertyHolder;
 import com.voxelutopia.ultramarine.world.block.BaseWall;
+import com.voxelutopia.ultramarine.world.block.ConsumableDecorativeBlock;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
@@ -45,6 +46,7 @@ public class ModLootTableProvider extends BaseLootTableProvider {
 
         porcelain(BlockRegistry.BLUE_AND_WHITE_PORCELAIN_VASE, ItemRegistry.BLUE_AND_WHITE_PORCELAIN_PIECE, ItemRegistry.BLUE_AND_WHITE_PORCELAIN_SHARDS);
         porcelain(BlockRegistry.BIG_BLUE_AND_WHITE_PORCELAIN_VASE, ItemRegistry.BLUE_AND_WHITE_PORCELAIN_PIECE, ItemRegistry.BLUE_AND_WHITE_PORCELAIN_SHARDS);
+        porcelainPlate(BlockRegistry.PLATED_MOON_CAKES, ItemRegistry.BLUE_AND_WHITE_PORCELAIN_PIECE, ItemRegistry.BLUE_AND_WHITE_PORCELAIN_SHARDS);
     }
 
     void simple(RegistryObject<? extends Block> block) {
@@ -57,6 +59,10 @@ public class ModLootTableProvider extends BaseLootTableProvider {
 
     void porcelain(RegistryObject<? extends Block> block, RegistryObject<? extends Item> piece, RegistryObject<? extends Item> shards){
         lootTables.put(block.get(), createPorcelainDrop(block.getId().getPath(), block.get(), piece.get(), shards.get()));
+    }
+
+    void porcelainPlate(RegistryObject<? extends Block> block, RegistryObject<? extends Item> piece, RegistryObject<? extends Item> shards){
+        lootTables.put(block.get(), createPorcelainDrop(block.getId().getPath(), ((ConsumableDecorativeBlock)block.get()).getPlate(), piece.get(), shards.get()));
     }
 
 

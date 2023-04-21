@@ -19,7 +19,7 @@ public final class BaseBlockProperty {
             .requiresCorrectToolForDrops(), BlockMaterial.STONE);
     public static BaseBlockProperty PORCELAIN = new BaseBlockProperty(BlockBehaviour.Properties.of(Material.GLASS)
             .sound(SoundRegistry.PORCELAIN)
-            .strength(1.0F, 1.0F), BlockMaterial.STONE);
+            .strength(1.0F, 1.0F), BlockMaterial.PORCELAIN);
     public static BaseBlockProperty WOOD = new BaseBlockProperty(BlockBehaviour.Properties.of(Material.WOOD)
             .sound(SoundType.WOOD)
             .strength(2.0F, 3.0F), BlockMaterial.WOOD);
