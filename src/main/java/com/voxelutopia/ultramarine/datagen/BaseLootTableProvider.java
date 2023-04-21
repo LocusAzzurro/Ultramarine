@@ -13,7 +13,6 @@ import net.minecraft.data.HashCache;
 import net.minecraft.data.loot.LootTableProvider;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.item.Items;
 import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Block;
@@ -74,7 +73,7 @@ public abstract class BaseLootTableProvider extends LootTableProvider {
         return LootTable.lootTable().withPool(builder);
     }
 
-    protected static LootTable.Builder createBigOreDrop(String name, Block block, Item drop, float min, float max) {
+    protected static LootTable.Builder createAbundantOreDrop(String name, Block block, Item drop, float min, float max) {
         return createSilkTouchDispatchTable(block, name, applyExplosionDecay(block, LootItem.lootTableItem(drop)
                 .apply(SetItemCountFunction.setCount(UniformGenerator.between(min, max)))
                 .apply(ApplyBonusCount.addOreBonusCount(Enchantments.BLOCK_FORTUNE))));

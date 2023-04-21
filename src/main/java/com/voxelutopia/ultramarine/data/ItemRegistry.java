@@ -98,6 +98,8 @@ public class ItemRegistry {
     public static final RegistryObject<Item> BLUE_AND_WHITE_PORCELAIN_SHARDS = simpleItem("blue_and_white_porcelain_shards", CreativeTabs.MATERIALS);
     public static final RegistryObject<Item> JADE_ORE = fromBlock(BlockRegistry.JADE_ORE, CreativeTabs.MATERIALS);
     public static final RegistryObject<Item> JADE = simpleItem("jade", CreativeTabs.MATERIALS);
+    public static final RegistryObject<Item> MAGNESITE_ORE = fromBlock(BlockRegistry.MAGNESITE_ORE, CreativeTabs.MATERIALS);
+    public static final RegistryObject<Item> MAGNESITE = simpleItem("magnesite", CreativeTabs.MATERIALS);
 
 
     public static final RegistryObject<Item> WOODWORKING_WORKBENCH = fromBlock(BlockRegistry.WOODWORKING_WORKBENCH, CreativeTabs.TOOLS);

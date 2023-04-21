@@ -97,6 +97,7 @@ public class BlockRegistry {
             () -> DecorativeBlock.with(BaseBlockProperty.BAMBOO).luminous().build());
 
     public static final RegistryObject<Block> JADE_ORE = BLOCKS.register("jade_ore",() -> new BaseOreBlock(2, 5));
+    public static final RegistryObject<Block> MAGNESITE_ORE = BLOCKS.register("magnesite_ore",() -> new BaseOreBlock(2, 5));
 
     public static final RegistryObject<Block> WOODWORKING_WORKBENCH = BLOCKS.register("woodworking_workbench", WoodworkingWorkBench::new);
 

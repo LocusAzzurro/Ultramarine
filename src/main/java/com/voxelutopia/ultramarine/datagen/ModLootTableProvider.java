@@ -43,6 +43,7 @@ public class ModLootTableProvider extends BaseLootTableProvider {
                 .filter(blockRegistryObject -> !NON_SIMPLE_BLOCKS.contains(blockRegistryObject))
                 .forEach(this::simple);
         ore(BlockRegistry.JADE_ORE, ItemRegistry.JADE);
+        abundantOre(BlockRegistry.MAGNESITE_ORE, ItemRegistry.MAGNESITE);
 
         porcelain(BlockRegistry.BLUE_AND_WHITE_PORCELAIN_VASE, ItemRegistry.BLUE_AND_WHITE_PORCELAIN_PIECE, ItemRegistry.BLUE_AND_WHITE_PORCELAIN_SHARDS);
         porcelain(BlockRegistry.BIG_BLUE_AND_WHITE_PORCELAIN_VASE, ItemRegistry.BLUE_AND_WHITE_PORCELAIN_PIECE, ItemRegistry.BLUE_AND_WHITE_PORCELAIN_SHARDS);
@@ -55,6 +56,10 @@ public class ModLootTableProvider extends BaseLootTableProvider {
 
     void ore(RegistryObject<? extends Block> block, RegistryObject<? extends Item> item){
         lootTables.put(block.get(), createOreDrop(block.getId().getPath(), block.get(), item.get()));
+    }
+
+    void abundantOre(RegistryObject<? extends Block> block, RegistryObject<? extends Item> item){
+        lootTables.put(block.get(), createAbundantOreDrop(block.getId().getPath(), block.get(), item.get(), 1, 3));
     }
 
     void porcelain(RegistryObject<? extends Block> block, RegistryObject<? extends Item> piece, RegistryObject<? extends Item> shards){
