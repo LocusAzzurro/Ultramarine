@@ -46,12 +46,16 @@ public final class BaseBlockProperty {
         return material;
     }
 
+    public BaseBlockProperty copy(){
+        return new BaseBlockProperty(this.properties, this.material);
+    }
+
     public enum BlockMaterial{
         STONE(BlockTags.MINEABLE_WITH_PICKAXE),
         WOOD(BlockTags.MINEABLE_WITH_AXE),
         PORCELAIN(BlockTags.MINEABLE_WITH_PICKAXE),
         BAMBOO(BlockTags.MINEABLE_WITH_AXE);
-        TagKey<Block> tool;
+        final TagKey<Block> tool;
         public TagKey<Block> getTool(){
             return tool;
         }
