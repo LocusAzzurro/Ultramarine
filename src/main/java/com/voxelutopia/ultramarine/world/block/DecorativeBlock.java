@@ -77,10 +77,11 @@ public class DecorativeBlock extends HorizontalDirectionalBlock implements BaseB
     }
 
     @Override
-    public @NotNull StateDefinition<Block, BlockState> getStateDefinition() {
+    public StateDefinition<Block, BlockState> getStateDefinition() {
         return stateDefinition;
     }
 
+    @NotNull
     public BlockState getStateForPlacement(BlockPlaceContext pContext) {
         BlockState state = setDiagonalStateForPlacement(this.defaultBlockState(), pContext);
         if (isDirectional() && isDiagonallyPlaceable()){

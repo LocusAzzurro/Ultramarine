@@ -18,6 +18,7 @@ import net.minecraft.world.level.block.state.properties.IntegerProperty;
 import net.minecraft.world.level.gameevent.GameEvent;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraftforge.items.ItemHandlerHelper;
+import org.jetbrains.annotations.NotNull;
 
 public class ConsumableDecorativeBlock extends DecorativeBlock{
 
@@ -39,10 +40,13 @@ public class ConsumableDecorativeBlock extends DecorativeBlock{
     }
 
     @Override
+    @NotNull
     public BlockState getStateForPlacement(BlockPlaceContext pContext) {
-        return super.getStateForPlacement(pContext).setValue(BITES, getMaxBites());
+        BlockState state = super.getStateForPlacement(pContext);
+        return state.hasProperty(BITES) ? state.setValue(BITES, getMaxBites()) : state;
     }
 
+    @SuppressWarnings("deprecation")
     @Override
     public InteractionResult use(BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, InteractionHand pHand, BlockHitResult pHit) {
         int bitesRemaining = pState.hasProperty(BITES) ? pState.getValue(BITES) : 0;
@@ -77,6 +81,7 @@ public class ConsumableDecorativeBlock extends DecorativeBlock{
         pBuilder.add(BITES);
     }
 
+    @SuppressWarnings("unused")
     public static class Builder extends DecorativeBlock.Builder{
 
         private int bites = 4;
