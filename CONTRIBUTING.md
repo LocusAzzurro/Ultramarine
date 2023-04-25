@@ -10,7 +10,7 @@ You can choose your way of contributing that fits your interest, which are mainl
 
 ### Issues
 
-You can use issues to report bugs and/or problems you find playing the mod, or request new features that may make a great addition or enchancement to the mod. While we don't have a templete for issues, please be concise and thoughtful when describing the problem encounters or the feature requested.
+You can use issues to report bugs and/or problems you find playing the mod, or request new features that may make a great addition or enchancement to the mod. While we don't have a templete for issues, please be concise and thoughtful when describing the problem encountered or the feature requested.
 
 ### Code Contributions
 
