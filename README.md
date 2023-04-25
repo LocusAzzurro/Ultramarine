@@ -1,4 +1,6 @@
-# Ultramarine
+# Ultramarine Mod
+
+![Ultramarine Logo](web/ultramarine_logo.png)
 
 Ultramarine is a Chinese style Minecraft Mod for Forge Loader, adding furniture and decorative blocks with 16x16 resolution texture to enhance the vanilla experience.
 
