@@ -8,4 +8,4 @@ The source code of this Mod/Project and its public releases in binary form are l
 
 ### Contribution
 
-By contributing to this repository, you are granting the rights over the code contributed to the license holders of this Project. If you do not agree with that, do not contribute. We may choose to acknowledge your contributions to the Project in an adeguate way such as inclusion of your name in the "Credits".
+By contributing to this repository, you are granting the rights over the code contributed to the license holders of this Project. If you do not agree with that, do not contribute. We may choose to acknowledge your contributions to the Project in an adequate way such as inclusion of your name in the "Credits".
