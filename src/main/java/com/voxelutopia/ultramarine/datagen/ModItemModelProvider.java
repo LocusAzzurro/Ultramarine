@@ -38,6 +38,7 @@ public class ModItemModelProvider extends ItemModelProvider {
                 .forEach(this::blockItem);
         wallInventory(BlockRegistry.BLACK_BRICK_WALL.get().getRegistryName().getPath(), blockLoc(BlockRegistry.BLACK_BRICKS.get()));
         wallInventory(BlockRegistry.CYAN_BRICK_WALL.get().getRegistryName().getPath(), blockLoc(BlockRegistry.CYAN_BRICKS.get()));
+        wallInventory(BlockRegistry.CYAN_FLOOR_TILE_WALL.get().getRegistryName().getPath(), blockLoc(BlockRegistry.CYAN_FLOOR_TILE.get()));
         wallInventory(BlockRegistry.BROWNISH_RED_STONE_BRICK_WALL.get().getRegistryName().getPath(), blockLoc(BlockRegistry.BROWNISH_RED_STONE_BRICKS.get()));
         wallInventory(BlockRegistry.POLISHED_WEATHERED_STONE_WALL.get().getRegistryName().getPath(), blockLoc(BlockRegistry.POLISHED_WEATHERED_STONE.get()));
         ItemRegistry.ITEMS.getEntries().stream()
