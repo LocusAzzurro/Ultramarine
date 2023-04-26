@@ -34,6 +34,9 @@ public class ModLootTableProvider extends BaseLootTableProvider {
                     if (block instanceof BaseBlockPropertyHolder baseBlock){
                         return baseBlock.getProperty().getMaterial() == BaseBlockProperty.BlockMaterial.PORCELAIN;
                     }
+                    if (block instanceof SlabBlock) {
+                        return true;
+                    }
                     return false;
                 })
                 .forEach(NON_SIMPLE_BLOCKS::add);
