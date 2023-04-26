@@ -1,5 +1,6 @@
 package com.voxelutopia.ultramarine.datagen;
 
+import com.voxelutopia.ultramarine.Ultramarine;
 import com.voxelutopia.ultramarine.data.BlockRegistry;
 import com.voxelutopia.ultramarine.data.ItemRegistry;
 import com.voxelutopia.ultramarine.world.block.BaseBlockProperty;
@@ -11,10 +12,13 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.OreBlock;
 import net.minecraft.world.level.block.SlabBlock;
+import net.minecraft.world.level.storage.loot.LootTable;
 import net.minecraftforge.registries.RegistryObject;
+import org.slf4j.Logger;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 public class ModLootTableProvider extends BaseLootTableProvider {
 
@@ -23,6 +27,7 @@ public class ModLootTableProvider extends BaseLootTableProvider {
     }
 
     private static final List<RegistryObject<Block>> NON_SIMPLE_BLOCKS = new ArrayList<>();
+    private static final Logger LOGGER = Ultramarine.getLogger();
 
     static {
         BlockRegistry.BLOCKS.getEntries().stream()
@@ -37,6 +42,7 @@ public class ModLootTableProvider extends BaseLootTableProvider {
                     if (block instanceof SlabBlock) {
                         return true;
                     }
+
                     return false;
                 })
                 .forEach(NON_SIMPLE_BLOCKS::add);
@@ -65,26 +71,40 @@ public class ModLootTableProvider extends BaseLootTableProvider {
     }
 
     void simple(RegistryObject<? extends Block> block) {
-        lootTables.put(block.get(), createSimpleTable(block.getId().getPath(), block.get()));
+        addLootTable(block.get(), createSimpleTable(block.getId().getPath(), block.get()));
     }
 
     void ore(RegistryObject<? extends Block> block, RegistryObject<? extends Item> item){
-        lootTables.put(block.get(), createOreDrop(block.getId().getPath(), block.get(), item.get()));
+        addLootTable(block.get(), createOreDrop(block.getId().getPath(), block.get(), item.get()));
     }
 
     void abundantOre(RegistryObject<? extends Block> block, RegistryObject<? extends Item> item){
-        lootTables.put(block.get(), createAbundantOreDrop(block.getId().getPath(), block.get(), item.get(), 1, 3));
+        addLootTable(block.get(), createAbundantOreDrop(block.getId().getPath(), block.get(), item.get(), 1, 3));
     }
 
     void porcelain(RegistryObject<? extends Block> block, RegistryObject<? extends Item> piece, RegistryObject<? extends Item> shards){
-        lootTables.put(block.get(), createPorcelainDrop(block.getId().getPath(), block.get(), piece.get(), shards.get()));
+        addLootTable(block.get(), createPorcelainDrop(block.getId().getPath(), block.get(), piece.get(), shards.get()));
     }
 
     void porcelainPlate(RegistryObject<? extends Block> block, RegistryObject<? extends Item> piece, RegistryObject<? extends Item> shards){
-        lootTables.put(block.get(), createPorcelainDrop(block.getId().getPath(), ((ConsumableDecorativeBlock)block.get()).getPlate(), piece.get(), shards.get()));
+        addLootTable(block.get(), createPorcelainDrop(block.getId().getPath(), ((ConsumableDecorativeBlock)block.get()).getPlate(), piece.get(), shards.get()));
     }
 
     void slab(RegistryObject<? extends Block> block, RegistryObject<? extends Item> item) {
-        lootTables.put(block.get(), createSlabDrop(block.getId().getPath(), (SlabBlock) block.get(), item.get()));
+        addLootTable(block.get(), createSlabDrop(block.getId().getPath(), (SlabBlock) block.get(), item.get()));
     }
+
+    /**
+     * Substitute for adding loot tables to the put(Block, LootTable.Builder) call.
+     * Adds check for duplicates, prefer calling this method for adding loot tables.
+     * @param block same usage as #put
+     * @param builder same usage as #put
+     */
+    void addLootTable(Block block, LootTable.Builder builder){
+        if (lootTables.containsKey(block)){
+            LOGGER.warn("Added duplicate loot table for block " + block.getDescriptionId());
+        }
+        lootTables.put(block, builder);
+    }
+
 }
