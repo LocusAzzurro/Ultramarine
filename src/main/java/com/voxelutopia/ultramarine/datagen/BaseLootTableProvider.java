@@ -7,6 +7,7 @@ import com.voxelutopia.ultramarine.Ultramarine;
 import net.minecraft.advancements.critereon.EnchantmentPredicate;
 import net.minecraft.advancements.critereon.ItemPredicate;
 import net.minecraft.advancements.critereon.MinMaxBounds;
+import net.minecraft.advancements.critereon.StatePropertiesPredicate;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.DataProvider;
 import net.minecraft.data.HashCache;
@@ -17,6 +18,8 @@ import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.SlabBlock;
+import net.minecraft.world.level.block.state.properties.SlabType;
 import net.minecraft.world.level.storage.loot.LootPool;
 import net.minecraft.world.level.storage.loot.LootTable;
 import net.minecraft.world.level.storage.loot.LootTables;
@@ -70,6 +73,31 @@ public abstract class BaseLootTableProvider extends LootTableProvider {
                 .name(name)
                 .setRolls(ConstantValue.exactly(1))
                 .add(LootItem.lootTableItem(drops));
+        return LootTable.lootTable().withPool(builder);
+    }
+
+    protected LootTable.Builder createSlabDrop(String name, SlabBlock block, Item item) {
+        var builder = LootPool.lootPool()
+                .name(name)
+                .add(LootItem.lootTableItem(item)
+                        .when(LootItemBlockStatePropertyCondition
+                                .hasBlockStateProperties(block)
+                                .setProperties(StatePropertiesPredicate.Builder
+                                        .properties()
+                                        .hasProperty(SlabBlock.TYPE, SlabType.TOP))))
+                .add(LootItem.lootTableItem(item)
+                        .when(LootItemBlockStatePropertyCondition
+                                .hasBlockStateProperties(block)
+                                .setProperties(StatePropertiesPredicate.Builder
+                                        .properties()
+                                        .hasProperty(SlabBlock.TYPE, SlabType.BOTTOM))))
+                .add(LootItem.lootTableItem(item)
+                        .when(LootItemBlockStatePropertyCondition
+                                .hasBlockStateProperties(block)
+                                .setProperties(StatePropertiesPredicate.Builder
+                                        .properties()
+                                        .hasProperty(SlabBlock.TYPE, SlabType.DOUBLE)))
+                        .apply(SetItemCountFunction.setCount(ConstantValue.exactly(2))));
         return LootTable.lootTable().withPool(builder);
     }
 

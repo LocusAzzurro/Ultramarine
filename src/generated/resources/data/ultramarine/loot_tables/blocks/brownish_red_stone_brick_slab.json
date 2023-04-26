@@ -8,6 +8,48 @@
       "entries": [
         {
           "type": "minecraft:item",
+          "conditions": [
+            {
+              "condition": "minecraft:block_state_property",
+              "block": "ultramarine:brownish_red_stone_brick_slab",
+              "properties": {
+                "type": "top"
+              }
+            }
+          ],
+          "name": "ultramarine:brownish_red_stone_brick_slab"
+        },
+        {
+          "type": "minecraft:item",
+          "conditions": [
+            {
+              "condition": "minecraft:block_state_property",
+              "block": "ultramarine:brownish_red_stone_brick_slab",
+              "properties": {
+                "type": "bottom"
+              }
+            }
+          ],
+          "name": "ultramarine:brownish_red_stone_brick_slab"
+        },
+        {
+          "type": "minecraft:item",
+          "conditions": [
+            {
+              "condition": "minecraft:block_state_property",
+              "block": "ultramarine:brownish_red_stone_brick_slab",
+              "properties": {
+                "type": "double"
+              }
+            }
+          ],
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": 2.0,
+              "add": false
+            }
+          ],
           "name": "ultramarine:brownish_red_stone_brick_slab"
         }
       ]
