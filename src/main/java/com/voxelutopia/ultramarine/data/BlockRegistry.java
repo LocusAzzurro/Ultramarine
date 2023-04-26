@@ -38,9 +38,13 @@ public class BlockRegistry {
     public static final RegistryObject<Block> POLISHED_WEATHERED_STONE_SLAB = BLOCKS.register("polished_weathered_stone_slab", () -> new BaseSlab((BaseBlock) POLISHED_WEATHERED_STONE.get()));
     public static final RegistryObject<Block> POLISHED_WEATHERED_STONE_STAIRS = BLOCKS.register("polished_weathered_stone_stairs", () -> new BaseStairs((BaseBlock) POLISHED_WEATHERED_STONE.get()));
     public static final RegistryObject<Block> POLISHED_WEATHERED_STONE_WALL = BLOCKS.register("polished_weathered_stone_wall", () -> new BaseWall((BaseBlock) POLISHED_WEATHERED_STONE.get()));
-    public static final RegistryObject<Block> LIGHT_CYAN_FLOOR_TILE = BLOCKS.register("light_cyan_floor_tile", ()->new BaseBlock(BaseBlockProperty.TILE));
+    public static final RegistryObject<Block> LIGHT_CYAN_FLOOR_TILE = BLOCKS.register("light_cyan_floor_tile", () -> new BaseBlock(BaseBlockProperty.TILE));
     public static final RegistryObject<Block> LIGHT_CYAN_FLOOR_TILE_SLAB = BLOCKS.register("light_cyan_floor_tile_slab", () -> new BaseSlab((BaseBlock) LIGHT_CYAN_FLOOR_TILE.get()));
     public static final RegistryObject<Block> LIGHT_CYAN_FLOOR_TILE_STAIRS = BLOCKS.register("light_cyan_floor_tile_stairs", () -> new BaseStairs((BaseBlock) LIGHT_CYAN_FLOOR_TILE.get()));
+    public static final RegistryObject<Block> CYAN_FLOOR_TILE = BLOCKS.register("cyan_floor_tile", () -> new BaseBlock(BaseBlockProperty.TILE));
+    public static final RegistryObject<Block> CYAN_FLOOR_TILE_SLAB = BLOCKS.register("cyan_floor_tile_slab", () -> new BaseSlab((BaseBlock) CYAN_FLOOR_TILE.get()));
+    public static final RegistryObject<Block> CYAN_FLOOR_TILE_STAIRS = BLOCKS.register("cyan_floor_tile_stairs", () -> new BaseStairs((BaseBlock) CYAN_FLOOR_TILE.get()));
+    public static final RegistryObject<Block> CYAN_FLOOR_TILE_WALL = BLOCKS.register("cyan_floor_tile_wall", () -> new BaseWall((BaseBlock) CYAN_FLOOR_TILE.get()));
     public static final RegistryObject<Block> BAMBOO_MAT = BLOCKS.register("bamboo_mat", () -> new BaseBlock(BaseBlockProperty.BAMBOO_WOOD));
     public static final RegistryObject<Block> BAMBOO_MAT_SLAB = BLOCKS.register("bamboo_mat_slab", () -> new BaseSlab((BaseBlock) BAMBOO_MAT.get()));
     public static final RegistryObject<Block> BAMBOO_MAT_STAIRS = BLOCKS.register("bamboo_mat_stairs", () -> new BaseStairs((BaseBlock) BAMBOO_MAT.get()));
@@ -96,8 +100,8 @@ public class BlockRegistry {
     public static final RegistryObject<Block> YELLOW_SKY_LANTERN = BLOCKS.register("yellow_sky_lantern",
             () -> DecorativeBlock.with(BaseBlockProperty.BAMBOO).luminous().build());
 
-    public static final RegistryObject<Block> JADE_ORE = BLOCKS.register("jade_ore",() -> new BaseOreBlock(2, 5));
-    public static final RegistryObject<Block> MAGNESITE_ORE = BLOCKS.register("magnesite_ore",() -> new BaseOreBlock(2, 5));
+    public static final RegistryObject<Block> JADE_ORE = BLOCKS.register("jade_ore", () -> new BaseOreBlock(2, 5));
+    public static final RegistryObject<Block> MAGNESITE_ORE = BLOCKS.register("magnesite_ore", () -> new BaseOreBlock(2, 5));
 
     public static final RegistryObject<Block> WOODWORKING_WORKBENCH = BLOCKS.register("woodworking_workbench", WoodworkingWorkBench::new);
 
