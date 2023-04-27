@@ -1,0 +1,83 @@
+{
+	"credit": "Made with Blockbench",
+	"texture_size": [64, 64],
+	"textures": {
+		"2": "empty_bamboo_tea_bucket"
+	},
+	"elements": [
+		{
+			"from": [2.75, 0, 3.75],
+			"to": [13.25, 3, 14.25],
+			"rotation": {"angle": 45, "axis": "y", "origin": [8, 8.625, 8]},
+			"faces": {
+				"north": {"uv": [11.25, 1.5, 14, 2.25], "texture": "#2"},
+				"east": {"uv": [11.25, 2.5, 14, 3.25], "texture": "#2"},
+				"south": {"uv": [11.25, 3.5, 14, 4.25], "texture": "#2"},
+				"west": {"uv": [11.25, 4.5, 14, 5.25], "texture": "#2"},
+				"up": {"uv": [6, 11.75, 3.25, 9], "texture": "#2"},
+				"down": {"uv": [9, 10.75, 6.25, 13.5], "texture": "#2"}
+			}
+		},
+		{
+			"from": [2, 3, 3],
+			"to": [14, 7.5, 15],
+			"rotation": {"angle": 45, "axis": "y", "origin": [8, 8.625, 8]},
+			"faces": {
+				"north": {"uv": [10.75, 7.5, 13.75, 8.75], "texture": "#2"},
+				"east": {"uv": [10.75, 9, 13.75, 10.25], "texture": "#2"},
+				"south": {"uv": [9.25, 10.75, 12.25, 12], "texture": "#2"},
+				"west": {"uv": [11.25, 0, 14.25, 1.25], "texture": "#2"},
+				"up": {"uv": [10.5, 10.5, 7.5, 7.5], "texture": "#2"},
+				"down": {"uv": [3, 9, 0, 12], "texture": "#2"}
+			}
+		},
+		{
+			"from": [1.25, 7.5, 2.25],
+			"to": [14.75, 24, 15.75],
+			"rotation": {"angle": 45, "axis": "y", "origin": [8, 8.625, 8]},
+			"faces": {
+				"north": {"uv": [0, 0, 3.5, 4.25], "texture": "#2"},
+				"east": {"uv": [3.75, 0, 7.25, 4.25], "texture": "#2"},
+				"south": {"uv": [0, 4.5, 3.5, 8.75], "texture": "#2"},
+				"west": {"uv": [3.75, 4.5, 7.25, 8.75], "texture": "#2"},
+				"up": {"uv": [11, 3.5, 7.5, 0], "texture": "#2"},
+				"down": {"uv": [11, 3.75, 7.5, 7.25], "texture": "#2"}
+			}
+		}
+	],
+	"display": {
+		"thirdperson_righthand": {
+			"scale": [0.3, 0.3, 0.3]
+		},
+		"thirdperson_lefthand": {
+			"scale": [0.3, 0.3, 0.3]
+		},
+		"firstperson_righthand": {
+			"scale": [0.3, 0.3, 0.3]
+		},
+		"firstperson_lefthand": {
+			"scale": [0.3, 0.3, 0.3]
+		},
+		"ground": {
+			"scale": [0.3, 0.3, 0.3]
+		},
+		"gui": {
+			"rotation": [16.5, 56.5, 0],
+			"translation": [-0.5, -0.25, 0],
+			"scale": [0.8, 0.8, 0.8]
+		},
+		"fixed": {
+			"rotation": [0, -82.5, 0],
+			"translation": [4.25, 32, 16.75],
+			"scale": [2, 2, 2]
+		}
+	},
+	"groups": [
+		{
+			"name": "bone",
+			"origin": [0, 0, 0],
+			"color": 0,
+			"children": [0, 1, 2]
+		}
+	]
+}
