@@ -2,7 +2,7 @@ package com.voxelutopia.ultramarine.world.item;
 
 import com.voxelutopia.ultramarine.data.CreativeTabs;
 import com.voxelutopia.ultramarine.data.ModBlockStateProperties;
-import com.voxelutopia.ultramarine.data.SoundRegistry;
+import com.voxelutopia.ultramarine.data.registry.SoundRegistry;
 import net.minecraft.core.BlockPos;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.stats.Stats;

@@ -1,6 +1,6 @@
 package com.voxelutopia.ultramarine.world.block;
 
-import com.voxelutopia.ultramarine.data.BlockRegistry;
+import com.voxelutopia.ultramarine.data.registry.BlockRegistry;
 import net.minecraft.world.level.block.StairBlock;
 
 public class BaseStairs extends StairBlock implements BaseBlockPropertyHolder {

@@ -1,6 +1,6 @@
 package com.voxelutopia.ultramarine.datagen;
 
-import com.voxelutopia.ultramarine.data.BlockRegistry;
+import com.voxelutopia.ultramarine.data.registry.BlockRegistry;
 import com.voxelutopia.ultramarine.world.block.*;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.tags.BlockTagsProvider;

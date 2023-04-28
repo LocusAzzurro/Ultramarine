@@ -1,6 +1,6 @@
 package com.voxelutopia.ultramarine.world.block.menu;
 
-import com.voxelutopia.ultramarine.data.MenuTypeRegistry;
+import com.voxelutopia.ultramarine.data.registry.MenuTypeRegistry;
 import com.voxelutopia.ultramarine.world.block.ContainerDecorativeBlock;
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.world.Container;
@@ -11,8 +11,6 @@ import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.inventory.MenuType;
 import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.item.ItemStack;
-import net.minecraftforge.items.IItemHandler;
-import net.minecraftforge.items.SlotItemHandler;
 import org.jetbrains.annotations.NotNull;
 
 import javax.annotation.ParametersAreNonnullByDefault;

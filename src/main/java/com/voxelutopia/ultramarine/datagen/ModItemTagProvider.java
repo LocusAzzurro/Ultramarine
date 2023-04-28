@@ -1,10 +1,9 @@
 package com.voxelutopia.ultramarine.datagen;
 
-import com.voxelutopia.ultramarine.data.ItemRegistry;
+import com.voxelutopia.ultramarine.data.registry.ItemRegistry;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.tags.BlockTagsProvider;
 import net.minecraft.data.tags.ItemTagsProvider;
-import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.ItemTags;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import org.jetbrains.annotations.NotNull;

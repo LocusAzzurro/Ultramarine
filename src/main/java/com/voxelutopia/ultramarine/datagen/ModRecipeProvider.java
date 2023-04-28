@@ -1,7 +1,7 @@
 package com.voxelutopia.ultramarine.datagen;
 
-import com.voxelutopia.ultramarine.data.ItemRegistry;
-import com.voxelutopia.ultramarine.data.RecipeSerializerRegistry;
+import com.voxelutopia.ultramarine.data.registry.ItemRegistry;
+import com.voxelutopia.ultramarine.data.registry.RecipeSerializerRegistry;
 import net.minecraft.advancements.critereon.InventoryChangeTrigger;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.recipes.*;
@@ -10,7 +10,6 @@ import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
-import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraft.world.level.ItemLike;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.IForgeRegistry;

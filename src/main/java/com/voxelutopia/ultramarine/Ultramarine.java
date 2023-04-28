@@ -1,7 +1,7 @@
 package com.voxelutopia.ultramarine;
 
 import com.mojang.logging.LogUtils;
-import com.voxelutopia.ultramarine.data.*;
+import com.voxelutopia.ultramarine.data.registry.*;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.common.Mod;

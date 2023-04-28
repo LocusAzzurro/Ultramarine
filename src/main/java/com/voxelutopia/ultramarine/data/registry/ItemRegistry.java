@@ -1,7 +1,7 @@
-package com.voxelutopia.ultramarine.data;
+package com.voxelutopia.ultramarine.data.registry;
 
 import com.voxelutopia.ultramarine.Ultramarine;
-import com.voxelutopia.ultramarine.world.block.*;
+import com.voxelutopia.ultramarine.data.CreativeTabs;
 import com.voxelutopia.ultramarine.world.item.WoodenHammer;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.CreativeModeTab;

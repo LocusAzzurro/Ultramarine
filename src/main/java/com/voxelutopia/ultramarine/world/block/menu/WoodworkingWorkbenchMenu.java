@@ -1,12 +1,10 @@
 package com.voxelutopia.ultramarine.world.block.menu;
 
 import com.google.common.collect.Lists;
-import com.voxelutopia.ultramarine.data.BlockRegistry;
-import com.voxelutopia.ultramarine.data.MenuTypeRegistry;
-import com.voxelutopia.ultramarine.data.RecipeTypeRegistry;
+import com.voxelutopia.ultramarine.data.registry.BlockRegistry;
+import com.voxelutopia.ultramarine.data.registry.MenuTypeRegistry;
+import com.voxelutopia.ultramarine.data.registry.RecipeTypeRegistry;
 import com.voxelutopia.ultramarine.data.recipe.WoodworkingRecipe;
-import net.minecraft.sounds.SoundEvents;
-import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.Container;
 import net.minecraft.world.SimpleContainer;
 import net.minecraft.world.entity.player.Inventory;
@@ -14,10 +12,7 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.*;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.crafting.RecipeType;
-import net.minecraft.world.item.crafting.StonecutterRecipe;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.block.Blocks;
 
 import java.util.List;
 

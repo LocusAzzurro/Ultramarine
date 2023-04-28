@@ -1,4 +1,4 @@
-package com.voxelutopia.ultramarine.data;
+package com.voxelutopia.ultramarine.data.registry;
 
 import com.voxelutopia.ultramarine.Ultramarine;
 import net.minecraft.resources.ResourceLocation;

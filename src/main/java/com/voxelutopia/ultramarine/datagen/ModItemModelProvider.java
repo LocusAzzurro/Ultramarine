@@ -1,7 +1,7 @@
 package com.voxelutopia.ultramarine.datagen;
 
-import com.voxelutopia.ultramarine.data.BlockRegistry;
-import com.voxelutopia.ultramarine.data.ItemRegistry;
+import com.voxelutopia.ultramarine.data.registry.BlockRegistry;
+import com.voxelutopia.ultramarine.data.registry.ItemRegistry;
 import com.voxelutopia.ultramarine.world.block.BaseFence;
 import com.voxelutopia.ultramarine.world.block.BaseWall;
 import net.minecraft.data.DataGenerator;

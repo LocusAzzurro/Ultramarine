@@ -1,6 +1,6 @@
 package com.voxelutopia.ultramarine.world.block;
 
-import com.voxelutopia.ultramarine.data.SoundRegistry;
+import com.voxelutopia.ultramarine.data.registry.SoundRegistry;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.level.block.Block;

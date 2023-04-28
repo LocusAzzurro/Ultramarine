@@ -1,11 +1,10 @@
 package com.voxelutopia.ultramarine.datagen;
 
 import com.voxelutopia.ultramarine.Ultramarine;
-import com.voxelutopia.ultramarine.data.BlockRegistry;
-import com.voxelutopia.ultramarine.data.ItemRegistry;
+import com.voxelutopia.ultramarine.data.registry.BlockRegistry;
+import com.voxelutopia.ultramarine.data.registry.ItemRegistry;
 import com.voxelutopia.ultramarine.world.block.BaseBlockProperty;
 import com.voxelutopia.ultramarine.world.block.BaseBlockPropertyHolder;
-import com.voxelutopia.ultramarine.world.block.BaseWall;
 import com.voxelutopia.ultramarine.world.block.ConsumableDecorativeBlock;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.world.item.Item;
@@ -18,7 +17,6 @@ import org.slf4j.Logger;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 public class ModLootTableProvider extends BaseLootTableProvider {
 

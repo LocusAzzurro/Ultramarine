@@ -1,6 +1,6 @@
 package com.voxelutopia.ultramarine.world.block.entity;
 
-import com.voxelutopia.ultramarine.data.BlockEntityRegistry;
+import com.voxelutopia.ultramarine.data.registry.BlockEntityRegistry;
 import com.voxelutopia.ultramarine.world.block.ContainerDecorativeBlock;
 import com.voxelutopia.ultramarine.world.block.menu.ContainerDecorativeBlockMenu;
 import net.minecraft.core.BlockPos;

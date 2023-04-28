@@ -2,8 +2,8 @@ package com.voxelutopia.ultramarine.client.event;
 
 import com.voxelutopia.ultramarine.client.screen.ContainerDecorativeBlockScreen;
 import com.voxelutopia.ultramarine.client.screen.WoodworkingWorkbenchScreen;
-import com.voxelutopia.ultramarine.data.BlockRegistry;
-import com.voxelutopia.ultramarine.data.MenuTypeRegistry;
+import com.voxelutopia.ultramarine.data.registry.BlockRegistry;
+import com.voxelutopia.ultramarine.data.registry.MenuTypeRegistry;
 import net.minecraft.client.gui.screens.MenuScreens;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.RenderType;
