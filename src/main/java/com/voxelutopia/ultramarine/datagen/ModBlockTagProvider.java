@@ -40,8 +40,12 @@ public class ModBlockTagProvider extends BlockTagsProvider {
                 .add(BlockRegistry.WHITE_SKY_LANTERN.get())
                 .add(BlockRegistry.RED_SKY_LANTERN.get())
                 .add(BlockRegistry.YELLOW_SKY_LANTERN.get());
+        tag(BlockTags.PLANKS)
+                .add(BlockRegistry.ROSEWOOD_PLANKS.get());
         BlockRegistry.BLOCKS.getEntries().stream().filter((blockRegistryObject -> blockRegistryObject.get() instanceof BaseWall))
                 .forEach(blockRegistryObject -> tag(BlockTags.WALLS).add(blockRegistryObject.get()));
+        BlockRegistry.BLOCKS.getEntries().stream().filter((blockRegistryObject -> blockRegistryObject.get() instanceof BaseFence))
+                .forEach(blockRegistryObject -> tag(BlockTags.FENCES).add(blockRegistryObject.get()));
     }
 
     @Override

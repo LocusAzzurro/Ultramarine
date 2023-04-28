@@ -1,8 +1,11 @@
 package com.voxelutopia.ultramarine.datagen;
 
+import com.voxelutopia.ultramarine.data.ItemRegistry;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.tags.BlockTagsProvider;
 import net.minecraft.data.tags.ItemTagsProvider;
+import net.minecraft.tags.BlockTags;
+import net.minecraft.tags.ItemTags;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import org.jetbrains.annotations.NotNull;
 
@@ -14,6 +17,9 @@ public class ModItemTagProvider extends ItemTagsProvider {
 
     @Override
     protected void addTags() {
+        tag(ItemTags.PLANKS)
+                .add(ItemRegistry.ROSEWOOD_PLANKS.get());
+
     }
     @NotNull
     @Override

@@ -26,7 +26,7 @@ public final class BaseBlockProperty {
     public static BaseBlockProperty BAMBOO_WOOD = new BaseBlockProperty(BlockBehaviour.Properties.of(Material.WOOD)
             .sound(SoundRegistry.BAMBOO_WOOD)
             .strength(2.0F, 3.0F), BlockMaterial.WOOD);
-    public static BaseBlockProperty BAMBOO = new BaseBlockProperty(BlockBehaviour.Properties.of(Material.WOOD)
+    public static BaseBlockProperty BAMBOO = new BaseBlockProperty(BlockBehaviour.Properties.of(Material.BAMBOO)
             .sound(SoundType.BAMBOO)
             .strength(1.5F, 2.5F), BlockMaterial.BAMBOO);
     public static BaseBlockProperty GLAZED = new BaseBlockProperty(BlockBehaviour.Properties.of(Material.STONE)

@@ -33,16 +33,12 @@ public class ModLootTableProvider extends BaseLootTableProvider {
         BlockRegistry.BLOCKS.getEntries().stream()
                 .filter(blockRegistryObject -> {
                     var block = blockRegistryObject.get();
-                    if (block instanceof OreBlock){
+                    if (block instanceof OreBlock || block instanceof SlabBlock){
                         return true;
                     }
                     if (block instanceof BaseBlockPropertyHolder baseBlock){
                         return baseBlock.getProperty().getMaterial() == BaseBlockProperty.BlockMaterial.PORCELAIN;
                     }
-                    if (block instanceof SlabBlock) {
-                        return true;
-                    }
-
                     return false;
                 })
                 .forEach(NON_SIMPLE_BLOCKS::add);

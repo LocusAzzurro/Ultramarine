@@ -11,6 +11,7 @@
     }
   },
   "result": {
-    "item": "ultramarine:weathered_stone_stairs"
+    "item": "ultramarine:weathered_stone_stairs",
+    "count": 4
   }
 }

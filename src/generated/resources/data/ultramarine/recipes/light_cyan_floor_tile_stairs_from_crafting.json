@@ -11,6 +11,7 @@
     }
   },
   "result": {
-    "item": "ultramarine:light_cyan_floor_tile_stairs"
+    "item": "ultramarine:light_cyan_floor_tile_stairs",
+    "count": 4
   }
 }

@@ -1,6 +1,7 @@
 package com.voxelutopia.ultramarine.data;
 
 import com.voxelutopia.ultramarine.Ultramarine;
+import com.voxelutopia.ultramarine.world.block.*;
 import com.voxelutopia.ultramarine.world.item.WoodenHammer;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.CreativeModeTab;
@@ -45,6 +46,10 @@ public class ItemRegistry {
     public static final RegistryObject<Item> CYAN_FLOOR_TILE_SLAB = fromBlock(BlockRegistry.CYAN_FLOOR_TILE_SLAB, CreativeTabs.BUILDING_BLOCKS);
     public static final RegistryObject<Item> CYAN_FLOOR_TILE_STAIRS = fromBlock(BlockRegistry.CYAN_FLOOR_TILE_STAIRS, CreativeTabs.BUILDING_BLOCKS);
     public static final RegistryObject<Item> CYAN_FLOOR_TILE_WALL = fromBlock(BlockRegistry.CYAN_FLOOR_TILE_WALL, CreativeTabs.BUILDING_BLOCKS);
+    public static final RegistryObject<Item> ROSEWOOD_PLANKS = fromBlock(BlockRegistry.ROSEWOOD_PLANKS, CreativeTabs.BUILDING_BLOCKS);
+    public static final RegistryObject<Item> ROSEWOOD_SLAB = fromBlock(BlockRegistry.ROSEWOOD_SLAB, CreativeTabs.BUILDING_BLOCKS);
+    public static final RegistryObject<Item> ROSEWOOD_STAIRS = fromBlock(BlockRegistry.ROSEWOOD_STAIRS, CreativeTabs.BUILDING_BLOCKS);
+    public static final RegistryObject<Item> ROSEWOOD_FENCE = fromBlock(BlockRegistry.ROSEWOOD_FENCE, CreativeTabs.BUILDING_BLOCKS);
     public static final RegistryObject<Item> BAMBOO_MAT = fromBlock(BlockRegistry.BAMBOO_MAT, CreativeTabs.BUILDING_BLOCKS);
     public static final RegistryObject<Item> BAMBOO_MAT_SLAB = fromBlock(BlockRegistry.BAMBOO_MAT_SLAB, CreativeTabs.BUILDING_BLOCKS);
     public static final RegistryObject<Item> BAMBOO_MAT_STAIRS = fromBlock(BlockRegistry.BAMBOO_MAT_STAIRS, CreativeTabs.BUILDING_BLOCKS);

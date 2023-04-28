@@ -9,10 +9,7 @@ import com.voxelutopia.ultramarine.world.block.ShiftedTileType;
 import net.minecraft.core.Direction;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.SlabBlock;
-import net.minecraft.world.level.block.StairBlock;
-import net.minecraft.world.level.block.WallBlock;
+import net.minecraft.world.level.block.*;
 import net.minecraftforge.client.model.generators.BlockStateProvider;
 import net.minecraftforge.client.model.generators.ConfiguredModel;
 import net.minecraftforge.common.data.ExistingFileHelper;
@@ -63,6 +60,9 @@ public class ModBlockModelProvider extends BlockStateProvider {
         slabAndStairs(BlockRegistry.POLISHED_WEATHERED_STONE.get(), BlockRegistry.POLISHED_WEATHERED_STONE_SLAB.get(), BlockRegistry.POLISHED_WEATHERED_STONE_STAIRS.get());
         simpleBlock(BlockRegistry.LIGHT_CYAN_FLOOR_TILE.get());
         slabAndStairs(BlockRegistry.LIGHT_CYAN_FLOOR_TILE.get(), BlockRegistry.LIGHT_CYAN_FLOOR_TILE_SLAB.get(), BlockRegistry.LIGHT_CYAN_FLOOR_TILE_STAIRS.get());
+        simpleBlock(BlockRegistry.ROSEWOOD_PLANKS.get());
+        slabAndStairs(BlockRegistry.ROSEWOOD_PLANKS.get(), BlockRegistry.ROSEWOOD_SLAB.get(), BlockRegistry.ROSEWOOD_STAIRS.get());
+        fence(BlockRegistry.ROSEWOOD_PLANKS.get(), BlockRegistry.ROSEWOOD_FENCE.get());
         simpleBlock(BlockRegistry.BAMBOO_MAT.get());
         slabAndStairs(BlockRegistry.BAMBOO_MAT.get(), BlockRegistry.BAMBOO_MAT_SLAB.get(), BlockRegistry.BAMBOO_MAT_STAIRS.get());
         wall(BlockRegistry.POLISHED_WEATHERED_STONE.get(), BlockRegistry.POLISHED_WEATHERED_STONE_WALL.get());
@@ -119,6 +119,11 @@ public class ModBlockModelProvider extends BlockStateProvider {
     private void wall(Block baseBlock, Block wallBlock){
         wallBlock((WallBlock)wallBlock, wallBlock.getRegistryName().getPath(), blockLoc(baseBlock));
     }
+
+    private void fence(Block baseBlock, Block fenceBlock){
+        fenceBlock((FenceBlock)fenceBlock, fenceBlock.getRegistryName().getPath(), blockLoc(baseBlock));
+    }
+
     private void shiftedDirectionalBlock(Block block, String color, ShiftedTileType type) {
         models().withExistingParent(modLoc("block/" + color + "_" + type).getPath(), modLoc("block/" + type))
                 .texture("1", blockLoc(block)).texture("particle", mcLoc("block/" + color + "_concrete"));

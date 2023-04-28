@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "ultramarine:rosewood_stairs_from_crafting"
+    ]
+  },
+  "criteria": {
+    "has_rosewood_planks": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "ultramarine:rosewood_planks"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "ultramarine:rosewood_stairs_from_crafting"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_rosewood_planks",
+      "has_the_recipe"
+    ]
+  ]
+}

@@ -1,6 +1,10 @@
 {
   "replace": false,
   "values": [
+    "ultramarine:rosewood_planks",
+    "ultramarine:rosewood_slab",
+    "ultramarine:rosewood_stairs",
+    "ultramarine:rosewood_fence",
     "ultramarine:bamboo_mat",
     "ultramarine:bamboo_mat_slab",
     "ultramarine:bamboo_mat_stairs",

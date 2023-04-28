@@ -2,6 +2,7 @@ package com.voxelutopia.ultramarine.datagen;
 
 import com.voxelutopia.ultramarine.data.BlockRegistry;
 import com.voxelutopia.ultramarine.data.ItemRegistry;
+import com.voxelutopia.ultramarine.world.block.BaseFence;
 import com.voxelutopia.ultramarine.world.block.BaseWall;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.resources.ResourceLocation;
@@ -24,7 +25,10 @@ public class ModItemModelProvider extends ItemModelProvider {
 
     static {
         BlockRegistry.BLOCKS.getEntries().stream()
-                .filter(blockRegistryObject -> blockRegistryObject.get() instanceof BaseWall)
+                .filter(blockRegistryObject -> (
+                        blockRegistryObject.get() instanceof BaseWall ||
+                        blockRegistryObject.get() instanceof BaseFence
+                ))
                 .forEach(NON_SIMPLE_BLOCKS::add);
     }
 
@@ -41,6 +45,7 @@ public class ModItemModelProvider extends ItemModelProvider {
         wallInventory(BlockRegistry.CYAN_FLOOR_TILE_WALL.get().getRegistryName().getPath(), blockLoc(BlockRegistry.CYAN_FLOOR_TILE.get()));
         wallInventory(BlockRegistry.BROWNISH_RED_STONE_BRICK_WALL.get().getRegistryName().getPath(), blockLoc(BlockRegistry.BROWNISH_RED_STONE_BRICKS.get()));
         wallInventory(BlockRegistry.POLISHED_WEATHERED_STONE_WALL.get().getRegistryName().getPath(), blockLoc(BlockRegistry.POLISHED_WEATHERED_STONE.get()));
+        fenceInventory(BlockRegistry.ROSEWOOD_FENCE.get().getRegistryName().getPath(), blockLoc(BlockRegistry.ROSEWOOD_PLANKS.get()));
         ItemRegistry.ITEMS.getEntries().stream()
                 .filter(blockRegistryObject -> !NON_SIMPLE_ITEMS.contains(blockRegistryObject))
                 .filter(blockRegistryObject -> !(blockRegistryObject.get() instanceof BlockItem))

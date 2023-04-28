@@ -2,17 +2,17 @@
   "parent": "minecraft:recipes/root",
   "rewards": {
     "recipes": [
-      "ultramarine:bamboo_mat_stairs_from_stonecutting"
+      "ultramarine:rosewood_fence_from_crafting"
     ]
   },
   "criteria": {
-    "has_bamboo_mat": {
+    "has_rosewood_planks": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
             "items": [
-              "ultramarine:bamboo_mat"
+              "ultramarine:rosewood_planks"
             ]
           }
         ]
@@ -21,13 +21,13 @@
     "has_the_recipe": {
       "trigger": "minecraft:recipe_unlocked",
       "conditions": {
-        "recipe": "ultramarine:bamboo_mat_stairs_from_stonecutting"
+        "recipe": "ultramarine:rosewood_fence_from_crafting"
       }
     }
   },
   "requirements": [
     [
-      "has_bamboo_mat",
+      "has_rosewood_planks",
       "has_the_recipe"
     ]
   ]

@@ -7,11 +7,11 @@
   ],
   "key": {
     "B": {
-      "item": "ultramarine:cyan_bricks"
+      "item": "ultramarine:rosewood_planks"
     }
   },
   "result": {
-    "item": "ultramarine:cyan_brick_stairs",
+    "item": "ultramarine:rosewood_stairs",
     "count": 4
   }
 }
