@@ -46,6 +46,9 @@ public class ItemRegistry {
     public static final RegistryObject<Item> CYAN_FLOOR_TILE_SLAB = fromBlock(BlockRegistry.CYAN_FLOOR_TILE_SLAB, CreativeTabs.BUILDING_BLOCKS);
     public static final RegistryObject<Item> CYAN_FLOOR_TILE_STAIRS = fromBlock(BlockRegistry.CYAN_FLOOR_TILE_STAIRS, CreativeTabs.BUILDING_BLOCKS);
     public static final RegistryObject<Item> CYAN_FLOOR_TILE_WALL = fromBlock(BlockRegistry.CYAN_FLOOR_TILE_WALL, CreativeTabs.BUILDING_BLOCKS);
+    public static final RegistryObject<Item> GREEN_GLAZED_TILES = fromBlock(BlockRegistry.GREEN_GLAZED_TILES, CreativeTabs.BUILDING_BLOCKS);
+    public static final RegistryObject<Item> GREEN_GLAZED_TILE_SLAB = fromBlock(BlockRegistry.GREEN_GLAZED_TILE_SLAB, CreativeTabs.BUILDING_BLOCKS);
+    public static final RegistryObject<Item> GREEN_GLAZED_TILE_STAIRS = fromBlock(BlockRegistry.GREEN_GLAZED_TILE_STAIRS, CreativeTabs.BUILDING_BLOCKS);
     public static final RegistryObject<Item> ROSEWOOD_PLANKS = fromBlock(BlockRegistry.ROSEWOOD_PLANKS, CreativeTabs.BUILDING_BLOCKS);
     public static final RegistryObject<Item> ROSEWOOD_SLAB = fromBlock(BlockRegistry.ROSEWOOD_SLAB, CreativeTabs.BUILDING_BLOCKS);
     public static final RegistryObject<Item> ROSEWOOD_STAIRS = fromBlock(BlockRegistry.ROSEWOOD_STAIRS, CreativeTabs.BUILDING_BLOCKS);

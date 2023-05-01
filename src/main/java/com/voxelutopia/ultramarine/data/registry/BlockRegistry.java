@@ -45,6 +45,9 @@ public class BlockRegistry {
     public static final RegistryObject<Block> CYAN_FLOOR_TILE_SLAB = BLOCKS.register("cyan_floor_tile_slab", () -> new BaseSlab((BaseBlock) CYAN_FLOOR_TILE.get()));
     public static final RegistryObject<Block> CYAN_FLOOR_TILE_STAIRS = BLOCKS.register("cyan_floor_tile_stairs", () -> new BaseStairs((BaseBlock) CYAN_FLOOR_TILE.get()));
     public static final RegistryObject<Block> CYAN_FLOOR_TILE_WALL = BLOCKS.register("cyan_floor_tile_wall", () -> new BaseWall((BaseBlock) CYAN_FLOOR_TILE.get()));
+    public static final RegistryObject<Block> GREEN_GLAZED_TILES = BLOCKS.register("green_glazed_tiles", () -> new BaseBlock(BaseBlockProperty.GLAZED));
+    public static final RegistryObject<Block> GREEN_GLAZED_TILE_SLAB = BLOCKS.register("green_glazed_tile_slab", () -> new BaseSlab((BaseBlock) GREEN_GLAZED_TILES.get()));
+    public static final RegistryObject<Block> GREEN_GLAZED_TILE_STAIRS = BLOCKS.register("green_glazed_tile_stairs", () -> new BaseStairs((BaseBlock) GREEN_GLAZED_TILES.get()));
     public static final RegistryObject<Block> ROSEWOOD_PLANKS = BLOCKS.register("rosewood_planks", () -> new BaseBlock(BaseBlockProperty.WOOD));
     public static final RegistryObject<Block> ROSEWOOD_SLAB = BLOCKS.register("rosewood_slab", () -> new BaseSlab((BaseBlock) ROSEWOOD_PLANKS.get()));
     public static final RegistryObject<Block> ROSEWOOD_STAIRS = BLOCKS.register("rosewood_stairs", () -> new BaseStairs((BaseBlock) ROSEWOOD_PLANKS.get()));

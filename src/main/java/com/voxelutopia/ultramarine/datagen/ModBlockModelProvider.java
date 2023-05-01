@@ -69,6 +69,8 @@ public class ModBlockModelProvider extends BlockStateProvider {
         simpleBlock(BlockRegistry.CYAN_FLOOR_TILE.get());
         slabAndStairs(BlockRegistry.CYAN_FLOOR_TILE.get(), BlockRegistry.CYAN_FLOOR_TILE_SLAB.get(), BlockRegistry.CYAN_FLOOR_TILE_STAIRS.get());
         wall(BlockRegistry.CYAN_FLOOR_TILE.get(), BlockRegistry.CYAN_FLOOR_TILE_WALL.get());
+        simpleBlock(BlockRegistry.GREEN_GLAZED_TILES.get());
+        slabAndStairs(BlockRegistry.GREEN_GLAZED_TILES.get(), BlockRegistry.GREEN_GLAZED_TILE_SLAB.get(), BlockRegistry.GREEN_GLAZED_TILE_STAIRS.get());
 
         //<editor-fold desc="Roof Tiles">
         shiftedDirectionalBlock(BlockRegistry.GRAY_ROOF_TILES.get(), "gray", RoofTiles.RoofTileType.NORMAL);
