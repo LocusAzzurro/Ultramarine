@@ -7,6 +7,8 @@ import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.food.FoodProperties;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.Level;
@@ -24,14 +26,30 @@ public class ConsumableDecorativeBlock extends DecorativeBlock{
 
     public static final IntegerProperty BITES = ModBlockStateProperties.BITES;
     private final int bites;
-    private final BlockConsumedAction consumedAction;
+    private final ConsumeAction finishedAction;
+    private final ConsumeAction eatAction;
     private final Block plate;
+    private final FoodProperties food;
+    public static ConsumeAction DEFAULT_FINISH_ACTION = ((pState, pLevel, pPos, pPlayer) -> {
+        pLevel.setBlock(pPos, Blocks.AIR.defaultBlockState(), Block.UPDATE_ALL);
+        ItemHandlerHelper.giveItemToPlayer(pPlayer, (pState.getBlock() instanceof ConsumableDecorativeBlock consumable) ? new ItemStack(consumable.getPlate()) : ItemStack.EMPTY);
+        pLevel.gameEvent(pPlayer, GameEvent.BLOCK_DESTROY, pPos);
+    });
+    public static ConsumeAction DEFAULT_EAT_ACTION = ((pState, pLevel, pPos, pPlayer) -> {
+        if (pState.getBlock() instanceof ConsumableDecorativeBlock consumable){
+            pPlayer.getFoodData().eat(consumable.getFood().getNutrition(), consumable.getFood().getSaturationModifier());
+        }
+        pLevel.playSound(pPlayer, pPos, SoundEvents.GENERIC_EAT, SoundSource.PLAYERS,1,0.75f);
+        pLevel.gameEvent(pPlayer, GameEvent.EAT, pPos);
+    });
 
     public ConsumableDecorativeBlock(Builder builder) {
         super(builder);
         this.bites = builder.bites;
-        this.consumedAction = builder.consumedAction;
+        this.finishedAction = builder.finishedAction;
+        this.eatAction = builder.eatAction;
         this.plate = builder.plateBlock;
+        this.food = builder.food;
         this.registerDefaultState(this.stateDefinition.any().setValue(BITES, bites));
     }
 
@@ -54,13 +72,11 @@ public class ConsumableDecorativeBlock extends DecorativeBlock{
             return InteractionResult.PASS;
         }
         if (bitesRemaining > 0){
-            pPlayer.getFoodData().eat(2, 0.1F);
-            pLevel.playSound(pPlayer, pPos, SoundEvents.GENERIC_EAT, SoundSource.PLAYERS,1,0.75f);
-            pLevel.gameEvent(pPlayer, GameEvent.EAT, pPos);
+            this.eatAction.consume(pState, pLevel, pPos, pPlayer);
             bitesRemaining--;
         }
         if (bitesRemaining <= 0){
-            this.consumedAction.consume(pState, pLevel, pPos, pPlayer);
+            this.finishedAction.consume(pState, pLevel, pPos, pPlayer);
         }
         else {
             pLevel.setBlock(pPos, pState.setValue(BITES, bitesRemaining), Block.UPDATE_ALL);
@@ -76,6 +92,10 @@ public class ConsumableDecorativeBlock extends DecorativeBlock{
         return plate;
     }
 
+    public FoodProperties getFood(){
+        return food;
+    }
+
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> pBuilder) {
         super.createBlockStateDefinition(pBuilder);
         pBuilder.add(BITES);
@@ -84,13 +104,13 @@ public class ConsumableDecorativeBlock extends DecorativeBlock{
     @SuppressWarnings("unused")
     public static class Builder extends DecorativeBlock.Builder{
 
+        private static final FoodProperties DEFAULT_FOOD = new FoodProperties.Builder().nutrition(2).saturationMod(0.2f).build();
         private int bites = 4;
         private Block plateBlock = Blocks.STONE_SLAB;
-        private BlockConsumedAction consumedAction = ((pState, pLevel, pPos, pPlayer) -> {
-            pLevel.setBlock(pPos, Blocks.AIR.defaultBlockState(), Block.UPDATE_ALL);
-            ItemHandlerHelper.giveItemToPlayer(pPlayer, new ItemStack(plateBlock));
-            pLevel.gameEvent(pPlayer, GameEvent.BLOCK_DESTROY, pPos);
-        });
+        private ConsumeAction eatAction = DEFAULT_EAT_ACTION;
+        private ConsumeAction finishedAction = DEFAULT_FINISH_ACTION;
+        private FoodProperties food = DEFAULT_FOOD;
+
 
         public Builder(BaseBlockProperty property) {
             super(property);
@@ -101,13 +121,29 @@ public class ConsumableDecorativeBlock extends DecorativeBlock{
             return this;
         }
 
-        public Builder whenConsumed(BlockConsumedAction action){
-            this.consumedAction = action;
+        public Builder whenFinished(ConsumeAction action){
+            this.finishedAction = action;
+            return this;
+        }
+
+        public Builder onEat(ConsumeAction action){
+            this.eatAction = action;
             return this;
         }
 
         public Builder platedWith(Block plate){
             this.plateBlock = plate;
+            return this;
+        }
+
+        public Builder food(FoodProperties food){
+            this.food = food;
+            return this;
+        }
+
+        public Builder food(ItemStack item){
+            if (item.isEdible())
+                this.food = item.getFoodProperties(null);
             return this;
         }
 
@@ -117,7 +153,7 @@ public class ConsumableDecorativeBlock extends DecorativeBlock{
     }
 
     @FunctionalInterface
-    public interface BlockConsumedAction{
+    public interface ConsumeAction {
 
         void consume(BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer);
     }
