@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "ultramarine:polished_jungle_plank"
+    ]
+  },
+  "criteria": {
+    "has_jungle_planks": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:jungle_planks"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "ultramarine:polished_jungle_plank"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_jungle_planks",
+      "has_the_recipe"
+    ]
+  ]
+}

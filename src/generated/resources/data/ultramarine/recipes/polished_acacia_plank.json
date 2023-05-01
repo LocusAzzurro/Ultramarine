@@ -1,0 +1,8 @@
+{
+  "type": "ultramarine:woodworking",
+  "ingredient": {
+    "item": "minecraft:acacia_planks"
+  },
+  "result": "ultramarine:polished_acacia_plank",
+  "count": 2
+}

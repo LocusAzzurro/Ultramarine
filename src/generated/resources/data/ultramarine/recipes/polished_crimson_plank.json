@@ -1,0 +1,8 @@
+{
+  "type": "ultramarine:woodworking",
+  "ingredient": {
+    "item": "minecraft:crimson_planks"
+  },
+  "result": "ultramarine:polished_crimson_plank",
+  "count": 2
+}

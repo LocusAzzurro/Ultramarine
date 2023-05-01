@@ -102,6 +102,15 @@ public class ItemRegistry {
     public static final RegistryObject<Item> BLACK_ROOF_TILE = simpleItem("black_roof_tile", CreativeTabs.MATERIALS);
 
     public static final RegistryObject<Item> POLISHED_OAK_PLANK = simpleItem("polished_oak_plank", CreativeTabs.MATERIALS);
+    public static final RegistryObject<Item> POLISHED_BIRCH_PLANK = simpleItem("polished_birch_plank", CreativeTabs.MATERIALS);
+    public static final RegistryObject<Item> POLISHED_SPRUCE_PLANK = simpleItem("polished_spruce_plank", CreativeTabs.MATERIALS);
+    public static final RegistryObject<Item> POLISHED_JUNGLE_PLANK = simpleItem("polished_jungle_plank", CreativeTabs.MATERIALS);
+    public static final RegistryObject<Item> POLISHED_ACACIA_PLANK = simpleItem("polished_acacia_plank", CreativeTabs.MATERIALS);
+    public static final RegistryObject<Item> POLISHED_DARK_OAK_PLANK = simpleItem("polished_dark_oak_plank", CreativeTabs.MATERIALS);
+    public static final RegistryObject<Item> POLISHED_WARPED_PLANK = simpleItem("polished_warped_plank", CreativeTabs.MATERIALS);
+    public static final RegistryObject<Item> POLISHED_CRIMSON_PLANK = simpleItem("polished_crimson_plank", CreativeTabs.MATERIALS);
+    public static final RegistryObject<Item> POLISHED_ROSEWOOD_PLANK = simpleItem("polished_rosewood_plank", CreativeTabs.MATERIALS);
+    public static final RegistryObject<Item> POLISHED_EBONY_PLANK = simpleItem("polished_ebony_plank", CreativeTabs.MATERIALS);
     public static final RegistryObject<Item> WOODEN_FRAME = simpleItem("wooden_frame", CreativeTabs.MATERIALS);
     public static final RegistryObject<Item> BLUE_AND_WHITE_PORCELAIN_PIECE = simpleItem("blue_and_white_porcelain_piece", CreativeTabs.MATERIALS);
     public static final RegistryObject<Item> BLUE_AND_WHITE_PORCELAIN_SHARDS = simpleItem("blue_and_white_porcelain_shards", CreativeTabs.MATERIALS);

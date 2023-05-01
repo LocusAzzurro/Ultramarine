@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "ultramarine:polished_birch_plank"
+    ]
+  },
+  "criteria": {
+    "has_birch_planks": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:birch_planks"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "ultramarine:polished_birch_plank"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_birch_planks",
+      "has_the_recipe"
+    ]
+  ]
+}
