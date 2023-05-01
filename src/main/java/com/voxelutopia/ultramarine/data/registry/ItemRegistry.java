@@ -2,6 +2,8 @@ package com.voxelutopia.ultramarine.data.registry;
 
 import com.voxelutopia.ultramarine.Ultramarine;
 import com.voxelutopia.ultramarine.data.CreativeTabs;
+import com.voxelutopia.ultramarine.data.ModFoods;
+import com.voxelutopia.ultramarine.world.item.BaseFood;
 import com.voxelutopia.ultramarine.world.item.WoodenHammer;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.CreativeModeTab;
@@ -121,7 +123,7 @@ public class ItemRegistry {
     public static final RegistryObject<Item> JADE = simpleItem("jade", CreativeTabs.MATERIALS);
     public static final RegistryObject<Item> MAGNESITE_ORE = fromBlock(BlockRegistry.MAGNESITE_ORE, CreativeTabs.MATERIALS);
     public static final RegistryObject<Item> MAGNESITE = simpleItem("magnesite", CreativeTabs.MATERIALS);
-
+    public static final RegistryObject<Item> MOONCAKE = ITEMS.register("mooncake", () -> new BaseFood(ModFoods.MOONCAKE));
 
     public static final RegistryObject<Item> WOODWORKING_WORKBENCH = fromBlock(BlockRegistry.WOODWORKING_WORKBENCH, CreativeTabs.TOOLS);
 

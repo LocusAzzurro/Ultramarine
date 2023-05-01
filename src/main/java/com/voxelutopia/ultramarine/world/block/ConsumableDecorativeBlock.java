@@ -116,8 +116,8 @@ public class ConsumableDecorativeBlock extends DecorativeBlock{
             super(property);
         }
 
-        public Builder bites(int charges){
-            this.bites = charges;
+        public Builder bites(int bites){
+            this.bites = bites;
             return this;
         }
 
@@ -138,12 +138,6 @@ public class ConsumableDecorativeBlock extends DecorativeBlock{
 
         public Builder food(FoodProperties food){
             this.food = food;
-            return this;
-        }
-
-        public Builder food(ItemStack item){
-            if (item.isEdible())
-                this.food = item.getFoodProperties(null);
             return this;
         }
 
