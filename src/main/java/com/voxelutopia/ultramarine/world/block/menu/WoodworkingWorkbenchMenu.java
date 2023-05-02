@@ -5,6 +5,9 @@ import com.voxelutopia.ultramarine.data.registry.BlockRegistry;
 import com.voxelutopia.ultramarine.data.registry.MenuTypeRegistry;
 import com.voxelutopia.ultramarine.data.registry.RecipeTypeRegistry;
 import com.voxelutopia.ultramarine.data.recipe.WoodworkingRecipe;
+import com.voxelutopia.ultramarine.data.registry.SoundRegistry;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.Container;
 import net.minecraft.world.SimpleContainer;
 import net.minecraft.world.entity.player.Inventory;
@@ -41,6 +44,7 @@ public class WoodworkingWorkbenchMenu extends AbstractContainerMenu {
         }
     };
     final ResultContainer resultContainer = new ResultContainer();
+    private long lastSoundTime;
 
     public WoodworkingWorkbenchMenu(int pId, Inventory inventory) {
         this(pId, inventory, ContainerLevelAccess.NULL);
@@ -64,6 +68,13 @@ public class WoodworkingWorkbenchMenu extends AbstractContainerMenu {
                     WoodworkingWorkbenchMenu.this.setupResultSlot();
                 }
                 super.onTake(player, itemStack);
+                levelAccess.execute((level, pos) -> {
+                    long l = level.getGameTime();
+                    if (WoodworkingWorkbenchMenu.this.lastSoundTime != l) {
+                        level.playSound((Player) null, pos, SoundRegistry.WOODWORK.get(), SoundSource.BLOCKS, 1.0F, 1.0F);
+                        WoodworkingWorkbenchMenu.this.lastSoundTime = l;
+                    }
+                });
             }
         });
 

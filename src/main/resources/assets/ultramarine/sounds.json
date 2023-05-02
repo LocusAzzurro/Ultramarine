@@ -70,5 +70,13 @@
       "ultramarine:block_sack_place_2",
       "ultramarine:block_sack_place_3"
     ]
+  },
+  "woodwork": {
+    "subtitle": "subtitles.ultramarine.woodwork",
+    "sounds": [
+      "ultramarine:ui_woodwork_1",
+      "ultramarine:ui_woodwork_2",
+      "ultramarine:ui_woodwork_3"
+    ]
   }
 }

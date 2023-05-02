@@ -23,6 +23,7 @@ public class SoundRegistry {
     public static RegistryObject<SoundEvent> BAMBOO_WOOD_PLACE = register("bamboo_wood_place");
     public static RegistryObject<SoundEvent> BAMBOO_WOOD_BREAK = register("bamboo_wood_break");
     public static RegistryObject<SoundEvent> WOOD_HAMMER = register("wood_hammer");
+    public static RegistryObject<SoundEvent> WOODWORK = register("woodwork");
     public static RegistryObject<SoundEvent> SACK_BREAK = register("sack_break");
     public static RegistryObject<SoundEvent> SACK_PLACE = register("sack_place");
 
