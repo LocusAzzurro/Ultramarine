@@ -33,6 +33,9 @@ public final class BaseBlockProperty {
             .sound(SoundType.GLASS)
             .strength(1.5F, 6.0F)
             .requiresCorrectToolForDrops(), BlockMaterial.STONE);
+    public static BaseBlockProperty FLAX = new BaseBlockProperty(BlockBehaviour.Properties.of(Material.WOOL)
+            .sound(SoundRegistry.FLAX)
+            .strength(1F, 2F), BlockMaterial.FLAX);
 
     BlockBehaviour.Properties properties;
     BlockMaterial material;
@@ -54,7 +57,8 @@ public final class BaseBlockProperty {
         STONE(BlockTags.MINEABLE_WITH_PICKAXE),
         WOOD(BlockTags.MINEABLE_WITH_AXE),
         PORCELAIN(BlockTags.MINEABLE_WITH_PICKAXE),
-        BAMBOO(BlockTags.MINEABLE_WITH_AXE);
+        BAMBOO(BlockTags.MINEABLE_WITH_AXE),
+        FLAX(BlockTags.MINEABLE_WITH_HOE);
         final TagKey<Block> tool;
         public TagKey<Block> getTool(){
             return tool;
