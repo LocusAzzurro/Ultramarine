@@ -23,9 +23,14 @@ public class SoundRegistry {
     public static RegistryObject<SoundEvent> BAMBOO_WOOD_PLACE = register("bamboo_wood_place");
     public static RegistryObject<SoundEvent> BAMBOO_WOOD_BREAK = register("bamboo_wood_break");
     public static RegistryObject<SoundEvent> WOOD_HAMMER = register("wood_hammer");
+    public static RegistryObject<SoundEvent> WOODWORK = register("woodwork");
+    public static RegistryObject<SoundEvent> SACK_BREAK = register("sack_break");
+    public static RegistryObject<SoundEvent> SACK_PLACE = register("sack_place");
 
     public static final ForgeSoundType BAMBOO_WOOD = new ForgeSoundType(1,1,
             BAMBOO_WOOD_BREAK,BAMBOO_WOOD_STEP,BAMBOO_WOOD_PLACE,BAMBOO_WOOD_HIT,BAMBOO_WOOD_FALL);
     public static final ForgeSoundType PORCELAIN = new ForgeSoundType(1,1,
             ()->SoundEvents.GLASS_BREAK,()->SoundEvents.COPPER_STEP,()->SoundEvents.COPPER_PLACE,()->SoundEvents.COPPER_HIT,()->SoundEvents.COPPER_FALL);
+    public static final ForgeSoundType FLAX = new ForgeSoundType(0.35F,1.2F,
+            SACK_BREAK,() -> SoundEvents.WOOL_STEP,SACK_PLACE,() -> SoundEvents.WOOL_HIT,() -> SoundEvents.WOOL_FALL);
 }

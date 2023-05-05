@@ -89,7 +89,7 @@ public class BlockRegistry {
     public static final RegistryObject<Block> FRUIT_BOX = BLOCKS.register("fruit_box",
             () -> ContainerDecorativeBlock.with(BaseBlockProperty.WOOD).content(ContainerDecorativeBlock.ContainerType.FOOD_REGULAR).shaped(DecorativeBlock.CUBE_14).directional().diagonallyPlaceable().build());
     public static final RegistryObject<Block> GUNNY_SACK = BLOCKS.register("gunny_sack",
-            () -> ContainerDecorativeBlock.with(BaseBlockProperty.WOOD).content(ContainerDecorativeBlock.ContainerType.COMMON_REGULAR).shaped(DecorativeBlock.CUBE_14).directional().build());
+            () -> ContainerDecorativeBlock.with(BaseBlockProperty.FLAX).content(ContainerDecorativeBlock.ContainerType.COMMON_REGULAR).shaped(DecorativeBlock.CUBE_14).directional().build());
     public static final RegistryObject<Block> PLATED_MOON_CAKES = BLOCKS.register("plated_moon_cakes",
             () -> ConsumableDecorativeBlock.with(BaseBlockProperty.PORCELAIN).bites(4).platedWith(Blocks.STONE_SLAB).food(ModFoods.MOONCAKE).shaped(DecorativeBlock.FLAT_16).directional().build());
 

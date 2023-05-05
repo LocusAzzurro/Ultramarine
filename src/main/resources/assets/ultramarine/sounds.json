@@ -54,5 +54,29 @@
     "ultramarine:wood_hammer3",
     "ultramarine:wood_hammer4"
   ]
-}
+},
+  "sack_break": {
+    "subtitle": "subtitles.block.generic.break",
+    "sounds": [
+      "ultramarine:block_sack_break_1",
+      "ultramarine:block_sack_break_2",
+      "ultramarine:block_sack_break_3"
+    ]
+  },
+  "sack_place": {
+    "subtitle": "subtitles.block.generic.place",
+    "sounds": [
+      "ultramarine:block_sack_place_1",
+      "ultramarine:block_sack_place_2",
+      "ultramarine:block_sack_place_3"
+    ]
+  },
+  "woodwork": {
+    "subtitle": "subtitles.ultramarine.woodwork",
+    "sounds": [
+      "ultramarine:ui_woodwork_1",
+      "ultramarine:ui_woodwork_2",
+      "ultramarine:ui_woodwork_3"
+    ]
+  }
 }
