@@ -1,6 +1,9 @@
 {
   "__comment1__": "Item Groups",
+  "itemGroup.ultramarine.materials": "Ultramarine - Materials",
+  "itemGroup.ultramarine.tools": "Ultramarine - Tools",
   "itemGroup.ultramarine.building_blocks": "Ultramarine - Building Blocks",
+  "itemGroup.ultramarine.decorations": "Ultramarine - Decorations",
   "itemGroup.ultramarine.lamps": "Ultramarine - Lamps",
 
   "__comment2__": "Blocks",
