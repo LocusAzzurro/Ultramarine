@@ -88,6 +88,8 @@ public class BlockRegistry {
             () -> DecorativeBlock.with(BaseBlockProperty.PORCELAIN).shaped(DecorativeBlock.CUBE_14).directional().build());
     public static final RegistryObject<Block> FRUIT_BOX = BLOCKS.register("fruit_box",
             () -> ContainerDecorativeBlock.with(BaseBlockProperty.WOOD).content(ContainerDecorativeBlock.ContainerType.FOOD_REGULAR).shaped(DecorativeBlock.CUBE_14).directional().diagonallyPlaceable().build());
+    public static final RegistryObject<Block> WOODEN_CRATE = BLOCKS.register("wooden_crate",
+            () -> ContainerDecorativeBlock.with(BaseBlockProperty.WOOD).content(ContainerDecorativeBlock.ContainerType.COMMON_REGULAR).shaped(DecorativeBlock.FULL_BLOCK).build());
     public static final RegistryObject<Block> GUNNY_SACK = BLOCKS.register("gunny_sack",
             () -> ContainerDecorativeBlock.with(BaseBlockProperty.FLAX).content(ContainerDecorativeBlock.ContainerType.COMMON_REGULAR).shaped(DecorativeBlock.CUBE_14).directional().build());
     public static final RegistryObject<Block> PLATED_MOON_CAKES = BLOCKS.register("plated_moon_cakes",
