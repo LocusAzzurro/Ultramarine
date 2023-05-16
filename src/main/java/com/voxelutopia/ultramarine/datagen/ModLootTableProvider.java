@@ -85,18 +85,23 @@ public class ModLootTableProvider extends BaseLootTableProvider {
         addLootTable(block.get(), createPorcelainDrop(block.getId().getPath(), block.get(), piece.get(), shards.get()));
     }
 
-    void porcelainPlate(RegistryObject<? extends Block> block, RegistryObject<? extends Item> piece, RegistryObject<? extends Item> shards){
-        addLootTable(block.get(), createPorcelainDrop(block.getId().getPath(), ((BlockItem)((ConsumableDecorativeBlock)block.get()).getPlate().getItem()).getBlock(), piece.get(), shards.get()));
+    void porcelainPlate(RegistryObject<? extends Block> block, RegistryObject<? extends Item> piece, RegistryObject<? extends Item> shards) {
+        if (block.get() instanceof ConsumableDecorativeBlock consumable && consumable.getPlate().getItem() instanceof BlockItem blockItem)
+            addLootTable(block.get(), createPorcelainDrop(block.getId().getPath(), blockItem.getBlock(), piece.get(), shards.get()));
+        else LOGGER.warn("Porcelain plate loot table was not added for block " + block.get().getDescriptionId());
     }
 
+
     void slab(RegistryObject<? extends Block> block, RegistryObject<? extends Item> item) {
-        addLootTable(block.get(), createSlabDrop(block.getId().getPath(), (SlabBlock) block.get(), item.get()));
+        if (block.get() instanceof SlabBlock slab)
+            addLootTable(block.get(), createSlabDrop(block.getId().getPath(), slab, item.get()));
+        else LOGGER.warn("Slab loot table was not added for block " + block.get().getDescriptionId());
     }
 
     void plateDrop(RegistryObject<? extends Block> block) {
-        if (block.get() instanceof ConsumableDecorativeBlock consumable){
+        if (block.get() instanceof ConsumableDecorativeBlock consumable)
             addLootTable(block.get(), createSimpleTable(block.getId().getPath(), consumable.getPlate().getItem()));
-        }
+        else LOGGER.warn("Plate drop loot table was not added for block " + block.get().getDescriptionId());
     }
 
     /**
