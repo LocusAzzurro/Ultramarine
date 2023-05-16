@@ -92,8 +92,10 @@ public class BlockRegistry {
             () -> ContainerDecorativeBlock.with(BaseBlockProperty.WOOD).content(ContainerDecorativeBlock.ContainerType.COMMON_REGULAR).shaped(DecorativeBlock.FULL_BLOCK).build());
     public static final RegistryObject<Block> GUNNY_SACK = BLOCKS.register("gunny_sack",
             () -> ContainerDecorativeBlock.with(BaseBlockProperty.FLAX).content(ContainerDecorativeBlock.ContainerType.COMMON_REGULAR).shaped(DecorativeBlock.CUBE_14).directional().build());
-    public static final RegistryObject<Block> PLATED_MOON_CAKES = BLOCKS.register("plated_moon_cakes",
-            () -> ConsumableDecorativeBlock.with(BaseBlockProperty.PORCELAIN).bites(4).platedWith(Blocks.STONE_SLAB).food(ModFoods.MOONCAKE).shaped(DecorativeBlock.FLAT_16).directional().build());
+    public static final RegistryObject<Block> PLATED_MOON_CAKES = BLOCKS.register("plated_moon_cakes", //todo change stone slab plate to actual block
+            () -> ConsumableDecorativeBlock.with(BaseBlockProperty.PORCELAIN).bites(4).platedWith(new ItemStack(Blocks.STONE_SLAB)).food(ModFoods.MOONCAKE).shaped(DecorativeBlock.FLAT_16).directional().build());
+    public static final RegistryObject<Block> PLATED_FISH = BLOCKS.register("plated_fish",
+            () -> ConsumableDecorativeBlock.with(BaseBlockProperty.WOOD).bites(3).platedWith(ItemRegistry.POLISHED_OAK_PLANK).food(ModFoods.FISH).shaped(DecorativeBlock.FLAT_16).directional().noOcclusion().build());
 
     public static final RegistryObject<Block> OCTAGONAL_PALACE_LANTERN = BLOCKS.register("octagonal_palace_lantern",
             () -> OffsetDecorativeBlock.with(BaseBlockProperty.WOOD).shaped(DecorativeBlock.FULL_BLOCK).luminous().noOcclusion().build());

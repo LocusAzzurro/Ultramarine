@@ -1,11 +1,13 @@
 package com.voxelutopia.ultramarine.world.block;
 
+import com.mojang.datafixers.util.Pair;
 import com.voxelutopia.ultramarine.data.ModBlockStateProperties;
 import net.minecraft.core.BlockPos;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
+import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.Item;
@@ -22,25 +24,33 @@ import net.minecraft.world.phys.BlockHitResult;
 import net.minecraftforge.items.ItemHandlerHelper;
 import org.jetbrains.annotations.NotNull;
 
+import java.util.function.Supplier;
+
 public class ConsumableDecorativeBlock extends DecorativeBlock{
 
     public static final IntegerProperty BITES = ModBlockStateProperties.BITES;
     private final int bites;
     private final ConsumeAction finishedAction;
     private final ConsumeAction eatAction;
-    private final Block plate;
+    private final Supplier<ItemStack> plate;
     private final FoodProperties food;
     public static ConsumeAction DEFAULT_FINISH_ACTION = ((pState, pLevel, pPos, pPlayer) -> {
         pLevel.setBlock(pPos, Blocks.AIR.defaultBlockState(), Block.UPDATE_ALL);
-        ItemHandlerHelper.giveItemToPlayer(pPlayer, (pState.getBlock() instanceof ConsumableDecorativeBlock consumable) ? new ItemStack(consumable.getPlate()) : ItemStack.EMPTY);
+        ItemHandlerHelper.giveItemToPlayer(pPlayer, (pState.getBlock() instanceof ConsumableDecorativeBlock consumable) ? consumable.getPlate() : ItemStack.EMPTY);
         pLevel.gameEvent(pPlayer, GameEvent.BLOCK_DESTROY, pPos);
     });
     public static ConsumeAction DEFAULT_EAT_ACTION = ((pState, pLevel, pPos, pPlayer) -> {
         if (pState.getBlock() instanceof ConsumableDecorativeBlock consumable){
-            pPlayer.getFoodData().eat(consumable.getFood().getNutrition(), consumable.getFood().getSaturationModifier());
+            var food = consumable.getFood();
+            pPlayer.getFoodData().eat(food.getNutrition(), food.getSaturationModifier());
+            for(Pair<MobEffectInstance, Float> pair : food.getEffects()) {
+                if (!pLevel.isClientSide && pair.getFirst() != null && pLevel.random.nextFloat() < pair.getSecond()) {
+                    pPlayer.addEffect(new MobEffectInstance(pair.getFirst()));
+                }
+            }
+            pLevel.playSound(pPlayer, pPos, SoundEvents.GENERIC_EAT, SoundSource.PLAYERS,1,0.75f);
+            pLevel.gameEvent(pPlayer, GameEvent.EAT, pPos);
         }
-        pLevel.playSound(pPlayer, pPos, SoundEvents.GENERIC_EAT, SoundSource.PLAYERS,1,0.75f);
-        pLevel.gameEvent(pPlayer, GameEvent.EAT, pPos);
     });
 
     public ConsumableDecorativeBlock(Builder builder) {
@@ -48,7 +58,7 @@ public class ConsumableDecorativeBlock extends DecorativeBlock{
         this.bites = builder.bites;
         this.finishedAction = builder.finishedAction;
         this.eatAction = builder.eatAction;
-        this.plate = builder.plateBlock;
+        this.plate = builder.plate;
         this.food = builder.food;
         this.registerDefaultState(this.stateDefinition.any().setValue(BITES, bites));
     }
@@ -88,8 +98,8 @@ public class ConsumableDecorativeBlock extends DecorativeBlock{
         return bites;
     }
 
-    public Block getPlate(){
-        return plate;
+    public ItemStack getPlate(){
+        return plate.get();
     }
 
     public FoodProperties getFood(){
@@ -106,7 +116,7 @@ public class ConsumableDecorativeBlock extends DecorativeBlock{
 
         private static final FoodProperties DEFAULT_FOOD = new FoodProperties.Builder().nutrition(2).saturationMod(0.2f).build();
         private int bites = 4;
-        private Block plateBlock = Blocks.STONE_SLAB;
+        private Supplier<ItemStack> plate = () -> new ItemStack(Blocks.STONE_SLAB);
         private ConsumeAction eatAction = DEFAULT_EAT_ACTION;
         private ConsumeAction finishedAction = DEFAULT_FINISH_ACTION;
         private FoodProperties food = DEFAULT_FOOD;
@@ -131,8 +141,18 @@ public class ConsumableDecorativeBlock extends DecorativeBlock{
             return this;
         }
 
+        public Builder platedWith(ItemStack plate){
+            this.plate = () -> plate;
+            return this;
+        }
+
         public Builder platedWith(Block plate){
-            this.plateBlock = plate;
+            this.plate = () -> new ItemStack(plate);
+            return this;
+        }
+
+        public Builder platedWith(Supplier<Item> plate){
+            this.plate = () -> new ItemStack(plate.get());
             return this;
         }
 

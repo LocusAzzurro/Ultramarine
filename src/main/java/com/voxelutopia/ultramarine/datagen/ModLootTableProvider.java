@@ -7,6 +7,7 @@ import com.voxelutopia.ultramarine.world.block.BaseBlockProperty;
 import com.voxelutopia.ultramarine.world.block.BaseBlockPropertyHolder;
 import com.voxelutopia.ultramarine.world.block.ConsumableDecorativeBlock;
 import net.minecraft.data.DataGenerator;
+import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.OreBlock;
@@ -31,7 +32,7 @@ public class ModLootTableProvider extends BaseLootTableProvider {
         BlockRegistry.BLOCKS.getEntries().stream()
                 .filter(blockRegistryObject -> {
                     var block = blockRegistryObject.get();
-                    if (block instanceof OreBlock || block instanceof SlabBlock){
+                    if (block instanceof OreBlock || block instanceof SlabBlock || block instanceof ConsumableDecorativeBlock){
                         return true;
                     }
                     if (block instanceof BaseBlockPropertyHolder baseBlock){
@@ -46,12 +47,16 @@ public class ModLootTableProvider extends BaseLootTableProvider {
         BlockRegistry.BLOCKS.getEntries().stream()
                 .filter(blockRegistryObject -> !NON_SIMPLE_BLOCKS.contains(blockRegistryObject))
                 .forEach(this::simple);
+        BlockRegistry.BLOCKS.getEntries().stream()
+                .filter(blockRegistryObject -> blockRegistryObject.get() instanceof ConsumableDecorativeBlock)
+                .forEach(this::simple);
         ore(BlockRegistry.JADE_ORE, ItemRegistry.JADE);
         abundantOre(BlockRegistry.MAGNESITE_ORE, ItemRegistry.MAGNESITE);
 
         porcelain(BlockRegistry.BLUE_AND_WHITE_PORCELAIN_VASE, ItemRegistry.BLUE_AND_WHITE_PORCELAIN_PIECE, ItemRegistry.BLUE_AND_WHITE_PORCELAIN_SHARDS);
         porcelain(BlockRegistry.BIG_BLUE_AND_WHITE_PORCELAIN_VASE, ItemRegistry.BLUE_AND_WHITE_PORCELAIN_PIECE, ItemRegistry.BLUE_AND_WHITE_PORCELAIN_SHARDS);
         porcelainPlate(BlockRegistry.PLATED_MOON_CAKES, ItemRegistry.BLUE_AND_WHITE_PORCELAIN_PIECE, ItemRegistry.BLUE_AND_WHITE_PORCELAIN_SHARDS);
+        plateDrop(BlockRegistry.PLATED_FISH);
         slab(BlockRegistry.CYAN_BRICK_SLAB, ItemRegistry.CYAN_BRICK_SLAB);
         slab(BlockRegistry.BLACK_BRICK_SLAB, ItemRegistry.BLACK_BRICK_SLAB);
         slab(BlockRegistry.BROWNISH_RED_STONE_BRICK_SLAB, ItemRegistry.BROWNISH_RED_STONE_BRICK_SLAB);
@@ -81,11 +86,17 @@ public class ModLootTableProvider extends BaseLootTableProvider {
     }
 
     void porcelainPlate(RegistryObject<? extends Block> block, RegistryObject<? extends Item> piece, RegistryObject<? extends Item> shards){
-        addLootTable(block.get(), createPorcelainDrop(block.getId().getPath(), ((ConsumableDecorativeBlock)block.get()).getPlate(), piece.get(), shards.get()));
+        addLootTable(block.get(), createPorcelainDrop(block.getId().getPath(), ((BlockItem)((ConsumableDecorativeBlock)block.get()).getPlate().getItem()).getBlock(), piece.get(), shards.get()));
     }
 
     void slab(RegistryObject<? extends Block> block, RegistryObject<? extends Item> item) {
         addLootTable(block.get(), createSlabDrop(block.getId().getPath(), (SlabBlock) block.get(), item.get()));
+    }
+
+    void plateDrop(RegistryObject<? extends Block> block) {
+        if (block.get() instanceof ConsumableDecorativeBlock consumable){
+            addLootTable(block.get(), createSimpleTable(block.getId().getPath(), consumable.getPlate().getItem()));
+        }
     }
 
     /**

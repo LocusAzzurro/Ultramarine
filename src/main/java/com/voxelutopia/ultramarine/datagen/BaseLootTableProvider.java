@@ -59,7 +59,7 @@ public abstract class BaseLootTableProvider extends LootTableProvider {
 
     protected abstract void addTables();
 
-    protected LootTable.Builder createSimpleTable(String name, Block block) {
+    protected LootTable.Builder createSimpleTable(String name, ItemLike block) {
         LootPool.Builder builder = LootPool.lootPool()
                 .name(name)
                 .setRolls(ConstantValue.exactly(1))
