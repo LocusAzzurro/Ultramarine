@@ -88,7 +88,7 @@ public class ItemRegistry {
     public static final RegistryObject<Item> FRUIT_BOX = fromBlock(BlockRegistry.FRUIT_BOX, CreativeTabs.DECORATIONS);
     public static final RegistryObject<Item> WOODEN_CRATE = fromBlock(BlockRegistry.WOODEN_CRATE, CreativeTabs.DECORATIONS);
     public static final RegistryObject<Item> GUNNY_SACK = fromBlock(BlockRegistry.GUNNY_SACK, CreativeTabs.DECORATIONS);
-    public static final RegistryObject<Item> PLATED_MOON_CAKES = fromBlock(BlockRegistry.PLATED_MOON_CAKES, CreativeTabs.DECORATIONS);
+    public static final RegistryObject<Item> PLATED_MOON_CAKES = fromBlock(BlockRegistry.PLATED_MOONCAKES, CreativeTabs.DECORATIONS);
     public static final RegistryObject<Item> PLATED_MUNG_BEAN_CAKES = fromBlock(BlockRegistry.PLATED_MUNG_BEAN_CAKES, CreativeTabs.DECORATIONS);
     public static final RegistryObject<Item> PLATED_FISH = fromBlock(BlockRegistry.PLATED_FISH, CreativeTabs.DECORATIONS);
 

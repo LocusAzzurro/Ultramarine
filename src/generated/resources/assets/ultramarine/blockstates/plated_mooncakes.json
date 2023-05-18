@@ -1,0 +1,139 @@
+{
+  "variants": {
+    "bites=0,facing=north": {
+      "model": "ultramarine:block/plated_mooncakes_0",
+      "y": 180
+    },
+    "bites=1,facing=north": {
+      "model": "ultramarine:block/plated_mooncakes_1",
+      "y": 180
+    },
+    "bites=2,facing=north": {
+      "model": "ultramarine:block/plated_mooncakes_2",
+      "y": 180
+    },
+    "bites=3,facing=north": {
+      "model": "ultramarine:block/plated_mooncakes_3",
+      "y": 180
+    },
+    "bites=4,facing=north": {
+      "model": "ultramarine:block/plated_mooncakes_4",
+      "y": 180
+    },
+    "bites=5,facing=north": {
+      "model": "ultramarine:block/plated_mooncakes_4",
+      "y": 180
+    },
+    "bites=6,facing=north": {
+      "model": "ultramarine:block/plated_mooncakes_4",
+      "y": 180
+    },
+    "bites=7,facing=north": {
+      "model": "ultramarine:block/plated_mooncakes_4",
+      "y": 180
+    },
+    "bites=8,facing=north": {
+      "model": "ultramarine:block/plated_mooncakes_4",
+      "y": 180
+    },
+    "bites=0,facing=south": {
+      "model": "ultramarine:block/plated_mooncakes_0"
+    },
+    "bites=1,facing=south": {
+      "model": "ultramarine:block/plated_mooncakes_1"
+    },
+    "bites=2,facing=south": {
+      "model": "ultramarine:block/plated_mooncakes_2"
+    },
+    "bites=3,facing=south": {
+      "model": "ultramarine:block/plated_mooncakes_3"
+    },
+    "bites=4,facing=south": {
+      "model": "ultramarine:block/plated_mooncakes_4"
+    },
+    "bites=5,facing=south": {
+      "model": "ultramarine:block/plated_mooncakes_4"
+    },
+    "bites=6,facing=south": {
+      "model": "ultramarine:block/plated_mooncakes_4"
+    },
+    "bites=7,facing=south": {
+      "model": "ultramarine:block/plated_mooncakes_4"
+    },
+    "bites=8,facing=south": {
+      "model": "ultramarine:block/plated_mooncakes_4"
+    },
+    "bites=0,facing=west": {
+      "model": "ultramarine:block/plated_mooncakes_0",
+      "y": 90
+    },
+    "bites=1,facing=west": {
+      "model": "ultramarine:block/plated_mooncakes_1",
+      "y": 90
+    },
+    "bites=2,facing=west": {
+      "model": "ultramarine:block/plated_mooncakes_2",
+      "y": 90
+    },
+    "bites=3,facing=west": {
+      "model": "ultramarine:block/plated_mooncakes_3",
+      "y": 90
+    },
+    "bites=4,facing=west": {
+      "model": "ultramarine:block/plated_mooncakes_4",
+      "y": 90
+    },
+    "bites=5,facing=west": {
+      "model": "ultramarine:block/plated_mooncakes_4",
+      "y": 90
+    },
+    "bites=6,facing=west": {
+      "model": "ultramarine:block/plated_mooncakes_4",
+      "y": 90
+    },
+    "bites=7,facing=west": {
+      "model": "ultramarine:block/plated_mooncakes_4",
+      "y": 90
+    },
+    "bites=8,facing=west": {
+      "model": "ultramarine:block/plated_mooncakes_4",
+      "y": 90
+    },
+    "bites=0,facing=east": {
+      "model": "ultramarine:block/plated_mooncakes_0",
+      "y": 270
+    },
+    "bites=1,facing=east": {
+      "model": "ultramarine:block/plated_mooncakes_1",
+      "y": 270
+    },
+    "bites=2,facing=east": {
+      "model": "ultramarine:block/plated_mooncakes_2",
+      "y": 270
+    },
+    "bites=3,facing=east": {
+      "model": "ultramarine:block/plated_mooncakes_3",
+      "y": 270
+    },
+    "bites=4,facing=east": {
+      "model": "ultramarine:block/plated_mooncakes_4",
+      "y": 270
+    },
+    "bites=5,facing=east": {
+      "model": "ultramarine:block/plated_mooncakes_4",
+      "y": 270
+    },
+    "bites=6,facing=east": {
+      "model": "ultramarine:block/plated_mooncakes_4",
+      "y": 270
+    },
+    "bites=7,facing=east": {
+      "model": "ultramarine:block/plated_mooncakes_4",
+      "y": 270
+    },
+    "bites=8,facing=east": {
+      "model": "ultramarine:block/plated_mooncakes_4",
+      "y": 270
+    }
+  }
+}

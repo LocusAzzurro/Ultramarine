@@ -2,8 +2,8 @@
 	"credit": "Made with Blockbench",
 	"texture_size": [64, 64],
 	"textures": {
-		"1": "ultramarine:block/plated_moon_cakes",
-		"particle": "ultramarine:block/plated_moon_cakes"
+		"1": "ultramarine:block/plated_mooncakes",
+		"particle": "ultramarine:item/mooncake"
 	},
 	"elements": [
 		{
