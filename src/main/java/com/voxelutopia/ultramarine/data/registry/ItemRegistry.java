@@ -90,6 +90,7 @@ public class ItemRegistry {
     public static final RegistryObject<Item> GUNNY_SACK = fromBlock(BlockRegistry.GUNNY_SACK, CreativeTabs.DECORATIONS);
     public static final RegistryObject<Item> PLATED_MOON_CAKES = fromBlock(BlockRegistry.PLATED_MOONCAKES, CreativeTabs.DECORATIONS);
     public static final RegistryObject<Item> PLATED_MUNG_BEAN_CAKES = fromBlock(BlockRegistry.PLATED_MUNG_BEAN_CAKES, CreativeTabs.DECORATIONS);
+    public static final RegistryObject<Item> PLATED_HAM = fromBlock(BlockRegistry.PLATED_HAM, CreativeTabs.DECORATIONS);
     public static final RegistryObject<Item> PLATED_FISH = fromBlock(BlockRegistry.PLATED_FISH, CreativeTabs.DECORATIONS);
 
     public static final RegistryObject<Item> OCTAGONAL_PALACE_LANTERN = fromBlock(BlockRegistry.OCTAGONAL_PALACE_LANTERN, CreativeTabs.LAMPS);
@@ -128,6 +129,8 @@ public class ItemRegistry {
     public static final RegistryObject<Item> MAGNESITE = simpleItem("magnesite", CreativeTabs.MATERIALS);
     public static final RegistryObject<Item> MOONCAKE = ITEMS.register("mooncake", () -> new BaseFood(ModFoods.MOONCAKE));
     public static final RegistryObject<Item> MUNG_BEAN_CAKE = ITEMS.register("mung_bean_cake", () -> new BaseFood(ModFoods.MUNG_BEAN_CAKE));
+    public static final RegistryObject<Item> RAW_MEAT = ITEMS.register("raw_meat", () -> new BaseFood(ModFoods.RAW_MEAT));
+    public static final RegistryObject<Item> COOKED_MEAT = ITEMS.register("cooked_meat", () -> new BaseFood(ModFoods.COOKED_MEAT));
 
     public static final RegistryObject<Item> WOODWORKING_WORKBENCH = fromBlock(BlockRegistry.WOODWORKING_WORKBENCH, CreativeTabs.TOOLS);
 

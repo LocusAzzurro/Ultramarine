@@ -96,6 +96,8 @@ public class BlockRegistry {
             () -> ConsumableDecorativeBlock.with(BaseBlockProperty.PORCELAIN).bites(4).platedWith(Blocks.STONE_SLAB).food(ModFoods.MOONCAKE).shaped(DecorativeBlock.FLAT_16).directional().build());
     public static final RegistryObject<Block> PLATED_MUNG_BEAN_CAKES = BLOCKS.register("plated_mung_bean_cakes",
             () -> ConsumableDecorativeBlock.with(BaseBlockProperty.GLAZED).bites(7).platedWith(Blocks.STONE_SLAB).food(ModFoods.MUNG_BEAN_CAKE).shaped(DecorativeBlock.FLAT_16).directional().noOcclusion().build());
+    public static final RegistryObject<Block> PLATED_HAM = BLOCKS.register("plated_ham",
+            () -> ConsumableDecorativeBlock.with(BaseBlockProperty.WOOD).bites(4).platedWith(ItemRegistry.POLISHED_OAK_PLANK).food(ModFoods.COOKED_MEAT).shaped(DecorativeBlock.FLAT_16).directional().noOcclusion().build());
     public static final RegistryObject<Block> PLATED_FISH = BLOCKS.register("plated_fish",
             () -> ConsumableDecorativeBlock.with(BaseBlockProperty.WOOD).bites(3).platedWith(ItemRegistry.POLISHED_OAK_PLANK).food(ModFoods.FISH).shaped(DecorativeBlock.FLAT_16).directional().noOcclusion().build());
 
