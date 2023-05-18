@@ -1,6 +1,7 @@
 package com.voxelutopia.ultramarine.data.registry;
 
 import com.voxelutopia.ultramarine.Ultramarine;
+import com.voxelutopia.ultramarine.data.ContainerType;
 import com.voxelutopia.ultramarine.data.ModFoods;
 import com.voxelutopia.ultramarine.world.block.*;
 import net.minecraft.world.level.block.Block;
@@ -86,13 +87,13 @@ public class BlockRegistry {
     public static final RegistryObject<Block> BIG_BLUE_AND_WHITE_PORCELAIN_VASE = BLOCKS.register("big_blue_and_white_porcelain_vase",
             () -> DecorativeBlock.with(BaseBlockProperty.PORCELAIN).shaped(DecorativeBlock.CUBE_14).directional().build());
     public static final RegistryObject<Block> FRUIT_BOX = BLOCKS.register("fruit_box",
-            () -> ContainerDecorativeBlock.with(BaseBlockProperty.WOOD).content(ContainerDecorativeBlock.ContainerType.FOOD_REGULAR).shaped(DecorativeBlock.CUBE_14).directional().diagonallyPlaceable().build());
+            () -> ContainerDecorativeBlock.with(BaseBlockProperty.WOOD).content(ContainerType.FOOD_REGULAR).shaped(DecorativeBlock.CUBE_14).directional().diagonallyPlaceable().build());
     public static final RegistryObject<Block> WOODEN_CRATE = BLOCKS.register("wooden_crate",
-            () -> ContainerDecorativeBlock.with(BaseBlockProperty.WOOD).content(ContainerDecorativeBlock.ContainerType.COMMON_REGULAR).shaped(DecorativeBlock.FULL_BLOCK).build());
+            () -> ContainerDecorativeBlock.with(BaseBlockProperty.WOOD).content(ContainerType.COMMON_REGULAR).shaped(DecorativeBlock.FULL_BLOCK).build());
     public static final RegistryObject<Block> GUNNY_SACK = BLOCKS.register("gunny_sack",
-            () -> ContainerDecorativeBlock.with(BaseBlockProperty.FLAX).content(ContainerDecorativeBlock.ContainerType.COMMON_REGULAR).shaped(DecorativeBlock.CUBE_14).directional().build());
+            () -> ContainerDecorativeBlock.with(BaseBlockProperty.FLAX).content(ContainerType.COMMON_REGULAR).shaped(DecorativeBlock.CUBE_14).directional().build());
     public static final RegistryObject<Block> FOOD_HAMPER = BLOCKS.register("food_hamper",
-            () -> ContainerDecorativeBlock.with(BaseBlockProperty.WOOD).content(ContainerDecorativeBlock.ContainerType.FOOD_LARGE).shaped(DecorativeBlock.POLE_8).directional().diagonallyPlaceable().build());
+            () -> ContainerDecorativeBlock.with(BaseBlockProperty.WOOD).content(ContainerType.FOOD_LARGE).shaped(DecorativeBlock.POLE_8).directional().diagonallyPlaceable().build());
     public static final RegistryObject<Block> PLATED_MOONCAKES = BLOCKS.register("plated_mooncakes", //todo change stone slab plate to actual block
             () -> ConsumableDecorativeBlock.with(BaseBlockProperty.PORCELAIN).bites(4).platedWith(Blocks.STONE_SLAB).food(ModFoods.MOONCAKE).shaped(DecorativeBlock.FLAT_16).directional().build());
     public static final RegistryObject<Block> PLATED_MUNG_BEAN_CAKES = BLOCKS.register("plated_mung_bean_cakes",
