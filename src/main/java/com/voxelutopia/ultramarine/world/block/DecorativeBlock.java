@@ -205,5 +205,13 @@ public class DecorativeBlock extends HorizontalDirectionalBlock implements BaseB
         }
     }
 
+    @Override
+    public VoxelShape getBlockSupportShape(BlockState pState, BlockGetter pReader, BlockPos pPos) {
+        return CUBE_14;
+    }
 
+    @Override
+    public float getShadeBrightness(BlockState pState, BlockGetter pLevel, BlockPos pPos) {
+        return 1.0f;
+    }
 }
