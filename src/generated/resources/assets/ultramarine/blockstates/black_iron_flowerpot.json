@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "ultramarine:block/black_iron_flowerpot",
+      "y": 180
+    },
+    "facing=south": {
+      "model": "ultramarine:block/black_iron_flowerpot"
+    },
+    "facing=west": {
+      "model": "ultramarine:block/black_iron_flowerpot",
+      "y": 90
+    },
+    "facing=east": {
+      "model": "ultramarine:block/black_iron_flowerpot",
+      "y": 270
+    }
+  }
+}

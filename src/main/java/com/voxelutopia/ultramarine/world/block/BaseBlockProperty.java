@@ -13,6 +13,14 @@ public final class BaseBlockProperty {
             .sound(SoundType.STONE)
             .strength(1.5F, 6.0F)
             .requiresCorrectToolForDrops(), BlockMaterial.STONE);
+    public static BaseBlockProperty TERRACOTTA = new BaseBlockProperty(BlockBehaviour.Properties.of(Material.STONE)
+            .sound(SoundType.STONE)
+            .strength(1.2F, 4.0F)
+            .requiresCorrectToolForDrops(), BlockMaterial.STONE);
+    public static BaseBlockProperty IRON = new BaseBlockProperty(BlockBehaviour.Properties.of(Material.METAL)
+            .sound(SoundType.METAL)
+            .strength(5.0F, 6.0F)
+            .requiresCorrectToolForDrops(), BlockMaterial.METAL);
     public static BaseBlockProperty TILE = new BaseBlockProperty(BlockBehaviour.Properties.of(Material.STONE)
             .sound(SoundType.BONE_BLOCK)
             .strength(1.5F, 6.0F)
@@ -55,6 +63,7 @@ public final class BaseBlockProperty {
 
     public enum BlockMaterial{
         STONE(BlockTags.MINEABLE_WITH_PICKAXE),
+        METAL(BlockTags.MINEABLE_WITH_PICKAXE),
         WOOD(BlockTags.MINEABLE_WITH_AXE),
         PORCELAIN(BlockTags.MINEABLE_WITH_PICKAXE),
         BAMBOO(BlockTags.MINEABLE_WITH_AXE),
