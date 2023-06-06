@@ -11,6 +11,7 @@ import java.util.function.Predicate;
 public enum ContainerType {
     COMMON_REGULAR(3, i -> true, ContainerDecorativeBlockMenu::genericThreeRows),
     COMMON_SMALL(1, i -> true, ContainerDecorativeBlockMenu::genericOneRow),
+    COMMON_LARGE(6, i -> true, ContainerDecorativeBlockMenu::genericSixRows),
     FOOD_REGULAR(3, ItemStack::isEdible, ContainerDecorativeBlockMenu::foodThreeRows),
     FOOD_LARGE(6, ItemStack::isEdible, ContainerDecorativeBlockMenu::foodSixRows);
 

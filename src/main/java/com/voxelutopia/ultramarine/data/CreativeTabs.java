@@ -11,6 +11,12 @@ public class CreativeTabs {
     public static final ToolsTab TOOLS = new ToolsTab();
     public static final BuildingBlocksTab BUILDING_BLOCKS = new BuildingBlocksTab();
     public static final DecorationsTab DECORATIONS = new DecorationsTab();
+    public static final CreativeModeTab FURNITURE = new CreativeModeTab(Ultramarine.MOD_ID + ".furniture") {
+        @Override
+        public ItemStack makeIcon() {
+            return new ItemStack(ItemRegistry.OAK_CABINET.get());
+        }
+    };
     public static final LampsTab LAMPS = new LampsTab();
 
     public static class MaterialsTab extends CreativeModeTab {
@@ -54,6 +60,17 @@ public class CreativeTabs {
         @Override
         public ItemStack makeIcon() {
             return new ItemStack(ItemRegistry.BIG_BLUE_AND_WHITE_PORCELAIN_VASE.get());
+        }
+    }
+
+    public static class FurnitureTab extends CreativeModeTab {
+
+        public FurnitureTab() {
+            super(Ultramarine.MOD_ID + ".furniture");
+        }
+        @Override
+        public ItemStack makeIcon() {
+            return new ItemStack(ItemRegistry.OAK_CABINET.get());
         }
     }
 
