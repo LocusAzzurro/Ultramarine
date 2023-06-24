@@ -32,6 +32,7 @@ public class DecorativeBlock extends HorizontalDirectionalBlock implements BaseB
     public static final VoxelShape FLAT_16 = Block.box(0.0D, 0.0D, 0.0D, 16.0D, 1.0D, 16.0D);
     public static final VoxelShape FLAT_MEDIUM = Block.box(2.0D, 0.0D, 2.0D, 14.0D, 2.0D, 14.0D);
     public static final VoxelShape POLE_8 = Block.box(5.0D, 0.0D, 5.0D, 11.0D, 16.0D, 11.0D);
+    public static final VoxelShape POLE_4 = Block.box(6.0D, 0.0D, 6.0D, 10.0D, 16.0D, 10.0D);
     public static final VoxelShape VASE = Block.box(3.0D, 0.0D, 3.0D, 13.0D, 14.0D, 13.0D);
 
     public static final DirectionProperty HORIZONTAL_FACING_SHIFT = ModBlockStateProperties.HORIZONTAL_FACING_SHIFT;

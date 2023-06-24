@@ -41,6 +41,10 @@ public final class BaseBlockProperty {
             .sound(SoundType.GLASS)
             .strength(1.5F, 6.0F)
             .requiresCorrectToolForDrops(), BlockMaterial.STONE);
+    public static BaseBlockProperty JADE = new BaseBlockProperty(BlockBehaviour.Properties.of(Material.STONE)
+            .sound(SoundType.GLASS)
+            .strength(1.2F, 5.0F)
+            .requiresCorrectToolForDrops(), BlockMaterial.STONE);
     public static BaseBlockProperty FLAX = new BaseBlockProperty(BlockBehaviour.Properties.of(Material.WOOL)
             .sound(SoundRegistry.FLAX)
             .strength(1F, 2F), BlockMaterial.FLAX);

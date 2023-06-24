@@ -106,6 +106,10 @@ public class ItemRegistry {
     public static final RegistryObject<Item> WHITE_SKY_LANTERN = fromBlock(BlockRegistry.WHITE_SKY_LANTERN, CreativeTabs.LAMPS);
     public static final RegistryObject<Item> RED_SKY_LANTERN = fromBlock(BlockRegistry.RED_SKY_LANTERN, CreativeTabs.LAMPS);
     public static final RegistryObject<Item> YELLOW_SKY_LANTERN = fromBlock(BlockRegistry.YELLOW_SKY_LANTERN, CreativeTabs.LAMPS);
+    public static final RegistryObject<Item> STONE_LAMP = fromBlock(BlockRegistry.STONE_LAMP, CreativeTabs.LAMPS);
+    public static final RegistryObject<Item> RED_CANDLE = fromBlock(BlockRegistry.RED_CANDLE, CreativeTabs.LAMPS);
+    public static final RegistryObject<Item> TRICOLOR_CANDLESTICK = fromBlock(BlockRegistry.TRICOLOR_CANDLESTICK, CreativeTabs.LAMPS);
+    public static final RegistryObject<Item> JADE_CANDLESTICK = fromBlock(BlockRegistry.JADE_CANDLESTICK, CreativeTabs.LAMPS);
 
     public static final RegistryObject<Item> OAK_CABINET = fromBlock(BlockRegistry.OAK_CABINET, CreativeTabs.FURNITURE);
     public static final RegistryObject<Item> WARPED_CABINET = fromBlock(BlockRegistry.WARPED_CABINET, CreativeTabs.FURNITURE);

@@ -8,6 +8,7 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.material.Material;
+import net.minecraft.world.phys.Vec3;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
@@ -134,6 +135,14 @@ public class BlockRegistry {
             () -> DecorativeBlock.with(BaseBlockProperty.BAMBOO).luminous().build());
     public static final RegistryObject<Block> YELLOW_SKY_LANTERN = BLOCKS.register("yellow_sky_lantern",
             () -> DecorativeBlock.with(BaseBlockProperty.BAMBOO).luminous().build());
+    public static final RegistryObject<Block> STONE_LAMP = BLOCKS.register("stone_lamp",
+            () -> DecorativeBlock.with(BaseBlockProperty.STONE).luminous().build());
+    public static final RegistryObject<Block> RED_CANDLE = BLOCKS.register("red_candle",
+            () -> new CandleStick(DecorativeBlock.with(BaseBlockProperty.WOOD).shaped(DecorativeBlock.POLE_4).directional().diagonallyPlaceable().luminous(), new Vec3(0.5,1.1,0.5)));
+    public static final RegistryObject<Block> TRICOLOR_CANDLESTICK = BLOCKS.register("tricolor_candlestick",
+            () -> new CandleStick(DecorativeBlock.with(BaseBlockProperty.IRON).shaped(DecorativeBlock.CUBE_12).directional().diagonallyPlaceable().luminous(), new Vec3(0.5,1.25,0.5)));
+    public static final RegistryObject<Block> JADE_CANDLESTICK = BLOCKS.register("jade_candlestick",
+            () -> new CandleStick(DecorativeBlock.with(BaseBlockProperty.JADE).shaped(DecorativeBlock.POLE_8).directional().diagonallyPlaceable().luminous(), new Vec3(0.5,1.3,0.5)));
 
     public static final RegistryObject<Block> JADE_ORE = BLOCKS.register("jade_ore", () -> new BaseOreBlock(2, 5));
     public static final RegistryObject<Block> MAGNESITE_ORE = BLOCKS.register("magnesite_ore", () -> new BaseOreBlock(2, 5));
