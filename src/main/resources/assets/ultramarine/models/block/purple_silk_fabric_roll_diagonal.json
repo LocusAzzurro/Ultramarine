@@ -1,0 +1,7 @@
+{
+  "parent": "ultramarine:block/silk_fabric_roll_diagonal",
+  "textures": {
+    "1": "ultramarine:block/purple_silk_fabric_roll",
+    "particle": "block/purple_wool"
+  }
+}

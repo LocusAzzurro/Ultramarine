@@ -82,6 +82,9 @@ public class ItemRegistry {
 
 
     public static final RegistryObject<Item> ABACUS = fromBlock(BlockRegistry.ABACUS, CreativeTabs.DECORATIONS);
+    public static final RegistryObject<Item> RED_SILK_FABRIC_ROLL = fromBlock(BlockRegistry.RED_SILK_FABRIC_ROLL, CreativeTabs.DECORATIONS);
+    public static final RegistryObject<Item> GREEN_SILK_FABRIC_ROLL = fromBlock(BlockRegistry.GREEN_SILK_FABRIC_ROLL, CreativeTabs.DECORATIONS);
+    public static final RegistryObject<Item> PURPLE_SILK_FABRIC_ROLL = fromBlock(BlockRegistry.PURPLE_SILK_FABRIC_ROLL, CreativeTabs.DECORATIONS);
     public static final RegistryObject<Item> CLAY_DOLL_MALE = fromBlock(BlockRegistry.CLAY_DOLL_MALE, CreativeTabs.DECORATIONS);
     public static final RegistryObject<Item> CLAY_DOLL_FEMALE = fromBlock(BlockRegistry.CLAY_DOLL_FEMALE, CreativeTabs.DECORATIONS);
     public static final RegistryObject<Item> BOTTLE_GOURD = fromBlock(BlockRegistry.BOTTLE_GOURD, CreativeTabs.DECORATIONS);

@@ -82,6 +82,12 @@ public class BlockRegistry {
 
     public static final RegistryObject<Block> ABACUS = BLOCKS.register("abacus",
             () -> DecorativeBlock.with(BaseBlockProperty.WOOD).shaped(DecorativeBlock.FLAT_MEDIUM).directional().diagonallyPlaceable().noCollision().build());
+    public static final RegistryObject<Block> RED_SILK_FABRIC_ROLL = BLOCKS.register("red_silk_fabric_roll",
+            () -> DecorativeBlock.with(BaseBlockProperty.SILK).shaped(DecorativeBlock.QUARTER_12).directional().diagonallyPlaceable().build());
+    public static final RegistryObject<Block> GREEN_SILK_FABRIC_ROLL = BLOCKS.register("green_silk_fabric_roll",
+            () -> DecorativeBlock.with(BaseBlockProperty.SILK).shaped(DecorativeBlock.QUARTER_12).directional().diagonallyPlaceable().build());
+    public static final RegistryObject<Block> PURPLE_SILK_FABRIC_ROLL = BLOCKS.register("purple_silk_fabric_roll",
+            () -> DecorativeBlock.with(BaseBlockProperty.SILK).shaped(DecorativeBlock.QUARTER_12).directional().diagonallyPlaceable().build());
     public static final RegistryObject<Block> CLAY_DOLL_MALE = BLOCKS.register("clay_doll_male",
             () -> DecorativeBlock.with(BaseBlockProperty.TERRACOTTA).shaped(DecorativeBlock.CUBE_12).directional().diagonallyPlaceable().noCollision().build());
     public static final RegistryObject<Block> CLAY_DOLL_FEMALE = BLOCKS.register("clay_doll_female",

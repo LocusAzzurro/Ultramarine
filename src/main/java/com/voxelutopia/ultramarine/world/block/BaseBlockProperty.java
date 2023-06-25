@@ -54,6 +54,10 @@ public final class BaseBlockProperty {
             .sound(SoundRegistry.FLAX)
             .strength(1F, 2F), BlockMaterial.FLAX);
 
+    public static BaseBlockProperty SILK = new BaseBlockProperty(BlockBehaviour.Properties.of(Material.WOOL)
+            .sound(SoundType.WOOL)
+            .strength(1F, 2F), BlockMaterial.FLAX);
+
     BlockBehaviour.Properties properties;
     BlockMaterial material;
 
@@ -76,6 +80,7 @@ public final class BaseBlockProperty {
         WOOD(BlockTags.MINEABLE_WITH_AXE),
         PORCELAIN(BlockTags.MINEABLE_WITH_PICKAXE),
         BAMBOO(BlockTags.MINEABLE_WITH_AXE),
+        FABRIC(BlockTags.WOOL),
         FLAX(BlockTags.MINEABLE_WITH_HOE);
         final TagKey<Block> tool;
         public TagKey<Block> getTool(){

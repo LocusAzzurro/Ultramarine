@@ -1,0 +1,76 @@
+{
+	"credit": "Made with Blockbench",
+	"texture_size": [64, 64],
+	"ambientocclusion": false,
+	"elements": [
+		{
+			"from": [-5, 0, 4],
+			"to": [21, 4, 12],
+			"rotation": {"angle": 45, "axis": "y", "origin": [8, 2, 8]},
+			"faces": {
+				"north": {"uv": [0, 4.5, 6.5, 5.5], "texture": "#1"},
+				"east": {"uv": [6.75, 0, 8.75, 1], "texture": "#1"},
+				"south": {"uv": [0, 5.75, 6.5, 6.75], "texture": "#1"},
+				"west": {"uv": [6.75, 1.25, 8.75, 2.25], "texture": "#1"},
+				"up": {"uv": [6.5, 2, 0, 0], "texture": "#1"},
+				"down": {"uv": [6.5, 2.25, 0, 4.25], "texture": "#1"}
+			}
+		},
+		{
+			"from": [21, 1, 6],
+			"to": [23, 3, 10],
+			"rotation": {"angle": 45, "axis": "y", "origin": [8, 2, 8]},
+			"faces": {
+				"north": {"uv": [2.75, 7, 3.25, 7.5], "texture": "#1"},
+				"east": {"uv": [6.75, 2.5, 7.75, 3], "texture": "#1"},
+				"south": {"uv": [3.5, 7, 4, 7.5], "texture": "#1"},
+				"west": {"uv": [6.75, 3.25, 7.75, 3.75], "texture": "#1"},
+				"up": {"uv": [7.25, 5, 6.75, 4], "texture": "#1"},
+				"down": {"uv": [7.25, 5.25, 6.75, 6.25], "texture": "#1"}
+			}
+		},
+		{
+			"from": [-7, 1, 6],
+			"to": [-5, 3, 10],
+			"rotation": {"angle": 45, "axis": "y", "origin": [8, 2, 8]},
+			"faces": {
+				"north": {"uv": [4.25, 7, 4.75, 7.5], "texture": "#1"},
+				"east": {"uv": [6.75, 6.5, 7.75, 7], "texture": "#1"},
+				"south": {"uv": [5, 7, 5.5, 7.5], "texture": "#1"},
+				"west": {"uv": [0, 7, 1, 7.5], "texture": "#1"},
+				"up": {"uv": [1.75, 8, 1.25, 7], "texture": "#1"},
+				"down": {"uv": [2.5, 7, 2, 8], "texture": "#1"}
+			}
+		}
+	],
+	"display": {
+		"thirdperson_righthand": {
+			"rotation": [90, 0, 0],
+			"translation": [-6, -2, -4]
+		},
+		"thirdperson_lefthand": {
+			"scale": [0.3, 0.3, 0.3]
+		},
+		"firstperson_righthand": {
+			"scale": [0.3, 0.3, 0.3]
+		},
+		"firstperson_lefthand": {
+			"scale": [0.3, 0.3, 0.3]
+		},
+		"ground": {
+			"scale": [0.3, 0.3, 0.3]
+		},
+		"gui": {
+			"rotation": [41.75, -16, 0],
+			"scale": [0.5, 0.5, 0.5]
+		}
+	},
+	"groups": [
+		{
+			"name": "bone",
+			"origin": [0, 0, 0],
+			"color": 0,
+			"children": [0, 1, 2]
+		}
+	]
+}
