@@ -89,6 +89,8 @@ public class ItemRegistry {
     public static final RegistryObject<Item> BLACK_IRON_FLOWERPOT = fromBlock(BlockRegistry.BLACK_IRON_FLOWERPOT, CreativeTabs.DECORATIONS);
     public static final RegistryObject<Item> BLUE_AND_WHITE_PORCELAIN_VASE = fromBlock(BlockRegistry.BLUE_AND_WHITE_PORCELAIN_VASE, CreativeTabs.DECORATIONS);
     public static final RegistryObject<Item> BIG_BLUE_AND_WHITE_PORCELAIN_VASE = fromBlock(BlockRegistry.BIG_BLUE_AND_WHITE_PORCELAIN_VASE, CreativeTabs.DECORATIONS);
+    public static final RegistryObject<Item> BRONZE_CENSER = fromBlock(BlockRegistry.BRONZE_CENSER, CreativeTabs.DECORATIONS);
+    public static final RegistryObject<Item> ROYAL_CENSER = fromBlock(BlockRegistry.ROYAL_CENSER, CreativeTabs.DECORATIONS);
     public static final RegistryObject<Item> FRUIT_BOX = fromBlock(BlockRegistry.FRUIT_BOX, CreativeTabs.DECORATIONS);
     public static final RegistryObject<Item> WOODEN_CRATE = fromBlock(BlockRegistry.WOODEN_CRATE, CreativeTabs.DECORATIONS);
     public static final RegistryObject<Item> GUNNY_SACK = fromBlock(BlockRegistry.GUNNY_SACK, CreativeTabs.DECORATIONS);
@@ -136,6 +138,7 @@ public class ItemRegistry {
     public static final RegistryObject<Item> WOODEN_FRAME = simpleItem("wooden_frame", CreativeTabs.MATERIALS);
     public static final RegistryObject<Item> BLUE_AND_WHITE_PORCELAIN_PIECE = simpleItem("blue_and_white_porcelain_piece", CreativeTabs.MATERIALS);
     public static final RegistryObject<Item> BLUE_AND_WHITE_PORCELAIN_SHARDS = simpleItem("blue_and_white_porcelain_shards", CreativeTabs.MATERIALS);
+    public static final RegistryObject<Item> INCENSE = simpleItem("incense", CreativeTabs.MATERIALS);
     public static final RegistryObject<Item> JADE_ORE = fromBlock(BlockRegistry.JADE_ORE, CreativeTabs.MATERIALS);
     public static final RegistryObject<Item> JADE = simpleItem("jade", CreativeTabs.MATERIALS);
     public static final RegistryObject<Item> MAGNESITE_ORE = fromBlock(BlockRegistry.MAGNESITE_ORE, CreativeTabs.MATERIALS);

@@ -2,13 +2,13 @@
   "type": "minecraft:block",
   "pools": [
     {
-      "name": "jade_candlestick",
+      "name": "bronze_censer",
       "rolls": 1.0,
       "bonus_rolls": 0.0,
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "ultramarine:jade_candlestick"
+          "name": "ultramarine:bronze_censer"
         }
       ]
     }

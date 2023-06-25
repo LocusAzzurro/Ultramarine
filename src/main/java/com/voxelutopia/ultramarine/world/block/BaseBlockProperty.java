@@ -21,6 +21,11 @@ public final class BaseBlockProperty {
             .sound(SoundType.METAL)
             .strength(5.0F, 6.0F)
             .requiresCorrectToolForDrops(), BlockMaterial.METAL);
+
+    public static BaseBlockProperty BRONZE = new BaseBlockProperty(BlockBehaviour.Properties.of(Material.METAL)
+            .sound(SoundType.METAL)
+            .strength(5.5F, 6.5F)
+            .requiresCorrectToolForDrops(), BlockMaterial.METAL);
     public static BaseBlockProperty TILE = new BaseBlockProperty(BlockBehaviour.Properties.of(Material.STONE)
             .sound(SoundType.BONE_BLOCK)
             .strength(1.5F, 6.0F)
