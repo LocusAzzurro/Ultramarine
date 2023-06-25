@@ -22,6 +22,7 @@ public class ModClientRenderEventHandler {
             ItemBlockRenderTypes.setRenderLayer(BlockRegistry.ABACUS.get(), RenderType.cutout());
             ItemBlockRenderTypes.setRenderLayer(BlockRegistry.BOTTLE_GOURD.get(), RenderType.cutout());
             ItemBlockRenderTypes.setRenderLayer(BlockRegistry.BLACK_IRON_FLOWERPOT.get(), RenderType.cutout());
+            ItemBlockRenderTypes.setRenderLayer(BlockRegistry.MEMORIAL_TABLET.get(), RenderType.cutout());
             ItemBlockRenderTypes.setRenderLayer(BlockRegistry.BRONZE_CENSER.get(), RenderType.cutout());
             ItemBlockRenderTypes.setRenderLayer(BlockRegistry.ROYAL_CENSER.get(), RenderType.cutout());
             ItemBlockRenderTypes.setRenderLayer(BlockRegistry.GUNNY_SACK.get(), RenderType.cutout());

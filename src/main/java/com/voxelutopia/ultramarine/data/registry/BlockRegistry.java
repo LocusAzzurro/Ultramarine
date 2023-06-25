@@ -95,6 +95,8 @@ public class BlockRegistry {
             () -> DecorativeBlock.with(BaseBlockProperty.PORCELAIN).shaped(DecorativeBlock.VASE).diagonallyPlaceable().build());
     public static final RegistryObject<Block> BIG_BLUE_AND_WHITE_PORCELAIN_VASE = BLOCKS.register("big_blue_and_white_porcelain_vase",
             () -> DecorativeBlock.with(BaseBlockProperty.PORCELAIN).shaped(DecorativeBlock.CUBE_14).directional().build());
+    public static final RegistryObject<Block> MEMORIAL_TABLET = BLOCKS.register("memorial_tablet",
+            () -> DecorativeBlock.with(BaseBlockProperty.WOOD).shaped(DecorativeBlock.CUBE_14).directional().diagonallyPlaceable().noCollision().noFenceConnect().build());
     public static final RegistryObject<Block> BRONZE_CENSER = BLOCKS.register("bronze_censer",
             () -> new Censer(DecorativeBlock.with(BaseBlockProperty.BRONZE).shaped(DecorativeBlock.HALF_12).directional().diagonallyPlaceable().luminous(), new Vec3(0.5, 0.7, 0.5)));
     public static final RegistryObject<Block> ROYAL_CENSER = BLOCKS.register("royal_censer",
