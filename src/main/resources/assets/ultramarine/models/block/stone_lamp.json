@@ -236,16 +236,26 @@
 			"scale": [0.3, 0.3, 0.3]
 		},
 		"firstperson_righthand": {
-			"scale": [0.3, 0.3, 0.3]
+			"rotation": [0, 45, 0],
+			"scale": [0.4, 0.4, 0.4]
 		},
 		"firstperson_lefthand": {
-			"scale": [0.3, 0.3, 0.3]
+			"rotation": [0, 225, 0],
+			"scale": [0.4, 0.4, 0.4]
 		},
 		"ground": {
-			"scale": [0.3, 0.3, 0.3]
+			"translation": [0, 3, 0],
+			"scale": [0.25, 0.25, 0.25]
 		},
 		"gui": {
 			"rotation": [10, 160, 0],
+			"translation": [0.5, -1, 0],
+			"scale": [0.6, 0.6, 0.6]
+		},
+		"head": {
+			"translation": [0, 10, 0]
+		},
+		"fixed": {
 			"scale": [0.5, 0.5, 0.5]
 		}
 	},
