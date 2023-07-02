@@ -1,7 +1,7 @@
 package com.voxelutopia.ultramarine.world.block;
 
 import com.mojang.datafixers.util.Pair;
-import com.voxelutopia.ultramarine.data.ModBlockStateProperties;
+import com.voxelutopia.ultramarine.world.block.state.ModBlockStateProperties;
 import net.minecraft.core.BlockPos;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;

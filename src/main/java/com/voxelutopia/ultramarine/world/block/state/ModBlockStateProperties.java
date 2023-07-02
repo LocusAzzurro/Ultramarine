@@ -1,4 +1,4 @@
-package com.voxelutopia.ultramarine.data;
+package com.voxelutopia.ultramarine.world.block.state;
 
 import net.minecraft.core.Direction;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
