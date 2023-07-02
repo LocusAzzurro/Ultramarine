@@ -31,9 +31,18 @@ public class WoodenHammer extends Item {
         var player = Optional.ofNullable(pContext.getPlayer());
         BlockPos blockpos = pContext.getClickedPos();
         BlockState blockstate = level.getBlockState(blockpos);
+        boolean success = false;
         if (blockstate.hasProperty(ModBlockStateProperties.SHIFTED)){
             level.setBlock(blockpos, blockstate.setValue(ModBlockStateProperties.SHIFTED,
                     !blockstate.getValue(ModBlockStateProperties.SHIFTED)), Block.UPDATE_ALL);
+            success = true;
+        }
+        if (blockstate.hasProperty(ModBlockStateProperties.CHIRAL_BLOCK_TYPE)){
+            level.setBlock(blockpos, blockstate.setValue(ModBlockStateProperties.CHIRAL_BLOCK_TYPE,
+                    blockstate.getValue(ModBlockStateProperties.CHIRAL_BLOCK_TYPE).getOpposite()), Block.UPDATE_ALL);
+            success = true;
+        }
+        if (success){
             player.ifPresent(player1 -> {
                 item.hurtAndBreak(1, player1, p -> p.broadcastBreakEvent(pContext.getHand()));
                 player1.awardStat(Stats.ITEM_USED.get(item.getItem()));

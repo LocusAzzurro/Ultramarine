@@ -22,6 +22,11 @@ public class CreativeTabs {
             return new ItemStack(ItemRegistry.CYAN_BRICKS.get());
         }
     };
+    public static final CreativeModeTab DECORATIVE_BLOCKS = new CreativeModeTab(Ultramarine.MOD_ID + ".decorative_blocks") {
+        @Override public ItemStack makeIcon() {
+            return new ItemStack(ItemRegistry.CYAN_BRICKS.get());
+        }
+    };
     public static final CreativeModeTab DECORATIONS = new CreativeModeTab(Ultramarine.MOD_ID + ".decorations") {
         @Override public ItemStack makeIcon() {
             return new ItemStack(ItemRegistry.BIG_BLUE_AND_WHITE_PORCELAIN_VASE.get());

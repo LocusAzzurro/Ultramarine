@@ -1,6 +1,7 @@
 package com.voxelutopia.ultramarine.datagen;
 
 import com.voxelutopia.ultramarine.data.registry.BlockRegistry;
+import com.voxelutopia.ultramarine.world.block.state.ChiralBlockType;
 import com.voxelutopia.ultramarine.world.block.state.ModBlockStateProperties;
 import com.voxelutopia.ultramarine.world.block.*;
 import net.minecraft.core.Direction;
@@ -70,6 +71,8 @@ public class ModBlockModelProvider extends BlockStateProvider {
         simpleBlock(BlockRegistry.GREEN_GLAZED_TILES.get());
         slabAndStairs(BlockRegistry.GREEN_GLAZED_TILES.get(), BlockRegistry.GREEN_GLAZED_TILE_SLAB.get(), BlockRegistry.GREEN_GLAZED_TILE_STAIRS.get());
 
+        chiralDirectionalBlock(BlockRegistry.ENGRAVED_DARK_OAK_BEAM_EDGE.get());
+
         //<editor-fold desc="Roof Tiles">
         shiftedDirectionalBlock(BlockRegistry.GRAY_ROOF_TILES.get(), "gray", RoofTiles.RoofTileType.NORMAL);
         shiftedDirectionalBlock(BlockRegistry.GRAY_ROOF_TILE_STAIRS.get(), "gray", RoofTiles.RoofTileType.STAIRS);
@@ -128,6 +131,20 @@ public class ModBlockModelProvider extends BlockStateProvider {
 
     private void fence(Block baseBlock, Block fenceBlock){
         fenceBlock((FenceBlock)fenceBlock, fenceBlock.getRegistryName().getPath(), blockLoc(baseBlock));
+    }
+
+    public void chiralDirectionalBlock(Block block) {
+        directionalBlock(block, state -> {
+            String path = Objects.requireNonNull(block.getRegistryName()).getPath();
+            if (state.hasProperty(ModBlockStateProperties.CHIRAL_BLOCK_TYPE)){
+                ChiralBlockType chiralBlockType = state.getValue(ModBlockStateProperties.CHIRAL_BLOCK_TYPE);
+                if (chiralBlockType == ChiralBlockType.LEFT || chiralBlockType == ChiralBlockType.TOP){
+                    return models().getExistingFile(modLoc("block/" + path));
+                }
+                else return models().getExistingFile(modLoc("block/" + path + "_mirrored"));
+            }
+            return models().getExistingFile(modLoc("block/" + path));
+        });
     }
 
     private void shiftedDirectionalBlock(Block block, String color, ShiftedTileType type) {
