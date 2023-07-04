@@ -121,6 +121,7 @@ public class ItemRegistry {
     public static final RegistryObject<Item> OAK_CABINET = fromBlock(BlockRegistry.OAK_CABINET, CreativeTabs.FURNITURE);
     public static final RegistryObject<Item> WARPED_CABINET = fromBlock(BlockRegistry.WARPED_CABINET, CreativeTabs.FURNITURE);
     public static final RegistryObject<Item> EBONY_CABINET = fromBlock(BlockRegistry.EBONY_CABINET, CreativeTabs.FURNITURE);
+    public static final RegistryObject<Item> EBONY_CHAIR = fromBlock(BlockRegistry.EBONY_CHAIR, CreativeTabs.FURNITURE);
 
     public static final RegistryObject<Item> CYAN_BRICK = simpleItem("cyan_brick", CreativeTabs.MATERIALS);
     public static final RegistryObject<Item> GRAY_ROOF_TILE = simpleItem("gray_roof_tile", CreativeTabs.MATERIALS);

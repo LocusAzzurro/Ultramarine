@@ -24,6 +24,7 @@ public class Ultramarine {
         BlockRegistry.BLOCKS.register(bus);
         ItemRegistry.ITEMS.register(bus);
         BlockEntityRegistry.BLOCK_ENTITIES.register(bus);
+        EntityTypeRegistry.ENTITIES.register(bus);
         MenuTypeRegistry.MENU_TYPES.register(bus);
         RecipeTypeRegistry.RECIPE_TYPES.register(bus);
         RecipeSerializerRegistry.RECIPE_SERIALIZERS.register(bus);
