@@ -21,7 +21,6 @@ public final class BaseBlockProperty {
             .sound(SoundType.METAL)
             .strength(5.0F, 6.0F)
             .requiresCorrectToolForDrops(), BlockMaterial.METAL);
-
     public static BaseBlockProperty BRONZE = new BaseBlockProperty(BlockBehaviour.Properties.of(Material.METAL)
             .sound(SoundType.METAL)
             .strength(5.5F, 6.5F)
@@ -53,8 +52,10 @@ public final class BaseBlockProperty {
     public static BaseBlockProperty FLAX = new BaseBlockProperty(BlockBehaviour.Properties.of(Material.WOOL)
             .sound(SoundRegistry.FLAX)
             .strength(1F, 2F), BlockMaterial.FLAX);
-
-    public static BaseBlockProperty SILK = new BaseBlockProperty(BlockBehaviour.Properties.of(Material.WOOL)
+    public static BaseBlockProperty CROP = new BaseBlockProperty(BlockBehaviour.Properties.of(Material.VEGETABLE)
+            .sound(SoundType.CROP)
+            .strength(1F, 1.5F), BlockMaterial.CROP);
+    public static BaseBlockProperty SILK = new BaseBlockProperty(BlockBehaviour.Properties.of(Material.CLOTH_DECORATION)
             .sound(SoundType.WOOL)
             .strength(1F, 2F), BlockMaterial.FLAX);
 
@@ -80,8 +81,10 @@ public final class BaseBlockProperty {
         WOOD(BlockTags.MINEABLE_WITH_AXE),
         PORCELAIN(BlockTags.MINEABLE_WITH_PICKAXE),
         BAMBOO(BlockTags.MINEABLE_WITH_AXE),
-        FABRIC(BlockTags.WOOL),
+        FABRIC(BlockTags.MINEABLE_WITH_HOE),
+        CROP(BlockTags.MINEABLE_WITH_HOE),
         FLAX(BlockTags.MINEABLE_WITH_HOE);
+
         final TagKey<Block> tool;
         public TagKey<Block> getTool(){
             return tool;

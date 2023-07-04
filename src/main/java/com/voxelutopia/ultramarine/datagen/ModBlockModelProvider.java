@@ -4,6 +4,7 @@ import com.voxelutopia.ultramarine.data.registry.BlockRegistry;
 import com.voxelutopia.ultramarine.world.block.state.ChiralBlockType;
 import com.voxelutopia.ultramarine.world.block.state.ModBlockStateProperties;
 import com.voxelutopia.ultramarine.world.block.*;
+import com.voxelutopia.ultramarine.world.block.state.StackableBlockType;
 import net.minecraft.core.Direction;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.resources.ResourceLocation;
@@ -94,6 +95,8 @@ public class ModBlockModelProvider extends BlockStateProvider {
         shiftedBlock(BlockRegistry.BLACK_ROOF_TILE_EDGE.get());
         //</editor-fold>
 
+        vegetableBasket((StackableHalfBlock) BlockRegistry.CABBAGE_BASKET.get());
+
         var decorativeBlocks = new ArrayList<>(BlockRegistry.BLOCKS.getEntries().stream()
                 .filter(blockRegistryObject -> blockRegistryObject.get() instanceof DecorativeBlock).toList());
 
@@ -151,7 +154,7 @@ public class ModBlockModelProvider extends BlockStateProvider {
         models().withExistingParent(modLoc("block/" + color + "_" + type).getPath(), modLoc("block/" + type))
                 .texture("1", blockLoc(block)).texture("particle", mcLoc("block/" + color + "_concrete"));
         models().withExistingParent(modLoc("block/" + color + "_" + type + "_shifted").getPath(), modLoc("block/" + type + "_shifted"))
-                .texture("1", blockLoc(block)).texture("particle", mcLoc("block/" + color + "_concrete"));;
+                .texture("1", blockLoc(block)).texture("particle", mcLoc("block/" + color + "_concrete"));
         shiftedBlock(block);
     }
 
@@ -199,6 +202,24 @@ public class ModBlockModelProvider extends BlockStateProvider {
             ResourceLocation resourceLocation = Objects.requireNonNull(block.getRegistryName());
             String blockPath = blockState.getValue(LIT) ? "lit_" + resourceLocation.getPath() : resourceLocation.getPath();
             return getDecorativeBlockConfiguredModels(block, blockState, blockPath, modelFile, rotation);
+        });
+    }
+
+    private void vegetableBasket(StackableHalfBlock block){
+        String blockName = Objects.requireNonNull(block.getRegistryName()).getPath();
+        getVariantBuilder(block).forAllStates(blockState -> {
+            StackableBlockType type = blockState.getValue(ModBlockStateProperties.STACKABLE_BLOCK_TYPE);
+            switch (type){
+                case SINGLE -> {
+                    return ConfiguredModel.builder().modelFile(models().slab(blockLoc(block).getPath(),
+                            modLoc("block/vegetable_basket_side"), modLoc("block/vegetable_basket_bottom"), modLoc("block/" + blockName + "_top"))).build();
+                }
+                case DOUBLE -> {
+                    return ConfiguredModel.builder().modelFile(models().cubeBottomTop(modLoc("block/" + blockName + "_double").getPath(),
+                            modLoc("block/vegetable_basket_side"), modLoc("block/vegetable_basket_bottom"), modLoc("block/" + blockName + "_top"))).build();
+                }
+            }
+            return new ConfiguredModel[0];
         });
     }
 

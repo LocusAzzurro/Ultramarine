@@ -6,7 +6,7 @@ import net.minecraft.world.level.material.Material;
 
 public class BaseBlock extends Block implements BaseBlockPropertyHolder {
 
-    private final BaseBlockProperty property;
+    protected final BaseBlockProperty property;
 
     public BaseBlock(){
         this(BaseBlockProperty.STONE);

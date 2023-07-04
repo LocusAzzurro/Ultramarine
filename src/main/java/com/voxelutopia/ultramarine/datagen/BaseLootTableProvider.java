@@ -4,6 +4,9 @@ import com.google.common.collect.ImmutableSet;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.voxelutopia.ultramarine.Ultramarine;
+import com.voxelutopia.ultramarine.world.block.StackableHalfBlock;
+import com.voxelutopia.ultramarine.world.block.state.ModBlockStateProperties;
+import com.voxelutopia.ultramarine.world.block.state.StackableBlockType;
 import net.minecraft.advancements.critereon.EnchantmentPredicate;
 import net.minecraft.advancements.critereon.ItemPredicate;
 import net.minecraft.advancements.critereon.MinMaxBounds;
@@ -97,6 +100,25 @@ public abstract class BaseLootTableProvider extends LootTableProvider {
                                 .setProperties(StatePropertiesPredicate.Builder
                                         .properties()
                                         .hasProperty(SlabBlock.TYPE, SlabType.DOUBLE)))
+                        .apply(SetItemCountFunction.setCount(ConstantValue.exactly(2))));
+        return LootTable.lootTable().withPool(builder);
+    }
+
+    protected LootTable.Builder createStackableHalfDrop(String name, StackableHalfBlock block, Item item) {
+        var builder = LootPool.lootPool()
+                .name(name)
+                .add(LootItem.lootTableItem(item)
+                        .when(LootItemBlockStatePropertyCondition
+                                .hasBlockStateProperties(block)
+                                .setProperties(StatePropertiesPredicate.Builder
+                                        .properties()
+                                        .hasProperty(ModBlockStateProperties.STACKABLE_BLOCK_TYPE, StackableBlockType.SINGLE))))
+                .add(LootItem.lootTableItem(item)
+                        .when(LootItemBlockStatePropertyCondition
+                                .hasBlockStateProperties(block)
+                                .setProperties(StatePropertiesPredicate.Builder
+                                        .properties()
+                                        .hasProperty(ModBlockStateProperties.STACKABLE_BLOCK_TYPE, StackableBlockType.DOUBLE)))
                         .apply(SetItemCountFunction.setCount(ConstantValue.exactly(2))));
         return LootTable.lootTable().withPool(builder);
     }

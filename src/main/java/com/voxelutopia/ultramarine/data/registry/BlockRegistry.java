@@ -60,6 +60,7 @@ public class BlockRegistry {
     public static final RegistryObject<Block> BAMBOO_MAT_SLAB = BLOCKS.register("bamboo_mat_slab", () -> new BaseSlab((BaseBlock) BAMBOO_MAT.get()));
     public static final RegistryObject<Block> BAMBOO_MAT_STAIRS = BLOCKS.register("bamboo_mat_stairs", () -> new BaseStairs((BaseBlock) BAMBOO_MAT.get()));
 
+    public static final RegistryObject<Block> CABBAGE_BASKET = BLOCKS.register("cabbage_basket", () -> new StackableHalfBlock(BaseBlockProperty.CROP));
     public static final RegistryObject<Block> ENGRAVED_DARK_OAK_BEAM_EDGE = BLOCKS.register("engraved_dark_oak_beam_edge", () -> new ChiralDirectionalBlock(BaseBlockProperty.WOOD));
 
     public static final RegistryObject<Block> GRAY_ROOF_TILES = BLOCKS.register("gray_roof_tiles", RoofTiles::new);

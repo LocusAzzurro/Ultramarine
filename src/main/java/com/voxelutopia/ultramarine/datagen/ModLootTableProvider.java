@@ -6,10 +6,12 @@ import com.voxelutopia.ultramarine.data.registry.ItemRegistry;
 import com.voxelutopia.ultramarine.world.block.BaseBlockProperty;
 import com.voxelutopia.ultramarine.world.block.BaseBlockPropertyHolder;
 import com.voxelutopia.ultramarine.world.block.ConsumableDecorativeBlock;
+import com.voxelutopia.ultramarine.world.block.StackableHalfBlock;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.ConduitBlock;
 import net.minecraft.world.level.block.OreBlock;
 import net.minecraft.world.level.block.SlabBlock;
 import net.minecraft.world.level.storage.loot.LootTable;
@@ -26,14 +28,15 @@ public class ModLootTableProvider extends BaseLootTableProvider {
     }
 
     private static final List<RegistryObject<Block>> NON_SIMPLE_BLOCKS = new ArrayList<>();
+    private static final List<Class> NON_SIMPLE_BLOCK_CLASSES = List.of(OreBlock.class, SlabBlock.class, ConsumableDecorativeBlock.class, StackableHalfBlock.class);
     private static final Logger LOGGER = Ultramarine.getLogger();
 
     static {
         BlockRegistry.BLOCKS.getEntries().stream()
                 .filter(blockRegistryObject -> {
                     var block = blockRegistryObject.get();
-                    if (block instanceof OreBlock || block instanceof SlabBlock || block instanceof ConsumableDecorativeBlock){
-                        return true;
+                    for (Class clazz : NON_SIMPLE_BLOCK_CLASSES){
+                        if (clazz.isInstance(block)) return true;
                     }
                     if (block instanceof BaseBlockPropertyHolder baseBlock){
                         return baseBlock.getProperty().getMaterial() == BaseBlockProperty.BlockMaterial.PORCELAIN;
@@ -68,6 +71,7 @@ public class ModLootTableProvider extends BaseLootTableProvider {
         slab(BlockRegistry.LIGHT_CYAN_FLOOR_TILE_SLAB, ItemRegistry.LIGHT_CYAN_FLOOR_TILE_SLAB);
         slab(BlockRegistry.CYAN_FLOOR_TILE_SLAB, ItemRegistry.CYAN_FLOOR_TILE_SLAB);
         slab(BlockRegistry.BAMBOO_MAT_SLAB, ItemRegistry.BAMBOO_MAT_SLAB);
+        stackableHalf(BlockRegistry.CABBAGE_BASKET, ItemRegistry.CABBAGE_BASKET);
     }
 
     void simple(RegistryObject<? extends Block> block) {
@@ -97,6 +101,12 @@ public class ModLootTableProvider extends BaseLootTableProvider {
         if (block.get() instanceof SlabBlock slab)
             addLootTable(block.get(), createSlabDrop(block.getId().getPath(), slab, item.get()));
         else LOGGER.warn("Slab loot table was not added for block " + block.get().getDescriptionId());
+    }
+
+    void stackableHalf(RegistryObject<? extends Block> block, RegistryObject<? extends Item> item) {
+        if (block.get() instanceof StackableHalfBlock stackable)
+            addLootTable(block.get(), createStackableHalfDrop(block.getId().getPath(), stackable, item.get()));
+        else LOGGER.warn("Stackable loot table was not added for block " + block.get().getDescriptionId());
     }
 
     void plateDrop(RegistryObject<? extends Block> block) {
