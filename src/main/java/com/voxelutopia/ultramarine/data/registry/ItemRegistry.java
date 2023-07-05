@@ -60,6 +60,11 @@ public class ItemRegistry {
     public static final RegistryObject<Item> BAMBOO_MAT_STAIRS = fromBlock(BlockRegistry.BAMBOO_MAT_STAIRS, CreativeTabs.BUILDING_BLOCKS);
 
     public static final RegistryObject<Item> CABBAGE_BASKET = fromBlock(BlockRegistry.CABBAGE_BASKET, CreativeTabs.DECORATIVE_BLOCKS);
+    public static final RegistryObject<Item> CELERY_BASKET = fromBlock(BlockRegistry.CELERY_BASKET, CreativeTabs.DECORATIVE_BLOCKS);
+    public static final RegistryObject<Item> ORANGE_BASKET = fromBlock(BlockRegistry.ORANGE_BASKET, CreativeTabs.DECORATIVE_BLOCKS);
+    public static final RegistryObject<Item> APPLE_BASKET = fromBlock(BlockRegistry.APPLE_BASKET, CreativeTabs.DECORATIVE_BLOCKS);
+    public static final RegistryObject<Item> EGGPLANT_BASKET = fromBlock(BlockRegistry.EGGPLANT_BASKET, CreativeTabs.DECORATIVE_BLOCKS);
+    public static final RegistryObject<Item> PEAR_BASKET = fromBlock(BlockRegistry.PEAR_BASKET, CreativeTabs.DECORATIVE_BLOCKS);
     public static final RegistryObject<Item> ENGRAVED_DARK_OAK_BEAM_EDGE = fromBlock(BlockRegistry.ENGRAVED_DARK_OAK_BEAM_EDGE, CreativeTabs.DECORATIVE_BLOCKS);
 
     public static final RegistryObject<Item> WOODEN_HAMMER = ITEMS.register("wooden_hammer", WoodenHammer::new);

@@ -96,6 +96,11 @@ public class ModBlockModelProvider extends BlockStateProvider {
         //</editor-fold>
 
         vegetableBasket((StackableHalfBlock) BlockRegistry.CABBAGE_BASKET.get());
+        vegetableBasket((StackableHalfBlock) BlockRegistry.CELERY_BASKET.get());
+        vegetableBasket((StackableHalfBlock) BlockRegistry.ORANGE_BASKET.get());
+        vegetableBasket((StackableHalfBlock) BlockRegistry.APPLE_BASKET.get());
+        vegetableBasket((StackableHalfBlock) BlockRegistry.EGGPLANT_BASKET.get());
+        vegetableBasket((StackableHalfBlock) BlockRegistry.PEAR_BASKET.get());
 
         var decorativeBlocks = new ArrayList<>(BlockRegistry.BLOCKS.getEntries().stream()
                 .filter(blockRegistryObject -> blockRegistryObject.get() instanceof DecorativeBlock).toList());

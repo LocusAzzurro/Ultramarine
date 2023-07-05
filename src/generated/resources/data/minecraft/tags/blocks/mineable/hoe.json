@@ -2,6 +2,11 @@
   "replace": false,
   "values": [
     "ultramarine:cabbage_basket",
+    "ultramarine:celery_basket",
+    "ultramarine:orange_basket",
+    "ultramarine:apple_basket",
+    "ultramarine:eggplant_basket",
+    "ultramarine:pear_basket",
     "ultramarine:gunny_sack"
   ]
 }
