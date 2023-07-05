@@ -12,13 +12,13 @@ import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.DirectionProperty;
 import net.minecraft.world.level.block.state.properties.EnumProperty;
 
-public class ChiralDirectionalBlock extends DirectionalBlock implements BaseBlockPropertyHolder{
+public class ChiralDirectionalBlock extends BaseDirectionalBlock implements BaseBlockPropertyHolder{
 
     public static final DirectionProperty FACING = BlockStateProperties.FACING;
     public static final EnumProperty<ChiralBlockType> TYPE = ModBlockStateProperties.CHIRAL_BLOCK_TYPE;
     private final BaseBlockProperty property;
     public ChiralDirectionalBlock(BaseBlockProperty property) {
-        super(property.properties);
+        super(property);
         this.property = property;
         this.registerDefaultState(this.stateDefinition.any().setValue(FACING, Direction.UP).setValue(TYPE, ChiralBlockType.LEFT));
     }

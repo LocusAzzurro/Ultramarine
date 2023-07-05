@@ -24,7 +24,7 @@ public class CreativeTabs {
     };
     public static final CreativeModeTab DECORATIVE_BLOCKS = new CreativeModeTab(Ultramarine.MOD_ID + ".decorative_blocks") {
         @Override public ItemStack makeIcon() {
-            return new ItemStack(ItemRegistry.CYAN_BRICKS.get());
+            return new ItemStack(ItemRegistry.CARVED_RED_PILLAR_BASE.get());
         }
     };
     public static final CreativeModeTab DECORATIONS = new CreativeModeTab(Ultramarine.MOD_ID + ".decorations") {

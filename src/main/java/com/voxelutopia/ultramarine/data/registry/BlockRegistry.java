@@ -67,6 +67,9 @@ public class BlockRegistry {
     public static final RegistryObject<Block> EGGPLANT_BASKET = BLOCKS.register("eggplant_basket", () -> new StackableHalfBlock(BaseBlockProperty.CROP));
     public static final RegistryObject<Block> PEAR_BASKET = BLOCKS.register("pear_basket", () -> new StackableHalfBlock(BaseBlockProperty.CROP));
     public static final RegistryObject<Block> ENGRAVED_DARK_OAK_BEAM_EDGE = BLOCKS.register("engraved_dark_oak_beam_edge", () -> new ChiralDirectionalBlock(BaseBlockProperty.WOOD));
+    public static final RegistryObject<Block> CARVED_RED_PILLAR = BLOCKS.register("carved_red_pillar", () -> new BaseBlock(BaseBlockProperty.TERRACOTTA));
+    public static final RegistryObject<Block> CARVED_RED_PILLAR_BASE = BLOCKS.register("carved_red_pillar_base", () -> new BaseBlock(BaseBlockProperty.TERRACOTTA));
+    public static final RegistryObject<Block> CARVED_RED_PILLAR_HEAD = BLOCKS.register("carved_red_pillar_head", () -> new BaseDirectionalBlock(BaseBlockProperty.TERRACOTTA));
 
     public static final RegistryObject<Block> GRAY_ROOF_TILES = BLOCKS.register("gray_roof_tiles", RoofTiles::new);
     public static final RegistryObject<Block> GRAY_ROOF_TILE_STAIRS = BLOCKS.register("gray_roof_tile_stairs", RoofTiles::new);
