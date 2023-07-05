@@ -50,15 +50,13 @@ public class ModLootTableProvider extends BaseLootTableProvider {
         BlockRegistry.BLOCKS.getEntries().stream()
                 .filter(blockRegistryObject -> !NON_SIMPLE_BLOCKS.contains(blockRegistryObject))
                 .forEach(this::simple);
-        BlockRegistry.BLOCKS.getEntries().stream()
-                .filter(blockRegistryObject -> blockRegistryObject.get() instanceof ConsumableDecorativeBlock)
-                .forEach(this::simple);
         ore(BlockRegistry.JADE_ORE, ItemRegistry.JADE);
         abundantOre(BlockRegistry.MAGNESITE_ORE, ItemRegistry.MAGNESITE);
 
         porcelain(BlockRegistry.BLUE_AND_WHITE_PORCELAIN_VASE, ItemRegistry.BLUE_AND_WHITE_PORCELAIN_PIECE, ItemRegistry.BLUE_AND_WHITE_PORCELAIN_SHARDS);
         porcelain(BlockRegistry.BIG_BLUE_AND_WHITE_PORCELAIN_VASE, ItemRegistry.BLUE_AND_WHITE_PORCELAIN_PIECE, ItemRegistry.BLUE_AND_WHITE_PORCELAIN_SHARDS);
         porcelainPlate(BlockRegistry.PLATED_MOONCAKES, ItemRegistry.BLUE_AND_WHITE_PORCELAIN_PIECE, ItemRegistry.BLUE_AND_WHITE_PORCELAIN_SHARDS);
+        plateDrop(BlockRegistry.PLATED_MUNG_BEAN_CAKES);
         plateDrop(BlockRegistry.PLATED_HAM);
         plateDrop(BlockRegistry.PLATED_FISH);
         slab(BlockRegistry.CYAN_BRICK_SLAB, ItemRegistry.CYAN_BRICK_SLAB);

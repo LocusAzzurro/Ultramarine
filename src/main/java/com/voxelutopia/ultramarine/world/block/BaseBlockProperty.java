@@ -1,5 +1,6 @@
 package com.voxelutopia.ultramarine.world.block;
 
+import com.voxelutopia.ultramarine.data.ModBlockTags;
 import com.voxelutopia.ultramarine.data.registry.SoundRegistry;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.TagKey;
@@ -57,7 +58,7 @@ public final class BaseBlockProperty {
             .strength(1F, 1.5F), BlockMaterial.CROP);
     public static BaseBlockProperty SILK = new BaseBlockProperty(BlockBehaviour.Properties.of(Material.CLOTH_DECORATION)
             .sound(SoundType.WOOL)
-            .strength(1F, 2F), BlockMaterial.FLAX);
+            .strength(1F, 2F), BlockMaterial.FABRIC);
 
     BlockBehaviour.Properties properties;
     BlockMaterial material;
@@ -81,7 +82,7 @@ public final class BaseBlockProperty {
         WOOD(BlockTags.MINEABLE_WITH_AXE),
         PORCELAIN(BlockTags.MINEABLE_WITH_PICKAXE),
         BAMBOO(BlockTags.MINEABLE_WITH_AXE),
-        FABRIC(BlockTags.MINEABLE_WITH_HOE),
+        FABRIC(ModBlockTags.MINEABLE_WITH_SHEARS),
         CROP(BlockTags.MINEABLE_WITH_HOE),
         FLAX(BlockTags.MINEABLE_WITH_HOE);
 
