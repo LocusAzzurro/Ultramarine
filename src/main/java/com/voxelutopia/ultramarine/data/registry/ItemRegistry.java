@@ -163,6 +163,8 @@ public class ItemRegistry {
     public static final RegistryObject<Item> RAW_MEAT = ITEMS.register("raw_meat", () -> new BaseFood(ModFoods.RAW_MEAT));
     public static final RegistryObject<Item> COOKED_MEAT = ITEMS.register("cooked_meat", () -> new BaseFood(ModFoods.COOKED_MEAT));
 
+    public static final RegistryObject<Item> COPPER_CASH_COIN = simpleItem("copper_cash_coin", CreativeTabs.MATERIALS);
+
     public static final RegistryObject<Item> WOODWORKING_WORKBENCH = fromBlock(BlockRegistry.WOODWORKING_WORKBENCH, CreativeTabs.TOOLS);
 
     private static <B extends Block> RegistryObject<Item> fromBlock(RegistryObject<B> block, CreativeModeTab tab) {

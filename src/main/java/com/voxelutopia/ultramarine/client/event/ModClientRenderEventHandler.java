@@ -10,6 +10,7 @@ import net.minecraft.client.gui.screens.MenuScreens;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.entity.EntityRenderers;
+import net.minecraft.client.renderer.entity.WanderingTraderRenderer;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -65,6 +66,7 @@ public class ModClientRenderEventHandler {
     private static void registerEntityRenderers(FMLClientSetupEvent e){
         e.enqueueWork(() -> {
             EntityRenderers.register(EntityTypeRegistry.SEAT.get(), SeatEntityRenderer::new);
+            EntityRenderers.register(EntityTypeRegistry.CUSTOM_WANDERING_TRADER.get(), WanderingTraderRenderer::new);
         });
     }
 }
