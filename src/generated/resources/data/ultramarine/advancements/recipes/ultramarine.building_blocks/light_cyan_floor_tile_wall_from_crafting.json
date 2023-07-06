@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "ultramarine:light_cyan_floor_tile_wall_from_crafting"
+    ]
+  },
+  "criteria": {
+    "has_light_cyan_floor_tile": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "ultramarine:light_cyan_floor_tile"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "ultramarine:light_cyan_floor_tile_wall_from_crafting"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_light_cyan_floor_tile",
+      "has_the_recipe"
+    ]
+  ]
+}

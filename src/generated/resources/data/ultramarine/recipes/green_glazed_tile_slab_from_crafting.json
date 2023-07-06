@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "BBB"
+  ],
+  "key": {
+    "B": {
+      "item": "ultramarine:green_glazed_tiles"
+    }
+  },
+  "result": {
+    "item": "ultramarine:green_glazed_tile_slab",
+    "count": 6
+  }
+}

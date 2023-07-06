@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "BBB",
+    "BBB"
+  ],
+  "key": {
+    "B": {
+      "item": "ultramarine:light_cyan_floor_tile"
+    }
+  },
+  "result": {
+    "item": "ultramarine:light_cyan_floor_tile_wall",
+    "count": 6
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "ultramarine:brownish_red_stone_bricks"
+    ]
+  },
+  "criteria": {
+    "has_brownish_red_stone_brick": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "ultramarine:brownish_red_stone_brick"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "ultramarine:brownish_red_stone_bricks"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_brownish_red_stone_brick",
+      "has_the_recipe"
+    ]
+  ]
+}
