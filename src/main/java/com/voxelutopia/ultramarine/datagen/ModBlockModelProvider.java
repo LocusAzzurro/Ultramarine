@@ -124,6 +124,7 @@ public class ModBlockModelProvider extends BlockStateProvider {
         horizontalBlock(BlockRegistry.WOODWORKING_WORKBENCH.get(), models().getExistingFile(blockLoc(BlockRegistry.WOODWORKING_WORKBENCH.get())));
         simpleBlock(BlockRegistry.JADE_ORE.get());
         simpleBlock(BlockRegistry.MAGNESITE_ORE.get());
+        simpleBlock(BlockRegistry.HEMATITE_ORE.get());
     }
 
     private ResourceLocation blockLoc(Block block){

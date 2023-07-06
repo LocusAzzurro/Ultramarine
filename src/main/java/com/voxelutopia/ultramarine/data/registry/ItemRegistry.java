@@ -133,6 +133,7 @@ public class ItemRegistry {
     public static final RegistryObject<Item> EBONY_CHAIR = fromBlock(BlockRegistry.EBONY_CHAIR, CreativeTabs.FURNITURE);
 
     public static final RegistryObject<Item> CYAN_BRICK = simpleItem("cyan_brick", CreativeTabs.MATERIALS);
+    public static final RegistryObject<Item> BLACK_BRICK = simpleItem("black_brick", CreativeTabs.MATERIALS);
     public static final RegistryObject<Item> GRAY_ROOF_TILE = simpleItem("gray_roof_tile", CreativeTabs.MATERIALS);
     public static final RegistryObject<Item> YELLOW_ROOF_TILE = simpleItem("yellow_roof_tile", CreativeTabs.MATERIALS);
     public static final RegistryObject<Item> GREEN_ROOF_TILE = simpleItem("green_roof_tile", CreativeTabs.MATERIALS);
@@ -158,10 +159,17 @@ public class ItemRegistry {
     public static final RegistryObject<Item> JADE = simpleItem("jade", CreativeTabs.MATERIALS);
     public static final RegistryObject<Item> MAGNESITE_ORE = fromBlock(BlockRegistry.MAGNESITE_ORE, CreativeTabs.MATERIALS);
     public static final RegistryObject<Item> MAGNESITE = simpleItem("magnesite", CreativeTabs.MATERIALS);
+    public static final RegistryObject<Item> HEMATITE_ORE = fromBlock(BlockRegistry.HEMATITE_ORE, CreativeTabs.MATERIALS);
+    public static final RegistryObject<Item> RAW_HEMATITE = simpleItem("raw_hematite", CreativeTabs.MATERIALS);
     public static final RegistryObject<Item> MOONCAKE = ITEMS.register("mooncake", () -> new BaseFood(ModFoods.MOONCAKE));
     public static final RegistryObject<Item> MUNG_BEAN_CAKE = ITEMS.register("mung_bean_cake", () -> new BaseFood(ModFoods.MUNG_BEAN_CAKE));
     public static final RegistryObject<Item> RAW_MEAT = ITEMS.register("raw_meat", () -> new BaseFood(ModFoods.RAW_MEAT));
     public static final RegistryObject<Item> COOKED_MEAT = ITEMS.register("cooked_meat", () -> new BaseFood(ModFoods.COOKED_MEAT));
+    public static final RegistryObject<Item> BAOZI = ITEMS.register("baozi", () -> new BaseFood(ModFoods.BAOZI));
+    public static final RegistryObject<Item> FUR = simpleItem("fur", CreativeTabs.MATERIALS);
+    public static final RegistryObject<Item> GREASE = simpleItem("grease", CreativeTabs.MATERIALS);
+    public static final RegistryObject<Item> SILK = simpleItem("silk", CreativeTabs.MATERIALS);
+    public static final RegistryObject<Item> XUAN_PAPER = simpleItem("xuan_paper", CreativeTabs.MATERIALS);
 
     public static final RegistryObject<Item> COPPER_CASH_COIN = simpleItem("copper_cash_coin", CreativeTabs.MATERIALS);
 

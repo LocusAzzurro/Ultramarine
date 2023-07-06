@@ -27,9 +27,11 @@ public class ModBlockTagProvider extends BlockTagsProvider {
                 .forEach(blockRegistryObject -> tag(BlockTags.MINEABLE_WITH_PICKAXE).add(blockRegistryObject.get()));
         tag(BlockTags.MINEABLE_WITH_PICKAXE)
                 .add(BlockRegistry.JADE_ORE.get())
-                .add(BlockRegistry.MAGNESITE_ORE.get());
+                .add(BlockRegistry.MAGNESITE_ORE.get())
+                .add(BlockRegistry.HEMATITE_ORE.get());
         tag(BlockTags.NEEDS_STONE_TOOL)
-                .add(BlockRegistry.MAGNESITE_ORE.get());
+                .add(BlockRegistry.MAGNESITE_ORE.get())
+                .add(BlockRegistry.HEMATITE_ORE.get());
         tag(BlockTags.NEEDS_IRON_TOOL)
                 .add(BlockRegistry.JADE_ORE.get());
         tag(BlockTags.MINEABLE_WITH_AXE)

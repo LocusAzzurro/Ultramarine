@@ -51,6 +51,7 @@ public class ModLootTableProvider extends BaseLootTableProvider {
                 .filter(blockRegistryObject -> !NON_SIMPLE_BLOCKS.contains(blockRegistryObject))
                 .forEach(this::simple);
         ore(BlockRegistry.JADE_ORE, ItemRegistry.JADE);
+        ore(BlockRegistry.HEMATITE_ORE, ItemRegistry.RAW_HEMATITE);
         abundantOre(BlockRegistry.MAGNESITE_ORE, ItemRegistry.MAGNESITE);
 
         porcelain(BlockRegistry.BLUE_AND_WHITE_PORCELAIN_VASE, ItemRegistry.BLUE_AND_WHITE_PORCELAIN_PIECE, ItemRegistry.BLUE_AND_WHITE_PORCELAIN_SHARDS);
