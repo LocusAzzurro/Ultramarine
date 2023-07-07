@@ -35,9 +35,39 @@ public class CommonEventHandler {
         if (profession == VillagerProfessionRegistry.COOK.get()){
             var trades = event.getTrades();
             trades.get(1).add(($1, $2) -> new MerchantOffer(
+                    new ItemStack(ItemRegistry.RAW_MEAT.get(), 5),
+                    new ItemStack(Items.EMERALD, 2),
+                    12, 2, 0.05f
+            ));
+            trades.get(1).add(($1, $2) -> new MerchantOffer(
                     new ItemStack(Items.EMERALD, 3),
-                    new ItemStack(ItemRegistry.MUNG_BEAN_CAKE.get(), 2),
-                    5, 3, 0.05f
+                    new ItemStack(ItemRegistry.COOKED_MEAT.get(), 4),
+                    12, 2, 0.05f
+            ));
+            trades.get(2).add(($1, $2) -> new MerchantOffer(
+                    new ItemStack(Items.EMERALD, 1),
+                    new ItemStack(ItemRegistry.GREASE.get(), 2),
+                    16, 2, 0.05f
+            ));
+            trades.get(2).add(($1, $2) -> new MerchantOffer(
+                    new ItemStack(Items.EMERALD, 1),
+                    new ItemStack(ItemRegistry.FUR.get(), 2),
+                    16, 2, 0.05f
+            ));
+            trades.get(3).add(($1, $2) -> new MerchantOffer(
+                    new ItemStack(Items.EMERALD, 3),
+                    new ItemStack(ItemRegistry.MUNG_BEAN_CAKE.get(), 4),
+                    12, 3, 0.05f
+            ));
+            trades.get(3).add(($1, $2) -> new MerchantOffer(
+                    new ItemStack(Items.EMERALD, 3),
+                    new ItemStack(ItemRegistry.MOONCAKE.get(), 4),
+                    12, 3, 0.05f
+            ));
+            trades.get(4).add(($1, $2) -> new MerchantOffer(
+                    new ItemStack(Items.EMERALD, 5),
+                    new ItemStack(ItemRegistry.BAOZI.get(), 2),
+                    8, 3, 0.05f
             ));
         }
 
