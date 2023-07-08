@@ -6,7 +6,7 @@
     ]
   },
   "criteria": {
-    "has_stone": {
+    "has_cobblestone": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
@@ -27,7 +27,7 @@
   },
   "requirements": [
     [
-      "has_stone",
+      "has_cobblestone",
       "has_the_recipe"
     ]
   ]

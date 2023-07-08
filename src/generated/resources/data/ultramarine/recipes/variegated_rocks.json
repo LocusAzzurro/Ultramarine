@@ -2,7 +2,7 @@
   "type": "minecraft:crafting_shapeless",
   "ingredients": [
     {
-      "item": "minecraft:stone"
+      "item": "minecraft:cobblestone"
     },
     {
       "item": "minecraft:granite"
