@@ -1,5 +1,6 @@
 package com.voxelutopia.ultramarine.datagen;
 
+import com.voxelutopia.ultramarine.data.ModItemTags;
 import com.voxelutopia.ultramarine.data.registry.ItemRegistry;
 import com.voxelutopia.ultramarine.data.registry.RecipeSerializerRegistry;
 import net.minecraft.advancements.critereon.InventoryChangeTrigger;
@@ -11,7 +12,6 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.ItemLike;
-import net.minecraftforge.client.event.ColorHandlerEvent;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.IForgeRegistry;
 import org.jetbrains.annotations.NotNull;
@@ -91,14 +91,134 @@ public class ModRecipeProvider extends RecipeProvider {
         polishedPlankRecipe(ItemRegistry.ROSEWOOD_PLANKS.get(), ItemRegistry.POLISHED_ROSEWOOD_PLANK.get(), recipeConsumer);
         //polishedPlankRecipe(ItemRegistry.EBONY_PLANKS.get(), ItemRegistry.POLISHED_EBONY_PLANK.get(), recipeConsumer);
 
+        //LAMPS
+        ShapedRecipeBuilder.shaped(Items.WHITE_CANDLE, 1)
+                .define('S', Items.STRING)
+                .define('G', ItemRegistry.GREASE.get())
+                .pattern("S")
+                .pattern("G")
+                .unlockedBy(itemUnlockName(ItemRegistry.GREASE.get()), itemCriterion(ItemRegistry.GREASE.get()))
+                .save(recipeConsumer);
+        ShapedRecipeBuilder.shaped(ItemRegistry.OCTAGONAL_PALACE_LANTERN.get(), 1)
+                .define('F', ItemRegistry.WOODEN_FRAME.get())
+                .define('P', ModItemTags.POLISHED_PLANKS)
+                .define('C', ItemTags.CANDLES)
+                .pattern("FPF")
+                .pattern("PCP")
+                .pattern("FPF")
+                .unlockedBy(itemUnlockName(Items.CANDLE), itemCriterion(Items.CANDLE))
+                .save(recipeConsumer);
         ShapedRecipeBuilder.shaped(ItemRegistry.SQUARE_PALACE_LANTERN.get(), 1)
                 .define('F', ItemRegistry.WOODEN_FRAME.get())
                 .define('C', ItemTags.CANDLES)
                 .pattern(" F ")
                 .pattern("FCF")
                 .pattern(" F ")
-                .unlockedBy("has_" + Items.CANDLE, InventoryChangeTrigger.TriggerInstance.hasItems(Items.CANDLE))
+                .unlockedBy(itemUnlockName(Items.CANDLE), itemCriterion(Items.CANDLE))
                 .save(recipeConsumer);
+        ShapedRecipeBuilder.shaped(ItemRegistry.STANDING_LAMP.get(), 1)
+                .define('X', ItemRegistry.XUAN_PAPER.get())
+                .define('C', ItemTags.CANDLES)
+                .define('W', ItemTags.PLANKS)
+                .define('F', ItemRegistry.WOODEN_FRAME.get())
+                .define('P', ItemRegistry.WOODEN_PARTS.get())
+                .pattern("XCX")
+                .pattern("PFP")
+                .pattern(" W ")
+                .unlockedBy(itemUnlockName(Items.CANDLE), itemCriterion(Items.CANDLE))
+                .save(recipeConsumer);
+        ShapedRecipeBuilder.shaped(ItemRegistry.SMALL_STANDING_LAMP.get(), 1)
+                .define('X', ItemRegistry.XUAN_PAPER.get())
+                .define('C', ItemTags.CANDLES)
+                .define('W', Items.STICK)
+                .define('F', ItemRegistry.WOODEN_FRAME.get())
+                .define('P', ItemRegistry.WOODEN_PARTS.get())
+                .pattern("XCX")
+                .pattern("PFP")
+                .pattern(" W ")
+                .unlockedBy(itemUnlockName(Items.CANDLE), itemCriterion(Items.CANDLE))
+                .save(recipeConsumer);
+        ShapedRecipeBuilder.shaped(ItemRegistry.WHITE_SKY_LANTERN.get(), 1)
+                .define('X', ItemRegistry.XUAN_PAPER.get())
+                .define('C', ItemTags.CANDLES)
+                .define('D', Items.WHITE_DYE)
+                .define('F', ItemRegistry.WOODEN_FRAME.get())
+                .pattern("XDX")
+                .pattern("XCX")
+                .pattern(" F ")
+                .unlockedBy(itemUnlockName(Items.CANDLE), itemCriterion(Items.CANDLE))
+                .save(recipeConsumer);
+        ShapedRecipeBuilder.shaped(ItemRegistry.YELLOW_SKY_LANTERN.get(), 1)
+                .define('X', ItemRegistry.XUAN_PAPER.get())
+                .define('C', ItemTags.CANDLES)
+                .define('D', Items.YELLOW_DYE)
+                .define('F', ItemRegistry.WOODEN_FRAME.get())
+                .pattern("XDX")
+                .pattern("XCX")
+                .pattern(" F ")
+                .unlockedBy(itemUnlockName(Items.CANDLE), itemCriterion(Items.CANDLE))
+                .save(recipeConsumer);
+        ShapedRecipeBuilder.shaped(ItemRegistry.RED_SKY_LANTERN.get(), 1)
+                .define('X', ItemRegistry.XUAN_PAPER.get())
+                .define('C', ItemTags.CANDLES)
+                .define('D', Items.RED_DYE)
+                .define('F', ItemRegistry.WOODEN_FRAME.get())
+                .pattern("XDX")
+                .pattern("XCX")
+                .pattern(" F ")
+                .unlockedBy(itemUnlockName(Items.CANDLE), itemCriterion(Items.CANDLE))
+                .save(recipeConsumer);
+        ShapedRecipeBuilder.shaped(ItemRegistry.SMALL_RED_LANTERN.get(), 1)
+                .define('S', Items.STICK)
+                .define('C', ItemTags.CANDLES)
+                .define('D', Items.RED_DYE)
+                .define('P', Items.PAPER)
+                .pattern(" S ")
+                .pattern("PCP")
+                .pattern("DPD")
+                .unlockedBy(itemUnlockName(Items.CANDLE), itemCriterion(Items.CANDLE))
+                .save(recipeConsumer);
+        ShapedRecipeBuilder.shaped(ItemRegistry.STONE_LAMP.get(), 1)
+                .define('S', Items.STONE)
+                .define('C', ItemTags.CANDLES)
+                .define('W', Items.COBBLESTONE_WALL)
+                .define('T', Items.STONE_SLAB)
+                .pattern(" T ")
+                .pattern("WCW")
+                .pattern(" S ")
+                .unlockedBy(itemUnlockName(Items.CANDLE), itemCriterion(Items.CANDLE))
+                .save(recipeConsumer);
+        ShapedRecipeBuilder.shaped(ItemRegistry.RED_CANDLE.get(), 1)
+                .define('C', Items.RED_CANDLE)
+                .define('P', ItemRegistry.WOODEN_PARTS.get())
+                .pattern("C")
+                .pattern("P")
+                .unlockedBy(itemUnlockName(Items.CANDLE), itemCriterion(Items.CANDLE))
+                .save(recipeConsumer);
+        ShapedRecipeBuilder.shaped(ItemRegistry.TRICOLOR_CANDLESTICK.get(), 1)
+                .define('C', Items.WHITE_CANDLE)
+                .define('P', ItemRegistry.PORCELAIN_PARTS.get())
+                .pattern("C")
+                .pattern("P")
+                .unlockedBy(itemUnlockName(Items.CANDLE), itemCriterion(Items.CANDLE))
+                .save(recipeConsumer);
+        ShapedRecipeBuilder.shaped(ItemRegistry.JADE_CANDLESTICK.get(), 1)
+                .define('C', Items.WHITE_CANDLE)
+                .define('P', ItemRegistry.JADE_PARTS.get())
+                .pattern("C")
+                .pattern("P")
+                .unlockedBy(itemUnlockName(Items.CANDLE), itemCriterion(Items.CANDLE))
+                .save(recipeConsumer);
+    }
+
+    @NotNull
+    private static String itemUnlockName(ItemLike item) {
+        return "has_" + item;
+    }
+
+    @NotNull
+    private static InventoryChangeTrigger.TriggerInstance itemCriterion(ItemLike item) {
+        return InventoryChangeTrigger.TriggerInstance.hasItems(item);
     }
 
     @SuppressWarnings("null")
