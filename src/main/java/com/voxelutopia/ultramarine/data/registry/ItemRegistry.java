@@ -157,6 +157,7 @@ public class ItemRegistry {
     public static final RegistryObject<Item> BLUE_AND_WHITE_PORCELAIN_PIECE = simpleItem("blue_and_white_porcelain_piece", CreativeTabs.MATERIALS);
     public static final RegistryObject<Item> BLUE_AND_WHITE_PORCELAIN_SHARDS = simpleItem("blue_and_white_porcelain_shards", CreativeTabs.MATERIALS);
     public static final RegistryObject<Item> WOODEN_PARTS = simpleItem("wooden_parts", CreativeTabs.MATERIALS);
+    public static final RegistryObject<Item> GOLD_PARTS = simpleItem("gold_parts", CreativeTabs.MATERIALS);
     public static final RegistryObject<Item> JADE_PARTS = simpleItem("jade_parts", CreativeTabs.MATERIALS);
     public static final RegistryObject<Item> PORCELAIN_PARTS = simpleItem("porcelain_parts", CreativeTabs.MATERIALS);
     public static final RegistryObject<Item> INCENSE = simpleItem("incense", CreativeTabs.MATERIALS);
