@@ -10,7 +10,7 @@ import net.minecraft.data.DataGenerator;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraftforge.client.model.generators.BlockModelBuilder;
+import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraftforge.client.model.generators.BlockStateProvider;
 import net.minecraftforge.client.model.generators.ConfiguredModel;
 import net.minecraftforge.common.data.ExistingFileHelper;
@@ -81,26 +81,27 @@ public class ModBlockModelProvider extends BlockStateProvider {
 
         chiralDirectionalBlock(BlockRegistry.ENGRAVED_DARK_OAK_BEAM.get());
         chiralDirectionalBlock(BlockRegistry.ENGRAVED_DARK_OAK_BEAM_EDGE.get());
+        shiftedAxisBlock(BlockRegistry.GILDED_DARK_OAK_RAFTER.get());
 
         //<editor-fold desc="Roof Tiles">
-        shiftedDirectionalBlock(BlockRegistry.GRAY_ROOF_TILES.get(), "gray", RoofTiles.RoofTileType.NORMAL);
-        shiftedDirectionalBlock(BlockRegistry.GRAY_ROOF_TILE_STAIRS.get(), "gray", RoofTiles.RoofTileType.STAIRS);
-        shiftedBlock(BlockRegistry.GRAY_ROOF_TILE_EDGE.get());
-        shiftedDirectionalBlock(BlockRegistry.YELLOW_ROOF_TILES.get(), "yellow", RoofTiles.RoofTileType.NORMAL);
-        shiftedDirectionalBlock(BlockRegistry.YELLOW_ROOF_TILE_STAIRS.get(), "yellow", RoofTiles.RoofTileType.STAIRS);
-        shiftedDirectionalBlock(BlockRegistry.YELLOW_ROOF_TILE_EDGE.get(), "yellow", RoofTiles.RoofTileType.EDGE);
-        shiftedDirectionalBlock(BlockRegistry.GREEN_ROOF_TILES.get(), "green", RoofTiles.RoofTileType.NORMAL);
-        shiftedDirectionalBlock(BlockRegistry.GREEN_ROOF_TILE_STAIRS.get(), "green", RoofTiles.RoofTileType.STAIRS);
-        shiftedDirectionalBlock(BlockRegistry.GREEN_ROOF_TILE_EDGE.get(), "green", RoofTiles.RoofTileType.EDGE);
-        shiftedDirectionalBlock(BlockRegistry.BLUE_ROOF_TILES.get(), "blue", RoofTiles.RoofTileType.NORMAL);
-        shiftedDirectionalBlock(BlockRegistry.BLUE_ROOF_TILE_STAIRS.get(), "blue", RoofTiles.RoofTileType.STAIRS);
-        shiftedDirectionalBlock(BlockRegistry.BLUE_ROOF_TILE_EDGE.get(), "blue", RoofTiles.RoofTileType.EDGE);
-        shiftedDirectionalBlock(BlockRegistry.CYAN_ROOF_TILES.get(), "cyan", RoofTiles.RoofTileType.NORMAL);
-        shiftedDirectionalBlock(BlockRegistry.CYAN_ROOF_TILE_STAIRS.get(), "cyan", RoofTiles.RoofTileType.STAIRS);
-        shiftedDirectionalBlock(BlockRegistry.CYAN_ROOF_TILE_EDGE.get(), "cyan", RoofTiles.RoofTileType.EDGE);
-        shiftedDirectionalBlock(BlockRegistry.BLACK_ROOF_TILES.get(), "black", RoofTiles.RoofTileType.NORMAL);
-        shiftedDirectionalBlock(BlockRegistry.BLACK_ROOF_TILE_STAIRS.get(), "black", RoofTiles.RoofTileType.STAIRS);
-        shiftedBlock(BlockRegistry.BLACK_ROOF_TILE_EDGE.get());
+        shiftedTiles(BlockRegistry.GRAY_ROOF_TILES.get(), "gray", RoofTiles.RoofTileType.NORMAL);
+        shiftedTiles(BlockRegistry.GRAY_ROOF_TILE_STAIRS.get(), "gray", RoofTiles.RoofTileType.STAIRS);
+        shiftedDirectionalBlock(BlockRegistry.GRAY_ROOF_TILE_EDGE.get());
+        shiftedTiles(BlockRegistry.YELLOW_ROOF_TILES.get(), "yellow", RoofTiles.RoofTileType.NORMAL);
+        shiftedTiles(BlockRegistry.YELLOW_ROOF_TILE_STAIRS.get(), "yellow", RoofTiles.RoofTileType.STAIRS);
+        shiftedTiles(BlockRegistry.YELLOW_ROOF_TILE_EDGE.get(), "yellow", RoofTiles.RoofTileType.EDGE);
+        shiftedTiles(BlockRegistry.GREEN_ROOF_TILES.get(), "green", RoofTiles.RoofTileType.NORMAL);
+        shiftedTiles(BlockRegistry.GREEN_ROOF_TILE_STAIRS.get(), "green", RoofTiles.RoofTileType.STAIRS);
+        shiftedTiles(BlockRegistry.GREEN_ROOF_TILE_EDGE.get(), "green", RoofTiles.RoofTileType.EDGE);
+        shiftedTiles(BlockRegistry.BLUE_ROOF_TILES.get(), "blue", RoofTiles.RoofTileType.NORMAL);
+        shiftedTiles(BlockRegistry.BLUE_ROOF_TILE_STAIRS.get(), "blue", RoofTiles.RoofTileType.STAIRS);
+        shiftedTiles(BlockRegistry.BLUE_ROOF_TILE_EDGE.get(), "blue", RoofTiles.RoofTileType.EDGE);
+        shiftedTiles(BlockRegistry.CYAN_ROOF_TILES.get(), "cyan", RoofTiles.RoofTileType.NORMAL);
+        shiftedTiles(BlockRegistry.CYAN_ROOF_TILE_STAIRS.get(), "cyan", RoofTiles.RoofTileType.STAIRS);
+        shiftedTiles(BlockRegistry.CYAN_ROOF_TILE_EDGE.get(), "cyan", RoofTiles.RoofTileType.EDGE);
+        shiftedTiles(BlockRegistry.BLACK_ROOF_TILES.get(), "black", RoofTiles.RoofTileType.NORMAL);
+        shiftedTiles(BlockRegistry.BLACK_ROOF_TILE_STAIRS.get(), "black", RoofTiles.RoofTileType.STAIRS);
+        shiftedDirectionalBlock(BlockRegistry.BLACK_ROOF_TILE_EDGE.get());
         //</editor-fold>
 
         vegetableBasket((StackableHalfBlock) BlockRegistry.CABBAGE_BASKET.get());
@@ -164,15 +165,15 @@ public class ModBlockModelProvider extends BlockStateProvider {
         });
     }
 
-    private void shiftedDirectionalBlock(Block block, String color, ShiftedTileType type) {
+    private void shiftedTiles(Block block, String color, ShiftedTileType type) {
         models().withExistingParent(modLoc(BLOCK + color + "_" + type).getPath(), modLoc(BLOCK + type))
                 .texture("1", blockLoc(block)).texture("particle", mcLoc(BLOCK + color + "_concrete"));
         models().withExistingParent(modLoc(BLOCK + color + "_" + type + "_shifted").getPath(), modLoc(BLOCK + type + "_shifted"))
                 .texture("1", blockLoc(block)).texture("particle", mcLoc(BLOCK + color + "_concrete"));
-        shiftedBlock(block);
+        shiftedDirectionalBlock(block);
     }
 
-    private void shiftedBlock(Block block) {
+    private void shiftedDirectionalBlock(Block block) {
         getVariantBuilder(block).forAllStates(blockState -> {
             if (!blockState.getValue(ModBlockStateProperties.SHIFTED))
                 return ConfiguredModel.builder().modelFile(models().getExistingFile(modLoc(BLOCK + block.getRegistryName().getPath())))
@@ -180,6 +181,21 @@ public class ModBlockModelProvider extends BlockStateProvider {
             else
                 return ConfiguredModel.builder().modelFile(models().getExistingFile(modLoc(BLOCK + block.getRegistryName().getPath() + "_shifted")))
                         .rotationY((int) blockState.getValue(HORIZONTAL_FACING).toYRot()).build();
+        });
+    }
+
+    private void shiftedAxisBlock(Block block) {
+        getVariantBuilder(block).forAllStates(blockState -> {
+            ConfiguredModel.Builder<?> builder;
+            if (!blockState.getValue(ModBlockStateProperties.SHIFTED)) {
+                builder = ConfiguredModel.builder().modelFile(models().getExistingFile(modLoc(BLOCK + block.getRegistryName().getPath())));
+            }
+            else {
+                builder = ConfiguredModel.builder().modelFile(models().getExistingFile(modLoc(BLOCK + block.getRegistryName().getPath() + "_shifted")));
+            }
+            if (blockState.getValue(HORIZONTAL_AXIS) == Direction.Axis.X)
+                builder.rotationY(90);
+            return builder.build();
         });
     }
 

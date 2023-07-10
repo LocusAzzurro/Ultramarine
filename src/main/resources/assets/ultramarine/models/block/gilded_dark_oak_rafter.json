@@ -1,0 +1,7 @@
+{
+  "parent": "ultramarine:block/rafter",
+  "textures": {
+    "1": "ultramarine:block/gilded_dark_oak_rafter",
+    "particle": "minecraft:block/dark_oak_planks"
+  }
+}
