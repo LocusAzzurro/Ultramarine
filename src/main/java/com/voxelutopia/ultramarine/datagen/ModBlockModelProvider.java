@@ -79,6 +79,7 @@ public class ModBlockModelProvider extends BlockStateProvider {
         sideBottomTop(BlockRegistry.CARVED_RED_PILLAR_BASE.get());
         directionalSideBottomTop(BlockRegistry.CARVED_RED_PILLAR_HEAD.get(), "carved_red_pillar_head_side", "carved_red_pillar", "carved_red_pillar");
 
+        chiralDirectionalBlock(BlockRegistry.ENGRAVED_DARK_OAK_BEAM.get());
         chiralDirectionalBlock(BlockRegistry.ENGRAVED_DARK_OAK_BEAM_EDGE.get());
 
         //<editor-fold desc="Roof Tiles">
