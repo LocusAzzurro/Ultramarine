@@ -82,6 +82,9 @@ public class ModBlockModelProvider extends BlockStateProvider {
         chiralDirectionalBlock(BlockRegistry.ENGRAVED_DARK_OAK_BEAM.get());
         chiralDirectionalBlock(BlockRegistry.ENGRAVED_DARK_OAK_BEAM_EDGE.get());
         shiftedAxisBlock(BlockRegistry.GILDED_DARK_OAK_RAFTER.get());
+        shiftedDirectionalBlock(BlockRegistry.GILDED_DARK_OAK_RAFTER_END.get());
+        horizontalBlockNoOffset(BlockRegistry.GILDED_DARK_OAK_BEAM_HEAD.get());
+        horizontalBlockNoOffset(BlockRegistry.GILDED_DARK_OAK_BRACKET.get());
 
         //<editor-fold desc="Roof Tiles">
         shiftedTiles(BlockRegistry.GRAY_ROOF_TILES.get(), "gray", RoofTiles.RoofTileType.NORMAL);
@@ -131,11 +134,11 @@ public class ModBlockModelProvider extends BlockStateProvider {
     }
 
     private ResourceLocation blockLoc(Block block){
-        return modLoc(BLOCK + block.getRegistryName().getPath());
+        return modLoc(BLOCK + name(block));
     }
 
     private void existingModelBlock(Block block){
-        simpleBlock(block, models().getExistingFile(modLoc(BLOCK + block.getRegistryName().getPath())));
+        simpleBlock(block, models().getExistingFile(modLoc(BLOCK + name(block))));
     }
 
     private void slabAndStairs(Block baseBlock, Block slabBlock, Block stairBlock){
@@ -264,6 +267,10 @@ public class ModBlockModelProvider extends BlockStateProvider {
         simpleBlock(block, model);
     }
 
+    private void horizontalBlockNoOffset(Block block){
+        horizontalBlock(block, models().getExistingFile(modLoc(BLOCK + name(block))), 0);
+    }
+
     private void directionalSideBottomTop(Block block, String side, String bottom, String top){
         String blockName = Objects.requireNonNull(block.getRegistryName()).getPath();
         var model = models().cubeBottomTop(blockName, modLoc(BLOCK + side), modLoc(BLOCK + bottom), modLoc(BLOCK + top));
@@ -311,9 +318,12 @@ public class ModBlockModelProvider extends BlockStateProvider {
                 .partialState().with(ModBlockStateProperties.DIAGONAL, false).modelForState()
                 .modelFile(models().getExistingFile(blockLoc(block))).addModel()
                 .partialState().with(ModBlockStateProperties.DIAGONAL, true).modelForState()
-                .modelFile(models().getExistingFile(modLoc(BLOCK + block.getRegistryName().getPath() + "_diagonal"))).addModel();
+                .modelFile(models().getExistingFile(modLoc(BLOCK + name(block) + "_diagonal"))).addModel();
     }
 
+    private String name(Block block) {
+        return Objects.requireNonNull(block.getRegistryName()).getPath();
+    }
 
     @NotNull
     @Override

@@ -1,0 +1,7 @@
+{
+  "parent": "ultramarine:block/beam_head",
+  "textures": {
+    "2": "ultramarine:block/gilded_dark_oak_beam_head",
+    "particle": "minecraft:block/dark_oak_planks"
+  }
+}
