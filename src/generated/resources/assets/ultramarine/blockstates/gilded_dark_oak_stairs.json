@@ -1,72 +1,37 @@
 {
   "variants": {
-    "facing=north,half=top,waterlogged=false": {
+    "facing=north,half=top": {
       "model": "ultramarine:block/gilded_dark_oak_stairs",
       "x": 180,
       "y": 360
     },
-    "facing=south,half=top,waterlogged=false": {
+    "facing=south,half=top": {
       "model": "ultramarine:block/gilded_dark_oak_stairs",
       "x": 180,
       "y": 180
     },
-    "facing=west,half=top,waterlogged=false": {
+    "facing=west,half=top": {
       "model": "ultramarine:block/gilded_dark_oak_stairs",
       "x": 180,
       "y": 270
     },
-    "facing=east,half=top,waterlogged=false": {
+    "facing=east,half=top": {
       "model": "ultramarine:block/gilded_dark_oak_stairs",
       "x": 180,
       "y": 90
     },
-    "facing=north,half=bottom,waterlogged=false": {
+    "facing=north,half=bottom": {
       "model": "ultramarine:block/gilded_dark_oak_stairs",
       "y": 180
     },
-    "facing=south,half=bottom,waterlogged=false": {
+    "facing=south,half=bottom": {
       "model": "ultramarine:block/gilded_dark_oak_stairs"
     },
-    "facing=west,half=bottom,waterlogged=false": {
+    "facing=west,half=bottom": {
       "model": "ultramarine:block/gilded_dark_oak_stairs",
       "y": 90
     },
-    "facing=east,half=bottom,waterlogged=false": {
-      "model": "ultramarine:block/gilded_dark_oak_stairs",
-      "y": -90
-    },
-    "facing=north,half=top,waterlogged=true": {
-      "model": "ultramarine:block/gilded_dark_oak_stairs",
-      "x": 180,
-      "y": 360
-    },
-    "facing=south,half=top,waterlogged=true": {
-      "model": "ultramarine:block/gilded_dark_oak_stairs",
-      "x": 180,
-      "y": 180
-    },
-    "facing=west,half=top,waterlogged=true": {
-      "model": "ultramarine:block/gilded_dark_oak_stairs",
-      "x": 180,
-      "y": 270
-    },
-    "facing=east,half=top,waterlogged=true": {
-      "model": "ultramarine:block/gilded_dark_oak_stairs",
-      "x": 180,
-      "y": 90
-    },
-    "facing=north,half=bottom,waterlogged=true": {
-      "model": "ultramarine:block/gilded_dark_oak_stairs",
-      "y": 180
-    },
-    "facing=south,half=bottom,waterlogged=true": {
-      "model": "ultramarine:block/gilded_dark_oak_stairs"
-    },
-    "facing=west,half=bottom,waterlogged=true": {
-      "model": "ultramarine:block/gilded_dark_oak_stairs",
-      "y": 90
-    },
-    "facing=east,half=bottom,waterlogged=true": {
+    "facing=east,half=bottom": {
       "model": "ultramarine:block/gilded_dark_oak_stairs",
       "y": -90
     }
