@@ -277,11 +277,11 @@ public class ModBlockModelProvider extends BlockStateProvider {
     }
 
     private void straightStairs(Block block){
-        getVariantBuilder(block).forAllStates(blockState -> ConfiguredModel.builder()
+        getVariantBuilder(block).forAllStatesExcept(blockState -> ConfiguredModel.builder()
                 .modelFile(models().getExistingFile(modLoc(BLOCK + name(block))))
                 .rotationX(blockState.getValue(HALF) == Half.BOTTOM ? 0 : 180)
                 .rotationY((int) blockState.getValue(HORIZONTAL_FACING).getClockWise().toYRot() - 90 + (blockState.getValue(HALF) == Half.BOTTOM ? 0 : 180))
-                .build());
+                .build(), WATERLOGGED);
     }
 
     private void horizontalBlockNoOffset(Block block){
