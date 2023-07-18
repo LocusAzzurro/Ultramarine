@@ -5,6 +5,7 @@ import net.minecraft.core.Direction;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.RenderShape;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
@@ -19,7 +20,7 @@ public class RafterEnd extends ShiftableBlock{
     public static final DirectionProperty FACING = BlockStateProperties.HORIZONTAL_FACING;
 
     public RafterEnd(BaseBlockProperty property) {
-        super(property.properties);
+        super(property.properties.noOcclusion());
         this.registerDefaultState(this.stateDefinition.any()
                 .setValue(FACING, Direction.NORTH)
                 .setValue(SHIFTED, Boolean.FALSE)
@@ -44,6 +45,11 @@ public class RafterEnd extends ShiftableBlock{
     @Override
     public VoxelShape getCollisionShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
         return Shapes.empty();
+    }
+
+    @Override
+    public RenderShape getRenderShape(BlockState pState) {
+        return RenderShape.MODEL;
     }
 
 }

@@ -5,6 +5,7 @@ import net.minecraft.core.Direction;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.RenderShape;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
@@ -18,7 +19,7 @@ public class Rafter extends ShiftableBlock {
     public static final EnumProperty<Direction.Axis> AXIS = BlockStateProperties.HORIZONTAL_AXIS;
 
     public Rafter(BaseBlockProperty property){
-        super(property.properties);
+        super(property.properties.noOcclusion());
         this.registerDefaultState(this.stateDefinition.any()
                 .setValue(AXIS, Direction.Axis.X)
                 .setValue(SHIFTED, Boolean.FALSE)
@@ -44,5 +45,12 @@ public class Rafter extends ShiftableBlock {
     public VoxelShape getCollisionShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
         return Shapes.empty();
     }
+
+    @Override
+    public RenderShape getRenderShape(BlockState pState) {
+        return RenderShape.MODEL;
+    }
+
+
 
 }
