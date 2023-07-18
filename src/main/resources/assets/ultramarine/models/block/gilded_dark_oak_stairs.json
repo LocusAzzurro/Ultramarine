@@ -1,0 +1,7 @@
+{
+  "parent": "ultramarine:block/straight_stairs",
+  "textures": {
+    "2": "ultramarine:block/gilded_dark_oak_stairs",
+    "particle": "minecraft:block/dark_oak_planks"
+  }
+}

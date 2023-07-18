@@ -71,6 +71,7 @@ public class ItemRegistry {
     public static final RegistryObject<Item> CARVED_RED_PILLAR = fromBlock(BlockRegistry.CARVED_RED_PILLAR, CreativeTabs.DECORATIVE_BLOCKS);
     public static final RegistryObject<Item> CARVED_RED_PILLAR_BASE = fromBlock(BlockRegistry.CARVED_RED_PILLAR_BASE, CreativeTabs.DECORATIVE_BLOCKS);
     public static final RegistryObject<Item> CARVED_RED_PILLAR_HEAD = fromBlock(BlockRegistry.CARVED_RED_PILLAR_HEAD, CreativeTabs.DECORATIVE_BLOCKS);
+    public static final RegistryObject<Item> GILDED_DARK_OAK_STAIRS = fromBlock(BlockRegistry.GILDED_DARK_OAK_STAIRS, CreativeTabs.DECORATIVE_BLOCKS);
     public static final RegistryObject<Item> GILDED_DARK_OAK_RAFTER = fromBlock(BlockRegistry.GILDED_DARK_OAK_RAFTER, CreativeTabs.DECORATIVE_BLOCKS);
     public static final RegistryObject<Item> GILDED_DARK_OAK_RAFTER_END = fromBlock(BlockRegistry.GILDED_DARK_OAK_RAFTER_END, CreativeTabs.DECORATIVE_BLOCKS);
     public static final RegistryObject<Item> GILDED_DARK_OAK_BEAM_HEAD = fromBlock(BlockRegistry.GILDED_DARK_OAK_BEAM_HEAD, CreativeTabs.DECORATIVE_BLOCKS);

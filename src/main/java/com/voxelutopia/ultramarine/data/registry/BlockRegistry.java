@@ -72,6 +72,7 @@ public class BlockRegistry {
     public static final RegistryObject<Block> CARVED_RED_PILLAR = BLOCKS.register("carved_red_pillar", () -> new BaseBlock(BaseBlockProperty.TERRACOTTA));
     public static final RegistryObject<Block> CARVED_RED_PILLAR_BASE = BLOCKS.register("carved_red_pillar_base", () -> new BaseBlock(BaseBlockProperty.TERRACOTTA));
     public static final RegistryObject<Block> CARVED_RED_PILLAR_HEAD = BLOCKS.register("carved_red_pillar_head", () -> new BaseDirectionalBlock(BaseBlockProperty.TERRACOTTA));
+    public static final RegistryObject<Block> GILDED_DARK_OAK_STAIRS = BLOCKS.register("gilded_dark_oak_stairs", () -> new StraightStairBlock(BaseBlockProperty.WOOD));
     public static final RegistryObject<Block> GILDED_DARK_OAK_RAFTER = BLOCKS.register("gilded_dark_oak_rafter", () -> new Rafter(BaseBlockProperty.WOOD));
     public static final RegistryObject<Block> GILDED_DARK_OAK_RAFTER_END = BLOCKS.register("gilded_dark_oak_rafter_end", () -> new RafterEnd(BaseBlockProperty.WOOD));
     public static final RegistryObject<Block> GILDED_DARK_OAK_BEAM_HEAD = BLOCKS.register("gilded_dark_oak_beam_head", () -> new BeamHead(BaseBlockProperty.WOOD));

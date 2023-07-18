@@ -11,6 +11,8 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
+import net.minecraft.world.level.block.state.properties.Half;
+import net.minecraft.world.level.block.state.properties.StairsShape;
 import net.minecraftforge.client.model.generators.BlockStateProvider;
 import net.minecraftforge.client.model.generators.ConfiguredModel;
 import net.minecraftforge.common.data.ExistingFileHelper;
@@ -81,6 +83,7 @@ public class ModBlockModelProvider extends BlockStateProvider {
 
         chiralDirectionalBlock(BlockRegistry.ENGRAVED_DARK_OAK_BEAM.get());
         chiralDirectionalBlock(BlockRegistry.ENGRAVED_DARK_OAK_BEAM_EDGE.get());
+        straightStairs(BlockRegistry.GILDED_DARK_OAK_STAIRS.get());
         shiftedAxisBlock(BlockRegistry.GILDED_DARK_OAK_RAFTER.get());
         shiftedDirectionalBlock(BlockRegistry.GILDED_DARK_OAK_RAFTER_END.get());
         horizontalBlockNoOffset(BlockRegistry.GILDED_DARK_OAK_BEAM_HEAD.get());
@@ -265,6 +268,14 @@ public class ModBlockModelProvider extends BlockStateProvider {
         String blockName = Objects.requireNonNull(block.getRegistryName()).getPath();
         var model = models().cubeBottomTop(blockName, side, bottom, top);
         simpleBlock(block, model);
+    }
+
+    private void straightStairs(Block block){
+        getVariantBuilder(block).forAllStates(blockState -> ConfiguredModel.builder()
+                .modelFile(models().getExistingFile(modLoc(BLOCK + name(block))))
+                .rotationX(blockState.getValue(HALF) == Half.BOTTOM ? 0 : 180)
+                .rotationY((int) blockState.getValue(HORIZONTAL_FACING).getClockWise().toYRot() - 90 + (blockState.getValue(HALF) == Half.BOTTOM ? 0 : 180))
+                .build());
     }
 
     private void horizontalBlockNoOffset(Block block){
