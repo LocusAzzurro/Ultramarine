@@ -2,6 +2,6 @@
   "parent": "ultramarine:block/bracket",
   "textures": {
     "1": "ultramarine:block/gilded_dark_oak_bracket",
-    "particle": "minecraft:block/dark_oak_planks"
+    "particle": "ultramarine:block/gilded_dark_oak"
   }
 }
