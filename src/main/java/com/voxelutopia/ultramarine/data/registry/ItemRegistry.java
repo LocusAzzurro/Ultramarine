@@ -120,6 +120,9 @@ public class ItemRegistry {
     public static final RegistryObject<Item> TERRACOTTA_FLOWERPOT = fromBlock(BlockRegistry.TERRACOTTA_FLOWERPOT, CreativeTabs.DECORATIONS);
     public static final RegistryObject<Item> BLACK_IRON_FLOWERPOT = fromBlock(BlockRegistry.BLACK_IRON_FLOWERPOT, CreativeTabs.DECORATIONS);
     public static final RegistryObject<Item> BLUE_PORCELAIN_FLOWERPOT = fromBlock(BlockRegistry.BLUE_PORCELAIN_FLOWERPOT, CreativeTabs.DECORATIONS);
+    public static final RegistryObject<Item> PAINTING_SCROLL = fromBlock(BlockRegistry.PAINTING_SCROLL, CreativeTabs.DECORATIONS);
+    public static final RegistryObject<Item> BACK_CUSHION = fromBlock(BlockRegistry.BACK_CUSHION, CreativeTabs.DECORATIONS);
+    public static final RegistryObject<Item> CHESSBOARD = fromBlock(BlockRegistry.CHESSBOARD, CreativeTabs.DECORATIONS);
     public static final RegistryObject<Item> MEMORIAL_TABLET = fromBlock(BlockRegistry.MEMORIAL_TABLET, CreativeTabs.DECORATIONS);
     public static final RegistryObject<Item> BLUE_AND_WHITE_PORCELAIN_VASE = fromBlock(BlockRegistry.BLUE_AND_WHITE_PORCELAIN_VASE, CreativeTabs.DECORATIONS);
     public static final RegistryObject<Item> BIG_BLUE_AND_WHITE_PORCELAIN_VASE = fromBlock(BlockRegistry.BIG_BLUE_AND_WHITE_PORCELAIN_VASE, CreativeTabs.DECORATIONS);

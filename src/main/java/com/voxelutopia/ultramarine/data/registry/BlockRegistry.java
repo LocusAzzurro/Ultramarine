@@ -137,6 +137,12 @@ public class BlockRegistry {
             () -> DecorativeBlock.with(BaseBlockProperty.IRON).shaped(DecorativeBlock.VASE).directional().build());
     public static final RegistryObject<Block> BLUE_PORCELAIN_FLOWERPOT = BLOCKS.register("blue_porcelain_flowerpot",
             () -> DecorativeBlock.with(BaseBlockProperty.PORCELAIN).shaped(DecorativeBlock.FULL_14).directional().build());
+    public static final RegistryObject<Block> PAINTING_SCROLL = BLOCKS.register("painting_scroll",
+            () -> DecorativeBlock.with(BaseBlockProperty.PAPER).shaped(DecorativeBlock.QUARTER_16).directional().diagonallyPlaceable().noCollision().build());
+    public static final RegistryObject<Block> BACK_CUSHION = BLOCKS.register("back_cushion",
+            () -> DecorativeBlock.with(BaseBlockProperty.SILK).shaped(DecorativeBlock.FULL_BLOCK).directional().noCollision().noOcclusion().noFenceConnect().build());
+    public static final RegistryObject<Block> CHESSBOARD = BLOCKS.register("chessboard",
+            () -> DecorativeBlock.with(BaseBlockProperty.WOOD).shaped(DecorativeBlock.FLAT_16).directional().diagonallyPlaceable().noCollision().noOcclusion().build());
     public static final RegistryObject<Block> BLUE_AND_WHITE_PORCELAIN_VASE = BLOCKS.register("blue_and_white_porcelain_vase",
             () -> DecorativeBlock.with(BaseBlockProperty.PORCELAIN).shaped(DecorativeBlock.VASE).diagonallyPlaceable().build());
     public static final RegistryObject<Block> BIG_BLUE_AND_WHITE_PORCELAIN_VASE = BLOCKS.register("big_blue_and_white_porcelain_vase",
