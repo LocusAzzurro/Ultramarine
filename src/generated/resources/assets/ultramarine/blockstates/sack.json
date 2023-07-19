@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "ultramarine:block/sack",
+      "y": 180
+    },
+    "facing=south": {
+      "model": "ultramarine:block/sack"
+    },
+    "facing=west": {
+      "model": "ultramarine:block/sack",
+      "y": 90
+    },
+    "facing=east": {
+      "model": "ultramarine:block/sack",
+      "y": 270
+    }
+  }
+}
