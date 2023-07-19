@@ -125,7 +125,10 @@ public class ItemRegistry {
     public static final RegistryObject<Item> CHESSBOARD = fromBlock(BlockRegistry.CHESSBOARD, CreativeTabs.DECORATIONS);
     public static final RegistryObject<Item> MEMORIAL_TABLET = fromBlock(BlockRegistry.MEMORIAL_TABLET, CreativeTabs.DECORATIONS);
     public static final RegistryObject<Item> BLUE_AND_WHITE_PORCELAIN_VASE = fromBlock(BlockRegistry.BLUE_AND_WHITE_PORCELAIN_VASE, CreativeTabs.DECORATIONS);
-    public static final RegistryObject<Item> BIG_BLUE_AND_WHITE_PORCELAIN_VASE = fromBlock(BlockRegistry.BIG_BLUE_AND_WHITE_PORCELAIN_VASE, CreativeTabs.DECORATIONS);
+    public static final RegistryObject<Item> LARGE_BLUE_AND_WHITE_PORCELAIN_VASE = fromBlock(BlockRegistry.LARGE_BLUE_AND_WHITE_PORCELAIN_VASE, CreativeTabs.DECORATIONS);
+    public static final RegistryObject<Item> SHORT_BLUE_AND_WHITE_PORCELAIN_POT = fromBlock(BlockRegistry.SHORT_BLUE_AND_WHITE_PORCELAIN_POT, CreativeTabs.DECORATIONS);
+    public static final RegistryObject<Item> TALL_BLUE_AND_WHITE_PORCELAIN_POT = fromBlock(BlockRegistry.TALL_BLUE_AND_WHITE_PORCELAIN_POT, CreativeTabs.DECORATIONS);
+    public static final RegistryObject<Item> BLUE_AND_WHITE_PORCELAIN_BOWL = fromBlock(BlockRegistry.BLUE_AND_WHITE_PORCELAIN_BOWL, CreativeTabs.DECORATIONS);
     public static final RegistryObject<Item> BRONZE_CENSER = fromBlock(BlockRegistry.BRONZE_CENSER, CreativeTabs.DECORATIONS);
     public static final RegistryObject<Item> ROYAL_CENSER = fromBlock(BlockRegistry.ROYAL_CENSER, CreativeTabs.DECORATIONS);
     public static final RegistryObject<Item> FRUIT_BOX = fromBlock(BlockRegistry.FRUIT_BOX, CreativeTabs.DECORATIONS);

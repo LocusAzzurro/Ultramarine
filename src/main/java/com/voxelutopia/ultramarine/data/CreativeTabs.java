@@ -29,7 +29,7 @@ public class CreativeTabs {
     };
     public static final CreativeModeTab DECORATIONS = new CreativeModeTab(Ultramarine.MOD_ID + ".decorations") {
         @Override public ItemStack makeIcon() {
-            return new ItemStack(ItemRegistry.BIG_BLUE_AND_WHITE_PORCELAIN_VASE.get());
+            return new ItemStack(ItemRegistry.LARGE_BLUE_AND_WHITE_PORCELAIN_VASE.get());
         }
     };
     public static final CreativeModeTab FURNITURE = new CreativeModeTab(Ultramarine.MOD_ID + ".furniture") {
