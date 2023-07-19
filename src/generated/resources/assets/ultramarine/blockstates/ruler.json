@@ -1,0 +1,126 @@
+{
+  "variants": {
+    "diagonal=false,facing=north,facing_shift=north": {
+      "model": "ultramarine:block/ruler",
+      "y": 180
+    },
+    "diagonal=true,facing=north,facing_shift=north": {
+      "model": "ultramarine:block/ruler_diagonal",
+      "y": -90
+    },
+    "diagonal=false,facing=south,facing_shift=north": {
+      "model": "ultramarine:block/ruler"
+    },
+    "diagonal=true,facing=south,facing_shift=north": {
+      "model": "ultramarine:block/ruler_diagonal",
+      "y": -90
+    },
+    "diagonal=false,facing=west,facing_shift=north": {
+      "model": "ultramarine:block/ruler",
+      "y": 90
+    },
+    "diagonal=true,facing=west,facing_shift=north": {
+      "model": "ultramarine:block/ruler_diagonal",
+      "y": 180
+    },
+    "diagonal=false,facing=east,facing_shift=north": {
+      "model": "ultramarine:block/ruler",
+      "y": 270
+    },
+    "diagonal=true,facing=east,facing_shift=north": {
+      "model": "ultramarine:block/ruler_diagonal",
+      "y": -90
+    },
+    "diagonal=false,facing=north,facing_shift=south": {
+      "model": "ultramarine:block/ruler",
+      "y": 180
+    },
+    "diagonal=true,facing=north,facing_shift=south": {
+      "model": "ultramarine:block/ruler_diagonal",
+      "y": -90
+    },
+    "diagonal=false,facing=south,facing_shift=south": {
+      "model": "ultramarine:block/ruler"
+    },
+    "diagonal=true,facing=south,facing_shift=south": {
+      "model": "ultramarine:block/ruler_diagonal",
+      "y": -90
+    },
+    "diagonal=false,facing=west,facing_shift=south": {
+      "model": "ultramarine:block/ruler",
+      "y": 90
+    },
+    "diagonal=true,facing=west,facing_shift=south": {
+      "model": "ultramarine:block/ruler_diagonal",
+      "y": 90
+    },
+    "diagonal=false,facing=east,facing_shift=south": {
+      "model": "ultramarine:block/ruler",
+      "y": 270
+    },
+    "diagonal=true,facing=east,facing_shift=south": {
+      "model": "ultramarine:block/ruler_diagonal"
+    },
+    "diagonal=false,facing=north,facing_shift=west": {
+      "model": "ultramarine:block/ruler",
+      "y": 180
+    },
+    "diagonal=true,facing=north,facing_shift=west": {
+      "model": "ultramarine:block/ruler_diagonal",
+      "y": 180
+    },
+    "diagonal=false,facing=south,facing_shift=west": {
+      "model": "ultramarine:block/ruler"
+    },
+    "diagonal=true,facing=south,facing_shift=west": {
+      "model": "ultramarine:block/ruler_diagonal",
+      "y": 90
+    },
+    "diagonal=false,facing=west,facing_shift=west": {
+      "model": "ultramarine:block/ruler",
+      "y": 90
+    },
+    "diagonal=true,facing=west,facing_shift=west": {
+      "model": "ultramarine:block/ruler_diagonal",
+      "y": -90
+    },
+    "diagonal=false,facing=east,facing_shift=west": {
+      "model": "ultramarine:block/ruler",
+      "y": 270
+    },
+    "diagonal=true,facing=east,facing_shift=west": {
+      "model": "ultramarine:block/ruler_diagonal",
+      "y": -90
+    },
+    "diagonal=false,facing=north,facing_shift=east": {
+      "model": "ultramarine:block/ruler",
+      "y": 180
+    },
+    "diagonal=true,facing=north,facing_shift=east": {
+      "model": "ultramarine:block/ruler_diagonal",
+      "y": -90
+    },
+    "diagonal=false,facing=south,facing_shift=east": {
+      "model": "ultramarine:block/ruler"
+    },
+    "diagonal=true,facing=south,facing_shift=east": {
+      "model": "ultramarine:block/ruler_diagonal"
+    },
+    "diagonal=false,facing=west,facing_shift=east": {
+      "model": "ultramarine:block/ruler",
+      "y": 90
+    },
+    "diagonal=true,facing=west,facing_shift=east": {
+      "model": "ultramarine:block/ruler_diagonal",
+      "y": -90
+    },
+    "diagonal=false,facing=east,facing_shift=east": {
+      "model": "ultramarine:block/ruler",
+      "y": 270
+    },
+    "diagonal=true,facing=east,facing_shift=east": {
+      "model": "ultramarine:block/ruler_diagonal",
+      "y": -90
+    }
+  }
+}
