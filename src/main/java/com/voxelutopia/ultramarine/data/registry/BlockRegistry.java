@@ -129,10 +129,14 @@ public class BlockRegistry {
     public static final RegistryObject<Block> CLAY_DOLL_FEMALE = BLOCKS.register("clay_doll_female",
             () -> DecorativeBlock.with(BaseBlockProperty.TERRACOTTA).shaped(DecorativeBlock.FULL_12).directional().diagonallyPlaceable().noCollision().build());
     public static final RegistryObject<Block> BOTTLE_GOURD = BLOCKS.register("bottle_gourd", BottleGourd::new);
+    public static final RegistryObject<Block> BLUE_AND_WHITE_PORCELAIN_FLOWERPOT = BLOCKS.register("blue_and_white_porcelain_flowerpot",
+            () -> DecorativeBlock.with(BaseBlockProperty.PORCELAIN).shaped(DecorativeBlock.FULL_8).diagonallyPlaceable().build());
     public static final RegistryObject<Block> TERRACOTTA_FLOWERPOT = BLOCKS.register("terracotta_flowerpot",
             () -> DecorativeBlock.with(BaseBlockProperty.TERRACOTTA).shaped(DecorativeBlock.VASE).diagonallyPlaceable().build());
     public static final RegistryObject<Block> BLACK_IRON_FLOWERPOT = BLOCKS.register("black_iron_flowerpot",
             () -> DecorativeBlock.with(BaseBlockProperty.IRON).shaped(DecorativeBlock.VASE).directional().build());
+    public static final RegistryObject<Block> BLUE_PORCELAIN_FLOWERPOT = BLOCKS.register("blue_porcelain_flowerpot",
+            () -> DecorativeBlock.with(BaseBlockProperty.PORCELAIN).shaped(DecorativeBlock.FULL_14).directional().build());
     public static final RegistryObject<Block> BLUE_AND_WHITE_PORCELAIN_VASE = BLOCKS.register("blue_and_white_porcelain_vase",
             () -> DecorativeBlock.with(BaseBlockProperty.PORCELAIN).shaped(DecorativeBlock.VASE).diagonallyPlaceable().build());
     public static final RegistryObject<Block> BIG_BLUE_AND_WHITE_PORCELAIN_VASE = BLOCKS.register("big_blue_and_white_porcelain_vase",
