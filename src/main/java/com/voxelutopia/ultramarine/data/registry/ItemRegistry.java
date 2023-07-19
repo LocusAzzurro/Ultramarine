@@ -102,6 +102,8 @@ public class ItemRegistry {
 
 
     public static final RegistryObject<Item> ABACUS = fromBlock(BlockRegistry.ABACUS, CreativeTabs.DECORATIONS);
+    public static final RegistryObject<Item> BRUSH_TOOLS = fromBlock(BlockRegistry.BRUSH_TOOLS, CreativeTabs.DECORATIONS);
+    public static final RegistryObject<Item> BRUSH_AND_INKSTONE = fromBlock(BlockRegistry.BRUSH_AND_INKSTONE, CreativeTabs.DECORATIONS);
     public static final RegistryObject<Item> RED_SILK_FABRIC_ROLL = fromBlock(BlockRegistry.RED_SILK_FABRIC_ROLL, CreativeTabs.DECORATIONS);
     public static final RegistryObject<Item> GREEN_SILK_FABRIC_ROLL = fromBlock(BlockRegistry.GREEN_SILK_FABRIC_ROLL, CreativeTabs.DECORATIONS);
     public static final RegistryObject<Item> PURPLE_SILK_FABRIC_ROLL = fromBlock(BlockRegistry.PURPLE_SILK_FABRIC_ROLL, CreativeTabs.DECORATIONS);

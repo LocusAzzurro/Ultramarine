@@ -59,6 +59,9 @@ public final class BaseBlockProperty {
     public static BaseBlockProperty SILK = new BaseBlockProperty(BlockBehaviour.Properties.of(Material.CLOTH_DECORATION)
             .sound(SoundType.WOOL)
             .strength(1F, 2F), BlockMaterial.FABRIC);
+    public static BaseBlockProperty PAPER = new BaseBlockProperty(BlockBehaviour.Properties.of(Material.CLOTH_DECORATION)
+            .sound(SoundType.WOOL)
+            .strength(1F, 2F), BlockMaterial.PAPER);
 
     BlockBehaviour.Properties properties;
     BlockMaterial material;
@@ -83,6 +86,7 @@ public final class BaseBlockProperty {
         PORCELAIN(BlockTags.MINEABLE_WITH_PICKAXE),
         BAMBOO(BlockTags.MINEABLE_WITH_AXE),
         FABRIC(ModBlockTags.MINEABLE_WITH_SHEARS),
+        PAPER(ModBlockTags.MINEABLE_WITH_SHEARS),
         CROP(BlockTags.MINEABLE_WITH_HOE),
         FLAX(BlockTags.MINEABLE_WITH_HOE);
 

@@ -27,10 +27,11 @@ import javax.annotation.ParametersAreNonnullByDefault;
 public class DecorativeBlock extends HorizontalDirectionalBlock implements BaseBlockPropertyHolder, DiagonallyPlaceable {
 
     public static final VoxelShape FULL_BLOCK = Block.box(0.0D, 0.0D, 0.0D, 16.0D, 16.0D, 16.0D);
-    public static final VoxelShape CUBE_14 = Block.box(1.0D, 0.0D, 1.0D, 15.0D, 16.0D, 15.0D);
-    public static final VoxelShape CUBE_12 = Block.box(3.0D, 0.0D, 3.0D, 13.0D, 16.0D, 13.0D);
+    public static final VoxelShape FULL_14 = Block.box(1.0D, 0.0D, 1.0D, 15.0D, 16.0D, 15.0D);
+    public static final VoxelShape FULL_12 = Block.box(3.0D, 0.0D, 3.0D, 13.0D, 16.0D, 13.0D);
 
     public static final VoxelShape HALF_12 = Block.box(3.0D, 0.0D, 3.0D, 13.0D, 8.0D, 13.0D);
+    public static final VoxelShape QUARTER_16 = Block.box(0.0D, 0.0D, 0.0D, 16.0D, 4.0D, 16.0D);
     public static final VoxelShape QUARTER_12 = Block.box(3.0D, 0.0D, 3.0D, 13.0D, 4.0D, 13.0D);
     public static final VoxelShape FLAT_16 = Block.box(0.0D, 0.0D, 0.0D, 16.0D, 1.0D, 16.0D);
     public static final VoxelShape FLAT_MEDIUM = Block.box(2.0D, 0.0D, 2.0D, 14.0D, 2.0D, 14.0D);
@@ -165,7 +166,7 @@ public class DecorativeBlock extends HorizontalDirectionalBlock implements BaseB
     public static class Builder extends AbstractBuilder<Builder> {
 
         private final BaseBlockProperty property;
-        private VoxelShape shape = CUBE_14;
+        private VoxelShape shape = FULL_14;
         private boolean diagonallyPlaceable;
         private boolean directional;
         private boolean luminous;
@@ -223,7 +224,7 @@ public class DecorativeBlock extends HorizontalDirectionalBlock implements BaseB
 
     @Override
     public VoxelShape getBlockSupportShape(BlockState pState, BlockGetter pReader, BlockPos pPos) {
-        return noFenceConnect ? CUBE_14 : super.getBlockSupportShape(pState, pReader, pPos);
+        return noFenceConnect ? FULL_14 : super.getBlockSupportShape(pState, pReader, pPos);
     }
 
     @Override
