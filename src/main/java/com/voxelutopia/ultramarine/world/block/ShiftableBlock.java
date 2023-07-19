@@ -20,7 +20,7 @@ public abstract class ShiftableBlock extends Block implements SimpleWaterloggedB
     public static final BooleanProperty SHIFTED = ModBlockStateProperties.SHIFTED;
     public static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
     public ShiftableBlock(Properties properties) {
-        super(properties);
+        super(properties.noOcclusion());
     }
 
     public BlockState getStateForPlacement(BlockPlaceContext pContext) {
