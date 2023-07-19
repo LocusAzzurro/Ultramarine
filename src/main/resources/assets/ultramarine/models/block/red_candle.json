@@ -1,5 +1,6 @@
 {
 	"credit": "Made with Blockbench",
+	"render_type": "cutout",
 	"textures": {
 		"1": "ultramarine:block/red_candle",
 		"particle": "block/red_terracotta"

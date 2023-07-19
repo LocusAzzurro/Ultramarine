@@ -1,6 +1,7 @@
 {
 	"credit": "Made with Blockbench",
 	"texture_size": [64, 64],
+	"render_type": "cutout",
 	"textures": {
 		"1": "ultramarine:block/standing_lamp",
 		"particle": "minecraft:block/birch_planks"

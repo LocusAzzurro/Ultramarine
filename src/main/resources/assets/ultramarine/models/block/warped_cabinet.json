@@ -2,6 +2,7 @@
 	"credit": "Made with Blockbench",
 	"texture_size": [128, 128],
 	"ambientocclusion": false,
+	"render_type": "cutout",
 	"textures": {
 		"2": "ultramarine:block/warped_cabinet",
 		"particle": "block/warped_planks"
