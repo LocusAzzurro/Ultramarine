@@ -11,6 +11,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
+import net.minecraft.world.level.block.state.properties.DoorHingeSide;
 import net.minecraft.world.level.block.state.properties.Half;
 import net.minecraft.world.level.block.state.properties.StairsShape;
 import net.minecraftforge.client.model.generators.BlockStateProvider;
@@ -124,18 +125,14 @@ public class ModBlockModelProvider extends BlockStateProvider {
         vegetableBasket((StackableHalfBlock) BlockRegistry.EGGPLANT_BASKET.get());
         vegetableBasket((StackableHalfBlock) BlockRegistry.PEAR_BASKET.get());
 
-        var decorativeBlocks = new ArrayList<>(BlockRegistry.BLOCKS.getEntries().stream()
-                .filter(blockRegistryObject -> blockRegistryObject.get() instanceof DecorativeBlock).toList());
-
-        var consumables = decorativeBlocks.stream().filter(blockRegistryObject -> blockRegistryObject.get() instanceof ConsumableDecorativeBlock).toList();
-        consumables.forEach(blockRegistryObject -> consumableDecorativeBlock((ConsumableDecorativeBlock) blockRegistryObject.get()));
-        decorativeBlocks.removeAll(consumables);
-
-        var censers = decorativeBlocks.stream().filter(blockRegistryObject -> blockRegistryObject.get() instanceof Censer).toList();
-        censers.forEach(blockRegistryObject -> censer((Censer) blockRegistryObject.get(), 0));
-        decorativeBlocks.removeAll(censers);
-
-        decorativeBlocks.forEach(blockRegistryObject -> decorativeBlock((DecorativeBlock) blockRegistryObject.get()));
+        BlockRegistry.BLOCKS.getEntries().stream().filter(blockRegistryObject -> blockRegistryObject.get() instanceof DecorativeBlock)
+                .forEach(decorativeBlock -> {
+                    DecorativeBlock block = (DecorativeBlock) decorativeBlock.get();
+                    if (block instanceof ConsumableDecorativeBlock consumableDecorativeBlock) consumableDecorativeBlock(consumableDecorativeBlock);
+                    else if (block instanceof Censer censer) censer(censer, 0);
+                    else if (block instanceof OpeningBlock openingBlock) openingBlock(openingBlock);
+                    else decorativeBlock(block);
+                });
 
         horizontalBlock(BlockRegistry.WOODWORKING_WORKBENCH.get(), models().getExistingFile(blockLoc(BlockRegistry.WOODWORKING_WORKBENCH.get())));
         simpleBlock(BlockRegistry.JADE_ORE.get());
@@ -245,6 +242,23 @@ public class ModBlockModelProvider extends BlockStateProvider {
             ResourceLocation resourceLocation = Objects.requireNonNull(block.getRegistryName());
             String blockPath = blockState.getValue(LIT) ? "lit_" + resourceLocation.getPath() : resourceLocation.getPath();
             return getDecorativeBlockConfiguredModels(block, blockState, blockPath, modelFile, rotation);
+        });
+    }
+
+    private void openingBlock(OpeningBlock block){
+        getVariantBuilder(block).forAllStates(blockState -> {
+            var modelFile = ConfiguredModel.builder();
+            String blockName = name(block);
+            String blockPath;
+            if (blockState.getValue(OPEN)){
+                if (blockState.getValue(DOOR_HINGE) == DoorHingeSide.LEFT)
+                    blockPath = blockName + "_open_left";
+                else blockPath = blockName + "_open_right";
+            }
+            else {
+                blockPath = blockName;
+            }
+            return getDecorativeBlockConfiguredModels(block, blockState, blockPath, modelFile, 0);
         });
     }
 

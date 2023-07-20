@@ -188,6 +188,9 @@ public class BlockRegistry {
     public static final RegistryObject<Block> EBONY_CHAIR = BLOCKS.register("ebony_chair",
             () -> SeatDecorativeBlock.with(BaseBlockProperty.WOOD).seatOffset(new Vec3(0.0f, -0.1f, 0.0f)).shaped(DecorativeBlock.HALF_12).directional().diagonallyPlaceable().build());
 
+    public static final RegistryObject<Block> CARVED_WOODEN_DOOR = BLOCKS.register("carved_wooden_door",
+            () -> new OpeningBlock(DecorativeBlock.with(BaseBlockProperty.WOOD).directional().noOcclusion()));
+
     public static final RegistryObject<Block> OCTAGONAL_PALACE_LANTERN = BLOCKS.register("octagonal_palace_lantern",
             () -> DecorativeBlock.with(BaseBlockProperty.WOOD).shaped(DecorativeBlock.FULL_BLOCK).luminous().noOcclusion().placeOffset(Direction.DOWN).build());
     public static final RegistryObject<Block> SQUARE_PALACE_LANTERN = BLOCKS.register("square_palace_lantern",
