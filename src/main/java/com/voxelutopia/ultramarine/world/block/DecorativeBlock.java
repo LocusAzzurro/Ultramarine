@@ -6,6 +6,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
+import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.HorizontalDirectionalBlock;
 import net.minecraft.world.level.block.RenderShape;
@@ -19,7 +20,9 @@ import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import org.jetbrains.annotations.NotNull;
 
+import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;
+import java.util.Optional;
 
 @ParametersAreNonnullByDefault
 @MethodsReturnNonnullByDefault
@@ -47,17 +50,19 @@ public class DecorativeBlock extends HorizontalDirectionalBlock implements BaseB
     public static final BooleanProperty LIT = BlockStateProperties.LIT;
 
     private final BaseBlockProperty property;
-    private final VoxelShape shape;
+    private final ShapeFunction shape;
     private final boolean diagonallyPlaceable;
     private final boolean directional;
     private final boolean noCollision;
     private final boolean luminous;
     private final boolean noFenceConnect;
+    private final @Nullable Direction offsetDirection;
     protected StateDefinition<Block, BlockState> stateDefinition;
 
-    public DecorativeBlock(BaseBlockProperty property, VoxelShape shape,
+    public DecorativeBlock(BaseBlockProperty property, ShapeFunction shape,
                            boolean directional, boolean diagonallyPlaceable,
-                           boolean luminous, boolean noCollision, boolean noFenceConnect) {
+                           boolean luminous, boolean noCollision, boolean noFenceConnect,
+                           @Nullable Direction offset) {
         super(property.properties);
         this.property = property;
         this.shape = shape;
@@ -66,6 +71,7 @@ public class DecorativeBlock extends HorizontalDirectionalBlock implements BaseB
         this.luminous = luminous;
         this.noCollision = noCollision;
         this.noFenceConnect = noFenceConnect;
+        this.offsetDirection = offset;
 
         var stateDefinationBuilder = new StateDefinition.Builder<Block, BlockState>(this);
         createBlockStateDefinition(stateDefinationBuilder);
@@ -79,13 +85,9 @@ public class DecorativeBlock extends HorizontalDirectionalBlock implements BaseB
         this.registerDefaultState(state);
     }
 
-    public DecorativeBlock(BaseBlockProperty property, VoxelShape shape, boolean directional, boolean diagonallyPlaceable) {
-        this(property, shape, directional, diagonallyPlaceable, false, false, true);
-    }
-
     public DecorativeBlock(Builder builder) {
         this(builder.property, builder.shape, builder.directional, builder.diagonallyPlaceable,
-                builder.luminous, builder.noCollision, builder.noFenceConnect);
+                builder.luminous, builder.noCollision, builder.noFenceConnect, builder.offset);
     }
 
     public static Builder with(BaseBlockProperty property) {
@@ -125,13 +127,33 @@ public class DecorativeBlock extends HorizontalDirectionalBlock implements BaseB
     }
 
     @Override
+    public void onPlace(BlockState pState, Level pLevel, BlockPos pPos, BlockState pOldState, boolean pIsMoving) {
+        if (offsetDirection != null) {
+            switch (offsetDirection) {
+                case DOWN -> {
+                    if (!pLevel.getBlockState(pPos.above()).isAir() && pLevel.getBlockState(pPos.below()).isAir()) {
+                        pLevel.removeBlock(pPos, pIsMoving);
+                        pLevel.setBlock(pPos.below(), pState, Block.UPDATE_ALL);
+                    }
+                }
+                case UP -> {
+                    if (!pLevel.getBlockState(pPos.below()).isAir() && pLevel.getBlockState(pPos.above()).isAir()) {
+                        pLevel.removeBlock(pPos, pIsMoving);
+                        pLevel.setBlock(pPos.above(), pState, Block.UPDATE_ALL);
+                    }
+                }
+            }
+        }
+    }
+
+    @Override
     public VoxelShape getShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
-        return shape;
+        return shape.getShape(pState, pLevel, pPos, pContext);
     }
 
     @Override
     public VoxelShape getCollisionShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
-        return noCollision ? Shapes.empty() : shape;
+        return noCollision ? Shapes.empty() : getShape(pState, pLevel, pPos, pContext);
     }
 
     @Override
@@ -170,18 +192,23 @@ public class DecorativeBlock extends HorizontalDirectionalBlock implements BaseB
     public static class Builder extends AbstractBuilder<Builder> {
 
         private final BaseBlockProperty property;
-        private VoxelShape shape = FULL_14;
+        private ShapeFunction shape = simpleShape(FULL_14);
         private boolean diagonallyPlaceable;
         private boolean directional;
         private boolean luminous;
         private boolean noCollision;
         private boolean noFenceConnect;
+        private Direction offset = null;
 
         public Builder(BaseBlockProperty property) {
             this.property = property.copy();
         }
 
         public Builder shaped(VoxelShape shape) {
+            return shaped(simpleShape(shape));
+        }
+
+        public Builder shaped(ShapeFunction shape) {
             this.shape = shape;
             return this;
         }
@@ -216,6 +243,11 @@ public class DecorativeBlock extends HorizontalDirectionalBlock implements BaseB
             return this;
         }
 
+        public Builder placeOffset(Direction direction){
+            offset = direction;
+            return this;
+        }
+
         public DecorativeBlock build() {
             return new DecorativeBlock(this);
         }
@@ -224,6 +256,16 @@ public class DecorativeBlock extends HorizontalDirectionalBlock implements BaseB
         public Builder self() {
             return this;
         }
+    }
+
+    @FunctionalInterface
+    public interface ShapeFunction{
+
+        VoxelShape getShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext);
+    }
+
+    protected static ShapeFunction simpleShape(VoxelShape shape){
+        return ($1, $2, $3, $4) -> shape;
     }
 
     @Override
