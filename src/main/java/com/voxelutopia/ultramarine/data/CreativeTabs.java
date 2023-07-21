@@ -37,6 +37,11 @@ public class CreativeTabs {
             return new ItemStack(ItemRegistry.OAK_CABINET.get());
         }
     };
+    public static final CreativeModeTab WINDOWS_AND_DOORS = new CreativeModeTab(Ultramarine.MOD_ID + ".windows_and_doors") {
+        @Override public ItemStack makeIcon() {
+            return new ItemStack(ItemRegistry.CARVED_WOODEN_DOOR.get());
+        }
+    };
     public static final CreativeModeTab LAMPS = new CreativeModeTab(Ultramarine.MOD_ID + ".lamps") {
         @Override public ItemStack makeIcon() {
             return new ItemStack(ItemRegistry.OCTAGONAL_PALACE_LANTERN.get());

@@ -190,6 +190,12 @@ public class BlockRegistry {
 
     public static final RegistryObject<Block> CARVED_WOODEN_DOOR = BLOCKS.register("carved_wooden_door",
             () -> new OpeningBlock(DecorativeBlock.with(BaseBlockProperty.WOOD).directional().noOcclusion()));
+    public static final RegistryObject<Block> CARVED_WOODEN_DOOR_PANEL = BLOCKS.register("carved_wooden_door_panel",
+            () -> new OpeningBlock(DecorativeBlock.with(BaseBlockProperty.WOOD).directional().noOcclusion()));
+    public static final RegistryObject<Block> SONG_WOODEN_DOOR = BLOCKS.register("song_wooden_door",
+            () -> new OpeningBlock(DecorativeBlock.with(BaseBlockProperty.WOOD).directional().noOcclusion()));
+    public static final RegistryObject<Block> SONG_WOODEN_WINDOW = BLOCKS.register("song_wooden_window",
+            () -> new OpeningBlock(DecorativeBlock.with(BaseBlockProperty.WOOD).directional().noOcclusion()));
 
     public static final RegistryObject<Block> OCTAGONAL_PALACE_LANTERN = BLOCKS.register("octagonal_palace_lantern",
             () -> DecorativeBlock.with(BaseBlockProperty.WOOD).shaped(DecorativeBlock.FULL_BLOCK).luminous().noOcclusion().placeOffset(Direction.DOWN).build());
