@@ -14,6 +14,10 @@ public final class BaseBlockProperty {
             .sound(SoundType.STONE)
             .strength(1.5F, 6.0F)
             .requiresCorrectToolForDrops(), BlockMaterial.STONE);
+    public static BaseBlockProperty MARBLE = new BaseBlockProperty(BlockBehaviour.Properties.of(Material.STONE)
+            .sound(SoundType.STONE)
+            .strength(1.8F, 7.0F)
+            .requiresCorrectToolForDrops(), BlockMaterial.STONE);
     public static BaseBlockProperty TERRACOTTA = new BaseBlockProperty(BlockBehaviour.Properties.of(Material.STONE)
             .sound(SoundType.STONE)
             .strength(1.2F, 4.0F)

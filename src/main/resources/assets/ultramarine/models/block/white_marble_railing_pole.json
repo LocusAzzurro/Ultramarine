@@ -1,0 +1,35 @@
+{
+	"credit": "Made with Blockbench",
+	"texture_size": [64, 64],
+	"textures": {
+		"6": "ultramarine:block/white_marble_railing",
+		"particle": "block/quartz_block_bottom"
+	},
+	"elements": [
+		{
+			"from": [6.5, 17, 6.5],
+			"to": [9.5, 22, 9.5],
+			"faces": {
+				"north": {"uv": [7.75, 8, 8.5, 9.25], "texture": "#6"},
+				"east": {"uv": [5.25, 8.25, 6, 9.5], "texture": "#6"},
+				"south": {"uv": [6.25, 8.25, 7, 9.5], "texture": "#6"},
+				"west": {"uv": [8.5, 0, 9.25, 1.25], "texture": "#6"},
+				"up": {"uv": [5, 10.75, 4.25, 10], "texture": "#6"},
+				"down": {"uv": [11, 10.25, 10.25, 11], "texture": "#6"}
+			}
+		},
+		{
+			"from": [6, 0, 6],
+			"to": [10, 17, 10],
+			"rotation": {"angle": 0, "axis": "y", "origin": [7, 7, 7]},
+			"faces": {
+				"north": {"uv": [0, 0, 1, 4.25], "texture": "#6"},
+				"east": {"uv": [1.25, 0, 2.25, 4.25], "texture": "#6"},
+				"south": {"uv": [2.5, 0, 3.5, 4.25], "texture": "#6"},
+				"west": {"uv": [3.75, 0, 4.75, 4.25], "texture": "#6"},
+				"up": {"uv": [8.75, 6.5, 7.75, 5.5], "texture": "#6"},
+				"down": {"uv": [8.75, 6.75, 7.75, 7.75], "texture": "#6"}
+			}
+		}
+	]
+}

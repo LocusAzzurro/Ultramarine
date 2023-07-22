@@ -1,6 +1,7 @@
 package com.voxelutopia.ultramarine.world.item;
 
 import com.voxelutopia.ultramarine.data.CreativeTabs;
+import com.voxelutopia.ultramarine.world.block.RailingBlock;
 import com.voxelutopia.ultramarine.world.block.state.ModBlockStateProperties;
 import com.voxelutopia.ultramarine.data.registry.SoundRegistry;
 import net.minecraft.core.BlockPos;
@@ -42,12 +43,21 @@ public class WoodenHammer extends Item {
                     blockstate.getValue(ModBlockStateProperties.CHIRAL_BLOCK_TYPE).getOpposite()), Block.UPDATE_ALL);
             success = true;
         }
+        if (blockstate.hasProperty(ModBlockStateProperties.LOCKED) && player.isPresent() && player.get().isCrouching()){
+            blockstate = blockstate.setValue(ModBlockStateProperties.LOCKED,
+                    !blockstate.getValue(ModBlockStateProperties.LOCKED));
+            if (blockstate.getBlock() instanceof RailingBlock railingBlock){
+                blockstate = railingBlock.updatePole(blockstate);
+            }
+            level.setBlock(blockpos, blockstate, Block.UPDATE_ALL);
+            success = true;
+        }
         if (success){
             player.ifPresent(player1 -> {
                 item.hurtAndBreak(1, player1, p -> p.broadcastBreakEvent(pContext.getHand()));
                 player1.awardStat(Stats.ITEM_USED.get(item.getItem()));
+                level.playSound(player.get(),blockpos, SoundRegistry.WOOD_HAMMER.get(), SoundSource.BLOCKS,1,0.75f);
             });
-            level.playSound(player.get(),blockpos, SoundRegistry.WOOD_HAMMER.get(), SoundSource.BLOCKS,1,0.75f);
             return InteractionResult.sidedSuccess(level.isClientSide());
         }
         return super.useOn(pContext);

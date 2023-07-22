@@ -79,6 +79,7 @@ public class ItemRegistry {
     public static final RegistryObject<Item> GILDED_DARK_OAK_RAFTER_END = fromBlock(BlockRegistry.GILDED_DARK_OAK_RAFTER_END, CreativeTabs.DECORATIVE_BLOCKS);
     public static final RegistryObject<Item> GILDED_DARK_OAK_BEAM_HEAD = fromBlock(BlockRegistry.GILDED_DARK_OAK_BEAM_HEAD, CreativeTabs.DECORATIVE_BLOCKS);
     public static final RegistryObject<Item> GILDED_DARK_OAK_BEAM_BRACKET = fromBlock(BlockRegistry.GILDED_DARK_OAK_BRACKET, CreativeTabs.DECORATIVE_BLOCKS);
+    public static final RegistryObject<Item> WHITE_MARBLE_RAILING = fromBlock(BlockRegistry.WHITE_MARBLE_RAILING, CreativeTabs.DECORATIVE_BLOCKS);
 
     public static final RegistryObject<Item> WOODEN_HAMMER = ITEMS.register("wooden_hammer", WoodenHammer::new);
     public static final RegistryObject<Item> GRAY_ROOF_TILES = fromBlock(BlockRegistry.GRAY_ROOF_TILES, CreativeTabs.BUILDING_BLOCKS);

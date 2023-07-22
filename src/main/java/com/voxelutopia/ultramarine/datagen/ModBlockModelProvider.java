@@ -16,6 +16,7 @@ import net.minecraft.world.level.block.state.properties.Half;
 import net.minecraft.world.level.block.state.properties.StairsShape;
 import net.minecraftforge.client.model.generators.BlockStateProvider;
 import net.minecraftforge.client.model.generators.ConfiguredModel;
+import net.minecraftforge.client.model.generators.ModelFile;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import org.apache.commons.lang3.tuple.Pair;
 import org.jetbrains.annotations.NotNull;
@@ -96,6 +97,7 @@ public class ModBlockModelProvider extends BlockStateProvider {
         shiftedDirectionalBlock(BlockRegistry.GILDED_DARK_OAK_RAFTER_END.get());
         horizontalBlockNoOffset(BlockRegistry.GILDED_DARK_OAK_BEAM_HEAD.get());
         horizontalBlockNoOffset(BlockRegistry.GILDED_DARK_OAK_BRACKET.get());
+        railingBlock(BlockRegistry.WHITE_MARBLE_RAILING.get());
 
         //<editor-fold desc="Roof Tiles">
         shiftedTiles(BlockRegistry.GRAY_ROOF_TILES.get(), "gray", RoofTiles.RoofTileType.NORMAL);
@@ -313,6 +315,126 @@ public class ModBlockModelProvider extends BlockStateProvider {
         String blockName = Objects.requireNonNull(block.getRegistryName()).getPath();
         var model = models().cubeBottomTop(blockName, side, bottom, top);
         directionalBlock(block, model);
+    }
+
+    private void railingBlock(Block block){
+        ModelFile.ExistingModelFile sideModel = models().getExistingFile(modLoc(BLOCK + name(block) + "_side"));
+        ModelFile.ExistingModelFile panelModel = models().getExistingFile(modLoc(BLOCK + name(block) + "_panel"));
+        ModelFile.ExistingModelFile sideModelShift = models().getExistingFile(modLoc(BLOCK + name(block) + "_side_shifted"));
+        ModelFile.ExistingModelFile panelModelShift = models().getExistingFile(modLoc(BLOCK + name(block) + "_panel_shifted"));
+        getMultipartBuilder(block)
+            .part()
+            .modelFile(models().getExistingFile(modLoc(BLOCK + name(block) + "_pole")))
+            .addModel()
+            .condition(RailingBlock.SHIFTED, false)
+            .condition(RailingBlock.UP, true)
+            .end()
+            .part()
+            .modelFile(sideModel)
+            .addModel()
+            .condition(RailingBlock.SHIFTED, false)
+            .condition(RailingBlock.UP, true)
+            .condition(RailingBlock.NORTH, true)
+            .end()
+            .part()
+            .modelFile(sideModel)
+            .rotationY(90)
+            .addModel()
+            .condition(RailingBlock.SHIFTED, false)
+            .condition(RailingBlock.UP, true)
+            .condition(RailingBlock.EAST, true)
+            .end()
+            .part()
+            .modelFile(sideModel)
+            .rotationY(180)
+            .addModel()
+            .condition(RailingBlock.SHIFTED, false)
+            .condition(RailingBlock.UP, true)
+            .condition(RailingBlock.SOUTH, true)
+            .end()
+            .part()
+            .modelFile(sideModel)
+            .rotationY(270)
+            .addModel()
+            .condition(RailingBlock.SHIFTED, false)
+            .condition(RailingBlock.UP, true)
+            .condition(RailingBlock.WEST, true)
+            .end()
+            .part()
+            .modelFile(panelModel)
+            .addModel()
+            .condition(RailingBlock.SHIFTED, false)
+            .condition(RailingBlock.UP, false)
+            .condition(RailingBlock.WEST, true)
+            .condition(RailingBlock.EAST, true)
+            .end()
+            .part()
+            .modelFile(panelModel)
+            .rotationY(90)
+            .addModel()
+            .condition(RailingBlock.SHIFTED, false)
+            .condition(RailingBlock.UP, false)
+            .condition(RailingBlock.NORTH, true)
+            .condition(RailingBlock.SOUTH, true)
+            .end()
+
+            //SHIFTED
+
+            .part()
+            .modelFile(models().getExistingFile(modLoc(BLOCK + name(block) + "_pole_shifted")))
+            .addModel()
+            .condition(RailingBlock.SHIFTED, true)
+            .condition(RailingBlock.UP, true)
+            .end()
+            .part()
+            .modelFile(sideModelShift)
+            .addModel()
+            .condition(RailingBlock.SHIFTED, true)
+            .condition(RailingBlock.UP, true)
+            .condition(RailingBlock.NORTH, true)
+            .end()
+            .part()
+            .modelFile(sideModelShift)
+            .rotationY(90)
+            .addModel()
+            .condition(RailingBlock.SHIFTED, true)
+            .condition(RailingBlock.UP, true)
+            .condition(RailingBlock.EAST, true)
+            .end()
+            .part()
+            .modelFile(sideModelShift)
+            .rotationY(180)
+            .addModel()
+            .condition(RailingBlock.SHIFTED, true)
+            .condition(RailingBlock.UP, true)
+            .condition(RailingBlock.SOUTH, true)
+            .end()
+            .part()
+            .modelFile(sideModelShift)
+            .rotationY(270)
+            .addModel()
+            .condition(RailingBlock.SHIFTED, true)
+            .condition(RailingBlock.UP, true)
+            .condition(RailingBlock.WEST, true)
+            .end()
+            .part()
+            .modelFile(panelModelShift)
+            .addModel()
+            .condition(RailingBlock.SHIFTED, true)
+            .condition(RailingBlock.UP, false)
+            .condition(RailingBlock.WEST, true)
+            .condition(RailingBlock.EAST, true)
+            .end()
+            .part()
+            .modelFile(panelModelShift)
+            .rotationY(90)
+            .addModel()
+            .condition(RailingBlock.SHIFTED, true)
+            .condition(RailingBlock.UP, false)
+            .condition(RailingBlock.NORTH, true)
+            .condition(RailingBlock.SOUTH, true)
+            .end()
+    ;
     }
 
     private ConfiguredModel[] getDecorativeBlockConfiguredModels(DecorativeBlock block, BlockState blockState, String blockPath, ConfiguredModel.Builder<?> modelFile, int rotation) {
