@@ -40,12 +40,13 @@ public class BottleGourdBlockEntity extends BlockEntity {
     public Optional<Potion> takePotionCharge(){
         if (!filled || charges <= 0 || this.potion.equals(Potions.EMPTY)) return Optional.empty();
         else {
+            Potion charge = this.potion;
             this.charges--;
             if (charges <= 0) {
                 filled = false;
                 this.potion = Potions.EMPTY;
             }
-            return Optional.of(this.potion);
+            return Optional.of(charge);
         }
     }
 
