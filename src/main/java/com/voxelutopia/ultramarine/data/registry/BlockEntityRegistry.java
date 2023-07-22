@@ -27,5 +27,9 @@ public class BlockEntityRegistry {
             CENSER = BLOCK_ENTITIES.register(
             "censer_block_entity", () -> BlockEntityType.Builder
                     .of(CenserBlockEntity::new, CENSERS.stream().map(RegistryObject::get).collect(Collectors.toSet()).toArray(new Block[0])).build(null));
+    public static final RegistryObject<BlockEntityType<BottleGourdBlockEntity>>
+            BOTTLE_GOURD = BLOCK_ENTITIES.register(
+            "bottle_gourd_entity", () -> BlockEntityType.Builder
+                    .of(BottleGourdBlockEntity::new, BlockRegistry.BOTTLE_GOURD.get()).build(null));
 
 }
