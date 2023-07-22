@@ -36,6 +36,7 @@ public class ModClientRenderEventHandler {
             ItemBlockRenderTypes.setRenderLayer(BlockRegistry.MEMORIAL_TABLET.get(), RenderType.cutout());
             ItemBlockRenderTypes.setRenderLayer(BlockRegistry.BRONZE_CENSER.get(), RenderType.cutout());
             ItemBlockRenderTypes.setRenderLayer(BlockRegistry.ROYAL_CENSER.get(), RenderType.cutout());
+            ItemBlockRenderTypes.setRenderLayer(BlockRegistry.LONG_HANGING_PAINTING.get(), RenderType.cutout());
             ItemBlockRenderTypes.setRenderLayer(BlockRegistry.GUNNY_SACK.get(), RenderType.cutout());
             ItemBlockRenderTypes.setRenderLayer(BlockRegistry.PLATED_MUNG_BEAN_CAKES.get(), RenderType.cutout());
             ItemBlockRenderTypes.setRenderLayer(BlockRegistry.PLATED_FISH.get(), RenderType.cutout());

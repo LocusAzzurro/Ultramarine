@@ -163,6 +163,9 @@ public class BlockRegistry {
     public static final RegistryObject<Block> ROYAL_CENSER = BLOCKS.register("royal_censer",
             () -> new Censer(DecorativeBlock.with(BaseBlockProperty.BRONZE).shaped(DecorativeBlock.FULL_10).directional().luminous(), new Vec3(0.5, 0.5, 0.5)));
 
+    public static final RegistryObject<Block> LONG_HANGING_PAINTING = BLOCKS.register("long_hanging_painting",
+            () -> new SideFaceBlock(BaseBlockProperty.PAPER));
+
     public static final RegistryObject<Block> FRUIT_BOX = BLOCKS.register("fruit_box",
             () -> ContainerDecorativeBlock.with(BaseBlockProperty.WOOD).content(ContainerType.FOOD_REGULAR).shaped(DecorativeBlock.FULL_14).directional().diagonallyPlaceable().build());
     public static final RegistryObject<Block> WOODEN_CRATE = BLOCKS.register("wooden_crate",

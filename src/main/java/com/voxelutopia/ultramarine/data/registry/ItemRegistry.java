@@ -101,7 +101,6 @@ public class ItemRegistry {
     public static final RegistryObject<Item> BLACK_ROOF_TILE_STAIRS = fromBlock(BlockRegistry.BLACK_ROOF_TILE_STAIRS, CreativeTabs.BUILDING_BLOCKS);
     public static final RegistryObject<Item> BLACK_ROOF_TILE_EDGE = fromBlock(BlockRegistry.BLACK_ROOF_TILE_EDGE, CreativeTabs.BUILDING_BLOCKS);
 
-
     public static final RegistryObject<Item> ABACUS = fromBlock(BlockRegistry.ABACUS, CreativeTabs.DECORATIONS);
     public static final RegistryObject<Item> BRUSH_TOOLS = fromBlock(BlockRegistry.BRUSH_TOOLS, CreativeTabs.DECORATIONS);
     public static final RegistryObject<Item> BRUSH_AND_INKSTONE = fromBlock(BlockRegistry.BRUSH_AND_INKSTONE, CreativeTabs.DECORATIONS);
@@ -132,6 +131,9 @@ public class ItemRegistry {
     public static final RegistryObject<Item> BLUE_AND_WHITE_PORCELAIN_BOWL = fromBlock(BlockRegistry.BLUE_AND_WHITE_PORCELAIN_BOWL, CreativeTabs.DECORATIONS);
     public static final RegistryObject<Item> BRONZE_CENSER = fromBlock(BlockRegistry.BRONZE_CENSER, CreativeTabs.DECORATIONS);
     public static final RegistryObject<Item> ROYAL_CENSER = fromBlock(BlockRegistry.ROYAL_CENSER, CreativeTabs.DECORATIONS);
+
+    public static final RegistryObject<Item> LONG_HANGING_PAINTING = fromBlock(BlockRegistry.LONG_HANGING_PAINTING, CreativeTabs.DECORATIONS);
+
     public static final RegistryObject<Item> FRUIT_BOX = fromBlock(BlockRegistry.FRUIT_BOX, CreativeTabs.DECORATIONS);
     public static final RegistryObject<Item> WOODEN_CRATE = fromBlock(BlockRegistry.WOODEN_CRATE, CreativeTabs.DECORATIONS);
     public static final RegistryObject<Item> GUNNY_SACK = fromBlock(BlockRegistry.GUNNY_SACK, CreativeTabs.DECORATIONS);

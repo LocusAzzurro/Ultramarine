@@ -136,6 +136,8 @@ public class ModBlockModelProvider extends BlockStateProvider {
                     else decorativeBlock(block);
                 });
 
+        wallSideBlock(BlockRegistry.LONG_HANGING_PAINTING.get());
+
         horizontalBlock(BlockRegistry.WOODWORKING_WORKBENCH.get(), models().getExistingFile(blockLoc(BlockRegistry.WOODWORKING_WORKBENCH.get())));
         simpleBlock(BlockRegistry.JADE_ORE.get());
         simpleBlock(BlockRegistry.MAGNESITE_ORE.get());
@@ -161,6 +163,11 @@ public class ModBlockModelProvider extends BlockStateProvider {
 
     private void fence(Block baseBlock, Block fenceBlock){
         fenceBlock((FenceBlock)fenceBlock, fenceBlock.getRegistryName().getPath(), blockLoc(baseBlock));
+    }
+
+    private void wallSideBlock(Block block){
+        getVariantBuilder(block).forAllStates(blockState -> ConfiguredModel.builder().modelFile(models().getExistingFile(modLoc(BLOCK + name(block))))
+                .rotationY((int) blockState.getValue(HORIZONTAL_FACING).toYRot()).build());
     }
 
     public void chiralDirectionalBlock(Block block) {
