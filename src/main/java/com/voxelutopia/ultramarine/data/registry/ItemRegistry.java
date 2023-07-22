@@ -175,6 +175,11 @@ public class ItemRegistry {
     public static final RegistryObject<Item> BLUE_ROOF_TILE = simpleItem("blue_roof_tile", CreativeTabs.MATERIALS);
     public static final RegistryObject<Item> CYAN_ROOF_TILE = simpleItem("cyan_roof_tile", CreativeTabs.MATERIALS);
     public static final RegistryObject<Item> BLACK_ROOF_TILE = simpleItem("black_roof_tile", CreativeTabs.MATERIALS);
+    public static final RegistryObject<Item> RAW_CLAY_BRICK = simpleItem("raw_clay_brick", CreativeTabs.MATERIALS);
+    public static final RegistryObject<Item> RAW_CYAN_BRICK = simpleItem("raw_cyan_brick", CreativeTabs.MATERIALS);
+    public static final RegistryObject<Item> RAW_BLACK_BRICK = simpleItem("raw_black_brick", CreativeTabs.MATERIALS);
+    public static final RegistryObject<Item> RAW_BROWNISH_RED_STONE_BRICK = simpleItem("raw_brownish_red_stone_brick", CreativeTabs.MATERIALS);
+    public static final RegistryObject<Item> PRISMARINE_DUST = simpleItem("prismarine_dust", CreativeTabs.MATERIALS);
 
     public static final RegistryObject<Item> POLISHED_OAK_PLANK = simpleItem("polished_oak_plank", CreativeTabs.MATERIALS);
     public static final RegistryObject<Item> POLISHED_BIRCH_PLANK = simpleItem("polished_birch_plank", CreativeTabs.MATERIALS);
@@ -198,8 +203,10 @@ public class ItemRegistry {
     public static final RegistryObject<Item> JADE = simpleItem("jade", CreativeTabs.MATERIALS);
     public static final RegistryObject<Item> MAGNESITE_ORE = fromBlock(BlockRegistry.MAGNESITE_ORE, CreativeTabs.MATERIALS);
     public static final RegistryObject<Item> MAGNESITE = simpleItem("magnesite", CreativeTabs.MATERIALS);
+    public static final RegistryObject<Item> MAGNESITE_DUST = simpleItem("magnesite_dust", CreativeTabs.MATERIALS);
     public static final RegistryObject<Item> HEMATITE_ORE = fromBlock(BlockRegistry.HEMATITE_ORE, CreativeTabs.MATERIALS);
     public static final RegistryObject<Item> RAW_HEMATITE = simpleItem("raw_hematite", CreativeTabs.MATERIALS);
+    public static final RegistryObject<Item> HEMATITE_DUST = simpleItem("hematite_dust", CreativeTabs.MATERIALS);
     public static final RegistryObject<Item> MOONCAKE = ITEMS.register("mooncake", () -> new BaseFood(ModFoods.MOONCAKE));
     public static final RegistryObject<Item> MUNG_BEAN_CAKE = ITEMS.register("mung_bean_cake", () -> new BaseFood(ModFoods.MUNG_BEAN_CAKE));
     public static final RegistryObject<Item> RAW_MEAT = ITEMS.register("raw_meat", () -> new BaseFood(ModFoods.RAW_MEAT));

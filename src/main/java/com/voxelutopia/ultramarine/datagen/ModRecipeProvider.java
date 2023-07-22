@@ -90,8 +90,27 @@ public class ModRecipeProvider extends RecipeProvider {
         polishedPlankRecipe(Items.WARPED_PLANKS, ItemRegistry.POLISHED_WARPED_PLANK.get(), recipeConsumer);
         polishedPlankRecipe(ItemRegistry.ROSEWOOD_PLANKS.get(), ItemRegistry.POLISHED_ROSEWOOD_PLANK.get(), recipeConsumer);
         //polishedPlankRecipe(ItemRegistry.EBONY_PLANKS.get(), ItemRegistry.POLISHED_EBONY_PLANK.get(), recipeConsumer);
+        dust(ItemRegistry.RAW_HEMATITE.get(), ItemRegistry.HEMATITE_DUST.get(), recipeConsumer);
+        dust(ItemRegistry.MAGNESITE.get(), ItemRegistry.MAGNESITE_DUST.get(), recipeConsumer);
+        dust(Items.PRISMARINE_SHARD, ItemRegistry.PRISMARINE_DUST.get(), recipeConsumer);
+        ShapedRecipeBuilder.shaped(ItemRegistry.RAW_CLAY_BRICK.get(), 3)
+                .define('C', Items.CLAY_BALL).pattern("CCC")
+                .unlockedBy(itemUnlockName(Items.CLAY_BALL), itemCriterion(Items.CLAY_BALL))
+                .save(recipeConsumer);
+        brickMixture(ItemRegistry.RAW_CLAY_BRICK.get(), 6, ItemRegistry.PRISMARINE_DUST.get(), ItemRegistry.RAW_CYAN_BRICK.get(), recipeConsumer);
+        brickMixture(ItemRegistry.RAW_CLAY_BRICK.get(), 6, ItemRegistry.HEMATITE_DUST.get(), ItemRegistry.RAW_BLACK_BRICK.get(), recipeConsumer);
+        brickMixture(ItemRegistry.RAW_CLAY_BRICK.get(), 6, Items.NETHER_WART, ItemRegistry.RAW_BROWNISH_RED_STONE_BRICK.get(), recipeConsumer);
+        smeltingAndBlasting(ItemRegistry.RAW_CLAY_BRICK.get(), Items.BRICK, recipeConsumer);
+        smeltingAndBlasting(ItemRegistry.RAW_CYAN_BRICK.get(), ItemRegistry.CYAN_BRICK.get(), recipeConsumer);
+        smeltingAndBlasting(ItemRegistry.RAW_BLACK_BRICK.get(), ItemRegistry.BLACK_BRICK.get(), recipeConsumer);
+        smeltingAndBlasting(ItemRegistry.RAW_BROWNISH_RED_STONE_BRICK.get(), ItemRegistry.BROWNISH_RED_STONE_BRICK.get(), recipeConsumer);
+
 
         //LAMPS
+        generateLampRecipes(recipeConsumer);
+    }
+
+    private static void generateLampRecipes(@NotNull Consumer<FinishedRecipe> recipeConsumer) {
         ShapedRecipeBuilder.shaped(Items.WHITE_CANDLE, 1)
                 .define('S', Items.STRING)
                 .define('G', ItemRegistry.GREASE.get())
@@ -271,6 +290,28 @@ public class ModRecipeProvider extends RecipeProvider {
                 .save(pFinishedRecipeConsumer, new ResourceLocation(DataGenerators.MOD_ID, outputPath + "_batch"));
     }
 
+    private static void dust(Item input, Item output, Consumer<FinishedRecipe> pFinishedRecipeConsumer){
+        SingleItemRecipeBuilder.stonecutting(Ingredient.of(input), output)
+                .unlockedBy("has_" + name(input), InventoryChangeTrigger.TriggerInstance.hasItems(input))
+                .save(pFinishedRecipeConsumer, new ResourceLocation(DataGenerators.MOD_ID, name(output)));
+    }
+
+    private static void brickMixture(Item brick, int brickAmount, Item additive, Item output, Consumer<FinishedRecipe> pFinishedRecipeConsumer){
+        String brickPath = Objects.requireNonNull(brick.getRegistryName()).getPath();
+        String additivePath = Objects.requireNonNull(additive.getRegistryName()).getPath();
+        String outputPath = Objects.requireNonNull(output.getRegistryName()).getPath();
+        ShapelessRecipeBuilder.shapeless(output, brickAmount).requires(brick, brickAmount).requires(additive)
+                .unlockedBy("has_" + brickPath, InventoryChangeTrigger.TriggerInstance.hasItems(brick))
+                .save(pFinishedRecipeConsumer, new ResourceLocation(DataGenerators.MOD_ID, outputPath));
+    }
+
+    private static void smeltingAndBlasting(Item input, Item output, Consumer<FinishedRecipe> pFinishedRecipeConsumer){
+        SimpleCookingRecipeBuilder.smelting(Ingredient.of(input), output, 0.1F, 200)
+                .unlockedBy(itemUnlockName(input), itemCriterion(input)).save(pFinishedRecipeConsumer, new ResourceLocation(DataGenerators.MOD_ID, name(output) + "_from_smelting"));
+        SimpleCookingRecipeBuilder.blasting(Ingredient.of(input), output, 0.05F, 100)
+                .unlockedBy(itemUnlockName(input), itemCriterion(input)).save(pFinishedRecipeConsumer, new ResourceLocation(DataGenerators.MOD_ID, name(output) + "_from_blasting"));
+    }
+
     private static void stoneSlabAndStairsRecipe(Item baseBlock, Item slabBlock, Item stairBlock, Consumer<FinishedRecipe> pFinishedRecipeConsumer){
         String baseBlockPath = Objects.requireNonNull(baseBlock.getRegistryName()).getPath();
         String stairsBlockPath = Objects.requireNonNull(stairBlock.getRegistryName()).getPath();
@@ -429,6 +470,10 @@ public class ModRecipeProvider extends RecipeProvider {
         var recipe = new SingleItemRecipeBuilder(RecipeSerializerRegistry.WOODWORKING_SERIALIZER.get(), ingredient, pResult, pCount);
         recipe.unlockedBy("has_" + unlockItem.getRegistryName().getPath(), InventoryChangeTrigger.TriggerInstance.hasItems(unlockItem))
                 .save(pFinishedRecipeConsumer);
+    }
+
+    private static String name(Item item){
+        return Objects.requireNonNull(item.getRegistryName()).getPath();
     }
 
 }

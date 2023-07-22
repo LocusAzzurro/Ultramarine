@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "ultramarine:raw_hematite"
+  },
+  "result": "ultramarine:hematite_dust",
+  "count": 1
+}

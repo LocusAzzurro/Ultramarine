@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "minecraft:prismarine_shard"
+  },
+  "result": "ultramarine:prismarine_dust",
+  "count": 1
+}
