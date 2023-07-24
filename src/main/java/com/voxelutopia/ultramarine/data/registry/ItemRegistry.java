@@ -145,10 +145,19 @@ public class ItemRegistry {
     public static final RegistryObject<Item> SHORT_BLUE_AND_WHITE_PORCELAIN_POT = fromBlock(BlockRegistry.SHORT_BLUE_AND_WHITE_PORCELAIN_POT, CreativeTabs.DECORATIONS);
     public static final RegistryObject<Item> TALL_BLUE_AND_WHITE_PORCELAIN_POT = fromBlock(BlockRegistry.TALL_BLUE_AND_WHITE_PORCELAIN_POT, CreativeTabs.DECORATIONS);
     public static final RegistryObject<Item> BLUE_AND_WHITE_PORCELAIN_BOWL = fromBlock(BlockRegistry.BLUE_AND_WHITE_PORCELAIN_BOWL, CreativeTabs.DECORATIONS);
+    public static final RegistryObject<Item> KNOCKER = fromBlock(BlockRegistry.KNOCKER, CreativeTabs.DECORATIONS);
+    public static final RegistryObject<Item> SUNDIAL = fromBlock(BlockRegistry.SUNDIAL, CreativeTabs.DECORATIONS);
+    public static final RegistryObject<Item> BROOM = fromBlock(BlockRegistry.BROOM, CreativeTabs.DECORATIONS);
     public static final RegistryObject<Item> BRONZE_CENSER = fromBlock(BlockRegistry.BRONZE_CENSER, CreativeTabs.DECORATIONS);
     public static final RegistryObject<Item> ROYAL_CENSER = fromBlock(BlockRegistry.ROYAL_CENSER, CreativeTabs.DECORATIONS);
 
     public static final RegistryObject<Item> LONG_HANGING_PAINTING = fromBlock(BlockRegistry.LONG_HANGING_PAINTING, CreativeTabs.DECORATIONS);
+    public static final RegistryObject<Item> WHITE_LANDSCAPE_PAINTING = fromBlock(BlockRegistry.WHITE_LANDSCAPE_PAINTING, CreativeTabs.DECORATIONS);
+    public static final RegistryObject<Item> HORIZONTAL_OLD_LANDSCAPE_PAINTING = fromBlock(BlockRegistry.HORIZONTAL_OLD_LANDSCAPE_PAINTING, CreativeTabs.DECORATIONS);
+    public static final RegistryObject<Item> HORIZONTAL_CALLIGRAPHY = fromBlock(BlockRegistry.HORIZONTAL_CALLIGRAPHY, CreativeTabs.DECORATIONS);
+    public static final RegistryObject<Item> HORIZONTAL_LANDSCAPE_PAINTING = fromBlock(BlockRegistry.HORIZONTAL_LANDSCAPE_PAINTING, CreativeTabs.DECORATIONS);
+    public static final RegistryObject<Item> YELLOW_LONG_HANGING_PAINTING = fromBlock(BlockRegistry.YELLOW_LONG_HANGING_PAINTING, CreativeTabs.DECORATIONS);
+
 
     public static final RegistryObject<Item> FRUIT_BOX = fromBlock(BlockRegistry.FRUIT_BOX, CreativeTabs.DECORATIONS);
     public static final RegistryObject<Item> WOODEN_CRATE = fromBlock(BlockRegistry.WOODEN_CRATE, CreativeTabs.DECORATIONS);

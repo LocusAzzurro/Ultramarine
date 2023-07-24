@@ -177,6 +177,12 @@ public class BlockRegistry {
             () -> DecorativeBlock.with(BaseBlockProperty.PORCELAIN).shaped(DecorativeBlock.HALF_12).diagonallyPlaceable().build());
     public static final RegistryObject<Block> MEMORIAL_TABLET = BLOCKS.register("memorial_tablet",
             () -> DecorativeBlock.with(BaseBlockProperty.WOOD).shaped(DecorativeBlock.FULL_14).directional().diagonallyPlaceable().noCollision().noFenceConnect().build());
+    public static final RegistryObject<Block> KNOCKER = BLOCKS.register("knocker",
+            () -> new SideFaceBlock(BaseBlockProperty.COPPER));
+    public static final RegistryObject<Block> SUNDIAL = BLOCKS.register("sundial",
+            () -> DecorativeBlock.with(BaseBlockProperty.STONE).shaped(DecorativeBlock.FULL_14).directional().build());
+    public static final RegistryObject<Block> BROOM = BLOCKS.register("broom",
+            () -> DecorativeBlock.with(BaseBlockProperty.STONE).shaped(DecorativeBlock.FULL_8).directional().build());
     public static final RegistryObject<Block> BRONZE_CENSER = BLOCKS.register("bronze_censer",
             () -> new Censer(DecorativeBlock.with(BaseBlockProperty.BRONZE).shaped(DecorativeBlock.HALF_12).directional().diagonallyPlaceable().luminous(), new Vec3(0.5, 0.7, 0.5)));
     public static final RegistryObject<Block> ROYAL_CENSER = BLOCKS.register("royal_censer",
@@ -184,6 +190,17 @@ public class BlockRegistry {
 
     public static final RegistryObject<Block> LONG_HANGING_PAINTING = BLOCKS.register("long_hanging_painting",
             () -> new SideFaceBlock(BaseBlockProperty.PAPER));
+    public static final RegistryObject<Block> WHITE_LANDSCAPE_PAINTING = BLOCKS.register("white_landscape_painting",
+            () -> new SideFaceBlock(BaseBlockProperty.PAPER));
+    public static final RegistryObject<Block> HORIZONTAL_OLD_LANDSCAPE_PAINTING = BLOCKS.register("horizontal_old_landscape_painting",
+            () -> new SideFaceBlock(BaseBlockProperty.PAPER));
+    public static final RegistryObject<Block> HORIZONTAL_CALLIGRAPHY = BLOCKS.register("horizontal_calligraphy",
+            () -> new SideFaceBlock(BaseBlockProperty.PAPER));
+    public static final RegistryObject<Block> HORIZONTAL_LANDSCAPE_PAINTING = BLOCKS.register("horizontal_landscape_painting",
+            () -> new SideFaceBlock(BaseBlockProperty.PAPER));
+    public static final RegistryObject<Block> YELLOW_LONG_HANGING_PAINTING = BLOCKS.register("yellow_long_hanging_painting",
+            () -> new SideFaceBlock(BaseBlockProperty.PAPER));
+
 
     public static final RegistryObject<Block> FRUIT_BOX = BLOCKS.register("fruit_box",
             () -> ContainerDecorativeBlock.with(BaseBlockProperty.WOOD).content(ContainerType.FOOD_REGULAR).shaped(DecorativeBlock.FULL_14).directional().diagonallyPlaceable().build());

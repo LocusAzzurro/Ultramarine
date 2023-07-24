@@ -151,7 +151,13 @@ public class ModBlockModelProvider extends BlockStateProvider {
                     else decorativeBlock(block);
                 });
 
+        wallSideBlock(BlockRegistry.KNOCKER.get());
         wallSideBlock(BlockRegistry.LONG_HANGING_PAINTING.get());
+        wallSideBlock(BlockRegistry.WHITE_LANDSCAPE_PAINTING.get());
+        wallSideBlock(BlockRegistry.HORIZONTAL_OLD_LANDSCAPE_PAINTING.get());
+        wallSideBlock(BlockRegistry.HORIZONTAL_CALLIGRAPHY.get());
+        wallSideBlock(BlockRegistry.HORIZONTAL_LANDSCAPE_PAINTING.get());
+        wallSideBlock(BlockRegistry.YELLOW_LONG_HANGING_PAINTING.get());
 
         horizontalBlock(BlockRegistry.WOODWORKING_WORKBENCH.get(), models().getExistingFile(blockLoc(BlockRegistry.WOODWORKING_WORKBENCH.get())));
         simpleBlock(BlockRegistry.JADE_ORE.get());
