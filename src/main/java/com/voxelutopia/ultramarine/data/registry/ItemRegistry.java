@@ -80,6 +80,11 @@ public class ItemRegistry {
     public static final RegistryObject<Item> GILDED_DARK_OAK_BEAM_HEAD = fromBlock(BlockRegistry.GILDED_DARK_OAK_BEAM_HEAD, CreativeTabs.DECORATIVE_BLOCKS);
     public static final RegistryObject<Item> GILDED_DARK_OAK_BEAM_BRACKET = fromBlock(BlockRegistry.GILDED_DARK_OAK_BRACKET, CreativeTabs.DECORATIVE_BLOCKS);
     public static final RegistryObject<Item> WHITE_MARBLE_RAILING = fromBlock(BlockRegistry.WHITE_MARBLE_RAILING, CreativeTabs.DECORATIVE_BLOCKS);
+    public static final RegistryObject<Item> RED_CARVED_WOOD = fromBlock(BlockRegistry.RED_CARVED_WOOD, CreativeTabs.DECORATIVE_BLOCKS);
+    public static final RegistryObject<Item> RED_CARVED_WOODEN_SLAB = fromBlock(BlockRegistry.RED_CARVED_WOODEN_SLAB, CreativeTabs.DECORATIVE_BLOCKS);
+    public static final RegistryObject<Item> RED_CARVED_WOODEN_STAIRS = fromBlock(BlockRegistry.RED_CARVED_WOODEN_STAIRS, CreativeTabs.DECORATIVE_BLOCKS);
+
+
     public static final RegistryObject<Item> GREEN_FANGXIN = fromBlock(BlockRegistry.GREEN_FANGXIN, CreativeTabs.DECORATIVE_BLOCKS);
     public static final RegistryObject<Item> GREEN_FANGXIN_EDGE = fromBlock(BlockRegistry.GREEN_FANGXIN_EDGE, CreativeTabs.DECORATIVE_BLOCKS);
     public static final RegistryObject<Item> BLUE_FANGXIN_EDGE = fromBlock(BlockRegistry.BLUE_FANGXIN_EDGE, CreativeTabs.DECORATIVE_BLOCKS);

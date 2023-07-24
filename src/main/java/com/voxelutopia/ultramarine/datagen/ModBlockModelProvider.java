@@ -86,17 +86,17 @@ public class ModBlockModelProvider extends BlockStateProvider {
         chiralDirectionalBlock(BlockRegistry.ENGRAVED_DARK_OAK_BEAM_EDGE.get());
         simpleBlock(BlockRegistry.GILDED_DARK_OAK.get());
         simpleBlock(BlockRegistry.CHISELED_GILDED_DARK_OAK.get());
-        slabBlock((SlabBlock) BlockRegistry.GILDED_DARK_OAK_SLAB.get(),
-                BlockRegistry.GILDED_DARK_OAK.get().getRegistryName(),
-                modLoc(BLOCK + name(BlockRegistry.GILDED_DARK_OAK_SLAB.get()) + "_side"),
-                blockLoc(BlockRegistry.GILDED_DARK_OAK.get()),
-                blockLoc(BlockRegistry.GILDED_DARK_OAK.get()));
+        slabSideEnd(BlockRegistry.GILDED_DARK_OAK_SLAB.get(), BlockRegistry.GILDED_DARK_OAK.get(), sideLoc(BlockRegistry.GILDED_DARK_OAK_SLAB.get()), blockLoc(BlockRegistry.GILDED_DARK_OAK.get()));
         straightStairs(BlockRegistry.GILDED_DARK_OAK_STAIRS.get());
         shiftedAxisBlock(BlockRegistry.GILDED_DARK_OAK_RAFTER.get());
         shiftedDirectionalBlock(BlockRegistry.GILDED_DARK_OAK_RAFTER_END.get());
         horizontalBlockNoOffset(BlockRegistry.GILDED_DARK_OAK_BEAM_HEAD.get());
         horizontalBlockNoOffset(BlockRegistry.GILDED_DARK_OAK_BRACKET.get());
         railingBlock(BlockRegistry.WHITE_MARBLE_RAILING.get());
+        simpleBlock(BlockRegistry.RED_CARVED_WOOD.get());
+        slabSideEnd(BlockRegistry.RED_CARVED_WOODEN_SLAB.get(), BlockRegistry.RED_CARVED_WOOD.get(), sideLoc(BlockRegistry.RED_CARVED_WOODEN_SLAB.get()), blockLoc(BlockRegistry.RED_CARVED_WOOD.get()));
+        straightStairs(BlockRegistry.RED_CARVED_WOODEN_STAIRS.get());
+
         directionalSideEnd(BlockRegistry.GREEN_FANGXIN.get(), sideLoc(BlockRegistry.GREEN_FANGXIN.get()), endLoc(BlockRegistry.GREEN_FANGXIN.get()));
         directionalSideEnd(BlockRegistry.GREEN_FANGXIN_EDGE.get(), sideLoc(BlockRegistry.GREEN_FANGXIN_EDGE.get()), endLoc(BlockRegistry.GREEN_FANGXIN.get()));
         chiralWSMirror(BlockRegistry.BLUE_FANGXIN_EDGE.get()); //north face gold left = left / gold top & bottom
@@ -364,6 +364,10 @@ public class ModBlockModelProvider extends BlockStateProvider {
 
     private void axisSideEnd(Block block, ResourceLocation side, ResourceLocation end){
         axisBlock((RotatedPillarBlock) block, side, end);
+    }
+
+    private void slabSideEnd(Block block, Block full, ResourceLocation side, ResourceLocation end){
+        slabBlock((SlabBlock) block, full.getRegistryName(), side, end, end);
     }
 
     private ResourceLocation modBlockLoc(Block block){

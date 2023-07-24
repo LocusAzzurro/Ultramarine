@@ -82,11 +82,13 @@ public class BlockRegistry {
     public static final RegistryObject<Block> GILDED_DARK_OAK_BEAM_HEAD = BLOCKS.register("gilded_dark_oak_beam_head", () -> new BeamHead(BaseBlockProperty.WOOD));
     public static final RegistryObject<Block> GILDED_DARK_OAK_BRACKET = BLOCKS.register("gilded_dark_oak_bracket", () -> new Bracket(BaseBlockProperty.WOOD));
     public static final RegistryObject<Block> WHITE_MARBLE_RAILING = BLOCKS.register("white_marble_railing", () -> new RailingBlock(BaseBlockProperty.MARBLE));
+    public static final RegistryObject<Block> RED_CARVED_WOOD = BLOCKS.register("red_carved_wood", () -> new BaseBlock(BaseBlockProperty.WOOD));
+    public static final RegistryObject<Block> RED_CARVED_WOODEN_SLAB = BLOCKS.register("red_carved_wooden_slab", () -> new BaseSlab(BaseBlockProperty.WOOD));
+    public static final RegistryObject<Block> RED_CARVED_WOODEN_STAIRS = BLOCKS.register("red_carved_wooden_stairs", () -> new StraightStairBlock(BaseBlockProperty.WOOD));
 
 
     public static final RegistryObject<Block> GREEN_FANGXIN = BLOCKS.register("green_fangxin", () -> new BaseDirectionalBlock(BaseBlockProperty.WOOD));
     public static final RegistryObject<Block> GREEN_FANGXIN_EDGE = BLOCKS.register("green_fangxin_edge", () -> new BaseDirectionalBlock(BaseBlockProperty.WOOD));
-
     public static final RegistryObject<Block> BLUE_FANGXIN_EDGE = BLOCKS.register("blue_fangxin_edge", () -> new ChiralDirectionalBlock(BaseBlockProperty.WOOD));
     public static final RegistryObject<Block> CYAN_AND_BLUE_FANGXIN_EDGE = BLOCKS.register("cyan_and_blue_fangxin_edge", () -> new BaseDirectionalBlock(BaseBlockProperty.WOOD));
     public static final RegistryObject<Block> CYAN_AND_BLUE_FANGXIN_EDGE_VARIANT = BLOCKS.register("cyan_and_blue_fangxin_edge_variant", () -> new BaseDirectionalBlock(BaseBlockProperty.WOOD));
