@@ -81,8 +81,7 @@ public class ModBlockModelProvider extends BlockStateProvider {
 
         simpleBlock(BlockRegistry.CARVED_RED_PILLAR.get());
         sideBottomTop(BlockRegistry.CARVED_RED_PILLAR_BASE.get());
-        directionalSideBottomTop(BlockRegistry.CARVED_RED_PILLAR_HEAD.get(), "carved_red_pillar_head_side", "carved_red_pillar", "carved_red_pillar");
-
+        directionalSideEnd(BlockRegistry.CARVED_RED_PILLAR_HEAD.get(), sideLoc(BlockRegistry.CARVED_RED_PILLAR_HEAD.get()), modBlockLoc(BlockRegistry.CARVED_RED_PILLAR.get()));
         chiralDirectionalBlock(BlockRegistry.ENGRAVED_DARK_OAK_BEAM.get());
         chiralDirectionalBlock(BlockRegistry.ENGRAVED_DARK_OAK_BEAM_EDGE.get());
         simpleBlock(BlockRegistry.GILDED_DARK_OAK.get());
@@ -98,6 +97,22 @@ public class ModBlockModelProvider extends BlockStateProvider {
         horizontalBlockNoOffset(BlockRegistry.GILDED_DARK_OAK_BEAM_HEAD.get());
         horizontalBlockNoOffset(BlockRegistry.GILDED_DARK_OAK_BRACKET.get());
         railingBlock(BlockRegistry.WHITE_MARBLE_RAILING.get());
+        directionalSideEnd(BlockRegistry.GREEN_FANGXIN.get(), sideLoc(BlockRegistry.GREEN_FANGXIN.get()), endLoc(BlockRegistry.GREEN_FANGXIN.get()));
+        directionalSideEnd(BlockRegistry.GREEN_FANGXIN_EDGE.get(), sideLoc(BlockRegistry.GREEN_FANGXIN_EDGE.get()), endLoc(BlockRegistry.GREEN_FANGXIN.get()));
+        chiralWSMirror(BlockRegistry.BLUE_FANGXIN_EDGE.get()); //north face gold left = left / gold top & bottom
+        directionalSideEnd(BlockRegistry.CYAN_AND_BLUE_FANGXIN_EDGE.get(), sideLoc(BlockRegistry.CYAN_AND_BLUE_FANGXIN_EDGE.get()), endLoc(BlockRegistry.CYAN_AND_BLUE_FANGXIN_EDGE.get()));
+        directionalSideEnd(BlockRegistry.CYAN_AND_BLUE_FANGXIN_EDGE_VARIANT.get(), sideLoc(BlockRegistry.CYAN_AND_BLUE_FANGXIN_EDGE_VARIANT.get()), endLoc(BlockRegistry.CYAN_AND_BLUE_FANGXIN_EDGE.get()));
+        directionalSideEnd(BlockRegistry.CYAN_BLUE_WHITE_FANGXIN_EDGE.get(), sideLoc(BlockRegistry.CYAN_BLUE_WHITE_FANGXIN_EDGE.get()), endLoc(BlockRegistry.CYAN_AND_BLUE_FANGXIN_EDGE.get()));
+        directionalSideEnd(BlockRegistry.BLUE_AND_GREEN_FANGXIN_EDGE.get(), sideLoc(BlockRegistry.BLUE_AND_GREEN_FANGXIN_EDGE.get()), endLoc(BlockRegistry.CYAN_AND_BLUE_FANGXIN_EDGE.get()));
+        directionalSideEnd(BlockRegistry.YELLOW_AND_GREEN_FANGXIN_EDGE.get(), sideLoc(BlockRegistry.YELLOW_AND_GREEN_FANGXIN_EDGE.get()), endLoc(BlockRegistry.CYAN_AND_BLUE_FANGXIN_EDGE.get()));
+        directionalSideEnd(BlockRegistry.DARK_BLUE_FANGXIN_EDGE.get(), sideLoc(BlockRegistry.DARK_BLUE_FANGXIN_EDGE.get()), mcLoc(BLOCK + "blue_wool"));
+        directionalSideEnd(BlockRegistry.BLUE_FANGXIN.get(), sideLoc(BlockRegistry.BLUE_FANGXIN.get()), mcLoc(BLOCK + "green_wool"));
+        axisSideEnd(BlockRegistry.CYAN_AND_BLUE_FANGXIN.get(), sideLoc(BlockRegistry.CYAN_AND_BLUE_FANGXIN.get()), endLoc(BlockRegistry.CYAN_AND_BLUE_FANGXIN_EDGE.get()));
+        axisSideEnd(BlockRegistry.CYAN_BLUE_WHITE_FANGXIN.get(), sideLoc(BlockRegistry.CYAN_BLUE_WHITE_FANGXIN.get()), endLoc(BlockRegistry.CYAN_AND_BLUE_FANGXIN_EDGE.get()));
+        axisSideEnd(BlockRegistry.BLUE_AND_WHITE_FANGXIN.get(), sideLoc(BlockRegistry.BLUE_AND_WHITE_FANGXIN.get()), endLoc(BlockRegistry.CYAN_AND_BLUE_FANGXIN_EDGE.get()));
+        axisSideEnd(BlockRegistry.GREEN_AND_DARK_BLUE_FANGXIN.get(), sideLoc(BlockRegistry.GREEN_AND_DARK_BLUE_FANGXIN.get()), endLoc(BlockRegistry.CYAN_AND_BLUE_FANGXIN_EDGE.get()));
+        axisSideEnd(BlockRegistry.DARK_BLUE_FANGXIN.get(), sideLoc(BlockRegistry.DARK_BLUE_FANGXIN.get()), mcLoc(BLOCK + "blue_wool"));
+
 
         //<editor-fold desc="Roof Tiles">
         shiftedTiles(BlockRegistry.GRAY_ROOF_TILES.get(), "gray", RoofTiles.RoofTileType.NORMAL);
@@ -170,6 +185,7 @@ public class ModBlockModelProvider extends BlockStateProvider {
                 .rotationY((int) blockState.getValue(HORIZONTAL_FACING).toYRot()).build());
     }
 
+    //TODO use chiralWS
     public void chiralDirectionalBlock(Block block) {
         directionalBlock(block, state -> {
             String path = Objects.requireNonNull(block.getRegistryName()).getPath();
@@ -300,6 +316,22 @@ public class ModBlockModelProvider extends BlockStateProvider {
         simpleBlock(block, model);
     }
 
+    private void chiralWSMirror(Block block){
+        directionalBlock(block, state -> {
+            String path = name(block);
+            if (state.hasProperty(ModBlockStateProperties.CHIRAL_BLOCK_TYPE)){
+                ChiralBlockType chiralBlockType = state.getValue(ModBlockStateProperties.CHIRAL_BLOCK_TYPE);
+                if (chiralBlockType == ChiralBlockType.LEFT || chiralBlockType == ChiralBlockType.TOP){
+                    return models().cube(path, endLoc(block), endLoc(block), sideLoc(block), sideMirroredLoc(block), sideLoc(block), sideMirroredLoc(block))
+                            .texture("particle", sideLoc(block));
+                }
+                else return models().cube(path + "_mirrored", endLoc(block), endLoc(block), sideMirroredLoc(block), sideLoc(block), sideMirroredLoc(block), sideLoc(block))
+                        .texture("particle", sideLoc(block));
+            }
+            return models().getExistingFile(modLoc(BLOCK + path));
+        });
+    }
+
     private void straightStairs(Block block){
         getVariantBuilder(block).forAllStatesExcept(blockState -> ConfiguredModel.builder()
                 .modelFile(models().getExistingFile(modLoc(BLOCK + name(block))))
@@ -312,16 +344,36 @@ public class ModBlockModelProvider extends BlockStateProvider {
         horizontalBlock(block, models().getExistingFile(modLoc(BLOCK + name(block))), 0);
     }
 
-    private void directionalSideBottomTop(Block block, String side, String bottom, String top){
-        String blockName = Objects.requireNonNull(block.getRegistryName()).getPath();
-        var model = models().cubeBottomTop(blockName, modLoc(BLOCK + side), modLoc(BLOCK + bottom), modLoc(BLOCK + top));
-        directionalBlock(block, model);
-    }
-
     private void directionalSideBottomTop(Block block, ResourceLocation side, ResourceLocation bottom, ResourceLocation top){
         String blockName = Objects.requireNonNull(block.getRegistryName()).getPath();
         var model = models().cubeBottomTop(blockName, side, bottom, top);
         directionalBlock(block, model);
+    }
+
+    private void directionalSideEnd(Block block, ResourceLocation side, ResourceLocation end){
+        String blockName = name(block);
+        var model = models().cubeBottomTop(blockName, side, end, end);
+        directionalBlock(block, model);
+    }
+
+    private void axisSideEnd(Block block, ResourceLocation side, ResourceLocation end){
+        axisBlock((RotatedPillarBlock) block, side, end);
+    }
+
+    private ResourceLocation modBlockLoc(Block block){
+        return modLoc(BLOCK + name(block));
+    }
+
+    private ResourceLocation sideLoc(Block block){
+        return modLoc(BLOCK + name(block) + "_side");
+    }
+
+    private ResourceLocation sideMirroredLoc(Block block){
+        return modLoc(BLOCK + name(block) + "_side_mirrored");
+    }
+
+    private ResourceLocation endLoc(Block block){
+        return modLoc(BLOCK + name(block) + "_end");
     }
 
     private void railingBlock(Block block){

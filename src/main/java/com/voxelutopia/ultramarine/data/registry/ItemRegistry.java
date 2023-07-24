@@ -80,6 +80,22 @@ public class ItemRegistry {
     public static final RegistryObject<Item> GILDED_DARK_OAK_BEAM_HEAD = fromBlock(BlockRegistry.GILDED_DARK_OAK_BEAM_HEAD, CreativeTabs.DECORATIVE_BLOCKS);
     public static final RegistryObject<Item> GILDED_DARK_OAK_BEAM_BRACKET = fromBlock(BlockRegistry.GILDED_DARK_OAK_BRACKET, CreativeTabs.DECORATIVE_BLOCKS);
     public static final RegistryObject<Item> WHITE_MARBLE_RAILING = fromBlock(BlockRegistry.WHITE_MARBLE_RAILING, CreativeTabs.DECORATIVE_BLOCKS);
+    public static final RegistryObject<Item> GREEN_FANGXIN = fromBlock(BlockRegistry.GREEN_FANGXIN, CreativeTabs.DECORATIVE_BLOCKS);
+    public static final RegistryObject<Item> GREEN_FANGXIN_EDGE = fromBlock(BlockRegistry.GREEN_FANGXIN_EDGE, CreativeTabs.DECORATIVE_BLOCKS);
+    public static final RegistryObject<Item> BLUE_FANGXIN_EDGE = fromBlock(BlockRegistry.BLUE_FANGXIN_EDGE, CreativeTabs.DECORATIVE_BLOCKS);
+    public static final RegistryObject<Item> CYAN_AND_BLUE_FANGXIN_EDGE = fromBlock(BlockRegistry.CYAN_AND_BLUE_FANGXIN_EDGE, CreativeTabs.DECORATIVE_BLOCKS);
+    public static final RegistryObject<Item> CYAN_AND_BLUE_FANGXIN_EDGE_VARIANT = fromBlock(BlockRegistry.CYAN_AND_BLUE_FANGXIN_EDGE_VARIANT, CreativeTabs.DECORATIVE_BLOCKS);
+    public static final RegistryObject<Item> CYAN_BLUE_WHITE_FANGXIN_EDGE = fromBlock(BlockRegistry.CYAN_BLUE_WHITE_FANGXIN_EDGE, CreativeTabs.DECORATIVE_BLOCKS);
+    public static final RegistryObject<Item> BLUE_AND_GREEN_FANGXIN_EDGE = fromBlock(BlockRegistry.BLUE_AND_GREEN_FANGXIN_EDGE, CreativeTabs.DECORATIVE_BLOCKS);
+    public static final RegistryObject<Item> YELLOW_AND_GREEN_FANGXIN_EDGE = fromBlock(BlockRegistry.YELLOW_AND_GREEN_FANGXIN_EDGE, CreativeTabs.DECORATIVE_BLOCKS);
+    public static final RegistryObject<Item> DARK_BLUE_FANGXIN_EDGE = fromBlock(BlockRegistry.DARK_BLUE_FANGXIN_EDGE, CreativeTabs.DECORATIVE_BLOCKS);
+    public static final RegistryObject<Item> BLUE_FANGXIN = fromBlock(BlockRegistry.BLUE_FANGXIN, CreativeTabs.DECORATIVE_BLOCKS);
+    public static final RegistryObject<Item> CYAN_AND_BLUE_FANGXIN = fromBlock(BlockRegistry.CYAN_AND_BLUE_FANGXIN, CreativeTabs.DECORATIVE_BLOCKS);
+    public static final RegistryObject<Item> CYAN_BLUE_WHITE_FANGXIN = fromBlock(BlockRegistry.CYAN_BLUE_WHITE_FANGXIN, CreativeTabs.DECORATIVE_BLOCKS);
+    public static final RegistryObject<Item> BLUE_AND_WHITE_FANGXIN = fromBlock(BlockRegistry.BLUE_AND_WHITE_FANGXIN, CreativeTabs.DECORATIVE_BLOCKS);
+    public static final RegistryObject<Item> GREEN_AND_DARK_BLUE_FANGXIN = fromBlock(BlockRegistry.GREEN_AND_DARK_BLUE_FANGXIN, CreativeTabs.DECORATIVE_BLOCKS);
+    public static final RegistryObject<Item> DARK_BLUE_FANGXIN = fromBlock(BlockRegistry.DARK_BLUE_FANGXIN, CreativeTabs.DECORATIVE_BLOCKS);
+
 
     public static final RegistryObject<Item> WOODEN_HAMMER = ITEMS.register("wooden_hammer", WoodenHammer::new);
     public static final RegistryObject<Item> GRAY_ROOF_TILES = fromBlock(BlockRegistry.GRAY_ROOF_TILES, CreativeTabs.BUILDING_BLOCKS);
