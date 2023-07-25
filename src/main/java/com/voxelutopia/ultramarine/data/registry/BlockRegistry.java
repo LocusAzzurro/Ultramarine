@@ -246,6 +246,10 @@ public class BlockRegistry {
             () -> new OrientableSideFaceBlock(BaseBlockProperty.SILK));
     public static final RegistryObject<Block> RED_CURTAIN_CORNER = BLOCKS.register("red_curtain_corner",
             () -> new OrientableSideFaceBlock(BaseBlockProperty.SILK));
+    public static final RegistryObject<Block> ROYAL_ROSEWOOD_WINDOW = BLOCKS.register("royal_rosewood_window",
+            () -> new OpeningBlock(DecorativeBlock.with(BaseBlockProperty.WOOD).directional().noOcclusion()));
+    public static final RegistryObject<Block> TALL_ROYAL_ROSEWOOD_WINDOW = BLOCKS.register("tall_royal_rosewood_window",
+            () -> new OpeningBlock(DecorativeBlock.with(BaseBlockProperty.WOOD).directional().noOcclusion()));
     public static final RegistryObject<Block> CARVED_WOODEN_DOOR = BLOCKS.register("carved_wooden_door",
             () -> new OpeningBlock(DecorativeBlock.with(BaseBlockProperty.WOOD).directional().noOcclusion()));
     public static final RegistryObject<Block> CARVED_WOODEN_DOOR_PANEL = BLOCKS.register("carved_wooden_door_panel",
