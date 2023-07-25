@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "ultramarine:block/bamboo_curtain",
+      "y": 180
+    },
+    "facing=south": {
+      "model": "ultramarine:block/bamboo_curtain"
+    },
+    "facing=west": {
+      "model": "ultramarine:block/bamboo_curtain",
+      "y": 90
+    },
+    "facing=east": {
+      "model": "ultramarine:block/bamboo_curtain",
+      "y": 270
+    }
+  }
+}

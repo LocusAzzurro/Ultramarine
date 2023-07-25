@@ -207,6 +207,7 @@ public class ItemRegistry {
     public static final RegistryObject<Item> RED_CURTAIN_CORNER = fromBlock(BlockRegistry.RED_CURTAIN_CORNER, CreativeTabs.WINDOWS_AND_DOORS);
     public static final RegistryObject<Item> ROYAL_ROSEWOOD_WINDOW = fromBlock(BlockRegistry.ROYAL_ROSEWOOD_WINDOW, CreativeTabs.WINDOWS_AND_DOORS);
     public static final RegistryObject<Item> TALL_ROYAL_ROSEWOOD_WINDOW = fromBlock(BlockRegistry.TALL_ROYAL_ROSEWOOD_WINDOW, CreativeTabs.WINDOWS_AND_DOORS);
+    public static final RegistryObject<Item> GLAZED_TILE_GRID_WINDOW = fromBlock(BlockRegistry.GLAZED_TILE_GRID_WINDOW, CreativeTabs.WINDOWS_AND_DOORS);
     public static final RegistryObject<Item> ROSEWOOD_PANEL = fromBlock(BlockRegistry.ROSEWOOD_PANEL, CreativeTabs.WINDOWS_AND_DOORS);
     public static final RegistryObject<Item> ROSEWOOD_DOOR_PANEL = fromBlock(BlockRegistry.ROSEWOOD_DOOR_PANEL, CreativeTabs.WINDOWS_AND_DOORS);
     public static final RegistryObject<Item> LARGE_ROSEWOOD_PANEL = fromBlock(BlockRegistry.LARGE_ROSEWOOD_PANEL, CreativeTabs.WINDOWS_AND_DOORS);
@@ -215,6 +216,7 @@ public class ItemRegistry {
     public static final RegistryObject<Item> CARVED_WOODEN_DOOR_PANEL = fromBlock(BlockRegistry.CARVED_WOODEN_DOOR_PANEL, CreativeTabs.WINDOWS_AND_DOORS);
     public static final RegistryObject<Item> SONG_WOODEN_DOOR = fromBlock(BlockRegistry.SONG_WOODEN_DOOR, CreativeTabs.WINDOWS_AND_DOORS);
     public static final RegistryObject<Item> SONG_WOODEN_WINDOW = fromBlock(BlockRegistry.SONG_WOODEN_WINDOW, CreativeTabs.WINDOWS_AND_DOORS);
+    public static final RegistryObject<Item> BAMBOO_CURTAIN = fromBlock(BlockRegistry.BAMBOO_CURTAIN, CreativeTabs.WINDOWS_AND_DOORS);
 
     public static final RegistryObject<Item> CYAN_BRICK = simpleItem("cyan_brick", CreativeTabs.MATERIALS);
     public static final RegistryObject<Item> BLACK_BRICK = simpleItem("black_brick", CreativeTabs.MATERIALS);

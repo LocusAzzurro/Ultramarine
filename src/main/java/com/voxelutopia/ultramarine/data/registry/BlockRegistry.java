@@ -250,6 +250,8 @@ public class BlockRegistry {
             () -> new OpeningBlock(DecorativeBlock.with(BaseBlockProperty.WOOD).directional().noOcclusion()));
     public static final RegistryObject<Block> TALL_ROYAL_ROSEWOOD_WINDOW = BLOCKS.register("tall_royal_rosewood_window",
             () -> new OpeningBlock(DecorativeBlock.with(BaseBlockProperty.WOOD).directional().noOcclusion()));
+    public static final RegistryObject<Block> GLAZED_TILE_GRID_WINDOW = BLOCKS.register("glazed_tile_grid_window",
+            () -> new DecorativeBlock(DecorativeBlock.with(BaseBlockProperty.GLAZED).shaped(DecorativeBlock.FULL_BLOCK).directional().noOcclusion()));
     public static final RegistryObject<Block> ROSEWOOD_PANEL = BLOCKS.register("rosewood_panel",
             () -> new SixSideBlock(BaseBlockProperty.WOOD, 3));
     public static final RegistryObject<Block> ROSEWOOD_DOOR_PANEL = BLOCKS.register("rosewood_door_panel",
@@ -266,6 +268,8 @@ public class BlockRegistry {
             () -> new OpeningBlock(DecorativeBlock.with(BaseBlockProperty.WOOD).directional().noOcclusion()));
     public static final RegistryObject<Block> SONG_WOODEN_WINDOW = BLOCKS.register("song_wooden_window",
             () -> new OpeningBlock(DecorativeBlock.with(BaseBlockProperty.WOOD).directional().noOcclusion()));
+    public static final RegistryObject<Block> BAMBOO_CURTAIN = BLOCKS.register("bamboo_curtain",
+            () -> new DecorativeBlock(DecorativeBlock.with(BaseBlockProperty.BAMBOO_WOOD).shaped(OpeningBlock.MIDDLE_AXIAL).directional().noOcclusion()));
 
     public static final RegistryObject<Block> OCTAGONAL_PALACE_LANTERN = BLOCKS.register("octagonal_palace_lantern",
             () -> DecorativeBlock.with(BaseBlockProperty.WOOD).shaped(DecorativeBlock.FULL_BLOCK).luminous().noOcclusion().placeOffset(Direction.DOWN).build());

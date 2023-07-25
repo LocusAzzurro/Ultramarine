@@ -1,0 +1,84 @@
+{
+	"credit": "Made with Blockbench",
+	"texture_size": [64, 64],
+	"render_type": "cutout",
+	"textures": {
+		"1": "ultramarine:block/bamboo_curtain",
+		"particle": "ultramarine:block/bamboo_mat"
+	},
+	"elements": [
+		{
+			"from": [0, 4, 8],
+			"to": [16, 15, 8],
+			"faces": {
+				"north": {"uv": [0, 0, 4, 2.75], "texture": "#1"},
+				"east": {"uv": [0.75, 6, 0.75, 8.75], "texture": "#1"},
+				"south": {"uv": [0, 3, 4, 5.75], "texture": "#1"},
+				"west": {"uv": [1, 6, 1, 8.75], "texture": "#1"},
+				"up": {"uv": [9.75, 6, 5.75, 6], "texture": "#1"},
+				"down": {"uv": [5.25, 6.25, 1.25, 6.25], "texture": "#1"}
+			}
+		},
+		{
+			"from": [0, 15, 7],
+			"to": [16, 16, 9],
+			"faces": {
+				"north": {"uv": [4.25, 4.5, 8.25, 4.75], "texture": "#1"},
+				"east": {"uv": [5.75, 5.5, 6.25, 5.75], "texture": "#1"},
+				"south": {"uv": [4.25, 5, 8.25, 5.25], "texture": "#1"},
+				"west": {"uv": [0, 6, 0.5, 6.25], "texture": "#1"},
+				"up": {"uv": [8.25, 0.5, 4.25, 0], "texture": "#1"},
+				"down": {"uv": [8.25, 0.75, 4.25, 1.25], "texture": "#1"}
+			}
+		},
+		{
+			"from": [0, 2, 7],
+			"to": [16, 4, 9],
+			"faces": {
+				"north": {"uv": [4.25, 1.5, 8.25, 2], "texture": "#1"},
+				"east": {"uv": [4.25, 5.5, 4.75, 6], "texture": "#1"},
+				"south": {"uv": [4.25, 2.25, 8.25, 2.75], "texture": "#1"},
+				"west": {"uv": [5, 5.5, 5.5, 6], "texture": "#1"},
+				"up": {"uv": [8.25, 3.5, 4.25, 3], "texture": "#1"},
+				"down": {"uv": [8.25, 3.75, 4.25, 4.25], "texture": "#1"}
+			}
+		}
+	],
+	"display": {
+		"thirdperson_righthand": {
+			"rotation": [75, 45, 0],
+			"translation": [0, 1.75, 0],
+			"scale": [0.375, 0.375, 0.375]
+		},
+		"thirdperson_lefthand": {
+			"rotation": [75, 45, 0],
+			"translation": [0, 1.75, 0],
+			"scale": [0.375, 0.375, 0.375]
+		},
+		"firstperson_righthand": {
+			"rotation": [0, -45, 0],
+			"scale": [0.4, 0.4, 0.4]
+		},
+		"firstperson_lefthand": {
+			"rotation": [0, -45, 0],
+			"scale": [0.4, 0.4, 0.4]
+		},
+		"ground": {
+			"translation": [0, 3, 0],
+			"scale": [0.25, 0.25, 0.25]
+		},
+		"gui": {
+			"rotation": [30, 225, 0],
+			"translation": [0, -0.5, 0],
+			"scale": [0.625, 0.625, 0.625]
+		}
+	},
+	"groups": [
+		{
+			"name": "group",
+			"origin": [8, 8, 8],
+			"color": 0,
+			"children": [0, 1, 2]
+		}
+	]
+}
