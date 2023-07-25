@@ -110,7 +110,6 @@ public class BlockRegistry {
     public static final RegistryObject<Block> LARGE_YELLOW_CARVED_PATTERN = BLOCKS.register("large_yellow_carved_pattern", () -> new SixFaceBlock(BaseBlockProperty.DYE));
     public static final RegistryObject<Block> MEDIUM_YELLOW_CARVED_PATTERN = BLOCKS.register("medium_yellow_carved_pattern", () -> new OrientableSixFaceBlock(BaseBlockProperty.DYE));
 
-
     public static final RegistryObject<Block> GRAY_ROOF_TILES = BLOCKS.register("gray_roof_tiles", RoofTiles::new);
     public static final RegistryObject<Block> GRAY_ROOF_TILE_STAIRS = BLOCKS.register("gray_roof_tile_stairs", RoofTiles::new);
     public static final RegistryObject<Block> GRAY_ROOF_TILE_EDGE = BLOCKS.register("gray_roof_tile_edge", RoofTiles::new);
@@ -237,6 +236,12 @@ public class BlockRegistry {
     public static final RegistryObject<Block> EBONY_CHAIR = BLOCKS.register("ebony_chair",
             () -> SeatDecorativeBlock.with(BaseBlockProperty.WOOD).seatOffset(new Vec3(0.0f, -0.1f, 0.0f)).shaped(DecorativeBlock.HALF_12).directional().diagonallyPlaceable().build());
 
+    public static final RegistryObject<Block> LARGE_BLUE_CURTAIN = BLOCKS.register("large_blue_curtain",
+            () -> new SideFaceBlock(BaseBlockProperty.SILK));
+    public static final RegistryObject<Block> MEDIUM_BLUE_CURTAIN = BLOCKS.register("medium_blue_curtain",
+            () -> new SideFaceBlock(BaseBlockProperty.SILK));
+    public static final RegistryObject<Block> SMALL_BLUE_CURTAIN = BLOCKS.register("small_blue_curtain",
+            () -> new SideFaceBlock(BaseBlockProperty.SILK));
     public static final RegistryObject<Block> RED_CURTAIN = BLOCKS.register("red_curtain",
             () -> new OrientableSideFaceBlock(BaseBlockProperty.SILK));
     public static final RegistryObject<Block> RED_CURTAIN_CORNER = BLOCKS.register("red_curtain_corner",

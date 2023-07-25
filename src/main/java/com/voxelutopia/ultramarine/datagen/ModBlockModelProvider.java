@@ -160,6 +160,9 @@ public class ModBlockModelProvider extends BlockStateProvider {
         wallSideBlock(BlockRegistry.HORIZONTAL_CALLIGRAPHY.get());
         wallSideBlock(BlockRegistry.HORIZONTAL_LANDSCAPE_PAINTING.get());
         wallSideBlock(BlockRegistry.YELLOW_LONG_HANGING_PAINTING.get());
+        wallSideBlock(BlockRegistry.LARGE_BLUE_CURTAIN.get());
+        wallSideBlock(BlockRegistry.MEDIUM_BLUE_CURTAIN.get());
+        wallSideBlock(BlockRegistry.SMALL_BLUE_CURTAIN.get());
         orientableWallSideBlock(BlockRegistry.RED_CURTAIN.get());
         orientableWallSideBlock(BlockRegistry.RED_CURTAIN_CORNER.get());
         wallSideBlock(BlockRegistry.YELLOW_CARVED_PATTERN.get());
