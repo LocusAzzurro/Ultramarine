@@ -207,6 +207,10 @@ public class ItemRegistry {
     public static final RegistryObject<Item> RED_CURTAIN_CORNER = fromBlock(BlockRegistry.RED_CURTAIN_CORNER, CreativeTabs.WINDOWS_AND_DOORS);
     public static final RegistryObject<Item> ROYAL_ROSEWOOD_WINDOW = fromBlock(BlockRegistry.ROYAL_ROSEWOOD_WINDOW, CreativeTabs.WINDOWS_AND_DOORS);
     public static final RegistryObject<Item> TALL_ROYAL_ROSEWOOD_WINDOW = fromBlock(BlockRegistry.TALL_ROYAL_ROSEWOOD_WINDOW, CreativeTabs.WINDOWS_AND_DOORS);
+    public static final RegistryObject<Item> ROSEWOOD_PANEL = fromBlock(BlockRegistry.ROSEWOOD_PANEL, CreativeTabs.WINDOWS_AND_DOORS);
+    public static final RegistryObject<Item> ROSEWOOD_DOOR_PANEL = fromBlock(BlockRegistry.ROSEWOOD_DOOR_PANEL, CreativeTabs.WINDOWS_AND_DOORS);
+    public static final RegistryObject<Item> LARGE_ROSEWOOD_PANEL = fromBlock(BlockRegistry.LARGE_ROSEWOOD_PANEL, CreativeTabs.WINDOWS_AND_DOORS);
+    public static final RegistryObject<Item> LARGE_ROSEWOOD_PANEL_EDGE = fromBlock(BlockRegistry.LARGE_ROSEWOOD_PANEL_EDGE, CreativeTabs.WINDOWS_AND_DOORS);
     public static final RegistryObject<Item> CARVED_WOODEN_DOOR = fromBlock(BlockRegistry.CARVED_WOODEN_DOOR, CreativeTabs.WINDOWS_AND_DOORS);
     public static final RegistryObject<Item> CARVED_WOODEN_DOOR_PANEL = fromBlock(BlockRegistry.CARVED_WOODEN_DOOR_PANEL, CreativeTabs.WINDOWS_AND_DOORS);
     public static final RegistryObject<Item> SONG_WOODEN_DOOR = fromBlock(BlockRegistry.SONG_WOODEN_DOOR, CreativeTabs.WINDOWS_AND_DOORS);

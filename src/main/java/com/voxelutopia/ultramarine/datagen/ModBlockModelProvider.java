@@ -11,10 +11,8 @@ import net.minecraft.data.DataGenerator;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.DoorHingeSide;
 import net.minecraft.world.level.block.state.properties.Half;
-import net.minecraft.world.level.block.state.properties.StairsShape;
 import net.minecraftforge.client.model.generators.BlockStateProvider;
 import net.minecraftforge.client.model.generators.ConfiguredModel;
 import net.minecraftforge.client.model.generators.ModelFile;
@@ -22,7 +20,6 @@ import net.minecraftforge.common.data.ExistingFileHelper;
 import org.apache.commons.lang3.tuple.Pair;
 import org.jetbrains.annotations.NotNull;
 
-import java.util.ArrayList;
 import java.util.Map;
 import java.util.Objects;
 
@@ -153,6 +150,23 @@ public class ModBlockModelProvider extends BlockStateProvider {
                     else decorativeBlock(block);
                 });
 
+        BlockRegistry.BLOCKS.getEntries().stream().filter(blockRegistryObject -> blockRegistryObject.get() instanceof SideBlock)
+                .forEach(sideBlock -> {
+                    SideBlock block = (SideBlock) sideBlock.get();
+                    if (block instanceof WallSideBlock wallSideBlock){
+                        if (block instanceof OrientableWallSideBlock orientableWallSideBlock)
+                            orientableWallSideBlock(orientableWallSideBlock);
+                        else wallSideBlock(wallSideBlock);
+                    }
+                    else if (block instanceof SixSideBlock sixSideBlock){
+                        if (block instanceof OrientableSixSideBlock orientableSixFaceBlock)
+                            orientableSixSideBlock(orientableSixFaceBlock);
+                        else sixSideBlock(sixSideBlock);
+                    }
+                });
+
+
+        /*
         wallSideBlock(BlockRegistry.KNOCKER.get());
         wallSideBlock(BlockRegistry.LONG_HANGING_PAINTING.get());
         wallSideBlock(BlockRegistry.WHITE_LANDSCAPE_PAINTING.get());
@@ -171,6 +185,8 @@ public class ModBlockModelProvider extends BlockStateProvider {
         orientableSixSideBlock(BlockRegistry.YELLOW_CARVED_FANGXIN_PATTERN.get());
         sixSideBlock(BlockRegistry.LARGE_YELLOW_CARVED_PATTERN.get());
         orientableSixSideBlock(BlockRegistry.MEDIUM_YELLOW_CARVED_PATTERN.get());
+
+         */
 
 
         horizontalBlock(BlockRegistry.WOODWORKING_WORKBENCH.get(), models().getExistingFile(blockLoc(BlockRegistry.WOODWORKING_WORKBENCH.get())));
@@ -220,7 +236,7 @@ public class ModBlockModelProvider extends BlockStateProvider {
 
     private void orientableWallSideBlock(Block block){
         getVariantBuilder(block).forAllStates(blockState -> {
-            ResourceLocation model = blockState.getValue(OrientableSideFaceBlock.TYPE) == OrientableBlockType.LEFT ?
+            ResourceLocation model = blockState.getValue(OrientableWallSideBlock.TYPE) == OrientableBlockType.LEFT ?
                     modLoc(BLOCK + name(block) + "_left") : modLoc(BLOCK + name(block) + "_right");
             return ConfiguredModel.builder().modelFile(models().getExistingFile(model))
                     .rotationY((int) blockState.getValue(HORIZONTAL_FACING).toYRot()).build();

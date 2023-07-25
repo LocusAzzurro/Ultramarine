@@ -1,11 +1,9 @@
 package com.voxelutopia.ultramarine.world.block;
 
-import com.google.common.collect.ImmutableMap;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
-import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.HorizontalDirectionalBlock;
 import net.minecraft.world.level.block.SimpleWaterloggedBlock;
@@ -22,7 +20,7 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 import javax.annotation.Nullable;
 import java.util.Map;
 
-public class SideFaceBlock extends Block implements BaseBlockPropertyHolder, SimpleWaterloggedBlock {
+public class WallSideBlock extends Block implements BaseBlockPropertyHolder, SimpleWaterloggedBlock, SideBlock {
 
     protected final BaseBlockProperty property;
     private final Map<Direction, VoxelShape> shapeByDirection;
@@ -30,31 +28,21 @@ public class SideFaceBlock extends Block implements BaseBlockPropertyHolder, Sim
     public static final DirectionProperty FACING = HorizontalDirectionalBlock.FACING;
     public static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
 
-    public SideFaceBlock(BaseBlockProperty property, int sideThickness) {
+    public WallSideBlock(BaseBlockProperty property, int sideThickness) {
         super(property.properties.noOcclusion().noCollission());
         this.property = property;
         this.registerDefaultState(this.getStateDefinition().any()
                 .setValue(FACING, Direction.NORTH)
                 .setValue(WATERLOGGED, false));
-        this.shapeByDirection = sideShapeByDirection(sideThickness);
+        this.shapeByDirection = faceShapeByDirection(sideThickness);
     }
 
-    public SideFaceBlock(BaseBlockProperty property) {
+    public WallSideBlock(BaseBlockProperty property) {
         this(property, 1);
     }
 
     public VoxelShape getShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
         return this.shapeByDirection.get(pState.getValue(FACING));
-    }
-
-    private Map<Direction, VoxelShape> sideShapeByDirection(int thickness){
-        double t = thickness;
-        ImmutableMap.Builder<Direction, VoxelShape> builder = ImmutableMap.builder();
-        builder.put(Direction.NORTH, Block.box(0, 0, 16 - t, 16, 16, 16));
-        builder.put(Direction.SOUTH, Block.box(0, 0, 0, 16, 16, t));
-        builder.put(Direction.EAST, Block.box(0, 0, 0, t, 16, 16));
-        builder.put(Direction.WEST, Block.box(16 - t, 0, 0, 16, 16, 16));
-        return builder.build();
     }
 
     @Nullable

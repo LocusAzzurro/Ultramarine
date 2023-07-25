@@ -1,6 +1,5 @@
 package com.voxelutopia.ultramarine.world.block;
 
-import com.voxelutopia.ultramarine.world.block.state.ChiralBlockType;
 import com.voxelutopia.ultramarine.world.block.state.ModBlockStateProperties;
 import com.voxelutopia.ultramarine.world.block.state.OrientableBlockType;
 import net.minecraft.core.Direction;
@@ -14,11 +13,11 @@ import net.minecraft.world.level.material.Fluids;
 
 import javax.annotation.Nullable;
 
-public class OrientableSideFaceBlock extends SideFaceBlock{
+public class OrientableWallSideBlock extends WallSideBlock implements SideBlock{
 
     public static final EnumProperty<OrientableBlockType> TYPE = ModBlockStateProperties.ORIENTABLE_BLOCK_TYPE;
 
-    public OrientableSideFaceBlock(BaseBlockProperty property) {
+    public OrientableWallSideBlock(BaseBlockProperty property) {
         super(property);
         this.registerDefaultState(this.getStateDefinition().any()
                 .setValue(TYPE, OrientableBlockType.LEFT)

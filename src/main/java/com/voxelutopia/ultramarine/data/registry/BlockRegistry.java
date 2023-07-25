@@ -103,12 +103,12 @@ public class BlockRegistry {
     public static final RegistryObject<Block> GREEN_AND_DARK_BLUE_FANGXIN = BLOCKS.register("green_and_dark_blue_fangxin", () -> new BaseAxisBlock(BaseBlockProperty.WOOD));
     public static final RegistryObject<Block> DARK_BLUE_FANGXIN = BLOCKS.register("dark_blue_fangxin", () -> new BaseAxisBlock(BaseBlockProperty.WOOD));
 
-    public static final RegistryObject<Block> YELLOW_CARVED_PATTERN = BLOCKS.register("yellow_carved_pattern", () -> new SideFaceBlock(BaseBlockProperty.DYE));
-    public static final RegistryObject<Block> CIRCULAR_YELLOW_CARVED_PATTERN = BLOCKS.register("circular_yellow_carved_pattern", () -> new SixFaceBlock(BaseBlockProperty.DYE));
-    public static final RegistryObject<Block> YELLOW_CARVED_FANGXIN_EDGE_PATTERN = BLOCKS.register("yellow_carved_fangxin_edge_pattern", () -> new OrientableSixFaceBlock(BaseBlockProperty.DYE));
-    public static final RegistryObject<Block> YELLOW_CARVED_FANGXIN_PATTERN = BLOCKS.register("yellow_carved_fangxin_pattern", () -> new OrientableSixFaceBlock(BaseBlockProperty.DYE));
-    public static final RegistryObject<Block> LARGE_YELLOW_CARVED_PATTERN = BLOCKS.register("large_yellow_carved_pattern", () -> new SixFaceBlock(BaseBlockProperty.DYE));
-    public static final RegistryObject<Block> MEDIUM_YELLOW_CARVED_PATTERN = BLOCKS.register("medium_yellow_carved_pattern", () -> new OrientableSixFaceBlock(BaseBlockProperty.DYE));
+    public static final RegistryObject<Block> YELLOW_CARVED_PATTERN = BLOCKS.register("yellow_carved_pattern", () -> new WallSideBlock(BaseBlockProperty.DYE));
+    public static final RegistryObject<Block> CIRCULAR_YELLOW_CARVED_PATTERN = BLOCKS.register("circular_yellow_carved_pattern", () -> new SixSideBlock(BaseBlockProperty.DYE));
+    public static final RegistryObject<Block> YELLOW_CARVED_FANGXIN_EDGE_PATTERN = BLOCKS.register("yellow_carved_fangxin_edge_pattern", () -> new OrientableSixSideBlock(BaseBlockProperty.DYE));
+    public static final RegistryObject<Block> YELLOW_CARVED_FANGXIN_PATTERN = BLOCKS.register("yellow_carved_fangxin_pattern", () -> new OrientableSixSideBlock(BaseBlockProperty.DYE));
+    public static final RegistryObject<Block> LARGE_YELLOW_CARVED_PATTERN = BLOCKS.register("large_yellow_carved_pattern", () -> new SixSideBlock(BaseBlockProperty.DYE));
+    public static final RegistryObject<Block> MEDIUM_YELLOW_CARVED_PATTERN = BLOCKS.register("medium_yellow_carved_pattern", () -> new OrientableSixSideBlock(BaseBlockProperty.DYE));
 
     public static final RegistryObject<Block> GRAY_ROOF_TILES = BLOCKS.register("gray_roof_tiles", RoofTiles::new);
     public static final RegistryObject<Block> GRAY_ROOF_TILE_STAIRS = BLOCKS.register("gray_roof_tile_stairs", RoofTiles::new);
@@ -186,7 +186,7 @@ public class BlockRegistry {
     public static final RegistryObject<Block> MEMORIAL_TABLET = BLOCKS.register("memorial_tablet",
             () -> DecorativeBlock.with(BaseBlockProperty.WOOD).shaped(DecorativeBlock.FULL_14).directional().diagonallyPlaceable().noCollision().noFenceConnect().build());
     public static final RegistryObject<Block> KNOCKER = BLOCKS.register("knocker",
-            () -> new SideFaceBlock(BaseBlockProperty.COPPER));
+            () -> new WallSideBlock(BaseBlockProperty.COPPER));
     public static final RegistryObject<Block> SUNDIAL = BLOCKS.register("sundial",
             () -> DecorativeBlock.with(BaseBlockProperty.STONE).shaped(DecorativeBlock.FULL_14).directional().build());
     public static final RegistryObject<Block> BROOM = BLOCKS.register("broom",
@@ -197,17 +197,17 @@ public class BlockRegistry {
             () -> new Censer(DecorativeBlock.with(BaseBlockProperty.BRONZE).shaped(DecorativeBlock.FULL_10).directional().luminous(), new Vec3(0.5, 0.5, 0.5)));
 
     public static final RegistryObject<Block> LONG_HANGING_PAINTING = BLOCKS.register("long_hanging_painting",
-            () -> new SideFaceBlock(BaseBlockProperty.PAPER));
+            () -> new WallSideBlock(BaseBlockProperty.PAPER));
     public static final RegistryObject<Block> WHITE_LANDSCAPE_PAINTING = BLOCKS.register("white_landscape_painting",
-            () -> new SideFaceBlock(BaseBlockProperty.PAPER));
+            () -> new WallSideBlock(BaseBlockProperty.PAPER));
     public static final RegistryObject<Block> HORIZONTAL_OLD_LANDSCAPE_PAINTING = BLOCKS.register("horizontal_old_landscape_painting",
-            () -> new SideFaceBlock(BaseBlockProperty.PAPER));
+            () -> new WallSideBlock(BaseBlockProperty.PAPER));
     public static final RegistryObject<Block> HORIZONTAL_CALLIGRAPHY = BLOCKS.register("horizontal_calligraphy",
-            () -> new SideFaceBlock(BaseBlockProperty.PAPER));
+            () -> new WallSideBlock(BaseBlockProperty.PAPER));
     public static final RegistryObject<Block> HORIZONTAL_LANDSCAPE_PAINTING = BLOCKS.register("horizontal_landscape_painting",
-            () -> new SideFaceBlock(BaseBlockProperty.PAPER));
+            () -> new WallSideBlock(BaseBlockProperty.PAPER));
     public static final RegistryObject<Block> YELLOW_LONG_HANGING_PAINTING = BLOCKS.register("yellow_long_hanging_painting",
-            () -> new SideFaceBlock(BaseBlockProperty.PAPER));
+            () -> new WallSideBlock(BaseBlockProperty.PAPER));
 
 
     public static final RegistryObject<Block> FRUIT_BOX = BLOCKS.register("fruit_box",
@@ -237,19 +237,27 @@ public class BlockRegistry {
             () -> SeatDecorativeBlock.with(BaseBlockProperty.WOOD).seatOffset(new Vec3(0.0f, -0.1f, 0.0f)).shaped(DecorativeBlock.HALF_12).directional().diagonallyPlaceable().build());
 
     public static final RegistryObject<Block> LARGE_BLUE_CURTAIN = BLOCKS.register("large_blue_curtain",
-            () -> new SideFaceBlock(BaseBlockProperty.SILK));
+            () -> new WallSideBlock(BaseBlockProperty.SILK));
     public static final RegistryObject<Block> MEDIUM_BLUE_CURTAIN = BLOCKS.register("medium_blue_curtain",
-            () -> new SideFaceBlock(BaseBlockProperty.SILK));
+            () -> new WallSideBlock(BaseBlockProperty.SILK));
     public static final RegistryObject<Block> SMALL_BLUE_CURTAIN = BLOCKS.register("small_blue_curtain",
-            () -> new SideFaceBlock(BaseBlockProperty.SILK));
+            () -> new WallSideBlock(BaseBlockProperty.SILK));
     public static final RegistryObject<Block> RED_CURTAIN = BLOCKS.register("red_curtain",
-            () -> new OrientableSideFaceBlock(BaseBlockProperty.SILK));
+            () -> new OrientableWallSideBlock(BaseBlockProperty.SILK));
     public static final RegistryObject<Block> RED_CURTAIN_CORNER = BLOCKS.register("red_curtain_corner",
-            () -> new OrientableSideFaceBlock(BaseBlockProperty.SILK));
+            () -> new OrientableWallSideBlock(BaseBlockProperty.SILK));
     public static final RegistryObject<Block> ROYAL_ROSEWOOD_WINDOW = BLOCKS.register("royal_rosewood_window",
             () -> new OpeningBlock(DecorativeBlock.with(BaseBlockProperty.WOOD).directional().noOcclusion()));
     public static final RegistryObject<Block> TALL_ROYAL_ROSEWOOD_WINDOW = BLOCKS.register("tall_royal_rosewood_window",
             () -> new OpeningBlock(DecorativeBlock.with(BaseBlockProperty.WOOD).directional().noOcclusion()));
+    public static final RegistryObject<Block> ROSEWOOD_PANEL = BLOCKS.register("rosewood_panel",
+            () -> new SixSideBlock(BaseBlockProperty.WOOD, 3));
+    public static final RegistryObject<Block> ROSEWOOD_DOOR_PANEL = BLOCKS.register("rosewood_door_panel",
+            () -> new SixSideBlock(BaseBlockProperty.WOOD, 3));
+    public static final RegistryObject<Block> LARGE_ROSEWOOD_PANEL = BLOCKS.register("large_rosewood_panel",
+            () -> new OrientableSixSideBlock(BaseBlockProperty.WOOD, 3));
+    public static final RegistryObject<Block> LARGE_ROSEWOOD_PANEL_EDGE = BLOCKS.register("large_rosewood_panel_edge",
+            () -> new OrientableSixSideBlock(BaseBlockProperty.WOOD, 3));
     public static final RegistryObject<Block> CARVED_WOODEN_DOOR = BLOCKS.register("carved_wooden_door",
             () -> new OpeningBlock(DecorativeBlock.with(BaseBlockProperty.WOOD).directional().noOcclusion()));
     public static final RegistryObject<Block> CARVED_WOODEN_DOOR_PANEL = BLOCKS.register("carved_wooden_door_panel",

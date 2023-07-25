@@ -1,6 +1,5 @@
 package com.voxelutopia.ultramarine.world.block;
 
-import com.google.common.collect.ImmutableMap;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.item.context.BlockPlaceContext;
@@ -17,10 +16,9 @@ import net.minecraft.world.level.material.Fluids;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
-import java.util.Arrays;
 import java.util.Map;
 
-public class SixFaceBlock extends Block implements BaseBlockPropertyHolder, SimpleWaterloggedBlock {
+public class SixSideBlock extends Block implements BaseBlockPropertyHolder, SimpleWaterloggedBlock, SideBlock {
 
     protected final BaseBlockProperty property;
     private final Map<Direction, VoxelShape> shapeByDirection;
@@ -28,7 +26,7 @@ public class SixFaceBlock extends Block implements BaseBlockPropertyHolder, Simp
     public static final DirectionProperty FACING = BlockStateProperties.FACING;
     public static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
 
-    public SixFaceBlock(BaseBlockProperty property, int sideThickness) {
+    public SixSideBlock(BaseBlockProperty property, int sideThickness) {
         super(property.properties.noOcclusion().noCollission());
         this.property = property;
         this.registerDefaultState(this.getStateDefinition().any()
@@ -37,7 +35,7 @@ public class SixFaceBlock extends Block implements BaseBlockPropertyHolder, Simp
         this.shapeByDirection = faceShapeByDirection(sideThickness);
     }
 
-    public SixFaceBlock(BaseBlockProperty property) {
+    public SixSideBlock(BaseBlockProperty property) {
         this(property,  1);
     }
 
@@ -51,18 +49,6 @@ public class SixFaceBlock extends Block implements BaseBlockPropertyHolder, Simp
         return this.defaultBlockState()
                 .setValue(WATERLOGGED, pContext.getLevel().getFluidState(pContext.getClickedPos()).getType() == Fluids.WATER)
                 .setValue(FACING, face);
-    }
-
-    private Map<Direction, VoxelShape> faceShapeByDirection(int thickness){
-        double t = thickness;
-        ImmutableMap.Builder<Direction, VoxelShape> builder = ImmutableMap.builder();
-        builder.put(Direction.UP, Block.box(0, 0, 0, 16, t, 16));
-        builder.put(Direction.DOWN, Block.box(0, 16 - t, 0, 16, 16, 16));
-        builder.put(Direction.NORTH, Block.box(0, 0, 16 - t, 16, 16, 16));
-        builder.put(Direction.SOUTH, Block.box(0, 0, 0, 16, 16, t));
-        builder.put(Direction.EAST, Block.box(0, 0, 0, t, 16, 16));
-        builder.put(Direction.WEST, Block.box(16 - t, 0, 0, 16, 16, 16));
-        return builder.build();
     }
 
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> pBuilder) {
