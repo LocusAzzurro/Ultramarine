@@ -70,6 +70,9 @@ public final class BaseBlockProperty {
     public static BaseBlockProperty PAPER = new BaseBlockProperty(BlockBehaviour.Properties.of(Material.CLOTH_DECORATION)
             .sound(SoundType.WOOL)
             .strength(1F, 2F), BlockMaterial.PAPER);
+    public static BaseBlockProperty DYE = new BaseBlockProperty(BlockBehaviour.Properties.of(Material.CLOTH_DECORATION)
+            .sound(SoundType.WOOL)
+            .strength(1F, 1F), BlockMaterial.PAPER);
 
     BlockBehaviour.Properties properties;
     BlockMaterial material;

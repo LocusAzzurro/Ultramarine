@@ -161,6 +161,8 @@ public class ModBlockModelProvider extends BlockStateProvider {
         wallSideBlock(BlockRegistry.YELLOW_LONG_HANGING_PAINTING.get());
         orientableWallSideBlock(BlockRegistry.RED_CURTAIN.get());
         orientableWallSideBlock(BlockRegistry.RED_CURTAIN_CORNER.get());
+        wallSideBlock(BlockRegistry.YELLOW_CARVED_PATTERN.get());
+        sixSideBlock(BlockRegistry.CIRCULAR_YELLOW_CARVED_PATTERN.get());
 
         horizontalBlock(BlockRegistry.WOODWORKING_WORKBENCH.get(), models().getExistingFile(blockLoc(BlockRegistry.WOODWORKING_WORKBENCH.get())));
         simpleBlock(BlockRegistry.JADE_ORE.get());
@@ -192,6 +194,19 @@ public class ModBlockModelProvider extends BlockStateProvider {
     private void wallSideBlock(Block block){
         getVariantBuilder(block).forAllStates(blockState -> ConfiguredModel.builder().modelFile(models().getExistingFile(modLoc(BLOCK + name(block))))
                 .rotationY((int) blockState.getValue(HORIZONTAL_FACING).toYRot()).build());
+    }
+    private void sixSideBlock(Block block){
+        getVariantBuilder(block).forAllStates(blockState -> {
+            ConfiguredModel.Builder<?> model = ConfiguredModel.builder().modelFile(models().getExistingFile(modLoc(BLOCK + name(block))));
+            Direction direction = blockState.getValue(FACING);
+            if (direction == Direction.UP)
+                model.rotationX(90);
+            else if (direction == Direction.DOWN)
+                model.rotationX(-90);
+            else
+                model.rotationY((int) direction.toYRot());
+            return model.build();
+        });
     }
 
     private void orientableWallSideBlock(Block block){

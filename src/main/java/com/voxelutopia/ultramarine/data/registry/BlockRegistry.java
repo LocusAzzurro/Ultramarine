@@ -103,6 +103,9 @@ public class BlockRegistry {
     public static final RegistryObject<Block> GREEN_AND_DARK_BLUE_FANGXIN = BLOCKS.register("green_and_dark_blue_fangxin", () -> new BaseAxisBlock(BaseBlockProperty.WOOD));
     public static final RegistryObject<Block> DARK_BLUE_FANGXIN = BLOCKS.register("dark_blue_fangxin", () -> new BaseAxisBlock(BaseBlockProperty.WOOD));
 
+    public static final RegistryObject<Block> YELLOW_CARVED_PATTERN = BLOCKS.register("yellow_carved_pattern", () -> new SideFaceBlock(BaseBlockProperty.DYE));
+    public static final RegistryObject<Block> CIRCULAR_YELLOW_CARVED_PATTERN = BLOCKS.register("circular_yellow_carved_pattern", () -> new SixFaceBlock(BaseBlockProperty.DYE));
+
 
     public static final RegistryObject<Block> GRAY_ROOF_TILES = BLOCKS.register("gray_roof_tiles", RoofTiles::new);
     public static final RegistryObject<Block> GRAY_ROOF_TILE_STAIRS = BLOCKS.register("gray_roof_tile_stairs", RoofTiles::new);

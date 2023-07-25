@@ -102,6 +102,9 @@ public class ItemRegistry {
     public static final RegistryObject<Item> DARK_BLUE_FANGXIN = fromBlock(BlockRegistry.DARK_BLUE_FANGXIN, CreativeTabs.DECORATIVE_BLOCKS);
 
 
+    public static final RegistryObject<Item> YELLOW_CARVED_PATTERN = fromBlock(BlockRegistry.YELLOW_CARVED_PATTERN, CreativeTabs.DECORATIVE_BLOCKS);
+    public static final RegistryObject<Item> CIRCULAR_YELLOW_CARVED_PATTERN = fromBlock(BlockRegistry.CIRCULAR_YELLOW_CARVED_PATTERN, CreativeTabs.DECORATIVE_BLOCKS);
+
     public static final RegistryObject<Item> WOODEN_HAMMER = ITEMS.register("wooden_hammer", WoodenHammer::new);
     public static final RegistryObject<Item> GRAY_ROOF_TILES = fromBlock(BlockRegistry.GRAY_ROOF_TILES, CreativeTabs.BUILDING_BLOCKS);
     public static final RegistryObject<Item> GRAY_ROOF_TILE_STAIRS = fromBlock(BlockRegistry.GRAY_ROOF_TILE_STAIRS, CreativeTabs.BUILDING_BLOCKS);

@@ -1,6 +1,8 @@
 {
   "replace": false,
   "values": [
+    "ultramarine:yellow_carved_pattern",
+    "ultramarine:circular_yellow_carved_pattern",
     "ultramarine:brush_and_inkstone",
     "ultramarine:sack",
     "ultramarine:red_silk_fabric_roll",
