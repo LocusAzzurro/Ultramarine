@@ -4,6 +4,7 @@ import com.voxelutopia.ultramarine.data.registry.BlockRegistry;
 import com.voxelutopia.ultramarine.world.block.state.ChiralBlockType;
 import com.voxelutopia.ultramarine.world.block.state.ModBlockStateProperties;
 import com.voxelutopia.ultramarine.world.block.*;
+import com.voxelutopia.ultramarine.world.block.state.OrientableBlockType;
 import com.voxelutopia.ultramarine.world.block.state.StackableBlockType;
 import net.minecraft.core.Direction;
 import net.minecraft.data.DataGenerator;
@@ -158,6 +159,8 @@ public class ModBlockModelProvider extends BlockStateProvider {
         wallSideBlock(BlockRegistry.HORIZONTAL_CALLIGRAPHY.get());
         wallSideBlock(BlockRegistry.HORIZONTAL_LANDSCAPE_PAINTING.get());
         wallSideBlock(BlockRegistry.YELLOW_LONG_HANGING_PAINTING.get());
+        orientableWallSideBlock(BlockRegistry.RED_CURTAIN.get());
+        orientableWallSideBlock(BlockRegistry.RED_CURTAIN_CORNER.get());
 
         horizontalBlock(BlockRegistry.WOODWORKING_WORKBENCH.get(), models().getExistingFile(blockLoc(BlockRegistry.WOODWORKING_WORKBENCH.get())));
         simpleBlock(BlockRegistry.JADE_ORE.get());
@@ -189,6 +192,15 @@ public class ModBlockModelProvider extends BlockStateProvider {
     private void wallSideBlock(Block block){
         getVariantBuilder(block).forAllStates(blockState -> ConfiguredModel.builder().modelFile(models().getExistingFile(modLoc(BLOCK + name(block))))
                 .rotationY((int) blockState.getValue(HORIZONTAL_FACING).toYRot()).build());
+    }
+
+    private void orientableWallSideBlock(Block block){
+        getVariantBuilder(block).forAllStates(blockState -> {
+            ResourceLocation model = blockState.getValue(OrientableSideFaceBlock.TYPE) == OrientableBlockType.LEFT ?
+                    modLoc(BLOCK + name(block) + "_left") : modLoc(BLOCK + name(block) + "_right");
+            return ConfiguredModel.builder().modelFile(models().getExistingFile(model))
+                    .rotationY((int) blockState.getValue(HORIZONTAL_FACING).toYRot()).build();
+        });
     }
 
     //TODO use chiralWS

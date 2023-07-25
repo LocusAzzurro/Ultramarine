@@ -191,6 +191,8 @@ public class ItemRegistry {
     public static final RegistryObject<Item> EBONY_CABINET = fromBlock(BlockRegistry.EBONY_CABINET, CreativeTabs.FURNITURE);
     public static final RegistryObject<Item> EBONY_CHAIR = fromBlock(BlockRegistry.EBONY_CHAIR, CreativeTabs.FURNITURE);
 
+    public static final RegistryObject<Item> RED_CURTAIN = fromBlock(BlockRegistry.RED_CURTAIN, CreativeTabs.WINDOWS_AND_DOORS);
+    public static final RegistryObject<Item> RED_CURTAIN_CORNER = fromBlock(BlockRegistry.RED_CURTAIN_CORNER, CreativeTabs.WINDOWS_AND_DOORS);
     public static final RegistryObject<Item> CARVED_WOODEN_DOOR = fromBlock(BlockRegistry.CARVED_WOODEN_DOOR, CreativeTabs.WINDOWS_AND_DOORS);
     public static final RegistryObject<Item> CARVED_WOODEN_DOOR_PANEL = fromBlock(BlockRegistry.CARVED_WOODEN_DOOR_PANEL, CreativeTabs.WINDOWS_AND_DOORS);
     public static final RegistryObject<Item> SONG_WOODEN_DOOR = fromBlock(BlockRegistry.SONG_WOODEN_DOOR, CreativeTabs.WINDOWS_AND_DOORS);

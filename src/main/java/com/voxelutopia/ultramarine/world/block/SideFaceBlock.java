@@ -32,7 +32,7 @@ public class SideFaceBlock extends Block implements BaseBlockPropertyHolder, Sim
     protected static final VoxelShape SOUTH_AABB = Block.box(0.0D, 0.0D, 0.0D, 16.0D, 16.0D, 1.0D);
     protected static final VoxelShape NORTH_AABB = Block.box(0.0D, 0.0D, 15.0D, 16.0D, 16.0D, 16.0D);
     public SideFaceBlock(BaseBlockProperty property) {
-        super(property.properties.noOcclusion());
+        super(property.properties.noOcclusion().noCollission());
         this.property = property;
         this.registerDefaultState(this.getStateDefinition().any()
                 .setValue(FACING, Direction.NORTH)
@@ -49,6 +49,7 @@ public class SideFaceBlock extends Block implements BaseBlockPropertyHolder, Sim
     }
 
     @Nullable
+    @Override
     public BlockState getStateForPlacement(BlockPlaceContext pContext) {
         BlockState state = this.defaultBlockState();
         FluidState fluidstate = pContext.getLevel().getFluidState(pContext.getClickedPos());
