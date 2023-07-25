@@ -1,5 +1,6 @@
 package com.voxelutopia.ultramarine.world.block;
 
+import com.voxelutopia.ultramarine.world.block.state.ModBlockStateProperties;
 import net.minecraft.core.Direction;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.block.Block;
@@ -14,7 +15,8 @@ import java.util.Arrays;
 public class OrientableSixFaceBlock extends SixFaceBlock{
 
     public static final DirectionProperty FACING = BlockStateProperties.FACING;
-    public static final DirectionProperty DIRECTION = BlockStateProperties.FACING;
+    public static final DirectionProperty DIRECTION = ModBlockStateProperties.ON_FACE_DIRECTION;
+
 
     public OrientableSixFaceBlock(BaseBlockProperty property, int sideThickness) {
         super(property, sideThickness);

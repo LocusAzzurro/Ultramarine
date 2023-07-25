@@ -105,6 +105,7 @@ public class BlockRegistry {
 
     public static final RegistryObject<Block> YELLOW_CARVED_PATTERN = BLOCKS.register("yellow_carved_pattern", () -> new SideFaceBlock(BaseBlockProperty.DYE));
     public static final RegistryObject<Block> CIRCULAR_YELLOW_CARVED_PATTERN = BLOCKS.register("circular_yellow_carved_pattern", () -> new SixFaceBlock(BaseBlockProperty.DYE));
+    public static final RegistryObject<Block> YELLOW_CARVED_FANGXIN_EDGE_PATTERN = BLOCKS.register("yellow_carved_fangxin_edge_pattern", () -> new OrientableSixFaceBlock(BaseBlockProperty.DYE));
 
 
     public static final RegistryObject<Block> GRAY_ROOF_TILES = BLOCKS.register("gray_roof_tiles", RoofTiles::new);

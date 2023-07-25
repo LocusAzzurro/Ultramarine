@@ -26,6 +26,7 @@ import java.util.ArrayList;
 import java.util.Map;
 import java.util.Objects;
 
+import static com.voxelutopia.ultramarine.world.block.state.ModBlockStateProperties.*;
 import static net.minecraft.world.level.block.state.properties.BlockStateProperties.*;
 
 @SuppressWarnings("unused")
@@ -163,6 +164,7 @@ public class ModBlockModelProvider extends BlockStateProvider {
         orientableWallSideBlock(BlockRegistry.RED_CURTAIN_CORNER.get());
         wallSideBlock(BlockRegistry.YELLOW_CARVED_PATTERN.get());
         sixSideBlock(BlockRegistry.CIRCULAR_YELLOW_CARVED_PATTERN.get());
+        orientableSixSideBlock(BlockRegistry.YELLOW_CARVED_FANGXIN_EDGE_PATTERN.get());
 
         horizontalBlock(BlockRegistry.WOODWORKING_WORKBENCH.get(), models().getExistingFile(blockLoc(BlockRegistry.WOODWORKING_WORKBENCH.get())));
         simpleBlock(BlockRegistry.JADE_ORE.get());
@@ -215,6 +217,36 @@ public class ModBlockModelProvider extends BlockStateProvider {
                     modLoc(BLOCK + name(block) + "_left") : modLoc(BLOCK + name(block) + "_right");
             return ConfiguredModel.builder().modelFile(models().getExistingFile(model))
                     .rotationY((int) blockState.getValue(HORIZONTAL_FACING).toYRot()).build();
+        });
+    }
+
+    private void orientableSixSideBlock(Block block){
+        getVariantBuilder(block).forAllStates(blockState -> {
+            ConfiguredModel.Builder<?> modelBuilder = ConfiguredModel.builder();
+            Direction faceDir = blockState.getValue(FACING);
+            Direction direction = blockState.getValue(ON_FACE_DIRECTION);
+            if (faceDir.getAxis().isVertical()){ //top or down
+                modelBuilder.modelFile(models().getExistingFile(modLoc(BLOCK + name(block) + "_top")));
+                if (faceDir == Direction.DOWN)
+                    modelBuilder.rotationY((int) direction.toYRot() + 180);
+                else if (faceDir == Direction.UP)
+                    modelBuilder.rotationX(180).rotationY((int) direction.toYRot());
+            }
+            else { //horizontal side
+                StringBuilder suffix = new StringBuilder();
+                suffix.append("_side");
+                if (direction.getAxis().isVertical())
+                    suffix.append("_").append(direction.getName());
+                else {
+                    //left = CCW right = CW
+                    if (direction == faceDir.getClockWise()) suffix.append("_left");
+                    else if (direction == faceDir.getCounterClockWise()) suffix.append("_right");
+                    else suffix.append("_up");
+                }
+                modelBuilder.modelFile(models().getExistingFile(modLoc(BLOCK + name(block) + suffix)));
+                modelBuilder.rotationY((int) faceDir.toYRot());
+            }
+            return modelBuilder.build();
         });
     }
 
