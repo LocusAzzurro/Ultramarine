@@ -52,6 +52,10 @@ public class ModClientRenderEventHandler {
             ItemBlockRenderTypes.setRenderLayer(BlockRegistry.YELLOW_CARVED_PATTERN.get(), RenderType.cutout());
             ItemBlockRenderTypes.setRenderLayer(BlockRegistry.CIRCULAR_YELLOW_CARVED_PATTERN.get(), RenderType.cutout());
             ItemBlockRenderTypes.setRenderLayer(BlockRegistry.YELLOW_CARVED_FANGXIN_EDGE_PATTERN.get(), RenderType.cutout());
+            ItemBlockRenderTypes.setRenderLayer(BlockRegistry.YELLOW_CARVED_FANGXIN_PATTERN.get(), RenderType.cutout());
+            ItemBlockRenderTypes.setRenderLayer(BlockRegistry.LARGE_YELLOW_CARVED_PATTERN.get(), RenderType.cutout());
+            ItemBlockRenderTypes.setRenderLayer(BlockRegistry.MEDIUM_YELLOW_CARVED_PATTERN.get(), RenderType.cutout());
+
             ItemBlockRenderTypes.setRenderLayer(BlockRegistry.RED_CURTAIN.get(), RenderType.cutout());
             ItemBlockRenderTypes.setRenderLayer(BlockRegistry.RED_CURTAIN_CORNER.get(), RenderType.cutout());
             ItemBlockRenderTypes.setRenderLayer(BlockRegistry.CARVED_WOODEN_DOOR.get(), RenderType.cutout());

@@ -165,6 +165,10 @@ public class ModBlockModelProvider extends BlockStateProvider {
         wallSideBlock(BlockRegistry.YELLOW_CARVED_PATTERN.get());
         sixSideBlock(BlockRegistry.CIRCULAR_YELLOW_CARVED_PATTERN.get());
         orientableSixSideBlock(BlockRegistry.YELLOW_CARVED_FANGXIN_EDGE_PATTERN.get());
+        orientableSixSideBlock(BlockRegistry.YELLOW_CARVED_FANGXIN_PATTERN.get());
+        sixSideBlock(BlockRegistry.LARGE_YELLOW_CARVED_PATTERN.get());
+        orientableSixSideBlock(BlockRegistry.MEDIUM_YELLOW_CARVED_PATTERN.get());
+
 
         horizontalBlock(BlockRegistry.WOODWORKING_WORKBENCH.get(), models().getExistingFile(blockLoc(BlockRegistry.WOODWORKING_WORKBENCH.get())));
         simpleBlock(BlockRegistry.JADE_ORE.get());

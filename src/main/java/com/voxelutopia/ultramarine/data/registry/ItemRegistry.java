@@ -104,7 +104,11 @@ public class ItemRegistry {
 
     public static final RegistryObject<Item> YELLOW_CARVED_PATTERN = fromBlock(BlockRegistry.YELLOW_CARVED_PATTERN, CreativeTabs.DECORATIVE_BLOCKS);
     public static final RegistryObject<Item> CIRCULAR_YELLOW_CARVED_PATTERN = fromBlock(BlockRegistry.CIRCULAR_YELLOW_CARVED_PATTERN, CreativeTabs.DECORATIVE_BLOCKS);
-    public static final RegistryObject<Item> YELLOW_CARVED_FANGXIN_PATTERN = fromBlock(BlockRegistry.YELLOW_CARVED_FANGXIN_EDGE_PATTERN, CreativeTabs.DECORATIVE_BLOCKS);
+    public static final RegistryObject<Item> YELLOW_CARVED_FANGXIN_EDGE_PATTERN = fromBlock(BlockRegistry.YELLOW_CARVED_FANGXIN_EDGE_PATTERN, CreativeTabs.DECORATIVE_BLOCKS);
+    public static final RegistryObject<Item> YELLOW_CARVED_FANGXIN_PATTERN = fromBlock(BlockRegistry.YELLOW_CARVED_FANGXIN_PATTERN, CreativeTabs.DECORATIVE_BLOCKS);
+    public static final RegistryObject<Item> LARGE_YELLOW_CARVED_PATTERN = fromBlock(BlockRegistry.LARGE_YELLOW_CARVED_PATTERN, CreativeTabs.DECORATIVE_BLOCKS);
+    public static final RegistryObject<Item> MEDIUM_YELLOW_CARVED_PATTERN = fromBlock(BlockRegistry.MEDIUM_YELLOW_CARVED_PATTERN, CreativeTabs.DECORATIVE_BLOCKS);
+
 
 
     public static final RegistryObject<Item> WOODEN_HAMMER = ITEMS.register("wooden_hammer", WoodenHammer::new);
