@@ -118,6 +118,8 @@ public class ItemRegistry {
     public static final RegistryObject<Item> LONG_YELLOW_CARVED_ZHAOTOU_PATTERN = fromBlock(BlockRegistry.LONG_YELLOW_CARVED_ZHAOTOU_PATTERN, CreativeTabs.DECORATIVE_BLOCKS);
     public static final RegistryObject<Item> FLAME_ARCH_WALL_PATTERN = fromBlock(BlockRegistry.FLAME_ARCH_WALL_PATTERN, CreativeTabs.DECORATIVE_BLOCKS);
     public static final RegistryObject<Item> GOLDEN_DRAGON_FANGXIN_PATTERN = fromBlock(BlockRegistry.GOLDEN_DRAGON_FANGXIN_PATTERN, CreativeTabs.DECORATIVE_BLOCKS);
+    public static final RegistryObject<Item> BLUE_FANGXIN_PATTERN = fromBlock(BlockRegistry.BLUE_FANGXIN_PATTERN, CreativeTabs.DECORATIVE_BLOCKS);
+    public static final RegistryObject<Item> BLUE_FANGXIN_PATTERN_EDGE = fromBlock(BlockRegistry.BLUE_FANGXIN_PATTERN_EDGE, CreativeTabs.DECORATIVE_BLOCKS);
 
     public static final RegistryObject<Item> GILDED_DARK_OAK_LONG_QUETI = fromBlock(BlockRegistry.GILDED_DARK_OAK_LONG_QUETI, CreativeTabs.DECORATIVE_BLOCKS);
     public static final RegistryObject<Item> GILDED_DARK_OAK_LONG_QUETI_EDGE = fromBlock(BlockRegistry.GILDED_DARK_OAK_LONG_QUETI_EDGE, CreativeTabs.DECORATIVE_BLOCKS);

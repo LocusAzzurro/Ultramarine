@@ -447,6 +447,12 @@ public class ModBlockModelProvider extends BlockStateProvider {
         directionalBlock(block, model);
     }
 
+    private void directionalBottomTop(Block block, ResourceLocation side, ResourceLocation bottom, ResourceLocation top){
+        String blockName = name(block);
+        var model = models().cubeBottomTop(blockName, side, bottom, top);
+        directionalBlock(block, model);
+    }
+
     private void axisSideEnd(Block block, ResourceLocation side, ResourceLocation end){
         axisBlock((RotatedPillarBlock) block, side, end);
     }
