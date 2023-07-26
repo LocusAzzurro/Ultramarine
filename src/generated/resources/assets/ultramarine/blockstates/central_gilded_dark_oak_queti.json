@@ -1,0 +1,18 @@
+{
+  "variants": {
+    "axis=x,waterlogged=false": {
+      "model": "ultramarine:block/central_gilded_dark_oak_queti",
+      "y": 90
+    },
+    "axis=z,waterlogged=false": {
+      "model": "ultramarine:block/central_gilded_dark_oak_queti"
+    },
+    "axis=x,waterlogged=true": {
+      "model": "ultramarine:block/central_gilded_dark_oak_queti",
+      "y": 90
+    },
+    "axis=z,waterlogged=true": {
+      "model": "ultramarine:block/central_gilded_dark_oak_queti"
+    }
+  }
+}

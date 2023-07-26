@@ -109,6 +109,11 @@ public class ItemRegistry {
     public static final RegistryObject<Item> LARGE_YELLOW_CARVED_PATTERN = fromBlock(BlockRegistry.LARGE_YELLOW_CARVED_PATTERN, CreativeTabs.DECORATIVE_BLOCKS);
     public static final RegistryObject<Item> MEDIUM_YELLOW_CARVED_PATTERN = fromBlock(BlockRegistry.MEDIUM_YELLOW_CARVED_PATTERN, CreativeTabs.DECORATIVE_BLOCKS);
 
+    public static final RegistryObject<Item> GILDED_DARK_OAK_LONG_QUETI = fromBlock(BlockRegistry.GILDED_DARK_OAK_LONG_QUETI, CreativeTabs.DECORATIVE_BLOCKS);
+    public static final RegistryObject<Item> GILDED_DARK_OAK_LONG_QUETI_EDGE = fromBlock(BlockRegistry.GILDED_DARK_OAK_LONG_QUETI_EDGE, CreativeTabs.DECORATIVE_BLOCKS);
+    public static final RegistryObject<Item> HORIZONTAL_GILDED_DARK_OAK_LONG_QUETI = fromBlock(BlockRegistry.HORIZONTAL_GILDED_DARK_OAK_LONG_QUETI, CreativeTabs.DECORATIVE_BLOCKS);
+    public static final RegistryObject<Item> CENTRAL_GILDED_DARK_OAK_LONG_QUETI = fromBlock(BlockRegistry.CENTRAL_GILDED_DARK_OAK_LONG_QUETI, CreativeTabs.DECORATIVE_BLOCKS);
+    public static final RegistryObject<Item> VERTICAL_GILDED_DARK_OAK_LONG_QUETI = fromBlock(BlockRegistry.VERTICAL_GILDED_DARK_OAK_LONG_QUETI, CreativeTabs.DECORATIVE_BLOCKS);
 
 
     public static final RegistryObject<Item> WOODEN_HAMMER = ITEMS.register("wooden_hammer", WoodenHammer::new);

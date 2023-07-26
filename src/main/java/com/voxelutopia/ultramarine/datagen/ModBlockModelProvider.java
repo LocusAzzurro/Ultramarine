@@ -95,6 +95,9 @@ public class ModBlockModelProvider extends BlockStateProvider {
         simpleBlock(BlockRegistry.RED_CARVED_WOOD.get());
         slabSideEnd(BlockRegistry.RED_CARVED_WOODEN_SLAB.get(), BlockRegistry.RED_CARVED_WOOD.get(), sideLoc(BlockRegistry.RED_CARVED_WOODEN_SLAB.get()), blockLoc(BlockRegistry.RED_CARVED_WOOD.get()));
         straightStairs(BlockRegistry.RED_CARVED_WOODEN_STAIRS.get());
+        horizontalBlockNoOffset(BlockRegistry.HORIZONTAL_GILDED_DARK_OAK_LONG_QUETI.get());
+        axisBlock(BlockRegistry.CENTRAL_GILDED_DARK_OAK_LONG_QUETI.get());
+        horizontalBlockNoOffset(BlockRegistry.VERTICAL_GILDED_DARK_OAK_LONG_QUETI.get());
 
         directionalSideEnd(BlockRegistry.GREEN_FANGXIN.get(), sideLoc(BlockRegistry.GREEN_FANGXIN.get()), endLoc(BlockRegistry.GREEN_FANGXIN.get()));
         directionalSideEnd(BlockRegistry.GREEN_FANGXIN_EDGE.get(), sideLoc(BlockRegistry.GREEN_FANGXIN_EDGE.get()), endLoc(BlockRegistry.GREEN_FANGXIN.get()));
@@ -164,30 +167,6 @@ public class ModBlockModelProvider extends BlockStateProvider {
                         else sixSideBlock(sixSideBlock);
                     }
                 });
-
-
-        /*
-        wallSideBlock(BlockRegistry.KNOCKER.get());
-        wallSideBlock(BlockRegistry.LONG_HANGING_PAINTING.get());
-        wallSideBlock(BlockRegistry.WHITE_LANDSCAPE_PAINTING.get());
-        wallSideBlock(BlockRegistry.HORIZONTAL_OLD_LANDSCAPE_PAINTING.get());
-        wallSideBlock(BlockRegistry.HORIZONTAL_CALLIGRAPHY.get());
-        wallSideBlock(BlockRegistry.HORIZONTAL_LANDSCAPE_PAINTING.get());
-        wallSideBlock(BlockRegistry.YELLOW_LONG_HANGING_PAINTING.get());
-        wallSideBlock(BlockRegistry.LARGE_BLUE_CURTAIN.get());
-        wallSideBlock(BlockRegistry.MEDIUM_BLUE_CURTAIN.get());
-        wallSideBlock(BlockRegistry.SMALL_BLUE_CURTAIN.get());
-        orientableWallSideBlock(BlockRegistry.RED_CURTAIN.get());
-        orientableWallSideBlock(BlockRegistry.RED_CURTAIN_CORNER.get());
-        wallSideBlock(BlockRegistry.YELLOW_CARVED_PATTERN.get());
-        sixSideBlock(BlockRegistry.CIRCULAR_YELLOW_CARVED_PATTERN.get());
-        orientableSixSideBlock(BlockRegistry.YELLOW_CARVED_FANGXIN_EDGE_PATTERN.get());
-        orientableSixSideBlock(BlockRegistry.YELLOW_CARVED_FANGXIN_PATTERN.get());
-        sixSideBlock(BlockRegistry.LARGE_YELLOW_CARVED_PATTERN.get());
-        orientableSixSideBlock(BlockRegistry.MEDIUM_YELLOW_CARVED_PATTERN.get());
-
-         */
-
 
         horizontalBlock(BlockRegistry.WOODWORKING_WORKBENCH.get(), models().getExistingFile(blockLoc(BlockRegistry.WOODWORKING_WORKBENCH.get())));
         simpleBlock(BlockRegistry.JADE_ORE.get());
@@ -304,6 +283,16 @@ public class ModBlockModelProvider extends BlockStateProvider {
             else
                 return ConfiguredModel.builder().modelFile(models().getExistingFile(modLoc(BLOCK + block.getRegistryName().getPath() + "_shifted")))
                         .rotationY((int) blockState.getValue(HORIZONTAL_FACING).toYRot()).build();
+        });
+    }
+
+    private void axisBlock(Block block) {
+        getVariantBuilder(block).forAllStates(blockState -> {
+            ConfiguredModel.Builder<?> builder;
+            builder = ConfiguredModel.builder().modelFile(models().getExistingFile(modLoc(BLOCK + block.getRegistryName().getPath())));
+            if (blockState.getValue(HORIZONTAL_AXIS) == Direction.Axis.X)
+                builder.rotationY(90);
+            return builder.build();
         });
     }
 
