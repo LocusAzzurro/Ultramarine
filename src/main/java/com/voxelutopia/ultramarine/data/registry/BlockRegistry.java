@@ -110,6 +110,8 @@ public class BlockRegistry {
     public static final RegistryObject<Block> MEDIUM_YELLOW_CARVED_PATTERN = BLOCKS.register("medium_yellow_carved_pattern", () -> new OrientableSixSideBlock(BaseBlockProperty.DYE));
     public static final RegistryObject<Block> YELLOW_CARVED_ZHAOTOU_PATTERN = BLOCKS.register("yellow_carved_zhaotou_pattern", () -> new OrientableSixSideBlock(BaseBlockProperty.DYE));
     public static final RegistryObject<Block> LONG_YELLOW_CARVED_ZHAOTOU_PATTERN = BLOCKS.register("long_yellow_carved_zhaotou_pattern", () -> new OrientableSixSideBlock(BaseBlockProperty.DYE));
+    public static final RegistryObject<Block> FLAME_ARCH_WALL_PATTERN = BLOCKS.register("flame_arch_wall_pattern", () -> new WallSideBlock(BaseBlockProperty.DYE));
+    public static final RegistryObject<Block> GOLDEN_DRAGON_FANGXIN_PATTERN = BLOCKS.register("golden_dragon_fangxin_pattern", () -> new WallSideBlock(BaseBlockProperty.DYE));
 
 
     public static final RegistryObject<Block> GILDED_DARK_OAK_LONG_QUETI = BLOCKS.register("gilded_dark_oak_long_queti", () -> new WallSideBlock(BaseBlockProperty.WOOD));
