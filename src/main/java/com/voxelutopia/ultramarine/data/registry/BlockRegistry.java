@@ -119,6 +119,11 @@ public class BlockRegistry {
     public static final RegistryObject<Block> HORIZONTAL_GILDED_DARK_OAK_LONG_QUETI = BLOCKS.register("horizontal_gilded_dark_oak_queti", () -> new SideQuetiBlock(BaseBlockProperty.WOOD));
     public static final RegistryObject<Block> CENTRAL_GILDED_DARK_OAK_LONG_QUETI = BLOCKS.register("central_gilded_dark_oak_queti", () -> new CentralQuetiBlock(BaseBlockProperty.WOOD));
     public static final RegistryObject<Block> VERTICAL_GILDED_DARK_OAK_LONG_QUETI = BLOCKS.register("vertical_gilded_dark_oak_queti", () -> new SideQuetiBlock(BaseBlockProperty.WOOD));
+    public static final RegistryObject<Block> WOODEN_QUETI = BLOCKS.register("wooden_queti", () -> new WallSideBlock(BaseBlockProperty.WOOD));
+    public static final RegistryObject<Block> TALL_WOODEN_QUETI_EDGE = BLOCKS.register("tall_wooden_queti_edge", () -> new OrientableWallSideBlock(BaseBlockProperty.WOOD));
+    public static final RegistryObject<Block> WOODEN_QUETI_EDGE = BLOCKS.register("wooden_queti_edge", () -> new OrientableWallSideBlock(BaseBlockProperty.WOOD));
+    public static final RegistryObject<Block> SHORT_GLAZED_QUETI = BLOCKS.register("short_glazed_queti", () -> new OrientableWallSideBlock(BaseBlockProperty.WOOD));
+    public static final RegistryObject<Block> LARGE_WOODEN_QUETI_EDGE = BLOCKS.register("large_wooden_queti_edge", () -> new OrientableWallSideBlock(BaseBlockProperty.WOOD));
 
     public static final RegistryObject<Block> BLUE_CARVED_TIGER_EYE_RAFTER = BLOCKS.register("blue_carved_tiger_eye_rafter", () -> new Rafter(BaseBlockProperty.WOOD));
     public static final RegistryObject<Block> BLUE_TIGER_EYE_RAFTER = BLOCKS.register("blue_tiger_eye_rafter", () -> new Rafter(BaseBlockProperty.WOOD));
