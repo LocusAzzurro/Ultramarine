@@ -1,0 +1,66 @@
+{
+	"credit": "Made with Blockbench",
+	"texture_size": [128, 128],
+	"render_type": "cutout",
+	"textures": {
+		"1": "ultramarine:block/long_yellow_carved_zhaotou_pattern",
+		"particle": "block/gold_block"
+	},
+	"elements": [
+		{
+			"from": [0, 15.9, -16],
+			"to": [16, 15.9, 16],
+			"rotation": {"angle": 0, "axis": "y", "origin": [8, 8, 8]},
+			"faces": {
+				"north": {"uv": [4.125, 0, 4.125, 2], "rotation": 270, "texture": "#1"},
+				"east": {"uv": [4, 4.25, 0, 4.25], "texture": "#1"},
+				"south": {"uv": [4.125, 2.125, 4.125, 4.125], "rotation": 90, "texture": "#1"},
+				"west": {"uv": [8.25, 0, 4.25, 0], "rotation": 180, "texture": "#1"},
+				"up": {"uv": [0, 0, 4, 2], "rotation": 90, "texture": "#1"},
+				"down": {"uv": [0, 2.125, 4, 4.125], "rotation": 90, "texture": "#1"}
+			}
+		}
+	],
+	"display": {
+		"thirdperson_righthand": {
+			"rotation": [75, 45, 0],
+			"translation": [-0.25, 0.25, 1],
+			"scale": [0.2, 0.2, 0.2]
+		},
+		"thirdperson_lefthand": {
+			"rotation": [75, 45, 0],
+			"translation": [-0.25, 0.25, 1],
+			"scale": [0.2, 0.2, 0.2]
+		},
+		"firstperson_righthand": {
+			"translation": [2, 0.25, 0],
+			"scale": [0.3, 0.3, 0.3]
+		},
+		"firstperson_lefthand": {
+			"translation": [7, 0.25, 0],
+			"scale": [0.3, 0.3, 0.3]
+		},
+		"ground": {
+			"translation": [0, 3, 2.75],
+			"scale": [0.25, 0.25, 0.25]
+		},
+		"gui": {
+			"translation": [-3.75, 0, 0],
+			"scale": [0.5, 0.5, 0.5]
+		},
+		"head": {
+			"translation": [0, 0, 1.5]
+		},
+		"fixed": {
+			"translation": [0, 0, 7.75]
+		}
+	},
+	"groups": [
+		{
+			"name": "group",
+			"origin": [8, 8, 8],
+			"color": 0,
+			"children": [0]
+		}
+	]
+}
