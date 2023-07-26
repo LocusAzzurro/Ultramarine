@@ -85,6 +85,13 @@ public class BlockRegistry {
     public static final RegistryObject<Block> RED_CARVED_WOOD = BLOCKS.register("red_carved_wood", () -> new BaseBlock(BaseBlockProperty.WOOD));
     public static final RegistryObject<Block> RED_CARVED_WOODEN_SLAB = BLOCKS.register("red_carved_wooden_slab", () -> new BaseSlab(BaseBlockProperty.WOOD));
     public static final RegistryObject<Block> RED_CARVED_WOODEN_STAIRS = BLOCKS.register("red_carved_wooden_stairs", () -> new StraightStairBlock(BaseBlockProperty.WOOD));
+    public static final RegistryObject<Block> ORANGE_AND_BLUE_CARVED_WOOD = BLOCKS.register("orange_and_blue_carved_wood", () -> new BaseBlock(BaseBlockProperty.WOOD));
+    public static final RegistryObject<Block> ORANGE_AND_GREEN_CARVED_WOOD = BLOCKS.register("orange_and_green_carved_wood", () -> new BaseBlock(BaseBlockProperty.WOOD));
+    public static final RegistryObject<Block> BLUE_CARVED_WOOD = BLOCKS.register("blue_carved_wood", () -> new BaseBlock(BaseBlockProperty.WOOD));
+    public static final RegistryObject<Block> BLUE_CARVED_WOODEN_SLAB = BLOCKS.register("blue_carved_wooden_slab", () -> new BaseSlab(BaseBlockProperty.WOOD));
+    public static final RegistryObject<Block> BLUE_CARVED_WOODEN_STAIRS = BLOCKS.register("blue_carved_wooden_stairs", () -> new StraightStairBlock(BaseBlockProperty.WOOD));
+    public static final RegistryObject<Block> BLUE_CARVED_WOODEN_BRACKET_STAIRS = BLOCKS.register("blue_carved_wooden_bracket_stairs", () -> new StraightStairBlock(BaseBlockProperty.WOOD));
+    public static final RegistryObject<Block> BLUE_CARVED_WOODEN_BRACKET = BLOCKS.register("blue_carved_wooden_bracket", () -> new Bracket(BaseBlockProperty.WOOD));
 
     public static final RegistryObject<Block> GREEN_FANGXIN = BLOCKS.register("green_fangxin", () -> new BaseDirectionalBlock(BaseBlockProperty.WOOD));
     public static final RegistryObject<Block> GREEN_FANGXIN_EDGE = BLOCKS.register("green_fangxin_edge", () -> new BaseDirectionalBlock(BaseBlockProperty.WOOD));
@@ -112,7 +119,6 @@ public class BlockRegistry {
     public static final RegistryObject<Block> LONG_YELLOW_CARVED_ZHAOTOU_PATTERN = BLOCKS.register("long_yellow_carved_zhaotou_pattern", () -> new OrientableSixSideBlock(BaseBlockProperty.DYE));
     public static final RegistryObject<Block> FLAME_ARCH_WALL_PATTERN = BLOCKS.register("flame_arch_wall_pattern", () -> new WallSideBlock(BaseBlockProperty.DYE));
     public static final RegistryObject<Block> GOLDEN_DRAGON_FANGXIN_PATTERN = BLOCKS.register("golden_dragon_fangxin_pattern", () -> new WallSideBlock(BaseBlockProperty.DYE));
-
 
     public static final RegistryObject<Block> GILDED_DARK_OAK_LONG_QUETI = BLOCKS.register("gilded_dark_oak_long_queti", () -> new WallSideBlock(BaseBlockProperty.WOOD));
     public static final RegistryObject<Block> GILDED_DARK_OAK_LONG_QUETI_EDGE = BLOCKS.register("gilded_dark_oak_long_queti_edge", () -> new OrientableWallSideBlock(BaseBlockProperty.WOOD));

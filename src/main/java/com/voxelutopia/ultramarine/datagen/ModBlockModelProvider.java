@@ -87,17 +87,19 @@ public class ModBlockModelProvider extends BlockStateProvider {
         simpleBlock(BlockRegistry.CHISELED_GILDED_DARK_OAK.get());
         slabSideEnd(BlockRegistry.GILDED_DARK_OAK_SLAB.get(), BlockRegistry.GILDED_DARK_OAK.get(), sideLoc(BlockRegistry.GILDED_DARK_OAK_SLAB.get()), blockLoc(BlockRegistry.GILDED_DARK_OAK.get()));
         straightStairs(BlockRegistry.GILDED_DARK_OAK_STAIRS.get());
-        //shiftedAxisBlock(BlockRegistry.GILDED_DARK_OAK_RAFTER.get());
-        //shiftedDirectionalBlock(BlockRegistry.GILDED_DARK_OAK_RAFTER_END.get());
         horizontalBlockNoOffset(BlockRegistry.GILDED_DARK_OAK_BEAM_HEAD.get());
         horizontalBlockNoOffset(BlockRegistry.GILDED_DARK_OAK_BRACKET.get());
         railingBlock(BlockRegistry.WHITE_MARBLE_RAILING.get());
         simpleBlock(BlockRegistry.RED_CARVED_WOOD.get());
-        slabSideEnd(BlockRegistry.RED_CARVED_WOODEN_SLAB.get(), BlockRegistry.RED_CARVED_WOOD.get(), sideLoc(BlockRegistry.RED_CARVED_WOODEN_SLAB.get()), blockLoc(BlockRegistry.RED_CARVED_WOOD.get()));
+        carvedWoodenSlab(BlockRegistry.RED_CARVED_WOODEN_SLAB.get(), BlockRegistry.RED_CARVED_WOOD.get());
         straightStairs(BlockRegistry.RED_CARVED_WOODEN_STAIRS.get());
-        horizontalBlockNoOffset(BlockRegistry.HORIZONTAL_GILDED_DARK_OAK_LONG_QUETI.get());
-        axisBlock(BlockRegistry.CENTRAL_GILDED_DARK_OAK_LONG_QUETI.get());
-        horizontalBlockNoOffset(BlockRegistry.VERTICAL_GILDED_DARK_OAK_LONG_QUETI.get());
+        simpleBlock(BlockRegistry.ORANGE_AND_BLUE_CARVED_WOOD.get());
+        simpleBlock(BlockRegistry.ORANGE_AND_GREEN_CARVED_WOOD.get());
+        simpleBlock(BlockRegistry.BLUE_CARVED_WOOD.get());
+        carvedWoodenSlab(BlockRegistry.BLUE_CARVED_WOODEN_SLAB.get(), BlockRegistry.BLUE_CARVED_WOOD.get());
+        straightStairs(BlockRegistry.BLUE_CARVED_WOODEN_STAIRS.get());
+        straightStairs(BlockRegistry.BLUE_CARVED_WOODEN_BRACKET_STAIRS.get());
+        horizontalBlockNoOffset(BlockRegistry.BLUE_CARVED_WOODEN_BRACKET.get());
 
         directionalSideEnd(BlockRegistry.GREEN_FANGXIN.get(), sideLoc(BlockRegistry.GREEN_FANGXIN.get()), endLoc(BlockRegistry.GREEN_FANGXIN.get()));
         directionalSideEnd(BlockRegistry.GREEN_FANGXIN_EDGE.get(), sideLoc(BlockRegistry.GREEN_FANGXIN_EDGE.get()), endLoc(BlockRegistry.GREEN_FANGXIN.get()));
@@ -143,6 +145,12 @@ public class ModBlockModelProvider extends BlockStateProvider {
         vegetableBasket((StackableHalfBlock) BlockRegistry.APPLE_BASKET.get());
         vegetableBasket((StackableHalfBlock) BlockRegistry.EGGPLANT_BASKET.get());
         vegetableBasket((StackableHalfBlock) BlockRegistry.PEAR_BASKET.get());
+
+        BlockRegistry.BLOCKS.getEntries().stream().filter(blockRegistryObject -> blockRegistryObject.get() instanceof SideQuetiBlock)
+                .forEach(queti -> horizontalBlockNoOffset(queti.get()));
+
+        BlockRegistry.BLOCKS.getEntries().stream().filter(blockRegistryObject -> blockRegistryObject.get() instanceof CentralQuetiBlock)
+                .forEach(queti -> axisBlock(queti.get()));
 
         BlockRegistry.BLOCKS.getEntries().stream().filter(blockRegistryObject -> blockRegistryObject.get() instanceof Rafter)
                 .forEach(rafter -> shiftedAxisBlock(rafter.get()));
@@ -445,6 +453,10 @@ public class ModBlockModelProvider extends BlockStateProvider {
 
     private void slabSideEnd(Block block, Block full, ResourceLocation side, ResourceLocation end){
         slabBlock((SlabBlock) block, full.getRegistryName(), side, end, end);
+    }
+
+    private void carvedWoodenSlab(Block slab, Block full){
+        slabBlock((SlabBlock) slab, full.getRegistryName(), sideLoc(slab), blockLoc(full), blockLoc(full));
     }
 
     private ResourceLocation modBlockLoc(Block block){
