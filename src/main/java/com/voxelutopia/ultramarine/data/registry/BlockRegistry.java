@@ -116,6 +116,11 @@ public class BlockRegistry {
     public static final RegistryObject<Block> BLUE_ZHAOTOU_EDGE = BLOCKS.register("blue_zhaotou_edge", () -> new BaseDirectionalBlock(BaseBlockProperty.WOOD));
     public static final RegistryObject<Block> GREEN_AND_BLUE_ZHAOTOU = BLOCKS.register("green_and_blue_zhaotou", () -> new BaseDirectionalBlock(BaseBlockProperty.WOOD));
     public static final RegistryObject<Block> BLUE_AND_GREEN_ZHAOTOU = BLOCKS.register("blue_and_green_zhaotou", () -> new BaseDirectionalBlock(BaseBlockProperty.WOOD));
+    public static final RegistryObject<Block> BLUE_AND_GREEN_DOUBLE_LAYER_ZHAOTOU = BLOCKS.register("blue_and_green_double_layer_zhaotou", () -> new BaseDirectionalBlock(BaseBlockProperty.WOOD));
+    public static final RegistryObject<Block> WHITE_AND_CYAN_FANGXIN = BLOCKS.register("white_and_cyan_fangxin", () -> new BaseAxisBlock(BaseBlockProperty.WOOD));
+    public static final RegistryObject<Block> WHITE_AND_BLUE_FANGXIN = BLOCKS.register("white_and_blue_fangxin", () -> new BaseAxisBlock(BaseBlockProperty.WOOD));
+    public static final RegistryObject<Block> WHITE_AND_CYAN_FANGXIN_EDGE = BLOCKS.register("white_and_cyan_fangxin_edge", () -> new BaseDirectionalBlock(BaseBlockProperty.WOOD));
+    public static final RegistryObject<Block> WHITE_AND_BLUE_FANGXIN_EDGE = BLOCKS.register("white_and_blue_fangxin_edge", () -> new BaseDirectionalBlock(BaseBlockProperty.WOOD));
 
 
     public static final RegistryObject<Block> YELLOW_CARVED_PATTERN = BLOCKS.register("yellow_carved_pattern", () -> new WallSideBlock(BaseBlockProperty.DYE));
