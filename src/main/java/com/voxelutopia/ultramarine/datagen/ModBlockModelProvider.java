@@ -100,6 +100,8 @@ public class ModBlockModelProvider extends BlockStateProvider {
         straightStairs(BlockRegistry.BLUE_CARVED_WOODEN_STAIRS.get());
         straightStairs(BlockRegistry.BLUE_CARVED_WOODEN_BRACKET_STAIRS.get());
         horizontalBlockNoOffset(BlockRegistry.BLUE_CARVED_WOODEN_BRACKET.get());
+        simpleBlock(BlockRegistry.GREEN_AND_BLUE_CARVED_WOOD.get());
+
 
         directionalSideEnd(BlockRegistry.GREEN_FANGXIN.get(), sideLoc(BlockRegistry.GREEN_FANGXIN.get()), endLoc(BlockRegistry.GREEN_FANGXIN.get()));
         directionalSideEnd(BlockRegistry.GREEN_FANGXIN_EDGE.get(), sideLoc(BlockRegistry.GREEN_FANGXIN_EDGE.get()), endLoc(BlockRegistry.GREEN_FANGXIN.get()));
@@ -116,6 +118,10 @@ public class ModBlockModelProvider extends BlockStateProvider {
         axisSideEnd(BlockRegistry.BLUE_AND_WHITE_FANGXIN.get(), sideLoc(BlockRegistry.BLUE_AND_WHITE_FANGXIN.get()), endLoc(BlockRegistry.CYAN_AND_BLUE_FANGXIN_EDGE.get()));
         axisSideEnd(BlockRegistry.GREEN_AND_DARK_BLUE_FANGXIN.get(), sideLoc(BlockRegistry.GREEN_AND_DARK_BLUE_FANGXIN.get()), endLoc(BlockRegistry.CYAN_AND_BLUE_FANGXIN_EDGE.get()));
         axisSideEnd(BlockRegistry.DARK_BLUE_FANGXIN.get(), sideLoc(BlockRegistry.DARK_BLUE_FANGXIN.get()), mcLoc(BLOCK + "blue_wool"));
+        directionalSideBottomTop(BlockRegistry.BLUE_ZHAOTOU_EDGE.get(), sideLoc(BlockRegistry.BLUE_ZHAOTOU_EDGE.get()), mcLoc(BLOCK + "green_wool"), mcLoc(BLOCK + "blue_wool"));
+        directionalSideBottomTop(BlockRegistry.GREEN_AND_BLUE_ZHAOTOU.get(), sideLoc(BlockRegistry.GREEN_AND_BLUE_ZHAOTOU.get()), mcLoc(BLOCK + "green_wool"), mcLoc(BLOCK + "blue_wool"));
+        directionalSideBottomTop(BlockRegistry.BLUE_AND_GREEN_ZHAOTOU.get(), sideLoc(BlockRegistry.BLUE_AND_GREEN_ZHAOTOU.get()), mcLoc(BLOCK + "blue_wool"), mcLoc(BLOCK + "green_wool"));
+
 
 
         //<editor-fold desc="Roof Tiles">

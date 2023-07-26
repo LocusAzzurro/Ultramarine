@@ -90,6 +90,7 @@ public class ItemRegistry {
     public static final RegistryObject<Item> BLUE_CARVED_WOODEN_STAIRS = fromBlock(BlockRegistry.BLUE_CARVED_WOODEN_STAIRS, CreativeTabs.DECORATIVE_BLOCKS);
     public static final RegistryObject<Item> BLUE_CARVED_WOODEN_BRACKET_STAIRS = fromBlock(BlockRegistry.BLUE_CARVED_WOODEN_BRACKET_STAIRS, CreativeTabs.DECORATIVE_BLOCKS);
     public static final RegistryObject<Item> BLUE_CARVED_WOODEN_BRACKET = fromBlock(BlockRegistry.BLUE_CARVED_WOODEN_BRACKET, CreativeTabs.DECORATIVE_BLOCKS);
+    public static final RegistryObject<Item> GREEN_AND_BLUE_CARVED_WOOD = fromBlock(BlockRegistry.GREEN_AND_BLUE_CARVED_WOOD, CreativeTabs.DECORATIVE_BLOCKS);
 
     public static final RegistryObject<Item> GREEN_FANGXIN = fromBlock(BlockRegistry.GREEN_FANGXIN, CreativeTabs.DECORATIVE_BLOCKS);
     public static final RegistryObject<Item> GREEN_FANGXIN_EDGE = fromBlock(BlockRegistry.GREEN_FANGXIN_EDGE, CreativeTabs.DECORATIVE_BLOCKS);
@@ -120,6 +121,10 @@ public class ItemRegistry {
     public static final RegistryObject<Item> GOLDEN_DRAGON_FANGXIN_PATTERN = fromBlock(BlockRegistry.GOLDEN_DRAGON_FANGXIN_PATTERN, CreativeTabs.DECORATIVE_BLOCKS);
     public static final RegistryObject<Item> BLUE_FANGXIN_PATTERN = fromBlock(BlockRegistry.BLUE_FANGXIN_PATTERN, CreativeTabs.DECORATIVE_BLOCKS);
     public static final RegistryObject<Item> BLUE_FANGXIN_PATTERN_EDGE = fromBlock(BlockRegistry.BLUE_FANGXIN_PATTERN_EDGE, CreativeTabs.DECORATIVE_BLOCKS);
+    public static final RegistryObject<Item> BLUE_ZHAOTOU_EDGE = fromBlock(BlockRegistry.BLUE_ZHAOTOU_EDGE, CreativeTabs.DECORATIVE_BLOCKS);
+    public static final RegistryObject<Item> GREEN_AND_BLUE_ZHAOTOU = fromBlock(BlockRegistry.GREEN_AND_BLUE_ZHAOTOU, CreativeTabs.DECORATIVE_BLOCKS);
+    public static final RegistryObject<Item> BLUE_AND_GREEN_ZHAOTOU = fromBlock(BlockRegistry.BLUE_AND_GREEN_ZHAOTOU, CreativeTabs.DECORATIVE_BLOCKS);
+
 
     public static final RegistryObject<Item> GILDED_DARK_OAK_LONG_QUETI = fromBlock(BlockRegistry.GILDED_DARK_OAK_LONG_QUETI, CreativeTabs.DECORATIVE_BLOCKS);
     public static final RegistryObject<Item> GILDED_DARK_OAK_LONG_QUETI_EDGE = fromBlock(BlockRegistry.GILDED_DARK_OAK_LONG_QUETI_EDGE, CreativeTabs.DECORATIVE_BLOCKS);
