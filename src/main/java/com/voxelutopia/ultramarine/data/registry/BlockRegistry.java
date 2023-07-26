@@ -101,6 +101,10 @@ public class BlockRegistry {
     public static final RegistryObject<Block> CYAN_CARVED_WOODEN_SLAB = BLOCKS.register("cyan_carved_wooden_slab", () -> new BaseSlab(BaseBlockProperty.WOOD));
     public static final RegistryObject<Block> CYAN_CARVED_WOODEN_STAIRS = BLOCKS.register("cyan_carved_wooden_stairs", () -> new StraightStairBlock(BaseBlockProperty.WOOD));
     public static final RegistryObject<Block> CYAN_CARVED_WOODEN_BRACKET = BLOCKS.register("cyan_carved_wooden_bracket", () -> new Bracket(BaseBlockProperty.WOOD));
+    public static final RegistryObject<Block> DARK_GREEN_AND_DARK_BLUE_CARVED_WOOD = BLOCKS.register("dark_green_and_dark_blue_carved_wood", () -> new BaseBlock(BaseBlockProperty.WOOD));
+    public static final RegistryObject<Block> DARK_BLUE_AND_DARK_GREEN_CARVED_WOOD = BLOCKS.register("dark_blue_and_dark_green_carved_wood", () -> new BaseBlock(BaseBlockProperty.WOOD));
+    public static final RegistryObject<Block> BLACK_WHITE_GREEN_CARVED_WOOD = BLOCKS.register("black_white_green_carved_wood", () -> new BaseBlock(BaseBlockProperty.WOOD));
+    public static final RegistryObject<Block> BLACK_WHITE_BLUE_CARVED_WOOD = BLOCKS.register("black_white_blue_carved_wood", () -> new BaseBlock(BaseBlockProperty.WOOD));
 
 
     public static final RegistryObject<Block> GREEN_FANGXIN = BLOCKS.register("green_fangxin", () -> new BaseDirectionalBlock(BaseBlockProperty.WOOD));

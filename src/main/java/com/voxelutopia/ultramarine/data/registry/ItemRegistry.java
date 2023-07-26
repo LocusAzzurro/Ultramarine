@@ -99,6 +99,10 @@ public class ItemRegistry {
     public static final RegistryObject<Item> CYAN_CARVED_WOODEN_SLAB = fromBlock(BlockRegistry.CYAN_CARVED_WOODEN_SLAB, CreativeTabs.DECORATIVE_BLOCKS);
     public static final RegistryObject<Item> CYAN_CARVED_WOODEN_STAIRS = fromBlock(BlockRegistry.CYAN_CARVED_WOODEN_STAIRS, CreativeTabs.DECORATIVE_BLOCKS);
     public static final RegistryObject<Item> CYAN_CARVED_WOODEN_BRACKET = fromBlock(BlockRegistry.CYAN_CARVED_WOODEN_BRACKET, CreativeTabs.DECORATIVE_BLOCKS);
+    public static final RegistryObject<Item> DARK_GREEN_AND_DARK_BLUE_CARVED_WOOD = fromBlock(BlockRegistry.DARK_GREEN_AND_DARK_BLUE_CARVED_WOOD, CreativeTabs.DECORATIVE_BLOCKS);
+    public static final RegistryObject<Item> DARK_BLUE_AND_DARK_GREEN_CARVED_WOOD = fromBlock(BlockRegistry.DARK_BLUE_AND_DARK_GREEN_CARVED_WOOD, CreativeTabs.DECORATIVE_BLOCKS);
+    public static final RegistryObject<Item> BLACK_WHITE_GREEN_CARVED_WOOD = fromBlock(BlockRegistry.BLACK_WHITE_GREEN_CARVED_WOOD, CreativeTabs.DECORATIVE_BLOCKS);
+    public static final RegistryObject<Item> BLACK_WHITE_BLUE_CARVED_WOOD = fromBlock(BlockRegistry.BLACK_WHITE_BLUE_CARVED_WOOD, CreativeTabs.DECORATIVE_BLOCKS);
 
 
     public static final RegistryObject<Item> GREEN_FANGXIN = fromBlock(BlockRegistry.GREEN_FANGXIN, CreativeTabs.DECORATIVE_BLOCKS);

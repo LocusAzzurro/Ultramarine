@@ -109,6 +109,10 @@ public class ModBlockModelProvider extends BlockStateProvider {
         carvedWoodenSlab(BlockRegistry.CYAN_CARVED_WOODEN_SLAB.get(), BlockRegistry.CYAN_CARVED_WOOD.get());
         straightStairs(BlockRegistry.CYAN_CARVED_WOODEN_STAIRS.get());
         horizontalBlockNoOffset(BlockRegistry.CYAN_CARVED_WOODEN_BRACKET.get());
+        simpleBlock(BlockRegistry.DARK_GREEN_AND_DARK_BLUE_CARVED_WOOD.get());
+        simpleBlock(BlockRegistry.DARK_BLUE_AND_DARK_GREEN_CARVED_WOOD.get());
+        simpleBlock(BlockRegistry.BLACK_WHITE_GREEN_CARVED_WOOD.get());
+        simpleBlock(BlockRegistry.BLACK_WHITE_BLUE_CARVED_WOOD.get());
 
 
         directionalSideEnd(BlockRegistry.GREEN_FANGXIN.get(), sideLoc(BlockRegistry.GREEN_FANGXIN.get()), endLoc(BlockRegistry.GREEN_FANGXIN.get()));
