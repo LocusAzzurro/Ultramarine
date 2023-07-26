@@ -97,6 +97,11 @@ public class BlockRegistry {
     public static final RegistryObject<Block> GREEN_CARVED_WOODEN_SLAB = BLOCKS.register("green_carved_wooden_slab", () -> new BaseSlab(BaseBlockProperty.WOOD));
     public static final RegistryObject<Block> GREEN_CARVED_WOODEN_STAIRS = BLOCKS.register("green_carved_wooden_stairs", () -> new StraightStairBlock(BaseBlockProperty.WOOD));
     public static final RegistryObject<Block> GREEN_CARVED_WOODEN_BRACKET = BLOCKS.register("green_carved_wooden_bracket", () -> new Bracket(BaseBlockProperty.WOOD));
+    public static final RegistryObject<Block> CYAN_CARVED_WOOD = BLOCKS.register("cyan_carved_wood", () -> new BaseBlock(BaseBlockProperty.WOOD));
+    public static final RegistryObject<Block> CYAN_CARVED_WOODEN_SLAB = BLOCKS.register("cyan_carved_wooden_slab", () -> new BaseSlab(BaseBlockProperty.WOOD));
+    public static final RegistryObject<Block> CYAN_CARVED_WOODEN_STAIRS = BLOCKS.register("cyan_carved_wooden_stairs", () -> new StraightStairBlock(BaseBlockProperty.WOOD));
+    public static final RegistryObject<Block> CYAN_CARVED_WOODEN_BRACKET = BLOCKS.register("cyan_carved_wooden_bracket", () -> new Bracket(BaseBlockProperty.WOOD));
+
 
     public static final RegistryObject<Block> GREEN_FANGXIN = BLOCKS.register("green_fangxin", () -> new BaseDirectionalBlock(BaseBlockProperty.WOOD));
     public static final RegistryObject<Block> GREEN_FANGXIN_EDGE = BLOCKS.register("green_fangxin_edge", () -> new BaseDirectionalBlock(BaseBlockProperty.WOOD));
