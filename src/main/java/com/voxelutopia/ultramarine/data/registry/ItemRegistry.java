@@ -115,6 +115,10 @@ public class ItemRegistry {
     public static final RegistryObject<Item> CENTRAL_GILDED_DARK_OAK_LONG_QUETI = fromBlock(BlockRegistry.CENTRAL_GILDED_DARK_OAK_LONG_QUETI, CreativeTabs.DECORATIVE_BLOCKS);
     public static final RegistryObject<Item> VERTICAL_GILDED_DARK_OAK_LONG_QUETI = fromBlock(BlockRegistry.VERTICAL_GILDED_DARK_OAK_LONG_QUETI, CreativeTabs.DECORATIVE_BLOCKS);
 
+    public static final RegistryObject<Item> BLUE_CARVED_TIGER_EYE_RAFTER = fromBlock(BlockRegistry.BLUE_CARVED_TIGER_EYE_RAFTER, CreativeTabs.DECORATIVE_BLOCKS);
+    public static final RegistryObject<Item> BLUE_TIGER_EYE_RAFTER = fromBlock(BlockRegistry.BLUE_TIGER_EYE_RAFTER, CreativeTabs.DECORATIVE_BLOCKS);
+    public static final RegistryObject<Item> GREEN_CARVED_TIGER_EYE_RAFTER = fromBlock(BlockRegistry.GREEN_CARVED_TIGER_EYE_RAFTER, CreativeTabs.DECORATIVE_BLOCKS);
+
 
     public static final RegistryObject<Item> WOODEN_HAMMER = ITEMS.register("wooden_hammer", WoodenHammer::new);
     public static final RegistryObject<Item> GRAY_ROOF_TILES = fromBlock(BlockRegistry.GRAY_ROOF_TILES, CreativeTabs.BUILDING_BLOCKS);

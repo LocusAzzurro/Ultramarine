@@ -115,6 +115,9 @@ public class BlockRegistry {
     public static final RegistryObject<Block> CENTRAL_GILDED_DARK_OAK_LONG_QUETI = BLOCKS.register("central_gilded_dark_oak_queti", () -> new CentralQuetiBlock(BaseBlockProperty.WOOD));
     public static final RegistryObject<Block> VERTICAL_GILDED_DARK_OAK_LONG_QUETI = BLOCKS.register("vertical_gilded_dark_oak_queti", () -> new SideQuetiBlock(BaseBlockProperty.WOOD));
 
+    public static final RegistryObject<Block> BLUE_CARVED_TIGER_EYE_RAFTER = BLOCKS.register("blue_carved_tiger_eye_rafter", () -> new Rafter(BaseBlockProperty.WOOD));
+    public static final RegistryObject<Block> BLUE_TIGER_EYE_RAFTER = BLOCKS.register("blue_tiger_eye_rafter", () -> new Rafter(BaseBlockProperty.WOOD));
+    public static final RegistryObject<Block> GREEN_CARVED_TIGER_EYE_RAFTER = BLOCKS.register("green_tiger_eye_rafter", () -> new Rafter(BaseBlockProperty.WOOD));
 
     public static final RegistryObject<Block> GRAY_ROOF_TILES = BLOCKS.register("gray_roof_tiles", RoofTiles::new);
     public static final RegistryObject<Block> GRAY_ROOF_TILE_STAIRS = BLOCKS.register("gray_roof_tile_stairs", RoofTiles::new);

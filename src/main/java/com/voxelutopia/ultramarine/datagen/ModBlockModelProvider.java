@@ -87,8 +87,8 @@ public class ModBlockModelProvider extends BlockStateProvider {
         simpleBlock(BlockRegistry.CHISELED_GILDED_DARK_OAK.get());
         slabSideEnd(BlockRegistry.GILDED_DARK_OAK_SLAB.get(), BlockRegistry.GILDED_DARK_OAK.get(), sideLoc(BlockRegistry.GILDED_DARK_OAK_SLAB.get()), blockLoc(BlockRegistry.GILDED_DARK_OAK.get()));
         straightStairs(BlockRegistry.GILDED_DARK_OAK_STAIRS.get());
-        shiftedAxisBlock(BlockRegistry.GILDED_DARK_OAK_RAFTER.get());
-        shiftedDirectionalBlock(BlockRegistry.GILDED_DARK_OAK_RAFTER_END.get());
+        //shiftedAxisBlock(BlockRegistry.GILDED_DARK_OAK_RAFTER.get());
+        //shiftedDirectionalBlock(BlockRegistry.GILDED_DARK_OAK_RAFTER_END.get());
         horizontalBlockNoOffset(BlockRegistry.GILDED_DARK_OAK_BEAM_HEAD.get());
         horizontalBlockNoOffset(BlockRegistry.GILDED_DARK_OAK_BRACKET.get());
         railingBlock(BlockRegistry.WHITE_MARBLE_RAILING.get());
@@ -143,6 +143,12 @@ public class ModBlockModelProvider extends BlockStateProvider {
         vegetableBasket((StackableHalfBlock) BlockRegistry.APPLE_BASKET.get());
         vegetableBasket((StackableHalfBlock) BlockRegistry.EGGPLANT_BASKET.get());
         vegetableBasket((StackableHalfBlock) BlockRegistry.PEAR_BASKET.get());
+
+        BlockRegistry.BLOCKS.getEntries().stream().filter(blockRegistryObject -> blockRegistryObject.get() instanceof Rafter)
+                .forEach(rafter -> shiftedAxisBlock(rafter.get()));
+
+        BlockRegistry.BLOCKS.getEntries().stream().filter(blockRegistryObject -> blockRegistryObject.get() instanceof RafterEnd)
+                .forEach(rafterEnd -> shiftedDirectionalBlock(rafterEnd.get()));
 
         BlockRegistry.BLOCKS.getEntries().stream().filter(blockRegistryObject -> blockRegistryObject.get() instanceof DecorativeBlock)
                 .forEach(decorativeBlock -> {

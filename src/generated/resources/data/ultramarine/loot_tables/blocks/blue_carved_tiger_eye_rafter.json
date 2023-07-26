@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "name": "blue_carved_tiger_eye_rafter",
+      "rolls": 1.0,
+      "bonus_rolls": 0.0,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "ultramarine:blue_carved_tiger_eye_rafter"
+        }
+      ]
+    }
+  ]
+}
