@@ -175,6 +175,8 @@ public class ItemRegistry {
     public static final RegistryObject<Item> LARGE_GREEN_SU_STYLE_CAIHUA = fromBlock(BlockRegistry.LARGE_GREEN_SU_STYLE_CAIHUA, CreativeTabs.DECORATIVE_BLOCKS);
     public static final RegistryObject<Item> LARGE_GRAY_SU_STYLE_CAIHUA = fromBlock(BlockRegistry.LARGE_GRAY_SU_STYLE_CAIHUA, CreativeTabs.DECORATIVE_BLOCKS);
     public static final RegistryObject<Item> CARVED_ZHAOTOU_PATTERN = fromBlock(BlockRegistry.CARVED_ZHAOTOU_PATTERN, CreativeTabs.DECORATIVE_BLOCKS);
+    public static final RegistryObject<Item> GREEN_FANGXIN_PATTERN = fromBlock(BlockRegistry.GREEN_FANGXIN_PATTERN, CreativeTabs.DECORATIVE_BLOCKS);
+    public static final RegistryObject<Item> GREEN_FANGXIN_PATTERN_EDGE = fromBlock(BlockRegistry.GREEN_FANGXIN_PATTERN_EDGE, CreativeTabs.DECORATIVE_BLOCKS);
 
 
 
