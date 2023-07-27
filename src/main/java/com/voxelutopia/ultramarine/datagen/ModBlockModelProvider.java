@@ -129,7 +129,7 @@ public class ModBlockModelProvider extends BlockStateProvider {
 
         directionalSideEnd(BlockRegistry.GREEN_FANGXIN.get(), sideLoc(BlockRegistry.GREEN_FANGXIN.get()), endLoc(BlockRegistry.GREEN_FANGXIN.get()));
         directionalSideEnd(BlockRegistry.GREEN_FANGXIN_EDGE.get(), sideLoc(BlockRegistry.GREEN_FANGXIN_EDGE.get()), endLoc(BlockRegistry.GREEN_FANGXIN.get()));
-        chiralWSMirror(BlockRegistry.BLUE_FANGXIN_EDGE.get()); //north face gold left = left / gold top & bottom
+        chiralWSMirror(BlockRegistry.BLUE_FANGXIN_EDGE.get(), mcLoc(BLOCK + "blue_concrete_powder")); //north face gold left = left / gold top & bottom
         directionalSideEnd(BlockRegistry.CYAN_AND_BLUE_FANGXIN_EDGE.get(), sideLoc(BlockRegistry.CYAN_AND_BLUE_FANGXIN_EDGE.get()), endLoc(BlockRegistry.CYAN_AND_BLUE_FANGXIN_EDGE.get()));
         directionalSideEnd(BlockRegistry.CYAN_AND_BLUE_FANGXIN_EDGE_VARIANT.get(), sideLoc(BlockRegistry.CYAN_AND_BLUE_FANGXIN_EDGE_VARIANT.get()), endLoc(BlockRegistry.CYAN_AND_BLUE_FANGXIN_EDGE.get()));
         directionalSideEnd(BlockRegistry.CYAN_BLUE_WHITE_FANGXIN_EDGE.get(), sideLoc(BlockRegistry.CYAN_BLUE_WHITE_FANGXIN_EDGE.get()), endLoc(BlockRegistry.CYAN_AND_BLUE_FANGXIN_EDGE.get()));
@@ -155,7 +155,10 @@ public class ModBlockModelProvider extends BlockStateProvider {
         directionalSideEnd(BlockRegistry.RED_CYAN_BLUE_FANGXIN_EDGE.get(), sideLoc(BlockRegistry.RED_CYAN_BLUE_FANGXIN_EDGE.get()), mcLoc(BLOCK + "blue_concrete_powder"));
         directionalSideEnd(BlockRegistry.BLUE_CYAN_BLUE_FANGXIN_EDGE.get(), sideLoc(BlockRegistry.BLUE_CYAN_BLUE_FANGXIN_EDGE.get()), mcLoc(BLOCK + "blue_concrete_powder"));
         directionalSideEnd(BlockRegistry.BLUE_CYAN_RED_FANGXIN_EDGE.get(), sideLoc(BlockRegistry.BLUE_CYAN_RED_FANGXIN_EDGE.get()), mcLoc(BLOCK + "blue_concrete_powder"));
-
+        chiralWSMirror(BlockRegistry.BLUE_CYAN_RED_FANGXIN.get(), mcLoc(BLOCK + "blue_concrete_powder"));
+        chiralWSMirror(BlockRegistry.RED_CYAN_BLUE_FANGXIN.get(), mcLoc(BLOCK + "blue_concrete_powder"));
+        chiralWSMirror(BlockRegistry.CYAN_BLUE_CYAN_FANGXIN.get(), mcLoc(BLOCK + "blue_concrete_powder"));
+        chiralWSMirror(BlockRegistry.RED_BLUE_RED_FANGXIN.get(), mcLoc(BLOCK + "blue_concrete_powder"));
 
         //<editor-fold desc="Roof Tiles">
         shiftedTiles(BlockRegistry.GRAY_ROOF_TILES.get(), "gray", RoofTiles.RoofTileType.NORMAL);
@@ -446,16 +449,16 @@ public class ModBlockModelProvider extends BlockStateProvider {
         simpleBlock(block, model);
     }
 
-    private void chiralWSMirror(Block block){
+    private void chiralWSMirror(Block block, ResourceLocation end){
         directionalBlock(block, state -> {
             String path = name(block);
             if (state.hasProperty(ModBlockStateProperties.CHIRAL_BLOCK_TYPE)){
                 ChiralBlockType chiralBlockType = state.getValue(ModBlockStateProperties.CHIRAL_BLOCK_TYPE);
                 if (chiralBlockType == ChiralBlockType.LEFT || chiralBlockType == ChiralBlockType.TOP){
-                    return models().cube(path, endLoc(block), endLoc(block), sideLoc(block), sideMirroredLoc(block), sideLoc(block), sideMirroredLoc(block))
+                    return models().cube(path, end, end, sideLoc(block), sideMirroredLoc(block), sideLoc(block), sideMirroredLoc(block))
                             .texture("particle", sideLoc(block));
                 }
-                else return models().cube(path + "_mirrored", endLoc(block), endLoc(block), sideMirroredLoc(block), sideLoc(block), sideMirroredLoc(block), sideLoc(block))
+                else return models().cube(path + "_mirrored", end, end, sideMirroredLoc(block), sideLoc(block), sideMirroredLoc(block), sideLoc(block))
                         .texture("particle", sideLoc(block));
             }
             return models().getExistingFile(modLoc(BLOCK + path));

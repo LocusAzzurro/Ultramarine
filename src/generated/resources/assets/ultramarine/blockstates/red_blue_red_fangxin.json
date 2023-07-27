@@ -1,0 +1,108 @@
+{
+  "variants": {
+    "facing=down,type=left": {
+      "model": "ultramarine:block/red_blue_red_fangxin",
+      "x": 180
+    },
+    "facing=up,type=left": {
+      "model": "ultramarine:block/red_blue_red_fangxin"
+    },
+    "facing=north,type=left": {
+      "model": "ultramarine:block/red_blue_red_fangxin",
+      "x": 90
+    },
+    "facing=south,type=left": {
+      "model": "ultramarine:block/red_blue_red_fangxin",
+      "x": 90,
+      "y": 180
+    },
+    "facing=west,type=left": {
+      "model": "ultramarine:block/red_blue_red_fangxin",
+      "x": 90,
+      "y": 270
+    },
+    "facing=east,type=left": {
+      "model": "ultramarine:block/red_blue_red_fangxin",
+      "x": 90,
+      "y": 90
+    },
+    "facing=down,type=right": {
+      "model": "ultramarine:block/red_blue_red_fangxin_mirrored",
+      "x": 180
+    },
+    "facing=up,type=right": {
+      "model": "ultramarine:block/red_blue_red_fangxin_mirrored"
+    },
+    "facing=north,type=right": {
+      "model": "ultramarine:block/red_blue_red_fangxin_mirrored",
+      "x": 90
+    },
+    "facing=south,type=right": {
+      "model": "ultramarine:block/red_blue_red_fangxin_mirrored",
+      "x": 90,
+      "y": 180
+    },
+    "facing=west,type=right": {
+      "model": "ultramarine:block/red_blue_red_fangxin_mirrored",
+      "x": 90,
+      "y": 270
+    },
+    "facing=east,type=right": {
+      "model": "ultramarine:block/red_blue_red_fangxin_mirrored",
+      "x": 90,
+      "y": 90
+    },
+    "facing=down,type=top": {
+      "model": "ultramarine:block/red_blue_red_fangxin",
+      "x": 180
+    },
+    "facing=up,type=top": {
+      "model": "ultramarine:block/red_blue_red_fangxin"
+    },
+    "facing=north,type=top": {
+      "model": "ultramarine:block/red_blue_red_fangxin",
+      "x": 90
+    },
+    "facing=south,type=top": {
+      "model": "ultramarine:block/red_blue_red_fangxin",
+      "x": 90,
+      "y": 180
+    },
+    "facing=west,type=top": {
+      "model": "ultramarine:block/red_blue_red_fangxin",
+      "x": 90,
+      "y": 270
+    },
+    "facing=east,type=top": {
+      "model": "ultramarine:block/red_blue_red_fangxin",
+      "x": 90,
+      "y": 90
+    },
+    "facing=down,type=bottom": {
+      "model": "ultramarine:block/red_blue_red_fangxin_mirrored",
+      "x": 180
+    },
+    "facing=up,type=bottom": {
+      "model": "ultramarine:block/red_blue_red_fangxin_mirrored"
+    },
+    "facing=north,type=bottom": {
+      "model": "ultramarine:block/red_blue_red_fangxin_mirrored",
+      "x": 90
+    },
+    "facing=south,type=bottom": {
+      "model": "ultramarine:block/red_blue_red_fangxin_mirrored",
+      "x": 90,
+      "y": 180
+    },
+    "facing=west,type=bottom": {
+      "model": "ultramarine:block/red_blue_red_fangxin_mirrored",
+      "x": 90,
+      "y": 270
+    },
+    "facing=east,type=bottom": {
+      "model": "ultramarine:block/red_blue_red_fangxin_mirrored",
+      "x": 90,
+      "y": 90
+    }
+  }
+}
