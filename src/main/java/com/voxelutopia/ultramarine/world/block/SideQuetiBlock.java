@@ -23,19 +23,34 @@ public class SideQuetiBlock extends BaseHorizontalDirectionalBlock implements Si
     protected static final VoxelShape EW_AABB = Block.box(0.0D, 0.0D, 6.0D, 16.0D, 16.0D, 10.0D);
     protected static final VoxelShape NS_AABB = Block.box(6.0D, 0.0D, 0.0D, 10.0D, 16.0D, 16.0D);
 
-    public SideQuetiBlock(BaseBlockProperty property) {
+    private final int thickness;
+
+    public SideQuetiBlock(BaseBlockProperty property, int thickness) {
         super(property);
         BlockState state = this.stateDefinition.any()
                 .setValue(WATERLOGGED, Boolean.FALSE)
                 .setValue(FACING, Direction.NORTH);
         this.registerDefaultState(state);
+        this.thickness = thickness;
+    }
+
+    public SideQuetiBlock(BaseBlockProperty property) {
+        this(property, 2);
     }
 
     @Override
     public VoxelShape getShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
         Direction direction = pState.getValue(FACING);
-        if (direction == Direction.EAST || direction == Direction.WEST) return EW_AABB;
-        else return NS_AABB;
+        if (direction == Direction.EAST || direction == Direction.WEST) return EWAABB(thickness);
+        else return NSAABB(thickness);
+    }
+
+    private VoxelShape EWAABB(int thickness){
+        return Block.box(0.0D, 0.0D, 8 - thickness, 16.0D, 16.0D, 8 + thickness);
+    }
+
+    private VoxelShape NSAABB(int thickness){
+        return Block.box(8 - thickness, 0.0D, 0.0D, 8 + thickness, 16.0D, 16.0D);
     }
 
     @Override
