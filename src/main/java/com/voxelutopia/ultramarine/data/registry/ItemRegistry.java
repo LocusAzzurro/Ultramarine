@@ -140,6 +140,11 @@ public class ItemRegistry {
     public static final RegistryObject<Item> WHITE_AND_BLUE_FANGXIN = fromBlock(BlockRegistry.WHITE_AND_BLUE_FANGXIN, CreativeTabs.DECORATIVE_BLOCKS);
     public static final RegistryObject<Item> WHITE_AND_CYAN_FANGXIN_EDGE = fromBlock(BlockRegistry.WHITE_AND_CYAN_FANGXIN_EDGE, CreativeTabs.DECORATIVE_BLOCKS);
     public static final RegistryObject<Item> WHITE_AND_BLUE_FANGXIN_EDGE = fromBlock(BlockRegistry.WHITE_AND_BLUE_FANGXIN_EDGE, CreativeTabs.DECORATIVE_BLOCKS);
+    public static final RegistryObject<Item> CYAN_AND_RED_ZHAOTOU = fromBlock(BlockRegistry.CYAN_AND_RED_ZHAOTOU, CreativeTabs.DECORATIVE_BLOCKS);
+    public static final RegistryObject<Item> CYAN_AND_BLUE_ZHAOTOU = fromBlock(BlockRegistry.CYAN_AND_BLUE_ZHAOTOU, CreativeTabs.DECORATIVE_BLOCKS);
+    public static final RegistryObject<Item> RED_CYAN_BLUE_FANGXIN_EDGE = fromBlock(BlockRegistry.RED_CYAN_BLUE_FANGXIN_EDGE, CreativeTabs.DECORATIVE_BLOCKS);
+    public static final RegistryObject<Item> BLUE_CYAN_BLUE_FANGXIN_EDGE = fromBlock(BlockRegistry.BLUE_CYAN_BLUE_FANGXIN_EDGE, CreativeTabs.DECORATIVE_BLOCKS);
+    public static final RegistryObject<Item> BLUE_CYAN_RED_FANGXIN_EDGE = fromBlock(BlockRegistry.BLUE_CYAN_RED_FANGXIN_EDGE, CreativeTabs.DECORATIVE_BLOCKS);
 
 
     public static final RegistryObject<Item> YELLOW_CARVED_PATTERN = fromBlock(BlockRegistry.YELLOW_CARVED_PATTERN, CreativeTabs.DECORATIVE_BLOCKS);

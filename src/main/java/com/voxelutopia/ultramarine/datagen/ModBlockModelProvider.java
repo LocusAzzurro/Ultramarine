@@ -150,6 +150,11 @@ public class ModBlockModelProvider extends BlockStateProvider {
         axisSideEnd(BlockRegistry.WHITE_AND_BLUE_FANGXIN.get(), sideLoc(BlockRegistry.WHITE_AND_BLUE_FANGXIN.get()), mcLoc(BLOCK + "blue_concrete_powder"));
         directionalSideEnd(BlockRegistry.WHITE_AND_CYAN_FANGXIN_EDGE.get(), sideLoc(BlockRegistry.WHITE_AND_CYAN_FANGXIN_EDGE.get()), mcLoc(BLOCK + "blue_concrete_powder"));
         directionalSideEnd(BlockRegistry.WHITE_AND_BLUE_FANGXIN_EDGE.get(), sideLoc(BlockRegistry.WHITE_AND_BLUE_FANGXIN_EDGE.get()), mcLoc(BLOCK + "blue_concrete_powder"));
+        directionalSideEnd(BlockRegistry.CYAN_AND_RED_ZHAOTOU.get(), sideLoc(BlockRegistry.CYAN_AND_RED_ZHAOTOU.get()), mcLoc(BLOCK + "blue_concrete_powder"));
+        directionalSideEnd(BlockRegistry.CYAN_AND_BLUE_ZHAOTOU.get(), sideLoc(BlockRegistry.CYAN_AND_BLUE_ZHAOTOU.get()), mcLoc(BLOCK + "blue_concrete_powder"));
+        directionalSideEnd(BlockRegistry.RED_CYAN_BLUE_FANGXIN_EDGE.get(), sideLoc(BlockRegistry.RED_CYAN_BLUE_FANGXIN_EDGE.get()), mcLoc(BLOCK + "blue_concrete_powder"));
+        directionalSideEnd(BlockRegistry.BLUE_CYAN_BLUE_FANGXIN_EDGE.get(), sideLoc(BlockRegistry.BLUE_CYAN_BLUE_FANGXIN_EDGE.get()), mcLoc(BLOCK + "blue_concrete_powder"));
+        directionalSideEnd(BlockRegistry.BLUE_CYAN_RED_FANGXIN_EDGE.get(), sideLoc(BlockRegistry.BLUE_CYAN_RED_FANGXIN_EDGE.get()), mcLoc(BLOCK + "blue_concrete_powder"));
 
 
         //<editor-fold desc="Roof Tiles">
