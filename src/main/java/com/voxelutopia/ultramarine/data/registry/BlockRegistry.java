@@ -148,6 +148,10 @@ public class BlockRegistry {
     public static final RegistryObject<Block> GOLDEN_DRAGON_FANGXIN_PATTERN = BLOCKS.register("golden_dragon_fangxin_pattern", () -> new WallSideBlock(BaseBlockProperty.DYE));
     public static final RegistryObject<Block> BLUE_FANGXIN_PATTERN = BLOCKS.register("blue_fangxin_pattern", () -> new OrientableSixSideBlock(BaseBlockProperty.DYE));
     public static final RegistryObject<Block> BLUE_FANGXIN_PATTERN_EDGE = BLOCKS.register("blue_fangxin_pattern_edge", () -> new OrientableSixSideBlock(BaseBlockProperty.DYE));
+    public static final RegistryObject<Block> LIGHT_BLUE_SU_STYLE_CAIHUA = BLOCKS.register("light_blue_su_style_caihua", () -> new WallSideBlock(BaseBlockProperty.DYE));
+    public static final RegistryObject<Block> YELLOW_SU_STYLE_CAIHUA = BLOCKS.register("yellow_su_style_caihua", () -> new WallSideBlock(BaseBlockProperty.DYE));
+    public static final RegistryObject<Block> LIGHT_YELLOW_SU_STYLE_CAIHUA = BLOCKS.register("light_yellow_su_style_caihua", () -> new WallSideBlock(BaseBlockProperty.DYE));
+
 
     public static final RegistryObject<Block> GILDED_DARK_OAK_LONG_QUETI = BLOCKS.register("gilded_dark_oak_long_queti", () -> new WallSideBlock(BaseBlockProperty.WOOD));
     public static final RegistryObject<Block> GILDED_DARK_OAK_LONG_QUETI_EDGE = BLOCKS.register("gilded_dark_oak_long_queti_edge", () -> new OrientableWallSideBlock(BaseBlockProperty.WOOD));

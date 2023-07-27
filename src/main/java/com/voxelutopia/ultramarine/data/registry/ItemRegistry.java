@@ -144,6 +144,9 @@ public class ItemRegistry {
     public static final RegistryObject<Item> GOLDEN_DRAGON_FANGXIN_PATTERN = fromBlock(BlockRegistry.GOLDEN_DRAGON_FANGXIN_PATTERN, CreativeTabs.DECORATIVE_BLOCKS);
     public static final RegistryObject<Item> BLUE_FANGXIN_PATTERN = fromBlock(BlockRegistry.BLUE_FANGXIN_PATTERN, CreativeTabs.DECORATIVE_BLOCKS);
     public static final RegistryObject<Item> BLUE_FANGXIN_PATTERN_EDGE = fromBlock(BlockRegistry.BLUE_FANGXIN_PATTERN_EDGE, CreativeTabs.DECORATIVE_BLOCKS);
+    public static final RegistryObject<Item> LIGHT_BLUE_SU_STYLE_CAIHUA = fromBlock(BlockRegistry.LIGHT_BLUE_SU_STYLE_CAIHUA, CreativeTabs.DECORATIVE_BLOCKS);
+    public static final RegistryObject<Item> YELLOW_SU_STYLE_CAIHUA = fromBlock(BlockRegistry.YELLOW_SU_STYLE_CAIHUA, CreativeTabs.DECORATIVE_BLOCKS);
+    public static final RegistryObject<Item> LIGHT_YELLOW_SU_STYLE_CAIHUA = fromBlock(BlockRegistry.LIGHT_YELLOW_SU_STYLE_CAIHUA, CreativeTabs.DECORATIVE_BLOCKS);
 
 
 
