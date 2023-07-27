@@ -151,6 +151,10 @@ public class BlockRegistry {
     public static final RegistryObject<Block> LIGHT_BLUE_SU_STYLE_CAIHUA = BLOCKS.register("light_blue_su_style_caihua", () -> new WallSideBlock(BaseBlockProperty.DYE));
     public static final RegistryObject<Block> YELLOW_SU_STYLE_CAIHUA = BLOCKS.register("yellow_su_style_caihua", () -> new WallSideBlock(BaseBlockProperty.DYE));
     public static final RegistryObject<Block> LIGHT_YELLOW_SU_STYLE_CAIHUA = BLOCKS.register("light_yellow_su_style_caihua", () -> new WallSideBlock(BaseBlockProperty.DYE));
+    public static final RegistryObject<Block> MEDIUM_SU_STYLE_CAIHUA = BLOCKS.register("medium_su_style_caihua", () -> new WallSideBlock(BaseBlockProperty.DYE));
+    public static final RegistryObject<Block> LARGE_WHITE_SU_STYLE_CAIHUA = BLOCKS.register("large_white_su_style_caihua", () -> new WallSideBlock(BaseBlockProperty.DYE));
+    public static final RegistryObject<Block> LARGE_GREEN_SU_STYLE_CAIHUA = BLOCKS.register("large_green_su_style_caihua", () -> new WallSideBlock(BaseBlockProperty.DYE));
+    public static final RegistryObject<Block> LARGE_GRAY_SU_STYLE_CAIHUA = BLOCKS.register("large_gray_su_style_caihua", () -> new WallSideBlock(BaseBlockProperty.DYE));
 
 
     public static final RegistryObject<Block> GILDED_DARK_OAK_LONG_QUETI = BLOCKS.register("gilded_dark_oak_long_queti", () -> new WallSideBlock(BaseBlockProperty.WOOD));

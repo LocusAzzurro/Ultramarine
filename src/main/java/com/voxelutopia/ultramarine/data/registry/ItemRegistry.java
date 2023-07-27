@@ -147,6 +147,10 @@ public class ItemRegistry {
     public static final RegistryObject<Item> LIGHT_BLUE_SU_STYLE_CAIHUA = fromBlock(BlockRegistry.LIGHT_BLUE_SU_STYLE_CAIHUA, CreativeTabs.DECORATIVE_BLOCKS);
     public static final RegistryObject<Item> YELLOW_SU_STYLE_CAIHUA = fromBlock(BlockRegistry.YELLOW_SU_STYLE_CAIHUA, CreativeTabs.DECORATIVE_BLOCKS);
     public static final RegistryObject<Item> LIGHT_YELLOW_SU_STYLE_CAIHUA = fromBlock(BlockRegistry.LIGHT_YELLOW_SU_STYLE_CAIHUA, CreativeTabs.DECORATIVE_BLOCKS);
+    public static final RegistryObject<Item> MEDIUM_SU_STYLE_CAIHUA = fromBlock(BlockRegistry.MEDIUM_SU_STYLE_CAIHUA, CreativeTabs.DECORATIVE_BLOCKS);
+    public static final RegistryObject<Item> LARGE_WHITE_SU_STYLE_CAIHUA = fromBlock(BlockRegistry.LARGE_WHITE_SU_STYLE_CAIHUA, CreativeTabs.DECORATIVE_BLOCKS);
+    public static final RegistryObject<Item> LARGE_GREEN_SU_STYLE_CAIHUA = fromBlock(BlockRegistry.LARGE_GREEN_SU_STYLE_CAIHUA, CreativeTabs.DECORATIVE_BLOCKS);
+    public static final RegistryObject<Item> LARGE_GRAY_SU_STYLE_CAIHUA = fromBlock(BlockRegistry.LARGE_GRAY_SU_STYLE_CAIHUA, CreativeTabs.DECORATIVE_BLOCKS);
 
 
 
