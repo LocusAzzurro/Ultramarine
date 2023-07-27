@@ -277,10 +277,26 @@ public class BlockRegistry {
             () -> DecorativeBlock.with(BaseBlockProperty.STONE).shaped(DecorativeBlock.FULL_14).directional().build());
     public static final RegistryObject<Block> BROOM = BLOCKS.register("broom",
             () -> DecorativeBlock.with(BaseBlockProperty.STONE).shaped(DecorativeBlock.FULL_8).directional().build());
+    public static final RegistryObject<Block> STONE_PEDESTAL = BLOCKS.register("stone_pedestal",
+            () -> DecorativeBlock.with(BaseBlockProperty.STONE).shaped(DecorativeBlock.HALF_BLOCK).diagonallyPlaceable().noOcclusion().build());
+    public static final RegistryObject<Block> BOOK_STACK = BLOCKS.register("book_stack",
+            () -> DecorativeBlock.with(BaseBlockProperty.PAPER).shaped(DecorativeBlock.QUARTER_16).directional().noOcclusion().build());
+    public static final RegistryObject<Block> PORCELAIN_TEAPOT = BLOCKS.register("porcelain_teapot",
+            () -> DecorativeBlock.with(BaseBlockProperty.PORCELAIN).shaped(DecorativeBlock.HALF_12).directional().build());
+    public static final RegistryObject<Block> TERRACOTTA_POT = BLOCKS.register("terracotta_pot",
+            () -> DecorativeBlock.with(BaseBlockProperty.TERRACOTTA).shaped(DecorativeBlock.FULL_14).directional().build());
+    public static final RegistryObject<Block> BRONZE_MIRROR = BLOCKS.register("bronze_mirror",
+            () -> DecorativeBlock.with(BaseBlockProperty.BRONZE).shaped(DecorativeBlock.FULL_14).directional().build());
     public static final RegistryObject<Block> BRONZE_CENSER = BLOCKS.register("bronze_censer",
             () -> new Censer(DecorativeBlock.with(BaseBlockProperty.BRONZE).shaped(DecorativeBlock.HALF_12).directional().diagonallyPlaceable().luminous(), new Vec3(0.5, 0.7, 0.5)));
     public static final RegistryObject<Block> ROYAL_CENSER = BLOCKS.register("royal_censer",
             () -> new Censer(DecorativeBlock.with(BaseBlockProperty.BRONZE).shaped(DecorativeBlock.FULL_10).directional().luminous(), new Vec3(0.5, 0.5, 0.5)));
+    public static final RegistryObject<Block> BOOTS = BLOCKS.register("boots",
+            () -> DecorativeBlock.with(BaseBlockProperty.SILK).shaped(DecorativeBlock.FULL_14).directional().build());
+    public static final RegistryObject<Block> JADE_PENDANT = BLOCKS.register("jade_pendant",
+            () -> DecorativeBlock.with(BaseBlockProperty.JADE).shaped(DecorativeBlock.FULL_6).directional().diagonallyPlaceable().build());
+    public static final RegistryObject<Block> IMPERIAL_JADE_SEAL = BLOCKS.register("imperial_jade_seal",
+            () -> DecorativeBlock.with(BaseBlockProperty.JADE).shaped(DecorativeBlock.FULL_6).directional().build());
 
     public static final RegistryObject<Block> LONG_HANGING_PAINTING = BLOCKS.register("long_hanging_painting",
             () -> new WallSideBlock(BaseBlockProperty.PAPER));
