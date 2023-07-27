@@ -149,6 +149,8 @@ public class ItemRegistry {
     public static final RegistryObject<Item> RED_CYAN_BLUE_FANGXIN = fromBlock(BlockRegistry.RED_CYAN_BLUE_FANGXIN, CreativeTabs.DECORATIVE_BLOCKS);
     public static final RegistryObject<Item> CYAN_BLUE_CYAN_FANGXIN = fromBlock(BlockRegistry.CYAN_BLUE_CYAN_FANGXIN, CreativeTabs.DECORATIVE_BLOCKS);
     public static final RegistryObject<Item> RED_BLUE_RED_FANGXIN = fromBlock(BlockRegistry.RED_BLUE_RED_FANGXIN, CreativeTabs.DECORATIVE_BLOCKS);
+    public static final RegistryObject<Item> GRAY_BLACK_RED_ZHAOTOU = fromBlock(BlockRegistry.GRAY_BLACK_RED_ZHAOTOU, CreativeTabs.DECORATIVE_BLOCKS);
+    public static final RegistryObject<Item> BLUE_GREEN_RED_ZHAOTOU = fromBlock(BlockRegistry.BLUE_GREEN_RED_ZHAOTOU, CreativeTabs.DECORATIVE_BLOCKS);
 
 
     public static final RegistryObject<Item> YELLOW_CARVED_PATTERN = fromBlock(BlockRegistry.YELLOW_CARVED_PATTERN, CreativeTabs.DECORATIVE_BLOCKS);
@@ -170,6 +172,7 @@ public class ItemRegistry {
     public static final RegistryObject<Item> LARGE_WHITE_SU_STYLE_CAIHUA = fromBlock(BlockRegistry.LARGE_WHITE_SU_STYLE_CAIHUA, CreativeTabs.DECORATIVE_BLOCKS);
     public static final RegistryObject<Item> LARGE_GREEN_SU_STYLE_CAIHUA = fromBlock(BlockRegistry.LARGE_GREEN_SU_STYLE_CAIHUA, CreativeTabs.DECORATIVE_BLOCKS);
     public static final RegistryObject<Item> LARGE_GRAY_SU_STYLE_CAIHUA = fromBlock(BlockRegistry.LARGE_GRAY_SU_STYLE_CAIHUA, CreativeTabs.DECORATIVE_BLOCKS);
+    public static final RegistryObject<Item> CARVED_ZHAOTOU_PATTERN = fromBlock(BlockRegistry.CARVED_ZHAOTOU_PATTERN, CreativeTabs.DECORATIVE_BLOCKS);
 
 
 

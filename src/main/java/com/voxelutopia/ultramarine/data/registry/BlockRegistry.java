@@ -152,6 +152,8 @@ public class BlockRegistry {
     public static final RegistryObject<Block> RED_CYAN_BLUE_FANGXIN = BLOCKS.register("red_cyan_blue_fangxin", () -> new ChiralDirectionalBlock(BaseBlockProperty.WOOD));
     public static final RegistryObject<Block> CYAN_BLUE_CYAN_FANGXIN = BLOCKS.register("cyan_blue_cyan_fangxin", () -> new ChiralDirectionalBlock(BaseBlockProperty.WOOD));
     public static final RegistryObject<Block> RED_BLUE_RED_FANGXIN = BLOCKS.register("red_blue_red_fangxin", () -> new ChiralDirectionalBlock(BaseBlockProperty.WOOD));
+    public static final RegistryObject<Block> GRAY_BLACK_RED_ZHAOTOU = BLOCKS.register("gray_black_red_zhaotou", () -> new BaseDirectionalBlock(BaseBlockProperty.WOOD));
+    public static final RegistryObject<Block> BLUE_GREEN_RED_ZHAOTOU = BLOCKS.register("blue_green_red_zhaotou", () -> new BaseDirectionalBlock(BaseBlockProperty.WOOD));
 
 
     public static final RegistryObject<Block> YELLOW_CARVED_PATTERN = BLOCKS.register("yellow_carved_pattern", () -> new WallSideBlock(BaseBlockProperty.DYE));
@@ -173,6 +175,7 @@ public class BlockRegistry {
     public static final RegistryObject<Block> LARGE_WHITE_SU_STYLE_CAIHUA = BLOCKS.register("large_white_su_style_caihua", () -> new WallSideBlock(BaseBlockProperty.DYE));
     public static final RegistryObject<Block> LARGE_GREEN_SU_STYLE_CAIHUA = BLOCKS.register("large_green_su_style_caihua", () -> new WallSideBlock(BaseBlockProperty.DYE));
     public static final RegistryObject<Block> LARGE_GRAY_SU_STYLE_CAIHUA = BLOCKS.register("large_gray_su_style_caihua", () -> new WallSideBlock(BaseBlockProperty.DYE));
+    public static final RegistryObject<Block> CARVED_ZHAOTOU_PATTERN = BLOCKS.register("carved_zhaotou_pattern", () -> new OrientableSixSideBlock(BaseBlockProperty.DYE));
 
 
     public static final RegistryObject<Block> GILDED_DARK_OAK_LONG_QUETI = BLOCKS.register("gilded_dark_oak_long_queti", () -> new WallSideBlock(BaseBlockProperty.WOOD));

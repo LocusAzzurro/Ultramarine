@@ -1,0 +1,30 @@
+{
+  "variants": {
+    "facing=down": {
+      "model": "ultramarine:block/blue_green_red_zhaotou",
+      "x": 180
+    },
+    "facing=up": {
+      "model": "ultramarine:block/blue_green_red_zhaotou"
+    },
+    "facing=north": {
+      "model": "ultramarine:block/blue_green_red_zhaotou",
+      "x": 90
+    },
+    "facing=south": {
+      "model": "ultramarine:block/blue_green_red_zhaotou",
+      "x": 90,
+      "y": 180
+    },
+    "facing=west": {
+      "model": "ultramarine:block/blue_green_red_zhaotou",
+      "x": 90,
+      "y": 270
+    },
+    "facing=east": {
+      "model": "ultramarine:block/blue_green_red_zhaotou",
+      "x": 90,
+      "y": 90
+    }
+  }
+}

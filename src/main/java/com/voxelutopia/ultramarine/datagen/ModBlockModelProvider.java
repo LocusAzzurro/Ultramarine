@@ -159,6 +159,9 @@ public class ModBlockModelProvider extends BlockStateProvider {
         chiralWSMirror(BlockRegistry.RED_CYAN_BLUE_FANGXIN.get(), mcLoc(BLOCK + "blue_concrete_powder"));
         chiralWSMirror(BlockRegistry.CYAN_BLUE_CYAN_FANGXIN.get(), mcLoc(BLOCK + "blue_concrete_powder"));
         chiralWSMirror(BlockRegistry.RED_BLUE_RED_FANGXIN.get(), mcLoc(BLOCK + "blue_concrete_powder"));
+        directionalSideEnd(BlockRegistry.GRAY_BLACK_RED_ZHAOTOU.get(), sideLoc(BlockRegistry.GRAY_BLACK_RED_ZHAOTOU.get()), mcLoc(BLOCK + "blue_wool"));
+        directionalSideEnd(BlockRegistry.BLUE_GREEN_RED_ZHAOTOU.get(), sideLoc(BlockRegistry.BLUE_GREEN_RED_ZHAOTOU.get()), mcLoc(BLOCK + "blue_wool"));
+
 
         //<editor-fold desc="Roof Tiles">
         shiftedTiles(BlockRegistry.GRAY_ROOF_TILES.get(), "gray", RoofTiles.RoofTileType.NORMAL);
