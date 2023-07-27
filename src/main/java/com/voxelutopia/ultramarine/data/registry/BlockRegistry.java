@@ -193,6 +193,7 @@ public class BlockRegistry {
     public static final RegistryObject<Block> WOODEN_GUALUO = BLOCKS.register("wooden_gualuo", () -> new WallSideBlock(BaseBlockProperty.WOOD));
     public static final RegistryObject<Block> LARGE_WOODEN_GUALUO = BLOCKS.register("large_wooden_gualuo", () -> new WallSideBlock(BaseBlockProperty.WOOD));
     public static final RegistryObject<Block> LARGE_WOODEN_GUALUO_EDGE = BLOCKS.register("large_wooden_gualuo_edge", () -> new OrientableWallSideBlock(BaseBlockProperty.WOOD));
+    public static final RegistryObject<Block> SHORT_THICK_GLAZED_QUETI = BLOCKS.register("short_thick_glazed_queti", () -> new SideQuetiBlock(BaseBlockProperty.WOOD, 4));
 
 
     public static final RegistryObject<Block> BLUE_CARVED_TIGER_EYE_RAFTER = BLOCKS.register("blue_carved_tiger_eye_rafter", () -> new Rafter(BaseBlockProperty.WOOD));

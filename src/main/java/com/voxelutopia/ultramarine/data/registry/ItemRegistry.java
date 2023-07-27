@@ -191,6 +191,8 @@ public class ItemRegistry {
     public static final RegistryObject<Item> WOODEN_GUALUO = fromBlock(BlockRegistry.WOODEN_GUALUO, CreativeTabs.DECORATIVE_BLOCKS);
     public static final RegistryObject<Item> LARGE_WOODEN_GUALUO = fromBlock(BlockRegistry.LARGE_WOODEN_GUALUO, CreativeTabs.DECORATIVE_BLOCKS);
     public static final RegistryObject<Item> LARGE_WOODEN_GUALUO_EDGE = fromBlock(BlockRegistry.LARGE_WOODEN_GUALUO_EDGE, CreativeTabs.DECORATIVE_BLOCKS);
+    public static final RegistryObject<Item> SHORT_THICK_GLAZED_QUETI = fromBlock(BlockRegistry.SHORT_THICK_GLAZED_QUETI, CreativeTabs.DECORATIVE_BLOCKS);
+
 
     public static final RegistryObject<Item> BLUE_CARVED_TIGER_EYE_RAFTER = fromBlock(BlockRegistry.BLUE_CARVED_TIGER_EYE_RAFTER, CreativeTabs.DECORATIVE_BLOCKS);
     public static final RegistryObject<Item> BLUE_TIGER_EYE_RAFTER = fromBlock(BlockRegistry.BLUE_TIGER_EYE_RAFTER, CreativeTabs.DECORATIVE_BLOCKS);
