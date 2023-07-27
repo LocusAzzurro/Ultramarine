@@ -81,6 +81,8 @@ public class BlockRegistry {
     public static final RegistryObject<Block> GILDED_DARK_OAK_RAFTER_END = BLOCKS.register("gilded_dark_oak_rafter_end", () -> new RafterEnd(BaseBlockProperty.WOOD));
     public static final RegistryObject<Block> GILDED_DARK_OAK_BEAM_HEAD = BLOCKS.register("gilded_dark_oak_beam_head", () -> new BeamHead(BaseBlockProperty.WOOD));
     public static final RegistryObject<Block> GILDED_DARK_OAK_BRACKET = BLOCKS.register("gilded_dark_oak_bracket", () -> new Bracket(BaseBlockProperty.WOOD));
+    public static final RegistryObject<Block> DARK_OAK_RAFTER = BLOCKS.register("dark_oak_rafter", () -> new Rafter(BaseBlockProperty.WOOD));
+    public static final RegistryObject<Block> DARK_OAK_RAFTER_END = BLOCKS.register("dark_oak_rafter_end", () -> new RafterEnd(BaseBlockProperty.WOOD));
     public static final RegistryObject<Block> WHITE_MARBLE_RAILING = BLOCKS.register("white_marble_railing", () -> new RailingBlock(BaseBlockProperty.MARBLE));
     public static final RegistryObject<Block> RED_CARVED_WOOD = BLOCKS.register("red_carved_wood", () -> new BaseBlock(BaseBlockProperty.WOOD));
     public static final RegistryObject<Block> RED_CARVED_WOODEN_SLAB = BLOCKS.register("red_carved_wooden_slab", () -> new BaseSlab(BaseBlockProperty.WOOD));
@@ -109,6 +111,8 @@ public class BlockRegistry {
     public static final RegistryObject<Block> BLUE_AND_WHITE_CARVED_WOOD = BLOCKS.register("blue_and_white_carved_wood", () -> new BaseBlock(BaseBlockProperty.WOOD));
     public static final RegistryObject<Block> BLUE_WHITE_RED_CARVED_WOOD = BLOCKS.register("blue_white_red_carved_wood", () -> new BaseBlock(BaseBlockProperty.WOOD));
     public static final RegistryObject<Block> GREEN_WHITE_RED_CARVED_WOOD = BLOCKS.register("green_white_red_carved_wood", () -> new BaseBlock(BaseBlockProperty.WOOD));
+    public static final RegistryObject<Block> RED_AND_CYAN_CARVED_ARCHITRAVE = BLOCKS.register("red_and_cyan_carved_architrave", () -> new BaseBlock(BaseBlockProperty.WOOD));
+    public static final RegistryObject<Block> RED_AND_BLUE_CARVED_ARCHITRAVE = BLOCKS.register("red_and_blue_carved_architrave", () -> new BaseBlock(BaseBlockProperty.WOOD));
 
 
     public static final RegistryObject<Block> GREEN_FANGXIN = BLOCKS.register("green_fangxin", () -> new BaseDirectionalBlock(BaseBlockProperty.WOOD));
@@ -298,8 +302,14 @@ public class BlockRegistry {
             () -> ContainerDecorativeBlock.with(BaseBlockProperty.WOOD).content(ContainerType.COMMON_REGULAR).shaped(DecorativeBlock.FULL_BLOCK).directional().noFenceConnect().build());
     public static final RegistryObject<Block> EBONY_CABINET = BLOCKS.register("ebony_cabinet",
             () -> ContainerDecorativeBlock.with(BaseBlockProperty.WOOD).content(ContainerType.COMMON_LARGE).shaped(DecorativeBlock.FULL_BLOCK).directional().noFenceConnect().build());
+    public static final RegistryObject<Block> LARGE_TEA_TABLE = BLOCKS.register("large_tea_table",
+            () -> DecorativeBlock.with(BaseBlockProperty.WOOD).shaped(DecorativeBlock.HALF_BLOCK).directional().build());
     public static final RegistryObject<Block> EBONY_CHAIR = BLOCKS.register("ebony_chair",
             () -> SeatDecorativeBlock.with(BaseBlockProperty.WOOD).seatOffset(new Vec3(0.0f, -0.1f, 0.0f)).shaped(DecorativeBlock.HALF_12).directional().diagonallyPlaceable().build());
+    public static final RegistryObject<Block> WOODEN_STOOL = BLOCKS.register("wooden_stool",
+            () -> SeatDecorativeBlock.with(BaseBlockProperty.WOOD).seatOffset(new Vec3(0.0f, -0.1f, 0.0f)).shaped(DecorativeBlock.HALF_12).directional().build());
+    public static final RegistryObject<Block> LARGE_LANDSCAPE_PAINTING_SCREEN = BLOCKS.register("large_landscape_painting_screen",
+            () -> DecorativeBlock.with(BaseBlockProperty.WOOD).shaped(OpeningBlock.MIDDLE_AXIAL).placeOffset(Direction.UP).directional().build());
 
     public static final RegistryObject<Block> LARGE_BLUE_CURTAIN = BLOCKS.register("large_blue_curtain",
             () -> new WallSideBlock(BaseBlockProperty.SILK));

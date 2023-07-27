@@ -1,0 +1,7 @@
+{
+  "parent": "ultramarine:block/rafter_end",
+  "textures": {
+    "1": "ultramarine:block/dark_oak_rafter_end",
+    "particle": "block/stripped_dark_oak_log"
+  }
+}

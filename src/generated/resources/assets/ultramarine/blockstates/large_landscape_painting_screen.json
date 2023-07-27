@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "ultramarine:block/large_landscape_painting_screen",
+      "y": 180
+    },
+    "facing=south": {
+      "model": "ultramarine:block/large_landscape_painting_screen"
+    },
+    "facing=west": {
+      "model": "ultramarine:block/large_landscape_painting_screen",
+      "y": 90
+    },
+    "facing=east": {
+      "model": "ultramarine:block/large_landscape_painting_screen",
+      "y": 270
+    }
+  }
+}
