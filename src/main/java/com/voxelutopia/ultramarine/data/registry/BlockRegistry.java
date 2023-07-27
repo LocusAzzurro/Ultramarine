@@ -154,6 +154,8 @@ public class BlockRegistry {
     public static final RegistryObject<Block> RED_BLUE_RED_FANGXIN = BLOCKS.register("red_blue_red_fangxin", () -> new ChiralDirectionalBlock(BaseBlockProperty.WOOD));
     public static final RegistryObject<Block> GRAY_BLACK_RED_ZHAOTOU = BLOCKS.register("gray_black_red_zhaotou", () -> new BaseDirectionalBlock(BaseBlockProperty.WOOD));
     public static final RegistryObject<Block> BLUE_GREEN_RED_ZHAOTOU = BLOCKS.register("blue_green_red_zhaotou", () -> new BaseDirectionalBlock(BaseBlockProperty.WOOD));
+    public static final RegistryObject<Block> CYAN_AND_YELLOW_FANGXIN_EDGE = BLOCKS.register("cyan_and_yellow_fangxin_edge", () -> new BaseDirectionalBlock(BaseBlockProperty.WOOD));
+    public static final RegistryObject<Block> GUTOU = BLOCKS.register("gutou", () -> new BaseDirectionalBlock(BaseBlockProperty.WOOD));
 
 
     public static final RegistryObject<Block> YELLOW_CARVED_PATTERN = BLOCKS.register("yellow_carved_pattern", () -> new WallSideBlock(BaseBlockProperty.DYE));
