@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=top": {
+      "model": "ultramarine:block/full_tuanhua_slab_top"
+    },
+    "type=bottom": {
+      "model": "ultramarine:block/full_tuanhua_slab"
+    },
+    "type=double": {
+      "model": "ultramarine:block/full_tuanhua_slabdouble"
+    }
+  }
+}

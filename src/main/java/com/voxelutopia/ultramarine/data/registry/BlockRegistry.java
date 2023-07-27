@@ -112,7 +112,12 @@ public class BlockRegistry {
     public static final RegistryObject<Block> BLUE_WHITE_RED_CARVED_WOOD = BLOCKS.register("blue_white_red_carved_wood", () -> new BaseBlock(BaseBlockProperty.WOOD));
     public static final RegistryObject<Block> GREEN_WHITE_RED_CARVED_WOOD = BLOCKS.register("green_white_red_carved_wood", () -> new BaseBlock(BaseBlockProperty.WOOD));
     public static final RegistryObject<Block> RED_AND_CYAN_CARVED_ARCHITRAVE = BLOCKS.register("red_and_cyan_carved_architrave", () -> new BaseBlock(BaseBlockProperty.WOOD));
+    public static final RegistryObject<Block> RED_AND_CYAN_CARVED_ARCHITRAVE_SLAB = BLOCKS.register("red_and_cyan_carved_architrave_slab", () -> new BaseSlab(BaseBlockProperty.WOOD));
     public static final RegistryObject<Block> RED_AND_BLUE_CARVED_ARCHITRAVE = BLOCKS.register("red_and_blue_carved_architrave", () -> new BaseBlock(BaseBlockProperty.WOOD));
+    public static final RegistryObject<Block> RED_AND_BLUE_CARVED_ARCHITRAVE_SLAB = BLOCKS.register("red_and_blue_carved_architrave_slab", () -> new BaseSlab(BaseBlockProperty.WOOD));
+    public static final RegistryObject<Block> EMPTY_TUANHUA_SLAB = BLOCKS.register("empty_tuanhua_slab", () -> new BaseSlab(BaseBlockProperty.WOOD));
+    public static final RegistryObject<Block> FULL_TUANHUA_SLAB = BLOCKS.register("full_tuanhua_slab", () -> new BaseSlab(BaseBlockProperty.WOOD));
+    public static final RegistryObject<Block> RED_AND_CYAN_TUANHUA_SLAB = BLOCKS.register("red_and_cyan_tuanhua_slab", () -> new BaseSlab(BaseBlockProperty.WOOD));
 
 
     public static final RegistryObject<Block> GREEN_FANGXIN = BLOCKS.register("green_fangxin", () -> new BaseDirectionalBlock(BaseBlockProperty.WOOD));

@@ -119,7 +119,12 @@ public class ModBlockModelProvider extends BlockStateProvider {
         simpleBlock(BlockRegistry.BLUE_WHITE_RED_CARVED_WOOD.get());
         simpleBlock(BlockRegistry.GREEN_WHITE_RED_CARVED_WOOD.get());
         simpleBlock(BlockRegistry.RED_AND_CYAN_CARVED_ARCHITRAVE.get());
+        slabSideEndNoFull(BlockRegistry.RED_AND_CYAN_CARVED_ARCHITRAVE_SLAB.get(), sideLoc(BlockRegistry.RED_AND_CYAN_CARVED_ARCHITRAVE_SLAB.get()), endLoc(BlockRegistry.RED_AND_CYAN_CARVED_ARCHITRAVE_SLAB.get()));
         simpleBlock(BlockRegistry.RED_AND_BLUE_CARVED_ARCHITRAVE.get());
+        slabSideEndNoFull(BlockRegistry.RED_AND_BLUE_CARVED_ARCHITRAVE_SLAB.get(), sideLoc(BlockRegistry.RED_AND_BLUE_CARVED_ARCHITRAVE_SLAB.get()), endLoc(BlockRegistry.RED_AND_BLUE_CARVED_ARCHITRAVE_SLAB.get()));
+        slabSideEndNoFull(BlockRegistry.EMPTY_TUANHUA_SLAB.get(), sideLoc(BlockRegistry.EMPTY_TUANHUA_SLAB.get()), endLoc(BlockRegistry.EMPTY_TUANHUA_SLAB.get()));
+        slabSideEndNoFull(BlockRegistry.FULL_TUANHUA_SLAB.get(), sideLoc(BlockRegistry.FULL_TUANHUA_SLAB.get()), endLoc(BlockRegistry.EMPTY_TUANHUA_SLAB.get()));
+        slabSideEndNoFull(BlockRegistry.RED_AND_CYAN_TUANHUA_SLAB.get(), sideLoc(BlockRegistry.RED_AND_CYAN_TUANHUA_SLAB.get()), endLoc(BlockRegistry.RED_AND_CYAN_TUANHUA_SLAB.get()));
 
 
         directionalSideEnd(BlockRegistry.GREEN_FANGXIN.get(), sideLoc(BlockRegistry.GREEN_FANGXIN.get()), endLoc(BlockRegistry.GREEN_FANGXIN.get()));
@@ -488,6 +493,13 @@ public class ModBlockModelProvider extends BlockStateProvider {
 
     private void slabSideEnd(Block block, Block full, ResourceLocation side, ResourceLocation end){
         slabBlock((SlabBlock) block, full.getRegistryName(), side, end, end);
+    }
+
+    private void slabSideEndNoFull(Block block, ResourceLocation side, ResourceLocation end){
+        slabBlock((SlabBlock)block,
+                models().slab(name(block), side, end, end),
+                models().slabTop(name(block) + "_top", side, end, end),
+                models().cubeBottomTop(name(block) + "double", side, end, end));
     }
 
     private void carvedWoodenSlab(Block slab, Block full){

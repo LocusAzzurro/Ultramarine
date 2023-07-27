@@ -110,7 +110,12 @@ public class ItemRegistry {
     public static final RegistryObject<Item> BLUE_WHITE_RED_CARVED_WOOD = fromBlock(BlockRegistry.BLUE_WHITE_RED_CARVED_WOOD, CreativeTabs.DECORATIVE_BLOCKS);
     public static final RegistryObject<Item> GREEN_WHITE_RED_CARVED_WOOD = fromBlock(BlockRegistry.GREEN_WHITE_RED_CARVED_WOOD, CreativeTabs.DECORATIVE_BLOCKS);
     public static final RegistryObject<Item> RED_AND_CYAN_CARVED_ARCHITRAVE = fromBlock(BlockRegistry.RED_AND_CYAN_CARVED_ARCHITRAVE, CreativeTabs.DECORATIVE_BLOCKS);
+    public static final RegistryObject<Item> RED_AND_CYAN_CARVED_ARCHITRAVE_SLAB = fromBlock(BlockRegistry.RED_AND_CYAN_CARVED_ARCHITRAVE_SLAB, CreativeTabs.DECORATIVE_BLOCKS);
     public static final RegistryObject<Item> RED_AND_BLUE_CARVED_ARCHITRAVE = fromBlock(BlockRegistry.RED_AND_BLUE_CARVED_ARCHITRAVE, CreativeTabs.DECORATIVE_BLOCKS);
+    public static final RegistryObject<Item> RED_AND_BLUE_CARVED_ARCHITRAVE_SLAB = fromBlock(BlockRegistry.RED_AND_BLUE_CARVED_ARCHITRAVE_SLAB, CreativeTabs.DECORATIVE_BLOCKS);
+    public static final RegistryObject<Item> EMPTY_TUANHUA_SLAB = fromBlock(BlockRegistry.EMPTY_TUANHUA_SLAB, CreativeTabs.DECORATIVE_BLOCKS);
+    public static final RegistryObject<Item> FULL_TUANHUA_SLAB = fromBlock(BlockRegistry.FULL_TUANHUA_SLAB, CreativeTabs.DECORATIVE_BLOCKS);
+    public static final RegistryObject<Item> RED_AND_CYAN_TUANHUA_SLAB = fromBlock(BlockRegistry.RED_AND_CYAN_TUANHUA_SLAB, CreativeTabs.DECORATIVE_BLOCKS);
 
 
     public static final RegistryObject<Item> GREEN_FANGXIN = fromBlock(BlockRegistry.GREEN_FANGXIN, CreativeTabs.DECORATIVE_BLOCKS);
