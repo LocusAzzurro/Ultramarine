@@ -79,6 +79,11 @@ public class ModClientRenderEventHandler {
             ItemBlockRenderTypes.setRenderLayer(BlockRegistry.WOODEN_QUETI_EDGE.get(), RenderType.cutout());
             ItemBlockRenderTypes.setRenderLayer(BlockRegistry.SHORT_GLAZED_QUETI.get(), RenderType.cutout());
             ItemBlockRenderTypes.setRenderLayer(BlockRegistry.LARGE_WOODEN_QUETI_EDGE.get(), RenderType.cutout());
+
+            ItemBlockRenderTypes.setRenderLayer(BlockRegistry.WOODEN_GUALUO.get(), RenderType.cutout());
+            ItemBlockRenderTypes.setRenderLayer(BlockRegistry.LARGE_WOODEN_GUALUO.get(), RenderType.cutout());
+            ItemBlockRenderTypes.setRenderLayer(BlockRegistry.LARGE_WOODEN_GUALUO_EDGE.get(), RenderType.cutout());
+
             ItemBlockRenderTypes.setRenderLayer(BlockRegistry.LARGE_BLUE_CURTAIN.get(), RenderType.cutout());
             ItemBlockRenderTypes.setRenderLayer(BlockRegistry.MEDIUM_BLUE_CURTAIN.get(), RenderType.cutout());
             ItemBlockRenderTypes.setRenderLayer(BlockRegistry.SMALL_BLUE_CURTAIN.get(), RenderType.cutout());
