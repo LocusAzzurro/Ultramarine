@@ -125,7 +125,8 @@ public class ModBlockModelProvider extends BlockStateProvider {
         slabSideEndNoFull(BlockRegistry.EMPTY_TUANHUA_SLAB.get(), sideLoc(BlockRegistry.EMPTY_TUANHUA_SLAB.get()), endLoc(BlockRegistry.EMPTY_TUANHUA_SLAB.get()));
         slabSideEndNoFull(BlockRegistry.FULL_TUANHUA_SLAB.get(), sideLoc(BlockRegistry.FULL_TUANHUA_SLAB.get()), endLoc(BlockRegistry.EMPTY_TUANHUA_SLAB.get()));
         slabSideEndNoFull(BlockRegistry.RED_AND_CYAN_TUANHUA_SLAB.get(), sideLoc(BlockRegistry.RED_AND_CYAN_TUANHUA_SLAB.get()), endLoc(BlockRegistry.RED_AND_CYAN_TUANHUA_SLAB.get()));
-
+        slabSideEndNoFull(BlockRegistry.RED_CARVED_ARCHITRAVE.get(), sideLoc(BlockRegistry.RED_CARVED_ARCHITRAVE.get()), mcLoc(BLOCK + "red_concrete_powder"));
+        sideBottomTop(BlockRegistry.STRIPPED_DARK_OAK_PILLAR_BASE.get(), sideLoc(BlockRegistry.STRIPPED_DARK_OAK_PILLAR_BASE.get()), mcLoc(BLOCK + "smooth_stone"), mcLoc(BLOCK + "dark_oak_log_top"));
 
         directionalSideEnd(BlockRegistry.GREEN_FANGXIN.get(), sideLoc(BlockRegistry.GREEN_FANGXIN.get()), endLoc(BlockRegistry.GREEN_FANGXIN.get()));
         directionalSideEnd(BlockRegistry.GREEN_FANGXIN_EDGE.get(), sideLoc(BlockRegistry.GREEN_FANGXIN_EDGE.get()), endLoc(BlockRegistry.GREEN_FANGXIN.get()));
@@ -163,6 +164,7 @@ public class ModBlockModelProvider extends BlockStateProvider {
         directionalSideEnd(BlockRegistry.BLUE_GREEN_RED_ZHAOTOU.get(), sideLoc(BlockRegistry.BLUE_GREEN_RED_ZHAOTOU.get()), mcLoc(BLOCK + "blue_wool"));
         directionalSideEnd(BlockRegistry.CYAN_AND_YELLOW_FANGXIN_EDGE.get(), sideLoc(BlockRegistry.CYAN_AND_YELLOW_FANGXIN_EDGE.get()), mcLoc(BLOCK + "blue_wool"));
         directionalSideBottomTop(BlockRegistry.GUTOU.get(), sideLoc(BlockRegistry.GUTOU.get()), mcLoc(BLOCK + "black_wool"), mcLoc(BLOCK + "white_wool"));
+        directionalSideBottomTop(BlockRegistry.RED_AND_BLUE_ZHAOTOU.get(), sideLoc(BlockRegistry.RED_AND_BLUE_ZHAOTOU.get()), mcLoc(BLOCK + "red_wool"), mcLoc(BLOCK + "blue_wool"));
 
 
         //<editor-fold desc="Roof Tiles">

@@ -73,8 +73,6 @@ public class ModClientRenderEventHandler {
             ItemBlockRenderTypes.setRenderLayer(BlockRegistry.LARGE_GRAY_SU_STYLE_CAIHUA.get(), RenderType.cutout());
             ItemBlockRenderTypes.setRenderLayer(BlockRegistry.GREEN_FANGXIN_PATTERN.get(), RenderType.cutout());
             ItemBlockRenderTypes.setRenderLayer(BlockRegistry.GREEN_FANGXIN_PATTERN_EDGE.get(), RenderType.cutout());
-
-
             ItemBlockRenderTypes.setRenderLayer(BlockRegistry.CARVED_ZHAOTOU_PATTERN.get(), RenderType.cutout());
             ItemBlockRenderTypes.setRenderLayer(BlockRegistry.GILDED_DARK_OAK_LONG_QUETI.get(), RenderType.cutout());
             ItemBlockRenderTypes.setRenderLayer(BlockRegistry.GILDED_DARK_OAK_LONG_QUETI_EDGE.get(), RenderType.cutout());

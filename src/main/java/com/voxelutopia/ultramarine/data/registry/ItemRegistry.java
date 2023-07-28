@@ -116,6 +116,8 @@ public class ItemRegistry {
     public static final RegistryObject<Item> EMPTY_TUANHUA_SLAB = fromBlock(BlockRegistry.EMPTY_TUANHUA_SLAB, CreativeTabs.DECORATIVE_BLOCKS);
     public static final RegistryObject<Item> FULL_TUANHUA_SLAB = fromBlock(BlockRegistry.FULL_TUANHUA_SLAB, CreativeTabs.DECORATIVE_BLOCKS);
     public static final RegistryObject<Item> RED_AND_CYAN_TUANHUA_SLAB = fromBlock(BlockRegistry.RED_AND_CYAN_TUANHUA_SLAB, CreativeTabs.DECORATIVE_BLOCKS);
+    public static final RegistryObject<Item> RED_CARVED_ARCHITRAVE = fromBlock(BlockRegistry.RED_CARVED_ARCHITRAVE, CreativeTabs.DECORATIVE_BLOCKS);
+    public static final RegistryObject<Item> STRIPPED_DARK_OAK_PILLAR_BASE = fromBlock(BlockRegistry.STRIPPED_DARK_OAK_PILLAR_BASE, CreativeTabs.DECORATIVE_BLOCKS);
 
 
     public static final RegistryObject<Item> GREEN_FANGXIN = fromBlock(BlockRegistry.GREEN_FANGXIN, CreativeTabs.DECORATIVE_BLOCKS);
@@ -153,6 +155,7 @@ public class ItemRegistry {
     public static final RegistryObject<Item> BLUE_GREEN_RED_ZHAOTOU = fromBlock(BlockRegistry.BLUE_GREEN_RED_ZHAOTOU, CreativeTabs.DECORATIVE_BLOCKS);
     public static final RegistryObject<Item> CYAN_AND_YELLOW_FANGXIN_EDGE = fromBlock(BlockRegistry.CYAN_AND_YELLOW_FANGXIN_EDGE, CreativeTabs.DECORATIVE_BLOCKS);
     public static final RegistryObject<Item> GUTOU = fromBlock(BlockRegistry.GUTOU, CreativeTabs.DECORATIVE_BLOCKS);
+    public static final RegistryObject<Item> RED_AND_BLUE_ZHAOTOU = fromBlock(BlockRegistry.RED_AND_BLUE_ZHAOTOU, CreativeTabs.DECORATIVE_BLOCKS);
 
 
     public static final RegistryObject<Item> YELLOW_CARVED_PATTERN = fromBlock(BlockRegistry.YELLOW_CARVED_PATTERN, CreativeTabs.DECORATIVE_BLOCKS);
