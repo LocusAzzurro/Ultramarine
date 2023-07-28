@@ -10,54 +10,50 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
-import net.minecraft.world.level.block.state.properties.EnumProperty;
 import net.minecraft.world.level.material.FluidState;
 import net.minecraft.world.level.material.Fluids;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
-public class CentralQuetiBlock extends Block implements SimpleWaterloggedBlock {
+import java.util.Map;
+
+public class SideAxialBlock extends BaseHorizontalDirectionalBlock implements AxialBlock, SimpleWaterloggedBlock {
 
     public static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
-    public static final EnumProperty<Direction.Axis> AXIS = BlockStateProperties.HORIZONTAL_AXIS;
-    protected static final VoxelShape X_AABB = Block.box(0.0D, 0.0D, 6.0D, 16.0D, 16.0D, 10.0D);
-    protected static final VoxelShape Z_AABB = Block.box(6.0D, 0.0D, 0.0D, 10.0D, 16.0D, 16.0D);
+    protected Map<Direction.Axis, VoxelShape> shapeByAxis;
 
     private final int thickness;
+    private final boolean hasCollision;
+    private final int height;
 
-    public CentralQuetiBlock(BaseBlockProperty property, int thickness) {
-        super(property.properties.noCollission());
+    public SideAxialBlock(BaseBlockProperty property, int thickness, int height, boolean hasCollision) {
+        super(property);
         BlockState state = this.stateDefinition.any()
                 .setValue(WATERLOGGED, Boolean.FALSE)
-                .setValue(AXIS, Direction.Axis.X);
+                .setValue(FACING, Direction.NORTH);
         this.registerDefaultState(state);
         this.thickness = thickness;
+        this.shapeByAxis = this.makeAxialShapes(thickness, height);
+        this.height = height;
+        this.hasCollision = hasCollision;
     }
 
-    public CentralQuetiBlock(BaseBlockProperty property) {
-        this(property, 2);
+    public SideAxialBlock(BaseBlockProperty property, int thickness) {
+        this(property, thickness, 16, false);
     }
 
     @Override
     public VoxelShape getShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
-        Direction.Axis axis = pState.getValue(AXIS);
-        if (axis == Direction.Axis.Z) return ZAABB(thickness);
-        else return XAABB(thickness);
-    }
-
-    private VoxelShape XAABB(int thickness){
-        return Block.box(0.0D, 0.0D, 8 - thickness, 16.0D, 16.0D, 8 + thickness);
-    }
-
-    private VoxelShape ZAABB(int thickness){
-        return Block.box(8 - thickness, 0.0D, 0.0D, 8 + thickness, 16.0D, 16.0D);
+        Direction direction = pState.getValue(FACING);
+        if (direction == Direction.EAST || direction == Direction.WEST) return this.shapeByAxis.get(Direction.Axis.X);
+        else return this.shapeByAxis.get(Direction.Axis.Z);
     }
 
     @Override
     public BlockState getStateForPlacement(BlockPlaceContext pContext) {
         BlockState state = this.defaultBlockState().setValue(WATERLOGGED, pContext.getLevel().getFluidState(pContext.getClickedPos()).getType() == Fluids.WATER);
-        return state.setValue(AXIS, pContext.getHorizontalDirection().getClockWise().getAxis());
+        return state.setValue(FACING, pContext.getHorizontalDirection());
     }
 
     @Override
@@ -68,12 +64,16 @@ public class CentralQuetiBlock extends Block implements SimpleWaterloggedBlock {
     @Override
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> pBuilder) {
         pBuilder.add(WATERLOGGED);
-        pBuilder.add(AXIS);
+        pBuilder.add(FACING);
     }
 
     @Override
     public VoxelShape getCollisionShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
-        return Shapes.empty();
+        return hasCollision ? this.getShape(pState, pLevel, pPos, pContext) : Shapes.empty();
     }
 
+    @Override
+    public Direction.Axis getAxis(BlockState pState) {
+        return pState.getValue(FACING).getAxis();
+    }
 }

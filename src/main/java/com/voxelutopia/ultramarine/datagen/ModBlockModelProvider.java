@@ -195,10 +195,10 @@ public class ModBlockModelProvider extends BlockStateProvider {
         vegetableBasket((StackableHalfBlock) BlockRegistry.EGGPLANT_BASKET.get());
         vegetableBasket((StackableHalfBlock) BlockRegistry.PEAR_BASKET.get());
 
-        BlockRegistry.BLOCKS.getEntries().stream().filter(blockRegistryObject -> blockRegistryObject.get() instanceof SideQuetiBlock)
+        BlockRegistry.BLOCKS.getEntries().stream().filter(blockRegistryObject -> blockRegistryObject.get() instanceof SideAxialBlock)
                 .forEach(queti -> horizontalBlockNoOffset(queti.get()));
 
-        BlockRegistry.BLOCKS.getEntries().stream().filter(blockRegistryObject -> blockRegistryObject.get() instanceof CentralQuetiBlock)
+        BlockRegistry.BLOCKS.getEntries().stream().filter(blockRegistryObject -> blockRegistryObject.get() instanceof CentralAxialBlock)
                 .forEach(queti -> axisBlock(queti.get()));
 
         BlockRegistry.BLOCKS.getEntries().stream().filter(blockRegistryObject -> blockRegistryObject.get() instanceof Rafter)

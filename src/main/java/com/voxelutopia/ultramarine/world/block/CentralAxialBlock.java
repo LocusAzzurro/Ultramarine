@@ -17,46 +17,48 @@ import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
-public class SideQuetiBlock extends BaseHorizontalDirectionalBlock implements SimpleWaterloggedBlock {
+import java.util.Map;
+
+public class CentralAxialBlock extends Block implements AxialBlock, SimpleWaterloggedBlock {
 
     public static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
-    protected static final VoxelShape EW_AABB = Block.box(0.0D, 0.0D, 6.0D, 16.0D, 16.0D, 10.0D);
-    protected static final VoxelShape NS_AABB = Block.box(6.0D, 0.0D, 0.0D, 10.0D, 16.0D, 16.0D);
+    public static final EnumProperty<Direction.Axis> AXIS = BlockStateProperties.HORIZONTAL_AXIS;
+    protected Map<Direction.Axis, VoxelShape> shapeByAxis;
 
     private final int thickness;
+    private final boolean hasCollision;
+    private final int height;
 
-    public SideQuetiBlock(BaseBlockProperty property, int thickness) {
-        super(property);
+    public CentralAxialBlock(BaseBlockProperty property, int thickness, int height, boolean hasCollision) {
+        super(property.properties);
         BlockState state = this.stateDefinition.any()
                 .setValue(WATERLOGGED, Boolean.FALSE)
-                .setValue(FACING, Direction.NORTH);
+                .setValue(AXIS, Direction.Axis.X);
         this.registerDefaultState(state);
         this.thickness = thickness;
+        this.shapeByAxis = this.makeAxialShapes(thickness, height);
+        this.height = height;
+        this.hasCollision = hasCollision;
     }
 
-    public SideQuetiBlock(BaseBlockProperty property) {
-        this(property, 2);
+    public CentralAxialBlock(BaseBlockProperty property, int thickness) {
+        this(property, thickness, 16, false);
+    }
+
+    public CentralAxialBlock(BaseBlockProperty property, int thickness, int height) {
+        this(property, thickness, height, true);
     }
 
     @Override
     public VoxelShape getShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
-        Direction direction = pState.getValue(FACING);
-        if (direction == Direction.EAST || direction == Direction.WEST) return EWAABB(thickness);
-        else return NSAABB(thickness);
-    }
-
-    private VoxelShape EWAABB(int thickness){
-        return Block.box(0.0D, 0.0D, 8 - thickness, 16.0D, 16.0D, 8 + thickness);
-    }
-
-    private VoxelShape NSAABB(int thickness){
-        return Block.box(8 - thickness, 0.0D, 0.0D, 8 + thickness, 16.0D, 16.0D);
+        Direction.Axis axis = pState.getValue(AXIS);
+        return this.shapeByAxis.get(axis);
     }
 
     @Override
     public BlockState getStateForPlacement(BlockPlaceContext pContext) {
         BlockState state = this.defaultBlockState().setValue(WATERLOGGED, pContext.getLevel().getFluidState(pContext.getClickedPos()).getType() == Fluids.WATER);
-        return state.setValue(FACING, pContext.getHorizontalDirection());
+        return state.setValue(AXIS, pContext.getHorizontalDirection().getClockWise().getAxis());
     }
 
     @Override
@@ -67,7 +69,7 @@ public class SideQuetiBlock extends BaseHorizontalDirectionalBlock implements Si
     @Override
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> pBuilder) {
         pBuilder.add(WATERLOGGED);
-        pBuilder.add(FACING);
+        pBuilder.add(AXIS);
     }
 
     @Override
@@ -75,4 +77,8 @@ public class SideQuetiBlock extends BaseHorizontalDirectionalBlock implements Si
         return Shapes.empty();
     }
 
+    @Override
+    public Direction.Axis getAxis(BlockState pState) {
+        return pState.getValue(AXIS);
+    }
 }
