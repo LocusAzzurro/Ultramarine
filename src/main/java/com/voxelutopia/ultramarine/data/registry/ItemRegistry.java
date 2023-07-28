@@ -15,7 +15,9 @@ import net.minecraftforge.registries.RegistryObject;
 
 @SuppressWarnings("unused")
 public class ItemRegistry {
+
     public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, Ultramarine.MOD_ID);
+
     public static final RegistryObject<Item> CYAN_BRICKS = fromBlock(BlockRegistry.CYAN_BRICKS, CreativeTabs.BUILDING_BLOCKS);
     public static final RegistryObject<Item> CYAN_BRICK_SLAB = fromBlock(BlockRegistry.CYAN_BRICK_SLAB, CreativeTabs.BUILDING_BLOCKS);
     public static final RegistryObject<Item> CYAN_BRICK_STAIRS = fromBlock(BlockRegistry.CYAN_BRICK_STAIRS, CreativeTabs.BUILDING_BLOCKS);
@@ -197,6 +199,12 @@ public class ItemRegistry {
     public static final RegistryObject<Item> LARGE_WOODEN_GUALUO = fromBlock(BlockRegistry.LARGE_WOODEN_GUALUO, CreativeTabs.DECORATIVE_BLOCKS);
     public static final RegistryObject<Item> LARGE_WOODEN_GUALUO_EDGE = fromBlock(BlockRegistry.LARGE_WOODEN_GUALUO_EDGE, CreativeTabs.DECORATIVE_BLOCKS);
     public static final RegistryObject<Item> SHORT_THICK_GLAZED_QUETI = fromBlock(BlockRegistry.SHORT_THICK_GLAZED_QUETI, CreativeTabs.DECORATIVE_BLOCKS);
+    public static final RegistryObject<Item> CARVED_STONE_PANEL = fromBlock(BlockRegistry.CARVED_STONE_PANEL, CreativeTabs.DECORATIVE_BLOCKS);
+    public static final RegistryObject<Item> CARVED_STONE_PANEL_EDGE = fromBlock(BlockRegistry.CARVED_STONE_PANEL_EDGE, CreativeTabs.DECORATIVE_BLOCKS);
+    public static final RegistryObject<Item> CARVED_STONE_PANEL_CENTER = fromBlock(BlockRegistry.CARVED_STONE_PANEL_CENTER, CreativeTabs.DECORATIVE_BLOCKS);
+    public static final RegistryObject<Item> CARVED_STONE_QUETI_PART = fromBlock(BlockRegistry.CARVED_STONE_QUETI_PART, CreativeTabs.DECORATIVE_BLOCKS);
+    public static final RegistryObject<Item> CARVED_STONE_BEAM = fromBlock(BlockRegistry.CARVED_STONE_BEAM, CreativeTabs.DECORATIVE_BLOCKS);
+    public static final RegistryObject<Item> CARVED_STONE_QUETI = fromBlock(BlockRegistry.CARVED_STONE_QUETI, CreativeTabs.DECORATIVE_BLOCKS);
 
 
     public static final RegistryObject<Item> BLUE_CARVED_TIGER_EYE_RAFTER = fromBlock(BlockRegistry.BLUE_CARVED_TIGER_EYE_RAFTER, CreativeTabs.DECORATIVE_BLOCKS);
