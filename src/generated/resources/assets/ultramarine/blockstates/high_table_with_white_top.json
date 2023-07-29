@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "ultramarine:block/high_table_with_white_top",
+      "y": 180
+    },
+    "facing=south": {
+      "model": "ultramarine:block/high_table_with_white_top"
+    },
+    "facing=west": {
+      "model": "ultramarine:block/high_table_with_white_top",
+      "y": 90
+    },
+    "facing=east": {
+      "model": "ultramarine:block/high_table_with_white_top",
+      "y": 270
+    }
+  }
+}

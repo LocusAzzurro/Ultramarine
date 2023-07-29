@@ -385,6 +385,12 @@ public class BlockRegistry {
             () -> SeatDecorativeBlock.with(BaseBlockProperty.WOOD).seatOffset(new Vec3(0.0f, -0.1f, 0.0f)).shaped(DecorativeBlock.HALF_12).directional().build());
     public static final RegistryObject<Block> LARGE_LANDSCAPE_PAINTING_SCREEN = BLOCKS.register("large_landscape_painting_screen",
             () -> DecorativeBlock.with(BaseBlockProperty.WOOD).shaped(OpeningBlock.MIDDLE_AXIAL).placeOffset(Direction.UP).directional().build());
+    public static final RegistryObject<Block> CHESS_TABLE = BLOCKS.register("chess_table",
+            () -> DecorativeBlock.with(BaseBlockProperty.WOOD).shaped(DecorativeBlock.QUARTER_16).directional().diagonallyPlaceable().build());
+    public static final RegistryObject<Block> HIGH_TABLE_WITH_WHITE_TOP = BLOCKS.register("high_table_with_white_top",
+            () -> DecorativeBlock.with(BaseBlockProperty.WOOD).shaped(DecorativeBlock.FULL_14).directional().build());
+    public static final RegistryObject<Block> CENSER_TABLE = BLOCKS.register("censer_table",
+            () -> DecorativeBlock.with(BaseBlockProperty.WOOD).shaped(DecorativeBlock.FULL_14).directional().diagonallyPlaceable().build());
 
     public static final RegistryObject<Block> LARGE_BLUE_CURTAIN = BLOCKS.register("large_blue_curtain",
             () -> new WallSideBlock(BaseBlockProperty.SILK));

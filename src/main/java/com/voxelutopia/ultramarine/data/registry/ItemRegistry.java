@@ -332,6 +332,9 @@ public class ItemRegistry {
     public static final RegistryObject<Item> EBONY_CHAIR = fromBlock(BlockRegistry.EBONY_CHAIR, CreativeTabs.FURNITURE);
     public static final RegistryObject<Item> WOODEN_STOOL = fromBlock(BlockRegistry.WOODEN_STOOL, CreativeTabs.FURNITURE);
     public static final RegistryObject<Item> LARGE_LANDSCAPE_PAINTING_SCREEN = fromBlock(BlockRegistry.LARGE_LANDSCAPE_PAINTING_SCREEN, CreativeTabs.FURNITURE);
+    public static final RegistryObject<Item> CHESS_TABLE = fromBlock(BlockRegistry.CHESS_TABLE, CreativeTabs.FURNITURE);
+    public static final RegistryObject<Item> HIGH_TABLE_WITH_WHITE_TOP = fromBlock(BlockRegistry.HIGH_TABLE_WITH_WHITE_TOP, CreativeTabs.FURNITURE);
+    public static final RegistryObject<Item> CENSER_TABLE = fromBlock(BlockRegistry.CENSER_TABLE, CreativeTabs.FURNITURE);
 
 
     public static final RegistryObject<Item> LARGE_BLUE_CURTAIN = fromBlock(BlockRegistry.LARGE_BLUE_CURTAIN, CreativeTabs.WINDOWS_AND_DOORS);
