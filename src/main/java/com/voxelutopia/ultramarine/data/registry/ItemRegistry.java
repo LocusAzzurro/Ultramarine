@@ -335,6 +335,13 @@ public class ItemRegistry {
     public static final RegistryObject<Item> CHESS_TABLE = fromBlock(BlockRegistry.CHESS_TABLE, CreativeTabs.FURNITURE);
     public static final RegistryObject<Item> HIGH_TABLE_WITH_WHITE_TOP = fromBlock(BlockRegistry.HIGH_TABLE_WITH_WHITE_TOP, CreativeTabs.FURNITURE);
     public static final RegistryObject<Item> CENSER_TABLE = fromBlock(BlockRegistry.CENSER_TABLE, CreativeTabs.FURNITURE);
+    public static final RegistryObject<Item> PORCELAIN_INLAID_GRAND_CHAIR = fromBlock(BlockRegistry.PORCELAIN_INLAID_GRAND_CHAIR, CreativeTabs.FURNITURE);
+    public static final RegistryObject<Item> PORCELAIN_INLAID_TABLE = fromBlock(BlockRegistry.PORCELAIN_INLAID_TABLE, CreativeTabs.FURNITURE);
+    public static final RegistryObject<Item> CHAIR_WITH_YELLOW_CUSHION = fromBlock(BlockRegistry.CHAIR_WITH_YELLOW_CUSHION, CreativeTabs.FURNITURE);
+    public static final RegistryObject<Item> PAINTED_CHAIR = fromBlock(BlockRegistry.PAINTED_CHAIR, CreativeTabs.FURNITURE);
+    public static final RegistryObject<Item> SMALL_TABLE = fromBlock(BlockRegistry.SMALL_TABLE, CreativeTabs.FURNITURE);
+    public static final RegistryObject<Item> SMALL_EBONY_TABLE = fromBlock(BlockRegistry.SMALL_EBONY_TABLE, CreativeTabs.FURNITURE);
+    public static final RegistryObject<Item> LARGE_TABLE = fromBlock(BlockRegistry.LARGE_TABLE, CreativeTabs.FURNITURE);
 
 
     public static final RegistryObject<Item> LARGE_BLUE_CURTAIN = fromBlock(BlockRegistry.LARGE_BLUE_CURTAIN, CreativeTabs.WINDOWS_AND_DOORS);

@@ -38,6 +38,7 @@ public class DecorativeBlock extends HorizontalDirectionalBlock implements BaseB
     public static final VoxelShape FULL_4 = Block.box(6.0D, 0.0D, 6.0D, 10.0D, 16.0D, 10.0D);
 
     public static final VoxelShape HALF_BLOCK = Block.box(0.0D, 0.0D, 0.0D, 16.0D, 8.0D, 16.0D);
+    public static final VoxelShape HALF_14 = Block.box(1.0D, 0.0D, 1.0D, 15.0D, 8.0D, 14.0D);
     public static final VoxelShape HALF_12 = Block.box(3.0D, 0.0D, 3.0D, 13.0D, 8.0D, 13.0D);
     public static final VoxelShape HALF_6 = Block.box(5.0D, 0.0D, 5.0D, 11.0D, 8.0D, 11.0D);
     public static final VoxelShape QUARTER_16 = Block.box(0.0D, 0.0D, 0.0D, 16.0D, 4.0D, 16.0D);

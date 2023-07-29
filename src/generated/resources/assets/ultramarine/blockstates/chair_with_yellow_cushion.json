@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "ultramarine:block/chair_with_yellow_cushion",
+      "y": 180
+    },
+    "facing=south": {
+      "model": "ultramarine:block/chair_with_yellow_cushion"
+    },
+    "facing=west": {
+      "model": "ultramarine:block/chair_with_yellow_cushion",
+      "y": 90
+    },
+    "facing=east": {
+      "model": "ultramarine:block/chair_with_yellow_cushion",
+      "y": 270
+    }
+  }
+}

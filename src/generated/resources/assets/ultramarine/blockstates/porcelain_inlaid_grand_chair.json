@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "ultramarine:block/porcelain_inlaid_grand_chair",
+      "y": 180
+    },
+    "facing=south": {
+      "model": "ultramarine:block/porcelain_inlaid_grand_chair"
+    },
+    "facing=west": {
+      "model": "ultramarine:block/porcelain_inlaid_grand_chair",
+      "y": 90
+    },
+    "facing=east": {
+      "model": "ultramarine:block/porcelain_inlaid_grand_chair",
+      "y": 270
+    }
+  }
+}
