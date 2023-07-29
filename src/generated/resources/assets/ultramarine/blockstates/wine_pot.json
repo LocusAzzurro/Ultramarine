@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "ultramarine:block/wine_pot",
+      "y": 180
+    },
+    "facing=south": {
+      "model": "ultramarine:block/wine_pot"
+    },
+    "facing=west": {
+      "model": "ultramarine:block/wine_pot",
+      "y": 90
+    },
+    "facing=east": {
+      "model": "ultramarine:block/wine_pot",
+      "y": 270
+    }
+  }
+}

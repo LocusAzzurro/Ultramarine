@@ -303,6 +303,7 @@ public class ItemRegistry {
     public static final RegistryObject<Item> BLUE_BOOK = fromBlock(BlockRegistry.BLUE_BOOK, CreativeTabs.DECORATIONS);
     public static final RegistryObject<Item> CHINESE_HERBS_BAG = fromBlock(BlockRegistry.CHINESE_HERBS_BAG, CreativeTabs.DECORATIONS);
     public static final RegistryObject<Item> BAMBOO_SLIPS = fromBlock(BlockRegistry.BAMBOO_SLIPS, CreativeTabs.DECORATIONS);
+    public static final RegistryObject<Item> BRONZE_DING = fromBlock(BlockRegistry.BRONZE_DING, CreativeTabs.DECORATIONS);
 
 
     public static final RegistryObject<Item> LONG_HANGING_PAINTING = fromBlock(BlockRegistry.LONG_HANGING_PAINTING, CreativeTabs.DECORATIONS);
@@ -327,6 +328,9 @@ public class ItemRegistry {
     public static final RegistryObject<Item> PLATED_MUNG_BEAN_CAKES = fromBlock(BlockRegistry.PLATED_MUNG_BEAN_CAKES, CreativeTabs.DECORATIONS);
     public static final RegistryObject<Item> PLATED_HAM = fromBlock(BlockRegistry.PLATED_HAM, CreativeTabs.DECORATIONS);
     public static final RegistryObject<Item> PLATED_FISH = fromBlock(BlockRegistry.PLATED_FISH, CreativeTabs.DECORATIONS);
+    public static final RegistryObject<Item> SCATTERED_CARROTS = fromBlock(BlockRegistry.SCATTERED_CARROTS, CreativeTabs.DECORATIONS);
+    public static final RegistryObject<Item> WINE_POT = fromBlock(BlockRegistry.WINE_POT, CreativeTabs.DECORATIONS);
+
 
     public static final RegistryObject<Item> OCTAGONAL_PALACE_LANTERN = fromBlock(BlockRegistry.OCTAGONAL_PALACE_LANTERN, CreativeTabs.LAMPS);
     public static final RegistryObject<Item> SQUARE_PALACE_LANTERN = fromBlock(BlockRegistry.SQUARE_PALACE_LANTERN, CreativeTabs.LAMPS);
@@ -360,6 +364,7 @@ public class ItemRegistry {
     public static final RegistryObject<Item> LARGE_TABLE = fromBlock(BlockRegistry.LARGE_TABLE, CreativeTabs.FURNITURE);
     public static final RegistryObject<Item> PAINTED_SCREEN = fromBlock(BlockRegistry.PAINTED_SCREEN, CreativeTabs.FURNITURE);
     public static final RegistryObject<Item> OAK_BED = fromBlock(BlockRegistry.OAK_BED, CreativeTabs.FURNITURE);
+    public static final RegistryObject<Item> YELLOW_CUSHION = fromBlock(BlockRegistry.YELLOW_CUSHION, CreativeTabs.FURNITURE);
 
 
     public static final RegistryObject<Item> LARGE_BLUE_CURTAIN = fromBlock(BlockRegistry.LARGE_BLUE_CURTAIN, CreativeTabs.WINDOWS_AND_DOORS);

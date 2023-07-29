@@ -2,13 +2,13 @@
   "type": "minecraft:block",
   "pools": [
     {
-      "name": "oak_bed",
+      "name": "bronze_ding",
       "rolls": 1.0,
       "bonus_rolls": 0.0,
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "ultramarine:oak_bed"
+          "name": "ultramarine:bronze_ding"
         }
       ]
     }

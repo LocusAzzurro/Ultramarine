@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "ultramarine:block/bronze_ding",
+      "y": 180
+    },
+    "facing=south": {
+      "model": "ultramarine:block/bronze_ding"
+    },
+    "facing=west": {
+      "model": "ultramarine:block/bronze_ding",
+      "y": 90
+    },
+    "facing=east": {
+      "model": "ultramarine:block/bronze_ding",
+      "y": 270
+    }
+  }
+}

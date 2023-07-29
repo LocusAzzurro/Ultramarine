@@ -6,9 +6,11 @@ import com.voxelutopia.ultramarine.data.ModFoods;
 import com.voxelutopia.ultramarine.world.block.*;
 import com.voxelutopia.ultramarine.world.block.BaseAxialBlock;
 import net.minecraft.core.Direction;
+import net.minecraft.world.food.Foods;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockBehaviour;
+import net.minecraft.world.level.gameevent.GameEvent;
 import net.minecraft.world.level.material.Material;
 import net.minecraft.world.phys.Vec3;
 import net.minecraftforge.registries.DeferredRegister;
@@ -350,7 +352,8 @@ public class BlockRegistry {
             () -> DecorativeBlock.with(BaseBlockProperty.SILK).shaped(DecorativeBlock.HALF_BLOCK).directional().build());
     public static final RegistryObject<Block> BAMBOO_SLIPS = BLOCKS.register("bamboo_slips",
             () -> DecorativeBlock.with(BaseBlockProperty.SILK).shaped(DecorativeBlock.HALF_14).directional().diagonallyPlaceable().noCollision().build());
-
+    public static final RegistryObject<Block> BRONZE_DING = BLOCKS.register("bronze_ding",
+            () -> DecorativeBlock.with(BaseBlockProperty.BRONZE).shaped(DecorativeBlock.FULL_BLOCK).placeOffset(Direction.UP).directional().noOcclusion().build());
 
     public static final RegistryObject<Block> LONG_HANGING_PAINTING = BLOCKS.register("long_hanging_painting",
             () -> new WallSideBlock(BaseBlockProperty.PAPER));
@@ -393,6 +396,12 @@ public class BlockRegistry {
             () -> ConsumableDecorativeBlock.with(BaseBlockProperty.WOOD).bites(4).platedWith(ItemRegistry.POLISHED_OAK_PLANK).food(ModFoods.COOKED_MEAT).shaped(DecorativeBlock.FLAT_16).directional().noOcclusion().build());
     public static final RegistryObject<Block> PLATED_FISH = BLOCKS.register("plated_fish",
             () -> ConsumableDecorativeBlock.with(BaseBlockProperty.WOOD).bites(3).platedWith(ItemRegistry.POLISHED_OAK_PLANK).food(ModFoods.FISH).shaped(DecorativeBlock.FLAT_16).directional().noOcclusion().build());
+    public static final RegistryObject<Block> SCATTERED_CARROTS = BLOCKS.register("scattered_carrots",
+            () -> ConsumableDecorativeBlock.with(BaseBlockProperty.CROP).bites(2).platedWith(ItemRegistry.POLISHED_OAK_PLANK).food(Foods.CARROT)
+                    .whenFinished((pState, pLevel, pPos, pPlayer) -> {pLevel.setBlock(pPos, Blocks.AIR.defaultBlockState(), Block.UPDATE_ALL); pLevel.gameEvent(pPlayer, GameEvent.BLOCK_DESTROY, pPos);})
+                    .shaped(DecorativeBlock.QUARTER_16).directional().noOcclusion().build());
+    public static final RegistryObject<Block> WINE_POT = BLOCKS.register("wine_pot",
+            () -> DecorativeBlock.with(BaseBlockProperty.PORCELAIN).shaped(DecorativeBlock.FULL_6).directional().build());
 
     public static final RegistryObject<Block> OAK_CABINET = BLOCKS.register("oak_cabinet",
             () -> ContainerDecorativeBlock.with(BaseBlockProperty.WOOD).content(ContainerType.COMMON_REGULAR).shaped(DecorativeBlock.FULL_BLOCK).directional().noFenceConnect().build());
@@ -432,6 +441,8 @@ public class BlockRegistry {
             () -> DecorativeBlock.with(BaseBlockProperty.WOOD).shaped(OpeningBlock.MIDDLE_AXIAL).placeOffset(Direction.UP).directional().build());
     public static final RegistryObject<Block> OAK_BED = BLOCKS.register("oak_bed",
             () -> SeatDecorativeBlock.with(BaseBlockProperty.WOOD).seatOffset(new Vec3(0.0f, -0.1f, 0.0f)).shaped(DecorativeBlock.HALF_BLOCK).directional().build());
+    public static final RegistryObject<Block> YELLOW_CUSHION = BLOCKS.register("yellow_cushion",
+            () -> SeatDecorativeBlock.with(BaseBlockProperty.SILK).seatOffset(new Vec3(0.0f, -0.5f, 0.0f)).shaped(DecorativeBlock.QUARTER_12).directional().diagonallyPlaceable().build());
 
 
     public static final RegistryObject<Block> LARGE_BLUE_CURTAIN = BLOCKS.register("large_blue_curtain",

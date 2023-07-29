@@ -2,13 +2,13 @@
   "type": "minecraft:block",
   "pools": [
     {
-      "name": "oak_bed",
+      "name": "yellow_cushion",
       "rolls": 1.0,
       "bonus_rolls": 0.0,
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "ultramarine:oak_bed"
+          "name": "ultramarine:yellow_cushion"
         }
       ]
     }
