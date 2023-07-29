@@ -108,7 +108,7 @@ public class DecorativeBlock extends HorizontalDirectionalBlock implements BaseB
             state = state.setValue(FACING, directions.getLeft()).setValue(HORIZONTAL_FACING_SHIFT, directions.getRight())
                     .setValue(DIAGONAL, getDiagonalState(pContext));
         } else if (isDirectional() && !isDiagonallyPlaceable()) {
-            state = state.setValue(FACING, pContext.getHorizontalDirection());
+            state = state.setValue(FACING, pContext.getHorizontalDirection().getOpposite());
         } else if (!isDirectional() && isDiagonallyPlaceable()) {
             state = state.setValue(DIAGONAL, getDiagonalState(pContext));
         }
