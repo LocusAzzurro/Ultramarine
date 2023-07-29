@@ -367,6 +367,12 @@ public class BlockRegistry {
             () -> new WallSideBlock(BaseBlockProperty.PAPER));
     public static final RegistryObject<Block> YELLOW_LONG_HANGING_PAINTING = BLOCKS.register("yellow_long_hanging_painting",
             () -> new WallSideBlock(BaseBlockProperty.PAPER));
+    public static final RegistryObject<Block> DAMAGED_LANDSCAPE_PAINTING = BLOCKS.register("damaged_landscape_painting",
+            () -> new WallSideBlock(BaseBlockProperty.PAPER));
+    public static final RegistryObject<Block> PORTRAIT = BLOCKS.register("portrait",
+            () -> new WallSideBlock(BaseBlockProperty.PAPER));
+    public static final RegistryObject<Block> HANGING_PAINTING_FAN = BLOCKS.register("hanging_painting_fan",
+            () -> new WallSideBlock(BaseBlockProperty.PAPER));
 
     public static final RegistryObject<Block> SMALL_WOODEN_GUARDIAN_LION = BLOCKS.register("small_wooden_guardian_lion",
             () -> DecorativeBlock.with(BaseBlockProperty.WOOD).shaped(DecorativeBlock.FULL_BLOCK).directional().noOcclusion().noFenceConnect().build());

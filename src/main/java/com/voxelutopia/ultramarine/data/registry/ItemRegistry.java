@@ -312,6 +312,10 @@ public class ItemRegistry {
     public static final RegistryObject<Item> HORIZONTAL_CALLIGRAPHY = fromBlock(BlockRegistry.HORIZONTAL_CALLIGRAPHY, CreativeTabs.DECORATIONS);
     public static final RegistryObject<Item> HORIZONTAL_LANDSCAPE_PAINTING = fromBlock(BlockRegistry.HORIZONTAL_LANDSCAPE_PAINTING, CreativeTabs.DECORATIONS);
     public static final RegistryObject<Item> YELLOW_LONG_HANGING_PAINTING = fromBlock(BlockRegistry.YELLOW_LONG_HANGING_PAINTING, CreativeTabs.DECORATIONS);
+    public static final RegistryObject<Item> DAMAGED_LANDSCAPE_PAINTING = fromBlock(BlockRegistry.DAMAGED_LANDSCAPE_PAINTING, CreativeTabs.DECORATIONS);
+    public static final RegistryObject<Item> PORTRAIT = fromBlock(BlockRegistry.PORTRAIT, CreativeTabs.DECORATIONS);
+    public static final RegistryObject<Item> HANGING_PAINTING_FAN = fromBlock(BlockRegistry.HANGING_PAINTING_FAN, CreativeTabs.DECORATIONS);
+
 
     public static final RegistryObject<Item> SMALL_WOODEN_GUARDIAN_LION = fromBlock(BlockRegistry.SMALL_WOODEN_GUARDIAN_LION, CreativeTabs.DECORATIVE_BLOCKS);
     public static final RegistryObject<Item> SMALL_STONE_GUARDIAN_LION = fromBlock(BlockRegistry.SMALL_STONE_GUARDIAN_LION, CreativeTabs.DECORATIVE_BLOCKS);
