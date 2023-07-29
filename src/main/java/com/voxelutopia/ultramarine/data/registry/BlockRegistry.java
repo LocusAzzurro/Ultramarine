@@ -340,6 +340,17 @@ public class BlockRegistry {
             () -> DecorativeBlock.with(BaseBlockProperty.JADE).shaped(DecorativeBlock.FULL_6).directional().diagonallyPlaceable().build());
     public static final RegistryObject<Block> IMPERIAL_JADE_SEAL = BLOCKS.register("imperial_jade_seal",
             () -> DecorativeBlock.with(BaseBlockProperty.JADE).shaped(DecorativeBlock.FULL_6).directional().build());
+    public static final RegistryObject<Block> LONG_PILLOW = BLOCKS.register("long_pillow",
+            () -> DecorativeBlock.with(BaseBlockProperty.SILK).shaped(DecorativeBlock.QUARTER_12).directional().diagonallyPlaceable().build());
+    public static final RegistryObject<Block> PAPER = BLOCKS.register("paper",
+            () -> DecorativeBlock.with(BaseBlockProperty.PAPER).shaped(DecorativeBlock.FLAT_16).directional().diagonallyPlaceable().noOcclusion().noCollision().build());
+    public static final RegistryObject<Block> BLUE_BOOK = BLOCKS.register("blue_book",
+            () -> DecorativeBlock.with(BaseBlockProperty.PAPER).shaped(DecorativeBlock.QUARTER_16).directional().noOcclusion().noCollision().build());
+    public static final RegistryObject<Block> CHINESE_HERBS_BAG = BLOCKS.register("chinese_herbs_bag",
+            () -> DecorativeBlock.with(BaseBlockProperty.SILK).shaped(DecorativeBlock.HALF_BLOCK).directional().build());
+    public static final RegistryObject<Block> BAMBOO_SLIPS = BLOCKS.register("bamboo_slips",
+            () -> DecorativeBlock.with(BaseBlockProperty.SILK).shaped(DecorativeBlock.HALF_14).directional().diagonallyPlaceable().noCollision().build());
+
 
     public static final RegistryObject<Block> LONG_HANGING_PAINTING = BLOCKS.register("long_hanging_painting",
             () -> new WallSideBlock(BaseBlockProperty.PAPER));

@@ -298,6 +298,11 @@ public class ItemRegistry {
     public static final RegistryObject<Item> BOOTS = fromBlock(BlockRegistry.BOOTS, CreativeTabs.DECORATIONS);
     public static final RegistryObject<Item> JADE_PENDANT = fromBlock(BlockRegistry.JADE_PENDANT, CreativeTabs.DECORATIONS);
     public static final RegistryObject<Item> IMPERIAL_JADE_SEAL = fromBlock(BlockRegistry.IMPERIAL_JADE_SEAL, CreativeTabs.DECORATIONS);
+    public static final RegistryObject<Item> LONG_PILLOW = fromBlock(BlockRegistry.LONG_PILLOW, CreativeTabs.DECORATIONS);
+    public static final RegistryObject<Item> PAPER = fromBlock(BlockRegistry.PAPER, CreativeTabs.DECORATIONS);
+    public static final RegistryObject<Item> BLUE_BOOK = fromBlock(BlockRegistry.BLUE_BOOK, CreativeTabs.DECORATIONS);
+    public static final RegistryObject<Item> CHINESE_HERBS_BAG = fromBlock(BlockRegistry.CHINESE_HERBS_BAG, CreativeTabs.DECORATIONS);
+    public static final RegistryObject<Item> BAMBOO_SLIPS = fromBlock(BlockRegistry.BAMBOO_SLIPS, CreativeTabs.DECORATIONS);
 
 
     public static final RegistryObject<Item> LONG_HANGING_PAINTING = fromBlock(BlockRegistry.LONG_HANGING_PAINTING, CreativeTabs.DECORATIONS);
