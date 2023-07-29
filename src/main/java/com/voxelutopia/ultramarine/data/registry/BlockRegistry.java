@@ -221,6 +221,11 @@ public class BlockRegistry {
     public static final RegistryObject<Block> BLUE_CARVED_TIGER_EYE_RAFTER_END = BLOCKS.register("blue_carved_tiger_eye_rafter_end", () -> new RafterEnd(BaseBlockProperty.WOOD));
     public static final RegistryObject<Block> BLUE_TIGER_EYE_RAFTER_END = BLOCKS.register("blue_tiger_eye_rafter_end", () -> new RafterEnd(BaseBlockProperty.WOOD));
     public static final RegistryObject<Block> GREEN_CARVED_TIGER_EYE_RAFTER_END = BLOCKS.register("green_tiger_eye_rafter_end", () -> new RafterEnd(BaseBlockProperty.WOOD));
+    public static final RegistryObject<Block> GREEN_WANZI_RAFTER = BLOCKS.register("green_wanzi_rafter", () -> new Rafter(BaseBlockProperty.WOOD));
+    public static final RegistryObject<Block> GREEN_WANZI_RAFTER_END = BLOCKS.register("green_wanzi_rafter_end", () -> new RafterEnd(BaseBlockProperty.WOOD));
+    public static final RegistryObject<Block> GREEN_CARVED_WANZI_RAFTER = BLOCKS.register("green_carved_wanzi_rafter", () -> new Rafter(BaseBlockProperty.WOOD));
+    public static final RegistryObject<Block> GREEN_CARVED_WANZI_RAFTER_END = BLOCKS.register("green_carved_wanzi_rafter_end", () -> new RafterEnd(BaseBlockProperty.WOOD));
+
 
     public static final RegistryObject<Block> GRAY_ROOF_TILES = BLOCKS.register("gray_roof_tiles", RoofTiles::new);
     public static final RegistryObject<Block> GRAY_ROOF_TILE_STAIRS = BLOCKS.register("gray_roof_tile_stairs", RoofTiles::new);
