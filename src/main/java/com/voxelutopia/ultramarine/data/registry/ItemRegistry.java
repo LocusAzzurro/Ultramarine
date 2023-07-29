@@ -304,6 +304,9 @@ public class ItemRegistry {
     public static final RegistryObject<Item> CHINESE_HERBS_BAG = fromBlock(BlockRegistry.CHINESE_HERBS_BAG, CreativeTabs.DECORATIONS);
     public static final RegistryObject<Item> BAMBOO_SLIPS = fromBlock(BlockRegistry.BAMBOO_SLIPS, CreativeTabs.DECORATIONS);
     public static final RegistryObject<Item> BRONZE_DING = fromBlock(BlockRegistry.BRONZE_DING, CreativeTabs.DECORATIONS);
+    public static final RegistryObject<Item> CARRIAGE = fromBlock(BlockRegistry.CARRIAGE, CreativeTabs.DECORATIONS);
+    public static final RegistryObject<Item> WOODEN_POLES = fromBlock(BlockRegistry.WOODEN_POLES, CreativeTabs.DECORATIONS);
+    public static final RegistryObject<Item> TEAHOUSE_FLAG = fromBlock(BlockRegistry.TEAHOUSE_FLAG, CreativeTabs.DECORATIONS);
 
 
     public static final RegistryObject<Item> LONG_HANGING_PAINTING = fromBlock(BlockRegistry.LONG_HANGING_PAINTING, CreativeTabs.DECORATIONS);

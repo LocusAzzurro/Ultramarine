@@ -354,6 +354,12 @@ public class BlockRegistry {
             () -> DecorativeBlock.with(BaseBlockProperty.SILK).shaped(DecorativeBlock.HALF_14).directional().diagonallyPlaceable().noCollision().build());
     public static final RegistryObject<Block> BRONZE_DING = BLOCKS.register("bronze_ding",
             () -> DecorativeBlock.with(BaseBlockProperty.BRONZE).shaped(DecorativeBlock.FULL_BLOCK).placeOffset(Direction.UP).directional().noOcclusion().build());
+    public static final RegistryObject<Block> CARRIAGE = BLOCKS.register("carriage",
+            () -> DecorativeBlock.with(BaseBlockProperty.WOOD).shaped(DecorativeBlock.FULL_BLOCK).directional().noOcclusion().build());
+    public static final RegistryObject<Block> WOODEN_POLES = BLOCKS.register("wooden_poles",
+            () -> DecorativeBlock.with(BaseBlockProperty.WOOD).shaped(DecorativeBlock.FULL_BLOCK).directional().noOcclusion().build());
+    public static final RegistryObject<Block> TEAHOUSE_FLAG = BLOCKS.register("teahouse_flag",
+            () -> DecorativeBlock.with(BaseBlockProperty.WOOD).shaped(DecorativeBlock.FULL_6).placeOffset(Direction.UP).directional().noOcclusion().build());
 
     public static final RegistryObject<Block> LONG_HANGING_PAINTING = BLOCKS.register("long_hanging_painting",
             () -> new WallSideBlock(BaseBlockProperty.PAPER));

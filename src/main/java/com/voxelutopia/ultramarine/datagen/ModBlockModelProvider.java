@@ -18,6 +18,7 @@ import net.minecraftforge.client.model.generators.BlockStateProvider;
 import net.minecraftforge.client.model.generators.ConfiguredModel;
 import net.minecraftforge.client.model.generators.ModelFile;
 import net.minecraftforge.common.data.ExistingFileHelper;
+import net.minecraftforge.registries.RegistryObject;
 import org.apache.commons.lang3.tuple.Pair;
 import org.jetbrains.annotations.NotNull;
 
@@ -40,6 +41,10 @@ public class ModBlockModelProvider extends BlockStateProvider {
             Pair.of(Direction.WEST, Direction.SOUTH), 180,
             Pair.of(Direction.WEST, Direction.NORTH), 270,
             Pair.of(Direction.NORTH, Direction.WEST), 270
+    );
+    private final Map<RegistryObject<Block>, Integer> ROTATED_DECO = Map.of(
+            BlockRegistry.CARRIAGE, 90,
+            BlockRegistry.WOODEN_POLES, 90
     );
 
     public ModBlockModelProvider(DataGenerator generator, ExistingFileHelper existingFileHelper) {
@@ -233,7 +238,8 @@ public class ModBlockModelProvider extends BlockStateProvider {
         BlockRegistry.BLOCKS.getEntries().stream().filter(blockRegistryObject -> blockRegistryObject.get() instanceof DecorativeBlock)
                 .forEach(decorativeBlock -> {
                     DecorativeBlock block = (DecorativeBlock) decorativeBlock.get();
-                    if (block instanceof ConsumableDecorativeBlock consumableDecorativeBlock) consumableDecorativeBlock(consumableDecorativeBlock);
+                    if (ROTATED_DECO.containsKey(decorativeBlock)) decorativeBlock(block, ROTATED_DECO.get(decorativeBlock));
+                    else if (block instanceof ConsumableDecorativeBlock consumableDecorativeBlock) consumableDecorativeBlock(consumableDecorativeBlock);
                     else if (block instanceof Censer censer) censer(censer, 0);
                     else if (block instanceof OpeningBlock openingBlock) openingBlock(openingBlock);
                     else decorativeBlock(block);
