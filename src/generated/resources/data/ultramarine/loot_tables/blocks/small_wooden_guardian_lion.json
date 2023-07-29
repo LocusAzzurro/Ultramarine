@@ -2,13 +2,13 @@
   "type": "minecraft:block",
   "pools": [
     {
-      "name": "carved_stone_beam",
+      "name": "small_wooden_guardian_lion",
       "rolls": 1.0,
       "bonus_rolls": 0.0,
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "ultramarine:carved_stone_beam"
+          "name": "minecraft:air"
         }
       ]
     }

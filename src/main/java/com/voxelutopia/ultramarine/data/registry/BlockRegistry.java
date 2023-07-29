@@ -329,6 +329,9 @@ public class BlockRegistry {
     public static final RegistryObject<Block> YELLOW_LONG_HANGING_PAINTING = BLOCKS.register("yellow_long_hanging_painting",
             () -> new WallSideBlock(BaseBlockProperty.PAPER));
 
+    public static final RegistryObject<Block> SMALL_WOODEN_GUARDIAN_LION = BLOCKS.register("small_wooden_guardian_lion",
+            () -> DecorativeBlock.with(BaseBlockProperty.WOOD).shaped(DecorativeBlock.FULL_BLOCK).directional().build());
+
 
     public static final RegistryObject<Block> FRUIT_BOX = BLOCKS.register("fruit_box",
             () -> ContainerDecorativeBlock.with(BaseBlockProperty.WOOD).content(ContainerType.FOOD_REGULAR).shaped(DecorativeBlock.FULL_14).directional().diagonallyPlaceable().build());

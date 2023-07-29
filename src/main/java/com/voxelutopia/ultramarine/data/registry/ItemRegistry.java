@@ -284,6 +284,8 @@ public class ItemRegistry {
     public static final RegistryObject<Item> HORIZONTAL_LANDSCAPE_PAINTING = fromBlock(BlockRegistry.HORIZONTAL_LANDSCAPE_PAINTING, CreativeTabs.DECORATIONS);
     public static final RegistryObject<Item> YELLOW_LONG_HANGING_PAINTING = fromBlock(BlockRegistry.YELLOW_LONG_HANGING_PAINTING, CreativeTabs.DECORATIONS);
 
+    public static final RegistryObject<Item> SMALL_WOODEN_GUARDIAN_LION = fromBlock(BlockRegistry.SMALL_WOODEN_GUARDIAN_LION, CreativeTabs.DECORATIVE_BLOCKS);
+
 
     public static final RegistryObject<Item> FRUIT_BOX = fromBlock(BlockRegistry.FRUIT_BOX, CreativeTabs.DECORATIONS);
     public static final RegistryObject<Item> WOODEN_CRATE = fromBlock(BlockRegistry.WOODEN_CRATE, CreativeTabs.DECORATIONS);
