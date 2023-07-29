@@ -330,7 +330,15 @@ public class BlockRegistry {
             () -> new WallSideBlock(BaseBlockProperty.PAPER));
 
     public static final RegistryObject<Block> SMALL_WOODEN_GUARDIAN_LION = BLOCKS.register("small_wooden_guardian_lion",
-            () -> DecorativeBlock.with(BaseBlockProperty.WOOD).shaped(DecorativeBlock.FULL_BLOCK).directional().build());
+            () -> DecorativeBlock.with(BaseBlockProperty.WOOD).shaped(DecorativeBlock.FULL_BLOCK).directional().noOcclusion().noFenceConnect().build());
+    public static final RegistryObject<Block> SMALL_STONE_GUARDIAN_LION = BLOCKS.register("small_stone_guardian_lion",
+            () -> DecorativeBlock.with(BaseBlockProperty.STONE).shaped(DecorativeBlock.FULL_BLOCK).directional().noOcclusion().noFenceConnect().build());
+    public static final RegistryObject<Block> SMALL_JADE_GUARDIAN_LION = BLOCKS.register("small_jade_guardian_lion",
+            () -> DecorativeBlock.with(BaseBlockProperty.JADE).shaped(DecorativeBlock.FULL_BLOCK).directional().noOcclusion().noFenceConnect().build());
+    public static final RegistryObject<Block> SMALL_YELLOW_GLAZED_GUARDIAN_LION = BLOCKS.register("small_yellow_glazed_guardian_lion",
+            () -> DecorativeBlock.with(BaseBlockProperty.GLAZED).shaped(DecorativeBlock.FULL_BLOCK).directional().noOcclusion().noFenceConnect().build());
+    public static final RegistryObject<Block> SMALL_GREEN_GLAZED_GUARDIAN_LION = BLOCKS.register("small_green_glazed_guardian_lion",
+            () -> DecorativeBlock.with(BaseBlockProperty.GLAZED).shaped(DecorativeBlock.FULL_BLOCK).directional().noOcclusion().noFenceConnect().build());
 
 
     public static final RegistryObject<Block> FRUIT_BOX = BLOCKS.register("fruit_box",

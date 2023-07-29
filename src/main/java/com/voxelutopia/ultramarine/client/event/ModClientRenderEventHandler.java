@@ -42,6 +42,10 @@ public class ModClientRenderEventHandler {
             ItemBlockRenderTypes.setRenderLayer(BlockRegistry.IMPERIAL_JADE_SEAL.get(), RenderType.cutout());
             ItemBlockRenderTypes.setRenderLayer(BlockRegistry.LONG_HANGING_PAINTING.get(), RenderType.cutout());
             ItemBlockRenderTypes.setRenderLayer(BlockRegistry.SMALL_WOODEN_GUARDIAN_LION.get(), RenderType.cutout());
+            ItemBlockRenderTypes.setRenderLayer(BlockRegistry.SMALL_STONE_GUARDIAN_LION.get(), RenderType.cutout());
+            ItemBlockRenderTypes.setRenderLayer(BlockRegistry.SMALL_JADE_GUARDIAN_LION.get(), RenderType.cutout());
+            ItemBlockRenderTypes.setRenderLayer(BlockRegistry.SMALL_YELLOW_GLAZED_GUARDIAN_LION.get(), RenderType.cutout());
+            ItemBlockRenderTypes.setRenderLayer(BlockRegistry.SMALL_GREEN_GLAZED_GUARDIAN_LION.get(), RenderType.cutout());
 
 
             ItemBlockRenderTypes.setRenderLayer(BlockRegistry.GUNNY_SACK.get(), RenderType.cutout());
