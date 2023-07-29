@@ -428,6 +428,11 @@ public class BlockRegistry {
             () -> DecorativeBlock.with(BaseBlockProperty.WOOD).shaped(DecorativeBlock.FULL_14).directional().build());
     public static final RegistryObject<Block> LARGE_TABLE = BLOCKS.register("large_table",
             () -> DecorativeBlock.with(BaseBlockProperty.WOOD).shaped(DecorativeBlock.FULL_BLOCK).directional().build());
+    public static final RegistryObject<Block> PAINTED_SCREEN = BLOCKS.register("painted_screen",
+            () -> DecorativeBlock.with(BaseBlockProperty.WOOD).shaped(OpeningBlock.MIDDLE_AXIAL).placeOffset(Direction.UP).directional().build());
+    public static final RegistryObject<Block> OAK_BED = BLOCKS.register("oak_bed",
+            () -> SeatDecorativeBlock.with(BaseBlockProperty.WOOD).seatOffset(new Vec3(0.0f, -0.1f, 0.0f)).shaped(DecorativeBlock.HALF_BLOCK).directional().build());
+
 
     public static final RegistryObject<Block> LARGE_BLUE_CURTAIN = BLOCKS.register("large_blue_curtain",
             () -> new WallSideBlock(BaseBlockProperty.SILK));

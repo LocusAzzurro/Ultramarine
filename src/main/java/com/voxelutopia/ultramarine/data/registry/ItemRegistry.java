@@ -358,6 +358,8 @@ public class ItemRegistry {
     public static final RegistryObject<Item> SMALL_TABLE = fromBlock(BlockRegistry.SMALL_TABLE, CreativeTabs.FURNITURE);
     public static final RegistryObject<Item> SMALL_EBONY_TABLE = fromBlock(BlockRegistry.SMALL_EBONY_TABLE, CreativeTabs.FURNITURE);
     public static final RegistryObject<Item> LARGE_TABLE = fromBlock(BlockRegistry.LARGE_TABLE, CreativeTabs.FURNITURE);
+    public static final RegistryObject<Item> PAINTED_SCREEN = fromBlock(BlockRegistry.PAINTED_SCREEN, CreativeTabs.FURNITURE);
+    public static final RegistryObject<Item> OAK_BED = fromBlock(BlockRegistry.OAK_BED, CreativeTabs.FURNITURE);
 
 
     public static final RegistryObject<Item> LARGE_BLUE_CURTAIN = fromBlock(BlockRegistry.LARGE_BLUE_CURTAIN, CreativeTabs.WINDOWS_AND_DOORS);

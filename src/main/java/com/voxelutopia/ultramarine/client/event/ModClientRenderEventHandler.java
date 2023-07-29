@@ -115,6 +115,8 @@ public class ModClientRenderEventHandler {
             ItemBlockRenderTypes.setRenderLayer(BlockRegistry.PAINTED_CHAIR.get(), RenderType.cutout());
             ItemBlockRenderTypes.setRenderLayer(BlockRegistry.SMALL_TABLE.get(), RenderType.cutout());
             ItemBlockRenderTypes.setRenderLayer(BlockRegistry.SMALL_EBONY_TABLE.get(), RenderType.cutout());
+            ItemBlockRenderTypes.setRenderLayer(BlockRegistry.OAK_BED.get(), RenderType.cutout());
+            ItemBlockRenderTypes.setRenderLayer(BlockRegistry.PAINTED_SCREEN.get(), RenderType.cutout());
             ItemBlockRenderTypes.setRenderLayer(BlockRegistry.WOODWORKING_WORKBENCH.get(), RenderType.cutout());
         });
     }
