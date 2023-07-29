@@ -31,6 +31,7 @@ public class BaseHorizontalDirectionalBlock extends HorizontalDirectionalBlock i
         return this.defaultBlockState().setValue(FACING, pContext.getHorizontalDirection());
     }
 
+
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> pBuilder) {
         pBuilder.add(FACING);
     }

@@ -246,6 +246,17 @@ public class ItemRegistry {
     public static final RegistryObject<Item> BLACK_ROOF_TILE_STAIRS = fromBlock(BlockRegistry.BLACK_ROOF_TILE_STAIRS, CreativeTabs.BUILDING_BLOCKS);
     public static final RegistryObject<Item> BLACK_ROOF_TILE_EDGE = fromBlock(BlockRegistry.BLACK_ROOF_TILE_EDGE, CreativeTabs.BUILDING_BLOCKS);
 
+    public static final RegistryObject<Item> BLACK_ROOF_RIDGE_UPPER = fromBlock(BlockRegistry.BLACK_ROOF_RIDGE_UPPER, CreativeTabs.BUILDING_BLOCKS);
+    public static final RegistryObject<Item> BLACK_ROOF_RIDGE_LOWER = fromBlock(BlockRegistry.BLACK_ROOF_RIDGE_LOWER, CreativeTabs.BUILDING_BLOCKS);
+    public static final RegistryObject<Item> BLACK_ROOF_RIDGE_CONNECTION = fromBlock(BlockRegistry.BLACK_ROOF_RIDGE_CONNECTION, CreativeTabs.BUILDING_BLOCKS);
+    public static final RegistryObject<Item> BLACK_MAIN_ROOF_RIDGE_CONNECTION = fromBlock(BlockRegistry.BLACK_MAIN_ROOF_RIDGE_CONNECTION, CreativeTabs.BUILDING_BLOCKS);
+    public static final RegistryObject<Item> BLACK_ROOF_RIDGE_UPPER_SLAB = fromBlock(BlockRegistry.BLACK_ROOF_RIDGE_UPPER_SLAB, CreativeTabs.BUILDING_BLOCKS);
+    public static final RegistryObject<Item> BLACK_MAIN_ROOF_RIDGE_SLAB = fromBlock(BlockRegistry.BLACK_MAIN_ROOF_RIDGE_SLAB, CreativeTabs.BUILDING_BLOCKS);
+    public static final RegistryObject<Item> BLACK_MAIN_ROOF_RIDGE_PANEL = fromBlock(BlockRegistry.BLACK_MAIN_ROOF_RIDGE_PANEL, CreativeTabs.BUILDING_BLOCKS);
+    public static final RegistryObject<Item> BLACK_MAIN_ROOF_RIDGE_PLATE = fromBlock(BlockRegistry.BLACK_MAIN_ROOF_RIDGE_PLATE, CreativeTabs.BUILDING_BLOCKS);
+    public static final RegistryObject<Item> BLACK_MAIN_ROOF_RIDGE_STAIRS = fromBlock(BlockRegistry.BLACK_MAIN_ROOF_RIDGE_STAIRS, CreativeTabs.BUILDING_BLOCKS);
+
+
     public static final RegistryObject<Item> ABACUS = fromBlock(BlockRegistry.ABACUS, CreativeTabs.DECORATIONS);
     public static final RegistryObject<Item> BRUSH_TOOLS = fromBlock(BlockRegistry.BRUSH_TOOLS, CreativeTabs.DECORATIONS);
     public static final RegistryObject<Item> BRUSH_AND_INKSTONE = fromBlock(BlockRegistry.BRUSH_AND_INKSTONE, CreativeTabs.DECORATIONS);

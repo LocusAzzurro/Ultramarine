@@ -13,6 +13,7 @@ import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.DoorHingeSide;
 import net.minecraft.world.level.block.state.properties.Half;
+import net.minecraft.world.level.block.state.properties.SlabType;
 import net.minecraftforge.client.model.generators.BlockStateProvider;
 import net.minecraftforge.client.model.generators.ConfiguredModel;
 import net.minecraftforge.client.model.generators.ModelFile;
@@ -194,6 +195,21 @@ public class ModBlockModelProvider extends BlockStateProvider {
         shiftedTiles(BlockRegistry.BLACK_ROOF_TILE_STAIRS.get(), "black", RoofTiles.RoofTileType.STAIRS);
         shiftedDirectionalBlock(BlockRegistry.BLACK_ROOF_TILE_EDGE.get());
         //</editor-fold>
+
+        sideBottomTop(BlockRegistry.BLACK_ROOF_RIDGE_UPPER.get());
+        sideBottomTop(BlockRegistry.BLACK_ROOF_RIDGE_LOWER.get(), sideLoc(BlockRegistry.BLACK_ROOF_RIDGE_LOWER.get()), bottomLoc(BlockRegistry.BLACK_ROOF_RIDGE_UPPER.get()), bottomLoc(BlockRegistry.BLACK_ROOF_RIDGE_UPPER.get()));
+        axialFrontSideBottomTop(BlockRegistry.BLACK_ROOF_RIDGE_CONNECTION.get(), frontLoc(BlockRegistry.BLACK_ROOF_RIDGE_CONNECTION.get()), sideLoc(BlockRegistry.BLACK_ROOF_RIDGE_CONNECTION.get()),
+                bottomLoc(BlockRegistry.BLACK_ROOF_RIDGE_UPPER.get()), topLoc(BlockRegistry.BLACK_ROOF_RIDGE_UPPER.get()));
+        horizontalFrontSideBottomTop(BlockRegistry.BLACK_MAIN_ROOF_RIDGE_CONNECTION.get(), frontLoc(BlockRegistry.BLACK_MAIN_ROOF_RIDGE_CONNECTION.get()), sideLoc(BlockRegistry.BLACK_ROOF_RIDGE_CONNECTION.get()),
+                frontLoc(BlockRegistry.BLACK_MAIN_ROOF_RIDGE_CONNECTION.get()), topLoc(BlockRegistry.BLACK_MAIN_ROOF_RIDGE_CONNECTION.get()));
+        slabSideBottomTopNoFull(BlockRegistry.BLACK_ROOF_RIDGE_UPPER_SLAB.get(), sideLoc(BlockRegistry.BLACK_ROOF_RIDGE_UPPER_SLAB.get()), bottomLoc(BlockRegistry.BLACK_ROOF_RIDGE_UPPER.get()), topLoc(BlockRegistry.BLACK_ROOF_RIDGE_UPPER.get()));
+        directionalSlabFrontSideBottomTopNoFull(BlockRegistry.BLACK_MAIN_ROOF_RIDGE_SLAB.get(), frontLoc(BlockRegistry.BLACK_MAIN_ROOF_RIDGE_SLAB.get()), sideLoc(BlockRegistry.BLACK_MAIN_ROOF_RIDGE_SLAB.get()),
+                bottomLoc(BlockRegistry.BLACK_MAIN_ROOF_RIDGE_SLAB.get()), topLoc(BlockRegistry.BLACK_MAIN_ROOF_RIDGE_SLAB.get()));
+        roofRidgePanel(BlockRegistry.BLACK_MAIN_ROOF_RIDGE_PANEL.get(), frontLoc(BlockRegistry.BLACK_MAIN_ROOF_RIDGE_SLAB.get()), sideLoc(BlockRegistry.BLACK_MAIN_ROOF_RIDGE_SLAB.get()),
+                bottomLoc(BlockRegistry.BLACK_MAIN_ROOF_RIDGE_SLAB.get()), topLoc(BlockRegistry.BLACK_MAIN_ROOF_RIDGE_SLAB.get()));
+        roofRidgePlate(BlockRegistry.BLACK_MAIN_ROOF_RIDGE_PLATE.get(), frontLoc(BlockRegistry.BLACK_MAIN_ROOF_RIDGE_SLAB.get()), sideLoc(BlockRegistry.BLACK_MAIN_ROOF_RIDGE_SLAB.get()),
+                bottomLoc(BlockRegistry.BLACK_MAIN_ROOF_RIDGE_SLAB.get()), topLoc(BlockRegistry.BLACK_MAIN_ROOF_RIDGE_SLAB.get()));
+        straightStairs(BlockRegistry.BLACK_MAIN_ROOF_RIDGE_STAIRS.get());
 
         vegetableBasket((StackableHalfBlock) BlockRegistry.CABBAGE_BASKET.get());
         vegetableBasket((StackableHalfBlock) BlockRegistry.CELERY_BASKET.get());
@@ -463,6 +479,20 @@ public class ModBlockModelProvider extends BlockStateProvider {
         simpleBlock(block, model);
     }
 
+    private void axialFrontSideBottomTop(Block block, ResourceLocation front, ResourceLocation side, ResourceLocation bottom, ResourceLocation top){
+        var model = models().cube(name(block), bottom, top, front, front, side, side).texture("particle", side);
+        getVariantBuilder(block)
+                .partialState().with(HORIZONTAL_AXIS, Direction.Axis.Z)
+                .modelForState().modelFile(model).addModel()
+                .partialState().with(HORIZONTAL_AXIS, Direction.Axis.X)
+                .modelForState().modelFile(model).rotationY(90).addModel();
+    }
+
+    private void horizontalFrontSideBottomTop(Block block, ResourceLocation front, ResourceLocation side, ResourceLocation bottom, ResourceLocation top){
+        var model = models().cube(name(block), bottom, top, front, front, side, side).texture("particle", side);
+        horizontalBlock(block, model, 0);
+    }
+
     private void chiralWSMirror(Block block, ResourceLocation end){
         directionalBlock(block, state -> {
             String path = name(block);
@@ -524,6 +554,52 @@ public class ModBlockModelProvider extends BlockStateProvider {
                 models().cubeBottomTop(name(block) + "double", side, end, end));
     }
 
+    private void slabSideBottomTopNoFull(Block block, ResourceLocation side, ResourceLocation bottom, ResourceLocation top){
+        slabBlock((SlabBlock)block,
+                models().slab(name(block), side, bottom, top),
+                models().slabTop(name(block) + "_top", side, bottom, top),
+                models().cubeBottomTop(name(block) + "double", side, bottom, top));
+    }
+
+    private void directionalSlabFrontSideBottomTopNoFull(Block block, ResourceLocation front, ResourceLocation side, ResourceLocation bottom, ResourceLocation top){
+        getVariantBuilder(block).forAllStatesExcept(state -> {
+            var builder = ConfiguredModel.builder();
+            Direction direction = state.getValue(HORIZONTAL_FACING);
+            SlabType type = state.getValue(SLAB_TYPE);
+            switch (type) {
+                case TOP -> builder.modelFile(models().withExistingParent(name(block) + "_top", modLoc(BLOCK + "roof_slab_top"))
+                        .texture("front", front).texture("side", side).texture("top", top).texture("bottom", bottom).texture("particle", front));
+                case BOTTOM -> builder.modelFile(models().withExistingParent(name(block), modLoc(BLOCK + "roof_slab"))
+                        .texture("front", front).texture("side", side).texture("top", top).texture("bottom", bottom).texture("particle", front));
+                case DOUBLE -> builder.modelFile(models().cube(name(block) + "_double", bottom, top, front, front, side, side).texture("particle", front));
+            }
+            builder.rotationY((int)direction.toYRot());
+            return builder.build();
+        }, WATERLOGGED);
+    }
+
+    private void roofRidgePanel(Block block, ResourceLocation front, ResourceLocation side, ResourceLocation bottom, ResourceLocation top){
+        getVariantBuilder(block).forAllStatesExcept(state -> {
+            var builder = ConfiguredModel.builder();
+            Direction direction = state.getValue(HORIZONTAL_FACING);
+            builder.modelFile(models().withExistingParent(name(block), modLoc(BLOCK + "roof_panel"))
+                    .texture("front", front).texture("side", side).texture("bottom", bottom).texture("top", top));
+            builder.rotationY((int)direction.toYRot());
+            return builder.build();
+        }, WATERLOGGED);
+    }
+
+    private void roofRidgePlate(Block block, ResourceLocation front, ResourceLocation side, ResourceLocation bottom, ResourceLocation top){
+        getVariantBuilder(block).forAllStatesExcept(state -> {
+            var builder = ConfiguredModel.builder();
+            Direction direction = state.getValue(HORIZONTAL_FACING);
+            builder.modelFile(models().withExistingParent(name(block), modLoc(BLOCK + "roof_plate"))
+                    .texture("front", front).texture("side", side).texture("bottom", bottom).texture("top", top));
+            builder.rotationY((int)direction.toYRot());
+            return builder.build();
+        }, WATERLOGGED);
+    }
+
     private void carvedWoodenSlab(Block slab, Block full){
         slabBlock((SlabBlock) slab, full.getRegistryName(), sideLoc(slab), blockLoc(full), blockLoc(full));
     }
@@ -534,6 +610,18 @@ public class ModBlockModelProvider extends BlockStateProvider {
 
     private ResourceLocation sideLoc(Block block){
         return modLoc(BLOCK + name(block) + "_side");
+    }
+
+    private ResourceLocation frontLoc(Block block){
+        return modLoc(BLOCK + name(block) + "_front");
+    }
+
+    private ResourceLocation bottomLoc(Block block){
+        return modLoc(BLOCK + name(block) + "_bottom");
+    }
+
+    private ResourceLocation topLoc(Block block){
+        return modLoc(BLOCK + name(block) + "_top");
     }
 
     private ResourceLocation sideMirroredLoc(Block block){

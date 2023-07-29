@@ -4,6 +4,7 @@ import com.voxelutopia.ultramarine.Ultramarine;
 import com.voxelutopia.ultramarine.data.ContainerType;
 import com.voxelutopia.ultramarine.data.ModFoods;
 import com.voxelutopia.ultramarine.world.block.*;
+import com.voxelutopia.ultramarine.world.block.BaseAxialBlock;
 import net.minecraft.core.Direction;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
@@ -136,17 +137,17 @@ public class BlockRegistry {
     public static final RegistryObject<Block> YELLOW_AND_GREEN_FANGXIN_EDGE = BLOCKS.register("yellow_and_green_fangxin_edge", () -> new BaseDirectionalBlock(BaseBlockProperty.WOOD));
     public static final RegistryObject<Block> DARK_BLUE_FANGXIN_EDGE = BLOCKS.register("dark_blue_fangxin_edge", () -> new BaseDirectionalBlock(BaseBlockProperty.WOOD));
     public static final RegistryObject<Block> BLUE_FANGXIN = BLOCKS.register("blue_fangxin", () -> new BaseDirectionalBlock(BaseBlockProperty.WOOD));
-    public static final RegistryObject<Block> CYAN_AND_BLUE_FANGXIN = BLOCKS.register("cyan_and_blue_fangxin", () -> new BaseAxisBlock(BaseBlockProperty.WOOD));
-    public static final RegistryObject<Block> CYAN_BLUE_WHITE_FANGXIN = BLOCKS.register("cyan_blue_white_fangxin", () -> new BaseAxisBlock(BaseBlockProperty.WOOD));
-    public static final RegistryObject<Block> BLUE_AND_WHITE_FANGXIN = BLOCKS.register("blue_and_white_fangxin", () -> new BaseAxisBlock(BaseBlockProperty.WOOD));
-    public static final RegistryObject<Block> GREEN_AND_DARK_BLUE_FANGXIN = BLOCKS.register("green_and_dark_blue_fangxin", () -> new BaseAxisBlock(BaseBlockProperty.WOOD));
-    public static final RegistryObject<Block> DARK_BLUE_FANGXIN = BLOCKS.register("dark_blue_fangxin", () -> new BaseAxisBlock(BaseBlockProperty.WOOD));
+    public static final RegistryObject<Block> CYAN_AND_BLUE_FANGXIN = BLOCKS.register("cyan_and_blue_fangxin", () -> new BasePillarBlock(BaseBlockProperty.WOOD));
+    public static final RegistryObject<Block> CYAN_BLUE_WHITE_FANGXIN = BLOCKS.register("cyan_blue_white_fangxin", () -> new BasePillarBlock(BaseBlockProperty.WOOD));
+    public static final RegistryObject<Block> BLUE_AND_WHITE_FANGXIN = BLOCKS.register("blue_and_white_fangxin", () -> new BasePillarBlock(BaseBlockProperty.WOOD));
+    public static final RegistryObject<Block> GREEN_AND_DARK_BLUE_FANGXIN = BLOCKS.register("green_and_dark_blue_fangxin", () -> new BasePillarBlock(BaseBlockProperty.WOOD));
+    public static final RegistryObject<Block> DARK_BLUE_FANGXIN = BLOCKS.register("dark_blue_fangxin", () -> new BasePillarBlock(BaseBlockProperty.WOOD));
     public static final RegistryObject<Block> BLUE_ZHAOTOU_EDGE = BLOCKS.register("blue_zhaotou_edge", () -> new BaseDirectionalBlock(BaseBlockProperty.WOOD));
     public static final RegistryObject<Block> GREEN_AND_BLUE_ZHAOTOU = BLOCKS.register("green_and_blue_zhaotou", () -> new BaseDirectionalBlock(BaseBlockProperty.WOOD));
     public static final RegistryObject<Block> BLUE_AND_GREEN_ZHAOTOU = BLOCKS.register("blue_and_green_zhaotou", () -> new BaseDirectionalBlock(BaseBlockProperty.WOOD));
     public static final RegistryObject<Block> BLUE_AND_GREEN_DOUBLE_LAYER_ZHAOTOU = BLOCKS.register("blue_and_green_double_layer_zhaotou", () -> new BaseDirectionalBlock(BaseBlockProperty.WOOD));
-    public static final RegistryObject<Block> WHITE_AND_CYAN_FANGXIN = BLOCKS.register("white_and_cyan_fangxin", () -> new BaseAxisBlock(BaseBlockProperty.WOOD));
-    public static final RegistryObject<Block> WHITE_AND_BLUE_FANGXIN = BLOCKS.register("white_and_blue_fangxin", () -> new BaseAxisBlock(BaseBlockProperty.WOOD));
+    public static final RegistryObject<Block> WHITE_AND_CYAN_FANGXIN = BLOCKS.register("white_and_cyan_fangxin", () -> new BasePillarBlock(BaseBlockProperty.WOOD));
+    public static final RegistryObject<Block> WHITE_AND_BLUE_FANGXIN = BLOCKS.register("white_and_blue_fangxin", () -> new BasePillarBlock(BaseBlockProperty.WOOD));
     public static final RegistryObject<Block> WHITE_AND_CYAN_FANGXIN_EDGE = BLOCKS.register("white_and_cyan_fangxin_edge", () -> new BaseDirectionalBlock(BaseBlockProperty.WOOD));
     public static final RegistryObject<Block> WHITE_AND_BLUE_FANGXIN_EDGE = BLOCKS.register("white_and_blue_fangxin_edge", () -> new BaseDirectionalBlock(BaseBlockProperty.WOOD));
     public static final RegistryObject<Block> CYAN_AND_RED_ZHAOTOU = BLOCKS.register("cyan_and_red_zhaotou", () -> new BaseDirectionalBlock(BaseBlockProperty.WOOD));
@@ -245,6 +246,17 @@ public class BlockRegistry {
     public static final RegistryObject<Block> BLACK_ROOF_TILES = BLOCKS.register("black_roof_tiles", RoofTiles::new);
     public static final RegistryObject<Block> BLACK_ROOF_TILE_STAIRS = BLOCKS.register("black_roof_tile_stairs", RoofTiles::new);
     public static final RegistryObject<Block> BLACK_ROOF_TILE_EDGE = BLOCKS.register("black_roof_tile_edge", RoofTiles::new);
+
+    public static final RegistryObject<Block> BLACK_ROOF_RIDGE_UPPER = BLOCKS.register("black_roof_ridge_upper", () -> new BaseBlock(BaseBlockProperty.STONE));
+    public static final RegistryObject<Block> BLACK_ROOF_RIDGE_LOWER = BLOCKS.register("black_roof_ridge_lower", () -> new BaseBlock(BaseBlockProperty.STONE));
+    public static final RegistryObject<Block> BLACK_ROOF_RIDGE_CONNECTION = BLOCKS.register("black_roof_ridge_connection", () -> new BaseAxialBlock(BaseBlockProperty.STONE));
+    public static final RegistryObject<Block> BLACK_MAIN_ROOF_RIDGE_CONNECTION = BLOCKS.register("black_main_roof_ridge_connection", () -> new BaseHorizontalDirectionalBlock(BaseBlockProperty.STONE));
+    public static final RegistryObject<Block> BLACK_ROOF_RIDGE_UPPER_SLAB = BLOCKS.register("black_roof_ridge_upper_slab", () -> new BaseSlab(BaseBlockProperty.STONE));
+    public static final RegistryObject<Block> BLACK_MAIN_ROOF_RIDGE_SLAB = BLOCKS.register("black_main_roof_ridge_slab", () -> new BaseHorizontalDirectionalSlab(BaseBlockProperty.STONE));
+    public static final RegistryObject<Block> BLACK_MAIN_ROOF_RIDGE_PANEL = BLOCKS.register("black_main_roof_ridge_panel", () -> new RoofRidgePanel(BaseBlockProperty.STONE));
+    public static final RegistryObject<Block> BLACK_MAIN_ROOF_RIDGE_PLATE = BLOCKS.register("black_main_roof_ridge_plate", () -> new RoofRidgePlate(BaseBlockProperty.STONE));
+    public static final RegistryObject<Block> BLACK_MAIN_ROOF_RIDGE_STAIRS = BLOCKS.register("black_main_roof_ridge_stairs", () -> new StraightStairBlock(BaseBlockProperty.STONE));
+
 
     public static final RegistryObject<Block> ABACUS = BLOCKS.register("abacus",
             () -> DecorativeBlock.with(BaseBlockProperty.WOOD).shaped(DecorativeBlock.DOUBLE_FLAT_14).directional().diagonallyPlaceable().noCollision().build());
