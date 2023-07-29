@@ -2,7 +2,7 @@
 	"credit": "Made with Blockbench",
 	"texture_size": [128, 128],
 	"render_type": "cutout",
-	"ambientocclusion": "false",
+	"ambientocclusion": false,
 	"textures": {
 		"1": "ultramarine:block/small_green_glazed_guardian_lion",
 		"particle": "block/green_glazed_terracotta"

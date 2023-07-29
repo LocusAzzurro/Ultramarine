@@ -120,6 +120,10 @@ public class BlockRegistry {
     public static final RegistryObject<Block> RED_AND_CYAN_TUANHUA_SLAB = BLOCKS.register("red_and_cyan_tuanhua_slab", () -> new BaseSlab(BaseBlockProperty.WOOD));
     public static final RegistryObject<Block> RED_CARVED_ARCHITRAVE = BLOCKS.register("red_carved_architrave", () -> new BaseSlab(BaseBlockProperty.WOOD));
     public static final RegistryObject<Block> STRIPPED_DARK_OAK_PILLAR_BASE = BLOCKS.register("stripped_dark_oak_pillar_base", () -> new BaseBlock(BaseBlockProperty.WOOD));
+    public static final RegistryObject<Block> BLUE_AND_YELLOW_CARVED_WOOD_VARIANT_1 = BLOCKS.register("blue_and_yellow_carved_wood_variant_1", () -> new BaseBlock(BaseBlockProperty.WOOD));
+    public static final RegistryObject<Block> BLUE_AND_YELLOW_CARVED_WOOD_VARIANT_2 = BLOCKS.register("blue_and_yellow_carved_wood_variant_2", () -> new BaseBlock(BaseBlockProperty.WOOD));
+    public static final RegistryObject<Block> BLUE_AND_YELLOW_CARVED_WOOD_VARIANT_3 = BLOCKS.register("blue_and_yellow_carved_wood_variant_3", () -> new BaseBlock(BaseBlockProperty.WOOD));
+
 
 
     public static final RegistryObject<Block> GREEN_FANGXIN = BLOCKS.register("green_fangxin", () -> new BaseDirectionalBlock(BaseBlockProperty.WOOD));
@@ -205,6 +209,7 @@ public class BlockRegistry {
     public static final RegistryObject<Block> CARVED_STONE_QUETI_PART = BLOCKS.register("carved_stone_queti_part", () -> new SideAxialBlock(BaseBlockProperty.STONE, 8));
     public static final RegistryObject<Block> CARVED_STONE_BEAM = BLOCKS.register("carved_stone_beam", () -> new SideAxialBlock(BaseBlockProperty.STONE, 8));
     public static final RegistryObject<Block> CARVED_STONE_QUETI = BLOCKS.register("carved_stone_queti", () -> new SideAxialBlock(BaseBlockProperty.STONE, 8));
+    public static final RegistryObject<Block> THICK_CARVED_QUETI = BLOCKS.register("thick_carved_queti", () -> new SideAxialBlock(BaseBlockProperty.WOOD, 4));
 
 
     public static final RegistryObject<Block> BLUE_CARVED_TIGER_EYE_RAFTER = BLOCKS.register("blue_carved_tiger_eye_rafter", () -> new Rafter(BaseBlockProperty.WOOD));

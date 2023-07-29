@@ -120,6 +120,9 @@ public class ItemRegistry {
     public static final RegistryObject<Item> RED_AND_CYAN_TUANHUA_SLAB = fromBlock(BlockRegistry.RED_AND_CYAN_TUANHUA_SLAB, CreativeTabs.DECORATIVE_BLOCKS);
     public static final RegistryObject<Item> RED_CARVED_ARCHITRAVE = fromBlock(BlockRegistry.RED_CARVED_ARCHITRAVE, CreativeTabs.DECORATIVE_BLOCKS);
     public static final RegistryObject<Item> STRIPPED_DARK_OAK_PILLAR_BASE = fromBlock(BlockRegistry.STRIPPED_DARK_OAK_PILLAR_BASE, CreativeTabs.DECORATIVE_BLOCKS);
+    public static final RegistryObject<Item> BLUE_AND_YELLOW_CARVED_WOOD_VARIANT_1 = fromBlock(BlockRegistry.BLUE_AND_YELLOW_CARVED_WOOD_VARIANT_1, CreativeTabs.DECORATIVE_BLOCKS);
+    public static final RegistryObject<Item> BLUE_AND_YELLOW_CARVED_WOOD_VARIANT_2 = fromBlock(BlockRegistry.BLUE_AND_YELLOW_CARVED_WOOD_VARIANT_2, CreativeTabs.DECORATIVE_BLOCKS);
+    public static final RegistryObject<Item> BLUE_AND_YELLOW_CARVED_WOOD_VARIANT_3 = fromBlock(BlockRegistry.BLUE_AND_YELLOW_CARVED_WOOD_VARIANT_3, CreativeTabs.DECORATIVE_BLOCKS);
 
 
     public static final RegistryObject<Item> GREEN_FANGXIN = fromBlock(BlockRegistry.GREEN_FANGXIN, CreativeTabs.DECORATIVE_BLOCKS);
@@ -205,6 +208,7 @@ public class ItemRegistry {
     public static final RegistryObject<Item> CARVED_STONE_QUETI_PART = fromBlock(BlockRegistry.CARVED_STONE_QUETI_PART, CreativeTabs.DECORATIVE_BLOCKS);
     public static final RegistryObject<Item> CARVED_STONE_BEAM = fromBlock(BlockRegistry.CARVED_STONE_BEAM, CreativeTabs.DECORATIVE_BLOCKS);
     public static final RegistryObject<Item> CARVED_STONE_QUETI = fromBlock(BlockRegistry.CARVED_STONE_QUETI, CreativeTabs.DECORATIVE_BLOCKS);
+    public static final RegistryObject<Item> THICK_CARVED_QUETI = fromBlock(BlockRegistry.THICK_CARVED_QUETI, CreativeTabs.DECORATIVE_BLOCKS);
 
 
     public static final RegistryObject<Item> BLUE_CARVED_TIGER_EYE_RAFTER = fromBlock(BlockRegistry.BLUE_CARVED_TIGER_EYE_RAFTER, CreativeTabs.DECORATIVE_BLOCKS);
