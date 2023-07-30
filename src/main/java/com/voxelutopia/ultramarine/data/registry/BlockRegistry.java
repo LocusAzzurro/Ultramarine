@@ -140,6 +140,12 @@ public class BlockRegistry {
     public static final RegistryObject<Block> BLUE_AND_YELLOW_CARVED_WOOD_VARIANT_1 = BLOCKS.register("blue_and_yellow_carved_wood_variant_1", () -> new BaseBlock(BaseBlockProperty.WOOD));
     public static final RegistryObject<Block> BLUE_AND_YELLOW_CARVED_WOOD_VARIANT_2 = BLOCKS.register("blue_and_yellow_carved_wood_variant_2", () -> new BaseBlock(BaseBlockProperty.WOOD));
     public static final RegistryObject<Block> BLUE_AND_YELLOW_CARVED_WOOD_VARIANT_3 = BLOCKS.register("blue_and_yellow_carved_wood_variant_3", () -> new BaseBlock(BaseBlockProperty.WOOD));
+    public static final RegistryObject<Block> GILDED_DARK_OAK_PILLAR_HEAD_VARIANT_1 = BLOCKS.register("gilded_dark_oak_pillar_head_variant_1", () -> new BaseDirectionalBlock(BaseBlockProperty.WOOD));
+    public static final RegistryObject<Block> GILDED_DARK_OAK_PILLAR_HEAD_VARIANT_2 = BLOCKS.register("gilded_dark_oak_pillar_head_variant_2", () -> new BaseDirectionalBlock(BaseBlockProperty.WOOD));
+    public static final RegistryObject<Block> GILDED_DARK_OAK_PILLAR_HEAD_VARIANT_3 = BLOCKS.register("gilded_dark_oak_pillar_head_variant_3", () -> new BaseDirectionalBlock(BaseBlockProperty.WOOD));
+    public static final RegistryObject<Block> GILDED_DARK_OAK_PILLAR_HEAD_VARIANT_4 = BLOCKS.register("gilded_dark_oak_pillar_head_variant_4", () -> new BaseDirectionalBlock(BaseBlockProperty.WOOD));
+    public static final RegistryObject<Block> GILDED_DARK_OAK_PILLAR_HEAD_VARIANT_5 = BLOCKS.register("gilded_dark_oak_pillar_head_variant_5", () -> new BaseDirectionalBlock(BaseBlockProperty.WOOD));
+
 
 
 

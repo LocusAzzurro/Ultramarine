@@ -135,6 +135,11 @@ public class ItemRegistry {
     public static final RegistryObject<Item> BLUE_AND_YELLOW_CARVED_WOOD_VARIANT_1 = fromBlock(BlockRegistry.BLUE_AND_YELLOW_CARVED_WOOD_VARIANT_1, ModCreativeTab.DECORATIVE_BLOCKS);
     public static final RegistryObject<Item> BLUE_AND_YELLOW_CARVED_WOOD_VARIANT_2 = fromBlock(BlockRegistry.BLUE_AND_YELLOW_CARVED_WOOD_VARIANT_2, ModCreativeTab.DECORATIVE_BLOCKS);
     public static final RegistryObject<Item> BLUE_AND_YELLOW_CARVED_WOOD_VARIANT_3 = fromBlock(BlockRegistry.BLUE_AND_YELLOW_CARVED_WOOD_VARIANT_3, ModCreativeTab.DECORATIVE_BLOCKS);
+    public static final RegistryObject<Item> GILDED_DARK_OAK_PILLAR_HEAD_VARIANT_1 = fromBlock(BlockRegistry.GILDED_DARK_OAK_PILLAR_HEAD_VARIANT_1, ModCreativeTab.DECORATIVE_BLOCKS);
+    public static final RegistryObject<Item> GILDED_DARK_OAK_PILLAR_HEAD_VARIANT_2 = fromBlock(BlockRegistry.GILDED_DARK_OAK_PILLAR_HEAD_VARIANT_2, ModCreativeTab.DECORATIVE_BLOCKS);
+    public static final RegistryObject<Item> GILDED_DARK_OAK_PILLAR_HEAD_VARIANT_3 = fromBlock(BlockRegistry.GILDED_DARK_OAK_PILLAR_HEAD_VARIANT_3, ModCreativeTab.DECORATIVE_BLOCKS);
+    public static final RegistryObject<Item> GILDED_DARK_OAK_PILLAR_HEAD_VARIANT_4 = fromBlock(BlockRegistry.GILDED_DARK_OAK_PILLAR_HEAD_VARIANT_4, ModCreativeTab.DECORATIVE_BLOCKS);
+    public static final RegistryObject<Item> GILDED_DARK_OAK_PILLAR_HEAD_VARIANT_5 = fromBlock(BlockRegistry.GILDED_DARK_OAK_PILLAR_HEAD_VARIANT_5, ModCreativeTab.DECORATIVE_BLOCKS);
 
 
     public static final RegistryObject<Item> GREEN_FANGXIN = fromBlock(BlockRegistry.GREEN_FANGXIN, ModCreativeTab.DECORATIVE_BLOCKS);
