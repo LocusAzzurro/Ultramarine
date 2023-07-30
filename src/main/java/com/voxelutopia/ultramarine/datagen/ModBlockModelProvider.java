@@ -257,7 +257,11 @@ public class ModBlockModelProvider extends BlockStateProvider {
         vegetableBasket((StackableHalfBlock) BlockRegistry.PEAR_BASKET.get());
 
         BlockRegistry.BLOCKS.getEntries().stream().filter(blockRegistryObject -> blockRegistryObject.get() instanceof SideAxialBlock)
-                .forEach(sideAxial -> horizontalBlockNoOffset(sideAxial.get()));
+                .forEach(sideAxial -> {
+                    SideAxialBlock block = (SideAxialBlock) sideAxial.get();
+                    if (block instanceof RailingSlant) shiftedHorizontalBlockNoOffset(block);
+                    else horizontalBlockNoOffset(sideAxial.get());
+                });
 
         BlockRegistry.BLOCKS.getEntries().stream().filter(blockRegistryObject -> blockRegistryObject.get() instanceof CentralAxialBlock)
                 .forEach(centralAxial -> axisBlock(centralAxial.get()));
@@ -558,6 +562,13 @@ public class ModBlockModelProvider extends BlockStateProvider {
 
     private void horizontalBlockNoOffset(Block block){
         horizontalBlock(block, models().getExistingFile(modLoc(BLOCK + name(block))), 0);
+    }
+
+    private void shiftedHorizontalBlockNoOffset(Block block){
+        horizontalBlock(block, state -> {
+            Boolean shifted = state.getValue(SHIFTED);
+            return shifted ? models().getExistingFile(modLoc(BLOCK + name(block))) : models().getExistingFile(modLoc(BLOCK + name(block) + "_shifted"));
+        });
     }
 
     private void directionalSideBottomTop(Block block, ResourceLocation side, ResourceLocation bottom, ResourceLocation top){

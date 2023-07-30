@@ -1,0 +1,64 @@
+{
+  "variants": {
+    "facing=north,shifted=false,waterlogged=false": {
+      "model": "ultramarine:block/white_marble_railing_slant_shifted"
+    },
+    "facing=south,shifted=false,waterlogged=false": {
+      "model": "ultramarine:block/white_marble_railing_slant_shifted",
+      "y": 180
+    },
+    "facing=west,shifted=false,waterlogged=false": {
+      "model": "ultramarine:block/white_marble_railing_slant_shifted",
+      "y": 270
+    },
+    "facing=east,shifted=false,waterlogged=false": {
+      "model": "ultramarine:block/white_marble_railing_slant_shifted",
+      "y": 90
+    },
+    "facing=north,shifted=true,waterlogged=false": {
+      "model": "ultramarine:block/white_marble_railing_slant"
+    },
+    "facing=south,shifted=true,waterlogged=false": {
+      "model": "ultramarine:block/white_marble_railing_slant",
+      "y": 180
+    },
+    "facing=west,shifted=true,waterlogged=false": {
+      "model": "ultramarine:block/white_marble_railing_slant",
+      "y": 270
+    },
+    "facing=east,shifted=true,waterlogged=false": {
+      "model": "ultramarine:block/white_marble_railing_slant",
+      "y": 90
+    },
+    "facing=north,shifted=false,waterlogged=true": {
+      "model": "ultramarine:block/white_marble_railing_slant_shifted"
+    },
+    "facing=south,shifted=false,waterlogged=true": {
+      "model": "ultramarine:block/white_marble_railing_slant_shifted",
+      "y": 180
+    },
+    "facing=west,shifted=false,waterlogged=true": {
+      "model": "ultramarine:block/white_marble_railing_slant_shifted",
+      "y": 270
+    },
+    "facing=east,shifted=false,waterlogged=true": {
+      "model": "ultramarine:block/white_marble_railing_slant_shifted",
+      "y": 90
+    },
+    "facing=north,shifted=true,waterlogged=true": {
+      "model": "ultramarine:block/white_marble_railing_slant"
+    },
+    "facing=south,shifted=true,waterlogged=true": {
+      "model": "ultramarine:block/white_marble_railing_slant",
+      "y": 180
+    },
+    "facing=west,shifted=true,waterlogged=true": {
+      "model": "ultramarine:block/white_marble_railing_slant",
+      "y": 270
+    },
+    "facing=east,shifted=true,waterlogged=true": {
+      "model": "ultramarine:block/white_marble_railing_slant",
+      "y": 90
+    }
+  }
+}
