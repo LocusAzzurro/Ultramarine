@@ -182,6 +182,16 @@ public class ModBlockModelProvider extends BlockStateProvider {
         ).texture("particle", modLoc(BLOCK + "black_floor_tiles")), 0);
         slabSideEndNoFull(BlockRegistry.WHITE_AND_RED_SLAB.get(), sideLoc(BlockRegistry.WHITE_AND_RED_SLAB.get()), endLoc(BlockRegistry.WHITE_AND_RED_SLAB.get()));
         simpleBlock(BlockRegistry.YELLOW_GREEN_BLUE_CARVED_WOOD.get());
+        horizontalBlock(BlockRegistry.BOOKSHELF.get(), models().cube(name(BlockRegistry.BOOKSHELF.get()),
+                modLoc(BLOCK + "bookshelf_side"), modLoc(BLOCK + "bookshelf_side"),
+                modLoc(BLOCK + "bookshelf_front"), modLoc(BLOCK + "bookshelf_back"),
+                modLoc(BLOCK + "bookshelf_side"), modLoc(BLOCK + "bookshelf_side")
+        ).texture("particle", modLoc(BLOCK + "bookshelf_side")), 0);
+        horizontalBlock(BlockRegistry.BOOKSHELF_VARIANT.get(), models().cube(name(BlockRegistry.BOOKSHELF_VARIANT.get()),
+                modLoc(BLOCK + "bookshelf_side"), modLoc(BLOCK + "bookshelf_side"),
+                modLoc(BLOCK + "bookshelf_variant_front"), modLoc(BLOCK + "bookshelf_variant_back"),
+                modLoc(BLOCK + "bookshelf_side"), modLoc(BLOCK + "bookshelf_side")
+        ).texture("particle", modLoc(BLOCK + "bookshelf_side")), 0);
 
 
         directionalSideEnd(BlockRegistry.GREEN_FANGXIN.get(), sideLoc(BlockRegistry.GREEN_FANGXIN.get()), endLoc(BlockRegistry.GREEN_FANGXIN.get()));
@@ -225,9 +235,10 @@ public class ModBlockModelProvider extends BlockStateProvider {
         directionalSideEnd(BlockRegistry.RED_GREEN_BLUE_ZHAOTOU.get(), sideLoc(BlockRegistry.RED_GREEN_BLUE_ZHAOTOU.get()), endLoc(BlockRegistry.CYAN_AND_BLUE_FANGXIN_EDGE.get()));
         directionalSideEnd(BlockRegistry.BLUE_GREEN_YELLOW_GUTOU.get(), sideLoc(BlockRegistry.BLUE_GREEN_YELLOW_GUTOU.get()), mcLoc(BLOCK + "green_wool"));
         directionalSideEnd(BlockRegistry.WHITE_BLUE_GREEN_ZHAOTOU.get(), sideLoc(BlockRegistry.WHITE_BLUE_GREEN_ZHAOTOU.get()), endLoc(BlockRegistry.WHITE_BLUE_GREEN_ZHAOTOU.get()));
+        directionalSideEnd(BlockRegistry.CYAN_AND_WHITE_DECORATED_PILLAR.get(), sideLoc(BlockRegistry.CYAN_AND_WHITE_DECORATED_PILLAR.get()), mcLoc(BLOCK + "red_terracotta"));
+        directionalSideEnd(BlockRegistry.GREEN_BLUE_BLACK_GUTOU.get(), sideLoc(BlockRegistry.GREEN_BLUE_BLACK_GUTOU.get()), mcLoc(BLOCK + "green_wool"));
 
 
-        //<editor-fold desc="Roof Tiles">
         shiftedTiles(BlockRegistry.GRAY_ROOF_TILES.get(), "gray", RoofTiles.RoofTileType.NORMAL);
         shiftedTiles(BlockRegistry.GRAY_ROOF_TILE_STAIRS.get(), "gray", RoofTiles.RoofTileType.STAIRS);
         shiftedDirectionalBlock(BlockRegistry.GRAY_ROOF_TILE_EDGE.get());
@@ -246,7 +257,7 @@ public class ModBlockModelProvider extends BlockStateProvider {
         shiftedTiles(BlockRegistry.BLACK_ROOF_TILES.get(), "black", RoofTiles.RoofTileType.NORMAL);
         shiftedTiles(BlockRegistry.BLACK_ROOF_TILE_STAIRS.get(), "black", RoofTiles.RoofTileType.STAIRS);
         shiftedDirectionalBlock(BlockRegistry.BLACK_ROOF_TILE_EDGE.get());
-        //</editor-fold>
+
 
         sideBottomTop(BlockRegistry.BLACK_ROOF_RIDGE_UPPER.get());
         sideBottomTop(BlockRegistry.BLACK_ROOF_RIDGE_LOWER.get(), sideLoc(BlockRegistry.BLACK_ROOF_RIDGE_LOWER.get()), bottomLoc(BlockRegistry.BLACK_ROOF_RIDGE_UPPER.get()), bottomLoc(BlockRegistry.BLACK_ROOF_RIDGE_UPPER.get()));

@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "ultramarine:block/xumi_stone_monolith",
+      "y": 180
+    },
+    "facing=south": {
+      "model": "ultramarine:block/xumi_stone_monolith"
+    },
+    "facing=west": {
+      "model": "ultramarine:block/xumi_stone_monolith",
+      "y": 90
+    },
+    "facing=east": {
+      "model": "ultramarine:block/xumi_stone_monolith",
+      "y": 270
+    }
+  }
+}

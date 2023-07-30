@@ -150,6 +150,8 @@ public class ItemRegistry {
     public static final RegistryObject<Item> WHITE_AND_RED_SLAB = fromBlock(BlockRegistry.WHITE_AND_RED_SLAB, ModCreativeTab.DECORATIVE_BLOCKS);
     public static final RegistryObject<Item> YELLOW_GREEN_BLUE_CARVED_WOOD = fromBlock(BlockRegistry.YELLOW_GREEN_BLUE_CARVED_WOOD, ModCreativeTab.DECORATIVE_BLOCKS);
     public static final RegistryObject<Item> STONE_PILLAR_BASE = fromBlock(BlockRegistry.STONE_PILLAR_BASE, ModCreativeTab.DECORATIVE_BLOCKS);
+    public static final RegistryObject<Item> BOOKSHELF = fromBlock(BlockRegistry.BOOKSHELF, ModCreativeTab.DECORATIVE_BLOCKS);
+    public static final RegistryObject<Item> BOOKSHELF_VARIANT = fromBlock(BlockRegistry.BOOKSHELF_VARIANT, ModCreativeTab.DECORATIVE_BLOCKS);
 
 
     public static final RegistryObject<Item> WHITE_MARBLE_RAILING = fromBlock(BlockRegistry.WHITE_MARBLE_RAILING, ModCreativeTab.DECORATIVE_BLOCKS);
@@ -201,6 +203,8 @@ public class ItemRegistry {
     public static final RegistryObject<Item> RED_GREEN_BLUE_ZHAOTOU = fromBlock(BlockRegistry.RED_GREEN_BLUE_ZHAOTOU, ModCreativeTab.DECORATIVE_BLOCKS);
     public static final RegistryObject<Item> BLUE_GREEN_YELLOW_GUTOU = fromBlock(BlockRegistry.BLUE_GREEN_YELLOW_GUTOU, ModCreativeTab.DECORATIVE_BLOCKS);
     public static final RegistryObject<Item> WHITE_BLUE_GREEN_ZHAOTOU = fromBlock(BlockRegistry.WHITE_BLUE_GREEN_ZHAOTOU, ModCreativeTab.DECORATIVE_BLOCKS);
+    public static final RegistryObject<Item> CYAN_AND_WHITE_DECORATED_PILLAR = fromBlock(BlockRegistry.CYAN_AND_WHITE_DECORATED_PILLAR, ModCreativeTab.DECORATIVE_BLOCKS);
+    public static final RegistryObject<Item> GREEN_BLUE_BLACK_GUTOU = fromBlock(BlockRegistry.GREEN_BLUE_BLACK_GUTOU, ModCreativeTab.DECORATIVE_BLOCKS);
 
 
     public static final RegistryObject<Item> YELLOW_CARVED_PATTERN = fromBlock(BlockRegistry.YELLOW_CARVED_PATTERN, ModCreativeTab.DECORATIVE_BLOCKS);
@@ -378,6 +382,7 @@ public class ItemRegistry {
     public static final RegistryObject<Item> SMALL_JADE_GUARDIAN_LION = fromBlock(BlockRegistry.SMALL_JADE_GUARDIAN_LION, ModCreativeTab.DECORATIVE_BLOCKS);
     public static final RegistryObject<Item> SMALL_YELLOW_GLAZED_GUARDIAN_LION = fromBlock(BlockRegistry.SMALL_YELLOW_GLAZED_GUARDIAN_LION, ModCreativeTab.DECORATIVE_BLOCKS);
     public static final RegistryObject<Item> SMALL_GREEN_GLAZED_GUARDIAN_LION = fromBlock(BlockRegistry.SMALL_GREEN_GLAZED_GUARDIAN_LION, ModCreativeTab.DECORATIVE_BLOCKS);
+    public static final RegistryObject<Item> XUMI_STONE_MONOLITH = fromBlock(BlockRegistry.XUMI_STONE_MONOLITH, ModCreativeTab.DECORATIVE_BLOCKS);
 
 
     public static final RegistryObject<Item> FRUIT_BOX = fromBlock(BlockRegistry.FRUIT_BOX, ModCreativeTab.DECORATIONS);
