@@ -74,7 +74,7 @@ public class CentralAxialBlock extends Block implements AxialBlock, SimpleWaterl
 
     @Override
     public VoxelShape getCollisionShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
-        return Shapes.empty();
+        return this.hasCollision ? getShape(pState, pLevel, pPos, pContext) : Shapes.empty();
     }
 
     @Override
