@@ -102,8 +102,6 @@ public class BlockRegistry {
     public static final RegistryObject<Block> GILDED_DARK_OAK_BRACKET = BLOCKS.register("gilded_dark_oak_bracket", () -> new Bracket(BaseBlockProperty.WOOD));
     public static final RegistryObject<Block> DARK_OAK_RAFTER = BLOCKS.register("dark_oak_rafter", () -> new Rafter(BaseBlockProperty.WOOD));
     public static final RegistryObject<Block> DARK_OAK_RAFTER_END = BLOCKS.register("dark_oak_rafter_end", () -> new RafterEnd(BaseBlockProperty.WOOD));
-    public static final RegistryObject<Block> WHITE_MARBLE_RAILING = BLOCKS.register("white_marble_railing", () -> new RailingBlock(BaseBlockProperty.MARBLE));
-    public static final RegistryObject<Block> WHITE_MARBLE_RAILING_SLANT = BLOCKS.register("white_marble_railing_slant", () -> new RailingSlant(BaseBlockProperty.MARBLE, 4));
     public static final RegistryObject<Block> RED_CARVED_WOOD = BLOCKS.register("red_carved_wood", () -> new BaseBlock(BaseBlockProperty.WOOD));
     public static final RegistryObject<Block> RED_CARVED_WOODEN_SLAB = BLOCKS.register("red_carved_wooden_slab", () -> new BaseSlab(BaseBlockProperty.WOOD));
     public static final RegistryObject<Block> RED_CARVED_WOODEN_STAIRS = BLOCKS.register("red_carved_wooden_stairs", () -> new StraightStairBlock(BaseBlockProperty.WOOD));
@@ -153,7 +151,9 @@ public class BlockRegistry {
     public static final RegistryObject<Block> QING_GREEN_BEAM_HEAD = BLOCKS.register("qing_green_beam_head", () -> new WallSideBlock(BaseBlockProperty.WOOD, 14));
     public static final RegistryObject<Block> YELLOW_AND_GREEN_CARVED_WOOD = BLOCKS.register("yellow_and_green_carved_wood", () -> new BaseBlock(BaseBlockProperty.WOOD));
 
-
+    public static final RegistryObject<Block> WHITE_MARBLE_RAILING = BLOCKS.register("white_marble_railing", () -> new RailingBlock(BaseBlockProperty.MARBLE, RailingBlock.MARBLE_SHAPES));
+    public static final RegistryObject<Block> WHITE_MARBLE_RAILING_SLANT = BLOCKS.register("white_marble_railing_slant", () -> new RailingSlant(BaseBlockProperty.MARBLE, 4));
+    public static final RegistryObject<Block> CARVED_WOOD_RAILING = BLOCKS.register("carved_wooden_railing", () -> new RailingBlock(BaseBlockProperty.WOOD, RailingBlock.WOODEN_SHAPES));
 
     public static final RegistryObject<Block> GREEN_FANGXIN = BLOCKS.register("green_fangxin", () -> new BaseDirectionalBlock(BaseBlockProperty.WOOD));
     public static final RegistryObject<Block> GREEN_FANGXIN_EDGE = BLOCKS.register("green_fangxin_edge", () -> new BaseDirectionalBlock(BaseBlockProperty.WOOD));

@@ -26,6 +26,7 @@ public class RailingBlock extends Block implements BaseBlockPropertyHolder, Simp
 
     protected final BaseBlockProperty property;
     private final Map<BlockState, VoxelShape> shapeByIndex;
+    private final Map<Direction, VoxelShape> shapeByPart;
 
     public static final BooleanProperty UP = BlockStateProperties.UP;
     public static final BooleanProperty NORTH = BlockStateProperties.NORTH;
@@ -36,13 +37,34 @@ public class RailingBlock extends Block implements BaseBlockPropertyHolder, Simp
     public static final BooleanProperty POLE_LOCKED = ModBlockStateProperties.LOCKED;
     public static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
 
-    private static final VoxelShape POLE = Block.box(6.0D, 0.0D, 6.0D, 10.0D, 22.0D, 10.0D);
-    private static final VoxelShape NORTH_SIDE = Block.box(7.0D, 0.0D, 0.0D, 9.0D, 15.0D, 9.0D);
-    private static final VoxelShape SOUTH_SIDE = Block.box(7.0D, 0.0D, 7.0D, 9.0D, 15.0D, 16.0D);
-    private static final VoxelShape WEST_SIDE = Block.box(0.0D, 0.0D, 7.0D, 9.0D, 15.0D, 9.0D);
-    private static final VoxelShape EAST_SIDE = Block.box(7.0D, 0.0D, 7.0D, 16.0D, 15.0D, 9.0D);
+    private static final VoxelShape MARBLE_POLE = Block.box(6.0D, 0.0D, 6.0D, 10.0D, 22.0D, 10.0D);
+    private static final VoxelShape MARBLE_NORTH_SIDE = Block.box(7.0D, 0.0D, 0.0D, 9.0D, 15.0D, 9.0D);
+    private static final VoxelShape MARBLE_SOUTH_SIDE = Block.box(7.0D, 0.0D, 7.0D, 9.0D, 15.0D, 16.0D);
+    private static final VoxelShape MARBLE_WEST_SIDE = Block.box(0.0D, 0.0D, 7.0D, 9.0D, 15.0D, 9.0D);
+    private static final VoxelShape MARBLE_EAST_SIDE = Block.box(7.0D, 0.0D, 7.0D, 16.0D, 15.0D, 9.0D);
 
-    public RailingBlock(BaseBlockProperty property) {
+    public static final Map<Direction, VoxelShape> MARBLE_SHAPES = Map.of(
+            Direction.UP, MARBLE_POLE,
+            Direction.NORTH, MARBLE_NORTH_SIDE,
+            Direction.SOUTH, MARBLE_SOUTH_SIDE,
+            Direction.WEST, MARBLE_WEST_SIDE,
+            Direction.EAST, MARBLE_EAST_SIDE
+    );
+
+    private static final VoxelShape WOODEN_POLE = Block.box(7.0D, 0.0D, 7.0D, 9.0D, 15.0D, 9.0D);
+    private static final VoxelShape WOODEN_NORTH_SIDE = Block.box(7.0D, 0.0D, 0.0D, 9.0D, 11.0D, 9.0D);
+    private static final VoxelShape WOODEN_SOUTH_SIDE = Block.box(7.0D, 0.0D, 7.0D, 9.0D, 11.0D, 16.0D);
+    private static final VoxelShape WOODEN_WEST_SIDE = Block.box(0.0D, 0.0D, 7.0D, 9.0D, 11.0D, 9.0D);
+    private static final VoxelShape WOODEN_EAST_SIDE = Block.box(7.0D, 0.0D, 7.0D, 16.0D, 11.0D, 9.0D);
+
+    public static final Map<Direction, VoxelShape> WOODEN_SHAPES = Map.of(
+            Direction.UP, WOODEN_POLE,
+            Direction.NORTH, WOODEN_NORTH_SIDE,
+            Direction.SOUTH, WOODEN_SOUTH_SIDE,
+            Direction.WEST, WOODEN_WEST_SIDE,
+            Direction.EAST, WOODEN_EAST_SIDE
+    );
+    public RailingBlock(BaseBlockProperty property, Map<Direction, VoxelShape> partShapes) {
         super(property.properties.noOcclusion());
         this.property = property;
         this.registerDefaultState(this.getStateDefinition().any()
@@ -54,6 +76,7 @@ public class RailingBlock extends Block implements BaseBlockPropertyHolder, Simp
                 .setValue(SHIFTED, false)
                 .setValue(POLE_LOCKED, false)
                 .setValue(WATERLOGGED, false));
+        this.shapeByPart = partShapes;
         this.shapeByIndex = this.makeShapes();
     }
 
@@ -141,11 +164,11 @@ public class RailingBlock extends Block implements BaseBlockPropertyHolder, Simp
                     for (Boolean west: WEST.getPossibleValues()) {
                         for (Boolean south : SOUTH.getPossibleValues()) {
                             VoxelShape shape = Shapes.empty();
-                            if (north) shape = Shapes.or(shape, NORTH_SIDE);
-                            if (south) shape = Shapes.or(shape, SOUTH_SIDE);
-                            if (east) shape = Shapes.or(shape, EAST_SIDE);
-                            if (west) shape = Shapes.or(shape, WEST_SIDE);
-                            if (up) shape = Shapes.or(shape, POLE);
+                            if (north) shape = Shapes.or(shape, this.shapeByPart.get(Direction.NORTH));
+                            if (south) shape = Shapes.or(shape, this.shapeByPart.get(Direction.SOUTH));
+                            if (east) shape = Shapes.or(shape, this.shapeByPart.get(Direction.EAST));
+                            if (west) shape = Shapes.or(shape, this.shapeByPart.get(Direction.WEST));
+                            if (up) shape = Shapes.or(shape, this.shapeByPart.get(Direction.UP));
                             BlockState blockstate = this.defaultBlockState()
                                     .setValue(UP, up)
                                     .setValue(EAST, east)

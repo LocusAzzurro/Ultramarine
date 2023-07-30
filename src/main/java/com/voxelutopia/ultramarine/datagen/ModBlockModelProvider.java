@@ -109,6 +109,8 @@ public class ModBlockModelProvider extends BlockStateProvider {
         horizontalBlockNoOffset(BlockRegistry.GILDED_DARK_OAK_BEAM_HEAD.get());
         horizontalBlockNoOffset(BlockRegistry.GILDED_DARK_OAK_BRACKET.get());
         railingBlock(BlockRegistry.WHITE_MARBLE_RAILING.get());
+        railingBlock(BlockRegistry.CARVED_WOOD_RAILING.get());
+
 
         simpleBlock(BlockRegistry.RED_CARVED_WOOD.get());
         carvedWoodenSlab(BlockRegistry.RED_CARVED_WOODEN_SLAB.get(), BlockRegistry.RED_CARVED_WOOD.get());

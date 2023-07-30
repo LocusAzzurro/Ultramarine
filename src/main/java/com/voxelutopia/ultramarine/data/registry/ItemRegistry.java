@@ -98,8 +98,6 @@ public class ItemRegistry {
     public static final RegistryObject<Item> GILDED_DARK_OAK_BEAM_BRACKET = fromBlock(BlockRegistry.GILDED_DARK_OAK_BRACKET, ModCreativeTab.DECORATIVE_BLOCKS);
     public static final RegistryObject<Item> DARK_OAK_RAFTER = fromBlock(BlockRegistry.DARK_OAK_RAFTER, ModCreativeTab.DECORATIVE_BLOCKS);
     public static final RegistryObject<Item> DARK_OAK_RAFTER_END = fromBlock(BlockRegistry.DARK_OAK_RAFTER_END, ModCreativeTab.DECORATIVE_BLOCKS);
-    public static final RegistryObject<Item> WHITE_MARBLE_RAILING = fromBlock(BlockRegistry.WHITE_MARBLE_RAILING, ModCreativeTab.DECORATIVE_BLOCKS);
-    public static final RegistryObject<Item> WHITE_MARBLE_RAILING_SLANT = fromBlock(BlockRegistry.WHITE_MARBLE_RAILING_SLANT, ModCreativeTab.DECORATIVE_BLOCKS);
     public static final RegistryObject<Item> RED_CARVED_WOOD = fromBlock(BlockRegistry.RED_CARVED_WOOD, ModCreativeTab.DECORATIVE_BLOCKS);
     public static final RegistryObject<Item> RED_CARVED_WOODEN_SLAB = fromBlock(BlockRegistry.RED_CARVED_WOODEN_SLAB, ModCreativeTab.DECORATIVE_BLOCKS);
     public static final RegistryObject<Item> RED_CARVED_WOODEN_STAIRS = fromBlock(BlockRegistry.RED_CARVED_WOODEN_STAIRS, ModCreativeTab.DECORATIVE_BLOCKS);
@@ -149,7 +147,9 @@ public class ItemRegistry {
     public static final RegistryObject<Item> QING_GREEN_BEAM_HEAD = fromBlock(BlockRegistry.QING_GREEN_BEAM_HEAD, ModCreativeTab.DECORATIVE_BLOCKS);
     public static final RegistryObject<Item> YELLOW_AND_GREEN_CARVED_WOOD = fromBlock(BlockRegistry.YELLOW_AND_GREEN_CARVED_WOOD, ModCreativeTab.DECORATIVE_BLOCKS);
 
-
+    public static final RegistryObject<Item> WHITE_MARBLE_RAILING = fromBlock(BlockRegistry.WHITE_MARBLE_RAILING, ModCreativeTab.DECORATIVE_BLOCKS);
+    public static final RegistryObject<Item> WHITE_MARBLE_RAILING_SLANT = fromBlock(BlockRegistry.WHITE_MARBLE_RAILING_SLANT, ModCreativeTab.DECORATIVE_BLOCKS);
+    public static final RegistryObject<Item> CARVED_WOOD_RAILING = fromBlock(BlockRegistry.CARVED_WOOD_RAILING, ModCreativeTab.DECORATIVE_BLOCKS);
 
     public static final RegistryObject<Item> GREEN_FANGXIN = fromBlock(BlockRegistry.GREEN_FANGXIN, ModCreativeTab.DECORATIVE_BLOCKS);
     public static final RegistryObject<Item> GREEN_FANGXIN_EDGE = fromBlock(BlockRegistry.GREEN_FANGXIN_EDGE, ModCreativeTab.DECORATIVE_BLOCKS);
