@@ -2,8 +2,8 @@
 	"credit": "Made with Blockbench",
 	"texture_size": [32, 32],
 	"textures": {
-		"2": "ultramarine:block/blue_and_white_porcelain_bowl",
-		"particle": "block/quartz_block_bottom"
+		"1": "ultramarine:block/blue_and_green_chuihua",
+		"particle": "block/blue_concrete"
 	},
 	"elements": [
 		{

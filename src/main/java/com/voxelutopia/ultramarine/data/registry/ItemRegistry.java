@@ -218,6 +218,10 @@ public class ItemRegistry {
     public static final RegistryObject<Item> CARVED_STONE_QUETI = fromBlock(BlockRegistry.CARVED_STONE_QUETI, ModCreativeTab.DECORATIVE_BLOCKS);
     public static final RegistryObject<Item> THICK_CARVED_QUETI = fromBlock(BlockRegistry.THICK_CARVED_QUETI, ModCreativeTab.DECORATIVE_BLOCKS);
 
+    public static final RegistryObject<Item> BLUE_AND_GREEN_CHUIHUA = fromBlock(BlockRegistry.BLUE_AND_GREEN_CHUIHUA, ModCreativeTab.DECORATIVE_BLOCKS);
+    public static final RegistryObject<Item> CYAN_AND_YELLOW_CHUIHUA = fromBlock(BlockRegistry.CYAN_AND_YELLOW_CHUIHUA, ModCreativeTab.DECORATIVE_BLOCKS);
+    public static final RegistryObject<Item> GILDED_DARK_OAK_CHUIHUA = fromBlock(BlockRegistry.GILDED_DARK_OAK_CHUIHUA, ModCreativeTab.DECORATIVE_BLOCKS);
+
 
     public static final RegistryObject<Item> BLUE_CARVED_TIGER_EYE_RAFTER = fromBlock(BlockRegistry.BLUE_CARVED_TIGER_EYE_RAFTER, ModCreativeTab.DECORATIVE_BLOCKS);
     public static final RegistryObject<Item> BLUE_TIGER_EYE_RAFTER = fromBlock(BlockRegistry.BLUE_TIGER_EYE_RAFTER, ModCreativeTab.DECORATIVE_BLOCKS);

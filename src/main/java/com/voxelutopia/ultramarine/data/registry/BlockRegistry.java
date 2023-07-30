@@ -225,6 +225,13 @@ public class BlockRegistry {
     public static final RegistryObject<Block> THICK_CARVED_QUETI = BLOCKS.register("thick_carved_queti", () -> new SideAxialBlock(BaseBlockProperty.WOOD, 4));
 
 
+    public static final RegistryObject<Block> BLUE_AND_GREEN_CHUIHUA = BLOCKS.register("blue_and_green_chuihua",
+            () -> DecorativeBlock.with(BaseBlockProperty.WOOD).diagonallyPlaceable().build());
+    public static final RegistryObject<Block> CYAN_AND_YELLOW_CHUIHUA = BLOCKS.register("cyan_and_yellow_chuihua",
+            () -> DecorativeBlock.with(BaseBlockProperty.WOOD).build());
+    public static final RegistryObject<Block> GILDED_DARK_OAK_CHUIHUA = BLOCKS.register("gilded_dark_oak_chuihua", () -> new SixSideBlock(BaseBlockProperty.WOOD, 14, true));
+
+
     public static final RegistryObject<Block> BLUE_CARVED_TIGER_EYE_RAFTER = BLOCKS.register("blue_carved_tiger_eye_rafter", () -> new Rafter(BaseBlockProperty.WOOD));
     public static final RegistryObject<Block> BLUE_TIGER_EYE_RAFTER = BLOCKS.register("blue_tiger_eye_rafter", () -> new Rafter(BaseBlockProperty.WOOD));
     public static final RegistryObject<Block> GREEN_CARVED_TIGER_EYE_RAFTER = BLOCKS.register("green_tiger_eye_rafter", () -> new Rafter(BaseBlockProperty.WOOD));
