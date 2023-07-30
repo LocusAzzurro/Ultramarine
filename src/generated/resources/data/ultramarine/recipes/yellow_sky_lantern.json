@@ -1,5 +1,6 @@
 {
   "type": "minecraft:crafting_shaped",
+  "category": "misc",
   "key": {
     "C": {
       "tag": "minecraft:candles"
@@ -21,5 +22,6 @@
   ],
   "result": {
     "item": "ultramarine:yellow_sky_lantern"
-  }
+  },
+  "show_notification": true
 }

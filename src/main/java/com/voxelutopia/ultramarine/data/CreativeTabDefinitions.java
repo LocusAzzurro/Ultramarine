@@ -7,6 +7,7 @@ import net.minecraft.world.item.ItemStack;
 
 public class CreativeTabDefinitions {
 
+    /*
     public static final CreativeModeTab MATERIALS = new CreativeModeTab(Ultramarine.MOD_ID + ".materials") {
         @Override public ItemStack makeIcon() {
             return new ItemStack(ItemRegistry.CYAN_BRICK.get());
@@ -47,4 +48,6 @@ public class CreativeTabDefinitions {
             return new ItemStack(ItemRegistry.OCTAGONAL_PALACE_LANTERN.get());
         }
     };
+
+     */
 }

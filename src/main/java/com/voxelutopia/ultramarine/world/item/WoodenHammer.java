@@ -21,7 +21,7 @@ import java.util.Optional;
 public class WoodenHammer extends Item {
 
     public WoodenHammer() {
-        super(new Item.Properties().tab(CreativeTabDefinitions.TOOLS).durability(100));
+        super(new Item.Properties().durability(100));
     }
 
     @NotNull

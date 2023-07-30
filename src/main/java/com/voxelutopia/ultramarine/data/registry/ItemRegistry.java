@@ -669,13 +669,13 @@ public class ItemRegistry {
     public static final RegistryObject<Item> WOODWORKING_WORKBENCH = fromBlock(BlockRegistry.WOODWORKING_WORKBENCH, ModCreativeTab.TOOLS);
 
     private static <B extends Block> RegistryObject<Item> fromBlock(RegistryObject<B> block, ModCreativeTab tabDef) {
-        RegistryObject<Item> registryObject = ITEMS.register(block.getId().getPath(), () -> new BlockItem(block.get(), new Item.Properties().tab(tabDef.getTab())));
+        RegistryObject<Item> registryObject = ITEMS.register(block.getId().getPath(), () -> new BlockItem(block.get(), new Item.Properties()));
         ModCreativeTab.putItemInSet(registryObject, tabDef);
         return registryObject;
     }
 
     private static RegistryObject<Item> simpleItem(String name, ModCreativeTab tabDef) {
-        RegistryObject<Item> registryObject = ITEMS.register(name, () -> new Item(new Item.Properties().tab(tabDef.getTab())));
+        RegistryObject<Item> registryObject = ITEMS.register(name, () -> new Item(new Item.Properties()));
         ModCreativeTab.putItemInSet(registryObject, tabDef);
         return registryObject;
     }

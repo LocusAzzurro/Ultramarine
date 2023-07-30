@@ -1,5 +1,6 @@
 {
   "type": "minecraft:crafting_shaped",
+  "category": "building",
   "key": {
     "B": {
       "item": "ultramarine:polished_weathered_stone"
@@ -11,5 +12,6 @@
   "result": {
     "count": 6,
     "item": "ultramarine:polished_weathered_stone_slab"
-  }
+  },
+  "show_notification": true
 }

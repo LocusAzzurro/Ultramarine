@@ -19,7 +19,7 @@ public class ModCommonEventHandler {
     @SubscribeEvent
     public static void commonSetup(FMLCommonSetupEvent e){
         e.enqueueWork(() -> {
-            PoiTypeRegistry.registerPOI();
+            //PoiTypeRegistry.registerPOI(); //fixme
         });
     }
 

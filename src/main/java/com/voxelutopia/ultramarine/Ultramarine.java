@@ -23,6 +23,7 @@ public class Ultramarine {
         IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
         BlockRegistry.BLOCKS.register(bus);
         ItemRegistry.ITEMS.register(bus);
+        CreativeTabRegistry.CREATIVE_TABS.register(bus);
         BlockEntityRegistry.BLOCK_ENTITIES.register(bus);
         EntityTypeRegistry.ENTITIES.register(bus);
         VillagerProfessionRegistry.PROFESSIONS.register(bus);

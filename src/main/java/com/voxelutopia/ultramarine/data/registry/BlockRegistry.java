@@ -11,7 +11,6 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.gameevent.GameEvent;
-import net.minecraft.world.level.material.Material;
 import net.minecraft.world.phys.Vec3;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -733,7 +732,7 @@ public class BlockRegistry {
 
     public static final RegistryObject<Block> WOODWORKING_WORKBENCH = BLOCKS.register("woodworking_workbench", WoodworkingWorkBench::new);
 
-    private static RegistryObject<Block> simpleBlock(String name, Material material) {
-        return BLOCKS.register(name, () -> new Block(BlockBehaviour.Properties.of(material)));
+    private static RegistryObject<Block> simpleBlock(String name) {
+        return BLOCKS.register(name, () -> new Block(BlockBehaviour.Properties.of()));
     }
 }

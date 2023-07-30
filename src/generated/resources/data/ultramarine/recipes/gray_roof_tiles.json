@@ -1,5 +1,6 @@
 {
   "type": "minecraft:crafting_shaped",
+  "category": "building",
   "key": {
     "T": {
       "item": "ultramarine:gray_roof_tile"
@@ -10,5 +11,6 @@
   ],
   "result": {
     "item": "ultramarine:gray_roof_tiles"
-  }
+  },
+  "show_notification": true
 }
