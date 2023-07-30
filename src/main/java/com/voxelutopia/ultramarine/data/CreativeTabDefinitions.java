@@ -5,7 +5,7 @@ import com.voxelutopia.ultramarine.data.registry.ItemRegistry;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.ItemStack;
 
-public class CreativeTabs {
+public class CreativeTabDefinitions {
 
     public static final CreativeModeTab MATERIALS = new CreativeModeTab(Ultramarine.MOD_ID + ".materials") {
         @Override public ItemStack makeIcon() {
