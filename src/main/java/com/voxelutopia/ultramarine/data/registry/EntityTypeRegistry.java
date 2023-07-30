@@ -14,7 +14,7 @@ import java.util.function.Supplier;
 
 public class EntityTypeRegistry
 {
-    public static final DeferredRegister<EntityType<?>> ENTITIES = DeferredRegister.create(ForgeRegistries.ENTITIES, Ultramarine.MOD_ID);
+    public static final DeferredRegister<EntityType<?>> ENTITIES = DeferredRegister.create(ForgeRegistries.ENTITY_TYPES, Ultramarine.MOD_ID);
 
     public static final RegistryObject<EntityType<SeatEntity>> SEAT =
             register("seat", () -> EntityType.Builder

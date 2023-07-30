@@ -2,16 +2,14 @@
   "type": "minecraft:block",
   "pools": [
     {
-      "name": "cabbage_basket",
-      "rolls": 1.0,
       "bonus_rolls": 0.0,
       "entries": [
         {
           "type": "minecraft:item",
           "conditions": [
             {
-              "condition": "minecraft:block_state_property",
               "block": "ultramarine:cabbage_basket",
+              "condition": "minecraft:block_state_property",
               "properties": {
                 "type": "single"
               }
@@ -23,8 +21,8 @@
           "type": "minecraft:item",
           "conditions": [
             {
-              "condition": "minecraft:block_state_property",
               "block": "ultramarine:cabbage_basket",
+              "condition": "minecraft:block_state_property",
               "properties": {
                 "type": "double"
               }
@@ -32,14 +30,16 @@
           ],
           "functions": [
             {
-              "function": "minecraft:set_count",
+              "add": false,
               "count": 2.0,
-              "add": false
+              "function": "minecraft:set_count"
             }
           ],
           "name": "ultramarine:cabbage_basket"
         }
-      ]
+      ],
+      "name": "cabbage_basket",
+      "rolls": 1.0
     }
   ]
 }

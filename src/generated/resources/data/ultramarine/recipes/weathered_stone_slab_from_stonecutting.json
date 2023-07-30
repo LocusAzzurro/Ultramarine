@@ -1,8 +1,8 @@
 {
   "type": "minecraft:stonecutting",
+  "count": 2,
   "ingredient": {
     "item": "ultramarine:weathered_stone"
   },
-  "result": "ultramarine:weathered_stone_slab",
-  "count": 2
+  "result": "ultramarine:weathered_stone_slab"
 }

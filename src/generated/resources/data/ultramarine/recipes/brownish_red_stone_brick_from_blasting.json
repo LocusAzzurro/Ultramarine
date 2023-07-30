@@ -1,9 +1,9 @@
 {
   "type": "minecraft:blasting",
+  "cookingtime": 100,
+  "experience": 0.05,
   "ingredient": {
     "item": "ultramarine:raw_brownish_red_stone_brick"
   },
-  "result": "ultramarine:brownish_red_stone_brick",
-  "experience": 0.05,
-  "cookingtime": 100
+  "result": "ultramarine:brownish_red_stone_brick"
 }

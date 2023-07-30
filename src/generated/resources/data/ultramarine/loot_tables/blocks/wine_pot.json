@@ -2,8 +2,6 @@
   "type": "minecraft:block",
   "pools": [
     {
-      "name": "wine_pot",
-      "rolls": 1.0,
       "bonus_rolls": 0.0,
       "entries": [
         {
@@ -32,15 +30,15 @@
               "type": "minecraft:item",
               "conditions": [
                 {
-                  "condition": "minecraft:random_chance",
-                  "chance": 0.01
+                  "chance": 0.01,
+                  "condition": "minecraft:random_chance"
                 }
               ],
               "functions": [
                 {
-                  "function": "minecraft:apply_bonus",
                   "enchantment": "minecraft:fortune",
                   "formula": "minecraft:uniform_bonus_count",
+                  "function": "minecraft:apply_bonus",
                   "parameters": {
                     "bonusMultiplier": 2
                   }
@@ -52,20 +50,22 @@
               "type": "minecraft:item",
               "functions": [
                 {
-                  "function": "minecraft:set_count",
+                  "add": false,
                   "count": {
                     "type": "minecraft:binomial",
                     "n": 3.0,
                     "p": 0.5
                   },
-                  "add": false
+                  "function": "minecraft:set_count"
                 }
               ],
               "name": "ultramarine:blue_and_white_porcelain_shards"
             }
           ]
         }
-      ]
+      ],
+      "name": "wine_pot",
+      "rolls": 1.0
     }
   ]
 }

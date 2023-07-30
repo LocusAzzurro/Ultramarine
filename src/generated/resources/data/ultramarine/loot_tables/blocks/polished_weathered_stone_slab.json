@@ -2,16 +2,14 @@
   "type": "minecraft:block",
   "pools": [
     {
-      "name": "polished_weathered_stone_slab",
-      "rolls": 1.0,
       "bonus_rolls": 0.0,
       "entries": [
         {
           "type": "minecraft:item",
           "conditions": [
             {
-              "condition": "minecraft:block_state_property",
               "block": "ultramarine:polished_weathered_stone_slab",
+              "condition": "minecraft:block_state_property",
               "properties": {
                 "type": "top"
               }
@@ -23,8 +21,8 @@
           "type": "minecraft:item",
           "conditions": [
             {
-              "condition": "minecraft:block_state_property",
               "block": "ultramarine:polished_weathered_stone_slab",
+              "condition": "minecraft:block_state_property",
               "properties": {
                 "type": "bottom"
               }
@@ -36,8 +34,8 @@
           "type": "minecraft:item",
           "conditions": [
             {
-              "condition": "minecraft:block_state_property",
               "block": "ultramarine:polished_weathered_stone_slab",
+              "condition": "minecraft:block_state_property",
               "properties": {
                 "type": "double"
               }
@@ -45,14 +43,16 @@
           ],
           "functions": [
             {
-              "function": "minecraft:set_count",
+              "add": false,
               "count": 2.0,
-              "add": false
+              "function": "minecraft:set_count"
             }
           ],
           "name": "ultramarine:polished_weathered_stone_slab"
         }
-      ]
+      ],
+      "name": "polished_weathered_stone_slab",
+      "rolls": 1.0
     }
   ]
 }

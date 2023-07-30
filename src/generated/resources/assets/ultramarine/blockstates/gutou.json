@@ -4,8 +4,10 @@
       "model": "ultramarine:block/gutou",
       "x": 180
     },
-    "facing=up": {
-      "model": "ultramarine:block/gutou"
+    "facing=east": {
+      "model": "ultramarine:block/gutou",
+      "x": 90,
+      "y": 90
     },
     "facing=north": {
       "model": "ultramarine:block/gutou",
@@ -16,15 +18,13 @@
       "x": 90,
       "y": 180
     },
+    "facing=up": {
+      "model": "ultramarine:block/gutou"
+    },
     "facing=west": {
       "model": "ultramarine:block/gutou",
       "x": 90,
       "y": 270
-    },
-    "facing=east": {
-      "model": "ultramarine:block/gutou",
-      "x": 90,
-      "y": 90
     }
   }
 }

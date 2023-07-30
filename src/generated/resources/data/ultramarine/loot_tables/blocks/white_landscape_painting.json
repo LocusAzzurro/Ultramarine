@@ -2,15 +2,15 @@
   "type": "minecraft:block",
   "pools": [
     {
-      "name": "white_landscape_painting",
-      "rolls": 1.0,
       "bonus_rolls": 0.0,
       "entries": [
         {
           "type": "minecraft:item",
           "name": "ultramarine:white_landscape_painting"
         }
-      ]
+      ],
+      "name": "white_landscape_painting",
+      "rolls": 1.0
     }
   ]
 }

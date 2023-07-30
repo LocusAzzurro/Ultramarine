@@ -2,15 +2,15 @@
   "type": "minecraft:block",
   "pools": [
     {
-      "name": "wooden_crate",
-      "rolls": 1.0,
       "bonus_rolls": 0.0,
       "entries": [
         {
           "type": "minecraft:item",
           "name": "ultramarine:wooden_crate"
         }
-      ]
+      ],
+      "name": "wooden_crate",
+      "rolls": 1.0
     }
   ]
 }

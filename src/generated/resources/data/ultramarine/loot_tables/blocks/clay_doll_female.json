@@ -2,15 +2,15 @@
   "type": "minecraft:block",
   "pools": [
     {
-      "name": "clay_doll_female",
-      "rolls": 1.0,
       "bonus_rolls": 0.0,
       "entries": [
         {
           "type": "minecraft:item",
           "name": "ultramarine:clay_doll_female"
         }
-      ]
+      ],
+      "name": "clay_doll_female",
+      "rolls": 1.0
     }
   ]
 }

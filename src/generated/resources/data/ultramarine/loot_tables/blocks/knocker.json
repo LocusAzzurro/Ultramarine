@@ -2,15 +2,15 @@
   "type": "minecraft:block",
   "pools": [
     {
-      "name": "knocker",
-      "rolls": 1.0,
       "bonus_rolls": 0.0,
       "entries": [
         {
           "type": "minecraft:item",
           "name": "ultramarine:knocker"
         }
-      ]
+      ],
+      "name": "knocker",
+      "rolls": 1.0
     }
   ]
 }

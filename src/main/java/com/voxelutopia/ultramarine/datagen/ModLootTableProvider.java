@@ -11,7 +11,7 @@ import net.minecraft.data.DataGenerator;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.OreBlock;
+import net.minecraft.world.level.block.DropExperienceBlock;
 import net.minecraft.world.level.block.SlabBlock;
 import net.minecraft.world.level.storage.loot.LootTable;
 import net.minecraftforge.registries.RegistryObject;
@@ -27,7 +27,7 @@ public class ModLootTableProvider extends BaseLootTableProvider {
     }
 
     private static final List<RegistryObject<Block>> NON_SIMPLE_BLOCKS = new ArrayList<>();
-    private static final List<Class> NON_SIMPLE_BLOCK_CLASSES = List.of(OreBlock.class, SlabBlock.class, ConsumableDecorativeBlock.class, StackableHalfBlock.class);
+    private static final List<Class> NON_SIMPLE_BLOCK_CLASSES = List.of(DropExperienceBlock.class, SlabBlock.class, ConsumableDecorativeBlock.class, StackableHalfBlock.class);
     private static final Logger LOGGER = Ultramarine.getLogger();
 
     static {

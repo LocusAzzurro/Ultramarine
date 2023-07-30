@@ -4,8 +4,10 @@
       "model": "ultramarine:block/white_and_blue_fangxin_edge",
       "x": 180
     },
-    "facing=up": {
-      "model": "ultramarine:block/white_and_blue_fangxin_edge"
+    "facing=east": {
+      "model": "ultramarine:block/white_and_blue_fangxin_edge",
+      "x": 90,
+      "y": 90
     },
     "facing=north": {
       "model": "ultramarine:block/white_and_blue_fangxin_edge",
@@ -16,15 +18,13 @@
       "x": 90,
       "y": 180
     },
+    "facing=up": {
+      "model": "ultramarine:block/white_and_blue_fangxin_edge"
+    },
     "facing=west": {
       "model": "ultramarine:block/white_and_blue_fangxin_edge",
       "x": 90,
       "y": 270
-    },
-    "facing=east": {
-      "model": "ultramarine:block/white_and_blue_fangxin_edge",
-      "x": 90,
-      "y": 90
     }
   }
 }

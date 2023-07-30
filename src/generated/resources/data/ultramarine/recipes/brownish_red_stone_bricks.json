@@ -1,14 +1,14 @@
 {
   "type": "minecraft:crafting_shaped",
-  "pattern": [
-    "AA",
-    "AA"
-  ],
   "key": {
     "A": {
       "item": "ultramarine:brownish_red_stone_brick"
     }
   },
+  "pattern": [
+    "AA",
+    "AA"
+  ],
   "result": {
     "item": "ultramarine:brownish_red_stone_bricks"
   }

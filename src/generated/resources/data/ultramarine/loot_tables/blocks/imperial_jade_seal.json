@@ -2,15 +2,15 @@
   "type": "minecraft:block",
   "pools": [
     {
-      "name": "imperial_jade_seal",
-      "rolls": 1.0,
       "bonus_rolls": 0.0,
       "entries": [
         {
           "type": "minecraft:item",
           "name": "ultramarine:imperial_jade_seal"
         }
-      ]
+      ],
+      "name": "imperial_jade_seal",
+      "rolls": 1.0
     }
   ]
 }

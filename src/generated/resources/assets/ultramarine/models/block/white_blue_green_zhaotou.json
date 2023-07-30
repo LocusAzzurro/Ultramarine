@@ -1,8 +1,8 @@
 {
   "parent": "minecraft:block/cube_bottom_top",
   "textures": {
-    "side": "ultramarine:block/white_blue_green_zhaotou_side",
     "bottom": "ultramarine:block/white_blue_green_zhaotou_end",
+    "side": "ultramarine:block/white_blue_green_zhaotou_side",
     "top": "ultramarine:block/white_blue_green_zhaotou_end"
   }
 }

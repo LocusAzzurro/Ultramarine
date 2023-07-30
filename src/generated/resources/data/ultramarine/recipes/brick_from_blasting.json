@@ -1,9 +1,9 @@
 {
   "type": "minecraft:blasting",
+  "cookingtime": 100,
+  "experience": 0.05,
   "ingredient": {
     "item": "ultramarine:raw_clay_brick"
   },
-  "result": "minecraft:brick",
-  "experience": 0.05,
-  "cookingtime": 100
+  "result": "minecraft:brick"
 }

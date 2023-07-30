@@ -1,19 +1,8 @@
 {
   "variants": {
-    "facing=north,half=top": {
+    "facing=east,half=bottom": {
       "model": "ultramarine:block/cyan_carved_wooden_stairs",
-      "x": 180,
-      "y": 360
-    },
-    "facing=south,half=top": {
-      "model": "ultramarine:block/cyan_carved_wooden_stairs",
-      "x": 180,
-      "y": 180
-    },
-    "facing=west,half=top": {
-      "model": "ultramarine:block/cyan_carved_wooden_stairs",
-      "x": 180,
-      "y": 270
+      "y": -90
     },
     "facing=east,half=top": {
       "model": "ultramarine:block/cyan_carved_wooden_stairs",
@@ -24,16 +13,27 @@
       "model": "ultramarine:block/cyan_carved_wooden_stairs",
       "y": 180
     },
+    "facing=north,half=top": {
+      "model": "ultramarine:block/cyan_carved_wooden_stairs",
+      "x": 180,
+      "y": 360
+    },
     "facing=south,half=bottom": {
       "model": "ultramarine:block/cyan_carved_wooden_stairs"
+    },
+    "facing=south,half=top": {
+      "model": "ultramarine:block/cyan_carved_wooden_stairs",
+      "x": 180,
+      "y": 180
     },
     "facing=west,half=bottom": {
       "model": "ultramarine:block/cyan_carved_wooden_stairs",
       "y": 90
     },
-    "facing=east,half=bottom": {
+    "facing=west,half=top": {
       "model": "ultramarine:block/cyan_carved_wooden_stairs",
-      "y": -90
+      "x": 180,
+      "y": 270
     }
   }
 }

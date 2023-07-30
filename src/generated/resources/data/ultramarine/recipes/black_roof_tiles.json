@@ -1,13 +1,13 @@
 {
   "type": "minecraft:crafting_shaped",
-  "pattern": [
-    "TTT"
-  ],
   "key": {
     "T": {
       "item": "ultramarine:black_roof_tile"
     }
   },
+  "pattern": [
+    "TTT"
+  ],
   "result": {
     "item": "ultramarine:black_roof_tiles"
   }

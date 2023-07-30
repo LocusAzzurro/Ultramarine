@@ -104,6 +104,7 @@ public class WoodworkingRecipe extends SingleItemRecipe {
             pBuffer.writeItem(pRecipe.result);
         }
 
+        /*
         @Override
         public RecipeSerializer<?> setRegistryName(ResourceLocation name) {
             return INSTANCE;
@@ -124,6 +125,8 @@ public class WoodworkingRecipe extends SingleItemRecipe {
         private static <G> Class<G> castClass(Class<?> cls) {
             return (Class<G>)cls;
         }
+
+         */
 
     }
 

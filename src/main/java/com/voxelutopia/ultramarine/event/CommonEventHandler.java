@@ -21,7 +21,7 @@ public class CommonEventHandler {
     @SubscribeEvent
     public static void breakSpeed(PlayerEvent.BreakSpeed event){
         BlockState state = event.getState();
-        Player player = event.getPlayer();
+        Player player = event.getEntity();
         if (state.is(ModBlockTags.MINEABLE_WITH_SHEARS) &&
                 player.getItemInHand(player.getUsedItemHand()).is(Tags.Items.SHEARS)){
             event.setNewSpeed(event.getOriginalSpeed() * 4);

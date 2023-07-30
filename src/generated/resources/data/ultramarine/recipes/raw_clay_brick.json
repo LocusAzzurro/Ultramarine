@@ -1,15 +1,15 @@
 {
   "type": "minecraft:crafting_shaped",
-  "pattern": [
-    "CCC"
-  ],
   "key": {
     "C": {
       "item": "minecraft:clay_ball"
     }
   },
+  "pattern": [
+    "CCC"
+  ],
   "result": {
-    "item": "ultramarine:raw_clay_brick",
-    "count": 3
+    "count": 3,
+    "item": "ultramarine:raw_clay_brick"
   }
 }

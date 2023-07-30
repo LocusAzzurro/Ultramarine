@@ -2,15 +2,15 @@
   "type": "minecraft:block",
   "pools": [
     {
-      "name": "bronze_ding",
-      "rolls": 1.0,
       "bonus_rolls": 0.0,
       "entries": [
         {
           "type": "minecraft:item",
           "name": "ultramarine:bronze_ding"
         }
-      ]
+      ],
+      "name": "bronze_ding",
+      "rolls": 1.0
     }
   ]
 }

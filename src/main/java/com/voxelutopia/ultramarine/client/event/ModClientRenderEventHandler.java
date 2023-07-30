@@ -28,6 +28,7 @@ public class ModClientRenderEventHandler {
 
     private static void setRenderLayers(FMLClientSetupEvent e) {
         e.enqueueWork(() -> {
+            /*
             ItemBlockRenderTypes.setRenderLayer(BlockRegistry.ABACUS.get(), RenderType.cutout());
             ItemBlockRenderTypes.setRenderLayer(BlockRegistry.BRUSH_TOOLS.get(), RenderType.cutout());
             ItemBlockRenderTypes.setRenderLayer(BlockRegistry.BOTTLE_GOURD.get(), RenderType.cutout());
@@ -126,6 +127,8 @@ public class ModClientRenderEventHandler {
             ItemBlockRenderTypes.setRenderLayer(BlockRegistry.OAK_BED.get(), RenderType.cutout());
             ItemBlockRenderTypes.setRenderLayer(BlockRegistry.PAINTED_SCREEN.get(), RenderType.cutout());
             ItemBlockRenderTypes.setRenderLayer(BlockRegistry.WOODWORKING_WORKBENCH.get(), RenderType.cutout());
+
+             */
         });
     }
 

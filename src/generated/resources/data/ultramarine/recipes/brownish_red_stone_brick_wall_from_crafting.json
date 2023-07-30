@@ -1,16 +1,16 @@
 {
   "type": "minecraft:crafting_shaped",
-  "pattern": [
-    "BBB",
-    "BBB"
-  ],
   "key": {
     "B": {
       "item": "ultramarine:brownish_red_stone_bricks"
     }
   },
+  "pattern": [
+    "BBB",
+    "BBB"
+  ],
   "result": {
-    "item": "ultramarine:brownish_red_stone_brick_wall",
-    "count": 6
+    "count": 6,
+    "item": "ultramarine:brownish_red_stone_brick_wall"
   }
 }

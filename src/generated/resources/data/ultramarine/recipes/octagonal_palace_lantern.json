@@ -1,21 +1,21 @@
 {
   "type": "minecraft:crafting_shaped",
-  "pattern": [
-    "FPF",
-    "PCP",
-    "FPF"
-  ],
   "key": {
+    "C": {
+      "tag": "minecraft:candles"
+    },
     "F": {
       "item": "ultramarine:wooden_frame"
     },
     "P": {
       "tag": "ultramarine:polished_planks"
-    },
-    "C": {
-      "tag": "minecraft:candles"
     }
   },
+  "pattern": [
+    "FPF",
+    "PCP",
+    "FPF"
+  ],
   "result": {
     "item": "ultramarine:octagonal_palace_lantern"
   }

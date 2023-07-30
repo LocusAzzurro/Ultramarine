@@ -2,15 +2,15 @@
   "type": "minecraft:block",
   "pools": [
     {
-      "name": "sack",
-      "rolls": 1.0,
       "bonus_rolls": 0.0,
       "entries": [
         {
           "type": "minecraft:item",
           "name": "ultramarine:sack"
         }
-      ]
+      ],
+      "name": "sack",
+      "rolls": 1.0
     }
   ]
 }

@@ -2,15 +2,15 @@
   "type": "minecraft:block",
   "pools": [
     {
-      "name": "black_roof_ridge_lower",
-      "rolls": 1.0,
       "bonus_rolls": 0.0,
       "entries": [
         {
           "type": "minecraft:item",
           "name": "ultramarine:black_roof_ridge_lower"
         }
-      ]
+      ],
+      "name": "black_roof_ridge_lower",
+      "rolls": 1.0
     }
   ]
 }

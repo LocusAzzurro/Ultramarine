@@ -8,13 +8,15 @@ import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 
 import java.lang.reflect.InvocationTargetException;
+import java.util.Set;
 
 public class PoiTypeRegistry {
 
     public static final DeferredRegister<PoiType> POI_TYPES = DeferredRegister.create(ForgeRegistries.POI_TYPES, Ultramarine.MOD_ID);
 
     public static final RegistryObject<PoiType> COOKING_POI = POI_TYPES.register("cooking_poi",
-            () -> new PoiType("cooking_poi", PoiType.getBlockStates(BlockRegistry.FOOD_HAMPER.get()), 1, 1));
+            () -> new PoiType(Set.of(BlockRegistry.FOOD_HAMPER.get().defaultBlockState()), 1, 1));
+//todo check blockstate
 
     public static void registerPOI (){
         try {
