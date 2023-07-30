@@ -64,6 +64,13 @@ public class BlockRegistry {
     public static final RegistryObject<Block> BAMBOO_MAT = BLOCKS.register("bamboo_mat", () -> new BaseBlock(BaseBlockProperty.BAMBOO_WOOD));
     public static final RegistryObject<Block> BAMBOO_MAT_SLAB = BLOCKS.register("bamboo_mat_slab", () -> new BaseSlab((BaseBlock) BAMBOO_MAT.get()));
     public static final RegistryObject<Block> BAMBOO_MAT_STAIRS = BLOCKS.register("bamboo_mat_stairs", () -> new BaseStairs((BaseBlock) BAMBOO_MAT.get()));
+    public static final RegistryObject<Block> WHITE_AMD_PINK_MIXED_BRICKS = BLOCKS.register("white_and_pink_mixed_bricks", () -> new BaseBlock(BaseBlockProperty.STONE));
+    public static final RegistryObject<Block> WEATHERED_RED_STONE_TILE = BLOCKS.register("weathered_red_stone_tile", () -> new BaseBlock(BaseBlockProperty.STONE));
+    public static final RegistryObject<Block> BLUE_AND_BLACK_TILE = BLOCKS.register("blue_and_black_tile", () -> new BaseBlock(BaseBlockProperty.STONE));
+    public static final RegistryObject<Block> GREEN_WEATHERED_STONE = BLOCKS.register("green_weathered_stone", () -> new BaseBlock(BaseBlockProperty.STONE));
+    public static final RegistryObject<Block> GREEN_WEATHERED_BRICKS = BLOCKS.register("green_weathered_bricks", () -> new BaseBlock(BaseBlockProperty.STONE));
+
+
 
     public static final RegistryObject<Block> CABBAGE_BASKET = BLOCKS.register("cabbage_basket", () -> new StackableHalfBlock(BaseBlockProperty.CROP));
     public static final RegistryObject<Block> CELERY_BASKET = BLOCKS.register("celery_basket", () -> new StackableHalfBlock(BaseBlockProperty.CROP));

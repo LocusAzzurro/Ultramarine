@@ -61,6 +61,11 @@ public class ItemRegistry {
     public static final RegistryObject<Item> BAMBOO_MAT = fromBlock(BlockRegistry.BAMBOO_MAT, ModCreativeTab.BUILDING_BLOCKS);
     public static final RegistryObject<Item> BAMBOO_MAT_SLAB = fromBlock(BlockRegistry.BAMBOO_MAT_SLAB, ModCreativeTab.BUILDING_BLOCKS);
     public static final RegistryObject<Item> BAMBOO_MAT_STAIRS = fromBlock(BlockRegistry.BAMBOO_MAT_STAIRS, ModCreativeTab.BUILDING_BLOCKS);
+    public static final RegistryObject<Item> WHITE_AMD_PINK_MIXED_BRICKS = fromBlock(BlockRegistry.WHITE_AMD_PINK_MIXED_BRICKS, ModCreativeTab.BUILDING_BLOCKS);
+    public static final RegistryObject<Item> WEATHERED_RED_STONE_TILE = fromBlock(BlockRegistry.WEATHERED_RED_STONE_TILE, ModCreativeTab.BUILDING_BLOCKS);
+    public static final RegistryObject<Item> BLUE_AND_BLACK_TILE = fromBlock(BlockRegistry.BLUE_AND_BLACK_TILE, ModCreativeTab.BUILDING_BLOCKS);
+    public static final RegistryObject<Item> GREEN_WEATHERED_STONE = fromBlock(BlockRegistry.GREEN_WEATHERED_STONE, ModCreativeTab.BUILDING_BLOCKS);
+    public static final RegistryObject<Item> GREEN_WEATHERED_BRICKS = fromBlock(BlockRegistry.GREEN_WEATHERED_BRICKS, ModCreativeTab.BUILDING_BLOCKS);
 
     public static final RegistryObject<Item> CABBAGE_BASKET = fromBlock(BlockRegistry.CABBAGE_BASKET, ModCreativeTab.DECORATIVE_BLOCKS);
     public static final RegistryObject<Item> CELERY_BASKET = fromBlock(BlockRegistry.CELERY_BASKET, ModCreativeTab.DECORATIVE_BLOCKS);
