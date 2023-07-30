@@ -2,13 +2,13 @@
   "type": "minecraft:block",
   "pools": [
     {
-      "name": "xumi_stone_monolith",
+      "name": "knife_rest",
       "rolls": 1.0,
       "bonus_rolls": 0.0,
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "ultramarine:xumi_stone_monolith"
+          "name": "ultramarine:knife_rest"
         }
       ]
     }

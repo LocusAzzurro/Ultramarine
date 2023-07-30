@@ -364,6 +364,7 @@ public class ItemRegistry {
     public static final RegistryObject<Item> CARRIAGE = fromBlock(BlockRegistry.CARRIAGE, ModCreativeTab.DECORATIONS);
     public static final RegistryObject<Item> WOODEN_POLES = fromBlock(BlockRegistry.WOODEN_POLES, ModCreativeTab.DECORATIONS);
     public static final RegistryObject<Item> TEAHOUSE_FLAG = fromBlock(BlockRegistry.TEAHOUSE_FLAG, ModCreativeTab.DECORATIONS);
+    public static final RegistryObject<Item> KNIFE_REST = fromBlock(BlockRegistry.KNIFE_REST, ModCreativeTab.DECORATIONS);
 
 
     public static final RegistryObject<Item> LONG_HANGING_PAINTING = fromBlock(BlockRegistry.LONG_HANGING_PAINTING, ModCreativeTab.DECORATIONS);
@@ -375,7 +376,7 @@ public class ItemRegistry {
     public static final RegistryObject<Item> DAMAGED_LANDSCAPE_PAINTING = fromBlock(BlockRegistry.DAMAGED_LANDSCAPE_PAINTING, ModCreativeTab.DECORATIONS);
     public static final RegistryObject<Item> PORTRAIT = fromBlock(BlockRegistry.PORTRAIT, ModCreativeTab.DECORATIONS);
     public static final RegistryObject<Item> HANGING_PAINTING_FAN = fromBlock(BlockRegistry.HANGING_PAINTING_FAN, ModCreativeTab.DECORATIONS);
-
+    public static final RegistryObject<Item> SINCERE_CALLIGRAPHY = fromBlock(BlockRegistry.SINCERE_CALLIGRAPHY, ModCreativeTab.DECORATIONS);
 
     public static final RegistryObject<Item> SMALL_WOODEN_GUARDIAN_LION = fromBlock(BlockRegistry.SMALL_WOODEN_GUARDIAN_LION, ModCreativeTab.DECORATIVE_BLOCKS);
     public static final RegistryObject<Item> SMALL_STONE_GUARDIAN_LION = fromBlock(BlockRegistry.SMALL_STONE_GUARDIAN_LION, ModCreativeTab.DECORATIVE_BLOCKS);

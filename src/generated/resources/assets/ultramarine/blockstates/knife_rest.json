@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "ultramarine:block/knife_rest",
+      "y": 180
+    },
+    "facing=south": {
+      "model": "ultramarine:block/knife_rest"
+    },
+    "facing=west": {
+      "model": "ultramarine:block/knife_rest",
+      "y": 90
+    },
+    "facing=east": {
+      "model": "ultramarine:block/knife_rest",
+      "y": 270
+    }
+  }
+}
