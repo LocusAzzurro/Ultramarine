@@ -217,6 +217,21 @@ public class ModBlockModelProvider extends BlockStateProvider {
                 bottomLoc(BlockRegistry.BLACK_MAIN_ROOF_RIDGE_SLAB.get()), topLoc(BlockRegistry.BLACK_MAIN_ROOF_RIDGE_SLAB.get()));
         straightStairs(BlockRegistry.BLACK_MAIN_ROOF_RIDGE_STAIRS.get());
 
+        sideBottomTop(BlockRegistry.YELLOW_ROOF_RIDGE_UPPER.get());
+        sideBottomTop(BlockRegistry.YELLOW_ROOF_RIDGE_LOWER.get(), sideLoc(BlockRegistry.YELLOW_ROOF_RIDGE_LOWER.get()), bottomLoc(BlockRegistry.YELLOW_ROOF_RIDGE_UPPER.get()), bottomLoc(BlockRegistry.YELLOW_ROOF_RIDGE_UPPER.get()));
+        axialFrontSideBottomTop(BlockRegistry.YELLOW_ROOF_RIDGE_CONNECTION.get(), frontLoc(BlockRegistry.YELLOW_ROOF_RIDGE_CONNECTION.get()), sideLoc(BlockRegistry.YELLOW_ROOF_RIDGE_CONNECTION.get()),
+                bottomLoc(BlockRegistry.YELLOW_ROOF_RIDGE_UPPER.get()), topLoc(BlockRegistry.YELLOW_ROOF_RIDGE_UPPER.get()));
+        horizontalFrontSideBottomTop(BlockRegistry.YELLOW_MAIN_ROOF_RIDGE_CONNECTION.get(), frontLoc(BlockRegistry.YELLOW_MAIN_ROOF_RIDGE_CONNECTION.get()), sideLoc(BlockRegistry.YELLOW_ROOF_RIDGE_CONNECTION.get()),
+                frontLoc(BlockRegistry.YELLOW_MAIN_ROOF_RIDGE_CONNECTION.get()), topLoc(BlockRegistry.YELLOW_MAIN_ROOF_RIDGE_CONNECTION.get()));
+        slabSideBottomTopNoFull(BlockRegistry.YELLOW_ROOF_RIDGE_UPPER_SLAB.get(), sideLoc(BlockRegistry.YELLOW_ROOF_RIDGE_UPPER_SLAB.get()), bottomLoc(BlockRegistry.YELLOW_ROOF_RIDGE_UPPER.get()), topLoc(BlockRegistry.YELLOW_ROOF_RIDGE_UPPER.get()));
+        directionalSlabFrontSideBottomTopNoFull(BlockRegistry.YELLOW_MAIN_ROOF_RIDGE_SLAB.get(), frontLoc(BlockRegistry.YELLOW_MAIN_ROOF_RIDGE_SLAB.get()), sideLoc(BlockRegistry.YELLOW_MAIN_ROOF_RIDGE_SLAB.get()),
+                bottomLoc(BlockRegistry.YELLOW_MAIN_ROOF_RIDGE_SLAB.get()), topLoc(BlockRegistry.YELLOW_MAIN_ROOF_RIDGE_SLAB.get()));
+        roofRidgePanel(BlockRegistry.YELLOW_MAIN_ROOF_RIDGE_PANEL.get(), frontLoc(BlockRegistry.YELLOW_MAIN_ROOF_RIDGE_SLAB.get()), sideLoc(BlockRegistry.YELLOW_MAIN_ROOF_RIDGE_SLAB.get()),
+                bottomLoc(BlockRegistry.YELLOW_MAIN_ROOF_RIDGE_SLAB.get()), topLoc(BlockRegistry.YELLOW_MAIN_ROOF_RIDGE_SLAB.get()));
+        roofRidgePlate(BlockRegistry.YELLOW_MAIN_ROOF_RIDGE_PLATE.get(), frontLoc(BlockRegistry.YELLOW_MAIN_ROOF_RIDGE_SLAB.get()), sideLoc(BlockRegistry.YELLOW_MAIN_ROOF_RIDGE_SLAB.get()),
+                bottomLoc(BlockRegistry.YELLOW_MAIN_ROOF_RIDGE_SLAB.get()), topLoc(BlockRegistry.YELLOW_MAIN_ROOF_RIDGE_SLAB.get()));
+        straightStairs(BlockRegistry.YELLOW_MAIN_ROOF_RIDGE_STAIRS.get());
+
         vegetableBasket((StackableHalfBlock) BlockRegistry.CABBAGE_BASKET.get());
         vegetableBasket((StackableHalfBlock) BlockRegistry.CELERY_BASKET.get());
         vegetableBasket((StackableHalfBlock) BlockRegistry.ORANGE_BASKET.get());

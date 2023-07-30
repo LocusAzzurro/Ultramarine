@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=top": {
+      "model": "ultramarine:block/yellow_roof_ridge_upper_slab_top"
+    },
+    "type=bottom": {
+      "model": "ultramarine:block/yellow_roof_ridge_upper_slab"
+    },
+    "type=double": {
+      "model": "ultramarine:block/yellow_roof_ridge_upper_slabdouble"
+    }
+  }
+}

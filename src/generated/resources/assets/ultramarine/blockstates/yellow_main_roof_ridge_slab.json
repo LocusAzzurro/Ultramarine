@@ -1,0 +1,49 @@
+{
+  "variants": {
+    "facing=north,type=top": {
+      "model": "ultramarine:block/yellow_main_roof_ridge_slab_top",
+      "y": 180
+    },
+    "facing=south,type=top": {
+      "model": "ultramarine:block/yellow_main_roof_ridge_slab_top"
+    },
+    "facing=west,type=top": {
+      "model": "ultramarine:block/yellow_main_roof_ridge_slab_top",
+      "y": 90
+    },
+    "facing=east,type=top": {
+      "model": "ultramarine:block/yellow_main_roof_ridge_slab_top",
+      "y": 270
+    },
+    "facing=north,type=bottom": {
+      "model": "ultramarine:block/yellow_main_roof_ridge_slab",
+      "y": 180
+    },
+    "facing=south,type=bottom": {
+      "model": "ultramarine:block/yellow_main_roof_ridge_slab"
+    },
+    "facing=west,type=bottom": {
+      "model": "ultramarine:block/yellow_main_roof_ridge_slab",
+      "y": 90
+    },
+    "facing=east,type=bottom": {
+      "model": "ultramarine:block/yellow_main_roof_ridge_slab",
+      "y": 270
+    },
+    "facing=north,type=double": {
+      "model": "ultramarine:block/yellow_main_roof_ridge_slab_double",
+      "y": 180
+    },
+    "facing=south,type=double": {
+      "model": "ultramarine:block/yellow_main_roof_ridge_slab_double"
+    },
+    "facing=west,type=double": {
+      "model": "ultramarine:block/yellow_main_roof_ridge_slab_double",
+      "y": 90
+    },
+    "facing=east,type=double": {
+      "model": "ultramarine:block/yellow_main_roof_ridge_slab_double",
+      "y": 270
+    }
+  }
+}

@@ -255,7 +255,15 @@ public class ItemRegistry {
     public static final RegistryObject<Item> BLACK_MAIN_ROOF_RIDGE_PANEL = fromBlock(BlockRegistry.BLACK_MAIN_ROOF_RIDGE_PANEL, ModCreativeTab.BUILDING_BLOCKS);
     public static final RegistryObject<Item> BLACK_MAIN_ROOF_RIDGE_PLATE = fromBlock(BlockRegistry.BLACK_MAIN_ROOF_RIDGE_PLATE, ModCreativeTab.BUILDING_BLOCKS);
     public static final RegistryObject<Item> BLACK_MAIN_ROOF_RIDGE_STAIRS = fromBlock(BlockRegistry.BLACK_MAIN_ROOF_RIDGE_STAIRS, ModCreativeTab.BUILDING_BLOCKS);
-
+    public static final RegistryObject<Item> YELLOW_ROOF_RIDGE_UPPER = fromBlock(BlockRegistry.YELLOW_ROOF_RIDGE_UPPER, ModCreativeTab.BUILDING_BLOCKS);
+    public static final RegistryObject<Item> YELLOW_ROOF_RIDGE_LOWER = fromBlock(BlockRegistry.YELLOW_ROOF_RIDGE_LOWER, ModCreativeTab.BUILDING_BLOCKS);
+    public static final RegistryObject<Item> YELLOW_ROOF_RIDGE_CONNECTION = fromBlock(BlockRegistry.YELLOW_ROOF_RIDGE_CONNECTION, ModCreativeTab.BUILDING_BLOCKS);
+    public static final RegistryObject<Item> YELLOW_MAIN_ROOF_RIDGE_CONNECTION = fromBlock(BlockRegistry.YELLOW_MAIN_ROOF_RIDGE_CONNECTION, ModCreativeTab.BUILDING_BLOCKS);
+    public static final RegistryObject<Item> YELLOW_ROOF_RIDGE_UPPER_SLAB = fromBlock(BlockRegistry.YELLOW_ROOF_RIDGE_UPPER_SLAB, ModCreativeTab.BUILDING_BLOCKS);
+    public static final RegistryObject<Item> YELLOW_MAIN_ROOF_RIDGE_SLAB = fromBlock(BlockRegistry.YELLOW_MAIN_ROOF_RIDGE_SLAB, ModCreativeTab.BUILDING_BLOCKS);
+    public static final RegistryObject<Item> YELLOW_MAIN_ROOF_RIDGE_PANEL = fromBlock(BlockRegistry.YELLOW_MAIN_ROOF_RIDGE_PANEL, ModCreativeTab.BUILDING_BLOCKS);
+    public static final RegistryObject<Item> YELLOW_MAIN_ROOF_RIDGE_PLATE = fromBlock(BlockRegistry.YELLOW_MAIN_ROOF_RIDGE_PLATE, ModCreativeTab.BUILDING_BLOCKS);
+    public static final RegistryObject<Item> YELLOW_MAIN_ROOF_RIDGE_STAIRS = fromBlock(BlockRegistry.YELLOW_MAIN_ROOF_RIDGE_STAIRS, ModCreativeTab.BUILDING_BLOCKS);
 
     public static final RegistryObject<Item> ABACUS = fromBlock(BlockRegistry.ABACUS, ModCreativeTab.DECORATIONS);
     public static final RegistryObject<Item> BRUSH_TOOLS = fromBlock(BlockRegistry.BRUSH_TOOLS, ModCreativeTab.DECORATIONS);

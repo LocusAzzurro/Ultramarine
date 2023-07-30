@@ -2,13 +2,13 @@
   "type": "minecraft:block",
   "pools": [
     {
-      "name": "stone_flower_window",
+      "name": "yellow_main_roof_ridge_connection",
       "rolls": 1.0,
       "bonus_rolls": 0.0,
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "ultramarine:stone_flower_window"
+          "name": "ultramarine:yellow_main_roof_ridge_connection"
         }
       ]
     }
