@@ -414,6 +414,11 @@ public class BlockRegistry {
                     .shaped(DecorativeBlock.QUARTER_16).directional().noOcclusion().build());
     public static final RegistryObject<Block> WINE_POT = BLOCKS.register("wine_pot",
             () -> DecorativeBlock.with(BaseBlockProperty.PORCELAIN).shaped(DecorativeBlock.FULL_6).directional().build());
+    public static final RegistryObject<Block> XIAOLONGBAO = BLOCKS.register("xiaolongbao", //TODO xiaolongbao 8 bites in one block, return 2 containers
+            () -> ConsumableDecorativeBlock.with(BaseBlockProperty.BAMBOO).bites(8).platedWith(ItemRegistry.POLISHED_OAK_PLANK).food(ModFoods.BAOZI)
+                    .whenFinished((pState, pLevel, pPos, pPlayer) -> {pLevel.setBlock(pPos, Blocks.AIR.defaultBlockState(), Block.UPDATE_ALL); pLevel.gameEvent(pPlayer, GameEvent.BLOCK_DESTROY, pPos);})
+                    .shaped(DecorativeBlock.FULL_BLOCK).directional().build());
+
 
     public static final RegistryObject<Block> OAK_CABINET = BLOCKS.register("oak_cabinet",
             () -> ContainerDecorativeBlock.with(BaseBlockProperty.WOOD).content(ContainerType.COMMON_REGULAR).shaped(DecorativeBlock.FULL_BLOCK).directional().noFenceConnect().build());

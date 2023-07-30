@@ -337,6 +337,7 @@ public class ItemRegistry {
     public static final RegistryObject<Item> PLATED_FISH = fromBlock(BlockRegistry.PLATED_FISH, CreativeTabs.DECORATIONS);
     public static final RegistryObject<Item> SCATTERED_CARROTS = fromBlock(BlockRegistry.SCATTERED_CARROTS, CreativeTabs.DECORATIONS);
     public static final RegistryObject<Item> WINE_POT = fromBlock(BlockRegistry.WINE_POT, CreativeTabs.DECORATIONS);
+    public static final RegistryObject<Item> XIAOLONGBAO = fromBlock(BlockRegistry.XIAOLONGBAO, CreativeTabs.DECORATIONS);
 
 
     public static final RegistryObject<Item> OCTAGONAL_PALACE_LANTERN = fromBlock(BlockRegistry.OCTAGONAL_PALACE_LANTERN, CreativeTabs.LAMPS);
