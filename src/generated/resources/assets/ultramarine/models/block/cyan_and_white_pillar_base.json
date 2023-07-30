@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/cube_bottom_top",
+  "textures": {
+    "side": "ultramarine:block/cyan_and_white_pillar_base_side",
+    "bottom": "minecraft:block/red_terracotta",
+    "top": "minecraft:block/red_terracotta"
+  }
+}
