@@ -69,6 +69,13 @@ public class BlockRegistry {
     public static final RegistryObject<Block> BLUE_AND_BLACK_TILE = BLOCKS.register("blue_and_black_tile", () -> new BaseBlock(BaseBlockProperty.STONE));
     public static final RegistryObject<Block> GREEN_WEATHERED_STONE = BLOCKS.register("green_weathered_stone", () -> new BaseBlock(BaseBlockProperty.STONE));
     public static final RegistryObject<Block> GREEN_WEATHERED_BRICKS = BLOCKS.register("green_weathered_bricks", () -> new BaseBlock(BaseBlockProperty.STONE));
+    public static final RegistryObject<Block> DARK_CYAN_FLOOR_TILE = BLOCKS.register("dark_cyan_floor_tile", () -> new BaseBlock(BaseBlockProperty.STONE));
+    public static final RegistryObject<Block> LAYERED_CYAN_FLOOR_TILES = BLOCKS.register("layered_cyan_floor_tiles", () -> new BaseHorizontalDirectionalBlock(BaseBlockProperty.STONE));
+    public static final RegistryObject<Block> VERTICAL_CYAN_FLOOR_TILES = BLOCKS.register("vertical_cyan_floor_tiles", () -> new BaseHorizontalDirectionalBlock(BaseBlockProperty.STONE));
+    public static final RegistryObject<Block> MIXED_CYAN_FLOOR_TILES = BLOCKS.register("mixed_cyan_floor_tiles", () -> new BaseHorizontalDirectionalBlock(BaseBlockProperty.STONE));
+    public static final RegistryObject<Block> CHISELED_CYAN_FLOOR_TILE = BLOCKS.register("chiseled_cyan_floor_tile", () -> new BaseBlock(BaseBlockProperty.STONE));
+    public static final RegistryObject<Block> CUT_CYAN_FLOOR_TILES = BLOCKS.register("cut_cyan_floor_tiles", () -> new BaseBlock(BaseBlockProperty.STONE));
+
 
 
 

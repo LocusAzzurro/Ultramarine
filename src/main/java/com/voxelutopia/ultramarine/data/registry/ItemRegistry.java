@@ -66,6 +66,13 @@ public class ItemRegistry {
     public static final RegistryObject<Item> BLUE_AND_BLACK_TILE = fromBlock(BlockRegistry.BLUE_AND_BLACK_TILE, ModCreativeTab.BUILDING_BLOCKS);
     public static final RegistryObject<Item> GREEN_WEATHERED_STONE = fromBlock(BlockRegistry.GREEN_WEATHERED_STONE, ModCreativeTab.BUILDING_BLOCKS);
     public static final RegistryObject<Item> GREEN_WEATHERED_BRICKS = fromBlock(BlockRegistry.GREEN_WEATHERED_BRICKS, ModCreativeTab.BUILDING_BLOCKS);
+    public static final RegistryObject<Item> DARK_CYAN_FLOOR_TILE = fromBlock(BlockRegistry.DARK_CYAN_FLOOR_TILE, ModCreativeTab.BUILDING_BLOCKS);
+    public static final RegistryObject<Item> LAYERED_CYAN_FLOOR_TILES = fromBlock(BlockRegistry.LAYERED_CYAN_FLOOR_TILES, ModCreativeTab.BUILDING_BLOCKS);
+    public static final RegistryObject<Item> VERTICAL_CYAN_FLOOR_TILES = fromBlock(BlockRegistry.VERTICAL_CYAN_FLOOR_TILES, ModCreativeTab.BUILDING_BLOCKS);
+    public static final RegistryObject<Item> MIXED_CYAN_FLOOR_TILES = fromBlock(BlockRegistry.MIXED_CYAN_FLOOR_TILES, ModCreativeTab.BUILDING_BLOCKS);
+    public static final RegistryObject<Item> CHISELED_CYAN_FLOOR_TILE = fromBlock(BlockRegistry.CHISELED_CYAN_FLOOR_TILE, ModCreativeTab.BUILDING_BLOCKS);
+    public static final RegistryObject<Item> CUT_CYAN_FLOOR_TILES = fromBlock(BlockRegistry.CUT_CYAN_FLOOR_TILES, ModCreativeTab.BUILDING_BLOCKS);
+
 
     public static final RegistryObject<Item> CABBAGE_BASKET = fromBlock(BlockRegistry.CABBAGE_BASKET, ModCreativeTab.DECORATIVE_BLOCKS);
     public static final RegistryObject<Item> CELERY_BASKET = fromBlock(BlockRegistry.CELERY_BASKET, ModCreativeTab.DECORATIVE_BLOCKS);

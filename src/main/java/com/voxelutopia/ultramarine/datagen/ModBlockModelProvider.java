@@ -88,7 +88,12 @@ public class ModBlockModelProvider extends BlockStateProvider {
         simpleBlock(BlockRegistry.BLUE_AND_BLACK_TILE.get());
         simpleBlock(BlockRegistry.GREEN_WEATHERED_STONE.get());
         simpleBlock(BlockRegistry.GREEN_WEATHERED_BRICKS.get());
-
+        simpleBlock(BlockRegistry.DARK_CYAN_FLOOR_TILE.get());
+        horizontalBlock(BlockRegistry.LAYERED_CYAN_FLOOR_TILES.get(), models().cubeAll(name(BlockRegistry.LAYERED_CYAN_FLOOR_TILES.get()), modBlockLoc(BlockRegistry.LAYERED_CYAN_FLOOR_TILES.get())));
+        horizontalBlock(BlockRegistry.VERTICAL_CYAN_FLOOR_TILES.get(), models().cubeAll(name(BlockRegistry.VERTICAL_CYAN_FLOOR_TILES.get()), modBlockLoc(BlockRegistry.VERTICAL_CYAN_FLOOR_TILES.get())));
+        horizontalBlock(BlockRegistry.MIXED_CYAN_FLOOR_TILES.get(), models().cubeAll(name(BlockRegistry.MIXED_CYAN_FLOOR_TILES.get()), modBlockLoc(BlockRegistry.MIXED_CYAN_FLOOR_TILES.get())));
+        simpleBlock(BlockRegistry.CHISELED_CYAN_FLOOR_TILE.get());
+        simpleBlock(BlockRegistry.CUT_CYAN_FLOOR_TILES.get());
 
         simpleBlock(BlockRegistry.CARVED_RED_PILLAR.get());
         sideBottomTop(BlockRegistry.CARVED_RED_PILLAR_BASE.get());
