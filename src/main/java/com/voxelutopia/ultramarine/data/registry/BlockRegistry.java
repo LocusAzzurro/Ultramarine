@@ -138,7 +138,6 @@ public class BlockRegistry {
     public static final RegistryObject<Block> YELLOW_MAIN_ROOF_RIDGE_PLATE = BLOCKS.register("yellow_main_roof_ridge_plate", () -> new RoofRidgePlate(BaseBlockProperty.STONE));
     public static final RegistryObject<Block> YELLOW_MAIN_ROOF_RIDGE_STAIRS = BLOCKS.register("yellow_main_roof_ridge_stairs", () -> new StraightStairBlock(BaseBlockProperty.STONE));
 
-
     /**
      *  DECORATIVE BLOCKS
      */
@@ -459,7 +458,6 @@ public class BlockRegistry {
     public static final RegistryObject<Block> LONG_PILLOW = BLOCKS.register("long_pillow",
             () -> DecorativeBlock.with(BaseBlockProperty.SILK).shaped(DecorativeBlock.QUARTER_12).directional().diagonallyPlaceable().build());
 
-
     // MISC OBJECTS
 
     public static final RegistryObject<Block> RED_SILK_FABRIC_ROLL = BLOCKS.register("red_silk_fabric_roll",
@@ -548,7 +546,6 @@ public class BlockRegistry {
     public static final RegistryObject<Block> SINCERE_CALLIGRAPHY = BLOCKS.register("sincere_calligraphy",
             () -> new WallSideBlock(BaseBlockProperty.PAPER));
 
-
     // FOOD
 
     public static final RegistryObject<Block> FOOD_HAMPER = BLOCKS.register("food_hamper",
@@ -628,7 +625,6 @@ public class BlockRegistry {
     public static final RegistryObject<Block> PAINTED_SCREEN = BLOCKS.register("painted_screen",
             () -> DecorativeBlock.with(BaseBlockProperty.WOOD).shaped(OpeningBlock.MIDDLE_AXIAL).placeOffset(Direction.UP).directional().build());
 
-
     /**
      *  DOOR AND WINDOW
      */
@@ -672,7 +668,6 @@ public class BlockRegistry {
             () -> new WallSideBlock(BaseBlockProperty.PAPER));
 
     // WINDOW DECO
-
 
     public static final RegistryObject<Block> LARGE_BLUE_CURTAIN = BLOCKS.register("large_blue_curtain",
             () -> new WallSideBlock(BaseBlockProperty.SILK));
