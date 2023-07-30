@@ -149,6 +149,7 @@ public class ItemRegistry {
     public static final RegistryObject<Item> SPRUCE_PILLAR_BASE = fromBlock(BlockRegistry.SPRUCE_PILLAR_BASE, ModCreativeTab.DECORATIVE_BLOCKS);
     public static final RegistryObject<Item> WHITE_AND_RED_SLAB = fromBlock(BlockRegistry.WHITE_AND_RED_SLAB, ModCreativeTab.DECORATIVE_BLOCKS);
     public static final RegistryObject<Item> YELLOW_GREEN_BLUE_CARVED_WOOD = fromBlock(BlockRegistry.YELLOW_GREEN_BLUE_CARVED_WOOD, ModCreativeTab.DECORATIVE_BLOCKS);
+    public static final RegistryObject<Item> STONE_PILLAR_BASE = fromBlock(BlockRegistry.STONE_PILLAR_BASE, ModCreativeTab.DECORATIVE_BLOCKS);
 
 
     public static final RegistryObject<Item> WHITE_MARBLE_RAILING = fromBlock(BlockRegistry.WHITE_MARBLE_RAILING, ModCreativeTab.DECORATIVE_BLOCKS);
@@ -156,6 +157,8 @@ public class ItemRegistry {
     public static final RegistryObject<Item> CARVED_WOODEN_RAILING = fromBlock(BlockRegistry.CARVED_WOODEN_RAILING, ModCreativeTab.DECORATIVE_BLOCKS);
     public static final RegistryObject<Item> RED_WOODEN_RAILING = fromBlock(BlockRegistry.RED_WOODEN_RAILING, ModCreativeTab.DECORATIVE_BLOCKS);
     public static final RegistryObject<Item> RED_WOODEN_RAILING_EDGE = fromBlock(BlockRegistry.RED_WOODEN_RAILING_EDGE, ModCreativeTab.DECORATIVE_BLOCKS);
+    public static final RegistryObject<Item> WOODEN_RAILING = fromBlock(BlockRegistry.WOODEN_RAILING, ModCreativeTab.DECORATIVE_BLOCKS);
+    public static final RegistryObject<Item> WOODEN_RAILING_VARIANT = fromBlock(BlockRegistry.WOODEN_RAILING_VARIANT, ModCreativeTab.DECORATIVE_BLOCKS);
 
 
     public static final RegistryObject<Item> GREEN_FANGXIN = fromBlock(BlockRegistry.GREEN_FANGXIN, ModCreativeTab.DECORATIVE_BLOCKS);

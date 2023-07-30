@@ -153,6 +153,7 @@ public class BlockRegistry {
     public static final RegistryObject<Block> SPRUCE_PILLAR_BASE = BLOCKS.register("spruce_pillar_base", () -> new BaseBlock(BaseBlockProperty.WOOD));
     public static final RegistryObject<Block> WHITE_AND_RED_SLAB = BLOCKS.register("white_and_red_slab", () -> new BaseSlab(BaseBlockProperty.WOOD));
     public static final RegistryObject<Block> YELLOW_GREEN_BLUE_CARVED_WOOD = BLOCKS.register("yellow_green_blue_carved_wood", () -> new BaseBlock(BaseBlockProperty.WOOD));
+    public static final RegistryObject<Block> STONE_PILLAR_BASE = BLOCKS.register("stone_pillar_base", () -> new BaseBlock(BaseBlockProperty.WOOD));
 
 
     public static final RegistryObject<Block> WHITE_MARBLE_RAILING = BLOCKS.register("white_marble_railing", () -> new RailingBlock(BaseBlockProperty.MARBLE, RailingBlock.MARBLE_SHAPES));
@@ -160,6 +161,8 @@ public class BlockRegistry {
     public static final RegistryObject<Block> CARVED_WOODEN_RAILING = BLOCKS.register("carved_wooden_railing", () -> new RailingBlock(BaseBlockProperty.WOOD, RailingBlock.WOODEN_SHAPES));
     public static final RegistryObject<Block> RED_WOODEN_RAILING = BLOCKS.register("red_wooden_railing", () -> new CentralAxialBlock(BaseBlockProperty.WOOD, 2, 15));
     public static final RegistryObject<Block> RED_WOODEN_RAILING_EDGE = BLOCKS.register("red_wooden_railing_edge", () -> new CentralAxialBlock(BaseBlockProperty.WOOD, 2, 15));
+    public static final RegistryObject<Block> WOODEN_RAILING = BLOCKS.register("wooden_railing", () -> new CentralAxialBlock(BaseBlockProperty.WOOD, 2, 15));
+    public static final RegistryObject<Block> WOODEN_RAILING_VARIANT = BLOCKS.register("wooden_railing_variant", () -> new CentralAxialBlock(BaseBlockProperty.WOOD, 2, 15));
 
     public static final RegistryObject<Block> GREEN_FANGXIN = BLOCKS.register("green_fangxin", () -> new BaseDirectionalBlock(BaseBlockProperty.WOOD));
     public static final RegistryObject<Block> GREEN_FANGXIN_EDGE = BLOCKS.register("green_fangxin_edge", () -> new BaseDirectionalBlock(BaseBlockProperty.WOOD));

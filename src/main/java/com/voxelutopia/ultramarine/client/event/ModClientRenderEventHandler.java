@@ -64,7 +64,8 @@ public class ModClientRenderEventHandler {
             ItemBlockRenderTypes.setRenderLayer(BlockRegistry.STONE_LAMP.get(), RenderType.cutout());
             ItemBlockRenderTypes.setRenderLayer(BlockRegistry.RED_WOODEN_RAILING.get(), RenderType.cutout());
             ItemBlockRenderTypes.setRenderLayer(BlockRegistry.RED_WOODEN_RAILING_EDGE.get(), RenderType.cutout());
-
+            ItemBlockRenderTypes.setRenderLayer(BlockRegistry.WOODEN_RAILING.get(), RenderType.cutout());
+            ItemBlockRenderTypes.setRenderLayer(BlockRegistry.WOODEN_RAILING_VARIANT.get(), RenderType.cutout());
             ItemBlockRenderTypes.setRenderLayer(BlockRegistry.YELLOW_CARVED_PATTERN.get(), RenderType.cutout());
             ItemBlockRenderTypes.setRenderLayer(BlockRegistry.CIRCULAR_YELLOW_CARVED_PATTERN.get(), RenderType.cutout());
             ItemBlockRenderTypes.setRenderLayer(BlockRegistry.YELLOW_CARVED_FANGXIN_EDGE_PATTERN.get(), RenderType.cutout());
