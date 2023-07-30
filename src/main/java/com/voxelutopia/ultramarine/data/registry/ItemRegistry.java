@@ -342,7 +342,6 @@ public class ItemRegistry {
     public static final RegistryObject<Item> SHORT_BLUE_AND_WHITE_PORCELAIN_POT = fromBlock(BlockRegistry.SHORT_BLUE_AND_WHITE_PORCELAIN_POT, ModCreativeTab.DECORATIONS);
     public static final RegistryObject<Item> TALL_BLUE_AND_WHITE_PORCELAIN_POT = fromBlock(BlockRegistry.TALL_BLUE_AND_WHITE_PORCELAIN_POT, ModCreativeTab.DECORATIONS);
     public static final RegistryObject<Item> BLUE_AND_WHITE_PORCELAIN_BOWL = fromBlock(BlockRegistry.BLUE_AND_WHITE_PORCELAIN_BOWL, ModCreativeTab.DECORATIONS);
-    public static final RegistryObject<Item> KNOCKER = fromBlock(BlockRegistry.KNOCKER, ModCreativeTab.DECORATIONS);
     public static final RegistryObject<Item> SUNDIAL = fromBlock(BlockRegistry.SUNDIAL, ModCreativeTab.DECORATIONS);
     public static final RegistryObject<Item> BROOM = fromBlock(BlockRegistry.BROOM, ModCreativeTab.DECORATIONS);
     public static final RegistryObject<Item> STONE_PEDESTAL = fromBlock(BlockRegistry.STONE_PEDESTAL, ModCreativeTab.DECORATIONS);
@@ -454,6 +453,7 @@ public class ItemRegistry {
     public static final RegistryObject<Item> PLAQUE = fromBlock(BlockRegistry.PLAQUE, ModCreativeTab.WINDOWS_AND_DOORS);
     public static final RegistryObject<Item> PAPER_STRIP_SEAL = fromBlock(BlockRegistry.PAPER_STRIP_SEAL, ModCreativeTab.WINDOWS_AND_DOORS);
     public static final RegistryObject<Item> STONE_FLOWER_WINDOW = fromBlock(BlockRegistry.STONE_FLOWER_WINDOW, ModCreativeTab.WINDOWS_AND_DOORS);
+    public static final RegistryObject<Item> KNOCKER = fromBlock(BlockRegistry.KNOCKER, ModCreativeTab.WINDOWS_AND_DOORS);
 
     public static final RegistryObject<Item> CYAN_BRICK = simpleItem("cyan_brick", ModCreativeTab.MATERIALS);
     public static final RegistryObject<Item> BLACK_BRICK = simpleItem("black_brick", ModCreativeTab.MATERIALS);
