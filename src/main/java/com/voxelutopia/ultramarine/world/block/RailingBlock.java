@@ -51,11 +51,11 @@ public class RailingBlock extends Block implements BaseBlockPropertyHolder, Simp
             Direction.EAST, MARBLE_EAST_SIDE
     );
 
-    private static final VoxelShape WOODEN_POLE = Block.box(7.0D, 0.0D, 7.0D, 9.0D, 15.0D, 9.0D);
-    private static final VoxelShape WOODEN_NORTH_SIDE = Block.box(7.0D, 0.0D, 0.0D, 9.0D, 11.0D, 9.0D);
-    private static final VoxelShape WOODEN_SOUTH_SIDE = Block.box(7.0D, 0.0D, 7.0D, 9.0D, 11.0D, 16.0D);
-    private static final VoxelShape WOODEN_WEST_SIDE = Block.box(0.0D, 0.0D, 7.0D, 9.0D, 11.0D, 9.0D);
-    private static final VoxelShape WOODEN_EAST_SIDE = Block.box(7.0D, 0.0D, 7.0D, 16.0D, 11.0D, 9.0D);
+    private static final VoxelShape WOODEN_POLE = Block.box(7.0D, 0.0D, 7.0D, 9.0D, 14.0D, 9.0D);
+    private static final VoxelShape WOODEN_NORTH_SIDE = Block.box(7.5D, 2.5D, 0.0D, 8.5D, 12.0D, 8.5D);
+    private static final VoxelShape WOODEN_SOUTH_SIDE = Block.box(7.5D, 2.5D, 7.5D, 8.5D, 12.0D, 16.0D);
+    private static final VoxelShape WOODEN_WEST_SIDE = Block.box(0.0D, 2.5D, 7.5D, 8.5D, 12.0D, 8.5D);
+    private static final VoxelShape WOODEN_EAST_SIDE = Block.box(7.5D, 2.5D, 7.5D, 16.0D, 12.0D, 8.5D);
 
     public static final Map<Direction, VoxelShape> WOODEN_SHAPES = Map.of(
             Direction.UP, WOODEN_POLE,
