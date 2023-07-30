@@ -14,6 +14,7 @@ import net.minecraft.world.level.block.state.properties.DirectionProperty;
 import net.minecraft.world.level.material.FluidState;
 import net.minecraft.world.level.material.Fluids;
 import net.minecraft.world.phys.shapes.CollisionContext;
+import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
 import java.util.Map;
@@ -22,21 +23,27 @@ public class SixSideBlock extends Block implements BaseBlockPropertyHolder, Simp
 
     protected final BaseBlockProperty property;
     private final Map<Direction, VoxelShape> shapeByDirection;
+    private final boolean hasCollision;
 
     public static final DirectionProperty FACING = BlockStateProperties.FACING;
     public static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
 
-    public SixSideBlock(BaseBlockProperty property, int sideThickness) {
+    public SixSideBlock(BaseBlockProperty property, int sideThickness, boolean hasCollision) {
         super(property.properties.noOcclusion().noCollission());
         this.property = property;
         this.registerDefaultState(this.getStateDefinition().any()
                 .setValue(FACING, Direction.NORTH)
                 .setValue(WATERLOGGED, false));
         this.shapeByDirection = faceShapeByDirection(sideThickness);
+        this.hasCollision = hasCollision;
     }
 
     public SixSideBlock(BaseBlockProperty property) {
         this(property,  1);
+    }
+
+    public SixSideBlock(BaseBlockProperty property, int sideThickness){
+        this(property, sideThickness, false);
     }
 
     public VoxelShape getShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
@@ -57,6 +64,11 @@ public class SixSideBlock extends Block implements BaseBlockPropertyHolder, Simp
 
     public FluidState getFluidState(BlockState pState) {
         return pState.getValue(WATERLOGGED) ? Fluids.WATER.getSource(false) : super.getFluidState(pState);
+    }
+
+    @Override
+    public VoxelShape getCollisionShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
+        return hasCollision ? this.getShape(pState, pLevel, pPos, pContext) : Shapes.empty();
     }
 
     @Override

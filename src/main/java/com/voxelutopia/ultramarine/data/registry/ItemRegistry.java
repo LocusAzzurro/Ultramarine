@@ -392,6 +392,9 @@ public class ItemRegistry {
     public static final RegistryObject<Item> SONG_WOODEN_DOOR = fromBlock(BlockRegistry.SONG_WOODEN_DOOR, ModCreativeTab.WINDOWS_AND_DOORS);
     public static final RegistryObject<Item> SONG_WOODEN_WINDOW = fromBlock(BlockRegistry.SONG_WOODEN_WINDOW, ModCreativeTab.WINDOWS_AND_DOORS);
     public static final RegistryObject<Item> BAMBOO_CURTAIN = fromBlock(BlockRegistry.BAMBOO_CURTAIN, ModCreativeTab.WINDOWS_AND_DOORS);
+    public static final RegistryObject<Item> PLAQUE = fromBlock(BlockRegistry.PLAQUE, ModCreativeTab.WINDOWS_AND_DOORS);
+    public static final RegistryObject<Item> PAPER_STRIP_SEAL = fromBlock(BlockRegistry.PAPER_STRIP_SEAL, ModCreativeTab.WINDOWS_AND_DOORS);
+    public static final RegistryObject<Item> STONE_FLOWER_WINDOW = fromBlock(BlockRegistry.STONE_FLOWER_WINDOW, ModCreativeTab.WINDOWS_AND_DOORS);
 
     public static final RegistryObject<Item> CYAN_BRICK = simpleItem("cyan_brick", ModCreativeTab.MATERIALS);
     public static final RegistryObject<Item> BLACK_BRICK = simpleItem("black_brick", ModCreativeTab.MATERIALS);
