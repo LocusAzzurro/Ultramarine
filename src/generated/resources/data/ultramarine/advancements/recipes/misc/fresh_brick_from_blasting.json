@@ -15,7 +15,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "ultramarine:brick_from_smelting"
+        "recipe": "ultramarine:fresh_brick_from_blasting"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -28,7 +28,7 @@
   ],
   "rewards": {
     "recipes": [
-      "ultramarine:brick_from_smelting"
+      "ultramarine:fresh_brick_from_blasting"
     ]
   },
   "sends_telemetry_event": false

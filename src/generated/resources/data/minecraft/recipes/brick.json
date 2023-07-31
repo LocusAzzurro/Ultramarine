@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "ultramarine:fresh_brick"
+    }
+  ],
+  "result": {
+    "item": "minecraft:brick"
+  }
+}

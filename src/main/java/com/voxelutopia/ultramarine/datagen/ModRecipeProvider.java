@@ -101,10 +101,12 @@ public class ModRecipeProvider extends RecipeProvider {
         brickMixture(ItemRegistry.RAW_CLAY_BRICK.get(), 6, ItemRegistry.PRISMARINE_DUST.get(), ItemRegistry.RAW_CYAN_BRICK.get(), recipeConsumer);
         brickMixture(ItemRegistry.RAW_CLAY_BRICK.get(), 6, ItemRegistry.HEMATITE_DUST.get(), ItemRegistry.RAW_BLACK_BRICK.get(), recipeConsumer);
         brickMixture(ItemRegistry.RAW_CLAY_BRICK.get(), 6, Items.NETHER_WART, ItemRegistry.RAW_BROWNISH_RED_STONE_BRICK.get(), recipeConsumer);
-        smeltingAndBlasting(ItemRegistry.RAW_CLAY_BRICK.get(), Items.BRICK, recipeConsumer);
+        smeltingAndBlasting(ItemRegistry.RAW_CLAY_BRICK.get(), ItemRegistry.FRESH_BRICK.get(), recipeConsumer);
         smeltingAndBlasting(ItemRegistry.RAW_CYAN_BRICK.get(), ItemRegistry.CYAN_BRICK.get(), recipeConsumer);
         smeltingAndBlasting(ItemRegistry.RAW_BLACK_BRICK.get(), ItemRegistry.BLACK_BRICK.get(), recipeConsumer);
         smeltingAndBlasting(ItemRegistry.RAW_BROWNISH_RED_STONE_BRICK.get(), ItemRegistry.BROWNISH_RED_STONE_BRICK.get(), recipeConsumer);
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, Items.BRICK).requires(ItemRegistry.FRESH_BRICK.get())
+                .unlockedBy(itemUnlockName(ItemRegistry.FRESH_BRICK.get()), itemCriterion(ItemRegistry.FRESH_BRICK.get())).save(recipeConsumer);
 
 
         //LAMPS

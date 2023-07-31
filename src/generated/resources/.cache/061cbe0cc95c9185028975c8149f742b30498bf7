@@ -1,4 +1,4 @@
-// 1.20.1	2023-07-30T23:45:44.8788306	Item Models: ultramarine
+// 1.20.1	2023-07-31T19:51:58.8651848	Item Models: ultramarine
 bd8025c7490152d7283b10eb7d031330e76c4d1c assets/ultramarine/models/item/abacus.json
 920eb3c4e9dc59324aef9f6859ab7af5b9e24d34 assets/ultramarine/models/item/apple_basket.json
 d39c502c40a3a85f436151b378c2959e74f8d00d assets/ultramarine/models/item/back_cushion.json
@@ -168,6 +168,7 @@ ea2e9b125901201586972150dbca4ba7e2558fbd assets/ultramarine/models/item/engraved
 a94e17ef545f7f16f4f34b249218d68ca56d92e8 assets/ultramarine/models/item/engraved_dark_oak_beam_edge.json
 c42917c0a6a9b00486c1884447fc4924e743cef2 assets/ultramarine/models/item/flame_arch_wall_pattern.json
 98913f1bf0f0a0a85918a67d602986b2c1e9c2cf assets/ultramarine/models/item/food_hamper.json
+87be01bd430b0928ae258c9a06c5d0b5c58ad6f6 assets/ultramarine/models/item/fresh_brick.json
 717a77db274446785e60de91b5742e00d159ce8b assets/ultramarine/models/item/fruit_box.json
 7a26ad937dfb41884b08df757ab29de2e8560468 assets/ultramarine/models/item/full_tuanhua_slab.json
 d8565d6e0f3d1f726c5dab26ff8ee77d337b5e19 assets/ultramarine/models/item/fur.json

@@ -607,6 +607,7 @@ public class ItemRegistry {
     public static final RegistryObject<Item> RAW_CYAN_BRICK = simpleItem("raw_cyan_brick", ModCreativeTab.MATERIALS);
     public static final RegistryObject<Item> RAW_BLACK_BRICK = simpleItem("raw_black_brick", ModCreativeTab.MATERIALS);
     public static final RegistryObject<Item> RAW_BROWNISH_RED_STONE_BRICK = simpleItem("raw_brownish_red_stone_brick", ModCreativeTab.MATERIALS);
+    public static final RegistryObject<Item> FRESH_BRICK = simpleItem("fresh_brick", ModCreativeTab.MATERIALS);
     public static final RegistryObject<Item> PRISMARINE_DUST = simpleItem("prismarine_dust", ModCreativeTab.MATERIALS);
 
     // ROOF TILE
