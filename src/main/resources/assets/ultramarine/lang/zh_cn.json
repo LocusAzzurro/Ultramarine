@@ -283,8 +283,8 @@
   "block.ultramarine.wooden_gualuo": "木挂落",
   "block.ultramarine.large_wooden_gualuo": "大木挂落中心",
   "block.ultramarine.large_wooden_gualuo_edge": "大木挂落边缘",
-  "block.ultramarine.white_marble_railing": "汉白玉栏杆边缘",
-  "block.ultramarine.white_marble_railing_slant": "汉白玉栏杆斜向",
+  "block.ultramarine.white_marble_railing": "汉白玉栏杆",
+  "block.ultramarine.white_marble_railing_slant": "汉白玉栏杆连接",
   "block.ultramarine.black_floor_tiles": "黑地砖",
   "block.ultramarine.black_floor_tiles_little_mossy": "黑地砖（少量青苔）",
   "block.ultramarine.black_floor_tiles_moderate_mossy": "黑地砖（中量青苔）",
@@ -430,8 +430,8 @@
   "block.ultramarine.bookshelf_variant": "中式书架（半满）",
   "block.ultramarine.red_wooden_railing_edge": "大红栏杆",
   "block.ultramarine.red_wooden_railing": "大红栏杆中心",
-  "block.ultramarine.wooden_railing": "木栏杆单位",
-  "block.ultramarine.wooden_railing_variant": "木栏杆单位变种",
+  "block.ultramarine.wooden_railing": "木栏杆",
+  "block.ultramarine.wooden_railing_variant": "木栏杆变种",
 
   "__comment9__": "Functional Blocks",
   "block.ultramarine.woodworking_workbench": "木工桌",
@@ -495,6 +495,7 @@
   "item.ultramarine.raw_cyan_brick": "青砖坯",
   "item.ultramarine.raw_black_brick": "黑砖坯",
   "item.ultramarine.raw_brownish_red_stone_brick": "棕红砖坯",
+  "item.ultramarine.fresh_brick": "新砖",
 
   "item.ultramarine.wooden_hammer": "木锤",
 
