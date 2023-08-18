@@ -182,8 +182,8 @@ public class BlockRegistry {
 
     // DARK OAK
 
-    public static final RegistryObject<Block> ENGRAVED_DARK_OAK_BEAM = BLOCKS.register("engraved_dark_oak_beam", () -> new ChiralDirectionalBlock(BaseBlockProperty.WOOD));
-    public static final RegistryObject<Block> ENGRAVED_DARK_OAK_BEAM_EDGE = BLOCKS.register("engraved_dark_oak_beam_edge", () -> new ChiralDirectionalBlock(BaseBlockProperty.WOOD));
+    public static final RegistryObject<Block> CARVED_DARK_OAK_BEAM = BLOCKS.register("carved_dark_oak_beam", () -> new ChiralDirectionalBlock(BaseBlockProperty.WOOD));
+    public static final RegistryObject<Block> CARVED_DARK_OAK_BEAM_EDGE = BLOCKS.register("carved_dark_oak_beam_edge", () -> new ChiralDirectionalBlock(BaseBlockProperty.WOOD));
     public static final RegistryObject<Block> GILDED_DARK_OAK = BLOCKS.register("gilded_dark_oak", () -> new BaseBlock(BaseBlockProperty.WOOD));
     public static final RegistryObject<Block> CHISELED_GILDED_DARK_OAK = BLOCKS.register("chiseled_gilded_dark_oak", () -> new BaseBlock(BaseBlockProperty.WOOD));
     public static final RegistryObject<Block> GILDED_DARK_OAK_SLAB = BLOCKS.register("gilded_dark_oak_slab", () -> new BaseSlab(BaseBlockProperty.WOOD));
@@ -254,9 +254,9 @@ public class BlockRegistry {
 
     // GUTOU
 
-    public static final RegistryObject<Block> GUTOU = BLOCKS.register("gutou", () -> new BaseDirectionalBlock(BaseBlockProperty.WOOD));
-    public static final RegistryObject<Block> BLUE_GREEN_YELLOW_GUTOU = BLOCKS.register("blue_green_yellow_gutou", () -> new BaseDirectionalBlock(BaseBlockProperty.WOOD));
     public static final RegistryObject<Block> GREEN_BLUE_BLACK_GUTOU = BLOCKS.register("green_blue_black_gutou", () -> new BaseDirectionalBlock(BaseBlockProperty.WOOD));
+    public static final RegistryObject<Block> BLUE_GREEN_YELLOW_GUTOU = BLOCKS.register("blue_green_yellow_gutou", () -> new BaseDirectionalBlock(BaseBlockProperty.WOOD));
+    public static final RegistryObject<Block> BLUE_AND_YELLOW_GUTOU = BLOCKS.register("blue_and_yellow_gutou", () -> new BaseDirectionalBlock(BaseBlockProperty.WOOD));
 
     // RAFTERS
 

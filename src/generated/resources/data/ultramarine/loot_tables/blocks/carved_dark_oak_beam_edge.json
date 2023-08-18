@@ -2,13 +2,13 @@
   "type": "minecraft:block",
   "pools": [
     {
-      "name": "engraved_dark_oak_beam",
+      "name": "carved_dark_oak_beam_edge",
       "rolls": 1.0,
       "bonus_rolls": 0.0,
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "ultramarine:engraved_dark_oak_beam"
+          "name": "ultramarine:carved_dark_oak_beam_edge"
         }
       ]
     }

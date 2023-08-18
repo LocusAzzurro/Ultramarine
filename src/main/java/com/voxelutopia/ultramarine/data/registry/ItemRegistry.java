@@ -178,8 +178,8 @@ public class ItemRegistry {
 
     // DARK OAK
 
-    public static final RegistryObject<Item> ENGRAVED_DARK_OAK_BEAM = fromBlock(BlockRegistry.ENGRAVED_DARK_OAK_BEAM, ModCreativeTab.DECORATIVE_BLOCKS);
-    public static final RegistryObject<Item> ENGRAVED_DARK_OAK_BEAM_EDGE = fromBlock(BlockRegistry.ENGRAVED_DARK_OAK_BEAM_EDGE, ModCreativeTab.DECORATIVE_BLOCKS);
+    public static final RegistryObject<Item> CARVED_DARK_OAK_BEAM = fromBlock(BlockRegistry.CARVED_DARK_OAK_BEAM, ModCreativeTab.DECORATIVE_BLOCKS);
+    public static final RegistryObject<Item> CARVED_DARK_OAK_BEAM_EDGE = fromBlock(BlockRegistry.CARVED_DARK_OAK_BEAM_EDGE, ModCreativeTab.DECORATIVE_BLOCKS);
     public static final RegistryObject<Item> GILDED_DARK_OAK = fromBlock(BlockRegistry.GILDED_DARK_OAK, ModCreativeTab.DECORATIVE_BLOCKS);
     public static final RegistryObject<Item> CHISELED_GILDED_DARK_OAK = fromBlock(BlockRegistry.CHISELED_GILDED_DARK_OAK, ModCreativeTab.DECORATIVE_BLOCKS);
     public static final RegistryObject<Item> GILDED_DARK_OAK_SLAB = fromBlock(BlockRegistry.GILDED_DARK_OAK_SLAB, ModCreativeTab.DECORATIVE_BLOCKS);
@@ -250,9 +250,9 @@ public class ItemRegistry {
 
     // GUTOU
 
-    public static final RegistryObject<Item> GUTOU = fromBlock(BlockRegistry.GUTOU, ModCreativeTab.DECORATIVE_BLOCKS);
-    public static final RegistryObject<Item> BLUE_GREEN_YELLOW_GUTOU = fromBlock(BlockRegistry.BLUE_GREEN_YELLOW_GUTOU, ModCreativeTab.DECORATIVE_BLOCKS);
     public static final RegistryObject<Item> GREEN_BLUE_BLACK_GUTOU = fromBlock(BlockRegistry.GREEN_BLUE_BLACK_GUTOU, ModCreativeTab.DECORATIVE_BLOCKS);
+    public static final RegistryObject<Item> BLUE_GREEN_YELLOW_GUTOU = fromBlock(BlockRegistry.BLUE_GREEN_YELLOW_GUTOU, ModCreativeTab.DECORATIVE_BLOCKS);
+    public static final RegistryObject<Item> BLUE_AND_YELLOW_GUTOU = fromBlock(BlockRegistry.BLUE_AND_YELLOW_GUTOU, ModCreativeTab.DECORATIVE_BLOCKS);
 
     // RAFTERS
 

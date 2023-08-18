@@ -2,13 +2,13 @@
   "type": "minecraft:block",
   "pools": [
     {
-      "name": "gutou",
+      "name": "blue_and_yellow_gutou",
       "rolls": 1.0,
       "bonus_rolls": 0.0,
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "ultramarine:gutou"
+          "name": "ultramarine:blue_and_yellow_gutou"
         }
       ]
     }
