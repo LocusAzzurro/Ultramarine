@@ -1,0 +1,64 @@
+{
+  "variants": {
+    "facing=north,type=left,waterlogged=false": {
+      "model": "ultramarine:block/long_gilded_dark_oak_queti_edge_left",
+      "y": 180
+    },
+    "facing=south,type=left,waterlogged=false": {
+      "model": "ultramarine:block/long_gilded_dark_oak_queti_edge_left"
+    },
+    "facing=west,type=left,waterlogged=false": {
+      "model": "ultramarine:block/long_gilded_dark_oak_queti_edge_left",
+      "y": 90
+    },
+    "facing=east,type=left,waterlogged=false": {
+      "model": "ultramarine:block/long_gilded_dark_oak_queti_edge_left",
+      "y": 270
+    },
+    "facing=north,type=right,waterlogged=false": {
+      "model": "ultramarine:block/long_gilded_dark_oak_queti_edge_right",
+      "y": 180
+    },
+    "facing=south,type=right,waterlogged=false": {
+      "model": "ultramarine:block/long_gilded_dark_oak_queti_edge_right"
+    },
+    "facing=west,type=right,waterlogged=false": {
+      "model": "ultramarine:block/long_gilded_dark_oak_queti_edge_right",
+      "y": 90
+    },
+    "facing=east,type=right,waterlogged=false": {
+      "model": "ultramarine:block/long_gilded_dark_oak_queti_edge_right",
+      "y": 270
+    },
+    "facing=north,type=left,waterlogged=true": {
+      "model": "ultramarine:block/long_gilded_dark_oak_queti_edge_left",
+      "y": 180
+    },
+    "facing=south,type=left,waterlogged=true": {
+      "model": "ultramarine:block/long_gilded_dark_oak_queti_edge_left"
+    },
+    "facing=west,type=left,waterlogged=true": {
+      "model": "ultramarine:block/long_gilded_dark_oak_queti_edge_left",
+      "y": 90
+    },
+    "facing=east,type=left,waterlogged=true": {
+      "model": "ultramarine:block/long_gilded_dark_oak_queti_edge_left",
+      "y": 270
+    },
+    "facing=north,type=right,waterlogged=true": {
+      "model": "ultramarine:block/long_gilded_dark_oak_queti_edge_right",
+      "y": 180
+    },
+    "facing=south,type=right,waterlogged=true": {
+      "model": "ultramarine:block/long_gilded_dark_oak_queti_edge_right"
+    },
+    "facing=west,type=right,waterlogged=true": {
+      "model": "ultramarine:block/long_gilded_dark_oak_queti_edge_right",
+      "y": 90
+    },
+    "facing=east,type=right,waterlogged=true": {
+      "model": "ultramarine:block/long_gilded_dark_oak_queti_edge_right",
+      "y": 270
+    }
+  }
+}
