@@ -292,9 +292,9 @@ public class ItemRegistry {
 
     public static final RegistryObject<Item> GILDED_DARK_OAK_LONG_QUETI = fromBlock(BlockRegistry.GILDED_DARK_OAK_LONG_QUETI, ModCreativeTab.DECORATIVE_BLOCKS);
     public static final RegistryObject<Item> GILDED_DARK_OAK_LONG_QUETI_EDGE = fromBlock(BlockRegistry.GILDED_DARK_OAK_LONG_QUETI_EDGE, ModCreativeTab.DECORATIVE_BLOCKS);
-    public static final RegistryObject<Item> HORIZONTAL_GILDED_DARK_OAK_LONG_QUETI = fromBlock(BlockRegistry.HORIZONTAL_GILDED_DARK_OAK_LONG_QUETI, ModCreativeTab.DECORATIVE_BLOCKS);
-    public static final RegistryObject<Item> CENTRAL_GILDED_DARK_OAK_LONG_QUETI = fromBlock(BlockRegistry.CENTRAL_GILDED_DARK_OAK_LONG_QUETI, ModCreativeTab.DECORATIVE_BLOCKS);
-    public static final RegistryObject<Item> VERTICAL_GILDED_DARK_OAK_LONG_QUETI = fromBlock(BlockRegistry.VERTICAL_GILDED_DARK_OAK_LONG_QUETI, ModCreativeTab.DECORATIVE_BLOCKS);
+    public static final RegistryObject<Item> HORIZONTAL_GILDED_DARK_OAK_QUETI = fromBlock(BlockRegistry.HORIZONTAL_GILDED_DARK_OAK_QUETI, ModCreativeTab.DECORATIVE_BLOCKS);
+    public static final RegistryObject<Item> CENTRAL_GILDED_DARK_OAK_QUETI = fromBlock(BlockRegistry.CENTRAL_GILDED_DARK_OAK_QUETI, ModCreativeTab.DECORATIVE_BLOCKS);
+    public static final RegistryObject<Item> VERTICAL_GILDED_DARK_OAK_QUETI = fromBlock(BlockRegistry.VERTICAL_GILDED_DARK_OAK_QUETI, ModCreativeTab.DECORATIVE_BLOCKS);
     public static final RegistryObject<Item> WOODEN_QUETI = fromBlock(BlockRegistry.WOODEN_QUETI, ModCreativeTab.DECORATIVE_BLOCKS);
     public static final RegistryObject<Item> WOODEN_QUETI_EDGE = fromBlock(BlockRegistry.WOODEN_QUETI_EDGE, ModCreativeTab.DECORATIVE_BLOCKS);
     public static final RegistryObject<Item> TALL_WOODEN_QUETI_EDGE = fromBlock(BlockRegistry.TALL_WOODEN_QUETI_EDGE, ModCreativeTab.DECORATIVE_BLOCKS);
