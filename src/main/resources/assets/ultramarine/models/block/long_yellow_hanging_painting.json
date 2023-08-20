@@ -2,7 +2,7 @@
 	"credit": "Made with Blockbench",
 	"texture_size": [64, 64],
 	"textures": {
-		"1": "ultramarine:block/yellow_long_hanging_painting",
+		"1": "ultramarine:block/long_yellow_hanging_painting",
 		"particle": "ultramarine:item/xuan_paper"
 	},
 	"elements": [

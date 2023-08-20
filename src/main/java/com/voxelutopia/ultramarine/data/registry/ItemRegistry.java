@@ -462,7 +462,7 @@ public class ItemRegistry {
     public static final RegistryObject<Item> HORIZONTAL_OLD_LANDSCAPE_PAINTING = fromBlock(BlockRegistry.HORIZONTAL_OLD_LANDSCAPE_PAINTING, ModCreativeTab.DECORATIONS);
     public static final RegistryObject<Item> HORIZONTAL_CALLIGRAPHY = fromBlock(BlockRegistry.HORIZONTAL_CALLIGRAPHY, ModCreativeTab.DECORATIONS);
     public static final RegistryObject<Item> HORIZONTAL_LANDSCAPE_PAINTING = fromBlock(BlockRegistry.HORIZONTAL_LANDSCAPE_PAINTING, ModCreativeTab.DECORATIONS);
-    public static final RegistryObject<Item> YELLOW_LONG_HANGING_PAINTING = fromBlock(BlockRegistry.YELLOW_LONG_HANGING_PAINTING, ModCreativeTab.DECORATIONS);
+    public static final RegistryObject<Item> LONG_YELLOW_HANGING_PAINTING = fromBlock(BlockRegistry.LONG_YELLOW_HANGING_PAINTING, ModCreativeTab.DECORATIONS);
     public static final RegistryObject<Item> DAMAGED_LANDSCAPE_PAINTING = fromBlock(BlockRegistry.DAMAGED_LANDSCAPE_PAINTING, ModCreativeTab.DECORATIONS);
     public static final RegistryObject<Item> PORTRAIT = fromBlock(BlockRegistry.PORTRAIT, ModCreativeTab.DECORATIONS);
     public static final RegistryObject<Item> HANGING_PAINTING_FAN = fromBlock(BlockRegistry.HANGING_PAINTING_FAN, ModCreativeTab.DECORATIONS);

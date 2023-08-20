@@ -535,7 +535,7 @@ public class BlockRegistry {
             () -> new WallSideBlock(BaseBlockProperty.PAPER));
     public static final RegistryObject<Block> HORIZONTAL_LANDSCAPE_PAINTING = BLOCKS.register("horizontal_landscape_painting",
             () -> new WallSideBlock(BaseBlockProperty.PAPER));
-    public static final RegistryObject<Block> YELLOW_LONG_HANGING_PAINTING = BLOCKS.register("yellow_long_hanging_painting",
+    public static final RegistryObject<Block> LONG_YELLOW_HANGING_PAINTING = BLOCKS.register("long_yellow_hanging_painting",
             () -> new WallSideBlock(BaseBlockProperty.PAPER));
     public static final RegistryObject<Block> DAMAGED_LANDSCAPE_PAINTING = BLOCKS.register("damaged_landscape_painting",
             () -> new WallSideBlock(BaseBlockProperty.PAPER));
