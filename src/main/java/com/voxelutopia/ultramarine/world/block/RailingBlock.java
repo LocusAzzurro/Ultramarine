@@ -142,7 +142,7 @@ public class RailingBlock extends Block implements BaseBlockPropertyHolder, Simp
     }
 
     private boolean connectsTo(BlockState pState, boolean pSideSolid) {
-        return pState.is(this) || !isExceptionForConnection(pState) && pSideSolid;
+        return pState.is(this) || pState.getBlock() instanceof RailingSlant || !isExceptionForConnection(pState) && pSideSolid;
     }
 
     @Override
