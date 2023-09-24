@@ -1,6 +1,13 @@
 package com.voxelutopia.ultramarine.world.block;
 
+import net.minecraft.core.BlockPos;
+import net.minecraft.world.level.BlockGetter;
+import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.SlabBlock;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.phys.shapes.CollisionContext;
+import net.minecraft.world.phys.shapes.VoxelShape;
+import org.jetbrains.annotations.Nullable;
 
 public class BaseSlab extends SlabBlock implements BaseBlockPropertyHolder {
 
@@ -18,6 +25,11 @@ public class BaseSlab extends SlabBlock implements BaseBlockPropertyHolder {
     public BaseSlab(BaseBlockProperty property){
         super(property.properties);
         this.property = property;
+    }
+
+    @Override
+    public VoxelShape getCollisionShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
+        return this.getShape(pState, pLevel, pPos, pContext);
     }
 
     @Override

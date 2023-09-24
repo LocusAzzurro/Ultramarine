@@ -74,10 +74,10 @@ public final class BaseBlockProperty {
             .sound(SoundType.WOOL)
             .strength(1F, 1F), BlockMaterial.PAPER);
 
-    BlockBehaviour.Properties properties;
-    BlockMaterial material;
+    final BlockBehaviour.Properties properties;
+    final BlockMaterial material;
 
-    BaseBlockProperty(BlockBehaviour.Properties properties, BlockMaterial material){
+    BaseBlockProperty(final BlockBehaviour.Properties properties, final BlockMaterial material){
         this.properties = properties;
         this.material = material;
     }

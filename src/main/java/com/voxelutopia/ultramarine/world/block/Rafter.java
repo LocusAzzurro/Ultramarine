@@ -19,7 +19,7 @@ public class Rafter extends ShiftableBlock {
     public static final EnumProperty<Direction.Axis> AXIS = BlockStateProperties.HORIZONTAL_AXIS;
 
     public Rafter(BaseBlockProperty property){
-        super(property.properties.noOcclusion());
+        super(property.copy().properties.noOcclusion());
         this.registerDefaultState(this.stateDefinition.any()
                 .setValue(AXIS, Direction.Axis.X)
                 .setValue(SHIFTED, Boolean.FALSE)

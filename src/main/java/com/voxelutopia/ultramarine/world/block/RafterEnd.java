@@ -20,7 +20,7 @@ public class RafterEnd extends ShiftableBlock{
     public static final DirectionProperty FACING = BlockStateProperties.HORIZONTAL_FACING;
 
     public RafterEnd(BaseBlockProperty property) {
-        super(property.properties.noOcclusion());
+        super(property.copy().properties.noOcclusion());
         this.registerDefaultState(this.stateDefinition.any()
                 .setValue(FACING, Direction.NORTH)
                 .setValue(SHIFTED, Boolean.FALSE)

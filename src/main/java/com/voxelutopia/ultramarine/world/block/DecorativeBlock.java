@@ -236,7 +236,7 @@ public class DecorativeBlock extends HorizontalDirectionalBlock implements BaseB
         }
 
         public Builder noOcclusion() {
-            this.property.properties = this.property.properties.noOcclusion();
+            this.property.properties.noOcclusion();
             return this;
         }
 
