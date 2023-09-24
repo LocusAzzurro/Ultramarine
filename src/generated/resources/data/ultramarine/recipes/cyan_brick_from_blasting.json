@@ -1,7 +1,7 @@
 {
   "type": "minecraft:blasting",
   "ingredient": {
-    "item": "ultramarine:raw_cyan_brick"
+    "item": "ultramarine:unfired_cyan_brick"
   },
   "result": "ultramarine:cyan_brick",
   "experience": 0.05,

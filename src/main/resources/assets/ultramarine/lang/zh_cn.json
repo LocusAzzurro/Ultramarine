@@ -491,11 +491,11 @@
   "item.ultramarine.prismarine_dust": "海晶石粉",
   "item.ultramarine.magnesite_dust": "白松石粉",
   "item.ultramarine.hematite_dust": "赤铁粉",
-  "item.ultramarine.raw_clay_brick": "砖坯",
-  "item.ultramarine.raw_cyan_brick": "青砖坯",
-  "item.ultramarine.raw_black_brick": "黑砖坯",
-  "item.ultramarine.raw_brownish_red_stone_brick": "棕红砖坯",
-  "item.ultramarine.fresh_brick": "新砖",
+  "item.ultramarine.unfired_clay_brick": "砖坯",
+  "item.ultramarine.unfired_cyan_brick": "青砖坯",
+  "item.ultramarine.unfired_black_brick": "黑砖坯",
+  "item.ultramarine.unfired_brownish_red_stone_brick": "棕红砖坯",
+  "item.ultramarine.fired_brick": "新砖",
 
   "item.ultramarine.wooden_hammer": "木锤",
 

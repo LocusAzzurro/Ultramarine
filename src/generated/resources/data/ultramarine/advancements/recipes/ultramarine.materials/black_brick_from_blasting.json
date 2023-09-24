@@ -6,13 +6,13 @@
     ]
   },
   "criteria": {
-    "has_raw_black_brick": {
+    "has_unfired_black_brick": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
             "items": [
-              "ultramarine:raw_black_brick"
+              "ultramarine:unfired_black_brick"
             ]
           }
         ]
@@ -27,7 +27,7 @@
   },
   "requirements": [
     [
-      "has_raw_black_brick",
+      "has_unfired_black_brick",
       "has_the_recipe"
     ]
   ]

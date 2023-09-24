@@ -1,0 +1,30 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "ultramarine:unfired_clay_brick"
+    },
+    {
+      "item": "ultramarine:unfired_clay_brick"
+    },
+    {
+      "item": "ultramarine:unfired_clay_brick"
+    },
+    {
+      "item": "ultramarine:unfired_clay_brick"
+    },
+    {
+      "item": "ultramarine:unfired_clay_brick"
+    },
+    {
+      "item": "ultramarine:unfired_clay_brick"
+    },
+    {
+      "item": "minecraft:nether_wart"
+    }
+  ],
+  "result": {
+    "item": "ultramarine:unfired_brownish_red_stone_brick",
+    "count": 6
+  }
+}

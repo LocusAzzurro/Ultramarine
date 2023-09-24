@@ -492,11 +492,11 @@
   "item.ultramarine.prismarine_dust": "Prismarine Dust",
   "item.ultramarine.magnesite_dust": "Magnesite Dust",
   "item.ultramarine.hematite_dust": "Hematite Dust",
-  "item.ultramarine.raw_clay_brick": "Raw Clay Brick",
-  "item.ultramarine.raw_cyan_brick": "Raw Cyan Brick",
-  "item.ultramarine.raw_black_brick": "Raw Black Brick",
-  "item.ultramarine.raw_brownish_red_stone_brick": "Raw Brownish Red Stone Brick",
-  "item.ultramarine.fresh_brick": "Fresh Brick",
+  "item.ultramarine.unfired_clay_brick": "Unfired Clay Brick",
+  "item.ultramarine.unfired_cyan_brick": "Unfired Cyan Brick",
+  "item.ultramarine.unfired_black_brick": "Unfired Black Brick",
+  "item.ultramarine.unfired_brownish_red_stone_brick": "Unfired Brownish Red Stone Brick",
+  "item.ultramarine.fired_brick": "Fired Brick",
 
   "item.ultramarine.wooden_hammer": "Wooden Hammer",
 

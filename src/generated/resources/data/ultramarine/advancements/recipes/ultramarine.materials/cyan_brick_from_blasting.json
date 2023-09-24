@@ -6,13 +6,13 @@
     ]
   },
   "criteria": {
-    "has_raw_cyan_brick": {
+    "has_unfired_cyan_brick": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
             "items": [
-              "ultramarine:raw_cyan_brick"
+              "ultramarine:unfired_cyan_brick"
             ]
           }
         ]
@@ -27,7 +27,7 @@
   },
   "requirements": [
     [
-      "has_raw_cyan_brick",
+      "has_unfired_cyan_brick",
       "has_the_recipe"
     ]
   ]

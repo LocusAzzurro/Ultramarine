@@ -2,17 +2,17 @@
   "parent": "minecraft:recipes/root",
   "rewards": {
     "recipes": [
-      "ultramarine:raw_clay_brick"
+      "ultramarine:unfired_black_brick"
     ]
   },
   "criteria": {
-    "has_clay_ball": {
+    "has_unfired_clay_brick": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
             "items": [
-              "minecraft:clay_ball"
+              "ultramarine:unfired_clay_brick"
             ]
           }
         ]
@@ -21,13 +21,13 @@
     "has_the_recipe": {
       "trigger": "minecraft:recipe_unlocked",
       "conditions": {
-        "recipe": "ultramarine:raw_clay_brick"
+        "recipe": "ultramarine:unfired_black_brick"
       }
     }
   },
   "requirements": [
     [
-      "has_clay_ball",
+      "has_unfired_clay_brick",
       "has_the_recipe"
     ]
   ]

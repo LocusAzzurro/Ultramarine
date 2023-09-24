@@ -93,17 +93,17 @@ public class ModRecipeProvider extends RecipeProvider {
         dust(ItemRegistry.RAW_HEMATITE.get(), ItemRegistry.HEMATITE_DUST.get(), recipeConsumer);
         dust(ItemRegistry.MAGNESITE.get(), ItemRegistry.MAGNESITE_DUST.get(), recipeConsumer);
         dust(Items.PRISMARINE_SHARD, ItemRegistry.PRISMARINE_DUST.get(), recipeConsumer);
-        ShapedRecipeBuilder.shaped(ItemRegistry.RAW_CLAY_BRICK.get(), 3)
+        ShapedRecipeBuilder.shaped(ItemRegistry.UNFIRED_CLAY_BRICK.get(), 3)
                 .define('C', Items.CLAY_BALL).pattern("CCC")
                 .unlockedBy(itemUnlockName(Items.CLAY_BALL), itemCriterion(Items.CLAY_BALL))
                 .save(recipeConsumer);
-        brickMixture(ItemRegistry.RAW_CLAY_BRICK.get(), 6, ItemRegistry.PRISMARINE_DUST.get(), ItemRegistry.RAW_CYAN_BRICK.get(), recipeConsumer);
-        brickMixture(ItemRegistry.RAW_CLAY_BRICK.get(), 6, ItemRegistry.HEMATITE_DUST.get(), ItemRegistry.RAW_BLACK_BRICK.get(), recipeConsumer);
-        brickMixture(ItemRegistry.RAW_CLAY_BRICK.get(), 6, Items.NETHER_WART, ItemRegistry.RAW_BROWNISH_RED_STONE_BRICK.get(), recipeConsumer);
-        smeltingAndBlasting(ItemRegistry.RAW_CLAY_BRICK.get(), Items.BRICK, recipeConsumer);
-        smeltingAndBlasting(ItemRegistry.RAW_CYAN_BRICK.get(), ItemRegistry.CYAN_BRICK.get(), recipeConsumer);
-        smeltingAndBlasting(ItemRegistry.RAW_BLACK_BRICK.get(), ItemRegistry.BLACK_BRICK.get(), recipeConsumer);
-        smeltingAndBlasting(ItemRegistry.RAW_BROWNISH_RED_STONE_BRICK.get(), ItemRegistry.BROWNISH_RED_STONE_BRICK.get(), recipeConsumer);
+        brickMixture(ItemRegistry.UNFIRED_CLAY_BRICK.get(), 6, ItemRegistry.PRISMARINE_DUST.get(), ItemRegistry.UNFIRED_RAW_CYAN_BRICK.get(), recipeConsumer);
+        brickMixture(ItemRegistry.UNFIRED_CLAY_BRICK.get(), 6, ItemRegistry.HEMATITE_DUST.get(), ItemRegistry.UNFIRED_BLACK_BRICK.get(), recipeConsumer);
+        brickMixture(ItemRegistry.UNFIRED_CLAY_BRICK.get(), 6, Items.NETHER_WART, ItemRegistry.UNFIRED_RAW_BROWNISH_RED_STONE_BRICK.get(), recipeConsumer);
+        smeltingAndBlasting(ItemRegistry.UNFIRED_CLAY_BRICK.get(), Items.BRICK, recipeConsumer);
+        smeltingAndBlasting(ItemRegistry.UNFIRED_RAW_CYAN_BRICK.get(), ItemRegistry.CYAN_BRICK.get(), recipeConsumer);
+        smeltingAndBlasting(ItemRegistry.UNFIRED_BLACK_BRICK.get(), ItemRegistry.BLACK_BRICK.get(), recipeConsumer);
+        smeltingAndBlasting(ItemRegistry.UNFIRED_RAW_BROWNISH_RED_STONE_BRICK.get(), ItemRegistry.BROWNISH_RED_STONE_BRICK.get(), recipeConsumer);
 
 
         //LAMPS

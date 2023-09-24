@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "ultramarine:item/raw_black_brick"
+    "layer0": "ultramarine:item/unfired_black_brick"
   }
 }

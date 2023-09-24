@@ -603,10 +603,11 @@ public class ItemRegistry {
 
     // BRICK MATERIAL
 
-    public static final RegistryObject<Item> RAW_CLAY_BRICK = simpleItem("raw_clay_brick", ModCreativeTab.MATERIALS);
-    public static final RegistryObject<Item> RAW_CYAN_BRICK = simpleItem("raw_cyan_brick", ModCreativeTab.MATERIALS);
-    public static final RegistryObject<Item> RAW_BLACK_BRICK = simpleItem("raw_black_brick", ModCreativeTab.MATERIALS);
-    public static final RegistryObject<Item> RAW_BROWNISH_RED_STONE_BRICK = simpleItem("raw_brownish_red_stone_brick", ModCreativeTab.MATERIALS);
+    public static final RegistryObject<Item> UNFIRED_CLAY_BRICK = simpleItem("unfired_clay_brick", ModCreativeTab.MATERIALS);
+    public static final RegistryObject<Item> UNFIRED_RAW_CYAN_BRICK = simpleItem("unfired_cyan_brick", ModCreativeTab.MATERIALS);
+    public static final RegistryObject<Item> UNFIRED_BLACK_BRICK = simpleItem("unfired_black_brick", ModCreativeTab.MATERIALS);
+    public static final RegistryObject<Item> UNFIRED_RAW_BROWNISH_RED_STONE_BRICK = simpleItem("unfired_brownish_red_stone_brick", ModCreativeTab.MATERIALS);
+    public static final RegistryObject<Item> FIRED_BRICK = simpleItem("fired_brick", ModCreativeTab.MATERIALS);
     public static final RegistryObject<Item> PRISMARINE_DUST = simpleItem("prismarine_dust", ModCreativeTab.MATERIALS);
 
     // ROOF TILE
