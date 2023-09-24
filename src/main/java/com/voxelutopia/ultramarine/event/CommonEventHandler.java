@@ -3,6 +3,9 @@ package com.voxelutopia.ultramarine.event;
 import com.voxelutopia.ultramarine.data.ModBlockTags;
 import com.voxelutopia.ultramarine.data.registry.ItemRegistry;
 import com.voxelutopia.ultramarine.data.registry.VillagerProfessionRegistry;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.sounds.SoundSource;
+import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.npc.VillagerProfession;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
@@ -10,6 +13,7 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.item.trading.MerchantOffer;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.common.Tags;
+import net.minecraftforge.event.entity.item.ItemExpireEvent;
 import net.minecraftforge.event.entity.player.PlayerEvent;
 import net.minecraftforge.event.village.VillagerTradesEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -25,6 +29,18 @@ public class CommonEventHandler {
         if (state.is(ModBlockTags.MINEABLE_WITH_SHEARS) &&
                 player.getItemInHand(player.getUsedItemHand()).is(Tags.Items.SHEARS)){
             event.setNewSpeed(event.getOriginalSpeed() * 4);
+        }
+    }
+
+    @SubscribeEvent
+    public static void itemConversion(ItemExpireEvent event){
+        ItemEntity itemEntity = (ItemEntity) event.getEntity();
+        ItemStack item = itemEntity.getItem();
+        if (itemEntity.isInWater() && item.is(ItemRegistry.FIRED_BRICK.get())){
+            itemEntity.setItem(new ItemStack(ItemRegistry.CYAN_BRICK.get(), item.getCount()));
+            itemEntity.level.playSound(null, itemEntity, SoundEvents.LAVA_EXTINGUISH, SoundSource.NEUTRAL, 0.5f, 1.0f);
+            event.setExtraLife(6000);
+            event.setCanceled(true);
         }
     }
 

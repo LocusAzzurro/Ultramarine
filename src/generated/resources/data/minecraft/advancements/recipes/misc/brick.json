@@ -2,17 +2,17 @@
   "parent": "minecraft:recipes/root",
   "rewards": {
     "recipes": [
-      "ultramarine:brick_from_smelting"
+      "minecraft:brick"
     ]
   },
   "criteria": {
-    "has_unfired_clay_brick": {
+    "has_fired_brick": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
             "items": [
-              "ultramarine:unfired_clay_brick"
+              "ultramarine:fired_brick"
             ]
           }
         ]
@@ -21,13 +21,13 @@
     "has_the_recipe": {
       "trigger": "minecraft:recipe_unlocked",
       "conditions": {
-        "recipe": "ultramarine:brick_from_smelting"
+        "recipe": "minecraft:brick"
       }
     }
   },
   "requirements": [
     [
-      "has_unfired_clay_brick",
+      "has_fired_brick",
       "has_the_recipe"
     ]
   ]
