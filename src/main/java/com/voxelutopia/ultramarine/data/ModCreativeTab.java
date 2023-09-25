@@ -16,6 +16,7 @@ public enum ModCreativeTab {
     DECORATIONS(CreativeTabDefinitions.DECORATIONS),
     FURNITURE(CreativeTabDefinitions.FURNITURE),
     WINDOWS_AND_DOORS(CreativeTabDefinitions.WINDOWS_AND_DOORS),
+    PLANTS(CreativeTabDefinitions.PLANTS),
     LAMPS(CreativeTabDefinitions.LAMPS);
 
     final CreativeModeTab tab;
@@ -28,6 +29,7 @@ public enum ModCreativeTab {
             DECORATIONS, new HashSet<>(),
             FURNITURE, new HashSet<>(),
             WINDOWS_AND_DOORS, new HashSet<>(),
+            PLANTS, new HashSet<>(),
             LAMPS, new HashSet<>()
     );
     ModCreativeTab(CreativeModeTab tab){

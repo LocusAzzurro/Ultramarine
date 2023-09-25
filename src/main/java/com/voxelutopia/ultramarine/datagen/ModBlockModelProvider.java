@@ -887,6 +887,6 @@ public class ModBlockModelProvider extends BlockStateProvider {
     @NotNull
     @Override
     public String getName() {
-        return DataGenerators.MOD_ID + " Item Models";
+        return DataGenerators.MOD_ID + " Block Models";
     }
 }

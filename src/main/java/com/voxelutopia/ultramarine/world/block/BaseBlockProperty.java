@@ -63,7 +63,13 @@ public final class BaseBlockProperty {
             .strength(1F, 2F), BlockMaterial.FLAX);
     public static BaseBlockProperty CROP = new BaseBlockProperty(BlockBehaviour.Properties.of(Material.VEGETABLE)
             .sound(SoundType.CROP)
-            .strength(1F, 1.5F), BlockMaterial.CROP);
+            .strength(1F, 1.5F), BlockMaterial.PLANT);
+    public static BaseBlockProperty PLANT = new BaseBlockProperty(BlockBehaviour.Properties.of(Material.VEGETABLE)
+            .sound(SoundType.CROP)
+            .strength(1F, 1.5F), BlockMaterial.PLANT);
+    public static BaseBlockProperty LILY = new BaseBlockProperty(BlockBehaviour.Properties.of(Material.VEGETABLE)
+            .sound(SoundType.LILY_PAD)
+            .strength(1F, 1.5F), BlockMaterial.PLANT);
     public static BaseBlockProperty SILK = new BaseBlockProperty(BlockBehaviour.Properties.of(Material.CLOTH_DECORATION)
             .sound(SoundType.WOOL)
             .strength(1F, 2F), BlockMaterial.FABRIC);
@@ -98,7 +104,7 @@ public final class BaseBlockProperty {
         BAMBOO(BlockTags.MINEABLE_WITH_AXE),
         FABRIC(ModBlockTags.MINEABLE_WITH_SHEARS),
         PAPER(ModBlockTags.MINEABLE_WITH_SHEARS),
-        CROP(BlockTags.MINEABLE_WITH_HOE),
+        PLANT(BlockTags.MINEABLE_WITH_HOE),
         FLAX(BlockTags.MINEABLE_WITH_HOE);
 
         final TagKey<Block> tool;

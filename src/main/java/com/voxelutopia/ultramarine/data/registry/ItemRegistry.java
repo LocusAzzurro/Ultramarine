@@ -3,6 +3,7 @@ package com.voxelutopia.ultramarine.data.registry;
 import com.voxelutopia.ultramarine.Ultramarine;
 import com.voxelutopia.ultramarine.data.ModCreativeTab;
 import com.voxelutopia.ultramarine.data.ModFoods;
+import com.voxelutopia.ultramarine.world.item.AquaticPlantBlockItem;
 import com.voxelutopia.ultramarine.world.item.BaseFood;
 import com.voxelutopia.ultramarine.world.item.WoodenHammer;
 import net.minecraft.world.food.FoodProperties;
@@ -553,6 +554,17 @@ public class ItemRegistry {
     public static final RegistryObject<Item> BAMBOO_CURTAIN = fromBlock(BlockRegistry.BAMBOO_CURTAIN, ModCreativeTab.WINDOWS_AND_DOORS);
 
     /**
+     *  PLANTS
+     */
+
+    // LOTUS
+
+    public static final RegistryObject<Item> LOTUS_BUD = aquaticPlantItem(BlockRegistry.LOTUS_BUD, ModCreativeTab.PLANTS);
+    public static final RegistryObject<Item> MEDIUM_LOTUS = aquaticPlantItem(BlockRegistry.MEDIUM_LOTUS, ModCreativeTab.PLANTS);
+    public static final RegistryObject<Item> TILTED_LOTUS_LEAF = aquaticPlantItem(BlockRegistry.TILTED_LOTUS_LEAF, ModCreativeTab.PLANTS);
+
+
+    /**
      *  LAMPS
      */
 
@@ -671,6 +683,18 @@ public class ItemRegistry {
 
     private static <B extends Block> RegistryObject<Item> fromBlock(RegistryObject<B> block, ModCreativeTab tabDef) {
         RegistryObject<Item> registryObject = ITEMS.register(block.getId().getPath(), () -> new BlockItem(block.get(), new Item.Properties().tab(tabDef.getTab())));
+        ModCreativeTab.putItemInSet(registryObject, tabDef);
+        return registryObject;
+    }
+
+    private static <B extends Block> RegistryObject<Item> aquaticPlantItem(RegistryObject<B> block, ModCreativeTab tabDef) {
+        RegistryObject<Item> registryObject = ITEMS.register(block.getId().getPath(), () -> new AquaticPlantBlockItem(block.get(), new Item.Properties().tab(tabDef.getTab())));
+        ModCreativeTab.putItemInSet(registryObject, tabDef);
+        return registryObject;
+    }
+
+    private static <B extends Block> RegistryObject<Item> registerBlockItem(String name, BlockItem blockItem, ModCreativeTab tabDef) {
+        RegistryObject<Item> registryObject = ITEMS.register(name, () -> blockItem);
         ModCreativeTab.putItemInSet(registryObject, tabDef);
         return registryObject;
     }

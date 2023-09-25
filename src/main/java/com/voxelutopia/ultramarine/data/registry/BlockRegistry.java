@@ -683,6 +683,20 @@ public class BlockRegistry {
             () -> new DecorativeBlock(DecorativeBlock.with(BaseBlockProperty.BAMBOO_WOOD).shaped(OpeningBlock.MIDDLE_AXIAL).directional().noOcclusion()));
 
     /**
+     *  PLANTS
+     */
+
+    // LOTUS
+
+    public static final RegistryObject<Block> LOTUS_BUD = BLOCKS.register("lotus_bud",
+            () -> new AquaticPlantBlock(DecorativeBlock.with(BaseBlockProperty.LILY).shaped(DecorativeBlock.FULL_8).directional().noCollision().noOcclusion()));
+    public static final RegistryObject<Block> MEDIUM_LOTUS = BLOCKS.register("medium_lotus",
+            () -> new AquaticPlantBlock(DecorativeBlock.with(BaseBlockProperty.LILY).shaped(DecorativeBlock.FULL_BLOCK).directional().noCollision().noOcclusion()));
+    public static final RegistryObject<Block> TILTED_LOTUS_LEAF = BLOCKS.register("tilted_lotus_leaf",
+            () -> new AquaticPlantBlock(DecorativeBlock.with(BaseBlockProperty.LILY).shaped(DecorativeBlock.HALF_BLOCK).directional().noCollision().noOcclusion()));
+
+
+    /**
      *  LAMPS
      */
 
