@@ -300,7 +300,7 @@ public class ModBlockModelProvider extends BlockStateProvider {
                 .forEach(sideAxial -> {
                     SideAxialBlock block = (SideAxialBlock) sideAxial.get();
                     if (block instanceof RailingSlant) shiftedHorizontalBlockNoOffset(block);
-                    else horizontalBlockNoOffset(sideAxial.get());
+                    else horizontalBlockOffset(sideAxial.get(), 180);
                 });
 
         BlockRegistry.BLOCKS.getEntries().stream().filter(blockRegistryObject -> blockRegistryObject.get() instanceof CentralAxialBlock)

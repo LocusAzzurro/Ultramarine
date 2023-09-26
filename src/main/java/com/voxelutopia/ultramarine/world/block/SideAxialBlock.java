@@ -53,7 +53,7 @@ public class SideAxialBlock extends BaseHorizontalDirectionalBlock implements Ax
     @Override
     public BlockState getStateForPlacement(BlockPlaceContext pContext) {
         BlockState state = this.defaultBlockState().setValue(WATERLOGGED, pContext.getLevel().getFluidState(pContext.getClickedPos()).getType() == Fluids.WATER);
-        return state.setValue(FACING, pContext.getHorizontalDirection());
+        return state.setValue(FACING, pContext.getHorizontalDirection().getOpposite());
     }
 
     @Override
