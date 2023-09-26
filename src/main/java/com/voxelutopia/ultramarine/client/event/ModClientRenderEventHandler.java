@@ -134,7 +134,6 @@ public class ModClientRenderEventHandler {
             ItemBlockRenderTypes.setRenderLayer(BlockRegistry.SMALL_LOTUS_LEAF.get(), RenderType.cutout());
             ItemBlockRenderTypes.setRenderLayer(BlockRegistry.SMALL_DARK_GREEN_LOTUS_LEAF.get(), RenderType.cutout());
             ItemBlockRenderTypes.setRenderLayer(BlockRegistry.MEDIUM_LOTUS_LEAF.get(), RenderType.cutout());
-
             ItemBlockRenderTypes.setRenderLayer(BlockRegistry.SMALL_RED_IVY.get(), RenderType.cutout());
             ItemBlockRenderTypes.setRenderLayer(BlockRegistry.MEDIUM_RED_IVY.get(), RenderType.cutout());
             ItemBlockRenderTypes.setRenderLayer(BlockRegistry.LARGE_RED_IVY.get(), RenderType.cutout());
@@ -147,6 +146,8 @@ public class ModClientRenderEventHandler {
             ItemBlockRenderTypes.setRenderLayer(BlockRegistry.SMALL_LEAF_PILE.get(), RenderType.cutout());
             ItemBlockRenderTypes.setRenderLayer(BlockRegistry.MEDIUM_LEAF_PILE.get(), RenderType.cutout());
             ItemBlockRenderTypes.setRenderLayer(BlockRegistry.LARGE_LEAF_PILE.get(), RenderType.cutout());
+
+            ItemBlockRenderTypes.setRenderLayer(BlockRegistry.RED_CORAL_BONSAI.get(), RenderType.cutout());
             ItemBlockRenderTypes.setRenderLayer(BlockRegistry.WOODWORKING_WORKBENCH.get(), RenderType.cutout());
         });
     }

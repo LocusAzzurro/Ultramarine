@@ -738,6 +738,11 @@ public class BlockRegistry {
     public static final RegistryObject<Block> LARGE_LEAF_PILE = BLOCKS.register("large_leaf_pile",
             () -> DecorativeBlock.with(BaseBlockProperty.PLANT).shaped(DecorativeBlock.FLAT_16).directional().noCollision().noOcclusion().build());
 
+    // BONSAI
+
+    public static final RegistryObject<Block> RED_CORAL_BONSAI = BLOCKS.register("red_coral_bonsai",
+            () -> DecorativeBlock.with(BaseBlockProperty.PORCELAIN).shaped(DecorativeBlock.FULL_14).directional().noCollision().build());
+
     /**
      *  LAMPS
      */

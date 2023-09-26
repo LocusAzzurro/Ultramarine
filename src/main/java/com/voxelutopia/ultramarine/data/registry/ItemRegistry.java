@@ -587,6 +587,10 @@ public class ItemRegistry {
     public static final RegistryObject<Item> MEDIUM_LEAF_PILE = fromBlock(BlockRegistry.MEDIUM_LEAF_PILE, ModCreativeTab.PLANTS);
     public static final RegistryObject<Item> LARGE_LEAF_PILE = fromBlock(BlockRegistry.LARGE_LEAF_PILE, ModCreativeTab.PLANTS);
 
+    // BONSAI
+
+    public static final RegistryObject<Item> RED_CORAL_BONSAI = fromBlock(BlockRegistry.RED_CORAL_BONSAI, ModCreativeTab.PLANTS);
+
     /**
      *  LAMPS
      */
