@@ -581,6 +581,11 @@ public class ItemRegistry {
     public static final RegistryObject<Item> MEDIUM_GREEN_IVY = fromBlock(BlockRegistry.MEDIUM_GREEN_IVY, ModCreativeTab.PLANTS);
     public static final RegistryObject<Item> LARGE_GREEN_IVY = fromBlock(BlockRegistry.LARGE_GREEN_IVY, ModCreativeTab.PLANTS);
 
+    // LEAVES
+
+    public static final RegistryObject<Item> SMALL_LEAF_PILE = fromBlock(BlockRegistry.SMALL_LEAF_PILE, ModCreativeTab.PLANTS);
+    public static final RegistryObject<Item> MEDIUM_LEAF_PILE = fromBlock(BlockRegistry.MEDIUM_LEAF_PILE, ModCreativeTab.PLANTS);
+    public static final RegistryObject<Item> LARGE_LEAF_PILE = fromBlock(BlockRegistry.LARGE_LEAF_PILE, ModCreativeTab.PLANTS);
 
     /**
      *  LAMPS

@@ -729,6 +729,15 @@ public class BlockRegistry {
     public static final RegistryObject<Block> LARGE_GREEN_IVY = BLOCKS.register("large_green_ivy",
             () -> new WallSideBlock(BaseBlockProperty.PLANT));
 
+    // LEAVES
+
+    public static final RegistryObject<Block> SMALL_LEAF_PILE = BLOCKS.register("small_leaf_pile",
+            () -> DecorativeBlock.with(BaseBlockProperty.PLANT).shaped(DecorativeBlock.FLAT_16).directional().noCollision().noOcclusion().build());
+    public static final RegistryObject<Block> MEDIUM_LEAF_PILE = BLOCKS.register("medium_leaf_pile",
+            () -> DecorativeBlock.with(BaseBlockProperty.PLANT).shaped(DecorativeBlock.FLAT_16).directional().noCollision().noOcclusion().build());
+    public static final RegistryObject<Block> LARGE_LEAF_PILE = BLOCKS.register("large_leaf_pile",
+            () -> DecorativeBlock.with(BaseBlockProperty.PLANT).shaped(DecorativeBlock.FLAT_16).directional().noCollision().noOcclusion().build());
+
     /**
      *  LAMPS
      */

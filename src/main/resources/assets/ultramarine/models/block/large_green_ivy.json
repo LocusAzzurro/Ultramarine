@@ -2,6 +2,6 @@
   "parent": "ultramarine:block/large_ivy",
   "textures": {
     "1": "ultramarine:block/large_green_ivy",
-    "particle": "minecraft:block/spruce_leaves"
+    "particle": "block/moss_block"
   }
 }
