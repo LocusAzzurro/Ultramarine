@@ -106,7 +106,7 @@ public class ModBlockModelProvider extends BlockStateProvider {
         simpleBlock(BlockRegistry.CHISELED_GILDED_DARK_OAK.get());
         slabSideEnd(BlockRegistry.GILDED_DARK_OAK_SLAB.get(), BlockRegistry.GILDED_DARK_OAK.get(), sideLoc(BlockRegistry.GILDED_DARK_OAK_SLAB.get()), blockLoc(BlockRegistry.GILDED_DARK_OAK.get()));
         straightStairs(BlockRegistry.GILDED_DARK_OAK_STAIRS.get());
-        horizontalBlockNoOffset(BlockRegistry.GILDED_DARK_OAK_BEAM_HEAD.get());
+        horizontalBlockOffset(BlockRegistry.GILDED_DARK_OAK_BEAM_HEAD.get(), 180);
         horizontalBlockNoOffset(BlockRegistry.GILDED_DARK_OAK_BRACKET.get());
         railingBlock(BlockRegistry.WHITE_MARBLE_RAILING.get());
         railingBlock(BlockRegistry.CARVED_WOODEN_RAILING.get());
@@ -602,6 +602,10 @@ public class ModBlockModelProvider extends BlockStateProvider {
                 .rotationX(blockState.getValue(HALF) == Half.BOTTOM ? 0 : 180)
                 .rotationY((int) blockState.getValue(HORIZONTAL_FACING).getClockWise().toYRot() - 90 + (blockState.getValue(HALF) == Half.BOTTOM ? 0 : 180))
                 .build(), WATERLOGGED);
+    }
+
+    private void horizontalBlockOffset(Block block, int offset){
+        horizontalBlock(block, models().getExistingFile(modLoc(BLOCK + name(block))), offset);
     }
 
     private void horizontalBlockNoOffset(Block block){

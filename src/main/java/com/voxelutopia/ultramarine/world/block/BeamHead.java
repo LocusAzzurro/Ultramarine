@@ -20,13 +20,13 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 public class BeamHead extends BaseHorizontalDirectionalBlock implements SimpleWaterloggedBlock {
 
     public static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
-    private static final VoxelShape NORTH_SHAPE = Shapes.or(Block.box(4.0D, 2.0D, 0.0D, 12.0D, 14.0D, 8.0D),
+    private static final VoxelShape SOUTH_SHAPE = Shapes.or(Block.box(4.0D, 2.0D, 0.0D, 12.0D, 14.0D, 8.0D),
             Block.box(4.0D, 6.0D, 8.0D, 12.0D, 14.0D, 10.0D));
-    private static final VoxelShape WEST_SHAPE = Shapes.or(Block.box(0.0D, 2.0D, 4.0D, 8.0D, 14.0D, 12.0D),
+    private static final VoxelShape EAST_SHAPE = Shapes.or(Block.box(0.0D, 2.0D, 4.0D, 8.0D, 14.0D, 12.0D),
             Block.box(8.0D, 6.0D, 4.0D, 10.0D, 14.0D, 12.0D));
-    private static final VoxelShape SOUTH_SHAPE = Shapes.or(Block.box(4.0D, 2.0D, 8.0D, 12.0D, 14.0D, 16.0D),
+    private static final VoxelShape NORTH_SHAPE = Shapes.or(Block.box(4.0D, 2.0D, 8.0D, 12.0D, 14.0D, 16.0D),
             Block.box(4.0D, 6.0D, 6.0D, 12.0D, 14.0D, 8.0D));
-    private static final VoxelShape EAST_SHAPE = Shapes.or(Block.box(8.0D, 2.0D, 4.0D, 16.0D, 14.0D, 12.0D),
+    private static final VoxelShape WEST_SHAPE = Shapes.or(Block.box(8.0D, 2.0D, 4.0D, 16.0D, 14.0D, 12.0D),
             Block.box(6.0D, 6.0D, 4.0D, 8.0D, 14.0D, 12.0D));
 
     public BeamHead(BaseBlockProperty property) {
@@ -50,7 +50,7 @@ public class BeamHead extends BaseHorizontalDirectionalBlock implements SimpleWa
     @Override
     public BlockState getStateForPlacement(BlockPlaceContext pContext) {
         return this.defaultBlockState()
-                .setValue(FACING, pContext.getHorizontalDirection())
+                .setValue(FACING, pContext.getHorizontalDirection().getOpposite())
                 .setValue(WATERLOGGED, pContext.getLevel().getFluidState(pContext.getClickedPos()).getType() == Fluids.WATER);
     }
 
