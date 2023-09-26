@@ -708,6 +708,27 @@ public class BlockRegistry {
     public static final RegistryObject<Block> MEDIUM_LOTUS = BLOCKS.register("medium_lotus",
             () -> new AquaticPlantBlock(DecorativeBlock.with(BaseBlockProperty.LILY).shaped(DecorativeBlock.FULL_BLOCK).directional().noCollision().noOcclusion()));
 
+    // IVY
+
+    public static final RegistryObject<Block> SMALL_RED_IVY = BLOCKS.register("small_red_ivy",
+            () -> new WallSideBlock(BaseBlockProperty.PLANT));
+    public static final RegistryObject<Block> MEDIUM_RED_IVY = BLOCKS.register("medium_red_ivy",
+            () -> new WallSideBlock(BaseBlockProperty.PLANT));
+    public static final RegistryObject<Block> LARGE_RED_IVY = BLOCKS.register("large_red_ivy",
+            () -> new WallSideBlock(BaseBlockProperty.PLANT));
+    public static final RegistryObject<Block> SMALL_YELLOW_IVY = BLOCKS.register("small_yellow_ivy",
+            () -> new WallSideBlock(BaseBlockProperty.PLANT));
+    public static final RegistryObject<Block> MEDIUM_YELLOW_IVY = BLOCKS.register("medium_yellow_ivy",
+            () -> new WallSideBlock(BaseBlockProperty.PLANT));
+    public static final RegistryObject<Block> LARGE_YELLOW_IVY = BLOCKS.register("large_yellow_ivy",
+            () -> new WallSideBlock(BaseBlockProperty.PLANT));
+    public static final RegistryObject<Block> SMALL_GREEN_IVY = BLOCKS.register("small_green_ivy",
+            () -> new WallSideBlock(BaseBlockProperty.PLANT));
+    public static final RegistryObject<Block> MEDIUM_GREEN_IVY = BLOCKS.register("medium_green_ivy",
+            () -> new WallSideBlock(BaseBlockProperty.PLANT));
+    public static final RegistryObject<Block> LARGE_GREEN_IVY = BLOCKS.register("large_green_ivy",
+            () -> new WallSideBlock(BaseBlockProperty.PLANT));
+
     /**
      *  LAMPS
      */

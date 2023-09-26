@@ -1,0 +1,7 @@
+{
+  "parent": "ultramarine:block/medium_ivy",
+  "textures": {
+    "1": "ultramarine:block/medium_red_ivy",
+    "particle": "minecraft:block/fire_coral_block"
+  }
+}

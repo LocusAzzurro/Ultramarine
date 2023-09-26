@@ -569,6 +569,18 @@ public class ItemRegistry {
     public static final RegistryObject<Item> LOTUS_BUD = aquaticPlantItem(BlockRegistry.LOTUS_BUD, ModCreativeTab.PLANTS);
     public static final RegistryObject<Item> MEDIUM_LOTUS = aquaticPlantItem(BlockRegistry.MEDIUM_LOTUS, ModCreativeTab.PLANTS);
 
+    // IVY
+
+    public static final RegistryObject<Item> SMALL_RED_IVY = fromBlock(BlockRegistry.SMALL_RED_IVY, ModCreativeTab.PLANTS);
+    public static final RegistryObject<Item> MEDIUM_RED_IVY = fromBlock(BlockRegistry.MEDIUM_RED_IVY, ModCreativeTab.PLANTS);
+    public static final RegistryObject<Item> LARGE_RED_IVY = fromBlock(BlockRegistry.LARGE_RED_IVY, ModCreativeTab.PLANTS);
+    public static final RegistryObject<Item> SMALL_YELLOW_IVY = fromBlock(BlockRegistry.SMALL_YELLOW_IVY, ModCreativeTab.PLANTS);
+    public static final RegistryObject<Item> MEDIUM_YELLOW_IVY = fromBlock(BlockRegistry.MEDIUM_YELLOW_IVY, ModCreativeTab.PLANTS);
+    public static final RegistryObject<Item> LARGE_YELLOW_IVY = fromBlock(BlockRegistry.LARGE_YELLOW_IVY, ModCreativeTab.PLANTS);
+    public static final RegistryObject<Item> SMALL_GREEN_IVY = fromBlock(BlockRegistry.SMALL_GREEN_IVY, ModCreativeTab.PLANTS);
+    public static final RegistryObject<Item> MEDIUM_GREEN_IVY = fromBlock(BlockRegistry.MEDIUM_GREEN_IVY, ModCreativeTab.PLANTS);
+    public static final RegistryObject<Item> LARGE_GREEN_IVY = fromBlock(BlockRegistry.LARGE_GREEN_IVY, ModCreativeTab.PLANTS);
+
 
     /**
      *  LAMPS

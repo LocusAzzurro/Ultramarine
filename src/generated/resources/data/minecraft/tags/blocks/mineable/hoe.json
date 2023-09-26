@@ -18,6 +18,15 @@
     "ultramarine:small_lotus_leaf_cluster",
     "ultramarine:medium_lotus_leaf_cluster",
     "ultramarine:lotus_bud",
-    "ultramarine:medium_lotus"
+    "ultramarine:medium_lotus",
+    "ultramarine:small_red_ivy",
+    "ultramarine:medium_red_ivy",
+    "ultramarine:large_red_ivy",
+    "ultramarine:small_yellow_ivy",
+    "ultramarine:medium_yellow_ivy",
+    "ultramarine:large_yellow_ivy",
+    "ultramarine:small_green_ivy",
+    "ultramarine:medium_green_ivy",
+    "ultramarine:large_green_ivy"
   ]
 }
