@@ -4,7 +4,7 @@
 	"render_type": "cutout",
 	"textures": {
 		"1": "ultramarine:block/tilted_lotus_leaf",
-		"particle": "block/jungle_leaves"
+		"particle": "ultramarine:block/lotus_particle"
 	},
 	"elements": [
 		{
