@@ -34,7 +34,7 @@ public class RafterEnd extends ShiftableBlock{
     }
 
     public BlockState getStateForPlacement(BlockPlaceContext pContext) {
-        return super.getStateForPlacement(pContext).setValue(FACING, pContext.getHorizontalDirection());
+        return super.getStateForPlacement(pContext).setValue(FACING, pContext.getHorizontalDirection().getOpposite());
     }
 
     @Override

@@ -310,7 +310,7 @@ public class ModBlockModelProvider extends BlockStateProvider {
                 .forEach(rafter -> shiftedAxisBlock(rafter.get()));
 
         BlockRegistry.BLOCKS.getEntries().stream().filter(blockRegistryObject -> blockRegistryObject.get() instanceof RafterEnd)
-                .forEach(rafterEnd -> shiftedDirectionalBlock(rafterEnd.get()));
+                .forEach(rafterEnd -> shiftedDirectionalBlock(rafterEnd.get(), 180));
 
         BlockRegistry.BLOCKS.getEntries().stream().filter(blockRegistryObject -> blockRegistryObject.get() instanceof DecorativeBlock)
                 .forEach(decorativeBlock -> {
@@ -444,15 +444,19 @@ public class ModBlockModelProvider extends BlockStateProvider {
         shiftedDirectionalBlock(block);
     }
 
-    private void shiftedDirectionalBlock(Block block) {
+    private void shiftedDirectionalBlock(Block block, int rotation) {
         getVariantBuilder(block).forAllStates(blockState -> {
             if (!blockState.getValue(ModBlockStateProperties.SHIFTED))
                 return ConfiguredModel.builder().modelFile(models().getExistingFile(modLoc(BLOCK + block.getRegistryName().getPath())))
-                        .rotationY((int) blockState.getValue(HORIZONTAL_FACING).toYRot()).build();
+                        .rotationY(rotation + (int) blockState.getValue(HORIZONTAL_FACING).toYRot()).build();
             else
                 return ConfiguredModel.builder().modelFile(models().getExistingFile(modLoc(BLOCK + block.getRegistryName().getPath() + "_shifted")))
-                        .rotationY((int) blockState.getValue(HORIZONTAL_FACING).toYRot()).build();
+                        .rotationY(rotation + (int) blockState.getValue(HORIZONTAL_FACING).toYRot()).build();
         });
+    }
+
+    private void shiftedDirectionalBlock(Block block) {
+        shiftedDirectionalBlock(block, 0);
     }
 
     private void axisBlock(Block block) {
