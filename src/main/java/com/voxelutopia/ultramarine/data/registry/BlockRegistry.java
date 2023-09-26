@@ -688,18 +688,25 @@ public class BlockRegistry {
 
     // LOTUS
 
-    public static final RegistryObject<Block> LOTUS_BUD = BLOCKS.register("lotus_bud",
-            () -> new AquaticPlantBlock(DecorativeBlock.with(BaseBlockProperty.LILY).shaped(DecorativeBlock.FULL_8).directional().noCollision().noOcclusion()));
-    public static final RegistryObject<Block> MEDIUM_LOTUS = BLOCKS.register("medium_lotus",
-            () -> new AquaticPlantBlock(DecorativeBlock.with(BaseBlockProperty.LILY).shaped(DecorativeBlock.FULL_BLOCK).directional().noCollision().noOcclusion()));
-    public static final RegistryObject<Block> TILTED_LOTUS_LEAF = BLOCKS.register("tilted_lotus_leaf",
-            () -> new AquaticPlantBlock(DecorativeBlock.with(BaseBlockProperty.LILY).shaped(DecorativeBlock.HALF_BLOCK).directional().noCollision().noOcclusion()));
+
+    public static final RegistryObject<Block> SMALL_LOTUS_LEAF = BLOCKS.register("small_lotus_leaf",
+            () -> new AquaticPlantBlock(DecorativeBlock.with(BaseBlockProperty.LILY).shaped(DecorativeBlock.FLAT_16).directional().diagonallyPlaceable().noCollision().noOcclusion()));
+    public static final RegistryObject<Block> SMALL_DARK_GREEN_LOTUS_LEAF = BLOCKS.register("small_dark_green_lotus_leaf",
+            () -> new AquaticPlantBlock(DecorativeBlock.with(BaseBlockProperty.LILY).shaped(DecorativeBlock.FLAT_16).directional().diagonallyPlaceable().noCollision().noOcclusion()));
+    public static final RegistryObject<Block> MEDIUM_LOTUS_LEAF = BLOCKS.register("medium_lotus_leaf",
+            () -> new AquaticPlantBlock(DecorativeBlock.with(BaseBlockProperty.LILY).shaped(DecorativeBlock.FLAT_16).directional().diagonallyPlaceable().noCollision().noOcclusion()));
     public static final RegistryObject<Block> LARGE_LOTUS_LEAF = BLOCKS.register("large_lotus_leaf",
             () -> new AquaticPlantBlock(DecorativeBlock.with(BaseBlockProperty.LILY).shaped(DecorativeBlock.FLAT_16).directional().diagonallyPlaceable().noCollision().noOcclusion()));
+    public static final RegistryObject<Block> TILTED_LOTUS_LEAF = BLOCKS.register("tilted_lotus_leaf",
+            () -> new AquaticPlantBlock(DecorativeBlock.with(BaseBlockProperty.LILY).shaped(DecorativeBlock.HALF_BLOCK).directional().noCollision().noOcclusion()));
     public static final RegistryObject<Block> SMALL_LOTUS_LEAF_CLUSTER = BLOCKS.register("small_lotus_leaf_cluster",
             () -> new AquaticPlantBlock(DecorativeBlock.with(BaseBlockProperty.LILY).shaped(DecorativeBlock.FLAT_16).directional().diagonallyPlaceable().noCollision().noOcclusion()));
     public static final RegistryObject<Block> MEDIUM_LOTUS_LEAF_CLUSTER = BLOCKS.register("medium_lotus_leaf_cluster",
             () -> new AquaticPlantBlock(DecorativeBlock.with(BaseBlockProperty.LILY).shaped(DecorativeBlock.FLAT_16).directional().diagonallyPlaceable().noCollision().noOcclusion()));
+    public static final RegistryObject<Block> LOTUS_BUD = BLOCKS.register("lotus_bud",
+            () -> new AquaticPlantBlock(DecorativeBlock.with(BaseBlockProperty.LILY).shaped(DecorativeBlock.FULL_8).directional().noCollision().noOcclusion()));
+    public static final RegistryObject<Block> MEDIUM_LOTUS = BLOCKS.register("medium_lotus",
+            () -> new AquaticPlantBlock(DecorativeBlock.with(BaseBlockProperty.LILY).shaped(DecorativeBlock.FULL_BLOCK).directional().noCollision().noOcclusion()));
 
     /**
      *  LAMPS

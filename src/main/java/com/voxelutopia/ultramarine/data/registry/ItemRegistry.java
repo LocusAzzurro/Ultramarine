@@ -559,12 +559,15 @@ public class ItemRegistry {
 
     // LOTUS
 
-    public static final RegistryObject<Item> LOTUS_BUD = aquaticPlantItem(BlockRegistry.LOTUS_BUD, ModCreativeTab.PLANTS);
-    public static final RegistryObject<Item> MEDIUM_LOTUS = aquaticPlantItem(BlockRegistry.MEDIUM_LOTUS, ModCreativeTab.PLANTS);
-    public static final RegistryObject<Item> TILTED_LOTUS_LEAF = aquaticPlantItem(BlockRegistry.TILTED_LOTUS_LEAF, ModCreativeTab.PLANTS);
+    public static final RegistryObject<Item> SMALL_LOTUS_LEAF = aquaticPlantItem(BlockRegistry.SMALL_LOTUS_LEAF, ModCreativeTab.PLANTS);
+    public static final RegistryObject<Item> SMALL_DARK_GREEN_LOTUS_LEAF = aquaticPlantItem(BlockRegistry.SMALL_DARK_GREEN_LOTUS_LEAF, ModCreativeTab.PLANTS);
+    public static final RegistryObject<Item> MEDIUM_LOTUS_LEAF = aquaticPlantItem(BlockRegistry.MEDIUM_LOTUS_LEAF, ModCreativeTab.PLANTS);
     public static final RegistryObject<Item> LARGE_LOTUS_LEAF = aquaticPlantItem(BlockRegistry.LARGE_LOTUS_LEAF, ModCreativeTab.PLANTS);
+    public static final RegistryObject<Item> TILTED_LOTUS_LEAF = aquaticPlantItem(BlockRegistry.TILTED_LOTUS_LEAF, ModCreativeTab.PLANTS);
     public static final RegistryObject<Item> SMALL_LOTUS_LEAF_CLUSTER = aquaticPlantItem(BlockRegistry.SMALL_LOTUS_LEAF_CLUSTER, ModCreativeTab.PLANTS);
     public static final RegistryObject<Item> MEDIUM_LOTUS_LEAF_CLUSTER = aquaticPlantItem(BlockRegistry.MEDIUM_LOTUS_LEAF_CLUSTER, ModCreativeTab.PLANTS);
+    public static final RegistryObject<Item> LOTUS_BUD = aquaticPlantItem(BlockRegistry.LOTUS_BUD, ModCreativeTab.PLANTS);
+    public static final RegistryObject<Item> MEDIUM_LOTUS = aquaticPlantItem(BlockRegistry.MEDIUM_LOTUS, ModCreativeTab.PLANTS);
 
 
     /**

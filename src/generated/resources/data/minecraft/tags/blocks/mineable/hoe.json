@@ -10,11 +10,14 @@
     "ultramarine:straw_hat",
     "ultramarine:gunny_sack",
     "ultramarine:scattered_carrots",
-    "ultramarine:lotus_bud",
-    "ultramarine:medium_lotus",
-    "ultramarine:tilted_lotus_leaf",
+    "ultramarine:small_lotus_leaf",
+    "ultramarine:small_dark_green_lotus_leaf",
+    "ultramarine:medium_lotus_leaf",
     "ultramarine:large_lotus_leaf",
+    "ultramarine:tilted_lotus_leaf",
     "ultramarine:small_lotus_leaf_cluster",
-    "ultramarine:medium_lotus_leaf_cluster"
+    "ultramarine:medium_lotus_leaf_cluster",
+    "ultramarine:lotus_bud",
+    "ultramarine:medium_lotus"
   ]
 }
