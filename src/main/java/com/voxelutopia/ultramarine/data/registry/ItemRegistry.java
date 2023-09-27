@@ -590,6 +590,9 @@ public class ItemRegistry {
     // BONSAI
 
     public static final RegistryObject<Item> RED_CORAL_BONSAI = fromBlock(BlockRegistry.RED_CORAL_BONSAI, ModCreativeTab.PLANTS);
+    public static final RegistryObject<Item> TALL_BLUE_VASE_BONSAI = fromBlock(BlockRegistry.TALL_BLUE_VASE_BONSAI, ModCreativeTab.PLANTS);
+    public static final RegistryObject<Item> BAMBOO_BONSAI = fromBlock(BlockRegistry.BAMBOO_BONSAI, ModCreativeTab.PLANTS);
+    public static final RegistryObject<Item> RED_PLUM_BONSAI = fromBlock(BlockRegistry.RED_PLUM_BONSAI, ModCreativeTab.PLANTS);
 
     /**
      *  LAMPS

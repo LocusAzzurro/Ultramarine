@@ -742,6 +742,12 @@ public class BlockRegistry {
 
     public static final RegistryObject<Block> RED_CORAL_BONSAI = BLOCKS.register("red_coral_bonsai",
             () -> DecorativeBlock.with(BaseBlockProperty.PORCELAIN).shaped(DecorativeBlock.FULL_14).directional().noCollision().build());
+    public static final RegistryObject<Block> TALL_BLUE_VASE_BONSAI = BLOCKS.register("tall_blue_vase_bonsai",
+            () -> DecorativeBlock.with(BaseBlockProperty.PORCELAIN).shaped(DecorativeBlock.FULL_12).directional().diagonallyPlaceable().placeOffset(Direction.UP).noCollision().build());
+    public static final RegistryObject<Block> BAMBOO_BONSAI = BLOCKS.register("bamboo_bonsai",
+            () -> DecorativeBlock.with(BaseBlockProperty.PORCELAIN).shaped(DecorativeBlock.FULL_14).directional().noCollision().noOcclusion().build());
+    public static final RegistryObject<Block> RED_PLUM_BONSAI = BLOCKS.register("red_plum_bonsai",
+            () -> DecorativeBlock.with(BaseBlockProperty.PORCELAIN).shaped(DecorativeBlock.FULL_12).directional().noCollision().build());
 
     /**
      *  LAMPS
