@@ -748,6 +748,16 @@ public class BlockRegistry {
             () -> DecorativeBlock.with(BaseBlockProperty.PORCELAIN).shaped(DecorativeBlock.FULL_14).directional().noCollision().noOcclusion().build());
     public static final RegistryObject<Block> RED_PLUM_BONSAI = BLOCKS.register("red_plum_bonsai",
             () -> DecorativeBlock.with(BaseBlockProperty.PORCELAIN).shaped(DecorativeBlock.FULL_12).directional().noCollision().build());
+    public static final RegistryObject<Block> SMALL_GREETING_PINE_BONSAI = BLOCKS.register("small_greeting_pine_bonsai",
+            () -> DecorativeBlock.with(BaseBlockProperty.PORCELAIN).shaped(DecorativeBlock.FULL_12).directional().noCollision().build());
+    public static final RegistryObject<Block> TALL_BLUE_AND_WHITE_PORCELAIN_BONSAI = BLOCKS.register("tall_blue_and_white_porcelain_bonsai",
+            () -> DecorativeBlock.with(BaseBlockProperty.PORCELAIN).shaped(DecorativeBlock.FULL_10).directional().diagonallyPlaceable().noCollision().noOcclusion().build());
+    public static final RegistryObject<Block> GREEN_PORCELAIN_VASE_BONSAI = BLOCKS.register("green_porcelain_vase_bonsai",
+            () -> DecorativeBlock.with(BaseBlockProperty.PORCELAIN).shaped(DecorativeBlock.FULL_10).directional().diagonallyPlaceable().noCollision().build());
+    public static final RegistryObject<Block> LARGE_BONSAI = BLOCKS.register("large_bonsai",
+            () -> DecorativeBlock.with(BaseBlockProperty.TERRACOTTA).shaped(DecorativeBlock.FULL_14).directional().diagonallyPlaceable().noCollision().noOcclusion().build());
+    public static final RegistryObject<Block> MEDIUM_BONSAI = BLOCKS.register("medium_bonsai",
+            () -> DecorativeBlock.with(BaseBlockProperty.TERRACOTTA).shaped(DecorativeBlock.FULL_12).directional().diagonallyPlaceable().noCollision().noOcclusion().build());
 
     /**
      *  LAMPS

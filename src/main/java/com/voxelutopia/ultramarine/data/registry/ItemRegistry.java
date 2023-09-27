@@ -593,6 +593,11 @@ public class ItemRegistry {
     public static final RegistryObject<Item> TALL_BLUE_VASE_BONSAI = fromBlock(BlockRegistry.TALL_BLUE_VASE_BONSAI, ModCreativeTab.PLANTS);
     public static final RegistryObject<Item> BAMBOO_BONSAI = fromBlock(BlockRegistry.BAMBOO_BONSAI, ModCreativeTab.PLANTS);
     public static final RegistryObject<Item> RED_PLUM_BONSAI = fromBlock(BlockRegistry.RED_PLUM_BONSAI, ModCreativeTab.PLANTS);
+    public static final RegistryObject<Item> SMALL_GREETING_PINE_BONSAI = fromBlock(BlockRegistry.SMALL_GREETING_PINE_BONSAI, ModCreativeTab.PLANTS);
+    public static final RegistryObject<Item> TALL_BLUE_AND_WHITE_PORCELAIN_BONSAI = fromBlock(BlockRegistry.TALL_BLUE_AND_WHITE_PORCELAIN_BONSAI, ModCreativeTab.PLANTS);
+    public static final RegistryObject<Item> GREEN_PORCELAIN_VASE_BONSAI = fromBlock(BlockRegistry.GREEN_PORCELAIN_VASE_BONSAI, ModCreativeTab.PLANTS);
+    public static final RegistryObject<Item> LARGE_BONSAI = fromBlock(BlockRegistry.LARGE_BONSAI, ModCreativeTab.PLANTS);
+    public static final RegistryObject<Item> MEDIUM_BONSAI = fromBlock(BlockRegistry.MEDIUM_BONSAI, ModCreativeTab.PLANTS);
 
     /**
      *  LAMPS
