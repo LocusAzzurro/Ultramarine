@@ -155,10 +155,12 @@ public class ModClientRenderEventHandler {
             ItemBlockRenderTypes.setRenderLayer(BlockRegistry.GREEN_PORCELAIN_VASE_BONSAI.get(), RenderType.cutout());
             ItemBlockRenderTypes.setRenderLayer(BlockRegistry.LARGE_BONSAI.get(), RenderType.cutout());
             ItemBlockRenderTypes.setRenderLayer(BlockRegistry.MEDIUM_BONSAI.get(), RenderType.cutout());
-
             ItemBlockRenderTypes.setRenderLayer(BlockRegistry.SMALL_GREEN_PORCELAIN_VASE_BONSAI.get(), RenderType.cutout());
             ItemBlockRenderTypes.setRenderLayer(BlockRegistry.MEDIUM_WHITE_PORCELAIN_VASE_BONSAI.get(), RenderType.cutout());
             ItemBlockRenderTypes.setRenderLayer(BlockRegistry.LARGE_WHITE_PORCELAIN_VASE_BONSAI.get(), RenderType.cutout());
+            ItemBlockRenderTypes.setRenderLayer(BlockRegistry.LARGE_GREETING_PINE_BONSAI.get(), RenderType.cutout());
+            ItemBlockRenderTypes.setRenderLayer(BlockRegistry.SMALL_WHITE_PORCELAIN_VASE_BONSAI.get(), RenderType.cutout());
+            ItemBlockRenderTypes.setRenderLayer(BlockRegistry.MEDIUM_GREETING_PINE_BONSAI.get(), RenderType.cutout());
 
             ItemBlockRenderTypes.setRenderLayer(BlockRegistry.WOODWORKING_WORKBENCH.get(), RenderType.cutout());
         });
