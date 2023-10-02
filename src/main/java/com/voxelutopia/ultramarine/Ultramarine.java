@@ -2,22 +2,41 @@ package com.voxelutopia.ultramarine;
 
 import com.mojang.logging.LogUtils;
 import com.voxelutopia.ultramarine.data.registry.*;
+import net.fabricmc.api.ModInitializer;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
+import org.apache.logging.log4j.Level;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.util.logging.LogManager;
 
-@Mod(Ultramarine.MOD_ID)
-public class Ultramarine {
+public class Ultramarine implements ModInitializer {
 
     public static final String MOD_ID = "ultramarine";
-    private static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
+    public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
+    public static void error(String format, Object... data)
+    {
+        LOGGER.error(format, data);
+    }
 
+    public static void warn(String format, Object... data)
+    {
+        LOGGER.warn(format, data);
+    }
+
+    public static void info(String format, Object... data)
+    {
+        LOGGER.info(format, data);
+    }
+
+    @Override
+    public void onInitialize() {
+
+    }
     public Ultramarine() {
 
         IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
@@ -41,5 +60,6 @@ public class Ultramarine {
     private void setup(final FMLCommonSetupEvent event) {
         LOGGER.info("Ultramarine Mod Loading...");
     }
+
 
 }

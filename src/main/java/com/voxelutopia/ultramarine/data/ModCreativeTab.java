@@ -21,7 +21,7 @@ public enum ModCreativeTab {
 
     final CreativeModeTab tab;
 
-    static final Map<ModCreativeTab, Set<RegistryObject<Item>>> itemSets = Map.of(
+    static final Map<ModCreativeTab, Set<Item>> itemSets = Map.of(
             MATERIALS, new HashSet<>(),
             TOOLS, new HashSet<>(),
             BUILDING_BLOCKS, new HashSet<>(),
@@ -40,7 +40,7 @@ public enum ModCreativeTab {
         return tab;
     }
 
-    public static void putItemInSet(RegistryObject<Item> item, ModCreativeTab tab){
+    public static void putItemInSet(Item item, ModCreativeTab tab){
         itemSets.get(tab).add(item);
     }
 }

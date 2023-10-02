@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 1,
+  "id": "${mod_id}",
+  "version": "${version}",
+  "name": "Ultramarine",
+  "description": "A Chinese Style Minecraft Mod",
+  "authors": [
+    "Soul_Shadow",
+    "LocusAzzurro",
+    "cnlimiter"
+  ],
+  "contact": {
+    "repo": "https://github.com/LocusAzzurro/Ultramarine",
+    "fork": "https://github.com/cnlimiter/Ultramarine"
+  },
+  "license": "source and binary under BSD-3, assets under CC-BY-NC 4.0",
+  "icon": "logo.png",
+  "environment": "*",
+  "entrypoints": {
+    "client": [
+      "com.nova.mods.avaritia.client.AvaritiaClient"
+    ],
+    "main": [
+      "com.voxelutopia.ultramarine.Ultramarine"
+    ]
+  },
+  "mixins": [
+    "ultramarine.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=${loader_version}",
+    "fabric": "*",
+    "minecraft": ">=${minecraft_version_range}"
+  }
+}
