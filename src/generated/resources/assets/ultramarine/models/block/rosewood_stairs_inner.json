@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/inner_stairs",
-  "textures": {
-    "side": "ultramarine:block/rosewood_planks",
-    "bottom": "ultramarine:block/rosewood_planks",
-    "top": "ultramarine:block/rosewood_planks"
-  }
-}

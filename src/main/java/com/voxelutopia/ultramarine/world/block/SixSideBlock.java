@@ -1,25 +1,25 @@
 package com.voxelutopia.ultramarine.world.block;
 
-import net.minecraft.core.BlockPos;
-import net.minecraft.core.Direction;
-import net.minecraft.world.item.context.BlockPlaceContext;
-import net.minecraft.world.level.BlockGetter;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.SimpleWaterloggedBlock;
-import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.block.state.StateDefinition;
-import net.minecraft.world.level.block.state.properties.BlockStateProperties;
-import net.minecraft.world.level.block.state.properties.BooleanProperty;
-import net.minecraft.world.level.block.state.properties.DirectionProperty;
-import net.minecraft.world.level.material.FluidState;
-import net.minecraft.world.level.material.Fluids;
-import net.minecraft.world.phys.shapes.CollisionContext;
-import net.minecraft.world.phys.shapes.Shapes;
-import net.minecraft.world.phys.shapes.VoxelShape;
+import net.minecraft.block.Block;
+import net.minecraft.block.BlockState;
+import net.minecraft.block.IWaterLoggable;
+import net.minecraft.fluid.FluidState;
+import net.minecraft.fluid.Fluids;
+import net.minecraft.item.BlockItemUseContext;
+import net.minecraft.state.BooleanProperty;
+import net.minecraft.state.DirectionProperty;
+import net.minecraft.state.StateContainer;
+import net.minecraft.state.properties.BlockStateProperties;
+import net.minecraft.util.Direction;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.shapes.ISelectionContext;
+import net.minecraft.util.math.shapes.VoxelShape;
+import net.minecraft.util.math.shapes.VoxelShapes;
+import net.minecraft.world.IBlockReader;
 
 import java.util.Map;
 
-public class SixSideBlock extends Block implements BaseBlockPropertyHolder, SimpleWaterloggedBlock, SideBlock {
+public class SixSideBlock extends Block implements BaseBlockPropertyHolder, IWaterLoggable, SideBlock {
 
     protected final BaseBlockProperty property;
     private final Map<Direction, VoxelShape> shapeByDirection;
@@ -39,26 +39,26 @@ public class SixSideBlock extends Block implements BaseBlockPropertyHolder, Simp
     }
 
     public SixSideBlock(BaseBlockProperty property) {
-        this(property,  1);
+        this(property, 1);
     }
 
-    public SixSideBlock(BaseBlockProperty property, int sideThickness){
+    public SixSideBlock(BaseBlockProperty property, int sideThickness) {
         this(property, sideThickness, false);
     }
 
-    public VoxelShape getShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
+    public VoxelShape getShape(BlockState pState, IBlockReader pLevel, BlockPos pPos, ISelectionContext pContext) {
         return this.shapeByDirection.get(pState.getValue(FACING));
     }
 
     @Override
-    public BlockState getStateForPlacement(BlockPlaceContext pContext) {
+    public BlockState getStateForPlacement(BlockItemUseContext pContext) {
         Direction face = pContext.getClickedFace();
         return this.defaultBlockState()
                 .setValue(WATERLOGGED, pContext.getLevel().getFluidState(pContext.getClickedPos()).getType() == Fluids.WATER)
                 .setValue(FACING, face);
     }
 
-    protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> pBuilder) {
+    protected void createBlockStateDefinition(StateContainer.Builder<Block, BlockState> pBuilder) {
         pBuilder.add(FACING, WATERLOGGED);
     }
 
@@ -67,15 +67,14 @@ public class SixSideBlock extends Block implements BaseBlockPropertyHolder, Simp
     }
 
     @Override
-    public VoxelShape getCollisionShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
-        return hasCollision ? this.getShape(pState, pLevel, pPos, pContext) : Shapes.empty();
+    public VoxelShape getCollisionShape(BlockState pState, IBlockReader pLevel, BlockPos pPos, ISelectionContext pContext) {
+        return hasCollision ? this.getShape(pState, pLevel, pPos, pContext) : VoxelShapes.empty();
     }
 
     @Override
     public BaseBlockProperty getProperty() {
         return this.property;
     }
-
 
 
 }

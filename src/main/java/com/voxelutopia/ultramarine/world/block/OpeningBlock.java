@@ -1,29 +1,31 @@
 package com.voxelutopia.ultramarine.world.block;
 
-import net.minecraft.core.BlockPos;
-import net.minecraft.core.Direction;
-import net.minecraft.world.InteractionHand;
-import net.minecraft.world.InteractionResult;
-import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.context.BlockPlaceContext;
-import net.minecraft.world.level.BlockGetter;
-import net.minecraft.world.level.Level;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.HorizontalDirectionalBlock;
-import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.block.state.StateDefinition;
-import net.minecraft.world.level.block.state.properties.*;
-import net.minecraft.world.level.gameevent.GameEvent;
-import net.minecraft.world.level.material.Material;
-import net.minecraft.world.phys.BlockHitResult;
-import net.minecraft.world.phys.Vec3;
-import net.minecraft.world.phys.shapes.CollisionContext;
-import net.minecraft.world.phys.shapes.Shapes;
-import net.minecraft.world.phys.shapes.VoxelShape;
+import net.minecraft.block.Block;
+import net.minecraft.block.BlockState;
+import net.minecraft.block.HorizontalBlock;
+import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.BlockItemUseContext;
+import net.minecraft.state.BooleanProperty;
+import net.minecraft.state.DirectionProperty;
+import net.minecraft.state.EnumProperty;
+import net.minecraft.state.StateContainer;
+import net.minecraft.state.properties.BlockStateProperties;
+import net.minecraft.state.properties.DoorHingeSide;
+import net.minecraft.util.ActionResultType;
+import net.minecraft.util.Direction;
+import net.minecraft.util.Hand;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.BlockRayTraceResult;
+import net.minecraft.util.math.shapes.ISelectionContext;
+import net.minecraft.util.math.shapes.VoxelShape;
+import net.minecraft.util.math.shapes.VoxelShapes;
+import net.minecraft.util.math.vector.Vector3d;
+import net.minecraft.world.IBlockReader;
+import net.minecraft.world.World;
 
-public class OpeningBlock extends DecorativeBlock{
+public class OpeningBlock extends DecorativeBlock {
 
-    public static final DirectionProperty FACING = HorizontalDirectionalBlock.FACING;
+    public static final DirectionProperty FACING = HorizontalBlock.FACING;
     public static final BooleanProperty OPEN = BlockStateProperties.OPEN;
     public static final EnumProperty<DoorHingeSide> HINGE = BlockStateProperties.DOOR_HINGE;
     public static final BooleanProperty POWERED = BlockStateProperties.POWERED;
@@ -37,12 +39,12 @@ public class OpeningBlock extends DecorativeBlock{
     }
 
     @Override
-    public InteractionResult use(BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, InteractionHand pHand, BlockHitResult pHit) {
+    public ActionResultType use(BlockState pState, World pLevel, BlockPos pPos, PlayerEntity pPlayer, Hand pHand, BlockRayTraceResult pHit) {
         pState = pState.cycle(OPEN);
         pLevel.setBlock(pPos, pState, 10);
-        pLevel.levelEvent(pPlayer, pState.getValue(OPEN) ? 1006 : 1012, pPos, 0);
-        pLevel.gameEvent(pPlayer, this.isOpen(pState) ? GameEvent.BLOCK_OPEN : GameEvent.BLOCK_CLOSE, pPos);
-        return InteractionResult.sidedSuccess(pLevel.isClientSide);
+        pLevel.levelEvent(pPlayer, this.isOpen(pState) ? 1006 : 1012, pPos, 0);
+        // Duplicate sound play
+        return ActionResultType.sidedSuccess(pLevel.isClientSide);
     }
 
     public boolean isOpen(BlockState pState) {
@@ -50,22 +52,21 @@ public class OpeningBlock extends DecorativeBlock{
     }
 
     @Override
-    public void neighborChanged(BlockState pState, Level pLevel, BlockPos pPos, Block pBlock, BlockPos pFromPos, boolean pIsMoving) {
+    public void neighborChanged(BlockState pState, World pLevel, BlockPos pPos, Block pBlock, BlockPos pFromPos, boolean pIsMoving) {
         boolean signal = pLevel.hasNeighborSignal(pPos);
         if (!this.defaultBlockState().is(pBlock) && signal != pState.getValue(POWERED)) {
             if (signal != pState.getValue(OPEN)) {
                 //this.playSound(pLevel, pPos, signal); //todo add sound
-                pLevel.gameEvent(signal ? GameEvent.BLOCK_OPEN : GameEvent.BLOCK_CLOSE, pPos);
+                pLevel.levelEvent(signal ? 1006 : 1012, pPos, 0);
             }
             pLevel.setBlock(pPos, pState.setValue(POWERED, signal).setValue(OPEN, signal), 2);
         }
-
     }
 
     @Override
-    public BlockState getStateForPlacement(BlockPlaceContext pContext) {
+    public BlockState getStateForPlacement(BlockItemUseContext pContext) {
         BlockPos blockpos = pContext.getClickedPos();
-        Level level = pContext.getLevel();
+        World level = pContext.getLevel();
         boolean signal = level.hasNeighborSignal(blockpos);
         return this.defaultBlockState()
                 .setValue(FACING, pContext.getHorizontalDirection())
@@ -75,26 +76,29 @@ public class OpeningBlock extends DecorativeBlock{
     }
 
     @Override
-    protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> pBuilder) {
+    protected void createBlockStateDefinition(StateContainer.Builder<Block, BlockState> pBuilder) {
         super.createBlockStateDefinition(pBuilder);
         pBuilder.add(OPEN, HINGE, POWERED);
     }
 
     @Override
-    public VoxelShape getShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
-        return switch (pState.getValue(FACING)) {
-            case EAST, WEST -> EW_AABB;
-            default -> NS_AABB;
-        };
+    public VoxelShape getShape(BlockState pState, IBlockReader pLevel, BlockPos pPos, ISelectionContext pContext) {
+        switch (pState.getValue(FACING)) {
+            case WEST:
+            case EAST:
+                return EW_AABB;
+            default:
+                return NS_AABB;
+        }
     }
 
     @Override
-    public VoxelShape getCollisionShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
-        return pState.getValue(OPEN) ? Shapes.empty() : getShape(pState, pLevel, pPos, pContext);
+    public VoxelShape getCollisionShape(BlockState pState, IBlockReader pLevel, BlockPos pPos, ISelectionContext pContext) {
+        return pState.getValue(OPEN) ? VoxelShapes.empty() : getShape(pState, pLevel, pPos, pContext);
     }
 
-    private DoorHingeSide getHinge(BlockPlaceContext pContext) {
-        BlockGetter level = pContext.getLevel();
+    private DoorHingeSide getHinge(BlockItemUseContext pContext) {
+        IBlockReader level = pContext.getLevel();
         BlockPos clickedPos = pContext.getClickedPos();
         Direction horizontalDirection = pContext.getHorizontalDirection();
         BlockPos above = clickedPos.above();
@@ -118,7 +122,7 @@ public class OpeningBlock extends DecorativeBlock{
             if ((!CW || CCW) && i == 0) {
                 int j = horizontalDirection.getStepX();
                 int k = horizontalDirection.getStepZ();
-                Vec3 vec3 = pContext.getClickLocation();
+                Vector3d vec3 = pContext.getClickLocation();
                 double d0 = vec3.x - clickedPos.getX();
                 double d1 = vec3.z - clickedPos.getZ();
                 return (j >= 0 || !(d1 < 0.5D))

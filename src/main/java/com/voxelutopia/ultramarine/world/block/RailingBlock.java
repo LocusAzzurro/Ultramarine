@@ -2,27 +2,28 @@ package com.voxelutopia.ultramarine.world.block;
 
 import com.google.common.collect.ImmutableMap;
 import com.voxelutopia.ultramarine.world.block.state.ModBlockStateProperties;
-import net.minecraft.core.BlockPos;
-import net.minecraft.core.Direction;
-import net.minecraft.world.item.context.BlockPlaceContext;
-import net.minecraft.world.level.BlockGetter;
-import net.minecraft.world.level.LevelAccessor;
-import net.minecraft.world.level.LevelReader;
-import net.minecraft.world.level.block.*;
-import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.block.state.StateDefinition;
-import net.minecraft.world.level.block.state.properties.BlockStateProperties;
-import net.minecraft.world.level.block.state.properties.BooleanProperty;
-import net.minecraft.world.level.material.FluidState;
-import net.minecraft.world.level.material.Fluids;
-import net.minecraft.world.phys.shapes.CollisionContext;
-import net.minecraft.world.phys.shapes.Shapes;
-import net.minecraft.world.phys.shapes.VoxelShape;
-import org.jetbrains.annotations.Nullable;
+import net.minecraft.block.Block;
+import net.minecraft.block.BlockRenderType;
+import net.minecraft.block.BlockState;
+import net.minecraft.block.IWaterLoggable;
+import net.minecraft.fluid.FluidState;
+import net.minecraft.fluid.Fluids;
+import net.minecraft.item.BlockItemUseContext;
+import net.minecraft.state.BooleanProperty;
+import net.minecraft.state.StateContainer;
+import net.minecraft.state.properties.BlockStateProperties;
+import net.minecraft.util.Direction;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.shapes.ISelectionContext;
+import net.minecraft.util.math.shapes.VoxelShape;
+import net.minecraft.util.math.shapes.VoxelShapes;
+import net.minecraft.world.IBlockReader;
+import net.minecraft.world.IWorld;
+import net.minecraft.world.World;
 
 import java.util.Map;
 
-public class RailingBlock extends Block implements BaseBlockPropertyHolder, SimpleWaterloggedBlock {
+public class RailingBlock extends Block implements BaseBlockPropertyHolder, IWaterLoggable {
 
     protected final BaseBlockProperty property;
     private final Map<BlockState, VoxelShape> shapeByIndex;
@@ -43,7 +44,7 @@ public class RailingBlock extends Block implements BaseBlockPropertyHolder, Simp
     private static final VoxelShape MARBLE_WEST_SIDE = Block.box(0.0D, 0.0D, 7.0D, 9.0D, 15.0D, 9.0D);
     private static final VoxelShape MARBLE_EAST_SIDE = Block.box(7.0D, 0.0D, 7.0D, 16.0D, 15.0D, 9.0D);
 
-    public static final Map<Direction, VoxelShape> MARBLE_SHAPES = Map.of(
+    public static final Map<Direction, VoxelShape> MARBLE_SHAPES = ImmutableMap.of(
             Direction.UP, MARBLE_POLE,
             Direction.NORTH, MARBLE_NORTH_SIDE,
             Direction.SOUTH, MARBLE_SOUTH_SIDE,
@@ -57,13 +58,14 @@ public class RailingBlock extends Block implements BaseBlockPropertyHolder, Simp
     private static final VoxelShape WOODEN_WEST_SIDE = Block.box(0.0D, 2.5D, 7.5D, 8.5D, 12.0D, 8.5D);
     private static final VoxelShape WOODEN_EAST_SIDE = Block.box(7.5D, 2.5D, 7.5D, 16.0D, 12.0D, 8.5D);
 
-    public static final Map<Direction, VoxelShape> WOODEN_SHAPES = Map.of(
+    public static final Map<Direction, VoxelShape> WOODEN_SHAPES = ImmutableMap.of(
             Direction.UP, WOODEN_POLE,
             Direction.NORTH, WOODEN_NORTH_SIDE,
             Direction.SOUTH, WOODEN_SOUTH_SIDE,
             Direction.WEST, WOODEN_WEST_SIDE,
             Direction.EAST, WOODEN_EAST_SIDE
     );
+
     public RailingBlock(BaseBlockProperty property, Map<Direction, VoxelShape> partShapes) {
         super(property.properties.noOcclusion());
         this.property = property;
@@ -80,10 +82,9 @@ public class RailingBlock extends Block implements BaseBlockPropertyHolder, Simp
         this.shapeByIndex = this.makeShapes();
     }
 
-    @Nullable
     @Override
-    public BlockState getStateForPlacement(BlockPlaceContext pContext) {
-        LevelReader levelreader = pContext.getLevel();
+    public BlockState getStateForPlacement(BlockItemUseContext pContext) {
+        World levelreader = pContext.getLevel();
         BlockPos blockpos = pContext.getClickedPos();
         FluidState fluidstate = pContext.getLevel().getFluidState(pContext.getClickedPos());
         BlockPos northSide = blockpos.north();
@@ -105,13 +106,13 @@ public class RailingBlock extends Block implements BaseBlockPropertyHolder, Simp
 
     @Override
     @SuppressWarnings("deprecation")
-    public BlockState updateShape(BlockState pState, Direction pFacing, BlockState pFacingState, LevelAccessor pLevel, BlockPos pCurrentPos, BlockPos pFacingPos) {
+    public BlockState updateShape(BlockState pState, Direction pFacing, BlockState pFacingState, IWorld pLevel, BlockPos pCurrentPos, BlockPos pFacingPos) {
         boolean north = pState.getValue(NORTH);
         boolean south = pState.getValue(SOUTH);
         boolean east = pState.getValue(EAST);
         boolean west = pState.getValue(WEST);
         if (pState.getValue(WATERLOGGED)) {
-            pLevel.scheduleTick(pCurrentPos, Fluids.WATER, Fluids.WATER.getTickDelay(pLevel));
+            pLevel.getLiquidTicks().scheduleTick(pCurrentPos, Fluids.WATER, Fluids.WATER.getTickDelay(pLevel));
         }
         if (pFacing == Direction.DOWN || pFacing == Direction.UP) {
             return super.updateShape(pState, pFacing, pFacingState, pLevel, pCurrentPos, pFacingPos);
@@ -132,7 +133,7 @@ public class RailingBlock extends Block implements BaseBlockPropertyHolder, Simp
         return pState.setValue(NORTH, north).setValue(SOUTH, south).setValue(EAST, east).setValue(WEST, west).setValue(UP, up);
     }
 
-    public BlockState updatePole(BlockState state){
+    public BlockState updatePole(BlockState state) {
         boolean north = state.getValue(NORTH);
         boolean south = state.getValue(SOUTH);
         boolean east = state.getValue(EAST);
@@ -142,16 +143,18 @@ public class RailingBlock extends Block implements BaseBlockPropertyHolder, Simp
     }
 
     private boolean connectsTo(BlockState pState, boolean pSideSolid) {
-        return pState.is(this) || pState.getBlock() instanceof RailingSlant || !isExceptionForConnection(pState) && pSideSolid;
+        return pState.is(this) || pState.getBlock() instanceof RailingSlant ||
+                // isExceptionForConnection is called with a Block param in 1.16
+                !isExceptionForConnection(pState.getBlock()) && pSideSolid;
     }
 
     @Override
-    public VoxelShape getShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
+    public VoxelShape getShape(BlockState pState, IBlockReader pLevel, BlockPos pPos, ISelectionContext pContext) {
         return this.shapeByIndex.get(pState);
     }
 
     @Override
-    public VoxelShape getCollisionShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
+    public VoxelShape getCollisionShape(BlockState pState, IBlockReader pLevel, BlockPos pPos, ISelectionContext pContext) {
         return this.getShape(pState, pLevel, pPos, pContext);
     }
 
@@ -161,14 +164,14 @@ public class RailingBlock extends Block implements BaseBlockPropertyHolder, Simp
         for (Boolean up : UP.getPossibleValues()) {
             for (Boolean east : EAST.getPossibleValues()) {
                 for (Boolean north : NORTH.getPossibleValues()) {
-                    for (Boolean west: WEST.getPossibleValues()) {
+                    for (Boolean west : WEST.getPossibleValues()) {
                         for (Boolean south : SOUTH.getPossibleValues()) {
-                            VoxelShape shape = Shapes.empty();
-                            if (north) shape = Shapes.or(shape, this.shapeByPart.get(Direction.NORTH));
-                            if (south) shape = Shapes.or(shape, this.shapeByPart.get(Direction.SOUTH));
-                            if (east) shape = Shapes.or(shape, this.shapeByPart.get(Direction.EAST));
-                            if (west) shape = Shapes.or(shape, this.shapeByPart.get(Direction.WEST));
-                            if (up) shape = Shapes.or(shape, this.shapeByPart.get(Direction.UP));
+                            VoxelShape shape = VoxelShapes.empty();
+                            if (north) shape = VoxelShapes.or(shape, this.shapeByPart.get(Direction.NORTH));
+                            if (south) shape = VoxelShapes.or(shape, this.shapeByPart.get(Direction.SOUTH));
+                            if (east) shape = VoxelShapes.or(shape, this.shapeByPart.get(Direction.EAST));
+                            if (west) shape = VoxelShapes.or(shape, this.shapeByPart.get(Direction.WEST));
+                            if (up) shape = VoxelShapes.or(shape, this.shapeByPart.get(Direction.UP));
                             BlockState blockstate = this.defaultBlockState()
                                     .setValue(UP, up)
                                     .setValue(EAST, east)
@@ -195,7 +198,7 @@ public class RailingBlock extends Block implements BaseBlockPropertyHolder, Simp
     }
 
     @Override
-    protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> pBuilder) {
+    protected void createBlockStateDefinition(StateContainer.Builder<Block, BlockState> pBuilder) {
         pBuilder.add(UP, NORTH, SOUTH, EAST, WEST, SHIFTED, POLE_LOCKED, WATERLOGGED);
     }
 
@@ -205,14 +208,15 @@ public class RailingBlock extends Block implements BaseBlockPropertyHolder, Simp
     }
 
     @Override
-    public RenderShape getRenderShape(BlockState pState) {
-        return RenderShape.MODEL;
+    public BlockRenderType getRenderShape(BlockState pState) {
+        return BlockRenderType.MODEL;
     }
 
     @Override
-    public boolean propagatesSkylightDown(BlockState pState, BlockGetter pReader, BlockPos pPos) {
+    public boolean propagatesSkylightDown(BlockState pState, IBlockReader pReader, BlockPos pPos) {
         return !pState.getValue(WATERLOGGED);
     }
+
     @Override
     public BaseBlockProperty getProperty() {
         return this.property;

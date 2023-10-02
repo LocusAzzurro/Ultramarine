@@ -1,30 +1,30 @@
 package com.voxelutopia.ultramarine.world.entity;
 
 import com.voxelutopia.ultramarine.data.registry.EntityTypeRegistry;
-import net.minecraft.nbt.CompoundTag;
-import net.minecraft.network.protocol.Packet;
-import net.minecraft.network.syncher.EntityDataAccessor;
-import net.minecraft.network.syncher.EntityDataSerializers;
-import net.minecraft.network.syncher.SynchedEntityData;
-import net.minecraft.world.entity.Entity;
-import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.level.Level;
-import net.minecraft.world.phys.Vec3;
-import net.minecraftforge.network.NetworkHooks;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityType;
+import net.minecraft.nbt.CompoundNBT;
+import net.minecraft.network.IPacket;
+import net.minecraft.network.datasync.DataParameter;
+import net.minecraft.network.datasync.DataSerializers;
+import net.minecraft.network.datasync.EntityDataManager;
+import net.minecraft.util.math.vector.Vector3d;
+import net.minecraft.world.World;
+import net.minecraftforge.fml.network.NetworkHooks;
 
 public class SeatEntity extends Entity {
 
     private final int MAX_LIFE = 20;
     private int life;
 
-    private static final EntityDataAccessor<Integer> LIFE = SynchedEntityData.defineId(SeatEntity.class, EntityDataSerializers.INT);
+    private static final DataParameter<Integer> LIFE = EntityDataManager.defineId(SeatEntity.class, DataSerializers.INT);
 
-    public SeatEntity(EntityType<? extends SeatEntity> pEntityType, Level pLevel) {
+    public SeatEntity(EntityType<? extends SeatEntity> pEntityType, World pLevel) {
         super(pEntityType, pLevel);
         this.life = 0;
     }
 
-    public SeatEntity(Level level, Vec3 pos){
+    public SeatEntity(World level, Vector3d pos) {
         this(EntityTypeRegistry.SEAT.get(), level);
         this.moveTo(pos);
     }
@@ -37,11 +37,11 @@ public class SeatEntity extends Entity {
             if (this.getPassengers().isEmpty() || this.level().isEmptyBlock(this.blockPosition())) {
                 this.life++;
             }
-            if (this.life > MAX_LIFE) this.discard();
+            if (this.life > MAX_LIFE) this.remove();
         }
     }
 
-    private Level level() {
+    private World level() {
         return this.level;
     }
 
@@ -61,17 +61,17 @@ public class SeatEntity extends Entity {
     }
 
     @Override
-    protected void readAdditionalSaveData(CompoundTag pCompound) {
+    protected void readAdditionalSaveData(CompoundNBT pCompound) {
         pCompound.getInt("Life");
     }
 
     @Override
-    protected void addAdditionalSaveData(CompoundTag pCompound) {
+    protected void addAdditionalSaveData(CompoundNBT pCompound) {
         pCompound.putInt("Life", life);
     }
 
     @Override
-    public Packet<?> getAddEntityPacket() {
+    public IPacket<?> getAddEntityPacket() {
         return NetworkHooks.getEntitySpawningPacket(this);
     }
 }

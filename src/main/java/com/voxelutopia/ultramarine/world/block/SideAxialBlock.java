@@ -1,24 +1,24 @@
 package com.voxelutopia.ultramarine.world.block;
 
-import net.minecraft.core.BlockPos;
-import net.minecraft.core.Direction;
-import net.minecraft.world.item.context.BlockPlaceContext;
-import net.minecraft.world.level.BlockGetter;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.SimpleWaterloggedBlock;
-import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.block.state.StateDefinition;
-import net.minecraft.world.level.block.state.properties.BlockStateProperties;
-import net.minecraft.world.level.block.state.properties.BooleanProperty;
-import net.minecraft.world.level.material.FluidState;
-import net.minecraft.world.level.material.Fluids;
-import net.minecraft.world.phys.shapes.CollisionContext;
-import net.minecraft.world.phys.shapes.Shapes;
-import net.minecraft.world.phys.shapes.VoxelShape;
+import net.minecraft.block.Block;
+import net.minecraft.block.BlockState;
+import net.minecraft.block.IWaterLoggable;
+import net.minecraft.fluid.FluidState;
+import net.minecraft.fluid.Fluids;
+import net.minecraft.item.BlockItemUseContext;
+import net.minecraft.state.BooleanProperty;
+import net.minecraft.state.StateContainer;
+import net.minecraft.state.properties.BlockStateProperties;
+import net.minecraft.util.Direction;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.shapes.ISelectionContext;
+import net.minecraft.util.math.shapes.VoxelShape;
+import net.minecraft.util.math.shapes.VoxelShapes;
+import net.minecraft.world.IBlockReader;
 
 import java.util.Map;
 
-public class SideAxialBlock extends BaseHorizontalDirectionalBlock implements AxialBlock, SimpleWaterloggedBlock {
+public class SideAxialBlock extends BaseHorizontalDirectionalBlock implements AxialBlock, IWaterLoggable {
 
     public static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
     protected Map<Direction.Axis, VoxelShape> shapeByAxis;
@@ -29,7 +29,7 @@ public class SideAxialBlock extends BaseHorizontalDirectionalBlock implements Ax
 
     public SideAxialBlock(BaseBlockProperty property, int thickness, int height, boolean hasCollision) {
         super(property);
-        BlockState state = this.stateDefinition.any()
+        BlockState state = this.getStateDefinition().any()
                 .setValue(WATERLOGGED, Boolean.FALSE)
                 .setValue(FACING, Direction.NORTH);
         this.registerDefaultState(state);
@@ -44,14 +44,14 @@ public class SideAxialBlock extends BaseHorizontalDirectionalBlock implements Ax
     }
 
     @Override
-    public VoxelShape getShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
+    public VoxelShape getShape(BlockState pState, IBlockReader pLevel, BlockPos pPos, ISelectionContext pContext) {
         Direction direction = pState.getValue(FACING);
         if (direction == Direction.EAST || direction == Direction.WEST) return this.shapeByAxis.get(Direction.Axis.X);
         else return this.shapeByAxis.get(Direction.Axis.Z);
     }
 
     @Override
-    public BlockState getStateForPlacement(BlockPlaceContext pContext) {
+    public BlockState getStateForPlacement(BlockItemUseContext pContext) {
         BlockState state = this.defaultBlockState().setValue(WATERLOGGED, pContext.getLevel().getFluidState(pContext.getClickedPos()).getType() == Fluids.WATER);
         return state.setValue(FACING, pContext.getHorizontalDirection().getOpposite());
     }
@@ -62,14 +62,14 @@ public class SideAxialBlock extends BaseHorizontalDirectionalBlock implements Ax
     }
 
     @Override
-    protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> pBuilder) {
+    protected void createBlockStateDefinition(StateContainer.Builder<Block, BlockState> pBuilder) {
         pBuilder.add(WATERLOGGED);
         pBuilder.add(FACING);
     }
 
     @Override
-    public VoxelShape getCollisionShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
-        return hasCollision ? this.getShape(pState, pLevel, pPos, pContext) : Shapes.empty();
+    public VoxelShape getCollisionShape(BlockState pState, IBlockReader pLevel, BlockPos pPos, ISelectionContext pContext) {
+        return hasCollision ? this.getShape(pState, pLevel, pPos, pContext) : VoxelShapes.empty();
     }
 
     @Override

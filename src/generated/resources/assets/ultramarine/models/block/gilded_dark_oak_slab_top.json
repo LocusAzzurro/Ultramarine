@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/slab_top",
-  "textures": {
-    "side": "ultramarine:block/gilded_dark_oak_slab_side",
-    "bottom": "ultramarine:block/gilded_dark_oak",
-    "top": "ultramarine:block/gilded_dark_oak"
-  }
-}

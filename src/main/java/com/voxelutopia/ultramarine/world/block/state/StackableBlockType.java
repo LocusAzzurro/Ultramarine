@@ -1,15 +1,14 @@
 package com.voxelutopia.ultramarine.world.block.state;
 
-import com.voxelutopia.ultramarine.world.block.StackableHalfBlock;
-import net.minecraft.util.StringRepresentable;
+import net.minecraft.util.IStringSerializable;
 
-public enum StackableBlockType implements StringRepresentable {
+public enum StackableBlockType implements IStringSerializable {
     SINGLE("single"),
     DOUBLE("double");
 
     private final String name;
 
-    StackableBlockType(String name){
+    StackableBlockType(String name) {
         this.name = name;
     }
 

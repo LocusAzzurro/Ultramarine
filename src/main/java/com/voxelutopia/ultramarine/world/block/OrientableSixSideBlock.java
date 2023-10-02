@@ -1,18 +1,18 @@
 package com.voxelutopia.ultramarine.world.block;
 
 import com.voxelutopia.ultramarine.world.block.state.ModBlockStateProperties;
-import net.minecraft.core.Direction;
-import net.minecraft.world.item.context.BlockPlaceContext;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.block.state.StateDefinition;
-import net.minecraft.world.level.block.state.properties.BlockStateProperties;
-import net.minecraft.world.level.block.state.properties.DirectionProperty;
-import net.minecraft.world.level.material.Fluids;
+import net.minecraft.block.Block;
+import net.minecraft.block.BlockState;
+import net.minecraft.fluid.Fluids;
+import net.minecraft.item.BlockItemUseContext;
+import net.minecraft.state.DirectionProperty;
+import net.minecraft.state.StateContainer;
+import net.minecraft.state.properties.BlockStateProperties;
+import net.minecraft.util.Direction;
 
 import java.util.Arrays;
 
-public class OrientableSixSideBlock extends SixSideBlock implements SideBlock{
+public class OrientableSixSideBlock extends SixSideBlock implements SideBlock {
 
     public static final DirectionProperty FACING = BlockStateProperties.FACING;
     public static final DirectionProperty DIRECTION = ModBlockStateProperties.ON_FACE_DIRECTION;
@@ -31,7 +31,7 @@ public class OrientableSixSideBlock extends SixSideBlock implements SideBlock{
     }
 
     @Override
-    public BlockState getStateForPlacement(BlockPlaceContext pContext) {
+    public BlockState getStateForPlacement(BlockItemUseContext pContext) {
         Direction face = pContext.getClickedFace();
         Direction direction = Arrays.stream(pContext.getNearestLookingDirections()).filter(dir -> dir != face && dir != face.getOpposite()).findFirst().orElse(Direction.EAST);
         return this.defaultBlockState()
@@ -39,10 +39,9 @@ public class OrientableSixSideBlock extends SixSideBlock implements SideBlock{
                 .setValue(FACING, face).setValue(DIRECTION, direction);
     }
 
-    protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> pBuilder) {
-        pBuilder.add(FACING, DIRECTION, WATERLOGGED);
+    protected void createBlockStateDefinition(StateContainer.Builder<Block, BlockState> pBuilder) {
+        pBuilder.add(FACING);
+        pBuilder.add(DIRECTION);
+        pBuilder.add(WATERLOGGED);
     }
-
-
-
 }

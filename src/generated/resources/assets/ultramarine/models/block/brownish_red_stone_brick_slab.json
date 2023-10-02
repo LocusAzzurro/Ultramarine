@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/slab",
-  "textures": {
-    "side": "ultramarine:block/brownish_red_stone_bricks",
-    "bottom": "ultramarine:block/brownish_red_stone_bricks",
-    "top": "ultramarine:block/brownish_red_stone_bricks"
-  }
-}

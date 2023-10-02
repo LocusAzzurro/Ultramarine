@@ -1,4 +1,3 @@
-
 modLoader="javafml"
 loaderVersion="${loader_version_range}"
 license="source and binary under BSD-3, assets under CC-BY-NC 4.0"

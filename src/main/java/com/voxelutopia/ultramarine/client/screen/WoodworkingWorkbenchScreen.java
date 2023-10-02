@@ -1,22 +1,21 @@
 package com.voxelutopia.ultramarine.client.screen;
 
+import com.mojang.blaze3d.matrix.MatrixStack;
 import com.mojang.blaze3d.systems.RenderSystem;
-import com.mojang.blaze3d.vertex.PoseStack;
 import com.voxelutopia.ultramarine.data.recipe.WoodworkingRecipe;
 import com.voxelutopia.ultramarine.world.block.menu.WoodworkingWorkbenchMenu;
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
-import net.minecraft.client.renderer.GameRenderer;
-import net.minecraft.client.resources.sounds.SimpleSoundInstance;
-import net.minecraft.network.chat.Component;
-import net.minecraft.resources.ResourceLocation;
-import net.minecraft.sounds.SoundEvents;
-import net.minecraft.util.Mth;
-import net.minecraft.world.entity.player.Inventory;
+import net.minecraft.client.audio.SimpleSound;
+import net.minecraft.client.gui.screen.inventory.ContainerScreen;
+import net.minecraft.entity.player.PlayerInventory;
+import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.SoundEvents;
+import net.minecraft.util.math.MathHelper;
+import net.minecraft.util.text.ITextComponent;
 
 import java.util.List;
 
-public class WoodworkingWorkbenchScreen extends AbstractContainerScreen<WoodworkingWorkbenchMenu> {
+public class WoodworkingWorkbenchScreen extends ContainerScreen<WoodworkingWorkbenchMenu> {
     private static final ResourceLocation BG_LOCATION = new ResourceLocation("textures/gui/container/stonecutter.png");
     private static final int SCROLLER_WIDTH = 12;
     private static final int SCROLLER_HEIGHT = 15;
@@ -32,26 +31,25 @@ public class WoodworkingWorkbenchScreen extends AbstractContainerScreen<Woodwork
     private int startIndex;
     private boolean displayRecipes;
 
-    public WoodworkingWorkbenchScreen(WoodworkingWorkbenchMenu pMenu, Inventory pPlayerInventory, Component pTitle) {
+    public WoodworkingWorkbenchScreen(WoodworkingWorkbenchMenu pMenu, PlayerInventory pPlayerInventory, ITextComponent pTitle) {
         super(pMenu, pPlayerInventory, pTitle);
         pMenu.registerUpdateListener(this::containerChanged);
         --this.titleLabelY;
     }
 
-    public void render(PoseStack pPoseStack, int pMouseX, int pMouseY, float pPartialTick) {
+    public void render(MatrixStack pPoseStack, int pMouseX, int pMouseY, float pPartialTick) {
         super.render(pPoseStack, pMouseX, pMouseY, pPartialTick);
         this.renderTooltip(pPoseStack, pMouseX, pMouseY);
     }
 
-    protected void renderBg(PoseStack pPoseStack, float pPartialTick, int pX, int pY) {
+    protected void renderBg(MatrixStack pPoseStack, float pPartialTick, int pX, int pY) {
         this.renderBackground(pPoseStack);
-        RenderSystem.setShader(GameRenderer::getPositionTexShader);
-        RenderSystem.setShaderColor(1.0F, 1.0F, 1.0F, 1.0F);
-        RenderSystem.setShaderTexture(0, BG_LOCATION);
+        RenderSystem.color4f(1.0F, 1.0F, 1.0F, 1.0F);
+        this.getMinecraft().getTextureManager().bind(BG_LOCATION);
         int i = this.leftPos;
         int j = this.topPos;
         this.blit(pPoseStack, i, j, 0, 0, this.imageWidth, this.imageHeight);
-        int k = (int)(41.0F * this.scrollOffs);
+        int k = (int) (41.0F * this.scrollOffs);
         this.blit(pPoseStack, i + 119, j + 15 + k, 176 + (this.isScrollBarActive() ? 0 : 12), 0, 12, 15);
         int l = this.leftPos + 52;
         int i1 = this.topPos + 14;
@@ -60,7 +58,7 @@ public class WoodworkingWorkbenchScreen extends AbstractContainerScreen<Woodwork
         this.renderRecipes(l, i1, j1);
     }
 
-    protected void renderTooltip(PoseStack pPoseStack, int pX, int pY) {
+    protected void renderTooltip(MatrixStack pPoseStack, int pX, int pY) {
         super.renderTooltip(pPoseStack, pX, pY);
         if (this.displayRecipes) {
             int i = this.leftPos + 52;
@@ -68,7 +66,7 @@ public class WoodworkingWorkbenchScreen extends AbstractContainerScreen<Woodwork
             int k = this.startIndex + 12;
             List<WoodworkingRecipe> list = this.menu.getRecipes();
 
-            for(int l = this.startIndex; l < k && l < this.menu.getNumRecipes(); ++l) {
+            for (int l = this.startIndex; l < k && l < this.menu.getNumRecipes(); ++l) {
                 int i1 = l - this.startIndex;
                 int j1 = i + i1 % 4 * 16;
                 int k1 = j + i1 / 4 * 18 + 2;
@@ -80,8 +78,8 @@ public class WoodworkingWorkbenchScreen extends AbstractContainerScreen<Woodwork
 
     }
 
-    private void renderButtons(PoseStack pPoseStack, int pMouseX, int pMouseY, int pX, int pY, int pLastVisibleElementIndex) {
-        for(int i = this.startIndex; i < pLastVisibleElementIndex && i < this.menu.getNumRecipes(); ++i) {
+    private void renderButtons(MatrixStack pPoseStack, int pMouseX, int pMouseY, int pX, int pY, int pLastVisibleElementIndex) {
+        for (int i = this.startIndex; i < pLastVisibleElementIndex && i < this.menu.getNumRecipes(); ++i) {
             int j = i - this.startIndex;
             int k = pX + j % 4 * 16;
             int l = j / 4;
@@ -101,7 +99,7 @@ public class WoodworkingWorkbenchScreen extends AbstractContainerScreen<Woodwork
     private void renderRecipes(int pLeft, int pTop, int pRecipeIndexOffsetMax) {
         List<WoodworkingRecipe> list = this.menu.getRecipes();
 
-        for(int i = this.startIndex; i < pRecipeIndexOffsetMax && i < this.menu.getNumRecipes(); ++i) {
+        for (int i = this.startIndex; i < pRecipeIndexOffsetMax && i < this.menu.getNumRecipes(); ++i) {
             int j = i - this.startIndex;
             int k = pLeft + j % 4 * 16;
             int l = j / 4;
@@ -118,12 +116,12 @@ public class WoodworkingWorkbenchScreen extends AbstractContainerScreen<Woodwork
             int j = this.topPos + 14;
             int k = this.startIndex + 12;
 
-            for(int l = this.startIndex; l < k; ++l) {
+            for (int l = this.startIndex; l < k; ++l) {
                 int i1 = l - this.startIndex;
-                double d0 = pMouseX - (double)(i + i1 % 4 * 16);
-                double d1 = pMouseY - (double)(j + i1 / 4 * 18);
+                double d0 = pMouseX - (double) (i + i1 % 4 * 16);
+                double d1 = pMouseY - (double) (j + i1 / 4 * 18);
                 if (d0 >= 0.0D && d1 >= 0.0D && d0 < 16.0D && d1 < 18.0D && this.menu.clickMenuButton(this.minecraft.player, l)) {
-                    Minecraft.getInstance().getSoundManager().play(SimpleSoundInstance.forUI(SoundEvents.UI_STONECUTTER_SELECT_RECIPE, 1.0F));
+                    Minecraft.getInstance().getSoundManager().play(SimpleSound.forUI(SoundEvents.UI_STONECUTTER_SELECT_RECIPE, 1.0F));
                     this.minecraft.gameMode.handleInventoryButtonClick((this.menu).containerId, l);
                     return true;
                 }
@@ -131,7 +129,7 @@ public class WoodworkingWorkbenchScreen extends AbstractContainerScreen<Woodwork
 
             i = this.leftPos + 119;
             j = this.topPos + 9;
-            if (pMouseX >= (double)i && pMouseX < (double)(i + 12) && pMouseY >= (double)j && pMouseY < (double)(j + 54)) {
+            if (pMouseX >= (double) i && pMouseX < (double) (i + 12) && pMouseY >= (double) j && pMouseY < (double) (j + 54)) {
                 this.scrolling = true;
             }
         }
@@ -143,9 +141,9 @@ public class WoodworkingWorkbenchScreen extends AbstractContainerScreen<Woodwork
         if (this.scrolling && this.isScrollBarActive()) {
             int i = this.topPos + 14;
             int j = i + 54;
-            this.scrollOffs = ((float)pMouseY - (float)i - 7.5F) / ((float)(j - i) - 15.0F);
-            this.scrollOffs = Mth.clamp(this.scrollOffs, 0.0F, 1.0F);
-            this.startIndex = (int)((double)(this.scrollOffs * (float)this.getOffscreenRows()) + 0.5D) * 4;
+            this.scrollOffs = ((float) pMouseY - (float) i - 7.5F) / ((float) (j - i) - 15.0F);
+            this.scrollOffs = MathHelper.clamp(this.scrollOffs, 0.0F, 1.0F);
+            this.startIndex = (int) ((double) (this.scrollOffs * (float) this.getOffscreenRows()) + 0.5D) * 4;
             return true;
         } else {
             return super.mouseDragged(pMouseX, pMouseY, pButton, pDragX, pDragY);
@@ -155,9 +153,9 @@ public class WoodworkingWorkbenchScreen extends AbstractContainerScreen<Woodwork
     public boolean mouseScrolled(double pMouseX, double pMouseY, double pDelta) {
         if (this.isScrollBarActive()) {
             int i = this.getOffscreenRows();
-            float f = (float)pDelta / (float)i;
-            this.scrollOffs = Mth.clamp(this.scrollOffs - f, 0.0F, 1.0F);
-            this.startIndex = (int)((double)(this.scrollOffs * (float)i) + 0.5D) * 4;
+            float f = (float) pDelta / (float) i;
+            this.scrollOffs = MathHelper.clamp(this.scrollOffs - f, 0.0F, 1.0F);
+            this.startIndex = (int) ((double) (this.scrollOffs * (float) i) + 0.5D) * 4;
         }
 
         return true;

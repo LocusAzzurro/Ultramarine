@@ -1,26 +1,25 @@
 package com.voxelutopia.ultramarine.world.block.entity;
 
 import com.voxelutopia.ultramarine.data.registry.BlockEntityRegistry;
-import net.minecraft.core.BlockPos;
-import net.minecraft.core.Registry;
-import net.minecraft.nbt.CompoundTag;
-import net.minecraft.world.item.alchemy.Potion;
-import net.minecraft.world.item.alchemy.Potions;
-import net.minecraft.world.level.block.entity.BlockEntity;
-import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.block.BlockState;
+import net.minecraft.nbt.CompoundNBT;
+import net.minecraft.potion.Potion;
+import net.minecraft.potion.Potions;
+import net.minecraft.tileentity.TileEntity;
 import net.minecraftforge.registries.ForgeRegistries;
 
 import java.util.Optional;
 
-public class BottleGourdBlockEntity extends BlockEntity {
+public class BottleGourdBlockEntity extends TileEntity {
 
     public static final int MAX_CHARGE = 6;
 
     private Potion potion;
     private int charges;
     private boolean filled;
-    public BottleGourdBlockEntity(BlockPos pos, BlockState state) {
-        super(BlockEntityRegistry.BOTTLE_GOURD.get(), pos, state);
+
+    public BottleGourdBlockEntity() {
+        super(BlockEntityRegistry.BOTTLE_GOURD.get());
     }
 
     public boolean addPotionCharge(Potion potion) {
@@ -29,15 +28,14 @@ public class BottleGourdBlockEntity extends BlockEntity {
             this.charges = 1;
             this.filled = true;
             return true;
-        }
-        else if (potion.equals(this.potion) && this.charges < MAX_CHARGE){
+        } else if (potion.equals(this.potion) && this.charges < MAX_CHARGE) {
             this.charges++;
             return true;
         }
         return false;
     }
 
-    public Optional<Potion> takePotionCharge(){
+    public Optional<Potion> takePotionCharge() {
         if (!filled || charges <= 0 || this.potion.equals(Potions.EMPTY)) return Optional.empty();
         else {
             Potion charge = this.potion;
@@ -50,7 +48,7 @@ public class BottleGourdBlockEntity extends BlockEntity {
         }
     }
 
-    public boolean hasCharges(){
+    public boolean hasCharges() {
         return (filled && charges > 0 && !potion.equals(Potions.EMPTY));
     }
 
@@ -63,19 +61,20 @@ public class BottleGourdBlockEntity extends BlockEntity {
     }
 
     @Override
-    public void load(CompoundTag pTag) {
-        super.load(pTag);
+    public void load(BlockState state, CompoundNBT pTag) {
+        super.load(state, pTag);
         this.potion = Potion.byName(pTag.getString("Potion"));
         this.charges = pTag.getInt("Charges");
         this.filled = pTag.getBoolean("Filled");
     }
 
     @Override
-    protected void saveAdditional(CompoundTag pTag) {
-        super.saveAdditional(pTag);
-        pTag.putString("Potion", ForgeRegistries.POTIONS.getKey(this.potion).toString());
+    public CompoundNBT save(CompoundNBT pTag) {
+        super.save(pTag);
+        pTag.putString("Potion", ForgeRegistries.POTION_TYPES.getKey(this.potion).toString());
         pTag.putInt("Charges", this.charges);
         pTag.putBoolean("Filled", this.filled);
+        return pTag;
     }
 
 }

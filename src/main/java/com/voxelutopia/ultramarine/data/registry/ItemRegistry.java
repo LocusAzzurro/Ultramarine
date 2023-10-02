@@ -6,13 +6,13 @@ import com.voxelutopia.ultramarine.data.ModFoods;
 import com.voxelutopia.ultramarine.world.item.AquaticPlantBlockItem;
 import com.voxelutopia.ultramarine.world.item.BaseFood;
 import com.voxelutopia.ultramarine.world.item.WoodenHammer;
-import net.minecraft.world.food.FoodProperties;
-import net.minecraft.world.item.BlockItem;
-import net.minecraft.world.item.Item;
-import net.minecraft.world.level.block.Block;
+import net.minecraft.block.Block;
+import net.minecraft.item.BlockItem;
+import net.minecraft.item.Food;
+import net.minecraft.item.Item;
+import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
-import net.minecraftforge.registries.RegistryObject;
 
 @SuppressWarnings("unused")
 public class ItemRegistry {
@@ -20,7 +20,7 @@ public class ItemRegistry {
     public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, Ultramarine.MOD_ID);
 
     /**
-     *  BUILDING BLOCKS
+     * BUILDING BLOCKS
      */
 
     // BRICKS
@@ -136,7 +136,7 @@ public class ItemRegistry {
     public static final RegistryObject<Item> YELLOW_MAIN_ROOF_RIDGE_STAIRS = fromBlock(BlockRegistry.YELLOW_MAIN_ROOF_RIDGE_STAIRS, ModCreativeTab.BUILDING_BLOCKS);
 
     /**
-     *  DECORATIVE BLOCKS
+     * DECORATIVE BLOCKS
      */
 
     // SIMPLE CARVED WOOD
@@ -385,7 +385,7 @@ public class ItemRegistry {
     public static final RegistryObject<Item> BOOKSHELF_VARIANT = fromBlock(BlockRegistry.BOOKSHELF_VARIANT, ModCreativeTab.DECORATIVE_BLOCKS);
 
     /**
-     *  DECORATIONS
+     * DECORATIONS
      */
 
     // STUDY
@@ -481,7 +481,7 @@ public class ItemRegistry {
     public static final RegistryObject<Item> XIAOLONGBAO = fromBlock(BlockRegistry.XIAOLONGBAO, ModCreativeTab.DECORATIONS);
 
     /**
-     *  FURNITURE
+     * FURNITURE
      */
 
     // CABINET
@@ -501,7 +501,7 @@ public class ItemRegistry {
     public static final RegistryObject<Item> SMALL_EBONY_TABLE = fromBlock(BlockRegistry.SMALL_EBONY_TABLE, ModCreativeTab.FURNITURE);
     public static final RegistryObject<Item> LARGE_TABLE = fromBlock(BlockRegistry.LARGE_TABLE, ModCreativeTab.FURNITURE);
 
-   // CHAIR
+    // CHAIR
 
     public static final RegistryObject<Item> EBONY_CHAIR = fromBlock(BlockRegistry.EBONY_CHAIR, ModCreativeTab.FURNITURE);
     public static final RegistryObject<Item> CHAIR_WITH_YELLOW_CUSHION = fromBlock(BlockRegistry.CHAIR_WITH_YELLOW_CUSHION, ModCreativeTab.FURNITURE);
@@ -517,7 +517,7 @@ public class ItemRegistry {
     public static final RegistryObject<Item> PAINTED_SCREEN = fromBlock(BlockRegistry.PAINTED_SCREEN, ModCreativeTab.FURNITURE);
 
     /**
-     *  DOOR AND WINDOW
+     * DOOR AND WINDOW
      */
 
     // DOOR
@@ -554,7 +554,7 @@ public class ItemRegistry {
     public static final RegistryObject<Item> BAMBOO_CURTAIN = fromBlock(BlockRegistry.BAMBOO_CURTAIN, ModCreativeTab.WINDOWS_AND_DOORS);
 
     /**
-     *  PLANTS
+     * PLANTS
      */
 
     // LOTUS
@@ -606,7 +606,7 @@ public class ItemRegistry {
     public static final RegistryObject<Item> LARGE_BONSAI = fromBlock(BlockRegistry.LARGE_BONSAI, ModCreativeTab.PLANTS);
 
     /**
-     *  LAMPS
+     * LAMPS
      */
 
     //LANTERN
@@ -631,7 +631,7 @@ public class ItemRegistry {
     public static final RegistryObject<Item> JADE_CANDLESTICK = fromBlock(BlockRegistry.JADE_CANDLESTICK, ModCreativeTab.LAMPS);
 
     /**
-     *  MATERIALS
+     * MATERIALS
      */
 
     // ORE BLOCK
@@ -710,13 +710,13 @@ public class ItemRegistry {
     // FOOD
 
     public static final RegistryObject<Item> MOONCAKE = foodItem("mooncake", ModFoods.MOONCAKE);
-    public static final RegistryObject<Item> MUNG_BEAN_CAKE = foodItem("mung_bean_cake",ModFoods.MUNG_BEAN_CAKE);
-    public static final RegistryObject<Item> RAW_MEAT = foodItem("raw_meat",ModFoods.RAW_MEAT);
-    public static final RegistryObject<Item> COOKED_MEAT = foodItem("cooked_meat",ModFoods.COOKED_MEAT);
-    public static final RegistryObject<Item> BAOZI = foodItem("baozi",ModFoods.BAOZI);
+    public static final RegistryObject<Item> MUNG_BEAN_CAKE = foodItem("mung_bean_cake", ModFoods.MUNG_BEAN_CAKE);
+    public static final RegistryObject<Item> RAW_MEAT = foodItem("raw_meat", ModFoods.RAW_MEAT);
+    public static final RegistryObject<Item> COOKED_MEAT = foodItem("cooked_meat", ModFoods.COOKED_MEAT);
+    public static final RegistryObject<Item> BAOZI = foodItem("baozi", ModFoods.BAOZI);
 
     /**
-     *  TOOLS
+     * TOOLS
      */
 
     public static final RegistryObject<Item> WOODEN_HAMMER = ITEMS.register("wooden_hammer", WoodenHammer::new);
@@ -746,7 +746,7 @@ public class ItemRegistry {
         return registryObject;
     }
 
-    private static RegistryObject<Item> foodItem(String name, FoodProperties food){
+    private static RegistryObject<Item> foodItem(String name, Food food) {
         RegistryObject<Item> registryObject = ITEMS.register(name, () -> new BaseFood(food));
         ModCreativeTab.putItemInSet(registryObject, ModCreativeTab.MATERIALS);
         return registryObject;

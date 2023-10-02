@@ -1,16 +1,15 @@
 package com.voxelutopia.ultramarine.data;
 
 import com.voxelutopia.ultramarine.Ultramarine;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.block.Block;
 import net.minecraft.tags.BlockTags;
-import net.minecraft.tags.TagKey;
-import net.minecraft.world.level.block.Block;
+import net.minecraft.tags.ITag;
+import net.minecraft.util.ResourceLocation;
 
 public class ModBlockTags {
+    public static final ITag.INamedTag<Block> MINEABLE_WITH_SHEARS = modTag("mineable_with_shears");
 
-    public static final TagKey<Block> MINEABLE_WITH_SHEARS = modTag("mineable_with_shears");
-
-    private static TagKey<Block> modTag(String path) {
-        return BlockTags.create(new ResourceLocation(Ultramarine.MOD_ID, path));
+    private static ITag.INamedTag<Block> modTag(String path) {
+        return BlockTags.createOptional(new ResourceLocation(Ultramarine.MOD_ID, path));
     }
 }

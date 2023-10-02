@@ -3,32 +3,33 @@ package com.voxelutopia.ultramarine.world.block.entity;
 import com.voxelutopia.ultramarine.data.registry.BlockEntityRegistry;
 import com.voxelutopia.ultramarine.world.block.ContainerDecorativeBlock;
 import com.voxelutopia.ultramarine.world.block.menu.ContainerDecorativeBlockMenu;
-import net.minecraft.core.BlockPos;
-import net.minecraft.core.NonNullList;
-import net.minecraft.core.Registry;
-import net.minecraft.nbt.CompoundTag;
-import net.minecraft.network.chat.Component;
-import net.minecraft.network.chat.TextComponent;
-import net.minecraft.network.chat.TranslatableComponent;
-import net.minecraft.world.ContainerHelper;
-import net.minecraft.world.entity.player.Inventory;
-import net.minecraft.world.inventory.AbstractContainerMenu;
-import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.entity.RandomizableContainerBlockEntity;
-import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.block.Block;
+import net.minecraft.block.BlockState;
+import net.minecraft.entity.player.PlayerInventory;
+import net.minecraft.inventory.ItemStackHelper;
+import net.minecraft.inventory.container.Container;
+import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.CompoundNBT;
+import net.minecraft.tileentity.LockableLootTileEntity;
+import net.minecraft.util.NonNullList;
+import net.minecraft.util.text.ITextComponent;
+import net.minecraft.util.text.TranslationTextComponent;
+import net.minecraftforge.registries.ForgeRegistries;
 
-public class ContainerDecorativeBlockEntity extends RandomizableContainerBlockEntity {
+import java.util.Objects;
+
+public class ContainerDecorativeBlockEntity extends LockableLootTileEntity {
 
     private NonNullList<ItemStack> items;
     private int rows = 3;
     private Block block;
 
-    public ContainerDecorativeBlockEntity(BlockPos pos, BlockState state) {
-        super(BlockEntityRegistry.CONTAINER_DECORATIVE_BLOCK.get(), pos, state);
+    public ContainerDecorativeBlockEntity() {
+        super(BlockEntityRegistry.CONTAINER_DECORATIVE_BLOCK.get());
     }
-    public ContainerDecorativeBlockEntity(BlockPos pos, BlockState state, int rows) {
-        this(pos, state);
+
+    public ContainerDecorativeBlockEntity(BlockState state, int rows) {
+        this();
         block = state.getBlock();
         this.rows = rows;
         this.items = NonNullList.withSize(rows * 9, ItemStack.EMPTY);
@@ -45,14 +46,14 @@ public class ContainerDecorativeBlockEntity extends RandomizableContainerBlockEn
     }
 
     @Override
-    protected Component getDefaultName() {
-        return new TextComponent(new TranslatableComponent("container." +  Registry.BLOCK.getKey(block).getPath()).getString());
+    protected ITextComponent getDefaultName() {
+        return new TranslationTextComponent("container." + Objects.requireNonNull(ForgeRegistries.BLOCKS.getKey(block)).getPath());
     }
 
     @Override
-    protected AbstractContainerMenu createMenu(int pContainerId, Inventory pInventory) {
-        if (block instanceof ContainerDecorativeBlock container){
-            return container.getContainerType().createMenu(pContainerId, pInventory, this);
+    protected Container createMenu(int pContainerId, PlayerInventory pInventory) {
+        if (block instanceof ContainerDecorativeBlock) {
+            return ((ContainerDecorativeBlock) block).getContainerType().createMenu(pContainerId, pInventory, this);
         }
         return ContainerDecorativeBlockMenu.genericThreeRows(pContainerId, pInventory, this);
     }
@@ -63,19 +64,20 @@ public class ContainerDecorativeBlockEntity extends RandomizableContainerBlockEn
     }
 
     @Override
-    protected void saveAdditional(CompoundTag nbt) {
-        super.saveAdditional(nbt);
+    public CompoundNBT save(CompoundNBT nbt) {
+        super.save(nbt);
         if (!this.trySaveLootTable(nbt)) {
-            ContainerHelper.saveAllItems(nbt, this.items);
+            ItemStackHelper.saveAllItems(nbt, this.items);
         }
+        return nbt;
     }
 
     @Override
-    public void load(CompoundTag nbt) {
-        super.load(nbt);
+    public void load(BlockState state, CompoundNBT nbt) {
+        super.load(state, nbt);
         this.items = NonNullList.withSize(this.getContainerSize(), ItemStack.EMPTY);
         if (!this.tryLoadLootTable(nbt)) {
-            ContainerHelper.loadAllItems(nbt, this.items);
+            ItemStackHelper.loadAllItems(nbt, this.items);
         }
     }
 }

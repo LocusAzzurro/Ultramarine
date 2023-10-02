@@ -2,13 +2,11 @@ package com.voxelutopia.ultramarine.datagen;
 
 import com.voxelutopia.ultramarine.data.ModItemTags;
 import com.voxelutopia.ultramarine.data.registry.ItemRegistry;
+import net.minecraft.data.BlockTagsProvider;
 import net.minecraft.data.DataGenerator;
-import net.minecraft.data.tags.BlockTagsProvider;
-import net.minecraft.data.tags.ItemTagsProvider;
+import net.minecraft.data.ItemTagsProvider;
 import net.minecraft.tags.ItemTags;
-import net.minecraft.world.item.Item;
 import net.minecraftforge.common.data.ExistingFileHelper;
-import org.jetbrains.annotations.NotNull;
 
 public class ModItemTagProvider extends ItemTagsProvider {
 
@@ -33,7 +31,7 @@ public class ModItemTagProvider extends ItemTagsProvider {
                 .add(ItemRegistry.POLISHED_EBONY_PLANK.get());
 
     }
-    @NotNull
+
     @Override
     public String getName() {
         return DataGenerators.MOD_ID + " Item Tags";

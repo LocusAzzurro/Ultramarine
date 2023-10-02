@@ -1,49 +1,48 @@
 package com.voxelutopia.ultramarine.world.block;
 
-import net.minecraft.core.BlockPos;
-import net.minecraft.core.particles.ParticleTypes;
-import net.minecraft.world.InteractionHand;
-import net.minecraft.world.InteractionResult;
-import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Items;
-import net.minecraft.world.item.context.BlockPlaceContext;
-import net.minecraft.world.level.Level;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.phys.BlockHitResult;
-import net.minecraft.world.phys.Vec3;
-import org.jetbrains.annotations.NotNull;
+import net.minecraft.block.BlockState;
+import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.BlockItemUseContext;
+import net.minecraft.item.ItemStack;
+import net.minecraft.item.Items;
+import net.minecraft.particles.ParticleTypes;
+import net.minecraft.util.ActionResultType;
+import net.minecraft.util.Hand;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.BlockRayTraceResult;
+import net.minecraft.util.math.vector.Vector3d;
+import net.minecraft.world.World;
 
 import java.util.Random;
 
-public class CandleStick extends DecorativeBlock{
+public class CandleStick extends DecorativeBlock {
 
-    private final Vec3 flameOffset;
-    public CandleStick(Builder builder, Vec3 flameOffset) {
+    private final Vector3d flameOffset;
+
+    public CandleStick(Builder builder, Vector3d flameOffset) {
         super(builder);
         this.flameOffset = flameOffset;
     }
 
     @Override
-    public @NotNull BlockState getStateForPlacement(BlockPlaceContext pContext) {
+    public BlockState getStateForPlacement(BlockItemUseContext pContext) {
         BlockState state = super.getStateForPlacement(pContext);
         return isLuminous() ? state.setValue(LIT, false) : state;
     }
 
     @Override
-    public InteractionResult use(BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, InteractionHand pHand, BlockHitResult pHit) {
+    public ActionResultType use(BlockState pState, World pLevel, BlockPos pPos, PlayerEntity pPlayer, Hand pHand, BlockRayTraceResult pHit) {
         ItemStack item = pPlayer.getItemInHand(pHand);
-        if (item.is(Items.FLINT_AND_STEEL) && pState.hasProperty(LIT) && !pState.getValue(LIT)){
+        if (item.getItem().equals(Items.FLINT_AND_STEEL) && pState.hasProperty(LIT) && !pState.getValue(LIT)) {
             item.hurtAndBreak(1, pPlayer, p -> p.broadcastBreakEvent(pHand));
-            pLevel.setBlock(pPos, pState.setValue(LIT, true), Block.UPDATE_ALL);
-            return InteractionResult.sidedSuccess(pLevel.isClientSide);
+            pLevel.setBlock(pPos, pState.setValue(LIT, true), 3);
+            return ActionResultType.sidedSuccess(pLevel.isClientSide);
         }
-        return InteractionResult.PASS;
+        return ActionResultType.PASS;
     }
 
     @Override
-    public void animateTick(BlockState pState, Level pLevel, BlockPos pPos, Random pRandom) {
+    public void animateTick(BlockState pState, World pLevel, BlockPos pPos, Random pRandom) {
         super.animateTick(pState, pLevel, pPos, pRandom);
         if (!pState.hasProperty(LIT) || !pState.getValue(LIT)) return;
         if (pLevel.getGameTime() % (2 - pRandom.nextInt(1)) == 0) {

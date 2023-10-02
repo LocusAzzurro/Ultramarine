@@ -1,17 +1,16 @@
 package com.voxelutopia.ultramarine.world.item;
 
-import com.voxelutopia.ultramarine.data.ModCreativeTab;
-import net.minecraft.world.InteractionHand;
-import net.minecraft.world.InteractionResult;
-import net.minecraft.world.InteractionResultHolder;
-import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.BlockItem;
-import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.context.UseOnContext;
-import net.minecraft.world.level.ClipContext;
-import net.minecraft.world.level.Level;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.phys.BlockHitResult;
+import net.minecraft.block.Block;
+import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.BlockItem;
+import net.minecraft.item.ItemStack;
+import net.minecraft.item.ItemUseContext;
+import net.minecraft.util.ActionResult;
+import net.minecraft.util.ActionResultType;
+import net.minecraft.util.Hand;
+import net.minecraft.util.math.BlockRayTraceResult;
+import net.minecraft.util.math.RayTraceContext;
+import net.minecraft.world.World;
 
 public class AquaticPlantBlockItem extends BlockItem {
 
@@ -20,15 +19,15 @@ public class AquaticPlantBlockItem extends BlockItem {
     }
 
     @Override
-    public InteractionResult useOn(UseOnContext pContext) {
-        return InteractionResult.PASS;
+    public ActionResultType useOn(ItemUseContext ctx) {
+        return ActionResultType.PASS;
     }
 
     @Override
-    public InteractionResultHolder<ItemStack> use(Level pLevel, Player pPlayer, InteractionHand pHand) {
-        BlockHitResult blockhitresult = getPlayerPOVHitResult(pLevel, pPlayer, ClipContext.Fluid.SOURCE_ONLY);
-        BlockHitResult blockhitresult1 = blockhitresult.withPosition(blockhitresult.getBlockPos().above());
-        InteractionResult interactionresult = super.useOn(new UseOnContext(pPlayer, pHand, blockhitresult1));
-        return new InteractionResultHolder<>(interactionresult, pPlayer.getItemInHand(pHand));
+    public ActionResult<ItemStack> use(World pLevel, PlayerEntity pPlayer, Hand pHand) {
+        BlockRayTraceResult result = getPlayerPOVHitResult(pLevel, pPlayer, RayTraceContext.FluidMode.SOURCE_ONLY);
+        BlockRayTraceResult result1 = result.withPosition(result.getBlockPos().above());
+        ActionResultType type = super.useOn(new ItemUseContext(pPlayer, pHand, result1));
+        return new ActionResult<>(type, pPlayer.getItemInHand(pHand));
     }
 }

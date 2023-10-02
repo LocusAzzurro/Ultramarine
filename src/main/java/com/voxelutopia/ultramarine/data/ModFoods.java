@@ -1,20 +1,20 @@
 package com.voxelutopia.ultramarine.data;
 
-import net.minecraft.world.effect.MobEffectInstance;
-import net.minecraft.world.effect.MobEffects;
-import net.minecraft.world.food.FoodProperties;
+import net.minecraft.item.Food;
+import net.minecraft.potion.EffectInstance;
+import net.minecraft.potion.Effects;
 
 public class ModFoods {
 
-    public static final FoodProperties MOONCAKE = (new FoodProperties.Builder()).nutrition(2).saturationMod(0.1F).build();
-    public static final FoodProperties MUNG_BEAN_CAKE = (new FoodProperties.Builder()).nutrition(2).saturationMod(0.1F).build();
-    public static final FoodProperties RAW_MEAT = (new FoodProperties.Builder()).nutrition(2).saturationMod(0.2F)
-            .effect(() -> new MobEffectInstance(MobEffects.HUNGER, 300, 0), 0.8F)
+    public static final Food MOONCAKE = (new Food.Builder()).nutrition(2).saturationMod(0.1F).build();
+    public static final Food MUNG_BEAN_CAKE = (new Food.Builder()).nutrition(2).saturationMod(0.1F).build();
+    public static final Food RAW_MEAT = (new Food.Builder()).nutrition(2).saturationMod(0.2F)
+            .effect(() -> new EffectInstance(Effects.HUNGER, 300, 0), 0.8F)
             .build();
-    public static final FoodProperties COOKED_MEAT = (new FoodProperties.Builder()).nutrition(4).saturationMod(0.5F).build();
-    public static final FoodProperties BAOZI = (new FoodProperties.Builder()).nutrition(2).saturationMod(1.0F).build();
-    public static final FoodProperties FISH = (new FoodProperties.Builder()).nutrition(2).saturationMod(0.2F)
-            .effect(() -> new MobEffectInstance(MobEffects.HUNGER, 300, 0), 0.6F)
-            .effect(() -> new MobEffectInstance(MobEffects.POISON, 200, 0), 0.4F)
+    public static final Food COOKED_MEAT = (new Food.Builder()).nutrition(4).saturationMod(0.5F).build();
+    public static final Food BAOZI = (new Food.Builder()).nutrition(2).saturationMod(1.0F).build();
+    public static final Food FISH = (new Food.Builder()).nutrition(2).saturationMod(0.2F)
+            .effect(() -> new EffectInstance(Effects.HUNGER, 300, 0), 0.6F)
+            .effect(() -> new EffectInstance(Effects.POISON, 200, 0), 0.4F)
             .build();
 }

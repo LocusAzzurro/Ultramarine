@@ -1,8 +1,8 @@
 package com.voxelutopia.ultramarine.world.block.state;
 
-import net.minecraft.util.StringRepresentable;
+import net.minecraft.util.IStringSerializable;
 
-public enum ChiralBlockType implements StringRepresentable {
+public enum ChiralBlockType implements IStringSerializable {
     LEFT("left", 1),
     RIGHT("right", 0),
     TOP("top", 3),

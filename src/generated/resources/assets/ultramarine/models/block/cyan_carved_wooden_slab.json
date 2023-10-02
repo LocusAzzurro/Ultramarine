@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/slab",
-  "textures": {
-    "side": "ultramarine:block/cyan_carved_wooden_slab_side",
-    "bottom": "ultramarine:block/cyan_carved_wood",
-    "top": "ultramarine:block/cyan_carved_wood"
-  }
-}
