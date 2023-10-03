@@ -18,7 +18,7 @@
   "environment": "*",
   "entrypoints": {
     "client": [
-      "com.nova.mods.avaritia.client.AvaritiaClient"
+      "com.voxelutopia.ultramarine.client.UltramarineClient"
     ],
     "main": [
       "com.voxelutopia.ultramarine.Ultramarine"

@@ -41,7 +41,7 @@ dependencies {
     modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
 
     //modImplementation "io.github.moremcmeta:moremcmeta-fabric:${project.moremcmeta_version}"
-
+    include(implementation(annotationProcessor("io.github.llamalad7:mixinextras-fabric:${mixin_extra_version}")))
 
     modCompileOnly "me.shedaniel:RoughlyEnoughItems-api-fabric:${rei_version}"
     modCompileOnly "me.shedaniel:RoughlyEnoughItems-default-plugin-fabric:${rei_version}"

@@ -1,18 +1,11 @@
 package com.voxelutopia.ultramarine;
 
-import com.mojang.logging.LogUtils;
-import com.voxelutopia.ultramarine.data.registry.*;
+import com.voxelutopia.ultramarine.init.event.VillagerTradingManager;
+import com.voxelutopia.ultramarine.init.handler.CommonEventHandler;
+import com.voxelutopia.ultramarine.init.registry.*;
 import net.fabricmc.api.ModInitializer;
-import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.eventbus.api.IEventBus;
-import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
-import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
-import org.apache.logging.log4j.Level;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
-import java.util.logging.LogManager;
 
 public class Ultramarine implements ModInitializer {
 
@@ -35,31 +28,22 @@ public class Ultramarine implements ModInitializer {
 
     @Override
     public void onInitialize() {
+        BlockRegistry.registerModBlocks();
+        ItemRegistry.registerModItems();
+        BlockEntityRegistry.registerModBlockEntities();
+        EntityTypeRegistry.registerModEntities();
+        VillagerProfessionRegistry.registerModVillagerProfession();
+        PoiTypeRegistry.registerModPOI();
+        MenuTypeRegistry.registerModMenus();
+        RecipeTypeRegistry.registerModRecipeTypes();
+        RecipeSerializerRegistry.registerModRecipeSerializers();
+        SoundRegistry.registerModSounds();
+        VillagerTradingManager.loadTrades();
 
-    }
-    public Ultramarine() {
 
-        IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
-        BlockRegistry.BLOCKS.register(bus);
-        ItemRegistry.ITEMS.register(bus);
-        BlockEntityRegistry.BLOCK_ENTITIES.register(bus);
-        EntityTypeRegistry.ENTITIES.register(bus);
-        VillagerProfessionRegistry.PROFESSIONS.register(bus);
-        PoiTypeRegistry.POI_TYPES.register(bus);
-        MenuTypeRegistry.MENU_TYPES.register(bus);
-        RecipeTypeRegistry.RECIPE_TYPES.register(bus);
-        RecipeSerializerRegistry.RECIPE_SERIALIZERS.register(bus);
-        SoundRegistry.SOUND_EVENT.register(bus);
-
-        FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setup);
-        MinecraftForge.EVENT_BUS.register(this);
+        CommonEventHandler.init();
     }
 
     public static Logger getLogger() {return LOGGER;}
-
-    private void setup(final FMLCommonSetupEvent event) {
-        LOGGER.info("Ultramarine Mod Loading...");
-    }
-
 
 }
