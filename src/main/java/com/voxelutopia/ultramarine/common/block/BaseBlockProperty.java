@@ -47,7 +47,8 @@ public final class BaseBlockProperty {
             .requiresCorrectToolForDrops(), BlockMaterial.STONE);
     public static BaseBlockProperty PORCELAIN = new BaseBlockProperty(BlockBehaviour.Properties.of()
             .mapColor(MapColor.GRASS)
-            .sound(ModSounds.PORCELAIN)
+            .mapColor(MapColor.WOOD)
+            //.sound(ModSounds.PORCELAIN)
             .strength(1.0F, 1.0F), BlockMaterial.PORCELAIN);
     public static BaseBlockProperty WOOD = new BaseBlockProperty(BlockBehaviour.Properties.of()
             .mapColor(MapColor.WOOD)
@@ -55,7 +56,8 @@ public final class BaseBlockProperty {
             .strength(2.0F, 3.0F), BlockMaterial.WOOD);
     public static BaseBlockProperty BAMBOO_WOOD = new BaseBlockProperty(BlockBehaviour.Properties.of()
             .mapColor(MapColor.WOOD)
-            .sound(ModSounds.BAMBOO_WOOD)
+            .sound(SoundType.WOOD)
+            //.sound(ModSounds.BAMBOO_WOOD)
             .strength(2.0F, 3.0F), BlockMaterial.WOOD);
     public static BaseBlockProperty BAMBOO = new BaseBlockProperty(BlockBehaviour.Properties.of()
             .mapColor(MapColor.WOOD)
@@ -73,7 +75,8 @@ public final class BaseBlockProperty {
             .requiresCorrectToolForDrops(), BlockMaterial.STONE);
     public static BaseBlockProperty FLAX = new BaseBlockProperty(BlockBehaviour.Properties.of()
             .mapColor(MapColor.WOOL)
-            .sound(ModSounds.FLAX)
+            .sound(SoundType.WOOL)
+            //.sound(ModSounds.FLAX)
             .strength(1F, 2F), BlockMaterial.FLAX);
     public static BaseBlockProperty CROP = new BaseBlockProperty(BlockBehaviour.Properties.of()
             .mapColor(MapColor.GRASS)
