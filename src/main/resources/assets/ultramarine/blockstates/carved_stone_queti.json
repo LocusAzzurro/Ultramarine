@@ -1,0 +1,34 @@
+{
+  "variants": {
+    "facing=north,waterlogged=false": {
+      "model": "ultramarine:block/carved_stone_queti"
+    },
+    "facing=south,waterlogged=false": {
+      "model": "ultramarine:block/carved_stone_queti",
+      "y": 180
+    },
+    "facing=west,waterlogged=false": {
+      "model": "ultramarine:block/carved_stone_queti",
+      "y": 270
+    },
+    "facing=east,waterlogged=false": {
+      "model": "ultramarine:block/carved_stone_queti",
+      "y": 90
+    },
+    "facing=north,waterlogged=true": {
+      "model": "ultramarine:block/carved_stone_queti"
+    },
+    "facing=south,waterlogged=true": {
+      "model": "ultramarine:block/carved_stone_queti",
+      "y": 180
+    },
+    "facing=west,waterlogged=true": {
+      "model": "ultramarine:block/carved_stone_queti",
+      "y": 270
+    },
+    "facing=east,waterlogged=true": {
+      "model": "ultramarine:block/carved_stone_queti",
+      "y": 90
+    }
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "ultramarine:block/yellow_green_blue_carved_wood"
+  }
+}

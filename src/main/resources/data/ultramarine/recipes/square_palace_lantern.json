@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " F ",
+    "FCF",
+    " F "
+  ],
+  "key": {
+    "F": {
+      "item": "ultramarine:wooden_frame"
+    },
+    "C": {
+      "tag": "minecraft:candles"
+    }
+  },
+  "result": {
+    "item": "ultramarine:square_palace_lantern"
+  }
+}

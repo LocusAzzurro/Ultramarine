@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/stairs",
+  "textures": {
+    "side": "ultramarine:block/black_bricks",
+    "bottom": "ultramarine:block/black_bricks",
+    "top": "ultramarine:block/black_bricks"
+  }
+}

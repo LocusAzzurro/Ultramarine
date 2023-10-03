@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "ultramarine:brownish_red_stone_bricks"
+  },
+  "result": "ultramarine:brownish_red_stone_brick_stairs",
+  "count": 1
+}

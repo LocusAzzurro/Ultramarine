@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "BBB",
+    "BBB"
+  ],
+  "key": {
+    "B": {
+      "item": "ultramarine:polished_weathered_stone"
+    }
+  },
+  "result": {
+    "item": "ultramarine:polished_weathered_stone_wall",
+    "count": 6
+  }
+}

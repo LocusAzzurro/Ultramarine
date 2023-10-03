@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "ultramarine:block/warped_cabinet",
+      "y": 180
+    },
+    "facing=south": {
+      "model": "ultramarine:block/warped_cabinet"
+    },
+    "facing=west": {
+      "model": "ultramarine:block/warped_cabinet",
+      "y": 90
+    },
+    "facing=east": {
+      "model": "ultramarine:block/warped_cabinet",
+      "y": 270
+    }
+  }
+}

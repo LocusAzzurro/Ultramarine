@@ -1,0 +1,18 @@
+{
+  "variants": {
+    "axis=x,waterlogged=false": {
+      "model": "ultramarine:block/wooden_railing_variant",
+      "y": 90
+    },
+    "axis=z,waterlogged=false": {
+      "model": "ultramarine:block/wooden_railing_variant"
+    },
+    "axis=x,waterlogged=true": {
+      "model": "ultramarine:block/wooden_railing_variant",
+      "y": 90
+    },
+    "axis=z,waterlogged=true": {
+      "model": "ultramarine:block/wooden_railing_variant"
+    }
+  }
+}

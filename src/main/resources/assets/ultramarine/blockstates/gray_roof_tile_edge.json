@@ -1,0 +1,64 @@
+{
+  "variants": {
+    "facing=north,shifted=false,waterlogged=false": {
+      "model": "ultramarine:block/gray_roof_tile_edge",
+      "y": 180
+    },
+    "facing=south,shifted=false,waterlogged=false": {
+      "model": "ultramarine:block/gray_roof_tile_edge"
+    },
+    "facing=west,shifted=false,waterlogged=false": {
+      "model": "ultramarine:block/gray_roof_tile_edge",
+      "y": 90
+    },
+    "facing=east,shifted=false,waterlogged=false": {
+      "model": "ultramarine:block/gray_roof_tile_edge",
+      "y": 270
+    },
+    "facing=north,shifted=true,waterlogged=false": {
+      "model": "ultramarine:block/gray_roof_tile_edge_shifted",
+      "y": 180
+    },
+    "facing=south,shifted=true,waterlogged=false": {
+      "model": "ultramarine:block/gray_roof_tile_edge_shifted"
+    },
+    "facing=west,shifted=true,waterlogged=false": {
+      "model": "ultramarine:block/gray_roof_tile_edge_shifted",
+      "y": 90
+    },
+    "facing=east,shifted=true,waterlogged=false": {
+      "model": "ultramarine:block/gray_roof_tile_edge_shifted",
+      "y": 270
+    },
+    "facing=north,shifted=false,waterlogged=true": {
+      "model": "ultramarine:block/gray_roof_tile_edge",
+      "y": 180
+    },
+    "facing=south,shifted=false,waterlogged=true": {
+      "model": "ultramarine:block/gray_roof_tile_edge"
+    },
+    "facing=west,shifted=false,waterlogged=true": {
+      "model": "ultramarine:block/gray_roof_tile_edge",
+      "y": 90
+    },
+    "facing=east,shifted=false,waterlogged=true": {
+      "model": "ultramarine:block/gray_roof_tile_edge",
+      "y": 270
+    },
+    "facing=north,shifted=true,waterlogged=true": {
+      "model": "ultramarine:block/gray_roof_tile_edge_shifted",
+      "y": 180
+    },
+    "facing=south,shifted=true,waterlogged=true": {
+      "model": "ultramarine:block/gray_roof_tile_edge_shifted"
+    },
+    "facing=west,shifted=true,waterlogged=true": {
+      "model": "ultramarine:block/gray_roof_tile_edge_shifted",
+      "y": 90
+    },
+    "facing=east,shifted=true,waterlogged=true": {
+      "model": "ultramarine:block/gray_roof_tile_edge_shifted",
+      "y": 270
+    }
+  }
+}

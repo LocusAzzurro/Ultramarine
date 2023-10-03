@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "lit=false": {
+      "model": "ultramarine:block/stone_lamp"
+    },
+    "lit=true": {
+      "model": "ultramarine:block/stone_lamp"
+    }
+  }
+}

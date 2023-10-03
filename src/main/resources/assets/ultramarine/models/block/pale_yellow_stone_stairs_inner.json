@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/inner_stairs",
+  "textures": {
+    "side": "ultramarine:block/pale_yellow_stone",
+    "bottom": "ultramarine:block/pale_yellow_stone",
+    "top": "ultramarine:block/pale_yellow_stone"
+  }
+}

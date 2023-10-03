@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "ultramarine:block/brush_and_inkstone",
+      "y": 180
+    },
+    "facing=south": {
+      "model": "ultramarine:block/brush_and_inkstone"
+    },
+    "facing=west": {
+      "model": "ultramarine:block/brush_and_inkstone",
+      "y": 90
+    },
+    "facing=east": {
+      "model": "ultramarine:block/brush_and_inkstone",
+      "y": 270
+    }
+  }
+}

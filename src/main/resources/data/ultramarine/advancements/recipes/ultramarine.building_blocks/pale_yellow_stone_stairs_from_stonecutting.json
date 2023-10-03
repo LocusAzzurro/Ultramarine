@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "ultramarine:pale_yellow_stone_stairs_from_stonecutting"
+    ]
+  },
+  "criteria": {
+    "has_pale_yellow_stone": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "ultramarine:pale_yellow_stone"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "ultramarine:pale_yellow_stone_stairs_from_stonecutting"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_pale_yellow_stone",
+      "has_the_recipe"
+    ]
+  ]
+}

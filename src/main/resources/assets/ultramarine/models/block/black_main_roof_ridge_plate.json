@@ -1,0 +1,9 @@
+{
+  "parent": "ultramarine:block/roof_plate",
+  "textures": {
+    "front": "ultramarine:block/black_main_roof_ridge_slab_front",
+    "side": "ultramarine:block/black_main_roof_ridge_slab_side",
+    "bottom": "ultramarine:block/black_main_roof_ridge_slab_bottom",
+    "top": "ultramarine:block/black_main_roof_ridge_slab_top"
+  }
+}

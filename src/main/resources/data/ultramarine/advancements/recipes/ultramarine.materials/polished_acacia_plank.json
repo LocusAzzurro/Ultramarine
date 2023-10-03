@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "ultramarine:polished_acacia_plank"
+    ]
+  },
+  "criteria": {
+    "has_acacia_planks": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:acacia_planks"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "ultramarine:polished_acacia_plank"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_acacia_planks",
+      "has_the_recipe"
+    ]
+  ]
+}

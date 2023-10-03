@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=top": {
+      "model": "ultramarine:block/rosewood_slab_top"
+    },
+    "type=bottom": {
+      "model": "ultramarine:block/rosewood_slab"
+    },
+    "type=double": {
+      "model": "ultramarine:block/rosewood_planks"
+    }
+  }
+}

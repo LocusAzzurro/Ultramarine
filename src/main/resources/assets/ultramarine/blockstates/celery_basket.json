@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "type=single": {
+      "model": "ultramarine:block/celery_basket"
+    },
+    "type=double": {
+      "model": "ultramarine:block/celery_basket_double"
+    }
+  }
+}

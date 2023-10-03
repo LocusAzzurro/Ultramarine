@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=top": {
+      "model": "ultramarine:block/cyan_floor_tile_slab_top"
+    },
+    "type=bottom": {
+      "model": "ultramarine:block/cyan_floor_tile_slab"
+    },
+    "type=double": {
+      "model": "ultramarine:block/cyan_floor_tile"
+    }
+  }
+}

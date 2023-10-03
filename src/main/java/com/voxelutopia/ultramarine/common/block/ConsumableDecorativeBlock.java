@@ -2,6 +2,7 @@ package com.voxelutopia.ultramarine.common.block;
 
 import com.mojang.datafixers.util.Pair;
 import com.voxelutopia.ultramarine.common.block.state.ModBlockStateProperties;
+import com.voxelutopia.ultramarine.util.ItemHandlerHelper;
 import net.minecraft.core.BlockPos;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
@@ -21,7 +22,6 @@ import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.IntegerProperty;
 import net.minecraft.world.level.gameevent.GameEvent;
 import net.minecraft.world.phys.BlockHitResult;
-import net.minecraftforge.items.ItemHandlerHelper;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.function.Supplier;
@@ -36,6 +36,7 @@ public class ConsumableDecorativeBlock extends DecorativeBlock{
     private final FoodProperties food;
     public static ConsumeAction DEFAULT_FINISH_ACTION = ((pState, pLevel, pPos, pPlayer) -> {
         pLevel.setBlock(pPos, Blocks.AIR.defaultBlockState(), Block.UPDATE_ALL);
+
         ItemHandlerHelper.giveItemToPlayer(pPlayer, (pState.getBlock() instanceof ConsumableDecorativeBlock consumable) ? consumable.getPlate() : ItemStack.EMPTY);
         pLevel.gameEvent(pPlayer, GameEvent.BLOCK_DESTROY, pPos);
     });

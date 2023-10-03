@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "ultramarine:block/broom",
+      "y": 180
+    },
+    "facing=south": {
+      "model": "ultramarine:block/broom"
+    },
+    "facing=west": {
+      "model": "ultramarine:block/broom",
+      "y": 90
+    },
+    "facing=east": {
+      "model": "ultramarine:block/broom",
+      "y": 270
+    }
+  }
+}

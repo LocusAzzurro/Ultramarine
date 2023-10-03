@@ -2,6 +2,7 @@ package com.voxelutopia.ultramarine.common.block;
 
 import com.voxelutopia.ultramarine.common.tile.BottleGourdBlockEntity;
 import com.voxelutopia.ultramarine.init.registry.BlockEntityRegistry;
+import com.voxelutopia.ultramarine.util.ItemHandlerHelper;
 import net.minecraft.core.BlockPos;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
@@ -21,7 +22,6 @@ import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.VoxelShape;
-import net.minecraftforge.items.ItemHandlerHelper;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;

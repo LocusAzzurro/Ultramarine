@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "minecraft:white_candle"
+    ]
+  },
+  "criteria": {
+    "has_grease": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "ultramarine:grease"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "minecraft:white_candle"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_grease",
+      "has_the_recipe"
+    ]
+  ]
+}

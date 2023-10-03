@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " T ",
+    "WCW",
+    " S "
+  ],
+  "key": {
+    "S": {
+      "item": "minecraft:stone"
+    },
+    "C": {
+      "tag": "minecraft:candles"
+    },
+    "W": {
+      "item": "minecraft:cobblestone_wall"
+    },
+    "T": {
+      "item": "minecraft:stone_slab"
+    }
+  },
+  "result": {
+    "item": "ultramarine:stone_lamp"
+  }
+}

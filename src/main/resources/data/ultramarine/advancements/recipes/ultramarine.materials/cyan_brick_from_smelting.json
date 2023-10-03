@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "ultramarine:cyan_brick_from_smelting"
+    ]
+  },
+  "criteria": {
+    "has_unfired_cyan_brick": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "ultramarine:unfired_cyan_brick"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "ultramarine:cyan_brick_from_smelting"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_unfired_cyan_brick",
+      "has_the_recipe"
+    ]
+  ]
+}

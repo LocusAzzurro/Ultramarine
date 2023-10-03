@@ -31,14 +31,14 @@ public class ItemHandlerHelper {
         // try adding it into the inventory
         ItemStack remainder = stack;
         // insert into preferred slot first
-        if (preferredSlot >= 0 && preferredSlot < inventory.getContainerSize())
+        if (preferredSlot >= 0 && preferredSlot < inventory.getMaxStackSize())
         {
-            remainder = inventory.add(preferredSlot, stack);
+           inventory.add(preferredSlot, stack);
         }
         // then into the inventory in general
         if (!remainder.isEmpty())
         {
-            remainder = insertItemStacked(inventory, remainder, false);
+            inventory.add(remainder);
         }
 
         // play sound if something got picked up
@@ -49,13 +49,13 @@ public class ItemHandlerHelper {
         }
 
         // drop remaining itemstack into the level
-        if (!remainder.isEmpty() && !level.isClientSide)
-        {
+        if (inventory.getContainerSize() >= inventory.getMaxStackSize() && !remainder.isEmpty()  && !level.isClientSide){
             ItemEntity entityitem = new ItemEntity(level, player.getX(), player.getY() + 0.5, player.getZ(), remainder);
             entityitem.setPickUpDelay(40);
             entityitem.setDeltaMovement(entityitem.getDeltaMovement().multiply(0, 1, 0));
 
             level.addFreshEntity(entityitem);
         }
+
     }
 }

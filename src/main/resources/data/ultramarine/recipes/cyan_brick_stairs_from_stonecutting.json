@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "ultramarine:cyan_bricks"
+  },
+  "result": "ultramarine:cyan_brick_stairs",
+  "count": 1
+}

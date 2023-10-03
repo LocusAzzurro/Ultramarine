@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " T ",
+    "TBT",
+    " T "
+  ],
+  "key": {
+    "B": {
+      "item": "minecraft:green_glazed_terracotta"
+    },
+    "T": {
+      "item": "ultramarine:green_roof_tile"
+    }
+  },
+  "result": {
+    "item": "ultramarine:green_glazed_tiles",
+    "count": 2
+  }
+}

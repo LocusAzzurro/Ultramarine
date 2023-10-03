@@ -1,0 +1,7 @@
+{
+  "parent": "ultramarine:block/roof_tile_stairs_shifted",
+  "textures": {
+    "1": "ultramarine:block/black_roof_tile_stairs",
+    "particle": "minecraft:block/black_concrete"
+  }
+}

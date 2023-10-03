@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "TTT"
+  ],
+  "key": {
+    "T": {
+      "item": "ultramarine:yellow_roof_tile"
+    }
+  },
+  "result": {
+    "item": "ultramarine:yellow_roof_tiles"
+  }
+}

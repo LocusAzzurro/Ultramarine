@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "diagonal=false": {
+      "model": "ultramarine:block/terracotta_flowerpot"
+    },
+    "diagonal=true": {
+      "model": "ultramarine:block/terracotta_flowerpot_diagonal"
+    }
+  }
+}

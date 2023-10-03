@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "ultramarine:variegated_rock_stairs_from_crafting"
+    ]
+  },
+  "criteria": {
+    "has_variegated_rocks": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "ultramarine:variegated_rocks"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "ultramarine:variegated_rock_stairs_from_crafting"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_variegated_rocks",
+      "has_the_recipe"
+    ]
+  ]
+}

@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "ultramarine:green_glazed_tiles"
+    ]
+  },
+  "criteria": {
+    "has_green_glazed_terracotta": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:green_glazed_terracotta"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "ultramarine:green_glazed_tiles"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_green_glazed_terracotta",
+      "has_the_recipe"
+    ]
+  ]
+}

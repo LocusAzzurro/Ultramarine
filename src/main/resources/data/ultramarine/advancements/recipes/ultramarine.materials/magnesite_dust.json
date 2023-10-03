@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "ultramarine:magnesite_dust"
+    ]
+  },
+  "criteria": {
+    "has_magnesite": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "ultramarine:magnesite"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "ultramarine:magnesite_dust"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_magnesite",
+      "has_the_recipe"
+    ]
+  ]
+}

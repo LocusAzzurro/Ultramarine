@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "ultramarine:block/red_and_cyan_carved_architrave"
+  }
+}

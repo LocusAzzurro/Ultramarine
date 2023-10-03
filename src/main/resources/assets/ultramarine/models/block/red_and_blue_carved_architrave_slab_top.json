@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/slab_top",
+  "textures": {
+    "side": "ultramarine:block/red_and_blue_carved_architrave_slab_side",
+    "bottom": "ultramarine:block/red_and_blue_carved_architrave_slab_end",
+    "top": "ultramarine:block/red_and_blue_carved_architrave_slab_end"
+  }
+}

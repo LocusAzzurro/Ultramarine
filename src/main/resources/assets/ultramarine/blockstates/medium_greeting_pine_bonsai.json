@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "ultramarine:block/medium_greeting_pine_bonsai",
+      "y": 180
+    },
+    "facing=south": {
+      "model": "ultramarine:block/medium_greeting_pine_bonsai"
+    },
+    "facing=west": {
+      "model": "ultramarine:block/medium_greeting_pine_bonsai",
+      "y": 90
+    },
+    "facing=east": {
+      "model": "ultramarine:block/medium_greeting_pine_bonsai",
+      "y": 270
+    }
+  }
+}

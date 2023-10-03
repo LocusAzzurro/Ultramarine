@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "down": "ultramarine:block/black_floor_tiles_big_moss_top_right",
+    "up": "ultramarine:block/black_floor_tiles_big_moss_bottom_right",
+    "north": "ultramarine:block/black_floor_tiles_big_moss_top_right",
+    "south": "ultramarine:block/black_floor_tiles_big_moss_top_right",
+    "east": "ultramarine:block/black_floor_tiles_big_moss_top_right",
+    "west": "ultramarine:block/black_floor_tiles_big_moss_top_left",
+    "particle": "ultramarine:block/black_floor_tiles"
+  }
+}

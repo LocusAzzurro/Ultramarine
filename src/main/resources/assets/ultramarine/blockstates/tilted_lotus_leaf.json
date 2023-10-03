@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "ultramarine:block/tilted_lotus_leaf",
+      "y": 180
+    },
+    "facing=south": {
+      "model": "ultramarine:block/tilted_lotus_leaf"
+    },
+    "facing=west": {
+      "model": "ultramarine:block/tilted_lotus_leaf",
+      "y": 90
+    },
+    "facing=east": {
+      "model": "ultramarine:block/tilted_lotus_leaf",
+      "y": 270
+    }
+  }
+}

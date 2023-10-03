@@ -1,0 +1,11 @@
+{
+  "replace": false,
+  "values": [
+    "ultramarine:cyan_brick_wall",
+    "ultramarine:black_brick_wall",
+    "ultramarine:brownish_red_stone_brick_wall",
+    "ultramarine:polished_weathered_stone_wall",
+    "ultramarine:light_cyan_floor_tile_wall",
+    "ultramarine:cyan_floor_tile_wall"
+  ]
+}
