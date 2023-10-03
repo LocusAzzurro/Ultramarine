@@ -1,10 +1,10 @@
 # Ultramarine Mod
 
-<img src="web/ultramarine_logo.png" width="300">
+<img src="web/ultramarine_logo.png" width="300" alt="">
 
 [![build](https://github.com/LocusAzzurro/Ultramarine/actions/workflows/gradle.yml/badge.svg)](https://github.com/LocusAzzurro/Ultramarine/actions/workflows/gradle.yml) ![commits](https://img.shields.io/github/commit-activity/w/LocusAzzurro/Ultramarine) ![license](https://img.shields.io/badge/license-BSD--3%20%2B%20CC--BY--NC%204.0-blue)
 
-Ultramarine is a Chinese style Minecraft Mod for Forge Loader, adding furniture and decorative blocks with 16x16 resolution texture to enhance the vanilla experience.
+Ultramarine is a Chinese style Minecraft Mod for Forge/Fabric Loader, adding furniture and decorative blocks with 16x16 resolution texture to enhance the vanilla experience.
 
 ## License & Copyright
 
