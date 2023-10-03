@@ -1,7 +1,7 @@
 package com.voxelutopia.ultramarine.client.screen;
 
-import com.voxelutopia.ultramarine.common.recipe.WoodworkingRecipe;
 import com.voxelutopia.ultramarine.common.menu.WoodworkingWorkbenchMenu;
+import com.voxelutopia.ultramarine.common.recipe.WoodworkingRecipe;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;

@@ -14,7 +14,6 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.*;
 import net.minecraft.world.level.gameevent.GameEvent;
-import net.minecraft.world.level.material.Material;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.phys.shapes.CollisionContext;
@@ -55,7 +54,7 @@ public class OpeningBlock extends DecorativeBlock{
         if (!this.defaultBlockState().is(pBlock) && signal != pState.getValue(POWERED)) {
             if (signal != pState.getValue(OPEN)) {
                 //this.playSound(pLevel, pPos, signal); //todo add sound
-                pLevel.gameEvent(signal ? GameEvent.BLOCK_OPEN : GameEvent.BLOCK_CLOSE, pPos);
+                pLevel.gameEvent(null, signal ? GameEvent.BLOCK_OPEN : GameEvent.BLOCK_CLOSE, pPos);
             }
             pLevel.setBlock(pPos, pState.setValue(POWERED, signal).setValue(OPEN, signal), 2);
         }

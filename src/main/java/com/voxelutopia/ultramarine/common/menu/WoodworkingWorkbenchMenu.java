@@ -1,10 +1,10 @@
 package com.voxelutopia.ultramarine.common.menu;
 
 import com.google.common.collect.Lists;
+import com.voxelutopia.ultramarine.common.recipe.WoodworkingRecipe;
 import com.voxelutopia.ultramarine.init.registry.BlockRegistry;
 import com.voxelutopia.ultramarine.init.registry.MenuTypeRegistry;
 import com.voxelutopia.ultramarine.init.registry.RecipeTypeRegistry;
-import com.voxelutopia.ultramarine.common.recipe.WoodworkingRecipe;
 import com.voxelutopia.ultramarine.init.registry.SoundRegistry;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.Container;

@@ -4,8 +4,6 @@ import net.minecraft.sounds.SoundEvent;
 import net.minecraft.world.level.block.SoundType;
 import org.jetbrains.annotations.NotNull;
 
-import java.util.function.Supplier;
-
 /**
  * Name: Ultramarine / ForgeSoundType
  * Author: cnlimiter

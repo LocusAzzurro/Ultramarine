@@ -22,6 +22,9 @@
     ],
     "main": [
       "com.voxelutopia.ultramarine.Ultramarine"
+    ],
+    "fabric-datagen": [
+      "com.voxelutopia.ultramarine.UltramarineDataGenerators"
     ]
   },
   "mixins": [

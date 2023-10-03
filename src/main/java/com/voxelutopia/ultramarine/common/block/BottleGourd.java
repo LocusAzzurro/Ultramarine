@@ -1,7 +1,7 @@
 package com.voxelutopia.ultramarine.common.block;
 
-import com.voxelutopia.ultramarine.init.registry.BlockEntityRegistry;
 import com.voxelutopia.ultramarine.common.tile.BottleGourdBlockEntity;
+import com.voxelutopia.ultramarine.init.registry.BlockEntityRegistry;
 import net.minecraft.core.BlockPos;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;

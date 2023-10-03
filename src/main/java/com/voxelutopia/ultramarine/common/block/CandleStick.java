@@ -2,6 +2,7 @@ package com.voxelutopia.ultramarine.common.block;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
@@ -14,8 +15,6 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.Vec3;
 import org.jetbrains.annotations.NotNull;
-
-import java.util.Random;
 
 public class CandleStick extends DecorativeBlock{
 
@@ -43,7 +42,7 @@ public class CandleStick extends DecorativeBlock{
     }
 
     @Override
-    public void animateTick(BlockState pState, Level pLevel, BlockPos pPos, Random pRandom) {
+    public void animateTick(BlockState pState, Level pLevel, BlockPos pPos, RandomSource pRandom) {
         super.animateTick(pState, pLevel, pPos, pRandom);
         if (!pState.hasProperty(LIT) || !pState.getValue(LIT)) return;
         if (pLevel.getGameTime() % (2 - pRandom.nextInt(1)) == 0) {

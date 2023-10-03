@@ -9,11 +9,9 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.material.FluidState;
 import net.minecraft.world.level.material.Fluids;
-import net.minecraft.world.level.material.Material;
-import net.minecraftforge.common.IPlantable;
-import net.minecraftforge.common.PlantType;
+import net.minecraft.world.level.material.MapColor;
 
-public class AquaticPlantBlock extends DecorativeBlock implements IPlantable {
+public class AquaticPlantBlock extends DecorativeBlock{
 
     public AquaticPlantBlock(Builder builder) {
         super(builder);
@@ -28,25 +26,14 @@ public class AquaticPlantBlock extends DecorativeBlock implements IPlantable {
     public boolean canSurvive(BlockState pState, LevelReader pLevel, BlockPos pPos) {
         BlockPos blockpos = pPos.below();
         if (pState.getBlock() == this)
-            return pLevel.getBlockState(blockpos).canSustainPlant(pLevel, blockpos, Direction.UP, this);
+            return pLevel.getBlockState(blockpos).canSurvive(pLevel, blockpos);
         return this.mayPlaceOn(pLevel.getBlockState(blockpos), pLevel, blockpos);
     }
 
     protected boolean mayPlaceOn(BlockState pState, BlockGetter pLevel, BlockPos pPos) {
         FluidState fluidstate = pLevel.getFluidState(pPos);
         FluidState fluidstate1 = pLevel.getFluidState(pPos.above());
-        return (fluidstate.getType() == Fluids.WATER || pState.getMaterial() == Material.ICE) && fluidstate1.getType() == Fluids.EMPTY;
+        return (fluidstate.getType() == Fluids.WATER || pState.getMapColor(pLevel, pPos) == MapColor.ICE) && fluidstate1.getType() == Fluids.EMPTY;
     }
 
-    @Override
-    public BlockState getPlant(BlockGetter world, BlockPos pos) {
-        BlockState state = world.getBlockState(pos);
-        if (state.getBlock() != this) return defaultBlockState();
-        return state;
-    }
-
-    @Override
-    public PlantType getPlantType(BlockGetter level, BlockPos pos) {
-        return PlantType.WATER;
-    }
 }

@@ -1,9 +1,9 @@
 package com.voxelutopia.ultramarine.common.block;
 
-import com.voxelutopia.ultramarine.init.registry.BlockEntityRegistry;
-import com.voxelutopia.ultramarine.init.registry.ItemRegistry;
 import com.voxelutopia.ultramarine.common.tile.BlockEntityHelper;
 import com.voxelutopia.ultramarine.common.tile.CenserBlockEntity;
+import com.voxelutopia.ultramarine.init.registry.BlockEntityRegistry;
+import com.voxelutopia.ultramarine.init.registry.ItemRegistry;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.util.RandomSource;
@@ -23,6 +23,8 @@ import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.Vec3;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
+
+import java.util.Random;
 
 public class Censer extends DecorativeBlock implements EntityBlock {
 
@@ -54,13 +56,14 @@ public class Censer extends DecorativeBlock implements EntityBlock {
     @Override
     public void animateTick(BlockState pState, Level pLevel, BlockPos pPos, RandomSource pRandom) {
         super.animateTick(pState, pLevel, pPos, pRandom);
+        Random random = new Random();
         if (!pState.hasProperty(LIT) || !pState.getValue(LIT)) return;
         if (pLevel.getGameTime() % (3 - pRandom.nextInt(1)) == 0) {
             for (int i = 0; i < 5; i++) {
                 pLevel.addParticle(ParticleTypes.CAMPFIRE_COSY_SMOKE,
-                        pPos.getX() + smokeOffset.x + pRandom.nextFloat(0.4f) - 0.2,
-                        pPos.getY() + smokeOffset.y + pRandom.nextFloat(0.1f),
-                        pPos.getZ() + smokeOffset.z + pRandom.nextFloat(0.4f) - 0.2,
+                        pPos.getX() + smokeOffset.x + random.nextFloat(0.4f) - 0.2,
+                        pPos.getY() + smokeOffset.y + random.nextFloat(0.1f),
+                        pPos.getZ() + smokeOffset.z + random.nextFloat(0.4f) - 0.2,
                         0.0D, pRandom.nextDouble() * 0.01d, 0.0D);
             }
         }

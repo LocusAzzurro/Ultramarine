@@ -1,7 +1,10 @@
 package com.voxelutopia.ultramarine.common.block.state;
 
 import net.minecraft.core.Direction;
-import net.minecraft.world.level.block.state.properties.*;
+import net.minecraft.world.level.block.state.properties.BooleanProperty;
+import net.minecraft.world.level.block.state.properties.DirectionProperty;
+import net.minecraft.world.level.block.state.properties.EnumProperty;
+import net.minecraft.world.level.block.state.properties.IntegerProperty;
 
 public class ModBlockStateProperties {
 

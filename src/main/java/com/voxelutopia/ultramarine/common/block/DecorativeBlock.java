@@ -15,15 +15,13 @@ import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.level.block.state.properties.DirectionProperty;
+import net.minecraft.world.level.material.PushReaction;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
-import javax.annotation.Nullable;
-import javax.annotation.ParametersAreNonnullByDefault;
-
-@ParametersAreNonnullByDefault
 @MethodsReturnNonnullByDefault
 @SuppressWarnings("deprecation")
 public class DecorativeBlock extends HorizontalDirectionalBlock implements BaseBlockPropertyHolder, DiagonallyPlaceable {
@@ -163,7 +161,7 @@ public class DecorativeBlock extends HorizontalDirectionalBlock implements BaseB
     }
 
     @Override
-    public int getLightEmission(BlockState state, BlockGetter level, BlockPos pos) {
+    public int getLightBlock(BlockState state, BlockGetter blockGetter, BlockPos blockPos) {
         if (isLuminous()) return state.getValue(LIT) ? 14 : 0;
         else return 0;
     }
@@ -236,6 +234,11 @@ public class DecorativeBlock extends HorizontalDirectionalBlock implements BaseB
 
         public Builder noOcclusion() {
             this.property.properties.noOcclusion();
+            return this;
+        }
+
+        public Builder pushReaction(PushReaction reaction) {
+            this.property.properties.pushReaction(reaction);
             return this;
         }
 

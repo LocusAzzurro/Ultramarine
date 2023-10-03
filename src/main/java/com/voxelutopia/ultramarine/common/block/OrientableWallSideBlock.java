@@ -10,8 +10,7 @@ import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.EnumProperty;
 import net.minecraft.world.level.material.FluidState;
 import net.minecraft.world.level.material.Fluids;
-
-import javax.annotation.Nullable;
+import org.jetbrains.annotations.Nullable;
 
 public class OrientableWallSideBlock extends WallSideBlock implements SideBlock{
 

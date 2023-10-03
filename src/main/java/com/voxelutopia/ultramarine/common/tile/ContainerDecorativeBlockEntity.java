@@ -1,8 +1,8 @@
 package com.voxelutopia.ultramarine.common.tile;
 
-import com.voxelutopia.ultramarine.init.registry.BlockEntityRegistry;
 import com.voxelutopia.ultramarine.common.block.ContainerDecorativeBlock;
 import com.voxelutopia.ultramarine.common.menu.ContainerDecorativeBlockMenu;
+import com.voxelutopia.ultramarine.init.registry.BlockEntityRegistry;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.NonNullList;
 import net.minecraft.core.registries.BuiltInRegistries;

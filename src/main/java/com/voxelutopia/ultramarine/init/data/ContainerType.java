@@ -1,8 +1,8 @@
 package com.voxelutopia.ultramarine.init.data;
 
-import com.voxelutopia.ultramarine.common.tile.ContainerDecorativeBlockEntity;
 import com.voxelutopia.ultramarine.common.menu.ContainerDecorativeBlockMenu;
 import com.voxelutopia.ultramarine.common.menu.ContainerDecorativeBlockMenuProvider;
+import com.voxelutopia.ultramarine.common.tile.ContainerDecorativeBlockEntity;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.item.ItemStack;
 

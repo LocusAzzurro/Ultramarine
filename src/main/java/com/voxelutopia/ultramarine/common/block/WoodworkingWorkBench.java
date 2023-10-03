@@ -4,7 +4,6 @@ import com.voxelutopia.ultramarine.common.menu.WoodworkingWorkbenchMenu;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.network.chat.Component;
-import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.MenuProvider;
@@ -13,17 +12,18 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.ContainerLevelAccess;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.block.*;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.HorizontalDirectionalBlock;
+import net.minecraft.world.level.block.RenderShape;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.DirectionProperty;
 import net.minecraft.world.phys.BlockHitResult;
-
-import javax.annotation.Nullable;
+import org.jetbrains.annotations.Nullable;
 
 public class WoodworkingWorkBench extends Block {
 
-    private static final Component CONTAINER_TITLE = new TranslatableComponent("container.woodworking_workbench");
+    private static final Component CONTAINER_TITLE = Component.translatable("container.woodworking_workbench");
     public static final DirectionProperty FACING = HorizontalDirectionalBlock.FACING;
 
     public WoodworkingWorkBench() {

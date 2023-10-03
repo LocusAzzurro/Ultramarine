@@ -1,7 +1,7 @@
 package com.voxelutopia.ultramarine.common.block;
 
-import com.voxelutopia.ultramarine.init.data.ContainerType;
 import com.voxelutopia.ultramarine.common.tile.ContainerDecorativeBlockEntity;
+import com.voxelutopia.ultramarine.init.data.ContainerType;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.Container;
 import net.minecraft.world.Containers;
@@ -15,7 +15,6 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.EntityBlock;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.material.PushReaction;
 import net.minecraft.world.phys.BlockHitResult;
 
 public class ContainerDecorativeBlock extends DecorativeBlock implements EntityBlock {
@@ -42,12 +41,6 @@ public class ContainerDecorativeBlock extends DecorativeBlock implements EntityB
             }
         }
     }
-
-    @Override
-    public PushReaction getPistonPushReaction(BlockState pState) {
-        return PushReaction.BLOCK;
-    }
-
     @Override
     public boolean hasAnalogOutputSignal(BlockState stateIn) {
         return true;

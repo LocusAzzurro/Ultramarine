@@ -1,11 +1,11 @@
 package com.voxelutopia.ultramarine.init.registry;
 
 import com.voxelutopia.ultramarine.Ultramarine;
-import com.voxelutopia.ultramarine.init.data.ModCreativeTab;
-import com.voxelutopia.ultramarine.init.data.ModFoods;
 import com.voxelutopia.ultramarine.common.item.AquaticPlantBlockItem;
 import com.voxelutopia.ultramarine.common.item.BaseFood;
 import com.voxelutopia.ultramarine.common.item.WoodenHammer;
+import com.voxelutopia.ultramarine.init.data.ModCreativeTab;
+import com.voxelutopia.ultramarine.init.data.ModFoods;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
