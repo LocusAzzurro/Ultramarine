@@ -9,9 +9,9 @@ name: build
 
 on:
   push:
-    branches: [ "fabric/1.20" ]
+    branches: [ "fabric/*" ]
   pull_request:
-    branches: [ "fabric/1.20" ]
+    branches: [ "fabric/*" ]
 
 permissions:
   contents: read
