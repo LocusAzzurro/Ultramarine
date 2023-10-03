@@ -18,6 +18,31 @@ permissions:
 
 jobs:
   build:
+
     runs-on: ubuntu-latest
+
     steps:
-    - uses: Kir-Antipov/mc-publish@v3.2
+      - uses: actions/checkout@v3
+      - name: Set up JDK 17
+        uses: actions/setup-java@v3
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+      - name: Validate Gradle Wrapper
+        uses: gradle/wrapper-validation-action@v1
+      - name: Make Gradle Wrapper Executable
+        run: chmod +x ./gradlew
+      - name: Build
+        uses: gradle/gradle-build-action@v2
+        with:
+          arguments: build
+      - name: Find Correct JAR
+        id: findjar
+        run: |
+          output="$(find build/libs/ ! -name "*-sources.jar" -type f -printf "%f\n")"
+          echo "::set-output name=jarname::$output"
+      - name: Upload Build Artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: ${{ steps.findjar.outputs.jarname }}
+          path: build/libs/${{ steps.findjar.outputs.jarname }}

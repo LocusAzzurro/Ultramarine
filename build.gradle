@@ -42,7 +42,7 @@ dependencies {
 
     //modImplementation "io.github.moremcmeta:moremcmeta-fabric:${project.moremcmeta_version}"
     include(implementation(annotationProcessor("io.github.llamalad7:mixinextras-fabric:${mixin_extra_version}")))
-    modImplementation(include("io.github.fabricators_of_create.Porting-Lib:model_generators:${project.port_version}"))
+    modImplementation("io.github.fabricators_of_create.Porting-Lib:model_generators:${project.port_version}")
 
 
     modCompileOnly "me.shedaniel:RoughlyEnoughItems-api-fabric:${rei_version}"
