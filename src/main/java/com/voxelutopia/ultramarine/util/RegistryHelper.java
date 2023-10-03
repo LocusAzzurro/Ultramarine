@@ -14,11 +14,11 @@ import net.minecraft.world.level.block.Block;
 
 public class RegistryHelper {
 
-    public static ResourceLocation getBlockRegistryName(Block b){
+    public static ResourceLocation getBlockRegistryName(Block b) {
         return BuiltInRegistries.BLOCK.getKey(b);
     }
 
-    public static ResourceLocation getItemRegistryName(Item b){
+    public static ResourceLocation getItemRegistryName(Item b) {
         return BuiltInRegistries.ITEM.getKey(b);
     }
 }

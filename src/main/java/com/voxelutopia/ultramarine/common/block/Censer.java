@@ -2,8 +2,8 @@ package com.voxelutopia.ultramarine.common.block;
 
 import com.voxelutopia.ultramarine.common.tile.BlockEntityHelper;
 import com.voxelutopia.ultramarine.common.tile.CenserBlockEntity;
-import com.voxelutopia.ultramarine.init.registry.BlockEntityRegistry;
-import com.voxelutopia.ultramarine.init.registry.ItemRegistry;
+import com.voxelutopia.ultramarine.init.registry.ModBlockEntities;
+import com.voxelutopia.ultramarine.init.registry.ModItems;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.util.RandomSource;
@@ -29,6 +29,7 @@ import java.util.Random;
 public class Censer extends DecorativeBlock implements EntityBlock {
 
     private final Vec3 smokeOffset;
+
     public Censer(Builder builder, Vec3 smokeOffset) {
         super(builder);
         this.smokeOffset = smokeOffset;
@@ -37,11 +38,11 @@ public class Censer extends DecorativeBlock implements EntityBlock {
     @Override
     public InteractionResult use(BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, InteractionHand pHand, BlockHitResult pHit) {
         ItemStack item = pPlayer.getItemInHand(pHand);
-        if (item.is(ItemRegistry.INCENSE)){
+        if (item.is(ModItems.INCENSE)) {
             if (!pPlayer.getAbilities().instabuild) {
                 item.shrink(1);
             }
-            pLevel.getBlockEntity(pPos, BlockEntityRegistry.CENSER).ifPresent(entity -> entity.lightIncense(pLevel, pPos, pState));
+            pLevel.getBlockEntity(pPos, ModBlockEntities.CENSER).ifPresent(entity -> entity.lightIncense(pLevel, pPos, pState));
             return InteractionResult.sidedSuccess(pLevel.isClientSide);
         }
         return InteractionResult.PASS;
@@ -72,7 +73,7 @@ public class Censer extends DecorativeBlock implements EntityBlock {
     @Nullable
     @Override
     public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level pLevel, BlockState pState, BlockEntityType<T> pBlockEntityType) {
-        return pLevel.isClientSide ? null : BlockEntityHelper.createTickerHelper(pBlockEntityType, (BlockEntityType<? extends CenserBlockEntity>) BlockEntityRegistry.CENSER, CenserBlockEntity::tick);
+        return pLevel.isClientSide ? null : BlockEntityHelper.createTickerHelper(pBlockEntityType, (BlockEntityType<? extends CenserBlockEntity>) ModBlockEntities.CENSER, CenserBlockEntity::tick);
     }
 
     @Override

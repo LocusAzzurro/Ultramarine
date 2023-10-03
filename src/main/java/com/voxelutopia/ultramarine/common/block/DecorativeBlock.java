@@ -93,6 +93,10 @@ public class DecorativeBlock extends HorizontalDirectionalBlock implements BaseB
         return new Builder(property);
     }
 
+    protected static ShapeFunction simpleShape(VoxelShape shape) {
+        return ($1, $2, $3, $4) -> shape;
+    }
+
     @Override
     public StateDefinition<Block, BlockState> getStateDefinition() {
         return stateDefinition;
@@ -184,6 +188,22 @@ public class DecorativeBlock extends HorizontalDirectionalBlock implements BaseB
         return directional;
     }
 
+    @Override
+    public VoxelShape getBlockSupportShape(BlockState pState, BlockGetter pReader, BlockPos pPos) {
+        return noFenceConnect ? FULL_14 : super.getBlockSupportShape(pState, pReader, pPos);
+    }
+
+    @Override
+    public float getShadeBrightness(BlockState pState, BlockGetter pLevel, BlockPos pPos) {
+        return 1.0f;
+    }
+
+    @FunctionalInterface
+    public interface ShapeFunction {
+
+        VoxelShape getShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext);
+    }
+
     public static abstract class AbstractBuilder<T extends AbstractBuilder<T>> {
         public abstract T self();
     }
@@ -247,7 +267,7 @@ public class DecorativeBlock extends HorizontalDirectionalBlock implements BaseB
             return this;
         }
 
-        public Builder placeOffset(Direction direction){
+        public Builder placeOffset(Direction direction) {
             offset = direction;
             return this;
         }
@@ -260,25 +280,5 @@ public class DecorativeBlock extends HorizontalDirectionalBlock implements BaseB
         public Builder self() {
             return this;
         }
-    }
-
-    @FunctionalInterface
-    public interface ShapeFunction{
-
-        VoxelShape getShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext);
-    }
-
-    protected static ShapeFunction simpleShape(VoxelShape shape){
-        return ($1, $2, $3, $4) -> shape;
-    }
-
-    @Override
-    public VoxelShape getBlockSupportShape(BlockState pState, BlockGetter pReader, BlockPos pPos) {
-        return noFenceConnect ? FULL_14 : super.getBlockSupportShape(pState, pReader, pPos);
-    }
-
-    @Override
-    public float getShadeBrightness(BlockState pState, BlockGetter pLevel, BlockPos pPos) {
-        return 1.0f;
     }
 }

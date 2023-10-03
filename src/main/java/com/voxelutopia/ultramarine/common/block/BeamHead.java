@@ -70,7 +70,4 @@ public class BeamHead extends BaseHorizontalDirectionalBlock implements SimpleWa
     }
 
 
-
-
-
 }

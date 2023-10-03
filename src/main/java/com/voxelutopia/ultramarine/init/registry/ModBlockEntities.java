@@ -14,12 +14,7 @@ import net.minecraft.world.level.block.entity.BlockEntityType;
 import java.util.HashSet;
 import java.util.Set;
 
-public class BlockEntityRegistry {
-
-    static Set<Block> CONTAINER_BLOCKS = Set.of(
-            BlockRegistry.GUNNY_SACK, BlockRegistry.FRUIT_BOX, BlockRegistry.WOODEN_CRATE, BlockRegistry.FOOD_HAMPER,
-            BlockRegistry.OAK_CABINET, BlockRegistry.WARPED_CABINET, BlockRegistry.EBONY_CABINET);
-    static Set<Block> CENSERS = Set.of(BlockRegistry.BRONZE_CENSER, BlockRegistry.ROYAL_CENSER);
+public class ModBlockEntities {
 
     public static BlockEntityType<ContainerDecorativeBlockEntity>
             CONTAINER_DECORATIVE_BLOCK;
@@ -27,7 +22,10 @@ public class BlockEntityRegistry {
             CENSER;
     public static BlockEntityType<BottleGourdBlockEntity>
             BOTTLE_GOURD;
-
+    static Set<Block> CONTAINER_BLOCKS = Set.of(
+            ModBlocks.GUNNY_SACK, ModBlocks.FRUIT_BOX, ModBlocks.WOODEN_CRATE, ModBlocks.FOOD_HAMPER,
+            ModBlocks.OAK_CABINET, ModBlocks.WARPED_CABINET, ModBlocks.EBONY_CABINET);
+    static Set<Block> CENSERS = Set.of(ModBlocks.BRONZE_CENSER, ModBlocks.ROYAL_CENSER);
 
     public static void registerModBlockEntities() {
         CONTAINER_DECORATIVE_BLOCK = Registry.register(BuiltInRegistries.BLOCK_ENTITY_TYPE, new ResourceLocation(Ultramarine.MOD_ID, "container_decorative_block_entity"),
@@ -37,7 +35,7 @@ public class BlockEntityRegistry {
                 FabricBlockEntityTypeBuilder.create(CenserBlockEntity::new, new HashSet<>(CENSERS).toArray(new Block[0])).build(null));
 
         BOTTLE_GOURD = Registry.register(BuiltInRegistries.BLOCK_ENTITY_TYPE, new ResourceLocation(Ultramarine.MOD_ID, "bottle_gourd_entity"),
-                FabricBlockEntityTypeBuilder.create(BottleGourdBlockEntity::new, BlockRegistry.BOTTLE_GOURD).build(null));
+                FabricBlockEntityTypeBuilder.create(BottleGourdBlockEntity::new, ModBlocks.BOTTLE_GOURD).build(null));
 
     }
 }

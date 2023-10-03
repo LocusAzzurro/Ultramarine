@@ -3,7 +3,6 @@ package com.voxelutopia.ultramarine.init.registry;
 import com.voxelutopia.ultramarine.Ultramarine;
 import com.voxelutopia.ultramarine.common.block.*;
 import com.voxelutopia.ultramarine.init.data.ContainerType;
-import com.voxelutopia.ultramarine.init.data.ModFoods;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.minecraft.core.Direction;
 import net.minecraft.core.Registry;
@@ -18,11 +17,11 @@ import net.minecraft.world.level.material.PushReaction;
 import net.minecraft.world.phys.Vec3;
 
 @SuppressWarnings("unused")
-public class BlockRegistry {
+public class ModBlocks {
 
 
     /**
-     *  BUILDING BLOCKS
+     * BUILDING BLOCKS
      */
 
     // BRICKS
@@ -98,23 +97,23 @@ public class BlockRegistry {
     // ROOF TILES
 
     public static final Block GRAY_ROOF_TILES = registerBlock("gray_roof_tiles", new RoofTiles());
-    public static final Block GRAY_ROOF_TILE_STAIRS = registerBlock("gray_roof_tile_stairs",  new RoofTiles());
-    public static final Block GRAY_ROOF_TILE_EDGE = registerBlock("gray_roof_tile_edge",  new RoofTiles());
-    public static final Block YELLOW_ROOF_TILES = registerBlock("yellow_roof_tiles",  new RoofTiles());
-    public static final Block YELLOW_ROOF_TILE_STAIRS = registerBlock("yellow_roof_tile_stairs",  new RoofTiles());
-    public static final Block YELLOW_ROOF_TILE_EDGE = registerBlock("yellow_roof_tile_edge",  new RoofTiles());
-    public static final Block GREEN_ROOF_TILES = registerBlock("green_roof_tiles",  new RoofTiles());
-    public static final Block GREEN_ROOF_TILE_STAIRS = registerBlock("green_roof_tile_stairs",  new RoofTiles());
-    public static final Block GREEN_ROOF_TILE_EDGE = registerBlock("green_roof_tile_edge",  new RoofTiles());
-    public static final Block BLUE_ROOF_TILES = registerBlock("blue_roof_tiles",  new RoofTiles());
-    public static final Block BLUE_ROOF_TILE_STAIRS = registerBlock("blue_roof_tile_stairs",  new RoofTiles());
-    public static final Block BLUE_ROOF_TILE_EDGE = registerBlock("blue_roof_tile_edge",  new RoofTiles());
-    public static final Block CYAN_ROOF_TILES = registerBlock("cyan_roof_tiles",  new RoofTiles());
-    public static final Block CYAN_ROOF_TILE_STAIRS = registerBlock("cyan_roof_tile_stairs",  new RoofTiles());
-    public static final Block CYAN_ROOF_TILE_EDGE = registerBlock("cyan_roof_tile_edge",  new RoofTiles());
-    public static final Block BLACK_ROOF_TILES = registerBlock("black_roof_tiles",  new RoofTiles());
-    public static final Block BLACK_ROOF_TILE_STAIRS = registerBlock("black_roof_tile_stairs",  new RoofTiles());
-    public static final Block BLACK_ROOF_TILE_EDGE = registerBlock("black_roof_tile_edge",  new RoofTiles());
+    public static final Block GRAY_ROOF_TILE_STAIRS = registerBlock("gray_roof_tile_stairs", new RoofTiles());
+    public static final Block GRAY_ROOF_TILE_EDGE = registerBlock("gray_roof_tile_edge", new RoofTiles());
+    public static final Block YELLOW_ROOF_TILES = registerBlock("yellow_roof_tiles", new RoofTiles());
+    public static final Block YELLOW_ROOF_TILE_STAIRS = registerBlock("yellow_roof_tile_stairs", new RoofTiles());
+    public static final Block YELLOW_ROOF_TILE_EDGE = registerBlock("yellow_roof_tile_edge", new RoofTiles());
+    public static final Block GREEN_ROOF_TILES = registerBlock("green_roof_tiles", new RoofTiles());
+    public static final Block GREEN_ROOF_TILE_STAIRS = registerBlock("green_roof_tile_stairs", new RoofTiles());
+    public static final Block GREEN_ROOF_TILE_EDGE = registerBlock("green_roof_tile_edge", new RoofTiles());
+    public static final Block BLUE_ROOF_TILES = registerBlock("blue_roof_tiles", new RoofTiles());
+    public static final Block BLUE_ROOF_TILE_STAIRS = registerBlock("blue_roof_tile_stairs", new RoofTiles());
+    public static final Block BLUE_ROOF_TILE_EDGE = registerBlock("blue_roof_tile_edge", new RoofTiles());
+    public static final Block CYAN_ROOF_TILES = registerBlock("cyan_roof_tiles", new RoofTiles());
+    public static final Block CYAN_ROOF_TILE_STAIRS = registerBlock("cyan_roof_tile_stairs", new RoofTiles());
+    public static final Block CYAN_ROOF_TILE_EDGE = registerBlock("cyan_roof_tile_edge", new RoofTiles());
+    public static final Block BLACK_ROOF_TILES = registerBlock("black_roof_tiles", new RoofTiles());
+    public static final Block BLACK_ROOF_TILE_STAIRS = registerBlock("black_roof_tile_stairs", new RoofTiles());
+    public static final Block BLACK_ROOF_TILE_EDGE = registerBlock("black_roof_tile_edge", new RoofTiles());
 
     // ROOF RIDGE
 
@@ -138,7 +137,7 @@ public class BlockRegistry {
     public static final Block YELLOW_MAIN_ROOF_RIDGE_STAIRS = registerBlock("yellow_main_roof_ridge_stairs", new StraightStairBlock(BaseBlockProperty.STONE));
 
     /**
-     *  DECORATIVE BLOCKS
+     * DECORATIVE BLOCKS
      */
 
     // SIMPLE CARVED WOOD
@@ -398,7 +397,7 @@ public class BlockRegistry {
     public static final Block BOOKSHELF_VARIANT = registerBlock("bookshelf_variant", new BaseHorizontalDirectionalBlock(BaseBlockProperty.WOOD));
 
     /**
-     *  DECORATIONS
+     * DECORATIONS
      */
 
     // STUDY
@@ -443,9 +442,9 @@ public class BlockRegistry {
     public static final Block MEMORIAL_TABLET = registerBlock("memorial_tablet",
             DecorativeBlock.with(BaseBlockProperty.WOOD).shaped(DecorativeBlock.FULL_14).directional().diagonallyPlaceable().noCollision().noFenceConnect().build());
     public static final Block BRONZE_CENSER = registerBlock("bronze_censer",
-             new Censer(DecorativeBlock.with(BaseBlockProperty.BRONZE).shaped(DecorativeBlock.HALF_12).directional().diagonallyPlaceable().luminous(), new Vec3(0.5, 0.7, 0.5)));
+            new Censer(DecorativeBlock.with(BaseBlockProperty.BRONZE).shaped(DecorativeBlock.HALF_12).directional().diagonallyPlaceable().luminous(), new Vec3(0.5, 0.7, 0.5)));
     public static final Block ROYAL_CENSER = registerBlock("royal_censer",
-             new Censer(DecorativeBlock.with(BaseBlockProperty.BRONZE).shaped(DecorativeBlock.FULL_10).directional().luminous(), new Vec3(0.5, 0.5, 0.5)));
+            new Censer(DecorativeBlock.with(BaseBlockProperty.BRONZE).shaped(DecorativeBlock.FULL_10).directional().luminous(), new Vec3(0.5, 0.5, 0.5)));
     public static final Block PORCELAIN_TEAPOT = registerBlock("porcelain_teapot",
             DecorativeBlock.with(BaseBlockProperty.PORCELAIN).shaped(DecorativeBlock.HALF_12).directional().build());
     public static final Block BOOTS = registerBlock("boots",
@@ -470,7 +469,7 @@ public class BlockRegistry {
     public static final Block CLAY_DOLL_FEMALE = registerBlock("clay_doll_female",
             DecorativeBlock.with(BaseBlockProperty.TERRACOTTA).shaped(DecorativeBlock.FULL_10).directional().diagonallyPlaceable().noCollision().build());
     public static final Block BOTTLE_GOURD = registerBlock("bottle_gourd",
-             new BottleGourd(DecorativeBlock.with(BaseBlockProperty.WOOD).shaped(BottleGourd.GOURD).directional().diagonallyPlaceable()));
+            new BottleGourd(DecorativeBlock.with(BaseBlockProperty.WOOD).shaped(BottleGourd.GOURD).directional().diagonallyPlaceable()));
 
     // FLOWER POTS
 
@@ -486,11 +485,11 @@ public class BlockRegistry {
     // COURTYARD
 
     public static final Block SACK = registerBlock("sack",
-             ContainerDecorativeBlock.with(BaseBlockProperty.SILK).content(ContainerType.COMMON_SMALL).shaped(DecorativeBlock.HALF_6).directional().noCollision().pushReaction(PushReaction.BLOCK).build());
+            ContainerDecorativeBlock.with(BaseBlockProperty.SILK).content(ContainerType.COMMON_SMALL).shaped(DecorativeBlock.HALF_6).directional().noCollision().pushReaction(PushReaction.BLOCK).build());
     public static final Block BAMBOO_TEA_BASKET = registerBlock("bamboo_tea_basket",
-             ContainerDecorativeBlock.with(BaseBlockProperty.BAMBOO_WOOD).content(ContainerType.FOOD_REGULAR).shaped(DecorativeBlock.FULL_14).directional().diagonallyPlaceable().pushReaction(PushReaction.BLOCK).build());
+            ContainerDecorativeBlock.with(BaseBlockProperty.BAMBOO_WOOD).content(ContainerType.FOOD_REGULAR).shaped(DecorativeBlock.FULL_14).directional().diagonallyPlaceable().pushReaction(PushReaction.BLOCK).build());
     public static final Block EMPTY_BAMBOO_TEA_BASKET = registerBlock("empty_bamboo_tea_basket",
-             ContainerDecorativeBlock.with(BaseBlockProperty.BAMBOO_WOOD).content(ContainerType.FOOD_REGULAR).shaped(DecorativeBlock.FULL_14).directional().diagonallyPlaceable().pushReaction(PushReaction.BLOCK).build());
+            ContainerDecorativeBlock.with(BaseBlockProperty.BAMBOO_WOOD).content(ContainerType.FOOD_REGULAR).shaped(DecorativeBlock.FULL_14).directional().diagonallyPlaceable().pushReaction(PushReaction.BLOCK).build());
     public static final Block STRAW_HAT = registerBlock("straw_hat",
             DecorativeBlock.with(BaseBlockProperty.FLAX).shaped(DecorativeBlock.QUARTER_16).diagonallyPlaceable().noCollision().noOcclusion().build());
     public static final Block KNIFE = registerBlock("knife",
@@ -506,11 +505,11 @@ public class BlockRegistry {
     public static final Block CHINESE_HERBS_BAG = registerBlock("chinese_herbs_bag",
             DecorativeBlock.with(BaseBlockProperty.SILK).shaped(DecorativeBlock.HALF_BLOCK).directional().build());
     public static final Block FRUIT_BOX = registerBlock("fruit_box",
-             ContainerDecorativeBlock.with(BaseBlockProperty.WOOD).content(ContainerType.FOOD_REGULAR).shaped(DecorativeBlock.FULL_14).directional().diagonallyPlaceable().pushReaction(PushReaction.BLOCK).build());
+            ContainerDecorativeBlock.with(BaseBlockProperty.WOOD).content(ContainerType.FOOD_REGULAR).shaped(DecorativeBlock.FULL_14).directional().diagonallyPlaceable().pushReaction(PushReaction.BLOCK).build());
     public static final Block WOODEN_CRATE = registerBlock("wooden_crate",
-             ContainerDecorativeBlock.with(BaseBlockProperty.WOOD).content(ContainerType.COMMON_REGULAR).shaped(DecorativeBlock.FULL_BLOCK).pushReaction(PushReaction.BLOCK).build());
+            ContainerDecorativeBlock.with(BaseBlockProperty.WOOD).content(ContainerType.COMMON_REGULAR).shaped(DecorativeBlock.FULL_BLOCK).pushReaction(PushReaction.BLOCK).build());
     public static final Block GUNNY_SACK = registerBlock("gunny_sack",
-             ContainerDecorativeBlock.with(BaseBlockProperty.FLAX).content(ContainerType.COMMON_REGULAR).shaped(DecorativeBlock.FULL_14).directional().pushReaction(PushReaction.BLOCK).build());
+            ContainerDecorativeBlock.with(BaseBlockProperty.FLAX).content(ContainerType.COMMON_REGULAR).shaped(DecorativeBlock.FULL_14).directional().pushReaction(PushReaction.BLOCK).build());
     public static final Block BRONZE_DING = registerBlock("bronze_ding",
             DecorativeBlock.with(BaseBlockProperty.BRONZE).shaped(DecorativeBlock.FULL_BLOCK).placeOffset(Direction.UP).directional().noOcclusion().build());
     public static final Block CARRIAGE = registerBlock("carriage",
@@ -548,38 +547,44 @@ public class BlockRegistry {
     // FOOD
 
     public static final Block FOOD_HAMPER = registerBlock("food_hamper",
-             ContainerDecorativeBlock.with(BaseBlockProperty.WOOD).content(ContainerType.FOOD_LARGE).shaped(DecorativeBlock.FULL_6).directional().diagonallyPlaceable().pushReaction(PushReaction.BLOCK).build());
+            ContainerDecorativeBlock.with(BaseBlockProperty.WOOD).content(ContainerType.FOOD_LARGE).shaped(DecorativeBlock.FULL_6).directional().diagonallyPlaceable().pushReaction(PushReaction.BLOCK).build());
     public static final Block PLATED_MOONCAKES = registerBlock("plated_mooncakes", //todo change stone slab plate to actual block
-             ConsumableDecorativeBlock.with(BaseBlockProperty.PORCELAIN).bites(4).platedWith(Blocks.STONE_SLAB).food(ModFoods.MOONCAKE).shaped(DecorativeBlock.FLAT_16).directional().build());
+            ConsumableDecorativeBlock.with(BaseBlockProperty.PORCELAIN).bites(4).platedWith(Blocks.STONE_SLAB).food(ModFoods.MOONCAKE).shaped(DecorativeBlock.FLAT_16).directional().build());
     public static final Block PLATED_MUNG_BEAN_CAKES = registerBlock("plated_mung_bean_cakes",
-             ConsumableDecorativeBlock.with(BaseBlockProperty.GLAZED).bites(7).platedWith(Blocks.STONE_SLAB).food(ModFoods.MUNG_BEAN_CAKE).shaped(DecorativeBlock.FLAT_16).directional().noOcclusion().build());
+            ConsumableDecorativeBlock.with(BaseBlockProperty.GLAZED).bites(7).platedWith(Blocks.STONE_SLAB).food(ModFoods.MUNG_BEAN_CAKE).shaped(DecorativeBlock.FLAT_16).directional().noOcclusion().build());
     public static final Block PLATED_HAM = registerBlock("plated_ham",
-             ConsumableDecorativeBlock.with(BaseBlockProperty.WOOD).bites(4).platedWith(() -> ItemRegistry.POLISHED_OAK_PLANK).food(ModFoods.COOKED_MEAT).shaped(DecorativeBlock.FLAT_16).directional().noOcclusion().build());
+            ConsumableDecorativeBlock.with(BaseBlockProperty.WOOD).bites(4).platedWith(() -> ModItems.POLISHED_OAK_PLANK).food(ModFoods.COOKED_MEAT).shaped(DecorativeBlock.FLAT_16).directional().noOcclusion().build());
     public static final Block PLATED_FISH = registerBlock("plated_fish",
-             ConsumableDecorativeBlock.with(BaseBlockProperty.WOOD).bites(3).platedWith(() -> ItemRegistry.POLISHED_OAK_PLANK).food(ModFoods.FISH).shaped(DecorativeBlock.FLAT_16).directional().noOcclusion().build());
+            ConsumableDecorativeBlock.with(BaseBlockProperty.WOOD).bites(3).platedWith(() -> ModItems.POLISHED_OAK_PLANK).food(ModFoods.FISH).shaped(DecorativeBlock.FLAT_16).directional().noOcclusion().build());
     public static final Block SCATTERED_CARROTS = registerBlock("scattered_carrots",
-             ConsumableDecorativeBlock.with(BaseBlockProperty.CROP).bites(2).platedWith(() -> ItemRegistry.POLISHED_OAK_PLANK).food(Foods.CARROT)
-                    .whenFinished((pState, pLevel, pPos, pPlayer) -> {pLevel.setBlock(pPos, Blocks.AIR.defaultBlockState(), Block.UPDATE_ALL); pLevel.gameEvent(pPlayer, GameEvent.BLOCK_DESTROY, pPos);})
+            ConsumableDecorativeBlock.with(BaseBlockProperty.CROP).bites(2).platedWith(() -> ModItems.POLISHED_OAK_PLANK).food(Foods.CARROT)
+                    .whenFinished((pState, pLevel, pPos, pPlayer) -> {
+                        pLevel.setBlock(pPos, Blocks.AIR.defaultBlockState(), Block.UPDATE_ALL);
+                        pLevel.gameEvent(pPlayer, GameEvent.BLOCK_DESTROY, pPos);
+                    })
                     .shaped(DecorativeBlock.QUARTER_16).directional().noOcclusion().build());
     public static final Block WINE_POT = registerBlock("wine_pot",
             DecorativeBlock.with(BaseBlockProperty.PORCELAIN).shaped(DecorativeBlock.FULL_6).directional().build());
     public static final Block XIAOLONGBAO = registerBlock("xiaolongbao", //TODO xiaolongbao 8 bites in one block, return 2 containers
-             ConsumableDecorativeBlock.with(BaseBlockProperty.BAMBOO).bites(8).platedWith(() -> ItemRegistry.POLISHED_OAK_PLANK).food(ModFoods.BAOZI)
-                    .whenFinished((pState, pLevel, pPos, pPlayer) -> {pLevel.setBlock(pPos, Blocks.AIR.defaultBlockState(), Block.UPDATE_ALL); pLevel.gameEvent(pPlayer, GameEvent.BLOCK_DESTROY, pPos);})
+            ConsumableDecorativeBlock.with(BaseBlockProperty.BAMBOO).bites(8).platedWith(() -> ModItems.POLISHED_OAK_PLANK).food(ModFoods.BAOZI)
+                    .whenFinished((pState, pLevel, pPos, pPlayer) -> {
+                        pLevel.setBlock(pPos, Blocks.AIR.defaultBlockState(), Block.UPDATE_ALL);
+                        pLevel.gameEvent(pPlayer, GameEvent.BLOCK_DESTROY, pPos);
+                    })
                     .shaped(DecorativeBlock.FULL_BLOCK).directional().build());
 
     /**
-     *  FURNITURE
+     * FURNITURE
      */
 
     // CABINET
 
     public static final Block OAK_CABINET = registerBlock("oak_cabinet",
-             ContainerDecorativeBlock.with(BaseBlockProperty.WOOD).content(ContainerType.COMMON_REGULAR).shaped(DecorativeBlock.FULL_BLOCK).directional().noFenceConnect().pushReaction(PushReaction.BLOCK).build());
+            ContainerDecorativeBlock.with(BaseBlockProperty.WOOD).content(ContainerType.COMMON_REGULAR).shaped(DecorativeBlock.FULL_BLOCK).directional().noFenceConnect().pushReaction(PushReaction.BLOCK).build());
     public static final Block WARPED_CABINET = registerBlock("warped_cabinet",
-             ContainerDecorativeBlock.with(BaseBlockProperty.WOOD).content(ContainerType.COMMON_REGULAR).shaped(DecorativeBlock.FULL_BLOCK).directional().noFenceConnect().pushReaction(PushReaction.BLOCK).build());
+            ContainerDecorativeBlock.with(BaseBlockProperty.WOOD).content(ContainerType.COMMON_REGULAR).shaped(DecorativeBlock.FULL_BLOCK).directional().noFenceConnect().pushReaction(PushReaction.BLOCK).build());
     public static final Block EBONY_CABINET = registerBlock("ebony_cabinet",
-             ContainerDecorativeBlock.with(BaseBlockProperty.WOOD).content(ContainerType.COMMON_LARGE).shaped(DecorativeBlock.FULL_BLOCK).directional().noFenceConnect().pushReaction(PushReaction.BLOCK).build());
+            ContainerDecorativeBlock.with(BaseBlockProperty.WOOD).content(ContainerType.COMMON_LARGE).shaped(DecorativeBlock.FULL_BLOCK).directional().noFenceConnect().pushReaction(PushReaction.BLOCK).build());
 
     // TABLE
 
@@ -603,19 +608,19 @@ public class BlockRegistry {
     // CHAIR
 
     public static final Block EBONY_CHAIR = registerBlock("ebony_chair",
-             SeatDecorativeBlock.with(BaseBlockProperty.WOOD).seatOffset(new Vec3(0.0f, -0.1f, 0.0f)).shaped(DecorativeBlock.HALF_12).directional().diagonallyPlaceable().build());
+            SeatDecorativeBlock.with(BaseBlockProperty.WOOD).seatOffset(new Vec3(0.0f, -0.1f, 0.0f)).shaped(DecorativeBlock.HALF_12).directional().diagonallyPlaceable().build());
     public static final Block CHAIR_WITH_YELLOW_CUSHION = registerBlock("chair_with_yellow_cushion",
-             SeatDecorativeBlock.with(BaseBlockProperty.WOOD).seatOffset(new Vec3(0.0f, -0.1f, 0.0f)).shaped(DecorativeBlock.HALF_BLOCK).directional().build());
+            SeatDecorativeBlock.with(BaseBlockProperty.WOOD).seatOffset(new Vec3(0.0f, -0.1f, 0.0f)).shaped(DecorativeBlock.HALF_BLOCK).directional().build());
     public static final Block PAINTED_CHAIR = registerBlock("painted_chair",
-             SeatDecorativeBlock.with(BaseBlockProperty.WOOD).seatOffset(new Vec3(0.0f, -0.1f, 0.0f)).shaped(DecorativeBlock.HALF_BLOCK).directional().build());
+            SeatDecorativeBlock.with(BaseBlockProperty.WOOD).seatOffset(new Vec3(0.0f, -0.1f, 0.0f)).shaped(DecorativeBlock.HALF_BLOCK).directional().build());
     public static final Block WOODEN_STOOL = registerBlock("wooden_stool",
-             SeatDecorativeBlock.with(BaseBlockProperty.WOOD).seatOffset(new Vec3(0.0f, -0.1f, 0.0f)).shaped(DecorativeBlock.HALF_12).directional().build());
+            SeatDecorativeBlock.with(BaseBlockProperty.WOOD).seatOffset(new Vec3(0.0f, -0.1f, 0.0f)).shaped(DecorativeBlock.HALF_12).directional().build());
     public static final Block PORCELAIN_INLAID_GRAND_CHAIR = registerBlock("porcelain_inlaid_grand_chair",
-             SeatDecorativeBlock.with(BaseBlockProperty.WOOD).seatOffset(new Vec3(0.0f, -0.1f, 0.0f)).shaped(DecorativeBlock.HALF_14).directional().build());
+            SeatDecorativeBlock.with(BaseBlockProperty.WOOD).seatOffset(new Vec3(0.0f, -0.1f, 0.0f)).shaped(DecorativeBlock.HALF_14).directional().build());
     public static final Block YELLOW_CUSHION = registerBlock("yellow_cushion",
-             SeatDecorativeBlock.with(BaseBlockProperty.SILK).seatOffset(new Vec3(0.0f, -0.5f, 0.0f)).shaped(DecorativeBlock.QUARTER_12).directional().diagonallyPlaceable().build());
+            SeatDecorativeBlock.with(BaseBlockProperty.SILK).seatOffset(new Vec3(0.0f, -0.5f, 0.0f)).shaped(DecorativeBlock.QUARTER_12).directional().diagonallyPlaceable().build());
     public static final Block OAK_BED = registerBlock("oak_bed",
-             SeatDecorativeBlock.with(BaseBlockProperty.WOOD).seatOffset(new Vec3(0.0f, -0.1f, 0.0f)).shaped(DecorativeBlock.HALF_BLOCK).directional().build());
+            SeatDecorativeBlock.with(BaseBlockProperty.WOOD).seatOffset(new Vec3(0.0f, -0.1f, 0.0f)).shaped(DecorativeBlock.HALF_BLOCK).directional().build());
 
     // SCREEN
 
@@ -625,7 +630,7 @@ public class BlockRegistry {
             DecorativeBlock.with(BaseBlockProperty.WOOD).shaped(OpeningBlock.MIDDLE_AXIAL).placeOffset(Direction.UP).directional().build());
 
     /**
-     *  DOOR AND WINDOW
+     * DOOR AND WINDOW
      */
 
     // DOOR
@@ -644,7 +649,7 @@ public class BlockRegistry {
     public static final Block TALL_ROYAL_ROSEWOOD_WINDOW = registerBlock("tall_royal_rosewood_window",
             new OpeningBlock(DecorativeBlock.with(BaseBlockProperty.WOOD).directional().noOcclusion()));
     public static final Block GLAZED_TILE_GRID_WINDOW = registerBlock("glazed_tile_grid_window",
-             new DecorativeBlock(DecorativeBlock.with(BaseBlockProperty.GLAZED).shaped(DecorativeBlock.FULL_BLOCK).directional().noOcclusion()));
+            new DecorativeBlock(DecorativeBlock.with(BaseBlockProperty.GLAZED).shaped(DecorativeBlock.FULL_BLOCK).directional().noOcclusion()));
     public static final Block STONE_FLOWER_WINDOW = registerBlock("stone_flower_window", new BaseBlock(BaseBlockProperty.IRON));
 
     // DOOR DECO
@@ -652,17 +657,17 @@ public class BlockRegistry {
     public static final Block KNOCKER = registerBlock("knocker",
             new WallSideBlock(BaseBlockProperty.COPPER));
     public static final Block ROSEWOOD_PANEL = registerBlock("rosewood_panel",
-             new SixSideBlock(BaseBlockProperty.WOOD, 3));
+            new SixSideBlock(BaseBlockProperty.WOOD, 3));
     public static final Block ROSEWOOD_DOOR_PANEL = registerBlock("rosewood_door_panel",
-             new SixSideBlock(BaseBlockProperty.WOOD, 3));
+            new SixSideBlock(BaseBlockProperty.WOOD, 3));
     public static final Block LARGE_ROSEWOOD_PANEL = registerBlock("large_rosewood_panel",
-             new OrientableSixSideBlock(BaseBlockProperty.WOOD, 3));
+            new OrientableSixSideBlock(BaseBlockProperty.WOOD, 3));
     public static final Block LARGE_ROSEWOOD_PANEL_EDGE = registerBlock("large_rosewood_panel_edge",
-             new OrientableSixSideBlock(BaseBlockProperty.WOOD, 3));
+            new OrientableSixSideBlock(BaseBlockProperty.WOOD, 3));
     public static final Block CARVED_WOODEN_DOOR_PANEL = registerBlock("carved_wooden_door_panel",
             new OpeningBlock(DecorativeBlock.with(BaseBlockProperty.WOOD).directional().noOcclusion()));
     public static final Block PLAQUE = registerBlock("plaque",
-             new DecorativeBlock(DecorativeBlock.with(BaseBlockProperty.WOOD).directional().noOcclusion()));
+            new DecorativeBlock(DecorativeBlock.with(BaseBlockProperty.WOOD).directional().noOcclusion()));
     public static final Block PAPER_STRIP_SEAL = registerBlock("paper_strip_seal",
             new WallSideBlock(BaseBlockProperty.PAPER));
 
@@ -675,37 +680,37 @@ public class BlockRegistry {
     public static final Block SMALL_BLUE_CURTAIN = registerBlock("small_blue_curtain",
             new WallSideBlock(BaseBlockProperty.SILK));
     public static final Block RED_CURTAIN = registerBlock("red_curtain",
-             new OrientableWallSideBlock(BaseBlockProperty.SILK));
+            new OrientableWallSideBlock(BaseBlockProperty.SILK));
     public static final Block RED_CURTAIN_CORNER = registerBlock("red_curtain_corner",
-             new OrientableWallSideBlock(BaseBlockProperty.SILK));
+            new OrientableWallSideBlock(BaseBlockProperty.SILK));
     public static final Block BAMBOO_CURTAIN = registerBlock("bamboo_curtain",
-             new DecorativeBlock(DecorativeBlock.with(BaseBlockProperty.BAMBOO_WOOD).shaped(OpeningBlock.MIDDLE_AXIAL).directional().noOcclusion()));
+            new DecorativeBlock(DecorativeBlock.with(BaseBlockProperty.BAMBOO_WOOD).shaped(OpeningBlock.MIDDLE_AXIAL).directional().noOcclusion()));
 
     /**
-     *  PLANTS
+     * PLANTS
      */
 
     // LOTUS
 
 
     public static final Block SMALL_LOTUS_LEAF = registerBlock("small_lotus_leaf",
-             new AquaticPlantBlock(DecorativeBlock.with(BaseBlockProperty.LILY).shaped(DecorativeBlock.FLAT_16).directional().diagonallyPlaceable().noCollision().noOcclusion()));
+            new AquaticPlantBlock(DecorativeBlock.with(BaseBlockProperty.LILY).shaped(DecorativeBlock.FLAT_16).directional().diagonallyPlaceable().noCollision().noOcclusion()));
     public static final Block SMALL_DARK_GREEN_LOTUS_LEAF = registerBlock("small_dark_green_lotus_leaf",
-             new AquaticPlantBlock(DecorativeBlock.with(BaseBlockProperty.LILY).shaped(DecorativeBlock.FLAT_16).directional().diagonallyPlaceable().noCollision().noOcclusion()));
+            new AquaticPlantBlock(DecorativeBlock.with(BaseBlockProperty.LILY).shaped(DecorativeBlock.FLAT_16).directional().diagonallyPlaceable().noCollision().noOcclusion()));
     public static final Block MEDIUM_LOTUS_LEAF = registerBlock("medium_lotus_leaf",
-             new AquaticPlantBlock(DecorativeBlock.with(BaseBlockProperty.LILY).shaped(DecorativeBlock.FLAT_16).directional().diagonallyPlaceable().noCollision().noOcclusion()));
+            new AquaticPlantBlock(DecorativeBlock.with(BaseBlockProperty.LILY).shaped(DecorativeBlock.FLAT_16).directional().diagonallyPlaceable().noCollision().noOcclusion()));
     public static final Block LARGE_LOTUS_LEAF = registerBlock("large_lotus_leaf",
-             new AquaticPlantBlock(DecorativeBlock.with(BaseBlockProperty.LILY).shaped(DecorativeBlock.FLAT_16).directional().diagonallyPlaceable().noCollision().noOcclusion()));
+            new AquaticPlantBlock(DecorativeBlock.with(BaseBlockProperty.LILY).shaped(DecorativeBlock.FLAT_16).directional().diagonallyPlaceable().noCollision().noOcclusion()));
     public static final Block TILTED_LOTUS_LEAF = registerBlock("tilted_lotus_leaf",
-             new AquaticPlantBlock(DecorativeBlock.with(BaseBlockProperty.LILY).shaped(DecorativeBlock.HALF_BLOCK).directional().noCollision().noOcclusion()));
+            new AquaticPlantBlock(DecorativeBlock.with(BaseBlockProperty.LILY).shaped(DecorativeBlock.HALF_BLOCK).directional().noCollision().noOcclusion()));
     public static final Block SMALL_LOTUS_LEAF_CLUSTER = registerBlock("small_lotus_leaf_cluster",
-             new AquaticPlantBlock(DecorativeBlock.with(BaseBlockProperty.LILY).shaped(DecorativeBlock.FLAT_16).directional().diagonallyPlaceable().noCollision().noOcclusion()));
+            new AquaticPlantBlock(DecorativeBlock.with(BaseBlockProperty.LILY).shaped(DecorativeBlock.FLAT_16).directional().diagonallyPlaceable().noCollision().noOcclusion()));
     public static final Block MEDIUM_LOTUS_LEAF_CLUSTER = registerBlock("medium_lotus_leaf_cluster",
-             new AquaticPlantBlock(DecorativeBlock.with(BaseBlockProperty.LILY).shaped(DecorativeBlock.FLAT_16).directional().diagonallyPlaceable().noCollision().noOcclusion()));
+            new AquaticPlantBlock(DecorativeBlock.with(BaseBlockProperty.LILY).shaped(DecorativeBlock.FLAT_16).directional().diagonallyPlaceable().noCollision().noOcclusion()));
     public static final Block LOTUS_BUD = registerBlock("lotus_bud",
-             new AquaticPlantBlock(DecorativeBlock.with(BaseBlockProperty.LILY).shaped(DecorativeBlock.FULL_8).directional().noCollision().noOcclusion()));
+            new AquaticPlantBlock(DecorativeBlock.with(BaseBlockProperty.LILY).shaped(DecorativeBlock.FULL_8).directional().noCollision().noOcclusion()));
     public static final Block MEDIUM_LOTUS = registerBlock("medium_lotus",
-             new AquaticPlantBlock(DecorativeBlock.with(BaseBlockProperty.LILY).shaped(DecorativeBlock.FULL_BLOCK).directional().noCollision().noOcclusion()));
+            new AquaticPlantBlock(DecorativeBlock.with(BaseBlockProperty.LILY).shaped(DecorativeBlock.FULL_BLOCK).directional().noCollision().noOcclusion()));
 
     // IVY
 
@@ -771,7 +776,7 @@ public class BlockRegistry {
             DecorativeBlock.with(BaseBlockProperty.TERRACOTTA).shaped(DecorativeBlock.FULL_14).directional().diagonallyPlaceable().noCollision().noOcclusion().build());
 
     /**
-     *  LAMPS
+     * LAMPS
      */
 
     //LANTERN
@@ -801,14 +806,14 @@ public class BlockRegistry {
     // CANDLESTICK
 
     public static final Block RED_CANDLE = registerBlock("red_candle",
-             new CandleStick(DecorativeBlock.with(BaseBlockProperty.WOOD).shaped(DecorativeBlock.FULL_4).directional().diagonallyPlaceable().luminous(), new Vec3(0.5,1.1,0.5)));
+            new CandleStick(DecorativeBlock.with(BaseBlockProperty.WOOD).shaped(DecorativeBlock.FULL_4).directional().diagonallyPlaceable().luminous(), new Vec3(0.5, 1.1, 0.5)));
     public static final Block TRICOLOR_CANDLESTICK = registerBlock("tricolor_candlestick",
-             new CandleStick(DecorativeBlock.with(BaseBlockProperty.IRON).shaped(DecorativeBlock.FULL_10).directional().diagonallyPlaceable().luminous(), new Vec3(0.5,1.25,0.5)));
+            new CandleStick(DecorativeBlock.with(BaseBlockProperty.IRON).shaped(DecorativeBlock.FULL_10).directional().diagonallyPlaceable().luminous(), new Vec3(0.5, 1.25, 0.5)));
     public static final Block JADE_CANDLESTICK = registerBlock("jade_candlestick",
-             new CandleStick(DecorativeBlock.with(BaseBlockProperty.JADE).shaped(DecorativeBlock.FULL_6).directional().diagonallyPlaceable().luminous(), new Vec3(0.5,1.3,0.5)));
+            new CandleStick(DecorativeBlock.with(BaseBlockProperty.JADE).shaped(DecorativeBlock.FULL_6).directional().diagonallyPlaceable().luminous(), new Vec3(0.5, 1.3, 0.5)));
 
     /**
-     *  MATERIALS
+     * MATERIALS
      */
 
     public static final Block JADE_ORE = registerBlock("jade_ore", new BaseOreBlock(2, 5));
@@ -816,11 +821,11 @@ public class BlockRegistry {
     public static final Block HEMATITE_ORE = registerBlock("hematite_ore", new BaseOreBlock(1, 3));
 
     /**
-     *  TOOLS
+     * TOOLS
      */
 
     public static final Block WOODWORKING_WORKBENCH = registerBlock("woodworking_workbench", new WoodworkingWorkBench());
-    
+
 
     public static Block registerBlock(String name, Block block) {
         //registerBlockItem(name, block);

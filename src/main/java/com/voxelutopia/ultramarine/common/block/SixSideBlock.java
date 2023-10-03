@@ -21,12 +21,11 @@ import java.util.Map;
 
 public class SixSideBlock extends Block implements BaseBlockPropertyHolder, SimpleWaterloggedBlock, SideBlock {
 
+    public static final DirectionProperty FACING = BlockStateProperties.FACING;
+    public static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
     protected final BaseBlockProperty property;
     private final Map<Direction, VoxelShape> shapeByDirection;
     private final boolean hasCollision;
-
-    public static final DirectionProperty FACING = BlockStateProperties.FACING;
-    public static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
 
     public SixSideBlock(BaseBlockProperty property, int sideThickness, boolean hasCollision) {
         super(property.copy().properties.noOcclusion().noCollission());
@@ -39,10 +38,10 @@ public class SixSideBlock extends Block implements BaseBlockPropertyHolder, Simp
     }
 
     public SixSideBlock(BaseBlockProperty property) {
-        this(property,  1);
+        this(property, 1);
     }
 
-    public SixSideBlock(BaseBlockProperty property, int sideThickness){
+    public SixSideBlock(BaseBlockProperty property, int sideThickness) {
         this(property, sideThickness, false);
     }
 
@@ -75,7 +74,6 @@ public class SixSideBlock extends Block implements BaseBlockPropertyHolder, Simp
     public BaseBlockProperty getProperty() {
         return this.property;
     }
-
 
 
 }

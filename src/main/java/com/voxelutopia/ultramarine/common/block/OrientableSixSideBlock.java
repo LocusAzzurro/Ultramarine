@@ -12,7 +12,7 @@ import net.minecraft.world.level.material.Fluids;
 
 import java.util.Arrays;
 
-public class OrientableSixSideBlock extends SixSideBlock implements SideBlock{
+public class OrientableSixSideBlock extends SixSideBlock implements SideBlock {
 
     public static final DirectionProperty FACING = BlockStateProperties.FACING;
     public static final DirectionProperty DIRECTION = ModBlockStateProperties.ON_FACE_DIRECTION;
@@ -42,7 +42,6 @@ public class OrientableSixSideBlock extends SixSideBlock implements SideBlock{
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> pBuilder) {
         pBuilder.add(FACING, DIRECTION, WATERLOGGED);
     }
-
 
 
 }

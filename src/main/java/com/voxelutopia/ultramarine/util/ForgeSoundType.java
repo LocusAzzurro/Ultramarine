@@ -11,16 +11,14 @@ import org.jetbrains.annotations.NotNull;
  * Description:
  */
 
-public class ForgeSoundType extends SoundType
-{
+public class ForgeSoundType extends SoundType {
     private final SoundEvent breakSound;
     private final SoundEvent stepSound;
     private final SoundEvent placeSound;
     private final SoundEvent hitSound;
     private final SoundEvent fallSound;
 
-    public ForgeSoundType(float volumeIn, float pitchIn, SoundEvent breakSoundIn, SoundEvent stepSoundIn, SoundEvent placeSoundIn, SoundEvent hitSoundIn, SoundEvent fallSoundIn)
-    {
+    public ForgeSoundType(float volumeIn, float pitchIn, SoundEvent breakSoundIn, SoundEvent stepSoundIn, SoundEvent placeSoundIn, SoundEvent hitSoundIn, SoundEvent fallSoundIn) {
         super(volumeIn, pitchIn, null, null, null, null, null);
         this.breakSound = breakSoundIn;
         this.stepSound = stepSoundIn;
@@ -31,36 +29,31 @@ public class ForgeSoundType extends SoundType
 
     @NotNull
     @Override
-    public SoundEvent getBreakSound()
-    {
+    public SoundEvent getBreakSound() {
         return breakSound;
     }
 
     @NotNull
     @Override
-    public SoundEvent getStepSound()
-    {
+    public SoundEvent getStepSound() {
         return stepSound;
     }
 
     @NotNull
     @Override
-    public SoundEvent getPlaceSound()
-    {
+    public SoundEvent getPlaceSound() {
         return placeSound;
     }
 
     @NotNull
     @Override
-    public SoundEvent getHitSound()
-    {
+    public SoundEvent getHitSound() {
         return hitSound;
     }
 
     @NotNull
     @Override
-    public SoundEvent getFallSound()
-    {
+    public SoundEvent getFallSound() {
         return fallSound;
     }
 }

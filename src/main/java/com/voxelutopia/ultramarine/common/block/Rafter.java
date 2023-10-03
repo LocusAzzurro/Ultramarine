@@ -18,7 +18,7 @@ public class Rafter extends ShiftableBlock {
 
     public static final EnumProperty<Direction.Axis> AXIS = BlockStateProperties.HORIZONTAL_AXIS;
 
-    public Rafter(BaseBlockProperty property){
+    public Rafter(BaseBlockProperty property) {
         super(property.copy().properties.noOcclusion());
         this.registerDefaultState(this.stateDefinition.any()
                 .setValue(AXIS, Direction.Axis.X)
@@ -50,7 +50,6 @@ public class Rafter extends ShiftableBlock {
     public RenderShape getRenderShape(BlockState pState) {
         return super.getRenderShape(pState);
     }
-
 
 
 }

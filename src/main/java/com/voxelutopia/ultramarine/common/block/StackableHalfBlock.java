@@ -15,12 +15,12 @@ import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import org.jetbrains.annotations.Nullable;
 
-public class StackableHalfBlock extends BaseBlock{
+public class StackableHalfBlock extends BaseBlock {
 
     public static final EnumProperty<StackableBlockType> TYPE = ModBlockStateProperties.STACKABLE_BLOCK_TYPE;
     protected static final VoxelShape HALF = Block.box(0.0D, 0.0D, 0.0D, 16.0D, 8.0D, 16.0D);
 
-    public StackableHalfBlock(BaseBlockProperty property){
+    public StackableHalfBlock(BaseBlockProperty property) {
         super(property);
         this.registerDefaultState(this.defaultBlockState().setValue(TYPE, StackableBlockType.SINGLE));
     }
@@ -47,8 +47,7 @@ public class StackableHalfBlock extends BaseBlock{
         BlockState blockstate = pContext.getLevel().getBlockState(blockpos);
         if (blockstate.is(this)) {
             return blockstate.setValue(TYPE, StackableBlockType.DOUBLE);
-        }
-        else return defaultBlockState().setValue(TYPE, StackableBlockType.SINGLE);
+        } else return defaultBlockState().setValue(TYPE, StackableBlockType.SINGLE);
     }
 
     public boolean canBeReplaced(BlockState pState, BlockPlaceContext pUseContext) {
@@ -56,10 +55,6 @@ public class StackableHalfBlock extends BaseBlock{
         StackableBlockType type = pState.getValue(TYPE);
         return (type != StackableBlockType.DOUBLE && itemstack.is(this.asItem()));
     }
-
-
-
-
 
 
 }

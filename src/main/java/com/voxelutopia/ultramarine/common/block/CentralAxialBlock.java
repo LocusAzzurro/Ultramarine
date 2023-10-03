@@ -23,11 +23,10 @@ public class CentralAxialBlock extends Block implements AxialBlock, SimpleWaterl
 
     public static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
     public static final EnumProperty<Direction.Axis> AXIS = BlockStateProperties.HORIZONTAL_AXIS;
-    protected Map<Direction.Axis, VoxelShape> shapeByAxis;
-
     private final int thickness;
     private final boolean hasCollision;
     private final int height;
+    protected Map<Direction.Axis, VoxelShape> shapeByAxis;
 
     public CentralAxialBlock(BaseBlockProperty property, int thickness, int height, boolean hasCollision) {
         super(property.properties);

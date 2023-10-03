@@ -3,7 +3,7 @@ package com.voxelutopia.ultramarine.init.datagen;
 import com.voxelutopia.ultramarine.UltramarineDataGenerators;
 import com.voxelutopia.ultramarine.common.block.BaseFence;
 import com.voxelutopia.ultramarine.common.block.BaseWall;
-import com.voxelutopia.ultramarine.init.registry.BlockRegistry;
+import com.voxelutopia.ultramarine.init.registry.ModBlocks;
 import com.voxelutopia.ultramarine.util.RegistryHelper;
 import io.github.fabricators_of_create.porting_lib.data.ExistingFileHelper;
 import io.github.fabricators_of_create.porting_lib.models.generators.item.ItemModelBuilder;
@@ -27,8 +27,8 @@ public class ModItemModelProvider extends ItemModelProvider {
     static {
         BuiltInRegistries.BLOCK.stream()
                 .filter(blockRegistryObject -> (
-                        blockRegistryObject  instanceof BaseWall ||
-                        blockRegistryObject  instanceof BaseFence
+                        blockRegistryObject instanceof BaseWall ||
+                                blockRegistryObject instanceof BaseFence
                 ))
                 .forEach(NON_SIMPLE_BLOCKS::add);
     }
@@ -36,18 +36,19 @@ public class ModItemModelProvider extends ItemModelProvider {
     public ModItemModelProvider(PackOutput generator, ExistingFileHelper existingFileHelper) {
         super(generator, UltramarineDataGenerators.MOD_ID, existingFileHelper);
     }
+
     @Override
     protected void registerModels() {
         BuiltInRegistries.BLOCK.stream()
                 .filter(blockRegistryObject -> !NON_SIMPLE_BLOCKS.contains(blockRegistryObject))
                 .forEach(this::blockItem);
-        wallInventory(RegistryHelper.getBlockRegistryName(BlockRegistry.BLACK_BRICK_WALL).getPath(), blockLoc(BlockRegistry.BLACK_BRICKS));
-        wallInventory(RegistryHelper.getBlockRegistryName(BlockRegistry.CYAN_BRICK_WALL).getPath(), blockLoc(BlockRegistry.CYAN_BRICKS));
-        wallInventory(RegistryHelper.getBlockRegistryName(BlockRegistry.CYAN_FLOOR_TILE_WALL).getPath(), blockLoc(BlockRegistry.CYAN_FLOOR_TILE));
-        wallInventory(RegistryHelper.getBlockRegistryName(BlockRegistry.LIGHT_CYAN_FLOOR_TILE_WALL).getPath(), blockLoc(BlockRegistry.LIGHT_CYAN_FLOOR_TILE));
-        wallInventory(RegistryHelper.getBlockRegistryName(BlockRegistry.BROWNISH_RED_STONE_BRICK_WALL).getPath(), blockLoc(BlockRegistry.BROWNISH_RED_STONE_BRICKS));
-        wallInventory(RegistryHelper.getBlockRegistryName(BlockRegistry.POLISHED_WEATHERED_STONE_WALL).getPath(), blockLoc(BlockRegistry.POLISHED_WEATHERED_STONE));
-        fenceInventory(RegistryHelper.getBlockRegistryName(BlockRegistry.ROSEWOOD_FENCE).getPath(), blockLoc(BlockRegistry.ROSEWOOD_PLANKS));
+        wallInventory(RegistryHelper.getBlockRegistryName(ModBlocks.BLACK_BRICK_WALL).getPath(), blockLoc(ModBlocks.BLACK_BRICKS));
+        wallInventory(RegistryHelper.getBlockRegistryName(ModBlocks.CYAN_BRICK_WALL).getPath(), blockLoc(ModBlocks.CYAN_BRICKS));
+        wallInventory(RegistryHelper.getBlockRegistryName(ModBlocks.CYAN_FLOOR_TILE_WALL).getPath(), blockLoc(ModBlocks.CYAN_FLOOR_TILE));
+        wallInventory(RegistryHelper.getBlockRegistryName(ModBlocks.LIGHT_CYAN_FLOOR_TILE_WALL).getPath(), blockLoc(ModBlocks.LIGHT_CYAN_FLOOR_TILE));
+        wallInventory(RegistryHelper.getBlockRegistryName(ModBlocks.BROWNISH_RED_STONE_BRICK_WALL).getPath(), blockLoc(ModBlocks.BROWNISH_RED_STONE_BRICKS));
+        wallInventory(RegistryHelper.getBlockRegistryName(ModBlocks.POLISHED_WEATHERED_STONE_WALL).getPath(), blockLoc(ModBlocks.POLISHED_WEATHERED_STONE));
+        fenceInventory(RegistryHelper.getBlockRegistryName(ModBlocks.ROSEWOOD_FENCE).getPath(), blockLoc(ModBlocks.ROSEWOOD_PLANKS));
         BuiltInRegistries.ITEM.stream()
                 .filter(blockRegistryObject -> !NON_SIMPLE_ITEMS.contains(blockRegistryObject))
                 .filter(blockRegistryObject -> !(blockRegistryObject instanceof BlockItem))
@@ -55,15 +56,15 @@ public class ModItemModelProvider extends ItemModelProvider {
 
     }
 
-    private ItemModelBuilder generatedItem(Item item){
+    private ItemModelBuilder generatedItem(Item item) {
         return singleTexture(RegistryHelper.getItemRegistryName(item).getPath(), mcLoc("item/generated"), "layer0", modLoc("item/" + RegistryHelper.getItemRegistryName(item).getPath()));
     }
 
-    private ItemModelBuilder blockItem(Block block){
+    private ItemModelBuilder blockItem(Block block) {
         return withExistingParent(RegistryHelper.getBlockRegistryName(block).getPath(), modLoc("block/" + RegistryHelper.getBlockRegistryName(block).getPath()));
     }
 
-    private ResourceLocation blockLoc(Block block){
+    private ResourceLocation blockLoc(Block block) {
         return modLoc("block/" + RegistryHelper.getBlockRegistryName(block).getPath());
     }
 

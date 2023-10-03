@@ -1,6 +1,6 @@
 package com.voxelutopia.ultramarine.common.tile;
 
-import com.voxelutopia.ultramarine.init.registry.EntityTypeRegistry;
+import com.voxelutopia.ultramarine.init.registry.ModEntityTypes;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.protocol.Packet;
 import net.minecraft.network.protocol.game.ClientGamePacketListener;
@@ -16,18 +16,17 @@ import org.jetbrains.annotations.NotNull;
 
 public class SeatEntity extends Entity {
 
+    private static final EntityDataAccessor<Integer> LIFE = SynchedEntityData.defineId(SeatEntity.class, EntityDataSerializers.INT);
     private final int MAX_LIFE = 20;
     private int life;
-
-    private static final EntityDataAccessor<Integer> LIFE = SynchedEntityData.defineId(SeatEntity.class, EntityDataSerializers.INT);
 
     public SeatEntity(EntityType<? extends SeatEntity> pEntityType, Level pLevel) {
         super(pEntityType, pLevel);
         this.life = 0;
     }
 
-    public SeatEntity(Level level, Vec3 pos){
-        this(EntityTypeRegistry.SEAT, level);
+    public SeatEntity(Level level, Vec3 pos) {
+        this(ModEntityTypes.SEAT, level);
         this.moveTo(pos);
     }
 

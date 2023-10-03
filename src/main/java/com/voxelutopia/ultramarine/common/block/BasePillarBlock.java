@@ -7,11 +7,11 @@ public class BasePillarBlock extends RotatedPillarBlock implements BaseBlockProp
 
     protected final BaseBlockProperty property;
 
-    public BasePillarBlock(BaseBlock block){
+    public BasePillarBlock(BaseBlock block) {
         this(block.getProperty());
     }
 
-    public BasePillarBlock(BaseBlockProperty property){
+    public BasePillarBlock(BaseBlockProperty property) {
         super(property.properties);
         this.property = property;
         this.registerDefaultState(this.stateDefinition.any().setValue(AXIS, Direction.Axis.Y));

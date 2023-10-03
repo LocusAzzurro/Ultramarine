@@ -4,9 +4,9 @@ import com.voxelutopia.ultramarine.common.tile.CustomWanderingTrader;
 import com.voxelutopia.ultramarine.init.data.ModBlockTags;
 import com.voxelutopia.ultramarine.init.event.EntityEvents;
 import com.voxelutopia.ultramarine.init.event.PlayerEvents;
-import com.voxelutopia.ultramarine.init.registry.EntityTypeRegistry;
-import com.voxelutopia.ultramarine.init.registry.ItemRegistry;
-import com.voxelutopia.ultramarine.init.registry.VillagerProfessionRegistry;
+import com.voxelutopia.ultramarine.init.registry.ModEntityTypes;
+import com.voxelutopia.ultramarine.init.registry.ModItems;
+import com.voxelutopia.ultramarine.init.registry.ModVillagerProfessions;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRegistry;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
@@ -14,16 +14,16 @@ import net.minecraft.world.item.trading.MerchantOffer;
 
 public class CommonEventHandler {
 
-    public static void init(){
+    public static void init() {
         breakSpeed();
         registerEntityAttributes();
         villagerTraders();
     }
 
-    private static void breakSpeed(){
+    private static void breakSpeed() {
         PlayerEvents.BREAK_SPEED.register((player, state, pos, speed) -> {
             if (state.is(ModBlockTags.MINEABLE_WITH_SHEARS) &&
-                    player.getItemInHand(player.getUsedItemHand()).is(Items.SHEARS)){
+                    player.getItemInHand(player.getUsedItemHand()).is(Items.SHEARS)) {
                 speed *= 4;
             }
             return speed;
@@ -31,8 +31,8 @@ public class CommonEventHandler {
 
     }
 
-    private static void registerEntityAttributes(){
-        FabricDefaultAttributeRegistry.register(EntityTypeRegistry.CUSTOM_WANDERING_TRADER, CustomWanderingTrader.setCustomAttributes());
+    private static void registerEntityAttributes() {
+        FabricDefaultAttributeRegistry.register(ModEntityTypes.CUSTOM_WANDERING_TRADER, CustomWanderingTrader.setCustomAttributes());
     }
 
 //    @SubscribeEvent
@@ -48,43 +48,43 @@ public class CommonEventHandler {
 //        }
 //    }
 
-    private static void villagerTraders(){
+    private static void villagerTraders() {
 
         EntityEvents.VILLAGER_TRADE.register((trades, profession) -> {
-            if (profession == VillagerProfessionRegistry.COOK){
+            if (profession == ModVillagerProfessions.COOK) {
                 trades.get(1).add(($1, $2) -> new MerchantOffer(
-                        new ItemStack(ItemRegistry.RAW_MEAT, 5),
+                        new ItemStack(ModItems.RAW_MEAT, 5),
                         new ItemStack(Items.EMERALD, 2),
                         12, 2, 0.05f
                 ));
                 trades.get(1).add(($1, $2) -> new MerchantOffer(
                         new ItemStack(Items.EMERALD, 3),
-                        new ItemStack(ItemRegistry.COOKED_MEAT, 4),
+                        new ItemStack(ModItems.COOKED_MEAT, 4),
                         12, 2, 0.05f
                 ));
                 trades.get(2).add(($1, $2) -> new MerchantOffer(
                         new ItemStack(Items.EMERALD, 1),
-                        new ItemStack(ItemRegistry.GREASE, 2),
+                        new ItemStack(ModItems.GREASE, 2),
                         16, 2, 0.05f
                 ));
                 trades.get(2).add(($1, $2) -> new MerchantOffer(
                         new ItemStack(Items.EMERALD, 1),
-                        new ItemStack(ItemRegistry.FUR, 2),
+                        new ItemStack(ModItems.FUR, 2),
                         16, 2, 0.05f
                 ));
                 trades.get(3).add(($1, $2) -> new MerchantOffer(
                         new ItemStack(Items.EMERALD, 3),
-                        new ItemStack(ItemRegistry.MUNG_BEAN_CAKE, 4),
+                        new ItemStack(ModItems.MUNG_BEAN_CAKE, 4),
                         12, 3, 0.05f
                 ));
                 trades.get(3).add(($1, $2) -> new MerchantOffer(
                         new ItemStack(Items.EMERALD, 3),
-                        new ItemStack(ItemRegistry.MOONCAKE, 4),
+                        new ItemStack(ModItems.MOONCAKE, 4),
                         12, 3, 0.05f
                 ));
                 trades.get(4).add(($1, $2) -> new MerchantOffer(
                         new ItemStack(Items.EMERALD, 5),
-                        new ItemStack(ItemRegistry.BAOZI, 2),
+                        new ItemStack(ModItems.BAOZI, 2),
                         8, 3, 0.05f
                 ));
 
@@ -92,7 +92,6 @@ public class CommonEventHandler {
             return trades;
         });
 
-        
 
     }
 

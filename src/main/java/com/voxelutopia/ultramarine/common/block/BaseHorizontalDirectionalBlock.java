@@ -11,14 +11,14 @@ import net.minecraft.world.level.block.state.properties.DirectionProperty;
 
 public class BaseHorizontalDirectionalBlock extends HorizontalDirectionalBlock implements BaseBlockPropertyHolder {
 
-    protected final BaseBlockProperty property;
     public static final DirectionProperty FACING = BlockStateProperties.HORIZONTAL_FACING;
+    protected final BaseBlockProperty property;
 
-    public BaseHorizontalDirectionalBlock(BaseBlock block){
+    public BaseHorizontalDirectionalBlock(BaseBlock block) {
         this(block.getProperty());
     }
 
-    public BaseHorizontalDirectionalBlock(BaseBlockProperty property){
+    public BaseHorizontalDirectionalBlock(BaseBlockProperty property) {
         super(property.properties);
         this.property = property;
         this.registerDefaultState(this.stateDefinition.any().setValue(FACING, Direction.NORTH));

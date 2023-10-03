@@ -2,7 +2,7 @@ package com.voxelutopia.ultramarine.init.datagen;
 
 import com.voxelutopia.ultramarine.UltramarineDataGenerators;
 import com.voxelutopia.ultramarine.common.block.*;
-import com.voxelutopia.ultramarine.init.registry.BlockRegistry;
+import com.voxelutopia.ultramarine.init.registry.ModBlocks;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
 import net.minecraft.core.HolderLookup;
@@ -30,29 +30,30 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
         BuiltInRegistries.BLOCK.stream().filter(blockRegistryObject -> blockRegistryObject instanceof RoofTiles)
                 .forEach(blockRegistryObject -> tag(BlockTags.MINEABLE_WITH_PICKAXE).add(blockRegistryObject));
         tag(BlockTags.MINEABLE_WITH_PICKAXE)
-                .add(BlockRegistry.JADE_ORE)
-                .add(BlockRegistry.MAGNESITE_ORE)
-                .add(BlockRegistry.HEMATITE_ORE);
+                .add(ModBlocks.JADE_ORE)
+                .add(ModBlocks.MAGNESITE_ORE)
+                .add(ModBlocks.HEMATITE_ORE);
         tag(BlockTags.NEEDS_STONE_TOOL)
-                .add(BlockRegistry.MAGNESITE_ORE)
-                .add(BlockRegistry.HEMATITE_ORE);
+                .add(ModBlocks.MAGNESITE_ORE)
+                .add(ModBlocks.HEMATITE_ORE);
         tag(BlockTags.NEEDS_IRON_TOOL)
-                .add(BlockRegistry.JADE_ORE);
+                .add(ModBlocks.JADE_ORE);
         tag(BlockTags.MINEABLE_WITH_AXE)
-                .add(BlockRegistry.OCTAGONAL_PALACE_LANTERN)
-                .add(BlockRegistry.SQUARE_PALACE_LANTERN)
-                .add(BlockRegistry.STANDING_LAMP)
-                .add(BlockRegistry.SMALL_STANDING_LAMP)
-                .add(BlockRegistry.WHITE_SKY_LANTERN)
-                .add(BlockRegistry.RED_SKY_LANTERN)
-                .add(BlockRegistry.YELLOW_SKY_LANTERN);
+                .add(ModBlocks.OCTAGONAL_PALACE_LANTERN)
+                .add(ModBlocks.SQUARE_PALACE_LANTERN)
+                .add(ModBlocks.STANDING_LAMP)
+                .add(ModBlocks.SMALL_STANDING_LAMP)
+                .add(ModBlocks.WHITE_SKY_LANTERN)
+                .add(ModBlocks.RED_SKY_LANTERN)
+                .add(ModBlocks.YELLOW_SKY_LANTERN);
         tag(BlockTags.PLANKS)
-                .add(BlockRegistry.ROSEWOOD_PLANKS);
+                .add(ModBlocks.ROSEWOOD_PLANKS);
         BuiltInRegistries.BLOCK.stream().filter((blockRegistryObject -> blockRegistryObject instanceof BaseWall))
                 .forEach(blockRegistryObject -> tag(BlockTags.WALLS).add(blockRegistryObject));
         BuiltInRegistries.BLOCK.stream().filter((blockRegistryObject -> blockRegistryObject instanceof BaseFence))
                 .forEach(blockRegistryObject -> tag(BlockTags.FENCES).add(blockRegistryObject));
     }
+
     @Override
     public @NotNull FabricTagBuilder tag(TagKey<Block> tag) {
         return getOrCreateTagBuilder(tag);

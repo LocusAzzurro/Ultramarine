@@ -4,6 +4,7 @@ import com.voxelutopia.ultramarine.init.datagen.*;
 import io.github.fabricators_of_create.porting_lib.data.ExistingFileHelper;
 import net.fabricmc.fabric.api.datagen.v1.DataGeneratorEntrypoint;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
+
 public class UltramarineDataGenerators implements DataGeneratorEntrypoint {
 
     public static final String MOD_ID = Ultramarine.MOD_ID;

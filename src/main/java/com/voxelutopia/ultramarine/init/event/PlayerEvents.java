@@ -16,7 +16,7 @@ import net.minecraft.world.level.block.state.BlockState;
 public class PlayerEvents {
 
     public static final Event<BreakSpeed> BREAK_SPEED = EventFactory.createArrayBacked(BreakSpeed.class, callbacks -> (player, state, pos, speed) -> {
-        for(BreakSpeed callback : callbacks)
+        for (BreakSpeed callback : callbacks)
             speed = callback.modifyBreakSpeed(player, state, pos, speed);
         return speed;
     });

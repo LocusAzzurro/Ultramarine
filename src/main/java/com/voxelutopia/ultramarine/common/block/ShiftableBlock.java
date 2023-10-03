@@ -19,6 +19,7 @@ public abstract class ShiftableBlock extends Block implements SimpleWaterloggedB
 
     public static final BooleanProperty SHIFTED = ModBlockStateProperties.SHIFTED;
     public static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
+
     public ShiftableBlock(Properties properties) {
         super(properties.noOcclusion());
     }
@@ -28,6 +29,7 @@ public abstract class ShiftableBlock extends Block implements SimpleWaterloggedB
         FluidState fluidstate = pContext.getLevel().getFluidState(blockpos);
         return this.defaultBlockState().setValue(WATERLOGGED, fluidstate.getType() == Fluids.WATER);
     }
+
     @Override
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> pBuilder) {
         pBuilder.add(SHIFTED, WATERLOGGED);
@@ -39,6 +41,7 @@ public abstract class ShiftableBlock extends Block implements SimpleWaterloggedB
         }
         return super.updateShape(pState, pFacing, pFacingState, pLevel, pCurrentPos, pFacingPos);
     }
+
     @SuppressWarnings("deprecation")
     public FluidState getFluidState(BlockState pState) {
         return pState.getValue(WATERLOGGED) ? Fluids.WATER.getSource(false) : super.getFluidState(pState);

@@ -26,10 +26,6 @@ import java.util.Map;
 
 public class RailingBlock extends Block implements BaseBlockPropertyHolder, SimpleWaterloggedBlock {
 
-    protected final BaseBlockProperty property;
-    private final Map<BlockState, VoxelShape> shapeByIndex;
-    private final Map<Direction, VoxelShape> shapeByPart;
-
     public static final BooleanProperty UP = BlockStateProperties.UP;
     public static final BooleanProperty NORTH = BlockStateProperties.NORTH;
     public static final BooleanProperty SOUTH = BlockStateProperties.SOUTH;
@@ -38,13 +34,11 @@ public class RailingBlock extends Block implements BaseBlockPropertyHolder, Simp
     public static final BooleanProperty SHIFTED = ModBlockStateProperties.SHIFTED;
     public static final BooleanProperty POLE_LOCKED = ModBlockStateProperties.LOCKED;
     public static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
-
     private static final VoxelShape MARBLE_POLE = Block.box(6.0D, 0.0D, 6.0D, 10.0D, 22.0D, 10.0D);
     private static final VoxelShape MARBLE_NORTH_SIDE = Block.box(7.0D, 0.0D, 0.0D, 9.0D, 15.0D, 9.0D);
     private static final VoxelShape MARBLE_SOUTH_SIDE = Block.box(7.0D, 0.0D, 7.0D, 9.0D, 15.0D, 16.0D);
     private static final VoxelShape MARBLE_WEST_SIDE = Block.box(0.0D, 0.0D, 7.0D, 9.0D, 15.0D, 9.0D);
     private static final VoxelShape MARBLE_EAST_SIDE = Block.box(7.0D, 0.0D, 7.0D, 16.0D, 15.0D, 9.0D);
-
     public static final Map<Direction, VoxelShape> MARBLE_SHAPES = Map.of(
             Direction.UP, MARBLE_POLE,
             Direction.NORTH, MARBLE_NORTH_SIDE,
@@ -52,13 +46,11 @@ public class RailingBlock extends Block implements BaseBlockPropertyHolder, Simp
             Direction.WEST, MARBLE_WEST_SIDE,
             Direction.EAST, MARBLE_EAST_SIDE
     );
-
     private static final VoxelShape WOODEN_POLE = Block.box(7.0D, 0.0D, 7.0D, 9.0D, 14.0D, 9.0D);
     private static final VoxelShape WOODEN_NORTH_SIDE = Block.box(7.5D, 2.5D, 0.0D, 8.5D, 12.0D, 8.5D);
     private static final VoxelShape WOODEN_SOUTH_SIDE = Block.box(7.5D, 2.5D, 7.5D, 8.5D, 12.0D, 16.0D);
     private static final VoxelShape WOODEN_WEST_SIDE = Block.box(0.0D, 2.5D, 7.5D, 8.5D, 12.0D, 8.5D);
     private static final VoxelShape WOODEN_EAST_SIDE = Block.box(7.5D, 2.5D, 7.5D, 16.0D, 12.0D, 8.5D);
-
     public static final Map<Direction, VoxelShape> WOODEN_SHAPES = Map.of(
             Direction.UP, WOODEN_POLE,
             Direction.NORTH, WOODEN_NORTH_SIDE,
@@ -66,6 +58,10 @@ public class RailingBlock extends Block implements BaseBlockPropertyHolder, Simp
             Direction.WEST, WOODEN_WEST_SIDE,
             Direction.EAST, WOODEN_EAST_SIDE
     );
+    protected final BaseBlockProperty property;
+    private final Map<BlockState, VoxelShape> shapeByIndex;
+    private final Map<Direction, VoxelShape> shapeByPart;
+
     public RailingBlock(BaseBlockProperty property, Map<Direction, VoxelShape> partShapes) {
         super(property.properties.noOcclusion());
         this.property = property;
@@ -134,7 +130,7 @@ public class RailingBlock extends Block implements BaseBlockPropertyHolder, Simp
         return pState.setValue(NORTH, north).setValue(SOUTH, south).setValue(EAST, east).setValue(WEST, west).setValue(UP, up);
     }
 
-    public BlockState updatePole(BlockState state){
+    public BlockState updatePole(BlockState state) {
         boolean north = state.getValue(NORTH);
         boolean south = state.getValue(SOUTH);
         boolean east = state.getValue(EAST);
@@ -163,7 +159,7 @@ public class RailingBlock extends Block implements BaseBlockPropertyHolder, Simp
         for (Boolean up : UP.getPossibleValues()) {
             for (Boolean east : EAST.getPossibleValues()) {
                 for (Boolean north : NORTH.getPossibleValues()) {
-                    for (Boolean west: WEST.getPossibleValues()) {
+                    for (Boolean west : WEST.getPossibleValues()) {
                         for (Boolean south : SOUTH.getPossibleValues()) {
                             VoxelShape shape = Shapes.empty();
                             if (north) shape = Shapes.or(shape, this.shapeByPart.get(Direction.NORTH));
@@ -215,6 +211,7 @@ public class RailingBlock extends Block implements BaseBlockPropertyHolder, Simp
     public boolean propagatesSkylightDown(BlockState pState, BlockGetter pReader, BlockPos pPos) {
         return !pState.getValue(WATERLOGGED);
     }
+
     @Override
     public BaseBlockProperty getProperty() {
         return this.property;

@@ -10,14 +10,14 @@ import net.minecraft.world.level.block.state.properties.EnumProperty;
 
 public class BaseAxialBlock extends Block implements AxialBlock, BaseBlockPropertyHolder {
 
-    protected final BaseBlockProperty property;
     public static final EnumProperty<Direction.Axis> AXIS = BlockStateProperties.HORIZONTAL_AXIS;
+    protected final BaseBlockProperty property;
 
-    public BaseAxialBlock(BaseBlock block){
+    public BaseAxialBlock(BaseBlock block) {
         this(block.getProperty());
     }
 
-    public BaseAxialBlock(BaseBlockProperty property){
+    public BaseAxialBlock(BaseBlockProperty property) {
         super(property.properties);
         this.property = property;
         this.registerDefaultState(this.stateDefinition.any().setValue(AXIS, Direction.Axis.X));
@@ -30,6 +30,7 @@ public class BaseAxialBlock extends Block implements AxialBlock, BaseBlockProper
     public BlockState getStateForPlacement(BlockPlaceContext pContext) {
         return this.defaultBlockState().setValue(AXIS, pContext.getHorizontalDirection().getAxis());
     }
+
     @Override
     public BaseBlockProperty getProperty() {
         return property;

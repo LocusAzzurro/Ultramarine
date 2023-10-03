@@ -2,8 +2,8 @@ package com.voxelutopia.ultramarine.common.recipe;
 
 import com.google.gson.JsonObject;
 import com.voxelutopia.ultramarine.Ultramarine;
-import com.voxelutopia.ultramarine.init.registry.RecipeSerializerRegistry;
-import com.voxelutopia.ultramarine.init.registry.RecipeTypeRegistry;
+import com.voxelutopia.ultramarine.init.registry.ModRecipeSerializers;
+import com.voxelutopia.ultramarine.init.registry.ModRecipeTypes;
 import net.minecraft.core.RegistryAccess;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.network.FriendlyByteBuf;
@@ -25,13 +25,15 @@ public class WoodworkingRecipe extends SingleItemRecipe {
     protected final ItemStack result;
     protected final ResourceLocation id;
     protected final String group;
+
     public WoodworkingRecipe(ResourceLocation pId, String pGroup, Ingredient pIngredient, ItemStack pResult) {
-        super(RecipeTypeRegistry.WOODWORKING, RecipeSerializerRegistry.WOODWORKING_SERIALIZER, pId, pGroup, pIngredient, pResult);
+        super(ModRecipeTypes.WOODWORKING, ModRecipeSerializers.WOODWORKING_SERIALIZER, pId, pGroup, pIngredient, pResult);
         this.id = pId;
         this.group = pGroup;
         this.ingredient = pIngredient;
         this.result = pResult;
     }
+
     @Override
     public boolean matches(Container pContainer, Level pLevel) {
         return ingredient.test(pContainer.getItem(0));
@@ -41,6 +43,7 @@ public class WoodworkingRecipe extends SingleItemRecipe {
     public @NotNull ItemStack assemble(Container container, RegistryAccess registryAccess) {
         return result.copy();
     }
+
     @Override
     public boolean canCraftInDimensions(int pWidth, int pHeight) {
         return true;
@@ -63,12 +66,12 @@ public class WoodworkingRecipe extends SingleItemRecipe {
 
     @Override
     public RecipeType<?> getType() {
-        return RecipeTypeRegistry.WOODWORKING;
+        return ModRecipeTypes.WOODWORKING;
     }
 
     @Override
     public RecipeSerializer<?> getSerializer() {
-        return RecipeSerializerRegistry.WOODWORKING_SERIALIZER;
+        return ModRecipeSerializers.WOODWORKING_SERIALIZER;
     }
 
 
@@ -76,8 +79,10 @@ public class WoodworkingRecipe extends SingleItemRecipe {
 
         public static final Serializer INSTANCE = new Serializer();
         public static final ResourceLocation ID =
-                new ResourceLocation(Ultramarine.MOD_ID,"woodworking");
-        protected Serializer() {}
+                new ResourceLocation(Ultramarine.MOD_ID, "woodworking");
+
+        protected Serializer() {
+        }
 
         @Override
         public WoodworkingRecipe fromJson(ResourceLocation pRecipeId, JsonObject pJson) {

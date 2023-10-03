@@ -12,11 +12,11 @@ public class BaseBlock extends Block implements BaseBlockPropertyHolder {
 
     protected final BaseBlockProperty property;
 
-    public BaseBlock(){
+    public BaseBlock() {
         this(BaseBlockProperty.STONE);
     }
 
-    public BaseBlock(BaseBlockProperty property){
+    public BaseBlock(BaseBlockProperty property) {
         super(property.copy().properties);
         this.property = property;
     }
@@ -26,7 +26,7 @@ public class BaseBlock extends Block implements BaseBlockPropertyHolder {
         return Shapes.block();
     }
 
-    public BaseBlockProperty getProperty(){
+    public BaseBlockProperty getProperty() {
         return property;
     }
 

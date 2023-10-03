@@ -10,12 +10,12 @@ public class BaseWall extends WallBlock implements BaseBlockPropertyHolder {
         this(BaseBlockProperty.STONE);
     }
 
-    public BaseWall(BaseBlock block){
+    public BaseWall(BaseBlock block) {
         super(block.getProperty().properties);
         this.property = block.getProperty();
     }
 
-    public BaseWall(BaseBlockProperty property){
+    public BaseWall(BaseBlockProperty property) {
         super(property.properties);
         this.property = property;
     }

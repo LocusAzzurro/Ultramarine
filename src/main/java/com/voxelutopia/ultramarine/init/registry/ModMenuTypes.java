@@ -7,7 +7,7 @@ import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.world.flag.FeatureFlagSet;
 import net.minecraft.world.inventory.MenuType;
 
-public class MenuTypeRegistry {
+public class ModMenuTypes {
 
     public static MenuType<ContainerDecorativeBlockMenu> CONTAINER_DECORATIVE_BLOCK_MENU_GENERIC_9X1;
     public static MenuType<ContainerDecorativeBlockMenu> CONTAINER_DECORATIVE_BLOCK_MENU_GENERIC_9X3;
@@ -17,7 +17,7 @@ public class MenuTypeRegistry {
     public static MenuType<WoodworkingWorkbenchMenu> WOODWORKING_WORKBENCH;
 
 
-    public static void registerModMenus(){
+    public static void registerModMenus() {
         CONTAINER_DECORATIVE_BLOCK_MENU_GENERIC_9X1 = Registry.register(BuiltInRegistries.MENU, "container_decorative_block_menu_generic_9x1", new MenuType<>(ContainerDecorativeBlockMenu::genericOneRow, FeatureFlagSet.of()));
         CONTAINER_DECORATIVE_BLOCK_MENU_GENERIC_9X3 = Registry.register(BuiltInRegistries.MENU, "container_decorative_block_menu_generic_9x3", new MenuType<>(ContainerDecorativeBlockMenu::genericThreeRows, FeatureFlagSet.of()));
         CONTAINER_DECORATIVE_BLOCK_MENU_GENERIC_9X6 = Registry.register(BuiltInRegistries.MENU, "container_decorative_block_menu_generic_9x6", new MenuType<>(ContainerDecorativeBlockMenu::genericSixRows, FeatureFlagSet.of()));

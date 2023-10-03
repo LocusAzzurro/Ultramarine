@@ -1,7 +1,7 @@
 package com.voxelutopia.ultramarine.common.menu;
 
 import com.voxelutopia.ultramarine.init.data.ContainerType;
-import com.voxelutopia.ultramarine.init.registry.MenuTypeRegistry;
+import com.voxelutopia.ultramarine.init.registry.ModMenuTypes;
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.world.Container;
 import net.minecraft.world.SimpleContainer;
@@ -24,46 +24,6 @@ public class ContainerDecorativeBlockMenu extends AbstractContainerMenu {
         this(menuType, containerId, inventory, new SimpleContainer(9 * type.getRows()), type);
     }
 
-    public static ContainerDecorativeBlockMenu genericOneRow(int pId, Inventory pPlayer) {
-        return new ContainerDecorativeBlockMenu(MenuTypeRegistry.CONTAINER_DECORATIVE_BLOCK_MENU_GENERIC_9X1, pId, pPlayer, ContainerType.COMMON_SMALL);
-    }
-
-    public static ContainerDecorativeBlockMenu genericThreeRows(int pId, Inventory pPlayer) {
-        return new ContainerDecorativeBlockMenu(MenuTypeRegistry.CONTAINER_DECORATIVE_BLOCK_MENU_GENERIC_9X3, pId, pPlayer, ContainerType.COMMON_REGULAR);
-    }
-
-    public static ContainerDecorativeBlockMenu genericSixRows(int pId, Inventory pPlayer) {
-        return new ContainerDecorativeBlockMenu(MenuTypeRegistry.CONTAINER_DECORATIVE_BLOCK_MENU_GENERIC_9X6, pId, pPlayer, ContainerType.COMMON_LARGE);
-    }
-
-    public static ContainerDecorativeBlockMenu foodThreeRows(int pId, Inventory pPlayer) {
-        return new ContainerDecorativeBlockMenu(MenuTypeRegistry.CONTAINER_DECORATIVE_BLOCK_MENU_FOOD_9X3, pId, pPlayer, ContainerType.FOOD_REGULAR);
-    }
-
-    public static ContainerDecorativeBlockMenu foodSixRows(int pId, Inventory pPlayer) {
-        return new ContainerDecorativeBlockMenu(MenuTypeRegistry.CONTAINER_DECORATIVE_BLOCK_MENU_FOOD_9X6, pId, pPlayer, ContainerType.FOOD_LARGE);
-    }
-
-    public static ContainerDecorativeBlockMenu genericOneRow(int pId, Inventory pPlayer , Container pBlockEntity) {
-        return new ContainerDecorativeBlockMenu(MenuTypeRegistry.CONTAINER_DECORATIVE_BLOCK_MENU_GENERIC_9X1, pId, pPlayer, pBlockEntity, ContainerType.COMMON_SMALL);
-    }
-
-    public static ContainerDecorativeBlockMenu genericThreeRows(int pId, Inventory pPlayer, Container pBlockEntity) {
-        return new ContainerDecorativeBlockMenu(MenuTypeRegistry.CONTAINER_DECORATIVE_BLOCK_MENU_GENERIC_9X3, pId, pPlayer, pBlockEntity, ContainerType.COMMON_REGULAR);
-    }
-
-    public static ContainerDecorativeBlockMenu genericSixRows(int pId, Inventory pPlayer, Container pBlockEntity) {
-        return new ContainerDecorativeBlockMenu(MenuTypeRegistry.CONTAINER_DECORATIVE_BLOCK_MENU_GENERIC_9X6, pId, pPlayer, pBlockEntity, ContainerType.COMMON_LARGE);
-    }
-
-    public static ContainerDecorativeBlockMenu foodThreeRows(int pId, Inventory pPlayer, Container pBlockEntity) {
-        return new ContainerDecorativeBlockMenu(MenuTypeRegistry.CONTAINER_DECORATIVE_BLOCK_MENU_FOOD_9X3, pId, pPlayer, pBlockEntity, ContainerType.FOOD_REGULAR);
-    }
-
-    public static ContainerDecorativeBlockMenu foodSixRows(int pId, Inventory pPlayer, Container pBlockEntity) {
-        return new ContainerDecorativeBlockMenu(MenuTypeRegistry.CONTAINER_DECORATIVE_BLOCK_MENU_FOOD_9X6, pId, pPlayer, pBlockEntity, ContainerType.FOOD_LARGE);
-    }
-
     public ContainerDecorativeBlockMenu(MenuType<?> menuType, int containerId, Inventory inventory, Container container, ContainerType type) {
         super(menuType, containerId);
         int rows = type.getRows();
@@ -74,28 +34,67 @@ public class ContainerDecorativeBlockMenu extends AbstractContainerMenu {
         int i = (this.containerRows - 4) * 18;
 
         //Container
-        for(int row1 = 0; row1 < this.containerRows; ++row1) {
-            for(int col1 = 0; col1 < 9; ++col1) {
+        for (int row1 = 0; row1 < this.containerRows; ++row1) {
+            for (int col1 = 0; col1 < 9; ++col1) {
                 this.addSlot(new FilteredSlot(container, col1 + row1 * 9, 8 + col1 * 18, 18 + row1 * 18, type));
             }
         }
 
         //Inventory
-        for(int row2 = 0; row2 < 3; ++row2) {
-            for(int col2 = 0; col2 < 9; ++col2) {
+        for (int row2 = 0; row2 < 3; ++row2) {
+            for (int col2 = 0; col2 < 9; ++col2) {
                 this.addSlot(new Slot(inventory, col2 + row2 * 9 + 9, 8 + col2 * 18, 103 + row2 * 18 + i));
             }
         }
 
         //Hot-bar
-        for(int slot = 0; slot < 9; ++slot) {
+        for (int slot = 0; slot < 9; ++slot) {
             this.addSlot(new Slot(inventory, slot, 8 + slot * 18, 161 + i));
         }
 
     }
 
+    public static ContainerDecorativeBlockMenu genericOneRow(int pId, Inventory pPlayer) {
+        return new ContainerDecorativeBlockMenu(ModMenuTypes.CONTAINER_DECORATIVE_BLOCK_MENU_GENERIC_9X1, pId, pPlayer, ContainerType.COMMON_SMALL);
+    }
 
-    public int getRowCount(){
+    public static ContainerDecorativeBlockMenu genericThreeRows(int pId, Inventory pPlayer) {
+        return new ContainerDecorativeBlockMenu(ModMenuTypes.CONTAINER_DECORATIVE_BLOCK_MENU_GENERIC_9X3, pId, pPlayer, ContainerType.COMMON_REGULAR);
+    }
+
+    public static ContainerDecorativeBlockMenu genericSixRows(int pId, Inventory pPlayer) {
+        return new ContainerDecorativeBlockMenu(ModMenuTypes.CONTAINER_DECORATIVE_BLOCK_MENU_GENERIC_9X6, pId, pPlayer, ContainerType.COMMON_LARGE);
+    }
+
+    public static ContainerDecorativeBlockMenu foodThreeRows(int pId, Inventory pPlayer) {
+        return new ContainerDecorativeBlockMenu(ModMenuTypes.CONTAINER_DECORATIVE_BLOCK_MENU_FOOD_9X3, pId, pPlayer, ContainerType.FOOD_REGULAR);
+    }
+
+    public static ContainerDecorativeBlockMenu foodSixRows(int pId, Inventory pPlayer) {
+        return new ContainerDecorativeBlockMenu(ModMenuTypes.CONTAINER_DECORATIVE_BLOCK_MENU_FOOD_9X6, pId, pPlayer, ContainerType.FOOD_LARGE);
+    }
+
+    public static ContainerDecorativeBlockMenu genericOneRow(int pId, Inventory pPlayer, Container pBlockEntity) {
+        return new ContainerDecorativeBlockMenu(ModMenuTypes.CONTAINER_DECORATIVE_BLOCK_MENU_GENERIC_9X1, pId, pPlayer, pBlockEntity, ContainerType.COMMON_SMALL);
+    }
+
+    public static ContainerDecorativeBlockMenu genericThreeRows(int pId, Inventory pPlayer, Container pBlockEntity) {
+        return new ContainerDecorativeBlockMenu(ModMenuTypes.CONTAINER_DECORATIVE_BLOCK_MENU_GENERIC_9X3, pId, pPlayer, pBlockEntity, ContainerType.COMMON_REGULAR);
+    }
+
+    public static ContainerDecorativeBlockMenu genericSixRows(int pId, Inventory pPlayer, Container pBlockEntity) {
+        return new ContainerDecorativeBlockMenu(ModMenuTypes.CONTAINER_DECORATIVE_BLOCK_MENU_GENERIC_9X6, pId, pPlayer, pBlockEntity, ContainerType.COMMON_LARGE);
+    }
+
+    public static ContainerDecorativeBlockMenu foodThreeRows(int pId, Inventory pPlayer, Container pBlockEntity) {
+        return new ContainerDecorativeBlockMenu(ModMenuTypes.CONTAINER_DECORATIVE_BLOCK_MENU_FOOD_9X3, pId, pPlayer, pBlockEntity, ContainerType.FOOD_REGULAR);
+    }
+
+    public static ContainerDecorativeBlockMenu foodSixRows(int pId, Inventory pPlayer, Container pBlockEntity) {
+        return new ContainerDecorativeBlockMenu(ModMenuTypes.CONTAINER_DECORATIVE_BLOCK_MENU_FOOD_9X6, pId, pPlayer, pBlockEntity, ContainerType.FOOD_LARGE);
+    }
+
+    public int getRowCount() {
         return containerRows;
     }
 
@@ -122,6 +121,7 @@ public class ContainerDecorativeBlockMenu extends AbstractContainerMenu {
 
         return itemstack;
     }
+
     @Override
     public boolean stillValid(Player pPlayer) {
         return this.container.stillValid(pPlayer);

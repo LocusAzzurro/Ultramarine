@@ -7,8 +7,8 @@ import com.voxelutopia.ultramarine.common.block.ConsumableDecorativeBlock;
 import com.voxelutopia.ultramarine.common.block.StackableHalfBlock;
 import com.voxelutopia.ultramarine.common.block.state.ModBlockStateProperties;
 import com.voxelutopia.ultramarine.common.block.state.StackableBlockType;
-import com.voxelutopia.ultramarine.init.registry.BlockRegistry;
-import com.voxelutopia.ultramarine.init.registry.ItemRegistry;
+import com.voxelutopia.ultramarine.init.registry.ModBlocks;
+import com.voxelutopia.ultramarine.init.registry.ModItems;
 import net.minecraft.advancements.critereon.StatePropertiesPredicate;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.data.loot.BlockLootSubProvider;
@@ -46,55 +46,66 @@ import java.util.List;
 public class ModBlockLootTables extends BlockLootSubProvider {
     private static final List<Block> NON_SIMPLE_BLOCKS = new ArrayList<>();
     private static final List<Class> NON_SIMPLE_BLOCK_CLASSES = List.of(DropExperienceBlock.class, SlabBlock.class, ConsumableDecorativeBlock.class, StackableHalfBlock.class);
-    protected ModBlockLootTables() {
-        super(Collections.emptySet(), FeatureFlags.REGISTRY.allFlags());
-    }
 
     static {
         BuiltInRegistries.BLOCK.stream()
                 .filter(blockRegistryObject -> {
-                    for (Class clazz : NON_SIMPLE_BLOCK_CLASSES){
+                    for (Class clazz : NON_SIMPLE_BLOCK_CLASSES) {
                         if (clazz.isInstance(blockRegistryObject)) return true;
                     }
-                    if (blockRegistryObject instanceof BaseBlockPropertyHolder baseBlock){
+                    if (blockRegistryObject instanceof BaseBlockPropertyHolder baseBlock) {
                         return baseBlock.getProperty().getMaterial() == BaseBlockProperty.BlockMaterial.PORCELAIN;
                     }
                     return false;
                 })
                 .forEach(NON_SIMPLE_BLOCKS::add);
     }
+
+    protected ModBlockLootTables() {
+        super(Collections.emptySet(), FeatureFlags.REGISTRY.allFlags());
+    }
+
+    protected static void createPorcelainDrop(Block block, Item piece, Item shard) {
+        LootTable.lootTable()
+                .withPool(LootPool.lootPool()
+                        .setRolls(ConstantValue.exactly(1.0F))
+                        .add(LootItem.lootTableItem(block).when(HAS_SILK_TOUCH)
+                                .otherwise(LootItem.lootTableItem(piece).when(LootItemRandomChanceCondition.randomChance(0.01F)).apply(ApplyBonusCount.addUniformBonusCount(Enchantments.BLOCK_FORTUNE, 2)))
+                                .otherwise(LootItem.lootTableItem(shard).apply(SetItemCountFunction.setCount(BinomialDistributionGenerator.binomial(3, 0.5F))))));
+    }
+
     @Override
     public void generate() {
         BuiltInRegistries.BLOCK.stream()
                 .filter(blockRegistryObject -> !NON_SIMPLE_BLOCKS.contains(blockRegistryObject))
                 .forEach(this::createSimpleTable);
-        createOreDrop(BlockRegistry.JADE_ORE, ItemRegistry.JADE);
-        createOreDrop(BlockRegistry.HEMATITE_ORE, ItemRegistry.RAW_HEMATITE);
-        createAbundantOreDrop(BlockRegistry.MAGNESITE_ORE, ItemRegistry.MAGNESITE, 1, 3);
+        createOreDrop(ModBlocks.JADE_ORE, ModItems.JADE);
+        createOreDrop(ModBlocks.HEMATITE_ORE, ModItems.RAW_HEMATITE);
+        createAbundantOreDrop(ModBlocks.MAGNESITE_ORE, ModItems.MAGNESITE, 1, 3);
 
-        createPorcelainDrop(BlockRegistry.BLUE_AND_WHITE_PORCELAIN_FLOWERPOT, ItemRegistry.BLUE_AND_WHITE_PORCELAIN_PIECE, ItemRegistry.BLUE_AND_WHITE_PORCELAIN_SHARDS);
+        createPorcelainDrop(ModBlocks.BLUE_AND_WHITE_PORCELAIN_FLOWERPOT, ModItems.BLUE_AND_WHITE_PORCELAIN_PIECE, ModItems.BLUE_AND_WHITE_PORCELAIN_SHARDS);
         //todo blue porcelain flowerpot
-        createPorcelainDrop(BlockRegistry.BLUE_AND_WHITE_PORCELAIN_VASE, ItemRegistry.BLUE_AND_WHITE_PORCELAIN_PIECE, ItemRegistry.BLUE_AND_WHITE_PORCELAIN_SHARDS);
-        createPorcelainDrop(BlockRegistry.LARGE_BLUE_AND_WHITE_PORCELAIN_VASE, ItemRegistry.BLUE_AND_WHITE_PORCELAIN_PIECE, ItemRegistry.BLUE_AND_WHITE_PORCELAIN_SHARDS);
-        createPorcelainDrop(BlockRegistry.SHORT_BLUE_AND_WHITE_PORCELAIN_POT, ItemRegistry.BLUE_AND_WHITE_PORCELAIN_PIECE, ItemRegistry.BLUE_AND_WHITE_PORCELAIN_SHARDS);
-        createPorcelainDrop(BlockRegistry.TALL_BLUE_AND_WHITE_PORCELAIN_POT, ItemRegistry.BLUE_AND_WHITE_PORCELAIN_PIECE, ItemRegistry.BLUE_AND_WHITE_PORCELAIN_SHARDS);
-        createPorcelainDrop(BlockRegistry.BLUE_AND_WHITE_PORCELAIN_BOWL, ItemRegistry.BLUE_AND_WHITE_PORCELAIN_PIECE, ItemRegistry.BLUE_AND_WHITE_PORCELAIN_SHARDS);
-        createPorcelainDrop(BlockRegistry.WINE_POT, ItemRegistry.BLUE_AND_WHITE_PORCELAIN_PIECE, ItemRegistry.BLUE_AND_WHITE_PORCELAIN_SHARDS);
-        porcelainPlate(BlockRegistry.PLATED_MOONCAKES, ItemRegistry.BLUE_AND_WHITE_PORCELAIN_PIECE, ItemRegistry.BLUE_AND_WHITE_PORCELAIN_SHARDS);
-        plateDrop(BlockRegistry.PLATED_MUNG_BEAN_CAKES);
-        plateDrop(BlockRegistry.PLATED_HAM);
-        plateDrop(BlockRegistry.PLATED_FISH);
-        slab(BlockRegistry.CYAN_BRICK_SLAB, ItemRegistry.CYAN_BRICK_SLAB);
-        slab(BlockRegistry.BLACK_BRICK_SLAB, ItemRegistry.BLACK_BRICK_SLAB);
-        slab(BlockRegistry.BROWNISH_RED_STONE_BRICK_SLAB, ItemRegistry.BROWNISH_RED_STONE_BRICK_SLAB);
-        slab(BlockRegistry.PALE_YELLOW_STONE_SLAB, ItemRegistry.PALE_YELLOW_STONE_SLAB);
-        slab(BlockRegistry.VARIEGATED_ROCK_SLAB, ItemRegistry.VARIEGATED_ROCK_SLAB);
-        slab(BlockRegistry.WEATHERED_STONE_SLAB, ItemRegistry.WEATHERED_STONE_SLAB);
-        slab(BlockRegistry.POLISHED_WEATHERED_STONE_SLAB, ItemRegistry.POLISHED_WEATHERED_STONE_SLAB);
-        slab(BlockRegistry.LIGHT_CYAN_FLOOR_TILE_SLAB, ItemRegistry.LIGHT_CYAN_FLOOR_TILE_SLAB);
-        slab(BlockRegistry.CYAN_FLOOR_TILE_SLAB, ItemRegistry.CYAN_FLOOR_TILE_SLAB);
-        slab(BlockRegistry.BAMBOO_MAT_SLAB, ItemRegistry.BAMBOO_MAT_SLAB);
-        stackableHalf(BlockRegistry.CABBAGE_BASKET, ItemRegistry.CABBAGE_BASKET);
+        createPorcelainDrop(ModBlocks.BLUE_AND_WHITE_PORCELAIN_VASE, ModItems.BLUE_AND_WHITE_PORCELAIN_PIECE, ModItems.BLUE_AND_WHITE_PORCELAIN_SHARDS);
+        createPorcelainDrop(ModBlocks.LARGE_BLUE_AND_WHITE_PORCELAIN_VASE, ModItems.BLUE_AND_WHITE_PORCELAIN_PIECE, ModItems.BLUE_AND_WHITE_PORCELAIN_SHARDS);
+        createPorcelainDrop(ModBlocks.SHORT_BLUE_AND_WHITE_PORCELAIN_POT, ModItems.BLUE_AND_WHITE_PORCELAIN_PIECE, ModItems.BLUE_AND_WHITE_PORCELAIN_SHARDS);
+        createPorcelainDrop(ModBlocks.TALL_BLUE_AND_WHITE_PORCELAIN_POT, ModItems.BLUE_AND_WHITE_PORCELAIN_PIECE, ModItems.BLUE_AND_WHITE_PORCELAIN_SHARDS);
+        createPorcelainDrop(ModBlocks.BLUE_AND_WHITE_PORCELAIN_BOWL, ModItems.BLUE_AND_WHITE_PORCELAIN_PIECE, ModItems.BLUE_AND_WHITE_PORCELAIN_SHARDS);
+        createPorcelainDrop(ModBlocks.WINE_POT, ModItems.BLUE_AND_WHITE_PORCELAIN_PIECE, ModItems.BLUE_AND_WHITE_PORCELAIN_SHARDS);
+        porcelainPlate(ModBlocks.PLATED_MOONCAKES, ModItems.BLUE_AND_WHITE_PORCELAIN_PIECE, ModItems.BLUE_AND_WHITE_PORCELAIN_SHARDS);
+        plateDrop(ModBlocks.PLATED_MUNG_BEAN_CAKES);
+        plateDrop(ModBlocks.PLATED_HAM);
+        plateDrop(ModBlocks.PLATED_FISH);
+        slab(ModBlocks.CYAN_BRICK_SLAB, ModItems.CYAN_BRICK_SLAB);
+        slab(ModBlocks.BLACK_BRICK_SLAB, ModItems.BLACK_BRICK_SLAB);
+        slab(ModBlocks.BROWNISH_RED_STONE_BRICK_SLAB, ModItems.BROWNISH_RED_STONE_BRICK_SLAB);
+        slab(ModBlocks.PALE_YELLOW_STONE_SLAB, ModItems.PALE_YELLOW_STONE_SLAB);
+        slab(ModBlocks.VARIEGATED_ROCK_SLAB, ModItems.VARIEGATED_ROCK_SLAB);
+        slab(ModBlocks.WEATHERED_STONE_SLAB, ModItems.WEATHERED_STONE_SLAB);
+        slab(ModBlocks.POLISHED_WEATHERED_STONE_SLAB, ModItems.POLISHED_WEATHERED_STONE_SLAB);
+        slab(ModBlocks.LIGHT_CYAN_FLOOR_TILE_SLAB, ModItems.LIGHT_CYAN_FLOOR_TILE_SLAB);
+        slab(ModBlocks.CYAN_FLOOR_TILE_SLAB, ModItems.CYAN_FLOOR_TILE_SLAB);
+        slab(ModBlocks.BAMBOO_MAT_SLAB, ModItems.BAMBOO_MAT_SLAB);
+        stackableHalf(ModBlocks.CABBAGE_BASKET, ModItems.CABBAGE_BASKET);
     }
 
     void stackableHalf(Block block, Item item) {
@@ -120,7 +131,6 @@ public class ModBlockLootTables extends BlockLootSubProvider {
             createSimpleTable(consumable.getPlate().getItem());
         else Ultramarine.warn("Plate drop loot table was not added for block " + block.getDescriptionId());
     }
-
 
     protected void createStackableHalfDrop(StackableHalfBlock block, Item item) {
         var builder = LootPool.lootPool()
@@ -175,15 +185,6 @@ public class ModBlockLootTables extends BlockLootSubProvider {
         createSilkTouchDispatchTable(block, applyExplosionDecay(block, LootItem.lootTableItem(drop)
                 .apply(SetItemCountFunction.setCount(UniformGenerator.between(min, max)))
                 .apply(ApplyBonusCount.addOreBonusCount(Enchantments.BLOCK_FORTUNE))));
-    }
-
-    protected static void createPorcelainDrop(Block block, Item piece, Item shard) {
-        LootTable.lootTable()
-                .withPool(LootPool.lootPool()
-                        .setRolls(ConstantValue.exactly(1.0F))
-                        .add(LootItem.lootTableItem(block).when(HAS_SILK_TOUCH)
-                                .otherwise(LootItem.lootTableItem(piece).when(LootItemRandomChanceCondition.randomChance(0.01F)).apply(ApplyBonusCount.addUniformBonusCount(Enchantments.BLOCK_FORTUNE, 2)))
-                                .otherwise(LootItem.lootTableItem(shard).apply(SetItemCountFunction.setCount(BinomialDistributionGenerator.binomial(3, 0.5F))))));
     }
 
 }

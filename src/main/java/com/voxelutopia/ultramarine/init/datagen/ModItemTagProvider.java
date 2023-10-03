@@ -2,7 +2,7 @@ package com.voxelutopia.ultramarine.init.datagen;
 
 import com.voxelutopia.ultramarine.UltramarineDataGenerators;
 import com.voxelutopia.ultramarine.init.data.ModItemTags;
-import com.voxelutopia.ultramarine.init.registry.ItemRegistry;
+import com.voxelutopia.ultramarine.init.registry.ModItems;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
 import net.minecraft.core.HolderLookup;
@@ -22,23 +22,25 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
     @Override
     protected void addTags(HolderLookup.Provider arg) {
         tag(ItemTags.PLANKS)
-                .add(ItemRegistry.ROSEWOOD_PLANKS);
+                .add(ModItems.ROSEWOOD_PLANKS);
         tag(ModItemTags.POLISHED_PLANKS)
-                .add(ItemRegistry.POLISHED_OAK_PLANK)
-                .add(ItemRegistry.POLISHED_BIRCH_PLANK)
-                .add(ItemRegistry.POLISHED_SPRUCE_PLANK)
-                .add(ItemRegistry.POLISHED_JUNGLE_PLANK)
-                .add(ItemRegistry.POLISHED_ACACIA_PLANK)
-                .add(ItemRegistry.POLISHED_DARK_OAK_PLANK)
-                .add(ItemRegistry.POLISHED_CRIMSON_PLANK)
-                .add(ItemRegistry.POLISHED_WARPED_PLANK)
-                .add(ItemRegistry.POLISHED_ROSEWOOD_PLANK)
-                .add(ItemRegistry.POLISHED_EBONY_PLANK);
+                .add(ModItems.POLISHED_OAK_PLANK)
+                .add(ModItems.POLISHED_BIRCH_PLANK)
+                .add(ModItems.POLISHED_SPRUCE_PLANK)
+                .add(ModItems.POLISHED_JUNGLE_PLANK)
+                .add(ModItems.POLISHED_ACACIA_PLANK)
+                .add(ModItems.POLISHED_DARK_OAK_PLANK)
+                .add(ModItems.POLISHED_CRIMSON_PLANK)
+                .add(ModItems.POLISHED_WARPED_PLANK)
+                .add(ModItems.POLISHED_ROSEWOOD_PLANK)
+                .add(ModItems.POLISHED_EBONY_PLANK);
     }
+
     @Override
     public @NotNull FabricTagBuilder tag(@NotNull TagKey<Item> tag) {
         return getOrCreateTagBuilder(tag);
     }
+
     @NotNull
     @Override
     public String getName() {

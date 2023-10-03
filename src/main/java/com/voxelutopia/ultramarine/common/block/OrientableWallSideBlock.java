@@ -12,7 +12,7 @@ import net.minecraft.world.level.material.FluidState;
 import net.minecraft.world.level.material.Fluids;
 import org.jetbrains.annotations.Nullable;
 
-public class OrientableWallSideBlock extends WallSideBlock implements SideBlock{
+public class OrientableWallSideBlock extends WallSideBlock implements SideBlock {
 
     public static final EnumProperty<OrientableBlockType> TYPE = ModBlockStateProperties.ORIENTABLE_BLOCK_TYPE;
 
@@ -32,11 +32,11 @@ public class OrientableWallSideBlock extends WallSideBlock implements SideBlock{
 
         Direction faceDir = pContext.getClickedFace();
         Direction[] lookDirs = pContext.getNearestLookingDirections();
-        if (faceDir.getAxis().isHorizontal()){
+        if (faceDir.getAxis().isHorizontal()) {
             state = state.setValue(FACING, faceDir)
                     .setValue(WATERLOGGED, fluidstate.getType() == Fluids.WATER);
-            for (Direction dir : lookDirs){
-                if (dir.getAxis().isHorizontal() && dir != faceDir && dir != faceDir.getOpposite()){
+            for (Direction dir : lookDirs) {
+                if (dir.getAxis().isHorizontal() && dir != faceDir && dir != faceDir.getOpposite()) {
                     if (dir == faceDir.getOpposite().getClockWise())
                         state = state.setValue(TYPE, OrientableBlockType.LEFT);
                     if (dir == faceDir.getOpposite().getCounterClockWise())

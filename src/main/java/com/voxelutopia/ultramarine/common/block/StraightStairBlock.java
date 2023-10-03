@@ -60,7 +60,7 @@ public class StraightStairBlock extends BaseHorizontalDirectionalBlock implement
         FluidState fluidstate = pContext.getLevel().getFluidState(blockpos);
         return this.defaultBlockState()
                 .setValue(FACING, pContext.getHorizontalDirection())
-                .setValue(HALF, direction != Direction.DOWN && (direction == Direction.UP || !(pContext.getClickLocation().y - (double)blockpos.getY() > 0.5D)) ? Half.BOTTOM : Half.TOP)
+                .setValue(HALF, direction != Direction.DOWN && (direction == Direction.UP || !(pContext.getClickLocation().y - (double) blockpos.getY() > 0.5D)) ? Half.BOTTOM : Half.TOP)
                 .setValue(WATERLOGGED, fluidstate.getType() == Fluids.WATER);
     }
 

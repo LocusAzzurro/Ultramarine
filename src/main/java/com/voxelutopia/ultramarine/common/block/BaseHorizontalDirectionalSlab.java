@@ -13,16 +13,16 @@ import net.minecraft.world.level.material.Fluids;
 
 public class BaseHorizontalDirectionalSlab extends BaseSlab implements SimpleWaterloggedBlock {
 
-    protected final BaseBlockProperty property;
     public static final DirectionProperty FACING = BlockStateProperties.HORIZONTAL_FACING;
     public static final EnumProperty<SlabType> TYPE = BlockStateProperties.SLAB_TYPE;
     public static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
+    protected final BaseBlockProperty property;
 
-    public BaseHorizontalDirectionalSlab(BaseBlock block){
+    public BaseHorizontalDirectionalSlab(BaseBlock block) {
         this(block.getProperty());
     }
 
-    public BaseHorizontalDirectionalSlab(BaseBlockProperty property){
+    public BaseHorizontalDirectionalSlab(BaseBlockProperty property) {
         super(property);
         this.property = property;
         this.registerDefaultState(this.stateDefinition.any()
@@ -41,7 +41,7 @@ public class BaseHorizontalDirectionalSlab extends BaseSlab implements SimpleWat
             BlockState blockstate1 = this.defaultBlockState().setValue(TYPE, SlabType.BOTTOM).setValue(WATERLOGGED, fluidstate.getType() == Fluids.WATER);
             Direction direction = pContext.getHorizontalDirection();
             blockstate1 = blockstate1.setValue(FACING, direction);
-            return !(pContext.getClickLocation().y - (double)blockpos.getY() > 0.5D) ? blockstate1 : blockstate1.setValue(TYPE, SlabType.TOP);
+            return !(pContext.getClickLocation().y - (double) blockpos.getY() > 0.5D) ? blockstate1 : blockstate1.setValue(TYPE, SlabType.TOP);
         }
     }
 

@@ -12,7 +12,7 @@ import java.util.Map;
 
 public interface SideBlock extends SimpleWaterloggedBlock {
 
-    default Map<Direction, VoxelShape> faceShapeByDirection(int thickness){
+    default Map<Direction, VoxelShape> faceShapeByDirection(int thickness) {
         double t = thickness;
         ImmutableMap.Builder<Direction, VoxelShape> builder = ImmutableMap.builder();
         builder.put(Direction.UP, Block.box(0, 0, 0, 16, t, 16));

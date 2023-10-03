@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "id": "${mod_id}",
+  "id": "ultramarine",
   "version": "${version}",
   "name": "Ultramarine",
   "description": "A Chinese Style Minecraft Mod",

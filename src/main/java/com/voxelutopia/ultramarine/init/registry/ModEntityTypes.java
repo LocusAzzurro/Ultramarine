@@ -11,8 +11,7 @@ import net.minecraft.world.entity.EntityDimensions;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
 
-public class EntityTypeRegistry
-{
+public class ModEntityTypes {
     public static EntityType<SeatEntity> SEAT;
     public static EntityType<CustomWanderingTrader> CUSTOM_WANDERING_TRADER;
 
@@ -33,7 +32,7 @@ public class EntityTypeRegistry
                 Registry.register(
                         BuiltInRegistries.ENTITY_TYPE,
                         new ResourceLocation(Ultramarine.MOD_ID, "custom_wandering_trader"),
-                        FabricEntityTypeBuilder.<CustomWanderingTrader>create(MobCategory.MISC, CustomWanderingTrader::new)
+                        FabricEntityTypeBuilder.create(MobCategory.MISC, CustomWanderingTrader::new)
 
                                 .dimensions(EntityDimensions.fixed(0.6F, 0.2F))
                                 .trackRangeBlocks(64).trackedUpdateRate(20)

@@ -10,7 +10,7 @@ public class ModItemTags {
 
     public static final TagKey<Item> POLISHED_PLANKS = modTag("polished_planks");
 
-    private static TagKey<Item> modTag(String path){
+    private static TagKey<Item> modTag(String path) {
         return bind(path);
     }
 

@@ -23,8 +23,8 @@ import org.jetbrains.annotations.Nullable;
 
 public class WoodworkingWorkBench extends Block {
 
-    private static final Component CONTAINER_TITLE = Component.translatable("container.woodworking_workbench");
     public static final DirectionProperty FACING = HorizontalDirectionalBlock.FACING;
+    private static final Component CONTAINER_TITLE = Component.translatable("container.woodworking_workbench");
 
     public WoodworkingWorkBench() {
         super(BaseBlockProperty.WOOD.properties);

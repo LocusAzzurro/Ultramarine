@@ -1,7 +1,7 @@
 package com.voxelutopia.ultramarine.common.block;
 
 import com.voxelutopia.ultramarine.init.data.ModBlockTags;
-import com.voxelutopia.ultramarine.init.registry.SoundRegistry;
+import com.voxelutopia.ultramarine.init.registry.ModSounds;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.level.block.Block;
@@ -47,7 +47,7 @@ public final class BaseBlockProperty {
             .requiresCorrectToolForDrops(), BlockMaterial.STONE);
     public static BaseBlockProperty PORCELAIN = new BaseBlockProperty(BlockBehaviour.Properties.of()
             .mapColor(MapColor.GRASS)
-            .sound(SoundRegistry.PORCELAIN)
+            .sound(ModSounds.PORCELAIN)
             .strength(1.0F, 1.0F), BlockMaterial.PORCELAIN);
     public static BaseBlockProperty WOOD = new BaseBlockProperty(BlockBehaviour.Properties.of()
             .mapColor(MapColor.WOOD)
@@ -55,7 +55,7 @@ public final class BaseBlockProperty {
             .strength(2.0F, 3.0F), BlockMaterial.WOOD);
     public static BaseBlockProperty BAMBOO_WOOD = new BaseBlockProperty(BlockBehaviour.Properties.of()
             .mapColor(MapColor.WOOD)
-            .sound(SoundRegistry.BAMBOO_WOOD)
+            .sound(ModSounds.BAMBOO_WOOD)
             .strength(2.0F, 3.0F), BlockMaterial.WOOD);
     public static BaseBlockProperty BAMBOO = new BaseBlockProperty(BlockBehaviour.Properties.of()
             .mapColor(MapColor.WOOD)
@@ -73,7 +73,7 @@ public final class BaseBlockProperty {
             .requiresCorrectToolForDrops(), BlockMaterial.STONE);
     public static BaseBlockProperty FLAX = new BaseBlockProperty(BlockBehaviour.Properties.of()
             .mapColor(MapColor.WOOL)
-            .sound(SoundRegistry.FLAX)
+            .sound(ModSounds.FLAX)
             .strength(1F, 2F), BlockMaterial.FLAX);
     public static BaseBlockProperty CROP = new BaseBlockProperty(BlockBehaviour.Properties.of()
             .mapColor(MapColor.GRASS)
@@ -104,20 +104,20 @@ public final class BaseBlockProperty {
     final BlockBehaviour.Properties properties;
     final BlockMaterial material;
 
-    BaseBlockProperty(final BlockBehaviour.Properties properties, final BlockMaterial material){
+    BaseBlockProperty(final BlockBehaviour.Properties properties, final BlockMaterial material) {
         this.properties = properties;
         this.material = material;
     }
 
-    public BlockMaterial getMaterial(){
+    public BlockMaterial getMaterial() {
         return material;
     }
 
-    public BaseBlockProperty copy(){
+    public BaseBlockProperty copy() {
         return new BaseBlockProperty(this.properties, this.material);
     }
 
-    public enum BlockMaterial{
+    public enum BlockMaterial {
         STONE(BlockTags.MINEABLE_WITH_PICKAXE),
         METAL(BlockTags.MINEABLE_WITH_PICKAXE),
         WOOD(BlockTags.MINEABLE_WITH_AXE),
@@ -129,11 +129,13 @@ public final class BaseBlockProperty {
         FLAX(BlockTags.MINEABLE_WITH_HOE);
 
         final TagKey<Block> tool;
-        public TagKey<Block> getTool(){
-            return tool;
-        }
-        BlockMaterial(TagKey<Block> tool){
+
+        BlockMaterial(TagKey<Block> tool) {
             this.tool = tool;
+        }
+
+        public TagKey<Block> getTool() {
+            return tool;
         }
     }
 

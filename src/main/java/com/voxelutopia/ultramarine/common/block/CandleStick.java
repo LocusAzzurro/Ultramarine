@@ -16,9 +16,10 @@ import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.Vec3;
 import org.jetbrains.annotations.NotNull;
 
-public class CandleStick extends DecorativeBlock{
+public class CandleStick extends DecorativeBlock {
 
     private final Vec3 flameOffset;
+
     public CandleStick(Builder builder, Vec3 flameOffset) {
         super(builder);
         this.flameOffset = flameOffset;
@@ -33,7 +34,7 @@ public class CandleStick extends DecorativeBlock{
     @Override
     public InteractionResult use(BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, InteractionHand pHand, BlockHitResult pHit) {
         ItemStack item = pPlayer.getItemInHand(pHand);
-        if (item.is(Items.FLINT_AND_STEEL) && pState.hasProperty(LIT) && !pState.getValue(LIT)){
+        if (item.is(Items.FLINT_AND_STEEL) && pState.hasProperty(LIT) && !pState.getValue(LIT)) {
             item.hurtAndBreak(1, pPlayer, p -> p.broadcastBreakEvent(pHand));
             pLevel.setBlock(pPos, pState.setValue(LIT, true), Block.UPDATE_ALL);
             return InteractionResult.sidedSuccess(pLevel.isClientSide);

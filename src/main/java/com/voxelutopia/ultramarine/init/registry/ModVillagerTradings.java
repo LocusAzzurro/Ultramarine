@@ -1,5 +1,6 @@
-package com.voxelutopia.ultramarine.init.event;
+package com.voxelutopia.ultramarine.init.registry;
 
+import com.voxelutopia.ultramarine.init.event.EntityEvents;
 import it.unimi.dsi.fastutil.ints.Int2ObjectMap;
 import it.unimi.dsi.fastutil.ints.Int2ObjectOpenHashMap;
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerLifecycleEvents;
@@ -20,12 +21,11 @@ import java.util.Map;
  * Description:
  */
 
-public class VillagerTradingManager {
+public class ModVillagerTradings {
     private static final Map<VillagerProfession, Int2ObjectMap<VillagerTrades.ItemListing[]>> VANILLA_TRADES = new HashMap<>();
     private static final Int2ObjectMap<VillagerTrades.ItemListing[]> WANDERER_TRADES = new Int2ObjectOpenHashMap<>();
 
-    static
-    {
+    static {
         VillagerTrades.TRADES.entrySet().forEach(e ->
         {
             Int2ObjectMap<VillagerTrades.ItemListing[]> copy = new Int2ObjectOpenHashMap<>();
@@ -35,8 +35,7 @@ public class VillagerTradingManager {
         VillagerTrades.WANDERING_TRADER_TRADES.int2ObjectEntrySet().forEach(e -> WANDERER_TRADES.put(e.getIntKey(), Arrays.copyOf(e.getValue(), e.getValue().length)));
     }
 
-    public static void loadTrades()
-    {
+    public static void loadTrades() {
         ServerLifecycleEvents.SERVER_STARTING.register(server -> {
             postWandererEvent();
             postVillagerEvents();
@@ -47,8 +46,7 @@ public class VillagerTradingManager {
     /**
      * Posts the WandererTradesEvent.
      */
-    private static void postWandererEvent()
-    {
+    private static void postWandererEvent() {
         List<VillagerTrades.ItemListing> generic = NonNullList.create();
         List<VillagerTrades.ItemListing> rare = NonNullList.create();
         generic.addAll(Arrays.asList(WANDERER_TRADES.get(1)));
@@ -61,14 +59,11 @@ public class VillagerTradingManager {
     /**
      * Posts a VillagerTradesEvent for each registered profession.
      */
-    private static void postVillagerEvents()
-    {
-        for (VillagerProfession prof : BuiltInRegistries.VILLAGER_PROFESSION)
-        {
+    private static void postVillagerEvents() {
+        for (VillagerProfession prof : BuiltInRegistries.VILLAGER_PROFESSION) {
             Int2ObjectMap<VillagerTrades.ItemListing[]> trades = VANILLA_TRADES.getOrDefault(prof, new Int2ObjectOpenHashMap<>());
             Int2ObjectMap<List<VillagerTrades.ItemListing>> mutableTrades = new Int2ObjectOpenHashMap<>();
-            for (int i = 1; i < 6; i++)
-            {
+            for (int i = 1; i < 6; i++) {
                 mutableTrades.put(i, NonNullList.create());
             }
             trades.int2ObjectEntrySet().forEach(e ->

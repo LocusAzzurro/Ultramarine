@@ -8,7 +8,7 @@ public enum StackableBlockType implements StringRepresentable {
 
     private final String name;
 
-    StackableBlockType(String name){
+    StackableBlockType(String name) {
         this.name = name;
     }
 

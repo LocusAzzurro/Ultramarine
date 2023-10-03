@@ -21,11 +21,10 @@ import java.util.Map;
 public class SideAxialBlock extends BaseHorizontalDirectionalBlock implements AxialBlock, SimpleWaterloggedBlock {
 
     public static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
-    protected Map<Direction.Axis, VoxelShape> shapeByAxis;
-
     private final int thickness;
     private final boolean hasCollision;
     private final int height;
+    protected Map<Direction.Axis, VoxelShape> shapeByAxis;
 
     public SideAxialBlock(BaseBlockProperty property, int thickness, int height, boolean hasCollision) {
         super(property);

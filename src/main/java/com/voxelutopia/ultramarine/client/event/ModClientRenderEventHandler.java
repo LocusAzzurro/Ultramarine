@@ -3,15 +3,15 @@ package com.voxelutopia.ultramarine.client.event;
 import com.voxelutopia.ultramarine.client.render.SeatEntityRenderer;
 import com.voxelutopia.ultramarine.client.screen.ContainerDecorativeBlockScreen;
 import com.voxelutopia.ultramarine.client.screen.WoodworkingWorkbenchScreen;
-import com.voxelutopia.ultramarine.init.registry.EntityTypeRegistry;
-import com.voxelutopia.ultramarine.init.registry.MenuTypeRegistry;
+import com.voxelutopia.ultramarine.init.registry.ModEntityTypes;
+import com.voxelutopia.ultramarine.init.registry.ModMenuTypes;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
 import net.minecraft.client.gui.screens.MenuScreens;
 import net.minecraft.client.renderer.entity.WanderingTraderRenderer;
 
 public class ModClientRenderEventHandler {
 
-    public static void onClientSetup(){
+    public static void onClientSetup() {
         setRenderLayers();
         registerMenuScreens();
         registerEntityRenderers();
@@ -156,16 +156,16 @@ public class ModClientRenderEventHandler {
     }
 
     private static void registerMenuScreens() {
-            MenuScreens.register(MenuTypeRegistry.CONTAINER_DECORATIVE_BLOCK_MENU_GENERIC_9X1, ContainerDecorativeBlockScreen::new);
-            MenuScreens.register(MenuTypeRegistry.CONTAINER_DECORATIVE_BLOCK_MENU_GENERIC_9X3, ContainerDecorativeBlockScreen::new);
-            MenuScreens.register(MenuTypeRegistry.CONTAINER_DECORATIVE_BLOCK_MENU_GENERIC_9X6, ContainerDecorativeBlockScreen::new);
-            MenuScreens.register(MenuTypeRegistry.CONTAINER_DECORATIVE_BLOCK_MENU_FOOD_9X3, ContainerDecorativeBlockScreen::new);
-            MenuScreens.register(MenuTypeRegistry.CONTAINER_DECORATIVE_BLOCK_MENU_FOOD_9X6, ContainerDecorativeBlockScreen::new);
-            MenuScreens.register(MenuTypeRegistry.WOODWORKING_WORKBENCH, WoodworkingWorkbenchScreen::new);
+        MenuScreens.register(ModMenuTypes.CONTAINER_DECORATIVE_BLOCK_MENU_GENERIC_9X1, ContainerDecorativeBlockScreen::new);
+        MenuScreens.register(ModMenuTypes.CONTAINER_DECORATIVE_BLOCK_MENU_GENERIC_9X3, ContainerDecorativeBlockScreen::new);
+        MenuScreens.register(ModMenuTypes.CONTAINER_DECORATIVE_BLOCK_MENU_GENERIC_9X6, ContainerDecorativeBlockScreen::new);
+        MenuScreens.register(ModMenuTypes.CONTAINER_DECORATIVE_BLOCK_MENU_FOOD_9X3, ContainerDecorativeBlockScreen::new);
+        MenuScreens.register(ModMenuTypes.CONTAINER_DECORATIVE_BLOCK_MENU_FOOD_9X6, ContainerDecorativeBlockScreen::new);
+        MenuScreens.register(ModMenuTypes.WOODWORKING_WORKBENCH, WoodworkingWorkbenchScreen::new);
     }
 
-    private static void registerEntityRenderers(){
-        EntityRendererRegistry.register(EntityTypeRegistry.SEAT, SeatEntityRenderer::new);
-        EntityRendererRegistry.register(EntityTypeRegistry.CUSTOM_WANDERING_TRADER, WanderingTraderRenderer::new);
+    private static void registerEntityRenderers() {
+        EntityRendererRegistry.register(ModEntityTypes.SEAT, SeatEntityRenderer::new);
+        EntityRendererRegistry.register(ModEntityTypes.CUSTOM_WANDERING_TRADER, WanderingTraderRenderer::new);
     }
 }

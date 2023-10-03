@@ -7,7 +7,7 @@ import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.crafting.RecipeSerializer;
 
-public class RecipeSerializerRegistry {
+public class ModRecipeSerializers {
 
     public static RecipeSerializer<WoodworkingRecipe> WOODWORKING_SERIALIZER;
 

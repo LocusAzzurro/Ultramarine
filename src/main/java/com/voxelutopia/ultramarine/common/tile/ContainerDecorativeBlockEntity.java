@@ -2,7 +2,7 @@ package com.voxelutopia.ultramarine.common.tile;
 
 import com.voxelutopia.ultramarine.common.block.ContainerDecorativeBlock;
 import com.voxelutopia.ultramarine.common.menu.ContainerDecorativeBlockMenu;
-import com.voxelutopia.ultramarine.init.registry.BlockEntityRegistry;
+import com.voxelutopia.ultramarine.init.registry.ModBlockEntities;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.NonNullList;
 import net.minecraft.core.registries.BuiltInRegistries;
@@ -23,8 +23,9 @@ public class ContainerDecorativeBlockEntity extends RandomizableContainerBlockEn
     private Block block;
 
     public ContainerDecorativeBlockEntity(BlockPos pos, BlockState state) {
-        super(BlockEntityRegistry.CONTAINER_DECORATIVE_BLOCK, pos, state);
+        super(ModBlockEntities.CONTAINER_DECORATIVE_BLOCK, pos, state);
     }
+
     public ContainerDecorativeBlockEntity(BlockPos pos, BlockState state, int rows) {
         this(pos, state);
         block = state.getBlock();
@@ -44,12 +45,12 @@ public class ContainerDecorativeBlockEntity extends RandomizableContainerBlockEn
 
     @Override
     protected Component getDefaultName() {
-        return Component.translatable("container." +  BuiltInRegistries.BLOCK.getKey(block).getPath());
+        return Component.translatable("container." + BuiltInRegistries.BLOCK.getKey(block).getPath());
     }
 
     @Override
     protected AbstractContainerMenu createMenu(int pContainerId, Inventory pInventory) {
-        if (block instanceof ContainerDecorativeBlock container){
+        if (block instanceof ContainerDecorativeBlock container) {
             return container.getContainerType().createMenu(pContainerId, pInventory, this);
         }
         return ContainerDecorativeBlockMenu.genericThreeRows(pContainerId, pInventory, this);

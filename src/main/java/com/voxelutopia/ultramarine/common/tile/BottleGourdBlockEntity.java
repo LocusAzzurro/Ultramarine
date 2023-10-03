@@ -1,6 +1,6 @@
 package com.voxelutopia.ultramarine.common.tile;
 
-import com.voxelutopia.ultramarine.init.registry.BlockEntityRegistry;
+import com.voxelutopia.ultramarine.init.registry.ModBlockEntities;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.nbt.CompoundTag;
@@ -18,8 +18,9 @@ public class BottleGourdBlockEntity extends BlockEntity {
     private Potion potion;
     private int charges;
     private boolean filled;
+
     public BottleGourdBlockEntity(BlockPos pos, BlockState state) {
-        super(BlockEntityRegistry.BOTTLE_GOURD, pos, state);
+        super(ModBlockEntities.BOTTLE_GOURD, pos, state);
     }
 
     public boolean addPotionCharge(Potion potion) {
@@ -28,15 +29,14 @@ public class BottleGourdBlockEntity extends BlockEntity {
             this.charges = 1;
             this.filled = true;
             return true;
-        }
-        else if (potion.equals(this.potion) && this.charges < MAX_CHARGE){
+        } else if (potion.equals(this.potion) && this.charges < MAX_CHARGE) {
             this.charges++;
             return true;
         }
         return false;
     }
 
-    public Optional<Potion> takePotionCharge(){
+    public Optional<Potion> takePotionCharge() {
         if (!filled || charges <= 0 || this.potion.equals(Potions.EMPTY)) return Optional.empty();
         else {
             Potion charge = this.potion;
@@ -49,7 +49,7 @@ public class BottleGourdBlockEntity extends BlockEntity {
         }
     }
 
-    public boolean hasCharges(){
+    public boolean hasCharges() {
         return (filled && charges > 0 && !potion.equals(Potions.EMPTY));
     }
 

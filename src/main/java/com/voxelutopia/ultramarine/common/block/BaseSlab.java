@@ -15,12 +15,12 @@ public class BaseSlab extends SlabBlock implements BaseBlockPropertyHolder {
         this(BaseBlockProperty.STONE);
     }
 
-    public BaseSlab(BaseBlock block){
+    public BaseSlab(BaseBlock block) {
         super(block.getProperty().properties);
         this.property = block.getProperty();
     }
 
-    public BaseSlab(BaseBlockProperty property){
+    public BaseSlab(BaseBlockProperty property) {
         super(property.properties);
         this.property = property;
     }

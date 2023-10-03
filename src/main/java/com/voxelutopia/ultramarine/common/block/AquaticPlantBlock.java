@@ -11,7 +11,7 @@ import net.minecraft.world.level.material.FluidState;
 import net.minecraft.world.level.material.Fluids;
 import net.minecraft.world.level.material.MapColor;
 
-public class AquaticPlantBlock extends DecorativeBlock{
+public class AquaticPlantBlock extends DecorativeBlock {
 
     public AquaticPlantBlock(Builder builder) {
         super(builder);

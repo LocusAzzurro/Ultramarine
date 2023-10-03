@@ -17,7 +17,7 @@ import java.util.List;
 
 public class EntityEvents {
     public static final Event<VillagerTrade> VILLAGER_TRADE = EventFactory.createArrayBacked(VillagerTrade.class, callbacks -> (trades, type) -> {
-        for(VillagerTrade callback : callbacks)
+        for (VillagerTrade callback : callbacks)
             trades = callback.modifyBreakSpeed(trades, type);
         return trades;
     });

@@ -10,6 +10,6 @@ public class BlockEntityHelper {
     @Nullable
     @SuppressWarnings("unchecked")
     public static <E extends BlockEntity, A extends BlockEntity> BlockEntityTicker<A> createTickerHelper(BlockEntityType<A> aBlockEntityType, BlockEntityType<E> eBlockEntityType, BlockEntityTicker<? super E> blockEntityTicker) {
-        return eBlockEntityType == aBlockEntityType ? (BlockEntityTicker<A>)blockEntityTicker : null;
+        return eBlockEntityType == aBlockEntityType ? (BlockEntityTicker<A>) blockEntityTicker : null;
     }
 }

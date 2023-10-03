@@ -22,11 +22,10 @@ import java.util.Map;
 
 public class WallSideBlock extends Block implements BaseBlockPropertyHolder, SimpleWaterloggedBlock, SideBlock {
 
-    protected final BaseBlockProperty property;
-    private final Map<Direction, VoxelShape> shapeByDirection;
-
     public static final DirectionProperty FACING = HorizontalDirectionalBlock.FACING;
     public static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
+    protected final BaseBlockProperty property;
+    private final Map<Direction, VoxelShape> shapeByDirection;
 
     public WallSideBlock(BaseBlockProperty property, int sideThickness) {
         super(property.copy().properties.noOcclusion().noCollission());
@@ -52,7 +51,7 @@ public class WallSideBlock extends Block implements BaseBlockPropertyHolder, Sim
         FluidState fluidstate = pContext.getLevel().getFluidState(pContext.getClickedPos());
 
         Direction direction = pContext.getClickedFace();
-        if (direction.getAxis().isHorizontal()){
+        if (direction.getAxis().isHorizontal()) {
             return state.setValue(FACING, direction)
                     .setValue(WATERLOGGED, fluidstate.getType() == Fluids.WATER);
         }
