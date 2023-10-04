@@ -18,7 +18,7 @@
   "environment": "*",
   "entrypoints": {
     "client": [
-      "com.voxelutopia.ultramarine.client.UltramarineClient"
+      "com.voxelutopia.ultramarine.UltramarineClient"
     ],
     "main": [
       "com.voxelutopia.ultramarine.Ultramarine"

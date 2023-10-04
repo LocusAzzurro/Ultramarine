@@ -70,7 +70,7 @@ public class ModVillagerTradings {
             {
                 Arrays.stream(e.getValue()).forEach(mutableTrades.get(e.getIntKey())::add);
             });
-            EntityEvents.VILLAGER_TRADE.invoker().modifyBreakSpeed(mutableTrades, prof);
+            EntityEvents.VILLAGER_TRADE.invoker().modifyVillagerTrade(mutableTrades, prof);
             Int2ObjectMap<VillagerTrades.ItemListing[]> newTrades = new Int2ObjectOpenHashMap<>();
             mutableTrades.int2ObjectEntrySet().forEach(e -> newTrades.put(e.getIntKey(), e.getValue().toArray(new VillagerTrades.ItemListing[0])));
             VillagerTrades.TRADES.put(prof, newTrades);

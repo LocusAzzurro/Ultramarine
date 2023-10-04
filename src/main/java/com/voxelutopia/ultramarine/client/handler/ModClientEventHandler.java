@@ -1,4 +1,4 @@
-package com.voxelutopia.ultramarine.client.event;
+package com.voxelutopia.ultramarine.client.handler;
 
 import com.voxelutopia.ultramarine.client.render.SeatEntityRenderer;
 import com.voxelutopia.ultramarine.client.screen.ContainerDecorativeBlockScreen;
@@ -9,7 +9,7 @@ import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
 import net.minecraft.client.gui.screens.MenuScreens;
 import net.minecraft.client.renderer.entity.WanderingTraderRenderer;
 
-public class ModClientRenderEventHandler {
+public class ModClientEventHandler {
 
     public static void onClientSetup() {
         setRenderLayers();

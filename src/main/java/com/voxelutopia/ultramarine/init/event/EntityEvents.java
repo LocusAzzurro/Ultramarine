@@ -18,13 +18,13 @@ import java.util.List;
 public class EntityEvents {
     public static final Event<VillagerTrade> VILLAGER_TRADE = EventFactory.createArrayBacked(VillagerTrade.class, callbacks -> (trades, type) -> {
         for (VillagerTrade callback : callbacks)
-            trades = callback.modifyBreakSpeed(trades, type);
+            trades = callback.modifyVillagerTrade(trades, type);
         return trades;
     });
 
     @FunctionalInterface
     public interface VillagerTrade {
-        Int2ObjectMap<List<VillagerTrades.ItemListing>> modifyBreakSpeed(Int2ObjectMap<List<VillagerTrades.ItemListing>> trades, VillagerProfession type);
+        Int2ObjectMap<List<VillagerTrades.ItemListing>> modifyVillagerTrade(Int2ObjectMap<List<VillagerTrades.ItemListing>> trades, VillagerProfession type);
     }
 
 }

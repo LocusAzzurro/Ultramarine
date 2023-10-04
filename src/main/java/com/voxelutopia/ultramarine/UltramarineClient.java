@@ -1,6 +1,6 @@
-package com.voxelutopia.ultramarine.client;
+package com.voxelutopia.ultramarine;
 
-import com.voxelutopia.ultramarine.client.event.ModClientRenderEventHandler;
+import com.voxelutopia.ultramarine.client.handler.ModClientEventHandler;
 import net.fabricmc.api.ClientModInitializer;
 
 /**
@@ -13,6 +13,6 @@ import net.fabricmc.api.ClientModInitializer;
 public class UltramarineClient implements ClientModInitializer {
     @Override
     public void onInitializeClient() {
-        ModClientRenderEventHandler.onClientSetup();
+        ModClientEventHandler.onClientSetup();
     }
 }
