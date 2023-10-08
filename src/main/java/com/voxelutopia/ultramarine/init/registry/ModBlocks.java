@@ -6,7 +6,6 @@ import com.voxelutopia.ultramarine.init.data.ContainerType;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.minecraft.core.Direction;
 import net.minecraft.core.Registry;
-import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.food.Foods;
 import net.minecraft.world.item.BlockItem;
@@ -485,11 +484,11 @@ public class ModBlocks {
     // COURTYARD
 
     public static final Block SACK = registerBlock("sack",
-            ContainerDecorativeBlock.with(BaseBlockProperty.SILK).content(ContainerType.COMMON_SMALL).shaped(DecorativeBlock.HALF_6).directional().noCollision().pushReaction(PushReaction.BLOCK).build());
+            ContainerDecorativeBlock.with(BaseBlockProperty.SILK).content(ContainerType.COMMON_SMALL).shaped(DecorativeBlock.HALF_6).directional().noCollision().build());
     public static final Block BAMBOO_TEA_BASKET = registerBlock("bamboo_tea_basket",
-            ContainerDecorativeBlock.with(BaseBlockProperty.BAMBOO_WOOD).content(ContainerType.FOOD_REGULAR).shaped(DecorativeBlock.FULL_14).directional().diagonallyPlaceable().pushReaction(PushReaction.BLOCK).build());
+            ContainerDecorativeBlock.with(BaseBlockProperty.BAMBOO_WOOD).content(ContainerType.FOOD_REGULAR).shaped(DecorativeBlock.FULL_14).directional().diagonallyPlaceable().build());
     public static final Block EMPTY_BAMBOO_TEA_BASKET = registerBlock("empty_bamboo_tea_basket",
-            ContainerDecorativeBlock.with(BaseBlockProperty.BAMBOO_WOOD).content(ContainerType.FOOD_REGULAR).shaped(DecorativeBlock.FULL_14).directional().diagonallyPlaceable().pushReaction(PushReaction.BLOCK).build());
+            ContainerDecorativeBlock.with(BaseBlockProperty.BAMBOO_WOOD).content(ContainerType.FOOD_REGULAR).shaped(DecorativeBlock.FULL_14).directional().diagonallyPlaceable().build());
     public static final Block STRAW_HAT = registerBlock("straw_hat",
             DecorativeBlock.with(BaseBlockProperty.FLAX).shaped(DecorativeBlock.QUARTER_16).diagonallyPlaceable().noCollision().noOcclusion().build());
     public static final Block KNIFE = registerBlock("knife",
@@ -505,11 +504,11 @@ public class ModBlocks {
     public static final Block CHINESE_HERBS_BAG = registerBlock("chinese_herbs_bag",
             DecorativeBlock.with(BaseBlockProperty.SILK).shaped(DecorativeBlock.HALF_BLOCK).directional().build());
     public static final Block FRUIT_BOX = registerBlock("fruit_box",
-            ContainerDecorativeBlock.with(BaseBlockProperty.WOOD).content(ContainerType.FOOD_REGULAR).shaped(DecorativeBlock.FULL_14).directional().diagonallyPlaceable().pushReaction(PushReaction.BLOCK).build());
+            ContainerDecorativeBlock.with(BaseBlockProperty.WOOD).content(ContainerType.FOOD_REGULAR).shaped(DecorativeBlock.FULL_14).directional().diagonallyPlaceable().build());
     public static final Block WOODEN_CRATE = registerBlock("wooden_crate",
-            ContainerDecorativeBlock.with(BaseBlockProperty.WOOD).content(ContainerType.COMMON_REGULAR).shaped(DecorativeBlock.FULL_BLOCK).pushReaction(PushReaction.BLOCK).build());
+            ContainerDecorativeBlock.with(BaseBlockProperty.WOOD).content(ContainerType.COMMON_REGULAR).shaped(DecorativeBlock.FULL_BLOCK).build());
     public static final Block GUNNY_SACK = registerBlock("gunny_sack",
-            ContainerDecorativeBlock.with(BaseBlockProperty.FLAX).content(ContainerType.COMMON_REGULAR).shaped(DecorativeBlock.FULL_14).directional().pushReaction(PushReaction.BLOCK).build());
+            ContainerDecorativeBlock.with(BaseBlockProperty.FLAX).content(ContainerType.COMMON_REGULAR).shaped(DecorativeBlock.FULL_14).directional().build());
     public static final Block BRONZE_DING = registerBlock("bronze_ding",
             DecorativeBlock.with(BaseBlockProperty.BRONZE).shaped(DecorativeBlock.FULL_BLOCK).placeOffset(Direction.UP).directional().noOcclusion().build());
     public static final Block CARRIAGE = registerBlock("carriage",
@@ -547,7 +546,7 @@ public class ModBlocks {
     // FOOD
 
     public static final Block FOOD_HAMPER = registerBlock("food_hamper",
-            ContainerDecorativeBlock.with(BaseBlockProperty.WOOD).content(ContainerType.FOOD_LARGE).shaped(DecorativeBlock.FULL_6).directional().diagonallyPlaceable().pushReaction(PushReaction.BLOCK).build());
+            ContainerDecorativeBlock.with(BaseBlockProperty.WOOD).content(ContainerType.FOOD_LARGE).shaped(DecorativeBlock.FULL_6).directional().diagonallyPlaceable().build());
     public static final Block PLATED_MOONCAKES = registerBlock("plated_mooncakes", //todo change stone slab plate to actual block
             ConsumableDecorativeBlock.with(BaseBlockProperty.PORCELAIN).bites(4).platedWith(Blocks.STONE_SLAB).food(ModFoods.MOONCAKE).shaped(DecorativeBlock.FLAT_16).directional().build());
     public static final Block PLATED_MUNG_BEAN_CAKES = registerBlock("plated_mung_bean_cakes",
@@ -580,11 +579,11 @@ public class ModBlocks {
     // CABINET
 
     public static final Block OAK_CABINET = registerBlock("oak_cabinet",
-            ContainerDecorativeBlock.with(BaseBlockProperty.WOOD).content(ContainerType.COMMON_REGULAR).shaped(DecorativeBlock.FULL_BLOCK).directional().noFenceConnect().pushReaction(PushReaction.BLOCK).build());
+            ContainerDecorativeBlock.with(BaseBlockProperty.WOOD).content(ContainerType.COMMON_REGULAR).shaped(DecorativeBlock.FULL_BLOCK).directional().noFenceConnect().build());
     public static final Block WARPED_CABINET = registerBlock("warped_cabinet",
-            ContainerDecorativeBlock.with(BaseBlockProperty.WOOD).content(ContainerType.COMMON_REGULAR).shaped(DecorativeBlock.FULL_BLOCK).directional().noFenceConnect().pushReaction(PushReaction.BLOCK).build());
+            ContainerDecorativeBlock.with(BaseBlockProperty.WOOD).content(ContainerType.COMMON_REGULAR).shaped(DecorativeBlock.FULL_BLOCK).directional().noFenceConnect().build());
     public static final Block EBONY_CABINET = registerBlock("ebony_cabinet",
-            ContainerDecorativeBlock.with(BaseBlockProperty.WOOD).content(ContainerType.COMMON_LARGE).shaped(DecorativeBlock.FULL_BLOCK).directional().noFenceConnect().pushReaction(PushReaction.BLOCK).build());
+            ContainerDecorativeBlock.with(BaseBlockProperty.WOOD).content(ContainerType.COMMON_LARGE).shaped(DecorativeBlock.FULL_BLOCK).directional().noFenceConnect().build());
 
     // TABLE
 
@@ -829,11 +828,11 @@ public class ModBlocks {
 
     public static Block registerBlock(String name, Block block) {
         //registerBlockItem(name, block);
-        return Registry.register(BuiltInRegistries.BLOCK, new ResourceLocation(Ultramarine.MOD_ID, name), block);
+        return Registry.register(Registry.BLOCK, new ResourceLocation(Ultramarine.MOD_ID, name), block);
     }
 
     public static void registerBlockItem(String name, Block block) {
-        Registry.register(BuiltInRegistries.ITEM, new ResourceLocation(Ultramarine.MOD_ID, name), new BlockItem(block, new FabricItemSettings()));
+        Registry.register(Registry.ITEM, new ResourceLocation(Ultramarine.MOD_ID, name), new BlockItem(block, new FabricItemSettings()));
     }
 
     public static void registerModBlocks() {

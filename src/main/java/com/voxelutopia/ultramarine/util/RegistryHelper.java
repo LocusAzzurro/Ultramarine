@@ -1,6 +1,6 @@
 package com.voxelutopia.ultramarine.util;
 
-import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
@@ -15,10 +15,10 @@ import net.minecraft.world.level.block.Block;
 public class RegistryHelper {
 
     public static ResourceLocation getBlockRegistryName(Block b) {
-        return BuiltInRegistries.BLOCK.getKey(b);
+        return Registry.BLOCK.getKey(b);
     }
 
     public static ResourceLocation getItemRegistryName(Item b) {
-        return BuiltInRegistries.ITEM.getKey(b);
+        return Registry.ITEM.getKey(b);
     }
 }

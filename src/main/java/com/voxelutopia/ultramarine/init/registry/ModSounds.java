@@ -1,9 +1,7 @@
 package com.voxelutopia.ultramarine.init.registry;
 
 import com.voxelutopia.ultramarine.Ultramarine;
-import com.voxelutopia.ultramarine.util.ForgeSoundType;
 import net.minecraft.core.Registry;
-import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
@@ -45,11 +43,11 @@ public class ModSounds {
 
 
     private static SoundEvent register(String name) {
-        return Registry.register(BuiltInRegistries.SOUND_EVENT, name, SoundEvent.createVariableRangeEvent(new ResourceLocation(Ultramarine.MOD_ID, name)));
+        return Registry.register(Registry.SOUND_EVENT, name, new SoundEvent(new ResourceLocation(Ultramarine.MOD_ID, name)));
     }
 
     private static SoundEvent register(String name, SoundEvent soundEvent) {
-        return Registry.register(BuiltInRegistries.SOUND_EVENT, name, soundEvent);
+        return Registry.register(Registry.SOUND_EVENT, name, soundEvent);
     }
 
 }

@@ -5,15 +5,15 @@ import com.voxelutopia.ultramarine.common.block.BaseFence;
 import com.voxelutopia.ultramarine.common.block.BaseWall;
 import com.voxelutopia.ultramarine.init.registry.ModBlocks;
 import com.voxelutopia.ultramarine.util.RegistryHelper;
-import io.github.fabricators_of_create.porting_lib.data.ExistingFileHelper;
-import io.github.fabricators_of_create.porting_lib.models.generators.item.ItemModelBuilder;
-import io.github.fabricators_of_create.porting_lib.models.generators.item.ItemModelProvider;
-import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.data.PackOutput;
+import net.minecraft.core.Registry;
+import net.minecraft.data.DataGenerator;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
+import net.minecraftforge.client.model.generators.ItemModelBuilder;
+import net.minecraftforge.client.model.generators.ItemModelProvider;
+import net.minecraftforge.common.data.ExistingFileHelper;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
@@ -25,7 +25,7 @@ public class ModItemModelProvider extends ItemModelProvider {
     private final static List<Item> NON_SIMPLE_ITEMS = new ArrayList<>();
 
     static {
-        BuiltInRegistries.BLOCK.stream()
+        Registry.BLOCK.stream()
                 .filter(blockRegistryObject -> (
                         blockRegistryObject instanceof BaseWall ||
                                 blockRegistryObject instanceof BaseFence
@@ -33,13 +33,13 @@ public class ModItemModelProvider extends ItemModelProvider {
                 .forEach(NON_SIMPLE_BLOCKS::add);
     }
 
-    public ModItemModelProvider(PackOutput generator, ExistingFileHelper existingFileHelper) {
+    public ModItemModelProvider(DataGenerator generator, ExistingFileHelper existingFileHelper) {
         super(generator, UltramarineDataGenerators.MOD_ID, existingFileHelper);
     }
 
     @Override
     protected void registerModels() {
-        BuiltInRegistries.BLOCK.stream()
+        Registry.BLOCK.stream()
                 .filter(blockRegistryObject -> !NON_SIMPLE_BLOCKS.contains(blockRegistryObject))
                 .forEach(this::blockItem);
         wallInventory(RegistryHelper.getBlockRegistryName(ModBlocks.BLACK_BRICK_WALL).getPath(), blockLoc(ModBlocks.BLACK_BRICKS));
@@ -49,7 +49,7 @@ public class ModItemModelProvider extends ItemModelProvider {
         wallInventory(RegistryHelper.getBlockRegistryName(ModBlocks.BROWNISH_RED_STONE_BRICK_WALL).getPath(), blockLoc(ModBlocks.BROWNISH_RED_STONE_BRICKS));
         wallInventory(RegistryHelper.getBlockRegistryName(ModBlocks.POLISHED_WEATHERED_STONE_WALL).getPath(), blockLoc(ModBlocks.POLISHED_WEATHERED_STONE));
         fenceInventory(RegistryHelper.getBlockRegistryName(ModBlocks.ROSEWOOD_FENCE).getPath(), blockLoc(ModBlocks.ROSEWOOD_PLANKS));
-        BuiltInRegistries.ITEM.stream()
+        Registry.ITEM.stream()
                 .filter(blockRegistryObject -> !NON_SIMPLE_ITEMS.contains(blockRegistryObject))
                 .filter(blockRegistryObject -> !(blockRegistryObject instanceof BlockItem))
                 .forEach(this::generatedItem);

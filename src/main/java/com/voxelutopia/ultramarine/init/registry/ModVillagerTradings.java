@@ -5,7 +5,7 @@ import it.unimi.dsi.fastutil.ints.Int2ObjectMap;
 import it.unimi.dsi.fastutil.ints.Int2ObjectOpenHashMap;
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerLifecycleEvents;
 import net.minecraft.core.NonNullList;
-import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.core.Registry;
 import net.minecraft.world.entity.npc.VillagerProfession;
 import net.minecraft.world.entity.npc.VillagerTrades;
 
@@ -60,7 +60,7 @@ public class ModVillagerTradings {
      * Posts a VillagerTradesEvent for each registered profession.
      */
     private static void postVillagerEvents() {
-        for (VillagerProfession prof : BuiltInRegistries.VILLAGER_PROFESSION) {
+        for (VillagerProfession prof : Registry.VILLAGER_PROFESSION) {
             Int2ObjectMap<VillagerTrades.ItemListing[]> trades = VANILLA_TRADES.getOrDefault(prof, new Int2ObjectOpenHashMap<>());
             Int2ObjectMap<List<VillagerTrades.ItemListing>> mutableTrades = new Int2ObjectOpenHashMap<>();
             for (int i = 1; i < 6; i++) {

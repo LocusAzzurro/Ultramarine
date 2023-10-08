@@ -5,7 +5,7 @@ import com.voxelutopia.ultramarine.common.menu.ContainerDecorativeBlockMenu;
 import com.voxelutopia.ultramarine.init.registry.ModBlockEntities;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.NonNullList;
-import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.core.Registry;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.ContainerHelper;
@@ -45,7 +45,7 @@ public class ContainerDecorativeBlockEntity extends RandomizableContainerBlockEn
 
     @Override
     protected Component getDefaultName() {
-        return Component.translatable("container." + BuiltInRegistries.BLOCK.getKey(block).getPath());
+        return Component.translatable("container." + Registry.BLOCK.getKey(block).getPath());
     }
 
     @Override

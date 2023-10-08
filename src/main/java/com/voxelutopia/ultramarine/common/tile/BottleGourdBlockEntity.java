@@ -2,7 +2,7 @@ package com.voxelutopia.ultramarine.common.tile;
 
 import com.voxelutopia.ultramarine.init.registry.ModBlockEntities;
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.core.Registry;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.item.alchemy.Potion;
 import net.minecraft.world.item.alchemy.Potions;
@@ -72,7 +72,7 @@ public class BottleGourdBlockEntity extends BlockEntity {
     @Override
     protected void saveAdditional(CompoundTag pTag) {
         super.saveAdditional(pTag);
-        pTag.putString("Potion", BuiltInRegistries.POTION.getKey(this.potion).toString());
+        pTag.putString("Potion", Registry.POTION.getKey(this.potion).toString());
         pTag.putInt("Charges", this.charges);
         pTag.putBoolean("Filled", this.filled);
     }

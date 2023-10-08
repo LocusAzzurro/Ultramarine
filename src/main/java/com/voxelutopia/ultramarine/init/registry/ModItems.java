@@ -5,8 +5,8 @@ import com.voxelutopia.ultramarine.common.item.AquaticPlantBlockItem;
 import com.voxelutopia.ultramarine.common.item.BaseFood;
 import com.voxelutopia.ultramarine.common.item.WoodenHammer;
 import com.voxelutopia.ultramarine.init.data.CreativeTabData;
+import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.minecraft.core.Registry;
-import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.BlockItem;
@@ -721,13 +721,13 @@ public class ModItems {
     public static final Item WOODWORKING_WORKBENCH = fromBlock(ModBlocks.WOODWORKING_WORKBENCH, CreativeTabData.TOOLS);
 
     private static <B extends Block> Item fromBlock(Block block, CreativeTabData tabDef) {
-        Item registryObject = registerItem(BuiltInRegistries.BLOCK.getKey(block).getPath(), new BlockItem(block, new Item.Properties()));
+        Item registryObject = registerItem(Registry.BLOCK.getKey(block).getPath(), new BlockItem(block, new FabricItemSettings().tab(tabDef.getTab())));
         CreativeTabData.putItemInSet(registryObject, tabDef);
         return registryObject;
     }
 
     private static <B extends Block> Item aquaticPlantItem(Block block, CreativeTabData tabDef) {
-        Item registryObject = registerItem(BuiltInRegistries.BLOCK.getKey(block).getPath(), new AquaticPlantBlockItem(block, new Item.Properties()));
+        Item registryObject = registerItem(Registry.BLOCK.getKey(block).getPath(), new AquaticPlantBlockItem(block, new FabricItemSettings().tab(tabDef.getTab())));
         CreativeTabData.putItemInSet(registryObject, tabDef);
         return registryObject;
     }
@@ -739,7 +739,7 @@ public class ModItems {
 //    }
 
     private static Item simpleItem(String name, CreativeTabData tabDef) {
-        Item registryObject = registerItem(name, new Item(new Item.Properties()));
+        Item registryObject = registerItem(name, new Item(new FabricItemSettings().tab(tabDef.getTab())));
         CreativeTabData.putItemInSet(registryObject, tabDef);
         return registryObject;
     }
@@ -751,7 +751,7 @@ public class ModItems {
     }
 
     private static Item registerItem(String name, Item item) {
-        return Registry.register(BuiltInRegistries.ITEM,
+        return Registry.register(Registry.ITEM,
                 new ResourceLocation(Ultramarine.MOD_ID, name), item);
     }
 

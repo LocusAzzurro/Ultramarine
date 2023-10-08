@@ -8,19 +8,19 @@ import com.voxelutopia.ultramarine.common.block.state.OrientableBlockType;
 import com.voxelutopia.ultramarine.common.block.state.StackableBlockType;
 import com.voxelutopia.ultramarine.init.registry.ModBlocks;
 import com.voxelutopia.ultramarine.util.RegistryHelper;
-import io.github.fabricators_of_create.porting_lib.data.ExistingFileHelper;
-import io.github.fabricators_of_create.porting_lib.models.generators.ConfiguredModel;
-import io.github.fabricators_of_create.porting_lib.models.generators.ModelFile;
-import io.github.fabricators_of_create.porting_lib.models.generators.block.BlockStateProvider;
 import net.minecraft.core.Direction;
-import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.data.PackOutput;
+import net.minecraft.core.Registry;
+import net.minecraft.data.DataGenerator;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.DoorHingeSide;
 import net.minecraft.world.level.block.state.properties.Half;
 import net.minecraft.world.level.block.state.properties.SlabType;
+import net.minecraftforge.client.model.generators.BlockStateProvider;
+import net.minecraftforge.client.model.generators.ConfiguredModel;
+import net.minecraftforge.client.model.generators.ModelFile;
+import net.minecraftforge.common.data.ExistingFileHelper;
 import org.apache.commons.lang3.tuple.Pair;
 import org.jetbrains.annotations.NotNull;
 
@@ -52,7 +52,7 @@ public class ModBlockModelProvider extends BlockStateProvider {
             ModBlocks.GREEN_GLAZED_ROOF_CHARM, -90
     );
 
-    public ModBlockModelProvider(PackOutput generator, ExistingFileHelper existingFileHelper) {
+    public ModBlockModelProvider(DataGenerator generator, ExistingFileHelper existingFileHelper) {
         super(generator, UltramarineDataGenerators.MOD_ID, existingFileHelper);
     }
 
@@ -300,23 +300,23 @@ public class ModBlockModelProvider extends BlockStateProvider {
         vegetableBasket((StackableHalfBlock) ModBlocks.EGGPLANT_BASKET);
         vegetableBasket((StackableHalfBlock) ModBlocks.PEAR_BASKET);
 
-        BuiltInRegistries.BLOCK.stream().filter(blockRegistryObject -> blockRegistryObject instanceof SideAxialBlock)
+        Registry.BLOCK.stream().filter(blockRegistryObject -> blockRegistryObject instanceof SideAxialBlock)
                 .forEach(sideAxial -> {
                     SideAxialBlock block = (SideAxialBlock) sideAxial;
                     if (block instanceof RailingSlant) shiftedHorizontalBlockNoOffset(block);
                     else horizontalBlockOffset(sideAxial, 180);
                 });
 
-        BuiltInRegistries.BLOCK.stream().filter(blockRegistryObject -> blockRegistryObject instanceof CentralAxialBlock)
+        Registry.BLOCK.stream().filter(blockRegistryObject -> blockRegistryObject instanceof CentralAxialBlock)
                 .forEach(this::axisBlock);
 
-        BuiltInRegistries.BLOCK.stream().filter(blockRegistryObject -> blockRegistryObject instanceof Rafter)
+        Registry.BLOCK.stream().filter(blockRegistryObject -> blockRegistryObject instanceof Rafter)
                 .forEach(this::shiftedAxisBlock);
 
-        BuiltInRegistries.BLOCK.stream().filter(blockRegistryObject -> blockRegistryObject instanceof RafterEnd)
+        Registry.BLOCK.stream().filter(blockRegistryObject -> blockRegistryObject instanceof RafterEnd)
                 .forEach(rafterEnd -> shiftedDirectionalBlock(rafterEnd, 180));
 
-        BuiltInRegistries.BLOCK.stream().filter(blockRegistryObject -> blockRegistryObject instanceof DecorativeBlock)
+        Registry.BLOCK.stream().filter(blockRegistryObject -> blockRegistryObject instanceof DecorativeBlock)
                 .forEach(decorativeBlock -> {
                     DecorativeBlock block = (DecorativeBlock) decorativeBlock;
                     if (ROTATED_DECO.containsKey(decorativeBlock))
@@ -328,7 +328,7 @@ public class ModBlockModelProvider extends BlockStateProvider {
                     else decorativeBlock(block);
                 });
 
-        BuiltInRegistries.BLOCK.stream().filter(blockRegistryObject -> blockRegistryObject instanceof SideBlock)
+        Registry.BLOCK.stream().filter(blockRegistryObject -> blockRegistryObject instanceof SideBlock)
                 .forEach(sideBlock -> {
                     SideBlock block = (SideBlock) sideBlock;
                     if (block instanceof WallSideBlock wallSideBlock) {

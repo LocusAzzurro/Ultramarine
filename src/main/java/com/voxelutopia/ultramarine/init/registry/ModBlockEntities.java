@@ -6,7 +6,6 @@ import com.voxelutopia.ultramarine.common.tile.CenserBlockEntity;
 import com.voxelutopia.ultramarine.common.tile.ContainerDecorativeBlockEntity;
 import net.fabricmc.fabric.api.object.builder.v1.block.entity.FabricBlockEntityTypeBuilder;
 import net.minecraft.core.Registry;
-import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntityType;
@@ -28,13 +27,13 @@ public class ModBlockEntities {
     static Set<Block> CENSERS = Set.of(ModBlocks.BRONZE_CENSER, ModBlocks.ROYAL_CENSER);
 
     public static void registerModBlockEntities() {
-        CONTAINER_DECORATIVE_BLOCK = Registry.register(BuiltInRegistries.BLOCK_ENTITY_TYPE, new ResourceLocation(Ultramarine.MOD_ID, "container_decorative_block_entity"),
+        CONTAINER_DECORATIVE_BLOCK = Registry.register(Registry.BLOCK_ENTITY_TYPE, new ResourceLocation(Ultramarine.MOD_ID, "container_decorative_block_entity"),
                 FabricBlockEntityTypeBuilder.create(ContainerDecorativeBlockEntity::new, new HashSet<>(CONTAINER_BLOCKS).toArray(new Block[0])).build(null));
 
-        CENSER = Registry.register(BuiltInRegistries.BLOCK_ENTITY_TYPE, new ResourceLocation(Ultramarine.MOD_ID, "censer_block_entity"),
+        CENSER = Registry.register(Registry.BLOCK_ENTITY_TYPE, new ResourceLocation(Ultramarine.MOD_ID, "censer_block_entity"),
                 FabricBlockEntityTypeBuilder.create(CenserBlockEntity::new, new HashSet<>(CENSERS).toArray(new Block[0])).build(null));
 
-        BOTTLE_GOURD = Registry.register(BuiltInRegistries.BLOCK_ENTITY_TYPE, new ResourceLocation(Ultramarine.MOD_ID, "bottle_gourd_entity"),
+        BOTTLE_GOURD = Registry.register(Registry.BLOCK_ENTITY_TYPE, new ResourceLocation(Ultramarine.MOD_ID, "bottle_gourd_entity"),
                 FabricBlockEntityTypeBuilder.create(BottleGourdBlockEntity::new, ModBlocks.BOTTLE_GOURD).build(null));
 
     }

@@ -1,6 +1,5 @@
 package com.voxelutopia.ultramarine;
 
-import com.voxelutopia.ultramarine.init.registry.ModVillagerTradings;
 import com.voxelutopia.ultramarine.init.handler.CommonEventHandler;
 import com.voxelutopia.ultramarine.init.registry.*;
 import net.fabricmc.api.ModInitializer;

@@ -257,11 +257,6 @@ public class DecorativeBlock extends HorizontalDirectionalBlock implements BaseB
             return this;
         }
 
-        public Builder pushReaction(PushReaction reaction) {
-            this.property.properties.pushReaction(reaction);
-            return this;
-        }
-
         public Builder noFenceConnect() {
             noFenceConnect = true;
             return this;

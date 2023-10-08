@@ -4,8 +4,7 @@ import com.google.gson.JsonObject;
 import com.voxelutopia.ultramarine.Ultramarine;
 import com.voxelutopia.ultramarine.init.registry.ModRecipeSerializers;
 import com.voxelutopia.ultramarine.init.registry.ModRecipeTypes;
-import net.minecraft.core.RegistryAccess;
-import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.core.Registry;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.GsonHelper;
@@ -40,7 +39,7 @@ public class WoodworkingRecipe extends SingleItemRecipe {
     }
 
     @Override
-    public @NotNull ItemStack assemble(Container container, RegistryAccess registryAccess) {
+    public @NotNull ItemStack assemble(Container container) {
         return result.copy();
     }
 
@@ -50,7 +49,7 @@ public class WoodworkingRecipe extends SingleItemRecipe {
     }
 
     @Override
-    public @NotNull ItemStack getResultItem(RegistryAccess registryAccess) {
+    public @NotNull ItemStack getResultItem() {
         return result.copy();
     }
 
@@ -96,7 +95,7 @@ public class WoodworkingRecipe extends SingleItemRecipe {
 
             String s1 = GsonHelper.getAsString(pJson, "result");
             int i = GsonHelper.getAsInt(pJson, "count");
-            ItemStack itemstack = new ItemStack(BuiltInRegistries.ITEM.get(new ResourceLocation(s1)), i);
+            ItemStack itemstack = new ItemStack(Registry.ITEM.get(new ResourceLocation(s1)), i);
             return new WoodworkingRecipe(pRecipeId, s, ingredient, itemstack);
         }
 

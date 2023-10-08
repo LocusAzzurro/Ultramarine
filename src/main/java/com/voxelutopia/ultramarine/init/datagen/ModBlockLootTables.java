@@ -9,10 +9,10 @@ import com.voxelutopia.ultramarine.common.block.state.ModBlockStateProperties;
 import com.voxelutopia.ultramarine.common.block.state.StackableBlockType;
 import com.voxelutopia.ultramarine.init.registry.ModBlocks;
 import com.voxelutopia.ultramarine.init.registry.ModItems;
+import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
+import net.fabricmc.fabric.api.datagen.v1.provider.FabricBlockLootTableProvider;
 import net.minecraft.advancements.critereon.StatePropertiesPredicate;
-import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.data.loot.BlockLootSubProvider;
-import net.minecraft.world.flag.FeatureFlags;
+import net.minecraft.core.Registry;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.enchantment.Enchantments;
@@ -33,7 +33,6 @@ import net.minecraft.world.level.storage.loot.providers.number.ConstantValue;
 import net.minecraft.world.level.storage.loot.providers.number.UniformGenerator;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 /**
@@ -43,12 +42,12 @@ import java.util.List;
  * Description:
  */
 
-public class ModBlockLootTables extends BlockLootSubProvider {
+public class ModBlockLootTables extends FabricBlockLootTableProvider {
     private static final List<Block> NON_SIMPLE_BLOCKS = new ArrayList<>();
     private static final List<Class> NON_SIMPLE_BLOCK_CLASSES = List.of(DropExperienceBlock.class, SlabBlock.class, ConsumableDecorativeBlock.class, StackableHalfBlock.class);
 
     static {
-        BuiltInRegistries.BLOCK.stream()
+        Registry.BLOCK.stream()
                 .filter(blockRegistryObject -> {
                     for (Class clazz : NON_SIMPLE_BLOCK_CLASSES) {
                         if (clazz.isInstance(blockRegistryObject)) return true;
@@ -61,22 +60,23 @@ public class ModBlockLootTables extends BlockLootSubProvider {
                 .forEach(NON_SIMPLE_BLOCKS::add);
     }
 
-    protected ModBlockLootTables() {
-        super(Collections.emptySet(), FeatureFlags.REGISTRY.allFlags());
+    public ModBlockLootTables(FabricDataGenerator generator) {
+        super(generator);
     }
 
     protected static void createPorcelainDrop(Block block, Item piece, Item shard) {
         LootTable.lootTable()
                 .withPool(LootPool.lootPool()
                         .setRolls(ConstantValue.exactly(1.0F))
-                        .add(LootItem.lootTableItem(block).when(HAS_SILK_TOUCH)
+                        .add(LootItem.lootTableItem(block)
+                                //.when(HAS_SILK_TOUCH)
                                 .otherwise(LootItem.lootTableItem(piece).when(LootItemRandomChanceCondition.randomChance(0.01F)).apply(ApplyBonusCount.addUniformBonusCount(Enchantments.BLOCK_FORTUNE, 2)))
                                 .otherwise(LootItem.lootTableItem(shard).apply(SetItemCountFunction.setCount(BinomialDistributionGenerator.binomial(3, 0.5F))))));
     }
 
     @Override
-    public void generate() {
-        BuiltInRegistries.BLOCK.stream()
+    public void generateBlockLootTables() {
+        Registry.BLOCK.stream()
                 .filter(blockRegistryObject -> !NON_SIMPLE_BLOCKS.contains(blockRegistryObject))
                 .forEach(this::createSimpleTable);
         createOreDrop(ModBlocks.JADE_ORE, ModItems.JADE);

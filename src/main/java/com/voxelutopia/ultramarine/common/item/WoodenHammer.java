@@ -7,6 +7,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.stats.Stats;
 import net.minecraft.world.InteractionResult;
+import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.context.UseOnContext;
@@ -20,7 +21,9 @@ import java.util.Optional;
 public class WoodenHammer extends Item {
 
     public WoodenHammer() {
-        super(new Item.Properties().durability(100));
+        super(new Item.Properties()
+                .tab(CreativeModeTab.TAB_TOOLS)
+                .durability(100));
     }
 
     @NotNull
