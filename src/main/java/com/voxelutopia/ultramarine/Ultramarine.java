@@ -25,6 +25,7 @@ public class Ultramarine implements ModInitializer {
 
     @Override
     public void onInitialize() {
+        ModCreativeTabs.registerModGroups();
         ModBlocks.registerModBlocks();
         ModItems.registerModItems();
         ModBlockEntities.registerModBlockEntities();
@@ -35,7 +36,6 @@ public class Ultramarine implements ModInitializer {
         ModRecipeTypes.registerModRecipeTypes();
         ModRecipeSerializers.registerModRecipeSerializers();
         ModSounds.registerModSounds();
-        ModCreativeTabs.registerModGroups();
         ModFoods.registerModFoods();
         ModVillagerTradings.loadTrades();
 
