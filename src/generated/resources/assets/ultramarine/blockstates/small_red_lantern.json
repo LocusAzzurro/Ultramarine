@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "diagonal=false,lit=false": {
+      "model": "ultramarine:block/small_red_lantern"
+    },
+    "diagonal=true,lit=false": {
+      "model": "ultramarine:block/small_red_lantern_diagonal"
+    },
+    "diagonal=false,lit=true": {
+      "model": "ultramarine:block/small_red_lantern"
+    },
+    "diagonal=true,lit=true": {
+      "model": "ultramarine:block/small_red_lantern_diagonal"
+    }
+  }
+}

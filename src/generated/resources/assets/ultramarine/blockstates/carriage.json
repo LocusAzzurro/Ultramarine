@@ -1,0 +1,20 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "ultramarine:block/carriage",
+      "y": 270
+    },
+    "facing=south": {
+      "model": "ultramarine:block/carriage",
+      "y": 90
+    },
+    "facing=west": {
+      "model": "ultramarine:block/carriage",
+      "y": 180
+    },
+    "facing=east": {
+      "model": "ultramarine:block/carriage",
+      "y": 360
+    }
+  }
+}

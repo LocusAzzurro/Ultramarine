@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "ultramarine:block/blue_book",
+      "y": 180
+    },
+    "facing=south": {
+      "model": "ultramarine:block/blue_book"
+    },
+    "facing=west": {
+      "model": "ultramarine:block/blue_book",
+      "y": 90
+    },
+    "facing=east": {
+      "model": "ultramarine:block/blue_book",
+      "y": 270
+    }
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "variants": {
+    "axis=x,shifted=false,waterlogged=false": {
+      "model": "ultramarine:block/gilded_dark_oak_rafter",
+      "y": 90
+    },
+    "axis=z,shifted=false,waterlogged=false": {
+      "model": "ultramarine:block/gilded_dark_oak_rafter"
+    },
+    "axis=x,shifted=true,waterlogged=false": {
+      "model": "ultramarine:block/gilded_dark_oak_rafter_shifted",
+      "y": 90
+    },
+    "axis=z,shifted=true,waterlogged=false": {
+      "model": "ultramarine:block/gilded_dark_oak_rafter_shifted"
+    },
+    "axis=x,shifted=false,waterlogged=true": {
+      "model": "ultramarine:block/gilded_dark_oak_rafter",
+      "y": 90
+    },
+    "axis=z,shifted=false,waterlogged=true": {
+      "model": "ultramarine:block/gilded_dark_oak_rafter"
+    },
+    "axis=x,shifted=true,waterlogged=true": {
+      "model": "ultramarine:block/gilded_dark_oak_rafter_shifted",
+      "y": 90
+    },
+    "axis=z,shifted=true,waterlogged=true": {
+      "model": "ultramarine:block/gilded_dark_oak_rafter_shifted"
+    }
+  }
+}

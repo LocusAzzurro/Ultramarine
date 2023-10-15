@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "minecraft:brick"
+    ]
+  },
+  "criteria": {
+    "has_fired_brick": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "ultramarine:fired_brick"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "minecraft:brick"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_fired_brick",
+      "has_the_recipe"
+    ]
+  ]
+}

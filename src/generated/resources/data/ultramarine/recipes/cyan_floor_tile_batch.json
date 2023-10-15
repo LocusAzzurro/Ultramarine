@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "BBB",
+    "BDB",
+    "BBB"
+  ],
+  "key": {
+    "B": {
+      "item": "minecraft:smooth_stone"
+    },
+    "D": {
+      "item": "minecraft:cyan_dye"
+    }
+  },
+  "result": {
+    "item": "ultramarine:cyan_floor_tile",
+    "count": 8
+  }
+}

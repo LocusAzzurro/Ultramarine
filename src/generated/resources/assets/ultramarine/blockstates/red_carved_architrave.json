@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=top": {
+      "model": "ultramarine:block/red_carved_architrave_top"
+    },
+    "type=bottom": {
+      "model": "ultramarine:block/red_carved_architrave"
+    },
+    "type=double": {
+      "model": "ultramarine:block/red_carved_architravedouble"
+    }
+  }
+}

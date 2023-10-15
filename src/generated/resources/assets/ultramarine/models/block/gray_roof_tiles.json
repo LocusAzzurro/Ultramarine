@@ -1,0 +1,7 @@
+{
+  "parent": "ultramarine:block/roof_tiles",
+  "textures": {
+    "1": "ultramarine:block/gray_roof_tiles",
+    "particle": "minecraft:block/gray_concrete"
+  }
+}

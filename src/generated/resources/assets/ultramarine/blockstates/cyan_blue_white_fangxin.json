@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "axis=x": {
+      "model": "ultramarine:block/cyan_blue_white_fangxin_horizontal",
+      "x": 90,
+      "y": 90
+    },
+    "axis=y": {
+      "model": "ultramarine:block/cyan_blue_white_fangxin"
+    },
+    "axis=z": {
+      "model": "ultramarine:block/cyan_blue_white_fangxin_horizontal",
+      "x": 90
+    }
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "parent": "ultramarine:block/roof_tile_edge_shifted",
+  "textures": {
+    "1": "ultramarine:block/cyan_roof_tile_edge",
+    "particle": "minecraft:block/cyan_concrete"
+  }
+}

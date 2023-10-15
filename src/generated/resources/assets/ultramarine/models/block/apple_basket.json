@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/slab",
+  "textures": {
+    "side": "ultramarine:block/vegetable_basket_side",
+    "bottom": "ultramarine:block/vegetable_basket_bottom",
+    "top": "ultramarine:block/apple_basket_top"
+  }
+}

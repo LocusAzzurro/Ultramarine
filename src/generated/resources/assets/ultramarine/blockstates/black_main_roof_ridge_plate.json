@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "ultramarine:block/black_main_roof_ridge_plate",
+      "y": 180
+    },
+    "facing=south": {
+      "model": "ultramarine:block/black_main_roof_ridge_plate"
+    },
+    "facing=west": {
+      "model": "ultramarine:block/black_main_roof_ridge_plate",
+      "y": 90
+    },
+    "facing=east": {
+      "model": "ultramarine:block/black_main_roof_ridge_plate",
+      "y": 270
+    }
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=top": {
+      "model": "ultramarine:block/gilded_dark_oak_slab_top"
+    },
+    "type=bottom": {
+      "model": "ultramarine:block/gilded_dark_oak_slab"
+    },
+    "type=double": {
+      "model": "ultramarine:block/gilded_dark_oak"
+    }
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "lit=false": {
+      "model": "ultramarine:block/octagonal_palace_lantern"
+    },
+    "lit=true": {
+      "model": "ultramarine:block/octagonal_palace_lantern"
+    }
+  }
+}

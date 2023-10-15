@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "name": "stripped_dark_oak_pillar_base",
+      "rolls": 1.0,
+      "bonus_rolls": 0.0,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "ultramarine:stripped_dark_oak_pillar_base"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "ultramarine:block/wooden_stool",
+      "y": 180
+    },
+    "facing=south": {
+      "model": "ultramarine:block/wooden_stool"
+    },
+    "facing=west": {
+      "model": "ultramarine:block/wooden_stool",
+      "y": 90
+    },
+    "facing=east": {
+      "model": "ultramarine:block/wooden_stool",
+      "y": 270
+    }
+  }
+}

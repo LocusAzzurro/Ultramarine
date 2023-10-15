@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/slab_top",
+  "textures": {
+    "side": "ultramarine:block/variegated_rocks",
+    "bottom": "ultramarine:block/variegated_rocks",
+    "top": "ultramarine:block/variegated_rocks"
+  }
+}

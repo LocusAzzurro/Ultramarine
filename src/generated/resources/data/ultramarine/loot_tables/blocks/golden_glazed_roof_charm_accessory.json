@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "name": "golden_glazed_roof_charm_accessory",
+      "rolls": 1.0,
+      "bonus_rolls": 0.0,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "ultramarine:golden_glazed_roof_charm_accessory"
+        }
+      ]
+    }
+  ]
+}

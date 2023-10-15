@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "BBB"
+  ],
+  "key": {
+    "B": {
+      "item": "ultramarine:cyan_bricks"
+    }
+  },
+  "result": {
+    "item": "ultramarine:cyan_brick_slab",
+    "count": 6
+  }
+}

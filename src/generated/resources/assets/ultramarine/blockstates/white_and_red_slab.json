@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=top": {
+      "model": "ultramarine:block/white_and_red_slab_top"
+    },
+    "type=bottom": {
+      "model": "ultramarine:block/white_and_red_slab"
+    },
+    "type=double": {
+      "model": "ultramarine:block/white_and_red_slabdouble"
+    }
+  }
+}

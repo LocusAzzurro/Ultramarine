@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "ultramarine:black_brick_from_smelting"
+    ]
+  },
+  "criteria": {
+    "has_unfired_black_brick": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "ultramarine:unfired_black_brick"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "ultramarine:black_brick_from_smelting"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_unfired_black_brick",
+      "has_the_recipe"
+    ]
+  ]
+}

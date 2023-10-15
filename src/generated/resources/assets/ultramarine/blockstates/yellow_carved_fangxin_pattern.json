@@ -1,0 +1,290 @@
+{
+  "variants": {
+    "direction=down,facing=down,waterlogged=false": {
+      "model": "ultramarine:block/yellow_carved_fangxin_pattern_top",
+      "y": 450
+    },
+    "direction=up,facing=down,waterlogged=false": {
+      "model": "ultramarine:block/yellow_carved_fangxin_pattern_top",
+      "y": 450
+    },
+    "direction=north,facing=down,waterlogged=false": {
+      "model": "ultramarine:block/yellow_carved_fangxin_pattern_top",
+      "y": 360
+    },
+    "direction=south,facing=down,waterlogged=false": {
+      "model": "ultramarine:block/yellow_carved_fangxin_pattern_top",
+      "y": 180
+    },
+    "direction=west,facing=down,waterlogged=false": {
+      "model": "ultramarine:block/yellow_carved_fangxin_pattern_top",
+      "y": 270
+    },
+    "direction=east,facing=down,waterlogged=false": {
+      "model": "ultramarine:block/yellow_carved_fangxin_pattern_top",
+      "y": 450
+    },
+    "direction=down,facing=up,waterlogged=false": {
+      "model": "ultramarine:block/yellow_carved_fangxin_pattern_top",
+      "x": 180,
+      "y": 270
+    },
+    "direction=up,facing=up,waterlogged=false": {
+      "model": "ultramarine:block/yellow_carved_fangxin_pattern_top",
+      "x": 180,
+      "y": 270
+    },
+    "direction=north,facing=up,waterlogged=false": {
+      "model": "ultramarine:block/yellow_carved_fangxin_pattern_top",
+      "x": 180,
+      "y": 180
+    },
+    "direction=south,facing=up,waterlogged=false": {
+      "model": "ultramarine:block/yellow_carved_fangxin_pattern_top",
+      "x": 180
+    },
+    "direction=west,facing=up,waterlogged=false": {
+      "model": "ultramarine:block/yellow_carved_fangxin_pattern_top",
+      "x": 180,
+      "y": 90
+    },
+    "direction=east,facing=up,waterlogged=false": {
+      "model": "ultramarine:block/yellow_carved_fangxin_pattern_top",
+      "x": 180,
+      "y": 270
+    },
+    "direction=down,facing=north,waterlogged=false": {
+      "model": "ultramarine:block/yellow_carved_fangxin_pattern_side_down",
+      "y": 180
+    },
+    "direction=up,facing=north,waterlogged=false": {
+      "model": "ultramarine:block/yellow_carved_fangxin_pattern_side_up",
+      "y": 180
+    },
+    "direction=north,facing=north,waterlogged=false": {
+      "model": "ultramarine:block/yellow_carved_fangxin_pattern_side_up",
+      "y": 180
+    },
+    "direction=south,facing=north,waterlogged=false": {
+      "model": "ultramarine:block/yellow_carved_fangxin_pattern_side_up",
+      "y": 180
+    },
+    "direction=west,facing=north,waterlogged=false": {
+      "model": "ultramarine:block/yellow_carved_fangxin_pattern_side_right",
+      "y": 180
+    },
+    "direction=east,facing=north,waterlogged=false": {
+      "model": "ultramarine:block/yellow_carved_fangxin_pattern_side_left",
+      "y": 180
+    },
+    "direction=down,facing=south,waterlogged=false": {
+      "model": "ultramarine:block/yellow_carved_fangxin_pattern_side_down"
+    },
+    "direction=up,facing=south,waterlogged=false": {
+      "model": "ultramarine:block/yellow_carved_fangxin_pattern_side_up"
+    },
+    "direction=north,facing=south,waterlogged=false": {
+      "model": "ultramarine:block/yellow_carved_fangxin_pattern_side_up"
+    },
+    "direction=south,facing=south,waterlogged=false": {
+      "model": "ultramarine:block/yellow_carved_fangxin_pattern_side_up"
+    },
+    "direction=west,facing=south,waterlogged=false": {
+      "model": "ultramarine:block/yellow_carved_fangxin_pattern_side_left"
+    },
+    "direction=east,facing=south,waterlogged=false": {
+      "model": "ultramarine:block/yellow_carved_fangxin_pattern_side_right"
+    },
+    "direction=down,facing=west,waterlogged=false": {
+      "model": "ultramarine:block/yellow_carved_fangxin_pattern_side_down",
+      "y": 90
+    },
+    "direction=up,facing=west,waterlogged=false": {
+      "model": "ultramarine:block/yellow_carved_fangxin_pattern_side_up",
+      "y": 90
+    },
+    "direction=north,facing=west,waterlogged=false": {
+      "model": "ultramarine:block/yellow_carved_fangxin_pattern_side_left",
+      "y": 90
+    },
+    "direction=south,facing=west,waterlogged=false": {
+      "model": "ultramarine:block/yellow_carved_fangxin_pattern_side_right",
+      "y": 90
+    },
+    "direction=west,facing=west,waterlogged=false": {
+      "model": "ultramarine:block/yellow_carved_fangxin_pattern_side_up",
+      "y": 90
+    },
+    "direction=east,facing=west,waterlogged=false": {
+      "model": "ultramarine:block/yellow_carved_fangxin_pattern_side_up",
+      "y": 90
+    },
+    "direction=down,facing=east,waterlogged=false": {
+      "model": "ultramarine:block/yellow_carved_fangxin_pattern_side_down",
+      "y": 270
+    },
+    "direction=up,facing=east,waterlogged=false": {
+      "model": "ultramarine:block/yellow_carved_fangxin_pattern_side_up",
+      "y": 270
+    },
+    "direction=north,facing=east,waterlogged=false": {
+      "model": "ultramarine:block/yellow_carved_fangxin_pattern_side_right",
+      "y": 270
+    },
+    "direction=south,facing=east,waterlogged=false": {
+      "model": "ultramarine:block/yellow_carved_fangxin_pattern_side_left",
+      "y": 270
+    },
+    "direction=west,facing=east,waterlogged=false": {
+      "model": "ultramarine:block/yellow_carved_fangxin_pattern_side_up",
+      "y": 270
+    },
+    "direction=east,facing=east,waterlogged=false": {
+      "model": "ultramarine:block/yellow_carved_fangxin_pattern_side_up",
+      "y": 270
+    },
+    "direction=down,facing=down,waterlogged=true": {
+      "model": "ultramarine:block/yellow_carved_fangxin_pattern_top",
+      "y": 450
+    },
+    "direction=up,facing=down,waterlogged=true": {
+      "model": "ultramarine:block/yellow_carved_fangxin_pattern_top",
+      "y": 450
+    },
+    "direction=north,facing=down,waterlogged=true": {
+      "model": "ultramarine:block/yellow_carved_fangxin_pattern_top",
+      "y": 360
+    },
+    "direction=south,facing=down,waterlogged=true": {
+      "model": "ultramarine:block/yellow_carved_fangxin_pattern_top",
+      "y": 180
+    },
+    "direction=west,facing=down,waterlogged=true": {
+      "model": "ultramarine:block/yellow_carved_fangxin_pattern_top",
+      "y": 270
+    },
+    "direction=east,facing=down,waterlogged=true": {
+      "model": "ultramarine:block/yellow_carved_fangxin_pattern_top",
+      "y": 450
+    },
+    "direction=down,facing=up,waterlogged=true": {
+      "model": "ultramarine:block/yellow_carved_fangxin_pattern_top",
+      "x": 180,
+      "y": 270
+    },
+    "direction=up,facing=up,waterlogged=true": {
+      "model": "ultramarine:block/yellow_carved_fangxin_pattern_top",
+      "x": 180,
+      "y": 270
+    },
+    "direction=north,facing=up,waterlogged=true": {
+      "model": "ultramarine:block/yellow_carved_fangxin_pattern_top",
+      "x": 180,
+      "y": 180
+    },
+    "direction=south,facing=up,waterlogged=true": {
+      "model": "ultramarine:block/yellow_carved_fangxin_pattern_top",
+      "x": 180
+    },
+    "direction=west,facing=up,waterlogged=true": {
+      "model": "ultramarine:block/yellow_carved_fangxin_pattern_top",
+      "x": 180,
+      "y": 90
+    },
+    "direction=east,facing=up,waterlogged=true": {
+      "model": "ultramarine:block/yellow_carved_fangxin_pattern_top",
+      "x": 180,
+      "y": 270
+    },
+    "direction=down,facing=north,waterlogged=true": {
+      "model": "ultramarine:block/yellow_carved_fangxin_pattern_side_down",
+      "y": 180
+    },
+    "direction=up,facing=north,waterlogged=true": {
+      "model": "ultramarine:block/yellow_carved_fangxin_pattern_side_up",
+      "y": 180
+    },
+    "direction=north,facing=north,waterlogged=true": {
+      "model": "ultramarine:block/yellow_carved_fangxin_pattern_side_up",
+      "y": 180
+    },
+    "direction=south,facing=north,waterlogged=true": {
+      "model": "ultramarine:block/yellow_carved_fangxin_pattern_side_up",
+      "y": 180
+    },
+    "direction=west,facing=north,waterlogged=true": {
+      "model": "ultramarine:block/yellow_carved_fangxin_pattern_side_right",
+      "y": 180
+    },
+    "direction=east,facing=north,waterlogged=true": {
+      "model": "ultramarine:block/yellow_carved_fangxin_pattern_side_left",
+      "y": 180
+    },
+    "direction=down,facing=south,waterlogged=true": {
+      "model": "ultramarine:block/yellow_carved_fangxin_pattern_side_down"
+    },
+    "direction=up,facing=south,waterlogged=true": {
+      "model": "ultramarine:block/yellow_carved_fangxin_pattern_side_up"
+    },
+    "direction=north,facing=south,waterlogged=true": {
+      "model": "ultramarine:block/yellow_carved_fangxin_pattern_side_up"
+    },
+    "direction=south,facing=south,waterlogged=true": {
+      "model": "ultramarine:block/yellow_carved_fangxin_pattern_side_up"
+    },
+    "direction=west,facing=south,waterlogged=true": {
+      "model": "ultramarine:block/yellow_carved_fangxin_pattern_side_left"
+    },
+    "direction=east,facing=south,waterlogged=true": {
+      "model": "ultramarine:block/yellow_carved_fangxin_pattern_side_right"
+    },
+    "direction=down,facing=west,waterlogged=true": {
+      "model": "ultramarine:block/yellow_carved_fangxin_pattern_side_down",
+      "y": 90
+    },
+    "direction=up,facing=west,waterlogged=true": {
+      "model": "ultramarine:block/yellow_carved_fangxin_pattern_side_up",
+      "y": 90
+    },
+    "direction=north,facing=west,waterlogged=true": {
+      "model": "ultramarine:block/yellow_carved_fangxin_pattern_side_left",
+      "y": 90
+    },
+    "direction=south,facing=west,waterlogged=true": {
+      "model": "ultramarine:block/yellow_carved_fangxin_pattern_side_right",
+      "y": 90
+    },
+    "direction=west,facing=west,waterlogged=true": {
+      "model": "ultramarine:block/yellow_carved_fangxin_pattern_side_up",
+      "y": 90
+    },
+    "direction=east,facing=west,waterlogged=true": {
+      "model": "ultramarine:block/yellow_carved_fangxin_pattern_side_up",
+      "y": 90
+    },
+    "direction=down,facing=east,waterlogged=true": {
+      "model": "ultramarine:block/yellow_carved_fangxin_pattern_side_down",
+      "y": 270
+    },
+    "direction=up,facing=east,waterlogged=true": {
+      "model": "ultramarine:block/yellow_carved_fangxin_pattern_side_up",
+      "y": 270
+    },
+    "direction=north,facing=east,waterlogged=true": {
+      "model": "ultramarine:block/yellow_carved_fangxin_pattern_side_right",
+      "y": 270
+    },
+    "direction=south,facing=east,waterlogged=true": {
+      "model": "ultramarine:block/yellow_carved_fangxin_pattern_side_left",
+      "y": 270
+    },
+    "direction=west,facing=east,waterlogged=true": {
+      "model": "ultramarine:block/yellow_carved_fangxin_pattern_side_up",
+      "y": 270
+    },
+    "direction=east,facing=east,waterlogged=true": {
+      "model": "ultramarine:block/yellow_carved_fangxin_pattern_side_up",
+      "y": 270
+    }
+  }
+}

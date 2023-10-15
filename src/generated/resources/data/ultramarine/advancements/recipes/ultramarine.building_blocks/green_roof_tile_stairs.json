@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "ultramarine:green_roof_tile_stairs"
+    ]
+  },
+  "criteria": {
+    "has_green_roof_tile": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "ultramarine:green_roof_tile"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "ultramarine:green_roof_tile_stairs"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_green_roof_tile",
+      "has_the_recipe"
+    ]
+  ]
+}

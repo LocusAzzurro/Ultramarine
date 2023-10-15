@@ -1,0 +1,154 @@
+{
+  "multipart": [
+    {
+      "when": {
+        "shifted": "false",
+        "up": "true"
+      },
+      "apply": {
+        "model": "ultramarine:block/white_marble_railing_pole"
+      }
+    },
+    {
+      "when": {
+        "shifted": "false",
+        "up": "true",
+        "north": "true"
+      },
+      "apply": {
+        "model": "ultramarine:block/white_marble_railing_side"
+      }
+    },
+    {
+      "when": {
+        "shifted": "false",
+        "up": "true",
+        "east": "true"
+      },
+      "apply": {
+        "model": "ultramarine:block/white_marble_railing_side",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "shifted": "false",
+        "up": "true",
+        "south": "true"
+      },
+      "apply": {
+        "model": "ultramarine:block/white_marble_railing_side",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "shifted": "false",
+        "up": "true",
+        "west": "true"
+      },
+      "apply": {
+        "model": "ultramarine:block/white_marble_railing_side",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "shifted": "false",
+        "up": "false",
+        "west": "true",
+        "east": "true"
+      },
+      "apply": {
+        "model": "ultramarine:block/white_marble_railing_panel"
+      }
+    },
+    {
+      "when": {
+        "shifted": "false",
+        "up": "false",
+        "north": "true",
+        "south": "true"
+      },
+      "apply": {
+        "model": "ultramarine:block/white_marble_railing_panel",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "shifted": "true",
+        "up": "true"
+      },
+      "apply": {
+        "model": "ultramarine:block/white_marble_railing_pole_shifted"
+      }
+    },
+    {
+      "when": {
+        "shifted": "true",
+        "up": "true",
+        "north": "true"
+      },
+      "apply": {
+        "model": "ultramarine:block/white_marble_railing_side_shifted"
+      }
+    },
+    {
+      "when": {
+        "shifted": "true",
+        "up": "true",
+        "east": "true"
+      },
+      "apply": {
+        "model": "ultramarine:block/white_marble_railing_side_shifted",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "shifted": "true",
+        "up": "true",
+        "south": "true"
+      },
+      "apply": {
+        "model": "ultramarine:block/white_marble_railing_side_shifted",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "shifted": "true",
+        "up": "true",
+        "west": "true"
+      },
+      "apply": {
+        "model": "ultramarine:block/white_marble_railing_side_shifted",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "shifted": "true",
+        "up": "false",
+        "west": "true",
+        "east": "true"
+      },
+      "apply": {
+        "model": "ultramarine:block/white_marble_railing_panel_shifted"
+      }
+    },
+    {
+      "when": {
+        "shifted": "true",
+        "up": "false",
+        "north": "true",
+        "south": "true"
+      },
+      "apply": {
+        "model": "ultramarine:block/white_marble_railing_panel_shifted",
+        "y": 90
+      }
+    }
+  ]
+}

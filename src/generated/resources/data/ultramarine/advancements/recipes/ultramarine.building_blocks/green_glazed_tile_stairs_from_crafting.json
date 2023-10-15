@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "ultramarine:green_glazed_tile_stairs_from_crafting"
+    ]
+  },
+  "criteria": {
+    "has_green_glazed_tiles": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "ultramarine:green_glazed_tiles"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "ultramarine:green_glazed_tile_stairs_from_crafting"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_green_glazed_tiles",
+      "has_the_recipe"
+    ]
+  ]
+}

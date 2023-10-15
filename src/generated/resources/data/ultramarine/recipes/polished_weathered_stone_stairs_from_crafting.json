@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "B  ",
+    "BB ",
+    "BBB"
+  ],
+  "key": {
+    "B": {
+      "item": "ultramarine:polished_weathered_stone"
+    }
+  },
+  "result": {
+    "item": "ultramarine:polished_weathered_stone_stairs",
+    "count": 4
+  }
+}

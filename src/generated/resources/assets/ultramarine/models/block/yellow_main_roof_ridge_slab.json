@@ -1,0 +1,10 @@
+{
+  "parent": "ultramarine:block/roof_slab",
+  "textures": {
+    "front": "ultramarine:block/yellow_main_roof_ridge_slab_front",
+    "side": "ultramarine:block/yellow_main_roof_ridge_slab_side",
+    "top": "ultramarine:block/yellow_main_roof_ridge_slab_top",
+    "bottom": "ultramarine:block/yellow_main_roof_ridge_slab_bottom",
+    "particle": "ultramarine:block/yellow_main_roof_ridge_slab_front"
+  }
+}

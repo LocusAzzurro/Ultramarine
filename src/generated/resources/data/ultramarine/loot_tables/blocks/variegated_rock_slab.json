@@ -1,0 +1,58 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "name": "variegated_rock_slab",
+      "rolls": 1.0,
+      "bonus_rolls": 0.0,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "conditions": [
+            {
+              "condition": "minecraft:block_state_property",
+              "block": "ultramarine:variegated_rock_slab",
+              "properties": {
+                "type": "top"
+              }
+            }
+          ],
+          "name": "ultramarine:variegated_rock_slab"
+        },
+        {
+          "type": "minecraft:item",
+          "conditions": [
+            {
+              "condition": "minecraft:block_state_property",
+              "block": "ultramarine:variegated_rock_slab",
+              "properties": {
+                "type": "bottom"
+              }
+            }
+          ],
+          "name": "ultramarine:variegated_rock_slab"
+        },
+        {
+          "type": "minecraft:item",
+          "conditions": [
+            {
+              "condition": "minecraft:block_state_property",
+              "block": "ultramarine:variegated_rock_slab",
+              "properties": {
+                "type": "double"
+              }
+            }
+          ],
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": 2.0,
+              "add": false
+            }
+          ],
+          "name": "ultramarine:variegated_rock_slab"
+        }
+      ]
+    }
+  ]
+}

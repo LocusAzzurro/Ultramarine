@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "diagonal=false": {
+      "model": "ultramarine:block/blue_and_white_porcelain_vase"
+    },
+    "diagonal=true": {
+      "model": "ultramarine:block/blue_and_white_porcelain_vase_diagonal"
+    }
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "variants": {
+    "facing=north,half=top": {
+      "model": "ultramarine:block/yellow_main_roof_ridge_stairs",
+      "x": 180,
+      "y": 360
+    },
+    "facing=south,half=top": {
+      "model": "ultramarine:block/yellow_main_roof_ridge_stairs",
+      "x": 180,
+      "y": 180
+    },
+    "facing=west,half=top": {
+      "model": "ultramarine:block/yellow_main_roof_ridge_stairs",
+      "x": 180,
+      "y": 270
+    },
+    "facing=east,half=top": {
+      "model": "ultramarine:block/yellow_main_roof_ridge_stairs",
+      "x": 180,
+      "y": 90
+    },
+    "facing=north,half=bottom": {
+      "model": "ultramarine:block/yellow_main_roof_ridge_stairs",
+      "y": 180
+    },
+    "facing=south,half=bottom": {
+      "model": "ultramarine:block/yellow_main_roof_ridge_stairs"
+    },
+    "facing=west,half=bottom": {
+      "model": "ultramarine:block/yellow_main_roof_ridge_stairs",
+      "y": 90
+    },
+    "facing=east,half=bottom": {
+      "model": "ultramarine:block/yellow_main_roof_ridge_stairs",
+      "y": -90
+    }
+  }
+}

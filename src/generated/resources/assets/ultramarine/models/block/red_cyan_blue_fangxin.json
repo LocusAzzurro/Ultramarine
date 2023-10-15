@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "down": "minecraft:block/blue_concrete_powder",
+    "up": "minecraft:block/blue_concrete_powder",
+    "north": "ultramarine:block/red_cyan_blue_fangxin_side",
+    "south": "ultramarine:block/red_cyan_blue_fangxin_side_mirrored",
+    "east": "ultramarine:block/red_cyan_blue_fangxin_side",
+    "west": "ultramarine:block/red_cyan_blue_fangxin_side_mirrored",
+    "particle": "ultramarine:block/red_cyan_blue_fangxin_side"
+  }
+}

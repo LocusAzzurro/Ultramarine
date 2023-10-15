@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "ultramarine:bamboo_mat_stairs_from_woodworking"
+    ]
+  },
+  "criteria": {
+    "has_bamboo_mat": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "ultramarine:bamboo_mat"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "ultramarine:bamboo_mat_stairs_from_woodworking"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_bamboo_mat",
+      "has_the_recipe"
+    ]
+  ]
+}

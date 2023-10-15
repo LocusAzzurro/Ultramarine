@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/cube_bottom_top",
+  "textures": {
+    "side": "ultramarine:block/gilded_dark_oak_pillar_head_variant_2_side",
+    "bottom": "ultramarine:block/gilded_dark_oak_pillar_head_variant_2_end",
+    "top": "ultramarine:block/gilded_dark_oak_pillar_head_variant_2_end"
+  }
+}

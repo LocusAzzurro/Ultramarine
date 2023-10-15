@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "ultramarine:block/glazed_tile_grid_window",
+      "y": 180
+    },
+    "facing=south": {
+      "model": "ultramarine:block/glazed_tile_grid_window"
+    },
+    "facing=west": {
+      "model": "ultramarine:block/glazed_tile_grid_window",
+      "y": 90
+    },
+    "facing=east": {
+      "model": "ultramarine:block/glazed_tile_grid_window",
+      "y": 270
+    }
+  }
+}

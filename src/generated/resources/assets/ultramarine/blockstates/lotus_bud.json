@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "ultramarine:block/lotus_bud",
+      "y": 180
+    },
+    "facing=south": {
+      "model": "ultramarine:block/lotus_bud"
+    },
+    "facing=west": {
+      "model": "ultramarine:block/lotus_bud",
+      "y": 90
+    },
+    "facing=east": {
+      "model": "ultramarine:block/lotus_bud",
+      "y": 270
+    }
+  }
+}

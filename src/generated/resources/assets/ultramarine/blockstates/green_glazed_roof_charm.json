@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "ultramarine:block/green_glazed_roof_charm",
+      "y": 90
+    },
+    "facing=south": {
+      "model": "ultramarine:block/green_glazed_roof_charm",
+      "y": -90
+    },
+    "facing=west": {
+      "model": "ultramarine:block/green_glazed_roof_charm"
+    },
+    "facing=east": {
+      "model": "ultramarine:block/green_glazed_roof_charm",
+      "y": 180
+    }
+  }
+}

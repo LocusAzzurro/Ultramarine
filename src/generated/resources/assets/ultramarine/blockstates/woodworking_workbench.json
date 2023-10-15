@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "ultramarine:block/woodworking_workbench"
+    },
+    "facing=south": {
+      "model": "ultramarine:block/woodworking_workbench",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "ultramarine:block/woodworking_workbench",
+      "y": 270
+    },
+    "facing=east": {
+      "model": "ultramarine:block/woodworking_workbench",
+      "y": 90
+    }
+  }
+}

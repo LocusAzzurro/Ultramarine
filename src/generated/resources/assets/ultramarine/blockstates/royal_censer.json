@@ -1,0 +1,34 @@
+{
+  "variants": {
+    "facing=north,lit=false": {
+      "model": "ultramarine:block/royal_censer",
+      "y": 180
+    },
+    "facing=south,lit=false": {
+      "model": "ultramarine:block/royal_censer"
+    },
+    "facing=west,lit=false": {
+      "model": "ultramarine:block/royal_censer",
+      "y": 90
+    },
+    "facing=east,lit=false": {
+      "model": "ultramarine:block/royal_censer",
+      "y": 270
+    },
+    "facing=north,lit=true": {
+      "model": "ultramarine:block/lit_royal_censer",
+      "y": 180
+    },
+    "facing=south,lit=true": {
+      "model": "ultramarine:block/lit_royal_censer"
+    },
+    "facing=west,lit=true": {
+      "model": "ultramarine:block/lit_royal_censer",
+      "y": 90
+    },
+    "facing=east,lit=true": {
+      "model": "ultramarine:block/lit_royal_censer",
+      "y": 270
+    }
+  }
+}

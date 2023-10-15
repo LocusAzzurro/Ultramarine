@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=top": {
+      "model": "ultramarine:block/pale_yellow_stone_slab_top"
+    },
+    "type=bottom": {
+      "model": "ultramarine:block/pale_yellow_stone_slab"
+    },
+    "type=double": {
+      "model": "ultramarine:block/pale_yellow_stone"
+    }
+  }
+}

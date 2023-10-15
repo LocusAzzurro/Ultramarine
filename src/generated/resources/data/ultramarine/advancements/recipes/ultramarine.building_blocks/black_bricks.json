@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "ultramarine:black_bricks"
+    ]
+  },
+  "criteria": {
+    "has_black_brick": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "ultramarine:black_brick"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "ultramarine:black_bricks"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_black_brick",
+      "has_the_recipe"
+    ]
+  ]
+}

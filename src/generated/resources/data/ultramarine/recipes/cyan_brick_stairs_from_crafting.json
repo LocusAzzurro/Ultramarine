@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "B  ",
+    "BB ",
+    "BBB"
+  ],
+  "key": {
+    "B": {
+      "item": "ultramarine:cyan_bricks"
+    }
+  },
+  "result": {
+    "item": "ultramarine:cyan_brick_stairs",
+    "count": 4
+  }
+}

@@ -1,0 +1,68 @@
+{
+  "variants": {
+    "facing=north,shifted=false,waterlogged=false": {
+      "model": "ultramarine:block/green_carved_wanzi_rafter_end",
+      "y": 360
+    },
+    "facing=south,shifted=false,waterlogged=false": {
+      "model": "ultramarine:block/green_carved_wanzi_rafter_end",
+      "y": 180
+    },
+    "facing=west,shifted=false,waterlogged=false": {
+      "model": "ultramarine:block/green_carved_wanzi_rafter_end",
+      "y": 270
+    },
+    "facing=east,shifted=false,waterlogged=false": {
+      "model": "ultramarine:block/green_carved_wanzi_rafter_end",
+      "y": 450
+    },
+    "facing=north,shifted=true,waterlogged=false": {
+      "model": "ultramarine:block/green_carved_wanzi_rafter_end_shifted",
+      "y": 360
+    },
+    "facing=south,shifted=true,waterlogged=false": {
+      "model": "ultramarine:block/green_carved_wanzi_rafter_end_shifted",
+      "y": 180
+    },
+    "facing=west,shifted=true,waterlogged=false": {
+      "model": "ultramarine:block/green_carved_wanzi_rafter_end_shifted",
+      "y": 270
+    },
+    "facing=east,shifted=true,waterlogged=false": {
+      "model": "ultramarine:block/green_carved_wanzi_rafter_end_shifted",
+      "y": 450
+    },
+    "facing=north,shifted=false,waterlogged=true": {
+      "model": "ultramarine:block/green_carved_wanzi_rafter_end",
+      "y": 360
+    },
+    "facing=south,shifted=false,waterlogged=true": {
+      "model": "ultramarine:block/green_carved_wanzi_rafter_end",
+      "y": 180
+    },
+    "facing=west,shifted=false,waterlogged=true": {
+      "model": "ultramarine:block/green_carved_wanzi_rafter_end",
+      "y": 270
+    },
+    "facing=east,shifted=false,waterlogged=true": {
+      "model": "ultramarine:block/green_carved_wanzi_rafter_end",
+      "y": 450
+    },
+    "facing=north,shifted=true,waterlogged=true": {
+      "model": "ultramarine:block/green_carved_wanzi_rafter_end_shifted",
+      "y": 360
+    },
+    "facing=south,shifted=true,waterlogged=true": {
+      "model": "ultramarine:block/green_carved_wanzi_rafter_end_shifted",
+      "y": 180
+    },
+    "facing=west,shifted=true,waterlogged=true": {
+      "model": "ultramarine:block/green_carved_wanzi_rafter_end_shifted",
+      "y": 270
+    },
+    "facing=east,shifted=true,waterlogged=true": {
+      "model": "ultramarine:block/green_carved_wanzi_rafter_end_shifted",
+      "y": 450
+    }
+  }
+}

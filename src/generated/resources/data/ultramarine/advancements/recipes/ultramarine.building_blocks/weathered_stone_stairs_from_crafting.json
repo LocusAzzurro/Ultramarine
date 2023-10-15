@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "ultramarine:weathered_stone_stairs_from_crafting"
+    ]
+  },
+  "criteria": {
+    "has_weathered_stone": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "ultramarine:weathered_stone"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "ultramarine:weathered_stone_stairs_from_crafting"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_weathered_stone",
+      "has_the_recipe"
+    ]
+  ]
+}

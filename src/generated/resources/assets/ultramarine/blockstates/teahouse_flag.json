@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "ultramarine:block/teahouse_flag",
+      "y": 180
+    },
+    "facing=south": {
+      "model": "ultramarine:block/teahouse_flag"
+    },
+    "facing=west": {
+      "model": "ultramarine:block/teahouse_flag",
+      "y": 90
+    },
+    "facing=east": {
+      "model": "ultramarine:block/teahouse_flag",
+      "y": 270
+    }
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "ultramarine:block/small_yellow_glazed_guardian_lion",
+      "y": 180
+    },
+    "facing=south": {
+      "model": "ultramarine:block/small_yellow_glazed_guardian_lion"
+    },
+    "facing=west": {
+      "model": "ultramarine:block/small_yellow_glazed_guardian_lion",
+      "y": 90
+    },
+    "facing=east": {
+      "model": "ultramarine:block/small_yellow_glazed_guardian_lion",
+      "y": 270
+    }
+  }
+}

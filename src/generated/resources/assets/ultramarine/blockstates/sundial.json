@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "ultramarine:block/sundial",
+      "y": 180
+    },
+    "facing=south": {
+      "model": "ultramarine:block/sundial"
+    },
+    "facing=west": {
+      "model": "ultramarine:block/sundial",
+      "y": 90
+    },
+    "facing=east": {
+      "model": "ultramarine:block/sundial",
+      "y": 270
+    }
+  }
+}

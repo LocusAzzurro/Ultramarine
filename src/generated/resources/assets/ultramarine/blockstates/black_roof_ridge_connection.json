@@ -1,0 +1,11 @@
+{
+  "variants": {
+    "axis=x": {
+      "model": "ultramarine:block/black_roof_ridge_connection",
+      "y": 90
+    },
+    "axis=z": {
+      "model": "ultramarine:block/black_roof_ridge_connection"
+    }
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "ultramarine:block/imperial_jade_seal",
+      "y": 180
+    },
+    "facing=south": {
+      "model": "ultramarine:block/imperial_jade_seal"
+    },
+    "facing=west": {
+      "model": "ultramarine:block/imperial_jade_seal",
+      "y": 90
+    },
+    "facing=east": {
+      "model": "ultramarine:block/imperial_jade_seal",
+      "y": 270
+    }
+  }
+}

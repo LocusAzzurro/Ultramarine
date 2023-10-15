@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "ultramarine:block/blue_and_black_tile"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": {
+    "item": "ultramarine:unfired_brownish_red_stone_brick"
+  },
+  "result": "ultramarine:brownish_red_stone_brick",
+  "experience": 0.1,
+  "cookingtime": 200
+}

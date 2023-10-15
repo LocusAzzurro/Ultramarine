@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=top": {
+      "model": "ultramarine:block/green_carved_wooden_slab_top"
+    },
+    "type=bottom": {
+      "model": "ultramarine:block/green_carved_wooden_slab"
+    },
+    "type=double": {
+      "model": "ultramarine:block/green_carved_wood"
+    }
+  }
+}
