@@ -1,33 +1,32 @@
 package com.voxelutopia.ultramarine.world.block;
 
 import com.voxelutopia.ultramarine.world.block.state.ModBlockStateProperties;
-import net.minecraft.MethodsReturnNonnullByDefault;
-import net.minecraft.core.BlockPos;
-import net.minecraft.core.Direction;
-import net.minecraft.world.item.context.BlockPlaceContext;
-import net.minecraft.world.level.BlockGetter;
-import net.minecraft.world.level.Level;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.HorizontalDirectionalBlock;
-import net.minecraft.world.level.block.RenderShape;
-import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.block.state.StateDefinition;
-import net.minecraft.world.level.block.state.properties.BlockStateProperties;
-import net.minecraft.world.level.block.state.properties.BooleanProperty;
-import net.minecraft.world.level.block.state.properties.DirectionProperty;
-import net.minecraft.world.phys.shapes.CollisionContext;
-import net.minecraft.world.phys.shapes.Shapes;
-import net.minecraft.world.phys.shapes.VoxelShape;
-import org.jetbrains.annotations.NotNull;
+import mcp.MethodsReturnNonnullByDefault;
+import net.minecraft.block.Block;
+import net.minecraft.block.BlockRenderType;
+import net.minecraft.block.BlockState;
+import net.minecraft.block.HorizontalBlock;
+import net.minecraft.item.BlockItemUseContext;
+import net.minecraft.state.BooleanProperty;
+import net.minecraft.state.DirectionProperty;
+import net.minecraft.state.StateContainer;
+import net.minecraft.state.properties.BlockStateProperties;
+import net.minecraft.util.Direction;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.shapes.ISelectionContext;
+import net.minecraft.util.math.shapes.VoxelShape;
+import net.minecraft.util.math.shapes.VoxelShapes;
+import net.minecraft.world.IBlockReader;
+import net.minecraft.world.World;
+import org.apache.commons.lang3.tuple.Pair;
 
 import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;
-import java.util.Optional;
 
 @ParametersAreNonnullByDefault
 @MethodsReturnNonnullByDefault
 @SuppressWarnings("deprecation")
-public class DecorativeBlock extends HorizontalDirectionalBlock implements BaseBlockPropertyHolder, DiagonallyPlaceable {
+public class DecorativeBlock extends HorizontalBlock implements BaseBlockPropertyHolder, DiagonallyPlaceable {
 
     public static final VoxelShape FULL_BLOCK = Block.box(0.0D, 0.0D, 0.0D, 16.0D, 16.0D, 16.0D);
     public static final VoxelShape FULL_14 = Block.box(1.0D, 0.0D, 1.0D, 15.0D, 16.0D, 15.0D);
@@ -58,13 +57,15 @@ public class DecorativeBlock extends HorizontalDirectionalBlock implements BaseB
     private final boolean noCollision;
     private final boolean luminous;
     private final boolean noFenceConnect;
-    private final @Nullable Direction offsetDirection;
-    protected StateDefinition<Block, BlockState> stateDefinition;
+    private final @Nullable
+    Direction offsetDirection;
+    protected StateContainer<Block, BlockState> StateContainer;
 
-    public DecorativeBlock(BaseBlockProperty property, ShapeFunction shape,
-                           boolean directional, boolean diagonallyPlaceable,
-                           boolean luminous, boolean noCollision, boolean noFenceConnect,
-                           @Nullable Direction offset) {
+    public DecorativeBlock(
+            BaseBlockProperty property, ShapeFunction shape,
+            boolean directional, boolean diagonallyPlaceable,
+            boolean luminous, boolean noCollision, boolean noFenceConnect,
+            @Nullable Direction offset) {
         super(property.properties);
         this.property = property;
         this.shape = shape;
@@ -75,9 +76,9 @@ public class DecorativeBlock extends HorizontalDirectionalBlock implements BaseB
         this.noFenceConnect = noFenceConnect;
         this.offsetDirection = offset;
 
-        var stateDefinationBuilder = new StateDefinition.Builder<Block, BlockState>(this);
-        createBlockStateDefinition(stateDefinationBuilder);
-        stateDefinition = stateDefinationBuilder.create(Block::defaultBlockState, BlockState::new);
+        StateContainer.Builder<Block, BlockState> stateDefinitionBuilder = new StateContainer.Builder<>(this);
+        createBlockStateDefinition(stateDefinitionBuilder);
+        StateContainer = stateDefinitionBuilder.create(Block::defaultBlockState, BlockState::new);
         BlockState state = this.getStateDefinition().any();
         if (isDiagonallyPlaceable()) state = state.setValue(DIAGONAL, false);
         if (isDirectional()) state = state.setValue(FACING, Direction.NORTH);
@@ -97,15 +98,14 @@ public class DecorativeBlock extends HorizontalDirectionalBlock implements BaseB
     }
 
     @Override
-    public StateDefinition<Block, BlockState> getStateDefinition() {
-        return stateDefinition;
+    public StateContainer<Block, BlockState> getStateDefinition() {
+        return StateContainer;
     }
 
-    @NotNull
-    public BlockState getStateForPlacement(BlockPlaceContext pContext) {
+    public BlockState getStateForPlacement(BlockItemUseContext pContext) {
         BlockState state = setDiagonalStateForPlacement(this.defaultBlockState(), pContext);
         if (isDirectional() && isDiagonallyPlaceable()) {
-            var directions = getMainAndShiftedDirections(pContext);
+            Pair<Direction, Direction> directions = getMainAndShiftedDirections(pContext);
             state = state.setValue(FACING, directions.getLeft()).setValue(HORIZONTAL_FACING_SHIFT, directions.getRight())
                     .setValue(DIAGONAL, getDiagonalState(pContext));
         } else if (isDirectional() && !isDiagonallyPlaceable()) {
@@ -120,7 +120,7 @@ public class DecorativeBlock extends HorizontalDirectionalBlock implements BaseB
     }
 
     @Override
-    protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> pBuilder) {
+    protected void createBlockStateDefinition(StateContainer.Builder<Block, BlockState> pBuilder) {
         super.createBlockStateDefinition(pBuilder);
         if (isDirectional()) pBuilder.add(FACING);
         if (isDiagonallyPlaceable()) pBuilder.add(DIAGONAL);
@@ -129,19 +129,20 @@ public class DecorativeBlock extends HorizontalDirectionalBlock implements BaseB
     }
 
     @Override
-    public void onPlace(BlockState pState, Level pLevel, BlockPos pPos, BlockState pOldState, boolean pIsMoving) {
+    public void onPlace(BlockState pState, World pLevel, BlockPos pPos, BlockState pOldState, boolean pIsMoving) {
         if (offsetDirection != null) {
             switch (offsetDirection) {
-                case DOWN -> {
+                case DOWN: {
                     if (!pLevel.getBlockState(pPos.above()).isAir() && pLevel.getBlockState(pPos.below()).isAir()) {
                         pLevel.removeBlock(pPos, pIsMoving);
-                        pLevel.setBlock(pPos.below(), pState, Block.UPDATE_ALL);
+                        pLevel.setBlock(pPos.below(), pState, 3);
                     }
+                    break;
                 }
-                case UP -> {
+                case UP: {
                     if (!pLevel.getBlockState(pPos.below()).isAir() && pLevel.getBlockState(pPos.above()).isAir()) {
                         pLevel.removeBlock(pPos, pIsMoving);
-                        pLevel.setBlock(pPos.above(), pState, Block.UPDATE_ALL);
+                        pLevel.setBlock(pPos.above(), pState, 3);
                     }
                 }
             }
@@ -149,22 +150,22 @@ public class DecorativeBlock extends HorizontalDirectionalBlock implements BaseB
     }
 
     @Override
-    public VoxelShape getShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
+    public VoxelShape getShape(BlockState pState, IBlockReader pLevel, BlockPos pPos, ISelectionContext pContext) {
         return shape.getShape(pState, pLevel, pPos, pContext);
     }
 
     @Override
-    public VoxelShape getCollisionShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
-        return noCollision ? Shapes.empty() : getShape(pState, pLevel, pPos, pContext);
+    public VoxelShape getCollisionShape(BlockState pState, IBlockReader pLevel, BlockPos pPos, ISelectionContext pContext) {
+        return noCollision ? VoxelShapes.empty() : getShape(pState, pLevel, pPos, pContext);
     }
 
     @Override
-    public RenderShape getRenderShape(BlockState pState) {
-        return RenderShape.MODEL;
+    public BlockRenderType getRenderShape(BlockState pState) {
+        return BlockRenderType.MODEL;
     }
 
     @Override
-    public int getLightEmission(BlockState state, BlockGetter level, BlockPos pos) {
+    public int getLightValue(BlockState state, IBlockReader level, BlockPos pos) {
         if (isLuminous()) return state.getValue(LIT) ? 14 : 0;
         else return 0;
     }
@@ -245,7 +246,7 @@ public class DecorativeBlock extends HorizontalDirectionalBlock implements BaseB
             return this;
         }
 
-        public Builder placeOffset(Direction direction){
+        public Builder placeOffset(Direction direction) {
             offset = direction;
             return this;
         }
@@ -261,22 +262,22 @@ public class DecorativeBlock extends HorizontalDirectionalBlock implements BaseB
     }
 
     @FunctionalInterface
-    public interface ShapeFunction{
+    public interface ShapeFunction {
 
-        VoxelShape getShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext);
+        VoxelShape getShape(BlockState pState, IBlockReader pLevel, BlockPos pPos, ISelectionContext pContext);
     }
 
-    protected static ShapeFunction simpleShape(VoxelShape shape){
+    protected static ShapeFunction simpleShape(VoxelShape shape) {
         return ($1, $2, $3, $4) -> shape;
     }
 
     @Override
-    public VoxelShape getBlockSupportShape(BlockState pState, BlockGetter pReader, BlockPos pPos) {
+    public VoxelShape getBlockSupportShape(BlockState pState, IBlockReader pReader, BlockPos pPos) {
         return noFenceConnect ? FULL_14 : super.getBlockSupportShape(pState, pReader, pPos);
     }
 
     @Override
-    public float getShadeBrightness(BlockState pState, BlockGetter pLevel, BlockPos pPos) {
+    public float getShadeBrightness(BlockState pState, IBlockReader pLevel, BlockPos pPos) {
         return 1.0f;
     }
 }

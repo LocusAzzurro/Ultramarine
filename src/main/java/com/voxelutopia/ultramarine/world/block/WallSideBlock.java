@@ -1,31 +1,31 @@
 package com.voxelutopia.ultramarine.world.block;
 
-import net.minecraft.core.BlockPos;
-import net.minecraft.core.Direction;
-import net.minecraft.world.item.context.BlockPlaceContext;
-import net.minecraft.world.level.BlockGetter;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.HorizontalDirectionalBlock;
-import net.minecraft.world.level.block.SimpleWaterloggedBlock;
-import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.block.state.StateDefinition;
-import net.minecraft.world.level.block.state.properties.BlockStateProperties;
-import net.minecraft.world.level.block.state.properties.BooleanProperty;
-import net.minecraft.world.level.block.state.properties.DirectionProperty;
-import net.minecraft.world.level.material.FluidState;
-import net.minecraft.world.level.material.Fluids;
-import net.minecraft.world.phys.shapes.CollisionContext;
-import net.minecraft.world.phys.shapes.VoxelShape;
+import net.minecraft.block.Block;
+import net.minecraft.block.BlockState;
+import net.minecraft.block.HorizontalBlock;
+import net.minecraft.block.IWaterLoggable;
+import net.minecraft.fluid.FluidState;
+import net.minecraft.fluid.Fluids;
+import net.minecraft.item.BlockItemUseContext;
+import net.minecraft.state.BooleanProperty;
+import net.minecraft.state.DirectionProperty;
+import net.minecraft.state.StateContainer;
+import net.minecraft.state.properties.BlockStateProperties;
+import net.minecraft.util.Direction;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.shapes.ISelectionContext;
+import net.minecraft.util.math.shapes.VoxelShape;
+import net.minecraft.world.IBlockReader;
 
 import javax.annotation.Nullable;
 import java.util.Map;
 
-public class WallSideBlock extends Block implements BaseBlockPropertyHolder, SimpleWaterloggedBlock, SideBlock {
+public class WallSideBlock extends Block implements BaseBlockPropertyHolder, IWaterLoggable, SideBlock {
 
     protected final BaseBlockProperty property;
     private final Map<Direction, VoxelShape> shapeByDirection;
 
-    public static final DirectionProperty FACING = HorizontalDirectionalBlock.FACING;
+    public static final DirectionProperty FACING = HorizontalBlock.FACING;
     public static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
 
     public WallSideBlock(BaseBlockProperty property, int sideThickness) {
@@ -41,25 +41,25 @@ public class WallSideBlock extends Block implements BaseBlockPropertyHolder, Sim
         this(property, 1);
     }
 
-    public VoxelShape getShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
+    public VoxelShape getShape(BlockState pState, IBlockReader pLevel, BlockPos pPos, ISelectionContext pContext) {
         return this.shapeByDirection.get(pState.getValue(FACING));
     }
 
     @Nullable
     @Override
-    public BlockState getStateForPlacement(BlockPlaceContext pContext) {
+    public BlockState getStateForPlacement(BlockItemUseContext pContext) {
         BlockState state = this.defaultBlockState();
         FluidState fluidstate = pContext.getLevel().getFluidState(pContext.getClickedPos());
 
         Direction direction = pContext.getClickedFace();
-        if (direction.getAxis().isHorizontal()){
+        if (direction.getAxis().isHorizontal()) {
             return state.setValue(FACING, direction)
                     .setValue(WATERLOGGED, fluidstate.getType() == Fluids.WATER);
         }
         return null;
     }
 
-    protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> pBuilder) {
+    protected void createBlockStateDefinition(StateContainer.Builder<Block, BlockState> pBuilder) {
         pBuilder.add(FACING, WATERLOGGED);
     }
 

@@ -1,5 +1,6 @@
 package com.voxelutopia.ultramarine.datagen;
 
+import com.google.common.collect.ImmutableList;
 import com.voxelutopia.ultramarine.Ultramarine;
 import com.voxelutopia.ultramarine.data.registry.BlockRegistry;
 import com.voxelutopia.ultramarine.data.registry.ItemRegistry;
@@ -7,14 +8,14 @@ import com.voxelutopia.ultramarine.world.block.BaseBlockProperty;
 import com.voxelutopia.ultramarine.world.block.BaseBlockPropertyHolder;
 import com.voxelutopia.ultramarine.world.block.ConsumableDecorativeBlock;
 import com.voxelutopia.ultramarine.world.block.StackableHalfBlock;
+import net.minecraft.block.Block;
+import net.minecraft.block.OreBlock;
+import net.minecraft.block.SlabBlock;
 import net.minecraft.data.DataGenerator;
-import net.minecraft.world.item.BlockItem;
-import net.minecraft.world.item.Item;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.OreBlock;
-import net.minecraft.world.level.block.SlabBlock;
-import net.minecraft.world.level.storage.loot.LootTable;
-import net.minecraftforge.registries.RegistryObject;
+import net.minecraft.item.BlockItem;
+import net.minecraft.item.Item;
+import net.minecraft.loot.LootTable;
+import net.minecraftforge.fml.RegistryObject;
 import org.slf4j.Logger;
 
 import java.util.ArrayList;
@@ -27,23 +28,24 @@ public class ModLootTableProvider extends BaseLootTableProvider {
     }
 
     private static final List<RegistryObject<Block>> NON_SIMPLE_BLOCKS = new ArrayList<>();
-    private static final List<Class> NON_SIMPLE_BLOCK_CLASSES = List.of(OreBlock.class, SlabBlock.class, ConsumableDecorativeBlock.class, StackableHalfBlock.class);
+    private static final List<Class<?>> NON_SIMPLE_BLOCK_CLASSES = ImmutableList.of(OreBlock.class, SlabBlock.class, ConsumableDecorativeBlock.class, StackableHalfBlock.class);
     private static final Logger LOGGER = Ultramarine.getLogger();
 
     static {
         BlockRegistry.BLOCKS.getEntries().stream()
                 .filter(blockRegistryObject -> {
-                    var block = blockRegistryObject.get();
-                    for (Class clazz : NON_SIMPLE_BLOCK_CLASSES){
+                    Block block = blockRegistryObject.get();
+                    for (Class<?> clazz : NON_SIMPLE_BLOCK_CLASSES) {
                         if (clazz.isInstance(block)) return true;
                     }
-                    if (block instanceof BaseBlockPropertyHolder baseBlock){
-                        return baseBlock.getProperty().getMaterial() == BaseBlockProperty.BlockMaterial.PORCELAIN;
+                    if (block instanceof BaseBlockPropertyHolder) {
+                        return ((BaseBlockPropertyHolder) block).getProperty().getMaterial() == BaseBlockProperty.BlockMaterial.PORCELAIN;
                     }
                     return false;
                 })
                 .forEach(NON_SIMPLE_BLOCKS::add);
     }
+
     @Override
     protected void addTables() {
         BlockRegistry.BLOCKS.getEntries().stream()
@@ -82,51 +84,57 @@ public class ModLootTableProvider extends BaseLootTableProvider {
         addLootTable(block.get(), createSimpleTable(block.getId().getPath(), block.get()));
     }
 
-    void ore(RegistryObject<? extends Block> block, RegistryObject<? extends Item> item){
+    void ore(RegistryObject<? extends Block> block, RegistryObject<? extends Item> item) {
         addLootTable(block.get(), createOreDrop(block.getId().getPath(), block.get(), item.get()));
     }
 
-    void abundantOre(RegistryObject<? extends Block> block, RegistryObject<? extends Item> item){
+    void abundantOre(RegistryObject<? extends Block> block, RegistryObject<? extends Item> item) {
         addLootTable(block.get(), createAbundantOreDrop(block.getId().getPath(), block.get(), item.get(), 1, 3));
     }
 
-    void porcelain(RegistryObject<? extends Block> block, RegistryObject<? extends Item> piece, RegistryObject<? extends Item> shards){
+    void porcelain(RegistryObject<? extends Block> block, RegistryObject<? extends Item> piece, RegistryObject<? extends Item> shards) {
         addLootTable(block.get(), createPorcelainDrop(block.getId().getPath(), block.get(), piece.get(), shards.get()));
     }
 
     void porcelainPlate(RegistryObject<? extends Block> block, RegistryObject<? extends Item> piece, RegistryObject<? extends Item> shards) {
-        if (block.get() instanceof ConsumableDecorativeBlock consumable && consumable.getPlate().getItem() instanceof BlockItem blockItem)
+        if (!(block.get() instanceof ConsumableDecorativeBlock)) return;
+        ConsumableDecorativeBlock consumable = (ConsumableDecorativeBlock) block.get();
+        if (consumable.getPlate().getItem() instanceof BlockItem) {
+            BlockItem blockItem = (BlockItem) consumable.getPlate().getItem();
             addLootTable(block.get(), createPorcelainDrop(block.getId().getPath(), blockItem.getBlock(), piece.get(), shards.get()));
-        else LOGGER.warn("Porcelain plate loot table was not added for block " + block.get().getDescriptionId());
+        } else LOGGER.warn("Porcelain plate loot table was not added for block " + block.get().getDescriptionId());
     }
 
 
     void slab(RegistryObject<? extends Block> block, RegistryObject<? extends Item> item) {
-        if (block.get() instanceof SlabBlock slab)
+        if (block.get() instanceof SlabBlock) {
+            SlabBlock slab = (SlabBlock) block.get();
             addLootTable(block.get(), createSlabDrop(block.getId().getPath(), slab, item.get()));
-        else LOGGER.warn("Slab loot table was not added for block " + block.get().getDescriptionId());
+        } else LOGGER.warn("Slab loot table was not added for block " + block.get().getDescriptionId());
     }
 
     void stackableHalf(RegistryObject<? extends Block> block, RegistryObject<? extends Item> item) {
-        if (block.get() instanceof StackableHalfBlock stackable)
-            addLootTable(block.get(), createStackableHalfDrop(block.getId().getPath(), stackable, item.get()));
-        else LOGGER.warn("Stackable loot table was not added for block " + block.get().getDescriptionId());
+        if (block.get() instanceof StackableHalfBlock) {
+            addLootTable(block.get(), createStackableHalfDrop(block.getId().getPath(), (StackableHalfBlock) block.get(), item.get()));
+        } else LOGGER.warn("Stackable loot table was not added for block " + block.get().getDescriptionId());
     }
 
     void plateDrop(RegistryObject<? extends Block> block) {
-        if (block.get() instanceof ConsumableDecorativeBlock consumable)
+        if (block.get() instanceof ConsumableDecorativeBlock) {
+            ConsumableDecorativeBlock consumable = (ConsumableDecorativeBlock) block.get();
             addLootTable(block.get(), createSimpleTable(block.getId().getPath(), consumable.getPlate().getItem()));
-        else LOGGER.warn("Plate drop loot table was not added for block " + block.get().getDescriptionId());
+        } else LOGGER.warn("Plate drop loot table was not added for block " + block.get().getDescriptionId());
     }
 
     /**
      * Substitute for adding loot tables to the put(Block, LootTable.Builder) call.
      * Adds check for duplicates, prefer calling this method for adding loot tables.
-     * @param block same usage as #put
+     *
+     * @param block   same usage as #put
      * @param builder same usage as #put
      */
-    void addLootTable(Block block, LootTable.Builder builder){
-        if (lootTables.containsKey(block)){
+    void addLootTable(Block block, LootTable.Builder builder) {
+        if (lootTables.containsKey(block)) {
             LOGGER.warn("Added duplicate loot table for block " + block.getDescriptionId());
         }
         lootTables.put(block, builder);

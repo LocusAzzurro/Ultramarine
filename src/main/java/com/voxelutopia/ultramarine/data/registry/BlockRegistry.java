@@ -1,21 +1,19 @@
 package com.voxelutopia.ultramarine.data.registry;
 
 import com.voxelutopia.ultramarine.Ultramarine;
-import com.voxelutopia.ultramarine.data.ContainerType;
+import com.voxelutopia.ultramarine.data.ContainerTypeReference;
 import com.voxelutopia.ultramarine.data.ModFoods;
 import com.voxelutopia.ultramarine.world.block.*;
-import com.voxelutopia.ultramarine.world.block.BaseAxialBlock;
-import net.minecraft.core.Direction;
-import net.minecraft.world.food.Foods;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.state.BlockBehaviour;
-import net.minecraft.world.level.gameevent.GameEvent;
-import net.minecraft.world.level.material.Material;
-import net.minecraft.world.phys.Vec3;
+import net.minecraft.block.AbstractBlock;
+import net.minecraft.block.Block;
+import net.minecraft.block.Blocks;
+import net.minecraft.block.material.Material;
+import net.minecraft.item.Foods;
+import net.minecraft.util.Direction;
+import net.minecraft.util.math.vector.Vector3d;
+import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
-import net.minecraftforge.registries.RegistryObject;
 
 @SuppressWarnings("unused")
 public class BlockRegistry {
@@ -23,7 +21,7 @@ public class BlockRegistry {
     public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, Ultramarine.MOD_ID);
 
     /**
-     *  BUILDING BLOCKS
+     * BUILDING BLOCKS
      */
 
     // BRICKS
@@ -139,7 +137,7 @@ public class BlockRegistry {
     public static final RegistryObject<Block> YELLOW_MAIN_ROOF_RIDGE_STAIRS = BLOCKS.register("yellow_main_roof_ridge_stairs", () -> new StraightStairBlock(BaseBlockProperty.STONE));
 
     /**
-     *  DECORATIVE BLOCKS
+     * DECORATIVE BLOCKS
      */
 
     // SIMPLE CARVED WOOD
@@ -399,7 +397,7 @@ public class BlockRegistry {
     public static final RegistryObject<Block> BOOKSHELF_VARIANT = BLOCKS.register("bookshelf_variant", () -> new BaseHorizontalDirectionalBlock(BaseBlockProperty.WOOD));
 
     /**
-     *  DECORATIONS
+     * DECORATIONS
      */
 
     // STUDY
@@ -444,9 +442,9 @@ public class BlockRegistry {
     public static final RegistryObject<Block> MEMORIAL_TABLET = BLOCKS.register("memorial_tablet",
             () -> DecorativeBlock.with(BaseBlockProperty.WOOD).shaped(DecorativeBlock.FULL_14).directional().diagonallyPlaceable().noCollision().noFenceConnect().build());
     public static final RegistryObject<Block> BRONZE_CENSER = BLOCKS.register("bronze_censer",
-            () -> new Censer(DecorativeBlock.with(BaseBlockProperty.BRONZE).shaped(DecorativeBlock.HALF_12).directional().diagonallyPlaceable().luminous(), new Vec3(0.5, 0.7, 0.5)));
+            () -> new Censer(DecorativeBlock.with(BaseBlockProperty.BRONZE).shaped(DecorativeBlock.HALF_12).directional().diagonallyPlaceable().luminous(), new Vector3d(0.5, 0.7, 0.5)));
     public static final RegistryObject<Block> ROYAL_CENSER = BLOCKS.register("royal_censer",
-            () -> new Censer(DecorativeBlock.with(BaseBlockProperty.BRONZE).shaped(DecorativeBlock.FULL_10).directional().luminous(), new Vec3(0.5, 0.5, 0.5)));
+            () -> new Censer(DecorativeBlock.with(BaseBlockProperty.BRONZE).shaped(DecorativeBlock.FULL_10).directional().luminous(), new Vector3d(0.5, 0.5, 0.5)));
     public static final RegistryObject<Block> PORCELAIN_TEAPOT = BLOCKS.register("porcelain_teapot",
             () -> DecorativeBlock.with(BaseBlockProperty.PORCELAIN).shaped(DecorativeBlock.HALF_12).directional().build());
     public static final RegistryObject<Block> BOOTS = BLOCKS.register("boots",
@@ -487,11 +485,11 @@ public class BlockRegistry {
     // COURTYARD
 
     public static final RegistryObject<Block> SACK = BLOCKS.register("sack",
-            () -> ContainerDecorativeBlock.with(BaseBlockProperty.SILK).content(ContainerType.COMMON_SMALL).shaped(DecorativeBlock.HALF_6).directional().noCollision().build());
+            () -> ContainerDecorativeBlock.with(BaseBlockProperty.SILK).content(ContainerTypeReference.COMMON_SMALL).shaped(DecorativeBlock.HALF_6).directional().noCollision().build());
     public static final RegistryObject<Block> BAMBOO_TEA_BASKET = BLOCKS.register("bamboo_tea_basket",
-            () -> ContainerDecorativeBlock.with(BaseBlockProperty.BAMBOO_WOOD).content(ContainerType.FOOD_REGULAR).shaped(DecorativeBlock.FULL_14).directional().diagonallyPlaceable().build());
+            () -> ContainerDecorativeBlock.with(BaseBlockProperty.BAMBOO_WOOD).content(ContainerTypeReference.FOOD_REGULAR).shaped(DecorativeBlock.FULL_14).directional().diagonallyPlaceable().build());
     public static final RegistryObject<Block> EMPTY_BAMBOO_TEA_BASKET = BLOCKS.register("empty_bamboo_tea_basket",
-            () -> ContainerDecorativeBlock.with(BaseBlockProperty.BAMBOO_WOOD).content(ContainerType.FOOD_REGULAR).shaped(DecorativeBlock.FULL_14).directional().diagonallyPlaceable().build());
+            () -> ContainerDecorativeBlock.with(BaseBlockProperty.BAMBOO_WOOD).content(ContainerTypeReference.FOOD_REGULAR).shaped(DecorativeBlock.FULL_14).directional().diagonallyPlaceable().build());
     public static final RegistryObject<Block> STRAW_HAT = BLOCKS.register("straw_hat",
             () -> DecorativeBlock.with(BaseBlockProperty.FLAX).shaped(DecorativeBlock.QUARTER_16).diagonallyPlaceable().noCollision().noOcclusion().build());
     public static final RegistryObject<Block> KNIFE = BLOCKS.register("knife",
@@ -507,11 +505,11 @@ public class BlockRegistry {
     public static final RegistryObject<Block> CHINESE_HERBS_BAG = BLOCKS.register("chinese_herbs_bag",
             () -> DecorativeBlock.with(BaseBlockProperty.SILK).shaped(DecorativeBlock.HALF_BLOCK).directional().build());
     public static final RegistryObject<Block> FRUIT_BOX = BLOCKS.register("fruit_box",
-            () -> ContainerDecorativeBlock.with(BaseBlockProperty.WOOD).content(ContainerType.FOOD_REGULAR).shaped(DecorativeBlock.FULL_14).directional().diagonallyPlaceable().build());
+            () -> ContainerDecorativeBlock.with(BaseBlockProperty.WOOD).content(ContainerTypeReference.FOOD_REGULAR).shaped(DecorativeBlock.FULL_14).directional().diagonallyPlaceable().build());
     public static final RegistryObject<Block> WOODEN_CRATE = BLOCKS.register("wooden_crate",
-            () -> ContainerDecorativeBlock.with(BaseBlockProperty.WOOD).content(ContainerType.COMMON_REGULAR).shaped(DecorativeBlock.FULL_BLOCK).build());
+            () -> ContainerDecorativeBlock.with(BaseBlockProperty.WOOD).content(ContainerTypeReference.COMMON_REGULAR).shaped(DecorativeBlock.FULL_BLOCK).build());
     public static final RegistryObject<Block> GUNNY_SACK = BLOCKS.register("gunny_sack",
-            () -> ContainerDecorativeBlock.with(BaseBlockProperty.FLAX).content(ContainerType.COMMON_REGULAR).shaped(DecorativeBlock.FULL_14).directional().build());
+            () -> ContainerDecorativeBlock.with(BaseBlockProperty.FLAX).content(ContainerTypeReference.COMMON_REGULAR).shaped(DecorativeBlock.FULL_14).directional().build());
     public static final RegistryObject<Block> BRONZE_DING = BLOCKS.register("bronze_ding",
             () -> DecorativeBlock.with(BaseBlockProperty.BRONZE).shaped(DecorativeBlock.FULL_BLOCK).placeOffset(Direction.UP).directional().noOcclusion().build());
     public static final RegistryObject<Block> CARRIAGE = BLOCKS.register("carriage",
@@ -549,7 +547,7 @@ public class BlockRegistry {
     // FOOD
 
     public static final RegistryObject<Block> FOOD_HAMPER = BLOCKS.register("food_hamper",
-            () -> ContainerDecorativeBlock.with(BaseBlockProperty.WOOD).content(ContainerType.FOOD_LARGE).shaped(DecorativeBlock.FULL_6).directional().diagonallyPlaceable().build());
+            () -> ContainerDecorativeBlock.with(BaseBlockProperty.WOOD).content(ContainerTypeReference.FOOD_LARGE).shaped(DecorativeBlock.FULL_6).directional().diagonallyPlaceable().build());
     public static final RegistryObject<Block> PLATED_MOONCAKES = BLOCKS.register("plated_mooncakes", //todo change stone slab plate to actual block
             () -> ConsumableDecorativeBlock.with(BaseBlockProperty.PORCELAIN).bites(4).platedWith(Blocks.STONE_SLAB).food(ModFoods.MOONCAKE).shaped(DecorativeBlock.FLAT_16).directional().build());
     public static final RegistryObject<Block> PLATED_MUNG_BEAN_CAKES = BLOCKS.register("plated_mung_bean_cakes",
@@ -560,27 +558,31 @@ public class BlockRegistry {
             () -> ConsumableDecorativeBlock.with(BaseBlockProperty.WOOD).bites(3).platedWith(ItemRegistry.POLISHED_OAK_PLANK).food(ModFoods.FISH).shaped(DecorativeBlock.FLAT_16).directional().noOcclusion().build());
     public static final RegistryObject<Block> SCATTERED_CARROTS = BLOCKS.register("scattered_carrots",
             () -> ConsumableDecorativeBlock.with(BaseBlockProperty.CROP).bites(2).platedWith(ItemRegistry.POLISHED_OAK_PLANK).food(Foods.CARROT)
-                    .whenFinished((pState, pLevel, pPos, pPlayer) -> {pLevel.setBlock(pPos, Blocks.AIR.defaultBlockState(), Block.UPDATE_ALL); pLevel.gameEvent(pPlayer, GameEvent.BLOCK_DESTROY, pPos);})
+                    .whenFinished((pState, pLevel, pPos, pPlayer) -> {
+                        pLevel.setBlock(pPos, Blocks.AIR.defaultBlockState(), 3);
+                    })
                     .shaped(DecorativeBlock.QUARTER_16).directional().noOcclusion().build());
     public static final RegistryObject<Block> WINE_POT = BLOCKS.register("wine_pot",
             () -> DecorativeBlock.with(BaseBlockProperty.PORCELAIN).shaped(DecorativeBlock.FULL_6).directional().build());
     public static final RegistryObject<Block> XIAOLONGBAO = BLOCKS.register("xiaolongbao", //TODO xiaolongbao 8 bites in one block, return 2 containers
             () -> ConsumableDecorativeBlock.with(BaseBlockProperty.BAMBOO).bites(8).platedWith(ItemRegistry.POLISHED_OAK_PLANK).food(ModFoods.BAOZI)
-                    .whenFinished((pState, pLevel, pPos, pPlayer) -> {pLevel.setBlock(pPos, Blocks.AIR.defaultBlockState(), Block.UPDATE_ALL); pLevel.gameEvent(pPlayer, GameEvent.BLOCK_DESTROY, pPos);})
+                    .whenFinished((pState, pLevel, pPos, pPlayer) -> {
+                        pLevel.setBlock(pPos, Blocks.AIR.defaultBlockState(), 3);
+                    })
                     .shaped(DecorativeBlock.FULL_BLOCK).directional().build());
 
     /**
-     *  FURNITURE
+     * FURNITURE
      */
 
     // CABINET
 
     public static final RegistryObject<Block> OAK_CABINET = BLOCKS.register("oak_cabinet",
-            () -> ContainerDecorativeBlock.with(BaseBlockProperty.WOOD).content(ContainerType.COMMON_REGULAR).shaped(DecorativeBlock.FULL_BLOCK).directional().noFenceConnect().build());
+            () -> ContainerDecorativeBlock.with(BaseBlockProperty.WOOD).content(ContainerTypeReference.COMMON_REGULAR).shaped(DecorativeBlock.FULL_BLOCK).directional().noFenceConnect().build());
     public static final RegistryObject<Block> WARPED_CABINET = BLOCKS.register("warped_cabinet",
-            () -> ContainerDecorativeBlock.with(BaseBlockProperty.WOOD).content(ContainerType.COMMON_REGULAR).shaped(DecorativeBlock.FULL_BLOCK).directional().noFenceConnect().build());
+            () -> ContainerDecorativeBlock.with(BaseBlockProperty.WOOD).content(ContainerTypeReference.COMMON_REGULAR).shaped(DecorativeBlock.FULL_BLOCK).directional().noFenceConnect().build());
     public static final RegistryObject<Block> EBONY_CABINET = BLOCKS.register("ebony_cabinet",
-            () -> ContainerDecorativeBlock.with(BaseBlockProperty.WOOD).content(ContainerType.COMMON_LARGE).shaped(DecorativeBlock.FULL_BLOCK).directional().noFenceConnect().build());
+            () -> ContainerDecorativeBlock.with(BaseBlockProperty.WOOD).content(ContainerTypeReference.COMMON_LARGE).shaped(DecorativeBlock.FULL_BLOCK).directional().noFenceConnect().build());
 
     // TABLE
 
@@ -604,19 +606,19 @@ public class BlockRegistry {
     // CHAIR
 
     public static final RegistryObject<Block> EBONY_CHAIR = BLOCKS.register("ebony_chair",
-            () -> SeatDecorativeBlock.with(BaseBlockProperty.WOOD).seatOffset(new Vec3(0.0f, -0.1f, 0.0f)).shaped(DecorativeBlock.HALF_12).directional().diagonallyPlaceable().build());
+            () -> SeatDecorativeBlock.with(BaseBlockProperty.WOOD).seatOffset(new Vector3d(0.0f, -0.1f, 0.0f)).shaped(DecorativeBlock.HALF_12).directional().diagonallyPlaceable().build());
     public static final RegistryObject<Block> CHAIR_WITH_YELLOW_CUSHION = BLOCKS.register("chair_with_yellow_cushion",
-            () -> SeatDecorativeBlock.with(BaseBlockProperty.WOOD).seatOffset(new Vec3(0.0f, -0.1f, 0.0f)).shaped(DecorativeBlock.HALF_BLOCK).directional().build());
+            () -> SeatDecorativeBlock.with(BaseBlockProperty.WOOD).seatOffset(new Vector3d(0.0f, -0.1f, 0.0f)).shaped(DecorativeBlock.HALF_BLOCK).directional().build());
     public static final RegistryObject<Block> PAINTED_CHAIR = BLOCKS.register("painted_chair",
-            () -> SeatDecorativeBlock.with(BaseBlockProperty.WOOD).seatOffset(new Vec3(0.0f, -0.1f, 0.0f)).shaped(DecorativeBlock.HALF_BLOCK).directional().build());
+            () -> SeatDecorativeBlock.with(BaseBlockProperty.WOOD).seatOffset(new Vector3d(0.0f, -0.1f, 0.0f)).shaped(DecorativeBlock.HALF_BLOCK).directional().build());
     public static final RegistryObject<Block> WOODEN_STOOL = BLOCKS.register("wooden_stool",
-            () -> SeatDecorativeBlock.with(BaseBlockProperty.WOOD).seatOffset(new Vec3(0.0f, -0.1f, 0.0f)).shaped(DecorativeBlock.HALF_12).directional().build());
+            () -> SeatDecorativeBlock.with(BaseBlockProperty.WOOD).seatOffset(new Vector3d(0.0f, -0.1f, 0.0f)).shaped(DecorativeBlock.HALF_12).directional().build());
     public static final RegistryObject<Block> PORCELAIN_INLAID_GRAND_CHAIR = BLOCKS.register("porcelain_inlaid_grand_chair",
-            () -> SeatDecorativeBlock.with(BaseBlockProperty.WOOD).seatOffset(new Vec3(0.0f, -0.1f, 0.0f)).shaped(DecorativeBlock.HALF_14).directional().build());
+            () -> SeatDecorativeBlock.with(BaseBlockProperty.WOOD).seatOffset(new Vector3d(0.0f, -0.1f, 0.0f)).shaped(DecorativeBlock.HALF_14).directional().build());
     public static final RegistryObject<Block> YELLOW_CUSHION = BLOCKS.register("yellow_cushion",
-            () -> SeatDecorativeBlock.with(BaseBlockProperty.SILK).seatOffset(new Vec3(0.0f, -0.5f, 0.0f)).shaped(DecorativeBlock.QUARTER_12).directional().diagonallyPlaceable().build());
+            () -> SeatDecorativeBlock.with(BaseBlockProperty.SILK).seatOffset(new Vector3d(0.0f, -0.5f, 0.0f)).shaped(DecorativeBlock.QUARTER_12).directional().diagonallyPlaceable().build());
     public static final RegistryObject<Block> OAK_BED = BLOCKS.register("oak_bed",
-            () -> SeatDecorativeBlock.with(BaseBlockProperty.WOOD).seatOffset(new Vec3(0.0f, -0.1f, 0.0f)).shaped(DecorativeBlock.HALF_BLOCK).directional().build());
+            () -> SeatDecorativeBlock.with(BaseBlockProperty.WOOD).seatOffset(new Vector3d(0.0f, -0.1f, 0.0f)).shaped(DecorativeBlock.HALF_BLOCK).directional().build());
 
     // SCREEN
 
@@ -626,7 +628,7 @@ public class BlockRegistry {
             () -> DecorativeBlock.with(BaseBlockProperty.WOOD).shaped(OpeningBlock.MIDDLE_AXIAL).placeOffset(Direction.UP).directional().build());
 
     /**
-     *  DOOR AND WINDOW
+     * DOOR AND WINDOW
      */
 
     // DOOR
@@ -683,7 +685,7 @@ public class BlockRegistry {
             () -> new DecorativeBlock(DecorativeBlock.with(BaseBlockProperty.BAMBOO_WOOD).shaped(OpeningBlock.MIDDLE_AXIAL).directional().noOcclusion()));
 
     /**
-     *  PLANTS
+     * PLANTS
      */
 
     // LOTUS
@@ -772,7 +774,7 @@ public class BlockRegistry {
             () -> DecorativeBlock.with(BaseBlockProperty.TERRACOTTA).shaped(DecorativeBlock.FULL_14).directional().diagonallyPlaceable().noCollision().noOcclusion().build());
 
     /**
-     *  LAMPS
+     * LAMPS
      */
 
     //LANTERN
@@ -802,14 +804,14 @@ public class BlockRegistry {
     // CANDLESTICK
 
     public static final RegistryObject<Block> RED_CANDLE = BLOCKS.register("red_candle",
-            () -> new CandleStick(DecorativeBlock.with(BaseBlockProperty.WOOD).shaped(DecorativeBlock.FULL_4).directional().diagonallyPlaceable().luminous(), new Vec3(0.5,1.1,0.5)));
+            () -> new CandleStick(DecorativeBlock.with(BaseBlockProperty.WOOD).shaped(DecorativeBlock.FULL_4).directional().diagonallyPlaceable().luminous(), new Vector3d(0.5, 1.1, 0.5)));
     public static final RegistryObject<Block> TRICOLOR_CANDLESTICK = BLOCKS.register("tricolor_candlestick",
-            () -> new CandleStick(DecorativeBlock.with(BaseBlockProperty.IRON).shaped(DecorativeBlock.FULL_10).directional().diagonallyPlaceable().luminous(), new Vec3(0.5,1.25,0.5)));
+            () -> new CandleStick(DecorativeBlock.with(BaseBlockProperty.IRON).shaped(DecorativeBlock.FULL_10).directional().diagonallyPlaceable().luminous(), new Vector3d(0.5, 1.25, 0.5)));
     public static final RegistryObject<Block> JADE_CANDLESTICK = BLOCKS.register("jade_candlestick",
-            () -> new CandleStick(DecorativeBlock.with(BaseBlockProperty.JADE).shaped(DecorativeBlock.FULL_6).directional().diagonallyPlaceable().luminous(), new Vec3(0.5,1.3,0.5)));
+            () -> new CandleStick(DecorativeBlock.with(BaseBlockProperty.JADE).shaped(DecorativeBlock.FULL_6).directional().diagonallyPlaceable().luminous(), new Vector3d(0.5, 1.3, 0.5)));
 
     /**
-     *  MATERIALS
+     * MATERIALS
      */
 
     public static final RegistryObject<Block> JADE_ORE = BLOCKS.register("jade_ore", () -> new BaseOreBlock(2, 5));
@@ -817,12 +819,12 @@ public class BlockRegistry {
     public static final RegistryObject<Block> HEMATITE_ORE = BLOCKS.register("hematite_ore", () -> new BaseOreBlock(1, 3));
 
     /**
-     *  TOOLS
+     * TOOLS
      */
 
     public static final RegistryObject<Block> WOODWORKING_WORKBENCH = BLOCKS.register("woodworking_workbench", WoodworkingWorkBench::new);
 
     private static RegistryObject<Block> simpleBlock(String name, Material material) {
-        return BLOCKS.register(name, () -> new Block(BlockBehaviour.Properties.of(material)));
+        return BLOCKS.register(name, () -> new Block(AbstractBlock.Properties.of(material)));
     }
 }

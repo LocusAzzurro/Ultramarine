@@ -2,24 +2,18 @@ package com.voxelutopia.ultramarine.data.registry;
 
 import com.voxelutopia.ultramarine.Ultramarine;
 import com.voxelutopia.ultramarine.data.recipe.WoodworkingRecipe;
-import net.minecraft.core.Registry;
-import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.item.crafting.Recipe;
-import net.minecraft.world.item.crafting.RecipeType;
-import net.minecraftforge.registries.DeferredRegister;
-import net.minecraftforge.registries.RegistryObject;
+import net.minecraft.item.crafting.IRecipeType;
+import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.registry.Registry;
 
 public class RecipeTypeRegistry {
+    public static IRecipeType<WoodworkingRecipe> WOODWORKING;
 
-    public static final DeferredRegister<RecipeType<?>> RECIPE_TYPES = DeferredRegister.create(Registry.RECIPE_TYPE.key(), Ultramarine.MOD_ID);
-
-    public static RegistryObject<RecipeType<WoodworkingRecipe>> WOODWORKING = register("woodworking");
-
-    private static <T extends Recipe<?>> RegistryObject<RecipeType<T>> register(String name) {
-        return RECIPE_TYPES.register(name, () -> new RecipeType<>() {
+    public static void init() {
+        WOODWORKING = Registry.register(Registry.RECIPE_TYPE, new ResourceLocation(Ultramarine.MOD_ID, "woodworking"), new IRecipeType<WoodworkingRecipe>() {
             @Override
             public String toString() {
-                return new ResourceLocation(Ultramarine.MOD_ID, name).toString();
+                return new ResourceLocation(Ultramarine.MOD_ID, "woodworking").toString();
             }
         });
     }

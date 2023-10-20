@@ -1,54 +1,54 @@
 package com.voxelutopia.ultramarine.world.block;
 
 import com.voxelutopia.ultramarine.world.entity.SeatEntity;
-import net.minecraft.core.BlockPos;
-import net.minecraft.world.InteractionHand;
-import net.minecraft.world.InteractionResult;
-import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.level.Level;
-import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.phys.AABB;
-import net.minecraft.world.phys.BlockHitResult;
-import net.minecraft.world.phys.Vec3;
+import net.minecraft.block.BlockState;
+import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.util.ActionResultType;
+import net.minecraft.util.Hand;
+import net.minecraft.util.math.AxisAlignedBB;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.BlockRayTraceResult;
+import net.minecraft.util.math.vector.Vector3d;
+import net.minecraft.world.World;
 
-public class SeatDecorativeBlock extends DecorativeBlock{
+public class SeatDecorativeBlock extends DecorativeBlock {
 
-    private final Vec3 seatOffset;
+    private final Vector3d seatOffset;
 
     public SeatDecorativeBlock(Builder builder) {
         super(builder);
         this.seatOffset = builder.seatOffset;
     }
 
-    public static Builder with(BaseBlockProperty property){
+    public static Builder with(BaseBlockProperty property) {
         return new Builder(property);
     }
 
     @Override
-    public InteractionResult use(BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, InteractionHand pHand, BlockHitResult pHit) {
-        if (pState.is(this) && pLevel.getEntitiesOfClass(SeatEntity.class, new AABB(pPos)).isEmpty()){
-            SeatEntity seat = new SeatEntity(pLevel, Vec3.atCenterOf(pPos).add(seatOffset));
+    public ActionResultType use(BlockState pState, World pLevel, BlockPos pPos, PlayerEntity pPlayer, Hand pHand, BlockRayTraceResult pHit) {
+        if (pState.is(this) && pLevel.getEntitiesOfClass(SeatEntity.class, new AxisAlignedBB(pPos)).isEmpty()) {
+            SeatEntity seat = new SeatEntity(pLevel, Vector3d.atCenterOf(pPos).add(seatOffset));
             pLevel.addFreshEntity(seat);
-            return pPlayer.startRiding(seat) ? InteractionResult.sidedSuccess(pLevel.isClientSide()) : InteractionResult.PASS;
+            return pPlayer.startRiding(seat) ? ActionResultType.sidedSuccess(pLevel.isClientSide()) : ActionResultType.PASS;
         }
         return super.use(pState, pLevel, pPos, pPlayer, pHand, pHit);
     }
 
     @SuppressWarnings("unused")
-    public static class Builder extends DecorativeBlock.Builder{
+    public static class Builder extends DecorativeBlock.Builder {
 
-        private Vec3 seatOffset = new Vec3(0.0, 0.5, 0.0);
+        private Vector3d seatOffset = new Vector3d(0.0, 0.5, 0.0);
 
         public Builder(BaseBlockProperty property) {
             super(property);
         }
 
-        public Builder seatOffset(Vec3 offset){
+        public Builder seatOffset(Vector3d offset) {
             this.seatOffset = offset;
             return this;
         }
 
-        public SeatDecorativeBlock build(){
+        public SeatDecorativeBlock build() {
             return new SeatDecorativeBlock(this);
         }
     }

@@ -12,15 +12,12 @@ import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 public class ModCommonEventHandler {
 
     @SubscribeEvent
-    public static void registerEntityAttributes(EntityAttributeCreationEvent e){
+    public static void registerEntityAttributes(EntityAttributeCreationEvent e) {
         e.put(EntityTypeRegistry.CUSTOM_WANDERING_TRADER.get(), CustomWanderingTrader.setCustomAttributes().build());
     }
 
     @SubscribeEvent
     public static void commonSetup(FMLCommonSetupEvent e){
-        e.enqueueWork(() -> {
-            PoiTypeRegistry.registerPOI();
-        });
+        e.enqueueWork(PoiTypeRegistry::registerPOI);
     }
-
 }

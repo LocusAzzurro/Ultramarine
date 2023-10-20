@@ -1,58 +1,58 @@
 package com.voxelutopia.ultramarine.world.block;
 
 import com.voxelutopia.ultramarine.world.block.menu.WoodworkingWorkbenchMenu;
-import net.minecraft.core.BlockPos;
-import net.minecraft.core.Direction;
-import net.minecraft.network.chat.Component;
-import net.minecraft.network.chat.TranslatableComponent;
-import net.minecraft.stats.Stats;
-import net.minecraft.world.InteractionHand;
-import net.minecraft.world.InteractionResult;
-import net.minecraft.world.MenuProvider;
-import net.minecraft.world.SimpleMenuProvider;
-import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.inventory.ContainerLevelAccess;
-import net.minecraft.world.inventory.StonecutterMenu;
-import net.minecraft.world.item.context.BlockPlaceContext;
-import net.minecraft.world.level.Level;
-import net.minecraft.world.level.block.*;
-import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.block.state.StateDefinition;
-import net.minecraft.world.level.block.state.properties.DirectionProperty;
-import net.minecraft.world.phys.BlockHitResult;
+import net.minecraft.block.Block;
+import net.minecraft.block.BlockRenderType;
+import net.minecraft.block.BlockState;
+import net.minecraft.block.HorizontalBlock;
+import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.inventory.container.INamedContainerProvider;
+import net.minecraft.inventory.container.SimpleNamedContainerProvider;
+import net.minecraft.item.BlockItemUseContext;
+import net.minecraft.state.DirectionProperty;
+import net.minecraft.state.StateContainer;
+import net.minecraft.util.ActionResultType;
+import net.minecraft.util.Direction;
+import net.minecraft.util.Hand;
+import net.minecraft.util.IWorldPosCallable;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.BlockRayTraceResult;
+import net.minecraft.util.text.ITextComponent;
+import net.minecraft.util.text.TranslationTextComponent;
+import net.minecraft.world.World;
 
 import javax.annotation.Nullable;
 
 public class WoodworkingWorkBench extends Block {
 
-    private static final Component CONTAINER_TITLE = new TranslatableComponent("container.woodworking_workbench");
-    public static final DirectionProperty FACING = HorizontalDirectionalBlock.FACING;
+    private static final ITextComponent CONTAINER_TITLE = new TranslationTextComponent("container.woodworking_workbench");
+    public static final DirectionProperty FACING = HorizontalBlock.FACING;
 
     public WoodworkingWorkBench() {
         super(BaseBlockProperty.WOOD.properties);
-        this.registerDefaultState(this.stateDefinition.any().setValue(FACING, Direction.NORTH));
+        this.registerDefaultState(this.getStateDefinition().any().setValue(FACING, Direction.NORTH));
     }
 
     @Override
-    public BlockState getStateForPlacement(BlockPlaceContext pContext) {
+    public BlockState getStateForPlacement(BlockItemUseContext pContext) {
         return this.defaultBlockState().setValue(FACING, pContext.getHorizontalDirection().getOpposite());
     }
 
     @Override
-    public InteractionResult use(BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, InteractionHand pHand, BlockHitResult pHit) {
+    public ActionResultType use(BlockState pState, World pLevel, BlockPos pPos, PlayerEntity pPlayer, Hand pHand, BlockRayTraceResult pHit) {
         if (pLevel.isClientSide) {
-            return InteractionResult.SUCCESS;
+            return ActionResultType.SUCCESS;
         } else {
             pPlayer.openMenu(pState.getMenuProvider(pLevel, pPos));
-            return InteractionResult.CONSUME;
+            return ActionResultType.CONSUME;
         }
     }
 
     @Nullable
     @Override
-    public MenuProvider getMenuProvider(BlockState pState, Level pLevel, BlockPos pPos) {
-        return new SimpleMenuProvider((id, inventory, player)
-                -> new WoodworkingWorkbenchMenu(id, inventory, ContainerLevelAccess.create(pLevel, pPos)), CONTAINER_TITLE);
+    public INamedContainerProvider getMenuProvider(BlockState pState, World pLevel, BlockPos pPos) {
+        return new SimpleNamedContainerProvider((id, inventory, player)
+                -> new WoodworkingWorkbenchMenu(id, inventory, IWorldPosCallable.create(pLevel, pPos)), CONTAINER_TITLE);
     }
 
     @Override
@@ -61,12 +61,12 @@ public class WoodworkingWorkBench extends Block {
     }
 
     @Override
-    public RenderShape getRenderShape(BlockState pState) {
-        return RenderShape.MODEL;
+    public BlockRenderType getRenderShape(BlockState pState) {
+        return BlockRenderType.MODEL;
     }
 
     @Override
-    protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> pBuilder) {
+    protected void createBlockStateDefinition(StateContainer.Builder<Block, BlockState> pBuilder) {
         pBuilder.add(FACING);
     }
 }

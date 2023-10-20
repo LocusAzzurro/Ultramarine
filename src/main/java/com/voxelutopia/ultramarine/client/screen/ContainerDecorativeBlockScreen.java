@@ -1,21 +1,20 @@
 package com.voxelutopia.ultramarine.client.screen;
 
+import com.mojang.blaze3d.matrix.MatrixStack;
 import com.mojang.blaze3d.systems.RenderSystem;
-import com.mojang.blaze3d.vertex.PoseStack;
 import com.voxelutopia.ultramarine.world.block.menu.ContainerDecorativeBlockMenu;
-import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
-import net.minecraft.client.gui.screens.inventory.MenuAccess;
-import net.minecraft.client.renderer.GameRenderer;
-import net.minecraft.network.chat.Component;
-import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.entity.player.Inventory;
+import net.minecraft.client.gui.IHasContainer;
+import net.minecraft.client.gui.screen.inventory.ContainerScreen;
+import net.minecraft.entity.player.PlayerInventory;
+import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.text.ITextComponent;
 
-public class ContainerDecorativeBlockScreen extends AbstractContainerScreen<ContainerDecorativeBlockMenu> implements MenuAccess<ContainerDecorativeBlockMenu> {
+public class ContainerDecorativeBlockScreen extends ContainerScreen<ContainerDecorativeBlockMenu> implements IHasContainer<ContainerDecorativeBlockMenu> {
 
     private static final ResourceLocation CONTAINER_BACKGROUND = new ResourceLocation("textures/gui/container/generic_54.png");
     private final int containerRows;
 
-    public ContainerDecorativeBlockScreen(ContainerDecorativeBlockMenu pMenu, Inventory pPlayerInventory, Component pTitle) {
+    public ContainerDecorativeBlockScreen(ContainerDecorativeBlockMenu pMenu, PlayerInventory pPlayerInventory, ITextComponent pTitle) {
         super(pMenu, pPlayerInventory, pTitle);
         this.passEvents = false;
         this.containerRows = pMenu.getRowCount();
@@ -23,16 +22,15 @@ public class ContainerDecorativeBlockScreen extends AbstractContainerScreen<Cont
         this.inventoryLabelY = this.imageHeight - 94;
     }
 
-    public void render(PoseStack pPoseStack, int pMouseX, int pMouseY, float pPartialTick) {
+    public void render(MatrixStack pPoseStack, int pMouseX, int pMouseY, float pPartialTick) {
         this.renderBackground(pPoseStack);
         super.render(pPoseStack, pMouseX, pMouseY, pPartialTick);
         this.renderTooltip(pPoseStack, pMouseX, pMouseY);
     }
 
-    protected void renderBg(PoseStack pPoseStack, float pPartialTick, int pX, int pY) {
-        RenderSystem.setShader(GameRenderer::getPositionTexShader);
-        RenderSystem.setShaderColor(1.0F, 1.0F, 1.0F, 1.0F);
-        RenderSystem.setShaderTexture(0, CONTAINER_BACKGROUND);
+    protected void renderBg(MatrixStack pPoseStack, float pPartialTick, int pX, int pY) {
+        RenderSystem.color4f(1.0F, 1.0F, 1.0F, 1.0F);
+        this.getMinecraft().getTextureManager().bind(CONTAINER_BACKGROUND);
         int i = (this.width - this.imageWidth) / 2;
         int j = (this.height - this.imageHeight) / 2;
         this.blit(pPoseStack, i, j, 0, 0, this.imageWidth, this.containerRows * 18 + 17);

@@ -1,31 +1,31 @@
 package com.voxelutopia.ultramarine.world.block;
 
-import net.minecraft.core.Direction;
-import net.minecraft.world.item.context.BlockPlaceContext;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.DirectionalBlock;
-import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.block.state.StateDefinition;
+import net.minecraft.block.Block;
+import net.minecraft.block.BlockState;
+import net.minecraft.block.DirectionalBlock;
+import net.minecraft.item.BlockItemUseContext;
+import net.minecraft.state.StateContainer;
+import net.minecraft.util.Direction;
 
 public class BaseDirectionalBlock extends DirectionalBlock implements BaseBlockPropertyHolder {
 
     protected final BaseBlockProperty property;
 
-    public BaseDirectionalBlock(BaseBlock block){
+    public BaseDirectionalBlock(BaseBlock block) {
         this(block.getProperty());
     }
 
-    public BaseDirectionalBlock(BaseBlockProperty property){
+    public BaseDirectionalBlock(BaseBlockProperty property) {
         super(property.properties);
         this.property = property;
-        this.registerDefaultState(this.stateDefinition.any().setValue(FACING, Direction.UP));
+        this.registerDefaultState(this.getStateDefinition().any().setValue(FACING, Direction.UP));
     }
 
-    public BlockState getStateForPlacement(BlockPlaceContext pContext) {
+    public BlockState getStateForPlacement(BlockItemUseContext pContext) {
         return this.defaultBlockState().setValue(FACING, pContext.getNearestLookingDirection().getOpposite());
     }
 
-    protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> pBuilder) {
+    protected void createBlockStateDefinition(StateContainer.Builder<Block, BlockState> pBuilder) {
         pBuilder.add(FACING);
     }
 

@@ -1,26 +1,28 @@
 package com.voxelutopia.ultramarine.world.block;
 
-import com.voxelutopia.ultramarine.data.ContainerType;
+import com.voxelutopia.ultramarine.data.ContainerTypeReference;
 import com.voxelutopia.ultramarine.world.block.entity.ContainerDecorativeBlockEntity;
-import net.minecraft.core.BlockPos;
-import net.minecraft.world.Container;
-import net.minecraft.world.Containers;
-import net.minecraft.world.InteractionHand;
-import net.minecraft.world.InteractionResult;
-import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.inventory.AbstractContainerMenu;
-import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.level.Level;
-import net.minecraft.world.level.block.EntityBlock;
-import net.minecraft.world.level.block.entity.BlockEntity;
-import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.material.PushReaction;
-import net.minecraft.world.phys.BlockHitResult;
+import net.minecraft.block.BlockState;
+import net.minecraft.block.material.PushReaction;
+import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.inventory.IInventory;
+import net.minecraft.inventory.InventoryHelper;
+import net.minecraft.inventory.container.Container;
+import net.minecraft.item.ItemStack;
+import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.ActionResultType;
+import net.minecraft.util.Hand;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.BlockRayTraceResult;
+import net.minecraft.world.IBlockReader;
+import net.minecraft.world.World;
 
-public class ContainerDecorativeBlock extends DecorativeBlock implements EntityBlock {
+import javax.annotation.Nullable;
 
-    protected final ContainerType containerType;
+public class ContainerDecorativeBlock extends DecorativeBlock {
+
+    protected final ContainerTypeReference containerType;
     protected final int rowCount;
 
     public ContainerDecorativeBlock(Builder builder) {
@@ -29,16 +31,16 @@ public class ContainerDecorativeBlock extends DecorativeBlock implements EntityB
         this.rowCount = builder.rowCount;
     }
 
-    public static Builder with(BaseBlockProperty property){
+    public static Builder with(BaseBlockProperty property) {
         return new Builder(property);
     }
 
     @Override
-    public void setPlacedBy(Level worldIn, BlockPos posIn, BlockState stateIn, LivingEntity entityIn, ItemStack stackIn) {
+    public void setPlacedBy(World worldIn, BlockPos posIn, BlockState stateIn, LivingEntity entityIn, ItemStack stackIn) {
         if (stackIn.hasCustomHoverName()) {
-            BlockEntity blockEntity = worldIn.getBlockEntity(posIn);
-            if (blockEntity instanceof ContainerDecorativeBlockEntity containerBlockEntity) {
-                containerBlockEntity.setCustomName(stackIn.getHoverName());
+            TileEntity blockEntity = worldIn.getBlockEntity(posIn);
+            if (blockEntity instanceof ContainerDecorativeBlockEntity) {
+                ((ContainerDecorativeBlockEntity) blockEntity).setCustomName(stackIn.getHoverName());
             }
         }
     }
@@ -54,61 +56,66 @@ public class ContainerDecorativeBlock extends DecorativeBlock implements EntityB
     }
 
     @Override
-    public int getAnalogOutputSignal(BlockState pState, Level pLevel, BlockPos pPos) {
-        return AbstractContainerMenu.getRedstoneSignalFromBlockEntity(pLevel.getBlockEntity(pPos));
+    public int getAnalogOutputSignal(BlockState pState, World pLevel, BlockPos pPos) {
+        return Container.getRedstoneSignalFromBlockEntity(pLevel.getBlockEntity(pPos));
     }
 
     @Override
-    public BlockEntity newBlockEntity(BlockPos pPos, BlockState state) {
-        return new ContainerDecorativeBlockEntity(pPos, state, rowCount);
+    public boolean hasTileEntity(BlockState state) {
+        return true;
+    }
+
+    @Nullable
+    @Override
+    public TileEntity createTileEntity(BlockState state, IBlockReader world) {
+        return new ContainerDecorativeBlockEntity(state, rowCount);
     }
 
     @Override
-    public InteractionResult use(BlockState state, Level worldIn, BlockPos pos, Player player, InteractionHand hand, BlockHitResult rayIn) {
+    public ActionResultType use(BlockState state, World worldIn, BlockPos pos, PlayerEntity player, Hand hand, BlockRayTraceResult rayIn) {
         if (worldIn.isClientSide) {
-            return InteractionResult.SUCCESS;
-        }
-        else {
-            BlockEntity blockEntity = worldIn.getBlockEntity(pos);
-            if (blockEntity instanceof ContainerDecorativeBlockEntity container) {
-                player.openMenu(container);
+            return ActionResultType.SUCCESS;
+        } else {
+            TileEntity blockEntity = worldIn.getBlockEntity(pos);
+            if (blockEntity instanceof ContainerDecorativeBlockEntity) {
+                player.openMenu((ContainerDecorativeBlockEntity) blockEntity);
             }
-            return InteractionResult.CONSUME;
+            return ActionResultType.CONSUME;
         }
     }
 
     @Override
-    public void onRemove(BlockState pState, Level levelIn, BlockPos pos, BlockState pNewState, boolean pIsMoving) {
+    public void onRemove(BlockState pState, World levelIn, BlockPos pos, BlockState pNewState, boolean pIsMoving) {
         if (!pState.is(pNewState.getBlock())) {
-            BlockEntity blockEntity = levelIn.getBlockEntity(pos);
-            if (blockEntity instanceof Container) {
-                Containers.dropContents(levelIn, pos, (Container) blockEntity);
+            TileEntity blockEntity = levelIn.getBlockEntity(pos);
+            if (blockEntity instanceof IInventory) {
+                InventoryHelper.dropContents(levelIn, pos, (IInventory) blockEntity);
                 levelIn.updateNeighbourForOutputSignal(pos, this);
             }
             super.onRemove(pState, levelIn, pos, pNewState, pIsMoving);
         }
     }
 
-    public ContainerType getContainerType(){
+    public ContainerTypeReference getContainerType() {
         return this.containerType;
     }
 
-    public static class Builder extends DecorativeBlock.Builder{
+    public static class Builder extends DecorativeBlock.Builder {
 
-        private ContainerType containerType = ContainerType.COMMON_REGULAR;
+        private ContainerTypeReference containerType = ContainerTypeReference.COMMON_REGULAR;
         private int rowCount = 3;
 
         public Builder(BaseBlockProperty property) {
             super(property);
         }
 
-        public Builder content(ContainerType type){
+        public Builder content(ContainerTypeReference type) {
             this.containerType = type;
             this.rowCount = type.getRows();
             return this;
         }
 
-        public ContainerDecorativeBlock build(){
+        public ContainerDecorativeBlock build() {
             return new ContainerDecorativeBlock(this);
         }
     }

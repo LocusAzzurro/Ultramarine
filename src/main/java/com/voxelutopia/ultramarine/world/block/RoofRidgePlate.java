@@ -1,20 +1,20 @@
 package com.voxelutopia.ultramarine.world.block;
 
-import net.minecraft.core.BlockPos;
-import net.minecraft.world.level.BlockGetter;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.phys.shapes.CollisionContext;
-import net.minecraft.world.phys.shapes.VoxelShape;
+import net.minecraft.block.Block;
+import net.minecraft.block.BlockState;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.shapes.ISelectionContext;
+import net.minecraft.util.math.shapes.VoxelShape;
+import net.minecraft.world.IBlockReader;
 
 public class RoofRidgePlate extends BaseHorizontalDirectionalBlock {
 
-    public RoofRidgePlate(BaseBlockProperty property){
+    public RoofRidgePlate(BaseBlockProperty property) {
         super(property);
     }
 
     @Override
-    public VoxelShape getShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
-        return Block.box(0, 0,0, 16, 1, 16);
+    public VoxelShape getShape(BlockState pState, IBlockReader pLevel, BlockPos pPos, ISelectionContext pContext) {
+        return Block.box(0, 0, 0, 16, 1, 16);
     }
 }

@@ -1,8 +1,9 @@
 package com.voxelutopia.ultramarine.data;
 
-import net.minecraft.world.item.CreativeModeTab;
-import net.minecraft.world.item.Item;
-import net.minecraftforge.registries.RegistryObject;
+import com.google.common.collect.Maps;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemGroup;
+import net.minecraftforge.fml.RegistryObject;
 
 import java.util.HashSet;
 import java.util.Map;
@@ -19,28 +20,25 @@ public enum ModCreativeTab {
     PLANTS(CreativeTabDefinitions.PLANTS),
     LAMPS(CreativeTabDefinitions.LAMPS);
 
-    final CreativeModeTab tab;
+    final ItemGroup tab;
 
-    static final Map<ModCreativeTab, Set<RegistryObject<Item>>> itemSets = Map.of(
-            MATERIALS, new HashSet<>(),
-            TOOLS, new HashSet<>(),
-            BUILDING_BLOCKS, new HashSet<>(),
-            DECORATIVE_BLOCKS, new HashSet<>(),
-            DECORATIONS, new HashSet<>(),
-            FURNITURE, new HashSet<>(),
-            WINDOWS_AND_DOORS, new HashSet<>(),
-            PLANTS, new HashSet<>(),
-            LAMPS, new HashSet<>()
-    );
-    ModCreativeTab(CreativeModeTab tab){
+    static final Map<ModCreativeTab, Set<RegistryObject<Item>>> itemSets = Maps.newHashMap();
+
+    static {
+        for (final ModCreativeTab tab : ModCreativeTab.values()) {
+            itemSets.put(tab, new HashSet<>());
+        }
+    }
+
+    ModCreativeTab(ItemGroup tab) {
         this.tab = tab;
     }
 
-    public CreativeModeTab getTab() {
+    public ItemGroup getTab() {
         return tab;
     }
 
-    public static void putItemInSet(RegistryObject<Item> item, ModCreativeTab tab){
+    public static void putItemInSet(RegistryObject<Item> item, ModCreativeTab tab) {
         itemSets.get(tab).add(item);
     }
 }

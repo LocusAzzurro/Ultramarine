@@ -1,9 +1,9 @@
 package com.voxelutopia.ultramarine.world.block;
 
 import com.voxelutopia.ultramarine.data.registry.BlockRegistry;
-import net.minecraft.world.level.block.StairBlock;
+import net.minecraft.block.StairsBlock;
 
-public class BaseStairs extends StairBlock implements BaseBlockPropertyHolder {
+public class BaseStairs extends StairsBlock implements BaseBlockPropertyHolder {
 
     private final BaseBlockProperty property;
 
@@ -11,12 +11,12 @@ public class BaseStairs extends StairBlock implements BaseBlockPropertyHolder {
         this(BaseBlockProperty.STONE);
     }
 
-    public BaseStairs(BaseBlock block){
+    public BaseStairs(BaseBlock block) {
         super(block::defaultBlockState, block.getProperty().properties);
         this.property = block.getProperty();
     }
 
-    public BaseStairs(BaseBlockProperty property){
+    public BaseStairs(BaseBlockProperty property) {
         super(() -> BlockRegistry.CYAN_BRICKS.get().defaultBlockState(), property.properties);
         this.property = property;
     }

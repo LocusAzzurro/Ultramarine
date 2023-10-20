@@ -1,8 +1,8 @@
 package com.voxelutopia.ultramarine.world.block;
 
-import net.minecraft.world.level.block.FenceBlock;
+import net.minecraft.block.FenceBlock;
 
-public class BaseFence extends FenceBlock implements BaseBlockPropertyHolder{
+public class BaseFence extends FenceBlock implements BaseBlockPropertyHolder {
 
     private final BaseBlockProperty property;
 
@@ -10,12 +10,12 @@ public class BaseFence extends FenceBlock implements BaseBlockPropertyHolder{
         this(BaseBlockProperty.STONE);
     }
 
-    public BaseFence(BaseBlock block){
+    public BaseFence(BaseBlock block) {
         super(block.getProperty().properties);
         this.property = block.getProperty();
     }
 
-    public BaseFence(BaseBlockProperty property){
+    public BaseFence(BaseBlockProperty property) {
         super(property.properties);
         this.property = property;
     }
