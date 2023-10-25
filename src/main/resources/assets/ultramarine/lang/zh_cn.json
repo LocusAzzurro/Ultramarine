@@ -556,5 +556,7 @@
   "__comment23__": "Villager Professions",
   "entity.minecraft.villager.ultramarine.cook": "厨师",
 
+  "gui.jei.category.woodworking": "木工桌",
+
   "__EOF__": ""
 }
