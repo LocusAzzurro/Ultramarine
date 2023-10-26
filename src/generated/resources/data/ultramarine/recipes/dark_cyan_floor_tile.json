@@ -5,10 +5,10 @@
       "item": "ultramarine:cyan_floor_tile"
     },
     {
-      "tag": "forge:dyes/white"
+      "item": "minecraft:black_dye"
     }
   ],
   "result": {
-    "item": "ultramarine:light_cyan_floor_tile"
+    "item": "ultramarine:dark_cyan_floor_tile"
   }
 }

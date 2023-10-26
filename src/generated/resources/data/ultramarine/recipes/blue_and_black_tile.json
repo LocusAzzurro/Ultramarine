@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "ultramarine:dark_cyan_floor_tile"
+    },
+    {
+      "tag": "forge:dyes/blue"
+    }
+  ],
+  "result": {
+    "item": "ultramarine:blue_and_black_tile"
+  }
+}

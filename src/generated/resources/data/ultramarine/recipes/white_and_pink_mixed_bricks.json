@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "VY",
+    "YV"
+  ],
+  "key": {
+    "V": {
+      "item": "ultramarine:variegated_rocks"
+    },
+    "Y": {
+      "item": "ultramarine:pale_yellow_stone"
+    }
+  },
+  "result": {
+    "item": "ultramarine:white_and_pink_mixed_bricks",
+    "count": 4
+  }
+}

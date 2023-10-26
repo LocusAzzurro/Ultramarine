@@ -37,7 +37,7 @@ public class ItemRegistry {
     public static final RegistryObject<Item> BROWNISH_RED_STONE_BRICK_SLAB = fromBlock(BlockRegistry.BROWNISH_RED_STONE_BRICK_SLAB, ModCreativeTab.BUILDING_BLOCKS);
     public static final RegistryObject<Item> BROWNISH_RED_STONE_BRICK_STAIRS = fromBlock(BlockRegistry.BROWNISH_RED_STONE_BRICK_STAIRS, ModCreativeTab.BUILDING_BLOCKS);
     public static final RegistryObject<Item> BROWNISH_RED_STONE_BRICK_WALL = fromBlock(BlockRegistry.BROWNISH_RED_STONE_BRICK_WALL, ModCreativeTab.BUILDING_BLOCKS);
-    public static final RegistryObject<Item> WHITE_AMD_PINK_MIXED_BRICKS = fromBlock(BlockRegistry.WHITE_AMD_PINK_MIXED_BRICKS, ModCreativeTab.BUILDING_BLOCKS);
+    public static final RegistryObject<Item> WHITE_AND_PINK_MIXED_BRICKS = fromBlock(BlockRegistry.WHITE_AND_PINK_MIXED_BRICKS, ModCreativeTab.BUILDING_BLOCKS);
     public static final RegistryObject<Item> GREEN_WEATHERED_BRICKS = fromBlock(BlockRegistry.GREEN_WEATHERED_BRICKS, ModCreativeTab.BUILDING_BLOCKS);
 
     // STONES

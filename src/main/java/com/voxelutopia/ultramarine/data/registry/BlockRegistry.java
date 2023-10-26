@@ -40,7 +40,7 @@ public class BlockRegistry {
     public static final RegistryObject<Block> BROWNISH_RED_STONE_BRICK_SLAB = BLOCKS.register("brownish_red_stone_brick_slab", () -> new BaseSlab((BaseBlock) BROWNISH_RED_STONE_BRICKS.get()));
     public static final RegistryObject<Block> BROWNISH_RED_STONE_BRICK_STAIRS = BLOCKS.register("brownish_red_stone_brick_stairs", () -> new BaseStairs((BaseBlock) BROWNISH_RED_STONE_BRICKS.get()));
     public static final RegistryObject<Block> BROWNISH_RED_STONE_BRICK_WALL = BLOCKS.register("brownish_red_stone_brick_wall", () -> new BaseWall((BaseBlock) BROWNISH_RED_STONE_BRICKS.get()));
-    public static final RegistryObject<Block> WHITE_AMD_PINK_MIXED_BRICKS = BLOCKS.register("white_and_pink_mixed_bricks", () -> new BaseBlock(BaseBlockProperty.STONE));
+    public static final RegistryObject<Block> WHITE_AND_PINK_MIXED_BRICKS = BLOCKS.register("white_and_pink_mixed_bricks", () -> new BaseBlock(BaseBlockProperty.STONE));
     public static final RegistryObject<Block> GREEN_WEATHERED_BRICKS = BLOCKS.register("green_weathered_bricks", () -> new BaseBlock(BaseBlockProperty.STONE));
 
     // STONES

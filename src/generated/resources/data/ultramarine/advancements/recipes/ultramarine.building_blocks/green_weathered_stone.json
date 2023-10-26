@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "ultramarine:green_weathered_stone"
+    ]
+  },
+  "criteria": {
+    "has_weathered_stone": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "ultramarine:weathered_stone"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "ultramarine:green_weathered_stone"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_weathered_stone",
+      "has_the_recipe"
+    ]
+  ]
+}

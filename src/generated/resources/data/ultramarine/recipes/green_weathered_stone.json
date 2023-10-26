@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "ultramarine:weathered_stone"
+    },
+    {
+      "tag": "forge:dyes/green"
+    }
+  ],
+  "result": {
+    "item": "ultramarine:green_weathered_stone"
+  }
+}

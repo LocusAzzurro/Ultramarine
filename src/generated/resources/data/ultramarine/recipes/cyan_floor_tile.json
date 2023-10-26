@@ -5,7 +5,7 @@
       "item": "minecraft:smooth_stone"
     },
     {
-      "item": "minecraft:cyan_dye"
+      "tag": "forge:dyes/cyan"
     }
   ],
   "result": {

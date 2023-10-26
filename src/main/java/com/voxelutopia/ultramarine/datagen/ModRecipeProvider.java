@@ -8,6 +8,7 @@ import net.minecraft.data.DataGenerator;
 import net.minecraft.data.recipes.*;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.ItemTags;
+import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
@@ -30,6 +31,7 @@ public class ModRecipeProvider extends RecipeProvider {
     protected void buildCraftingRecipes(@NotNull Consumer<FinishedRecipe> recipeConsumer) {
 
         //BUILDING BLOCKS
+        //BRICKS
         quadComposeRecipe(ItemRegistry.CYAN_BRICK.get(), ItemRegistry.CYAN_BRICKS.get(), recipeConsumer);
         stoneSlabAndStairsRecipe(ItemRegistry.CYAN_BRICKS.get(), ItemRegistry.CYAN_BRICK_SLAB.get(), ItemRegistry.CYAN_BRICK_STAIRS.get(), recipeConsumer);
         quadComposeRecipe(ItemRegistry.BLACK_BRICK.get(), ItemRegistry.BLACK_BRICKS.get(), recipeConsumer);
@@ -38,6 +40,19 @@ public class ModRecipeProvider extends RecipeProvider {
         quadComposeRecipe(ItemRegistry.BROWNISH_RED_STONE_BRICK.get(), ItemRegistry.BROWNISH_RED_STONE_BRICKS.get(), recipeConsumer);
         stoneSlabAndStairsRecipe(ItemRegistry.BROWNISH_RED_STONE_BRICKS.get(), ItemRegistry.BROWNISH_RED_STONE_BRICK_SLAB.get(), ItemRegistry.BROWNISH_RED_STONE_BRICK_STAIRS.get(), recipeConsumer);
         wallRecipe(ItemRegistry.BROWNISH_RED_STONE_BRICKS.get(), ItemRegistry.BROWNISH_RED_STONE_BRICK_WALL.get(), recipeConsumer);
+        ShapedRecipeBuilder.shaped(ItemRegistry.WHITE_AND_PINK_MIXED_BRICKS.get(), 4)
+                .define('V', ItemRegistry.VARIEGATED_ROCKS.get())
+                .define('Y', ItemRegistry.PALE_YELLOW_STONE.get())
+                .pattern("VY").pattern("YV")
+                .unlockedBy("has_" + ItemRegistry.VARIEGATED_ROCKS.get(), InventoryChangeTrigger.TriggerInstance.hasItems(ItemRegistry.VARIEGATED_ROCKS.get()))
+                .save(recipeConsumer);
+        ShapedRecipeBuilder.shaped(ItemRegistry.GREEN_WEATHERED_BRICKS.get(), 4)
+                .define('S', ItemRegistry.GREEN_WEATHERED_STONE.get())
+                .pattern("SS").pattern("SS")
+                .unlockedBy("has_" + ItemRegistry.GREEN_WEATHERED_STONE.get(), InventoryChangeTrigger.TriggerInstance.hasItems(ItemRegistry.GREEN_WEATHERED_STONE.get()))
+                .save(recipeConsumer);
+
+        //STONES
         ShapelessRecipeBuilder.shapeless(ItemRegistry.PALE_YELLOW_STONE.get(), 2).requires(Items.STONE).requires(Items.SAND)
                 .unlockedBy("has_" + Items.STONE, InventoryChangeTrigger.TriggerInstance.hasItems(Items.STONE)).save(recipeConsumer);
         stoneSlabAndStairsRecipe(ItemRegistry.PALE_YELLOW_STONE.get(), ItemRegistry.PALE_YELLOW_STONE_SLAB.get(), ItemRegistry.PALE_YELLOW_STONE_STAIRS.get(), recipeConsumer);
@@ -50,24 +65,38 @@ public class ModRecipeProvider extends RecipeProvider {
         stonePolishing(ItemRegistry.WEATHERED_STONE.get(), ItemRegistry.POLISHED_WEATHERED_STONE.get(), recipeConsumer);
         stoneSlabAndStairsRecipe(ItemRegistry.POLISHED_WEATHERED_STONE.get(), ItemRegistry.POLISHED_WEATHERED_STONE_SLAB.get(), ItemRegistry.POLISHED_WEATHERED_STONE_STAIRS.get(), recipeConsumer);
         wallRecipe(ItemRegistry.POLISHED_WEATHERED_STONE.get(), ItemRegistry.POLISHED_WEATHERED_STONE_WALL.get(), recipeConsumer);
-        blockDyeing(Items.SMOOTH_STONE, Items.CYAN_DYE, ItemRegistry.CYAN_FLOOR_TILE.get(), recipeConsumer);
+        blockDyeing(ItemRegistry.WEATHERED_STONE.get(), ModItemTags.FORGE_GREEN_DYE, ItemRegistry.GREEN_WEATHERED_STONE.get(), recipeConsumer);
+
+        // FLOOR TILES
+        blockDyeing(Items.SMOOTH_STONE, ModItemTags.FORGE_CYAN_DYE, ItemRegistry.CYAN_FLOOR_TILE.get(), recipeConsumer);
         stoneSlabAndStairsRecipe(ItemRegistry.CYAN_FLOOR_TILE.get(), ItemRegistry.CYAN_FLOOR_TILE_SLAB.get(), ItemRegistry.CYAN_FLOOR_TILE_STAIRS.get(), recipeConsumer);
         wallRecipe(ItemRegistry.CYAN_FLOOR_TILE.get(), ItemRegistry.CYAN_FLOOR_TILE_WALL.get(), recipeConsumer);
-        blockDyeing(ItemRegistry.CYAN_FLOOR_TILE.get(), Items.WHITE_DYE, ItemRegistry.LIGHT_CYAN_FLOOR_TILE.get(), recipeConsumer);
+        blockDyeing(ItemRegistry.CYAN_FLOOR_TILE.get(), ModItemTags.FORGE_WHITE_DYE, ItemRegistry.LIGHT_CYAN_FLOOR_TILE.get(), recipeConsumer);
         stoneSlabAndStairsRecipe(ItemRegistry.LIGHT_CYAN_FLOOR_TILE.get(), ItemRegistry.LIGHT_CYAN_FLOOR_TILE_SLAB.get(), ItemRegistry.LIGHT_CYAN_FLOOR_TILE_STAIRS.get(), recipeConsumer);
         wallRecipe(ItemRegistry.LIGHT_CYAN_FLOOR_TILE.get(), ItemRegistry.LIGHT_CYAN_FLOOR_TILE_WALL.get(), recipeConsumer);
-        roofTileBlocksRecipe("gray", recipeConsumer);
-        roofTileBlocksRecipe("yellow", recipeConsumer);
-        roofTileBlocksRecipe("green", recipeConsumer);
-        roofTileBlocksRecipe("blue", recipeConsumer);
-        roofTileBlocksRecipe("cyan", recipeConsumer);
-        roofTileBlocksRecipe("black", recipeConsumer);
+        blockDyeing(ItemRegistry.CYAN_FLOOR_TILE.get(), Items.BLACK_DYE, ItemRegistry.DARK_CYAN_FLOOR_TILE.get(), recipeConsumer);
+        simpleStonecutting(ItemRegistry.CYAN_FLOOR_TILE.get(), ItemRegistry.LAYERED_CYAN_FLOOR_TILES.get(), recipeConsumer);
+        simpleStonecutting(ItemRegistry.CYAN_FLOOR_TILE.get(), ItemRegistry.VERTICAL_CYAN_FLOOR_TILES.get(), recipeConsumer);
+        simpleStonecutting(ItemRegistry.CYAN_FLOOR_TILE.get(), ItemRegistry.MIXED_CYAN_FLOOR_TILES.get(), recipeConsumer);
+        simpleStonecutting(ItemRegistry.CYAN_FLOOR_TILE.get(), ItemRegistry.CHISELED_CYAN_FLOOR_TILE.get(), recipeConsumer);
+        simpleStonecutting(ItemRegistry.CYAN_FLOOR_TILE.get(), ItemRegistry.CUT_CYAN_FLOOR_TILES.get(), recipeConsumer);
+        blockDyeing(ItemRegistry.POLISHED_WEATHERED_STONE.get(), ModItemTags.FORGE_RED_DYE, ItemRegistry.WEATHERED_RED_STONE_TILE.get(), recipeConsumer);
+        blockDyeing(ItemRegistry.DARK_CYAN_FLOOR_TILE.get(), ModItemTags.FORGE_BLUE_DYE, ItemRegistry.BLUE_AND_BLACK_TILE.get(), recipeConsumer);
         ShapedRecipeBuilder.shaped(ItemRegistry.GREEN_GLAZED_TILES.get(), 2)
                 .define('B', Items.GREEN_GLAZED_TERRACOTTA).define('T', ItemRegistry.GREEN_ROOF_TILE.get())
                 .pattern(" T ").pattern("TBT").pattern(" T ")
                 .unlockedBy("has_" + Items.GREEN_GLAZED_TERRACOTTA, InventoryChangeTrigger.TriggerInstance.hasItems(Items.GREEN_GLAZED_TERRACOTTA))
                 .save(recipeConsumer);
         stoneSlabAndStairsRecipe(ItemRegistry.GREEN_GLAZED_TILES.get(), ItemRegistry.GREEN_GLAZED_TILE_SLAB.get(), ItemRegistry.GREEN_GLAZED_TILE_STAIRS.get(), recipeConsumer);
+
+
+        roofTileBlocksRecipe("gray", recipeConsumer);
+        roofTileBlocksRecipe("yellow", recipeConsumer);
+        roofTileBlocksRecipe("green", recipeConsumer);
+        roofTileBlocksRecipe("blue", recipeConsumer);
+        roofTileBlocksRecipe("cyan", recipeConsumer);
+        roofTileBlocksRecipe("black", recipeConsumer);
+
 
         ShapedRecipeBuilder.shaped(ItemRegistry.BAMBOO_MAT.get(), 4)
                 .define('B', Items.BAMBOO).define('S', Items.STRING)
@@ -275,9 +304,24 @@ public class ModRecipeProvider extends RecipeProvider {
                         new ResourceLocation(DataGenerators.MOD_ID, polishedPath + "_from_stonecutting"));
     }
 
-    private static void blockDyeing(Item block, Item dye, Item output, Consumer<FinishedRecipe> pFinishedRecipeConsumer){
+    private static void blockDyeing(Item block, TagKey<Item> dye, Item output, Consumer<FinishedRecipe> pFinishedRecipeConsumer){
         String blockPath = Objects.requireNonNull(block.getRegistryName()).getPath();
-        String dyePath = Objects.requireNonNull(dye.getRegistryName()).getPath();
+        String outputPath = Objects.requireNonNull(output.getRegistryName()).getPath();
+        ShapelessRecipeBuilder.shapeless(output).requires(block).requires(dye)
+                .unlockedBy("has_" + blockPath, InventoryChangeTrigger.TriggerInstance.hasItems(block))
+                .save(pFinishedRecipeConsumer, new ResourceLocation(DataGenerators.MOD_ID, outputPath));
+        ShapedRecipeBuilder.shaped(output, 8)
+                .define('B', block)
+                .define('D', dye)
+                .pattern("BBB")
+                .pattern("BDB")
+                .pattern("BBB")
+                .unlockedBy("has_" + blockPath, InventoryChangeTrigger.TriggerInstance.hasItems(block))
+                .save(pFinishedRecipeConsumer, new ResourceLocation(DataGenerators.MOD_ID, outputPath + "_batch"));
+    }
+
+    private static void blockDyeing(Item block, ItemLike dye, Item output, Consumer<FinishedRecipe> pFinishedRecipeConsumer){
+        String blockPath = Objects.requireNonNull(block.getRegistryName()).getPath();
         String outputPath = Objects.requireNonNull(output.getRegistryName()).getPath();
         ShapelessRecipeBuilder.shapeless(output).requires(block).requires(dye)
                 .unlockedBy("has_" + blockPath, InventoryChangeTrigger.TriggerInstance.hasItems(block))
@@ -343,6 +387,12 @@ public class ModRecipeProvider extends RecipeProvider {
                 .unlockedBy(baseBlockAdvancement, trigger)
                 .save(pFinishedRecipeConsumer,
                         new ResourceLocation(DataGenerators.MOD_ID, slabBlockPath + "_from_stonecutting"));
+    }
+
+    private static void simpleStonecutting(Item input, Item output, Consumer<FinishedRecipe> pFinishedRecipeConsumer){
+        SingleItemRecipeBuilder.stonecutting(Ingredient.of(input), output)
+                .unlockedBy(itemUnlockName(input), itemCriterion(output))
+                .save(pFinishedRecipeConsumer);
     }
 
     private static void woodSlabAndStairsRecipe(Item baseBlock, Item slabBlock, Item stairBlock, Consumer<FinishedRecipe> pFinishedRecipeConsumer){

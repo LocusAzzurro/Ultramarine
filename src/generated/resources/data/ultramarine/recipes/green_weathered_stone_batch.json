@@ -7,14 +7,14 @@
   ],
   "key": {
     "B": {
-      "item": "ultramarine:cyan_floor_tile"
+      "item": "ultramarine:weathered_stone"
     },
     "D": {
-      "tag": "forge:dyes/white"
+      "tag": "forge:dyes/green"
     }
   },
   "result": {
-    "item": "ultramarine:light_cyan_floor_tile",
+    "item": "ultramarine:green_weathered_stone",
     "count": 8
   }
 }

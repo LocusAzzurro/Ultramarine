@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "ultramarine:polished_weathered_stone"
+    },
+    {
+      "tag": "forge:dyes/red"
+    }
+  ],
+  "result": {
+    "item": "ultramarine:weathered_red_stone_tile"
+  }
+}

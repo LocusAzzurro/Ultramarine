@@ -7,14 +7,14 @@
   ],
   "key": {
     "B": {
-      "item": "ultramarine:cyan_floor_tile"
+      "item": "ultramarine:dark_cyan_floor_tile"
     },
     "D": {
-      "tag": "forge:dyes/white"
+      "tag": "forge:dyes/blue"
     }
   },
   "result": {
-    "item": "ultramarine:light_cyan_floor_tile",
+    "item": "ultramarine:blue_and_black_tile",
     "count": 8
   }
 }
