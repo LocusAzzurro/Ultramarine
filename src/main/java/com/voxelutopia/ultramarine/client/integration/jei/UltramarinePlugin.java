@@ -18,6 +18,7 @@ import net.minecraft.world.item.ItemStack;
 import org.slf4j.Logger;
 
 import java.util.List;
+import java.util.Objects;
 
 @JeiPlugin
 public class UltramarinePlugin implements IModPlugin {
@@ -42,7 +43,7 @@ public class UltramarinePlugin implements IModPlugin {
 
     @Override
     public void registerRecipes(IRecipeRegistration registration) {
-
+        Objects.requireNonNull(Minecraft.getInstance().level);
         var recipeManager = Minecraft.getInstance().level.getRecipeManager();
         List<WoodworkingRecipe> woodworkingRecipes = recipeManager.getAllRecipesFor(RecipeTypeRegistry.WOODWORKING.get());
         registration.addRecipes(WoodworkingRecipeCategory.WOODWORKING_RECIPE_TYPE, woodworkingRecipes);

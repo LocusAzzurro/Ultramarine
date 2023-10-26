@@ -21,8 +21,17 @@ import net.minecraft.world.item.ItemStack;
 
 public class WoodworkingRecipeCategory implements IRecipeCategory<WoodworkingRecipe> {
 
+
+    /*
     public static final RecipeType<WoodworkingRecipe> WOODWORKING_RECIPE_TYPE =
             RecipeType.create(Ultramarine.MOD_ID, "woodworking", WoodworkingRecipe.class);
+
+     */
+
+    public static final ResourceLocation UID = new ResourceLocation(Ultramarine.MOD_ID, "woodworking");
+
+    public static final RecipeType<WoodworkingRecipe> WOODWORKING_RECIPE_TYPE =
+            new RecipeType<>(UID, WoodworkingRecipe.class);
 
     public static final int WIDTH = 82;
     public static final int HEIGHT = 34;
@@ -56,7 +65,7 @@ public class WoodworkingRecipeCategory implements IRecipeCategory<WoodworkingRec
     @SuppressWarnings("removal")
     @Override
     public ResourceLocation getUid() {
-        return new ResourceLocation(Ultramarine.MOD_ID, "woodworking");
+        return UID;
     }
 
     @SuppressWarnings("removal")
