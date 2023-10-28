@@ -80,11 +80,6 @@ public class WoodworkingRecipeCategory implements IRecipeCategory<WoodworkingRec
     }
 
     @Override
-    public boolean isHandled(WoodworkingRecipe recipe) {
-        return !recipe.isSpecial();
-    }
-
-    @Override
     public void setRecipe(IRecipeLayoutBuilder builder, WoodworkingRecipe recipe, IFocusGroup focuses) {
         builder.addSlot(RecipeIngredientRole.INPUT, 1, 9)
                 .addIngredients(recipe.getIngredients().get(0));

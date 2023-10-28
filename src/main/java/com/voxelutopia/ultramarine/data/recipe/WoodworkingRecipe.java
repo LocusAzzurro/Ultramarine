@@ -4,6 +4,7 @@ import com.google.gson.JsonObject;
 import com.voxelutopia.ultramarine.Ultramarine;
 import com.voxelutopia.ultramarine.data.registry.RecipeSerializerRegistry;
 import com.voxelutopia.ultramarine.data.registry.RecipeTypeRegistry;
+import net.minecraft.core.NonNullList;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.GsonHelper;
@@ -14,6 +15,7 @@ import net.minecraft.world.level.Level;
 import net.minecraftforge.registries.ForgeRegistries;
 
 import javax.annotation.Nullable;
+import java.util.List;
 
 public class WoodworkingRecipe extends SingleItemRecipe {
 
@@ -46,11 +48,6 @@ public class WoodworkingRecipe extends SingleItemRecipe {
     @Override
     public ItemStack getResultItem() {
         return result.copy();
-    }
-
-    @Override
-    public boolean isSpecial() {
-        return true;
     }
 
     @Override
