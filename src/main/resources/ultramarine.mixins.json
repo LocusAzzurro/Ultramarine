@@ -1,0 +1,9 @@
+{
+  "required": false,
+  "package": "com.voxelutopia.ultramarine.mixin",
+  "compatibilityLevel": "JAVA_17",
+  "refmap": "ultramarine.refmap.json",
+  "mixins": [],
+  "client": [],
+  "minVersion": "0.8.5"
+}
