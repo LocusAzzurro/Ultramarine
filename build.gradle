@@ -107,10 +107,15 @@ minecraft {
 sourceSets.main.resources { srcDir 'src/generated/resources' }
 
 repositories {
+    maven { // JEI
+        url "https://dvs1.progwml6.com/files/maven"
+    }
 }
 
 dependencies {
     minecraft "net.minecraftforge:forge:${minecraft_version}-${forge_version}"
+    compileOnly fg.deobf("mezz.jei:jei-${minecraft_version}:${jei_version}:api")
+    implementation fg.deobf("mezz.jei:jei-${minecraft_version}:${jei_version}")
 }
 
 def resourceTargets = ['META-INF/mods.toml', 'pack.mcmeta']
@@ -118,7 +123,7 @@ def intoTargets = ["$rootDir/out/production/resources/", "$rootDir/out/productio
 def replaceProperties = [mod_id: mod_id, mod_name: mod_name, mod_version: mod_version,
                          mod_authors: mod_authors, mod_description: mod_description, mod_icon: mod_icon, mod_credits: mod_credits,
                          minecraft_version_range: minecraft_version_range, forge_version_range: forge_version_range,
-                         loader_version_range: loader_version_range]
+                         loader_version_range: loader_version_range, jei_version: jei_version]
 processResources {
     inputs.properties replaceProperties
     replaceProperties.put 'project', project
