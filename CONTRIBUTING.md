@@ -24,3 +24,13 @@ A great place to start would be the issues of this project. You could try to tac
 * No code format rules are enforced, but please use common sense.
 * Try to integrate into existing systems when implemeting new logic to reduce redundancy and avoid breaking changes.
 * The assets and data files (e.g. block state definitions, recipes, etc.) except non-standard models (e.g. most decorative blocks) are to be generated with data generation when possible.
+
+#### About Porting
+
+You're welcome to help port the mod to other versions, but we'll only accept PRs for certain versions:
+* We choose a Minecraft version to be the "main" version to focus the developement effort on (usually the main branch), this "main" version will change as new Minecraft versions get released.
+* Current and past "main" version branches will be maintained in this repo, you're welcome to backport new features to older versions (both past "main" versions and other versions lower than current "main" version), if a branch needs to be created to accomodate a backport, please contact the repo maintainers.
+* PRs adding new features not present on current "main" version to older versions will not be accepted.
+* PRs with ports to versions higher than current "main" version will not be accepted to avoid confusion and possible future conflict.
+* PRs with ports to other APIs are not allow either, we currently don't have the avaibility to supervise other versions.
+* However, you're free to create another fork of this repo for ports that are not currently maintained on this repo, under the license terms.
