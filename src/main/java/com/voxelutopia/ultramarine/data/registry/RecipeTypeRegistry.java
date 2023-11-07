@@ -1,6 +1,7 @@
 package com.voxelutopia.ultramarine.data.registry;
 
 import com.voxelutopia.ultramarine.Ultramarine;
+import com.voxelutopia.ultramarine.data.recipe.CompositeSmeltingRecipe;
 import com.voxelutopia.ultramarine.data.recipe.WoodworkingRecipe;
 import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceLocation;
@@ -14,6 +15,7 @@ public class RecipeTypeRegistry {
     public static final DeferredRegister<RecipeType<?>> RECIPE_TYPES = DeferredRegister.create(Registry.RECIPE_TYPE.key(), Ultramarine.MOD_ID);
 
     public static RegistryObject<RecipeType<WoodworkingRecipe>> WOODWORKING = register("woodworking");
+    public static RegistryObject<RecipeType<CompositeSmeltingRecipe>> COMPOSITE_SMELTING = register("composite_smelting");
 
     private static <T extends Recipe<?>> RegistryObject<RecipeType<T>> register(String name) {
         return RECIPE_TYPES.register(name, () -> new RecipeType<>() {
