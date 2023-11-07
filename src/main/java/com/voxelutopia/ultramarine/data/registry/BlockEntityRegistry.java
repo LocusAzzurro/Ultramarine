@@ -31,5 +31,9 @@ public class BlockEntityRegistry {
             BOTTLE_GOURD = BLOCK_ENTITIES.register(
             "bottle_gourd_entity", () -> BlockEntityType.Builder
                     .of(BottleGourdBlockEntity::new, BlockRegistry.BOTTLE_GOURD.get()).build(null));
+    public static final RegistryObject<BlockEntityType<BrickFurnaceBlockEntity>>
+            BRICK_FURNACE = BLOCK_ENTITIES.register(
+            "brick_furnace_block_entity", () -> BlockEntityType.Builder
+                    .of(BrickFurnaceBlockEntity::new, BlockRegistry.BRICK_FURNACE.get()).build(null));
 
 }

@@ -721,6 +721,7 @@ public class ItemRegistry {
 
     public static final RegistryObject<Item> WOODEN_HAMMER = ITEMS.register("wooden_hammer", WoodenHammer::new);
     public static final RegistryObject<Item> WOODWORKING_WORKBENCH = fromBlock(BlockRegistry.WOODWORKING_WORKBENCH, ModCreativeTab.TOOLS);
+    public static final RegistryObject<Item> BRICK_FURNACE = fromBlock(BlockRegistry.BRICK_FURNACE, ModCreativeTab.TOOLS);
 
     private static <B extends Block> RegistryObject<Item> fromBlock(RegistryObject<B> block, ModCreativeTab tabDef) {
         RegistryObject<Item> registryObject = ITEMS.register(block.getId().getPath(), () -> new BlockItem(block.get(), new Item.Properties().tab(tabDef.getTab())));
