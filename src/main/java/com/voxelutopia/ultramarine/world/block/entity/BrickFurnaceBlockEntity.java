@@ -1,32 +1,30 @@
 package com.voxelutopia.ultramarine.world.block.entity;
 
-import com.voxelutopia.ultramarine.data.recipe.CompositeSmeltingRecipe;
 import com.voxelutopia.ultramarine.data.registry.BlockEntityRegistry;
+import com.voxelutopia.ultramarine.world.block.menu.BrickFurnaceMenu;
 import it.unimi.dsi.fastutil.objects.Object2IntOpenHashMap;
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
-import net.minecraft.core.Registry;
 import net.minecraft.network.chat.Component;
-import net.minecraft.network.chat.TextComponent;
 import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.WorldlyContainer;
+import net.minecraft.world.MenuProvider;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.inventory.ContainerData;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Items;
-import net.minecraft.world.item.crafting.AbstractCookingRecipe;
 import net.minecraft.world.item.crafting.RecipeType;
-import net.minecraft.world.level.block.entity.BaseContainerBlockEntity;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.entity.AbstractFurnaceBlockEntity;
+import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraftforge.common.ForgeHooks;
 import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.common.util.LazyOptional;
-import net.minecraftforge.items.IItemHandler;
 import net.minecraftforge.items.ItemStackHandler;
-import net.minecraftforge.items.wrapper.SidedInvWrapper;
+import net.minecraftforge.items.wrapper.CombinedInvWrapper;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
@@ -35,15 +33,12 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 @SuppressWarnings("unused")
-public class BrickFurnaceBlockEntity extends BaseContainerBlockEntity implements WorldlyContainer {
+public class BrickFurnaceBlockEntity extends BlockEntity implements MenuProvider {
 
     public static final int SLOT_INPUT_PRIMARY = 0;
     public static final int SLOT_INPUT_SECONDARY = 1;
     public static final int SLOT_FUEL = 2;
     public static final int SLOT_RESULT = 3;
-    private static final int[] SLOTS_FOR_UP = new int[]{0, 1};
-    private static final int[] SLOTS_FOR_DOWN = new int[]{3, 2};
-    private static final int[] SLOTS_FOR_SIDES = new int[]{2};
     public static final int DATA_LIT_TIME = 0;
     public static final int DATA_LIT_DURATION = 1;
     public static final int DATA_COOKING_PROGRESS = 2;
@@ -53,21 +48,47 @@ public class BrickFurnaceBlockEntity extends BaseContainerBlockEntity implements
     public static final int BURN_TIME_STANDARD = 200;
     public static final int BURN_COOL_SPEED = 2;
 
+    private static final Component CONTAINER_TITLE = new TranslatableComponent("container.brick_furnace");
+
     int litTime;
     int litDuration;
     int cookingProgress;
     int cookingTotalTime;
 
-    private final ItemStackHandler itemHandler = new ItemStackHandler(4){
+    private final ItemStackHandler ingredientsHandler = new ItemStackHandler(2){
         @Override
         protected void onContentsChanged(int slot) {
             setChanged();
         }
     };
 
-    private LazyOptional<ItemStackHandler> lazyItemHandler = LazyOptional.empty();
+    private final ItemStackHandler fuelHandler = new ItemStackHandler(1){
+        @Override
+        protected void onContentsChanged(int slot) {
+            setChanged();
+        }
 
-    LazyOptional<? extends IItemHandler>[] sideHandlers = SidedInvWrapper.create(this, Direction.UP, Direction.DOWN, Direction.NORTH);
+        @Override
+        public boolean isItemValid(int slot, @NotNull ItemStack stack) {
+            return ForgeHooks.getBurnTime(stack, RecipeType.SMELTING) > 0;
+        }
+    };
+
+    private final ItemStackHandler resultHandler = new ItemStackHandler(1){
+        @Override
+        protected void onContentsChanged(int slot) {
+            setChanged();
+        }
+
+        @Override
+        public boolean isItemValid(int slot, @NotNull ItemStack stack) {
+            return false;
+        }
+    };
+
+    private LazyOptional<ItemStackHandler> ingredientsLazyHandler = LazyOptional.empty();
+    private LazyOptional<ItemStackHandler> fuelLazyHandler = LazyOptional.empty();
+    private LazyOptional<ItemStackHandler> resultLazyHandler = LazyOptional.empty();
 
     protected final ContainerData dataAccess = new ContainerData() {
         public int get(int key) {
@@ -100,113 +121,41 @@ public class BrickFurnaceBlockEntity extends BaseContainerBlockEntity implements
         super(BlockEntityRegistry.BRICK_FURNACE.get(), blockPos, blockState);
     }
 
-    @Override
-    protected Component getDefaultName() {
-        return new TranslatableComponent("container.brick_furnace");
-    }
-
-    @Override
-    protected AbstractContainerMenu createMenu(int pContainerId, Inventory pInventory) {
-        return null;
+    public static void serverTick(Level pLevel, BlockPos pPos, BlockState pState, BrickFurnaceBlockEntity pBlockEntity){
         //TODO
     }
 
     @Override
-    public int getContainerSize() {
-        return NUM_SLOTS;
+    public Component getDisplayName() {
+        return CONTAINER_TITLE;
     }
 
+    @Nullable
     @Override
-    public boolean isEmpty() {
-        for(int i = 0; i < itemHandler.getSlots(); i++) {
-            if (!itemHandler.getStackInSlot(i).isEmpty()) {
-                return false;
-            }
-        }
-        return true;
+    public AbstractContainerMenu createMenu(int pContainerId, Inventory pInventory, Player pPlayer) {
+        return new BrickFurnaceMenu(pContainerId, this.worldPosition, pInventory,
+                new CombinedInvWrapper(this.ingredientsHandler, this.fuelHandler, this.resultHandler), this.dataAccess);
     }
-
-    @Override
-    public ItemStack getItem(int pIndex) {
-        return itemHandler.getStackInSlot(pIndex);
-    }
-
-    @Override
-    public ItemStack removeItem(int pIndex, int pCount) {
-        return pIndex >= 0 && pIndex < itemHandler.getSlots() &&
-                !itemHandler.getStackInSlot(pIndex).isEmpty() && pCount > 0 ? itemHandler.getStackInSlot(pIndex).split(pCount) : ItemStack.EMPTY;
-    }
-
-    @Override
-    public ItemStack removeItemNoUpdate(int pIndex) {
-        if (pIndex >= 0 && pIndex < itemHandler.getSlots()) {
-            itemHandler.setStackInSlot(pIndex, ItemStack.EMPTY);
-        }
-        return ItemStack.EMPTY;
-    }
-
-    @Override
-    public void setItem(int pIndex, ItemStack pStack) {
-        itemHandler.setStackInSlot(pIndex, pStack);
-    }
-
-    @Override
-    public boolean stillValid(Player pPlayer) {
-        if (this.level != null && this.level.getBlockEntity(this.worldPosition) != this) {
-            return false;
-        } else {
-            return pPlayer.distanceToSqr((double)this.worldPosition.getX() + 0.5D, (double)this.worldPosition.getY() + 0.5D, (double)this.worldPosition.getZ() + 0.5D) <= 64.0D;
-        }
-    }
-
-    @Override
-    public void clearContent() {
-        for(int i = 0; i < itemHandler.getSlots(); i++) {
-            itemHandler.setStackInSlot(i, ItemStack.EMPTY);
-        }
-    }
-
-    @Override
-    public int[] getSlotsForFace(Direction pSide) {
-        if (pSide == Direction.DOWN) {
-            return SLOTS_FOR_DOWN;
-        } else {
-            return pSide == Direction.UP ? SLOTS_FOR_UP : SLOTS_FOR_SIDES;
-        }
-    }
-
-    @Override
-    public boolean canPlaceItemThroughFace(int pIndex, ItemStack pItemStack, @Nullable Direction pDirection) {
-        return this.canPlaceItem(pIndex, pItemStack);
-    }
-
-    @Override
-    public boolean canTakeItemThroughFace(int pIndex, ItemStack pStack, Direction pDirection) {
-        if (pDirection == Direction.DOWN && pIndex == 1) {
-            return pStack.is(Items.WATER_BUCKET) || pStack.is(Items.BUCKET);
-        } else {
-            return true;
-        }
-    }
-
-
 
     @Override
     public void onLoad() {
         super.onLoad();
-        lazyItemHandler = LazyOptional.of(() -> itemHandler);
+        createLazyHandlers();
     }
 
     @NotNull
     @Override
     public <T> LazyOptional<T> getCapability(Capability<T> capability, @Nullable Direction facing) {
         if (!this.remove && facing != null && capability == net.minecraftforge.items.CapabilityItemHandler.ITEM_HANDLER_CAPABILITY) {
-            if (facing == Direction.UP)
-                return sideHandlers[0].cast();
-            else if (facing == Direction.DOWN)
-                return sideHandlers[1].cast();
-            else
-                return sideHandlers[2].cast();
+            if (facing == Direction.UP){
+                return ingredientsLazyHandler.cast();
+            }
+            else if (facing == Direction.DOWN){
+                return resultLazyHandler.cast();
+            }
+            else {
+                return fuelLazyHandler.cast();
+            }
         }
         return super.getCapability(capability, facing);
     }
@@ -214,13 +163,21 @@ public class BrickFurnaceBlockEntity extends BaseContainerBlockEntity implements
     @Override
     public void invalidateCaps() {
         super.invalidateCaps();
-        for (LazyOptional<? extends IItemHandler> sideHandler : sideHandlers) sideHandler.invalidate();
+        ingredientsLazyHandler.invalidate();
+        resultLazyHandler.invalidate();
+        fuelLazyHandler.invalidate();
     }
 
     @Override
     public void reviveCaps() {
         super.reviveCaps();
-        this.sideHandlers = SidedInvWrapper.create(this, Direction.UP, Direction.DOWN, Direction.NORTH);
+        createLazyHandlers();
+    }
+
+    private void createLazyHandlers() {
+        this.ingredientsLazyHandler = LazyOptional.of(() -> ingredientsHandler);
+        this.resultLazyHandler = LazyOptional.of(() -> resultHandler);
+        this.fuelLazyHandler = LazyOptional.of(() -> fuelHandler);
     }
 
 }
