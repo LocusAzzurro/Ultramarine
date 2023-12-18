@@ -6,14 +6,14 @@ import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 @Mod(Ultramarine.MOD_ID)
 public class Ultramarine {
 
     public static final String MOD_ID = "ultramarine";
-    private static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
+    private static final Logger LOGGER = LogManager.getLogger();
 
     public Ultramarine() {
         IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();

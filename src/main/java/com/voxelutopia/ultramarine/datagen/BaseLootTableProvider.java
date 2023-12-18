@@ -31,7 +31,7 @@ import net.minecraft.loot.functions.SetCount;
 import net.minecraft.state.properties.SlabType;
 import net.minecraft.util.IItemProvider;
 import net.minecraft.util.ResourceLocation;
-import org.slf4j.Logger;
+import org.apache.logging.log4j.Logger;
 
 import java.io.IOException;
 import java.nio.file.Path;
