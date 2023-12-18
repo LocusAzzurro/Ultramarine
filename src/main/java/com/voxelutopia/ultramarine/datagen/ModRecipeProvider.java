@@ -1,6 +1,7 @@
 package com.voxelutopia.ultramarine.datagen;
 
 import com.voxelutopia.ultramarine.data.ModItemTags;
+import com.voxelutopia.ultramarine.data.recipe.CompositeSmeltingRecipeBuilder;
 import com.voxelutopia.ultramarine.data.registry.ItemRegistry;
 import com.voxelutopia.ultramarine.data.registry.RecipeSerializerRegistry;
 import net.minecraft.advancements.critereon.InventoryChangeTrigger;
@@ -139,6 +140,10 @@ public class ModRecipeProvider extends RecipeProvider {
 
         //LAMPS
         generateLampRecipes(recipeConsumer);
+
+        //TESTS
+        CompositeSmeltingRecipeBuilder.compositeSmelting(Ingredient.of(ItemRegistry.UNFIRED_CLAY_BRICK.get()), Ingredient.of(ItemRegistry.PRISMARINE_DUST.get()), ItemRegistry.CYAN_BRICK.get(), 0.1f, 40)
+                .unlockedBy(itemUnlockName(ItemRegistry.UNFIRED_CLAY_BRICK.get()), itemCriterion(ItemRegistry.UNFIRED_CLAY_BRICK.get())).save(recipeConsumer);
     }
 
     private static void generateLampRecipes(@NotNull Consumer<FinishedRecipe> recipeConsumer) {
