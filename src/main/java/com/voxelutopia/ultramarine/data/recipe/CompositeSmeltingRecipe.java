@@ -17,6 +17,8 @@ import net.minecraft.world.level.Level;
 import net.minecraftforge.registries.ForgeRegistries;
 import org.jetbrains.annotations.Nullable;
 
+import java.util.stream.Stream;
+
 public class CompositeSmeltingRecipe implements Recipe<Container> {
 
     protected final ResourceLocation id;
@@ -41,6 +43,10 @@ public class CompositeSmeltingRecipe implements Recipe<Container> {
     public boolean matches(Container pContainer, Level pLevel) {
         return this.primaryIngredient.test(pContainer.getItem(BrickFurnaceBlockEntity.SLOT_INPUT_PRIMARY)) &&
                 this.secondaryIngredient.test(pContainer.getItem(BrickFurnaceBlockEntity.SLOT_INPUT_SECONDARY));
+    }
+
+    public boolean partialMatch(Container pContainer, Level pLevel) {
+        return primaryIngredient.or(secondaryIngredient).test(pContainer.getItem(0));
     }
 
     @Override

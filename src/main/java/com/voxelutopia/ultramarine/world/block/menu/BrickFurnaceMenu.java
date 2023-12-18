@@ -1,8 +1,10 @@
 package com.voxelutopia.ultramarine.world.block.menu;
 
 import com.voxelutopia.ultramarine.Ultramarine;
+import com.voxelutopia.ultramarine.data.recipe.CompositeSmeltingRecipe;
 import com.voxelutopia.ultramarine.data.registry.BlockRegistry;
 import com.voxelutopia.ultramarine.data.registry.MenuTypeRegistry;
+import com.voxelutopia.ultramarine.data.registry.RecipeTypeRegistry;
 import com.voxelutopia.ultramarine.world.block.entity.BrickFurnaceBlockEntity;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.Container;
@@ -11,6 +13,7 @@ import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.*;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.crafting.AbstractCookingRecipe;
 import net.minecraft.world.item.crafting.RecipeType;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
@@ -19,6 +22,7 @@ import net.minecraftforge.items.IItemHandler;
 import net.minecraftforge.items.ItemStackHandler;
 import net.minecraftforge.items.SlotItemHandler;
 import net.minecraftforge.items.wrapper.InvWrapper;
+import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 import javax.annotation.Nonnull;
@@ -51,8 +55,8 @@ public class BrickFurnaceMenu extends AbstractContainerMenu {
         this.inventory = new InvWrapper(inventory);
         this.data = containerData;
 
-        this.addSlot(new IngredientSlot(storage, SLOT_INPUT_PRIMARY, 56 - 9, 17));
-        this.addSlot(new IngredientSlot(storage, SLOT_INPUT_SECONDARY, 56 + 9, 17));
+        this.addSlot(new IngredientSlot(storage, SLOT_INPUT_PRIMARY, 46, 17));
+        this.addSlot(new IngredientSlot(storage, SLOT_INPUT_SECONDARY, 66, 17));
         this.addSlot(new FuelSlot(storage, SLOT_FUEL, 56, 53));
         this.addSlot(new OutputSlot(storage, SLOT_RESULT, 116, 35));
 
@@ -71,8 +75,55 @@ public class BrickFurnaceMenu extends AbstractContainerMenu {
 
     @Override
     public ItemStack quickMoveStack(Player pPlayer, int pIndex) {
-        return ItemStack.EMPTY;
-        //TODO
+        ItemStack itemstack = ItemStack.EMPTY;
+        Slot slot = this.slots.get(pIndex);
+        if (slot.hasItem()) {
+            ItemStack slotItem = slot.getItem();
+            itemstack = slotItem.copy();
+            if (pIndex == SLOT_RESULT) {
+                if (!this.moveItemStackTo(slotItem, INV_SLOT_START, USE_ROW_SLOT_END, true)) {
+                    return ItemStack.EMPTY;
+                }
+                slot.onQuickCraft(slotItem, itemstack);
+            } else if (pIndex != SLOT_FUEL && pIndex != SLOT_INPUT_PRIMARY && pIndex != SLOT_INPUT_SECONDARY) {
+                if (this.canProcess(slotItem)) {
+                    if (!this.moveItemStackTo(slotItem, SLOT_INPUT_PRIMARY, SLOT_INPUT_SECONDARY + 1, false)) {
+                        return ItemStack.EMPTY;
+                    }
+                } else if (isFuel(slotItem)) {
+                    if (!this.moveItemStackTo(slotItem, SLOT_FUEL, SLOT_FUEL + 1, false)) {
+                        return ItemStack.EMPTY;
+                    }
+                } else if (pIndex >= INV_SLOT_START && pIndex < INV_SLOT_END) {
+                    if (!this.moveItemStackTo(slotItem, USE_ROW_SLOT_START, USE_ROW_SLOT_END, false)) {
+                        return ItemStack.EMPTY;
+                    }
+                } else if (pIndex >= USE_ROW_SLOT_START && pIndex < USE_ROW_SLOT_END && !this.moveItemStackTo(slotItem, INV_SLOT_START, INV_SLOT_END, false)) {
+                    return ItemStack.EMPTY;
+                }
+            } else if (!this.moveItemStackTo(slotItem, INV_SLOT_START, USE_ROW_SLOT_END, false)) {
+                return ItemStack.EMPTY;
+            }
+
+            if (slotItem.isEmpty()) {
+                slot.set(ItemStack.EMPTY);
+            } else {
+                slot.setChanged();
+            }
+
+            if (slotItem.getCount() == itemstack.getCount()) {
+                return ItemStack.EMPTY;
+            }
+
+            slot.onTake(pPlayer, slotItem);
+        }
+
+        return itemstack;
+    }
+
+    protected boolean canProcess(ItemStack item) {
+        return blockEntity.getLevel().getRecipeManager().getAllRecipesFor(RecipeTypeRegistry.COMPOSITE_SMELTING.get()).stream()
+                .anyMatch(recipe -> recipe.partialMatch(new SimpleContainer(item), blockEntity.getLevel()));
     }
 
     @Override
@@ -104,10 +155,13 @@ public class BrickFurnaceMenu extends AbstractContainerMenu {
 
         @Override
         public boolean mayPlace(@Nonnull ItemStack stack) {
-            return ForgeHooks.getBurnTime(stack, RecipeType.SMELTING) > 0;
+            return isFuel(stack);
         }
     }
 
+    private static boolean isFuel(@NotNull ItemStack stack) {
+        return ForgeHooks.getBurnTime(stack, RecipeType.SMELTING) > 0;
+    }
 
 
 }
