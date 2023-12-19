@@ -1,14 +1,19 @@
 package com.voxelutopia.ultramarine.world.block.entity;
 
 import com.voxelutopia.ultramarine.data.registry.BlockEntityRegistry;
+import com.voxelutopia.ultramarine.world.block.BrickFurnace;
 import com.voxelutopia.ultramarine.world.block.menu.BrickFurnaceMenu;
 import it.unimi.dsi.fastutil.objects.Object2IntOpenHashMap;
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.core.NonNullList;
+import net.minecraft.nbt.CompoundTag;
+import net.minecraft.nbt.ListTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.ContainerHelper;
 import net.minecraft.world.MenuProvider;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
@@ -23,6 +28,8 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.common.ForgeHooks;
 import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.common.util.LazyOptional;
+import net.minecraftforge.items.IItemHandler;
+import net.minecraftforge.items.ItemHandlerHelper;
 import net.minecraftforge.items.ItemStackHandler;
 import net.minecraftforge.items.wrapper.CombinedInvWrapper;
 import org.jetbrains.annotations.NotNull;
@@ -134,7 +141,65 @@ public class BrickFurnaceBlockEntity extends BlockEntity implements MenuProvider
     @Override
     public AbstractContainerMenu createMenu(int pContainerId, Inventory pInventory, Player pPlayer) {
         return new BrickFurnaceMenu(pContainerId, this.worldPosition, pInventory,
-                new CombinedInvWrapper(this.ingredientsHandler, this.fuelHandler, this.resultHandler), this.dataAccess);
+                wrapHandlers(), this.dataAccess);
+    }
+
+    private CombinedInvWrapper wrapHandlers(){
+        return new CombinedInvWrapper(this.ingredientsHandler, this.fuelHandler, this.resultHandler);
+    }
+
+    public void load(CompoundTag pTag) {
+        super.load(pTag);
+        this.litTime = pTag.getInt("BurnTime");
+        this.cookingProgress = pTag.getInt("CookTime");
+        this.cookingTotalTime = pTag.getInt("CookTimeTotal");
+
+        ListTag itemListTag = pTag.getList("Items", 10);
+        for(int i = 0; i < itemListTag.size(); ++i) {
+            CompoundTag itemTag = itemListTag.getCompound(i);
+            int j = itemTag.getByte("Slot") & 255;
+            switch (j){
+                case SLOT_INPUT_PRIMARY -> this.ingredientsHandler.setStackInSlot(0, ItemStack.of(itemTag));
+                case SLOT_INPUT_SECONDARY -> this.ingredientsHandler.setStackInSlot(1, ItemStack.of(itemTag));
+                case SLOT_FUEL -> this.fuelHandler.setStackInSlot(0, ItemStack.of(itemTag));
+                case SLOT_RESULT -> this.resultHandler.setStackInSlot(0, ItemStack.of(itemTag));
+            }
+        }
+
+        this.litDuration = ForgeHooks.getBurnTime(this.fuelHandler.getStackInSlot(0), RecipeType.SMELTING);
+
+        CompoundTag recipesTag = pTag.getCompound("RecipesUsed");
+
+        for(String s : recipesTag.getAllKeys()) {
+            this.recipesUsed.put(new ResourceLocation(s), recipesTag.getInt(s));
+        }
+
+    }
+
+    protected void saveAdditional(CompoundTag pTag) {
+        super.saveAdditional(pTag);
+        pTag.putInt("BurnTime", this.litTime);
+        pTag.putInt("CookTime", this.cookingProgress);
+        pTag.putInt("CookTimeTotal", this.cookingTotalTime);
+
+        ListTag itemListTag = new ListTag();
+        var items = this.wrapHandlers();
+        for (int i = 0; i < items.getSlots(); i++){
+            ItemStack item = items.getStackInSlot(i);
+            if (!item.isEmpty()) {
+                CompoundTag itemTag = new CompoundTag();
+                itemTag.putByte("Slot", (byte)i);
+                item.save(itemTag);
+                itemListTag.add(itemTag);
+            }
+        }
+        if (!itemListTag.isEmpty()) {
+            pTag.put("Items", itemListTag);
+        }
+
+        CompoundTag recipesTag = new CompoundTag();
+        this.recipesUsed.forEach((resourceLocation, count) -> recipesTag.putInt(resourceLocation.toString(), count));
+        pTag.put("RecipesUsed", recipesTag);
     }
 
     @Override
