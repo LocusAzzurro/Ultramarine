@@ -1,8 +1,12 @@
 package com.voxelutopia.ultramarine.world.block.entity;
 
+import com.google.common.collect.Lists;
+import com.voxelutopia.ultramarine.data.recipe.CompositeSmeltingRecipe;
 import com.voxelutopia.ultramarine.data.registry.BlockEntityRegistry;
+import com.voxelutopia.ultramarine.data.registry.RecipeTypeRegistry;
 import com.voxelutopia.ultramarine.world.block.BrickFurnace;
 import com.voxelutopia.ultramarine.world.block.menu.BrickFurnaceMenu;
+import it.unimi.dsi.fastutil.objects.Object2IntMap;
 import it.unimi.dsi.fastutil.objects.Object2IntOpenHashMap;
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
@@ -13,18 +17,29 @@ import net.minecraft.nbt.ListTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.ContainerHelper;
-import net.minecraft.world.MenuProvider;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.util.Mth;
+import net.minecraft.world.*;
+import net.minecraft.world.entity.ExperienceOrb;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.inventory.ContainerData;
+import net.minecraft.world.inventory.RecipeHolder;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
+import net.minecraft.world.item.crafting.AbstractCookingRecipe;
+import net.minecraft.world.item.crafting.Recipe;
 import net.minecraft.world.item.crafting.RecipeType;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.AbstractFurnaceBlock;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.entity.AbstractFurnaceBlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.phys.Vec3;
 import net.minecraftforge.common.ForgeHooks;
 import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.common.util.LazyOptional;
@@ -32,15 +47,17 @@ import net.minecraftforge.items.IItemHandler;
 import net.minecraftforge.items.ItemHandlerHelper;
 import net.minecraftforge.items.ItemStackHandler;
 import net.minecraftforge.items.wrapper.CombinedInvWrapper;
+import net.minecraftforge.items.wrapper.RecipeWrapper;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 import javax.annotation.ParametersAreNonnullByDefault;
+import java.util.List;
 
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 @SuppressWarnings("unused")
-public class BrickFurnaceBlockEntity extends BlockEntity implements MenuProvider {
+public class BrickFurnaceBlockEntity extends BlockEntity implements MenuProvider, RecipeHolder {
 
     public static final int SLOT_INPUT_PRIMARY = 0;
     public static final int SLOT_INPUT_SECONDARY = 1;
@@ -129,7 +146,158 @@ public class BrickFurnaceBlockEntity extends BlockEntity implements MenuProvider
     }
 
     public static void serverTick(Level pLevel, BlockPos pPos, BlockState pState, BrickFurnaceBlockEntity pBlockEntity){
-        //TODO
+        boolean lit = pBlockEntity.isLit();
+        boolean changed = false;
+
+        ItemStack fuelItem = pBlockEntity.fuelHandler.getStackInSlot(0);
+        ItemStack primaryItem = pBlockEntity.ingredientsHandler.getStackInSlot(0);
+        ItemStack secondaryItem = pBlockEntity.ingredientsHandler.getStackInSlot(1);
+        ItemStack resultItem = pBlockEntity.resultHandler.getStackInSlot(0);
+        CompositeSmeltingRecipe recipe = pLevel.getRecipeManager().getRecipeFor(RecipeTypeRegistry.COMPOSITE_SMELTING.get(), wrapRecipe(pBlockEntity), pLevel).orElse(null);
+
+        if (pBlockEntity.isLit()) {
+            --pBlockEntity.litTime;
+        }
+
+        if (recipe != null){
+            pBlockEntity.cookingTotalTime = recipe.getCookingTime();
+        }
+
+        if (pBlockEntity.isLit() || !fuelItem.isEmpty() && (!primaryItem.isEmpty() && !secondaryItem.isEmpty())) {
+
+            int maxStack = 64;
+            if (!pBlockEntity.isLit() && recipe != null && pBlockEntity.canBurn(recipe, fuelItem, primaryItem, secondaryItem, resultItem, maxStack)) {
+                pBlockEntity.litTime = ForgeHooks.getBurnTime(fuelItem, RecipeType.SMELTING);
+                pBlockEntity.litDuration = pBlockEntity.litTime;
+                if (pBlockEntity.isLit()) {
+                    changed = true;
+                    fuelItem.shrink(1);
+                    pBlockEntity.fuelHandler.setStackInSlot(0, fuelItem);
+                    //no lava buckets
+                }
+            }
+
+            if (pBlockEntity.isLit() && pBlockEntity.canBurn(recipe, fuelItem, primaryItem, secondaryItem, resultItem, maxStack)) {
+                ++pBlockEntity.cookingProgress;
+                if (pBlockEntity.cookingProgress == pBlockEntity.cookingTotalTime) {
+                    pBlockEntity.cookingProgress = 0;
+                    pBlockEntity.cookingTotalTime = getTotalCookTime(pLevel, pBlockEntity);
+                    if (pBlockEntity.burn(recipe, pBlockEntity, fuelItem, primaryItem, secondaryItem, resultItem, maxStack)) {
+                        pBlockEntity.setRecipeUsed(recipe);
+                    }
+
+                    changed = true;
+                }
+            } else {
+                pBlockEntity.cookingProgress = 0;
+            }
+        } else if (!pBlockEntity.isLit() && pBlockEntity.cookingProgress > 0) {
+            pBlockEntity.cookingProgress = Mth.clamp(pBlockEntity.cookingProgress - 2, 0, pBlockEntity.cookingTotalTime);
+        }
+
+        if (lit != pBlockEntity.isLit()) {
+            changed = true;
+            pState = pState.setValue(AbstractFurnaceBlock.LIT, pBlockEntity.isLit());
+            pLevel.setBlock(pPos, pState, 3);
+        }
+
+        if (changed) {
+            setChanged(pLevel, pPos, pState);
+        }
+    }
+
+    private boolean canBurn(@Nullable Recipe<Container> pRecipe, ItemStack fuel, ItemStack primary, ItemStack secondary, ItemStack resultPrev, int maxStackSize) {
+        if (!primary.isEmpty() && !secondary.isEmpty() && pRecipe != null) {
+            ItemStack result = (pRecipe.assemble(new SimpleContainer(primary, secondary)));
+            if (result.isEmpty()) {
+                return false;
+            } else {
+                if (resultPrev.isEmpty()) {
+                    return true;
+                } else if (!resultPrev.sameItem(result)) {
+                    return false;
+                } else if (resultPrev.getCount() + result.getCount() <= maxStackSize && resultPrev.getCount() + result.getCount() <= resultPrev.getMaxStackSize()) { // Forge fix: make furnace respect stack sizes in furnace recipes
+                    return true;
+                } else {
+                    return resultPrev.getCount() + result.getCount() <= result.getMaxStackSize(); // Forge fix: make furnace respect stack sizes in furnace recipes
+                }
+            }
+        } else {
+            return false;
+        }
+    }
+
+    private boolean burn(Recipe<Container> pRecipe, BrickFurnaceBlockEntity entity, ItemStack fuel, ItemStack primary, ItemStack secondary, ItemStack resultPrev, int maxStackSize) {
+        if (this.canBurn(pRecipe, fuel, primary, secondary, resultPrev, maxStackSize)) {
+            ItemStack newResult = (pRecipe.assemble(new SimpleContainer(primary, secondary)));
+            if (resultPrev.isEmpty()) {
+                entity.resultHandler.setStackInSlot(0, newResult.copy());
+            } else if (resultPrev.is(newResult.getItem())) {
+                resultPrev.grow(newResult.getCount());
+            }
+
+            primary.shrink(1);
+            secondary.shrink(1);
+            entity.ingredientsHandler.setStackInSlot(0, primary);
+            entity.ingredientsHandler.setStackInSlot(1, secondary);
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    private static int getTotalCookTime(Level pLevel, BrickFurnaceBlockEntity entity) {
+        return pLevel.getRecipeManager().getRecipeFor(RecipeTypeRegistry.COMPOSITE_SMELTING.get(), wrapRecipe(entity), pLevel).map(CompositeSmeltingRecipe::getCookingTime).orElse(200);
+    }
+
+    public void setRecipeUsed(@Nullable Recipe<?> pRecipe) {
+        if (pRecipe != null) {
+            ResourceLocation resourcelocation = pRecipe.getId();
+            this.recipesUsed.addTo(resourcelocation, 1);
+        }
+
+    }
+
+    @Nullable
+    @Override
+    public Recipe<?> getRecipeUsed() {
+        return null;
+    }
+
+    public void awardUsedRecipes(Player pPlayer) {
+    }
+
+    public void awardUsedRecipesAndPopExperience(ServerPlayer pPlayer) {
+        List<Recipe<?>> list = this.getRecipesToAwardAndPopExperience(pPlayer.getLevel(), pPlayer.position());
+        pPlayer.awardRecipes(list);
+        this.recipesUsed.clear();
+    }
+
+    public List<Recipe<?>> getRecipesToAwardAndPopExperience(ServerLevel pLevel, Vec3 pos) {
+        List<Recipe<?>> list = Lists.newArrayList();
+
+        for(Object2IntMap.Entry<ResourceLocation> entry : this.recipesUsed.object2IntEntrySet()) {
+            pLevel.getRecipeManager().byKey(entry.getKey()).ifPresent((p_155023_) -> {
+                list.add(p_155023_);
+                createExperience(pLevel, pos, entry.getIntValue(), ((AbstractCookingRecipe)p_155023_).getExperience());
+            });
+        }
+
+        return list;
+    }
+
+    private static void createExperience(ServerLevel pLevel, Vec3 p_155000_, int p_155001_, float p_155002_) {
+        int i = Mth.floor((float)p_155001_ * p_155002_);
+        float f = Mth.frac((float)p_155001_ * p_155002_);
+        if (f != 0.0F && Math.random() < (double)f) {
+            ++i;
+        }
+
+        ExperienceOrb.award(pLevel, p_155000_, i);
+    }
+
+    private boolean isLit() {
+        return this.litTime > 0;
     }
 
     @Override
@@ -144,8 +312,12 @@ public class BrickFurnaceBlockEntity extends BlockEntity implements MenuProvider
                 wrapHandlers(), this.dataAccess);
     }
 
-    private CombinedInvWrapper wrapHandlers(){
+    public CombinedInvWrapper wrapHandlers(){
         return new CombinedInvWrapper(this.ingredientsHandler, this.fuelHandler, this.resultHandler);
+    }
+
+    private static RecipeWrapper wrapRecipe(BrickFurnaceBlockEntity entity){
+        return new RecipeWrapper(entity.ingredientsHandler);
     }
 
     public void load(CompoundTag pTag) {

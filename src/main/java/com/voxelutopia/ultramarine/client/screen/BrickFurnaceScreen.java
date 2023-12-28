@@ -39,5 +39,12 @@ public class BrickFurnaceScreen extends AbstractContainerScreen<BrickFurnaceMenu
         RenderSystem.setShaderColor(1.0F, 1.0F, 1.0F, 1.0F);
         RenderSystem.setShaderTexture(0, BACKGROUND);
         this.blit(pPoseStack, this.getGuiLeft(), this.getGuiTop(), 0, 0, this.imageWidth, this.imageHeight);
+        if (this.menu.isLit()) {
+            int k = this.menu.getLitProgress();
+            this.blit(pPoseStack, this.getGuiLeft() + 56, this.getGuiTop() + 36 + 12 - k, 176, 12 - k, 14, k + 1);
+        }
+
+        int l = this.menu.getBurnProgress();
+        this.blit(pPoseStack, this.getGuiLeft() + 79, this.getGuiTop() + 34, 176, 14, l + 1, 16);
     }
 }

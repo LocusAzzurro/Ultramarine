@@ -79,6 +79,10 @@ public class CompositeSmeltingRecipe implements Recipe<Container> {
         return RecipeTypeRegistry.COMPOSITE_SMELTING.get();
     }
 
+    public int getCookingTime() {
+        return cookingTime;
+    }
+
     public static class Serializer implements RecipeSerializer<CompositeSmeltingRecipe> {
 
         public static final Serializer INSTANCE = new Serializer();

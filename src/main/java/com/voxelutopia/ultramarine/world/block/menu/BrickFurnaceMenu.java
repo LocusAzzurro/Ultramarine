@@ -131,6 +131,25 @@ public class BrickFurnaceMenu extends AbstractContainerMenu {
         return stillValid(ContainerLevelAccess.create(blockEntity.getLevel(), blockEntity.getBlockPos()), playerEntity, BlockRegistry.BRICK_FURNACE.get());
     }
 
+    public boolean isLit() {
+        return this.data.get(BrickFurnaceBlockEntity.DATA_LIT_TIME) > 0;
+    }
+
+    public int getBurnProgress() {
+        int i = this.data.get(BrickFurnaceBlockEntity.DATA_COOKING_PROGRESS);
+        int j = this.data.get(BrickFurnaceBlockEntity.DATA_COOKING_TOTAL_TIME);
+        return j != 0 && i != 0 ? i * 24 / j : 0;
+    }
+
+    public int getLitProgress() {
+        int i = this.data.get(BrickFurnaceBlockEntity.DATA_LIT_DURATION);
+        if (i == 0) {
+            i = 200;
+        }
+
+        return this.data.get(BrickFurnaceBlockEntity.DATA_LIT_TIME) * 13 / i;
+    }
+
     static class OutputSlot extends SlotItemHandler {
         public OutputSlot(IItemHandler itemHandler, int index, int xPosition, int yPosition) {
             super(itemHandler, index, xPosition, yPosition);
