@@ -6,7 +6,7 @@ import com.google.gson.JsonSyntaxException;
 import com.voxelutopia.ultramarine.Ultramarine;
 import com.voxelutopia.ultramarine.data.registry.RecipeSerializerRegistry;
 import com.voxelutopia.ultramarine.data.registry.RecipeTypeRegistry;
-import com.voxelutopia.ultramarine.world.block.entity.BrickFurnaceBlockEntity;
+import com.voxelutopia.ultramarine.world.block.entity.BrickKilnBlockEntity;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.GsonHelper;
@@ -16,8 +16,6 @@ import net.minecraft.world.item.crafting.*;
 import net.minecraft.world.level.Level;
 import net.minecraftforge.registries.ForgeRegistries;
 import org.jetbrains.annotations.Nullable;
-
-import java.util.stream.Stream;
 
 public class CompositeSmeltingRecipe implements Recipe<Container> {
 
@@ -41,8 +39,8 @@ public class CompositeSmeltingRecipe implements Recipe<Container> {
 
     @Override
     public boolean matches(Container pContainer, Level pLevel) {
-        return this.primaryIngredient.test(pContainer.getItem(BrickFurnaceBlockEntity.SLOT_INPUT_PRIMARY)) &&
-                this.secondaryIngredient.test(pContainer.getItem(BrickFurnaceBlockEntity.SLOT_INPUT_SECONDARY));
+        return this.primaryIngredient.test(pContainer.getItem(BrickKilnBlockEntity.SLOT_INPUT_PRIMARY)) &&
+                this.secondaryIngredient.test(pContainer.getItem(BrickKilnBlockEntity.SLOT_INPUT_SECONDARY));
     }
 
     public boolean partialMatch(Container pContainer, Level pLevel) {

@@ -4,14 +4,12 @@ import com.google.common.collect.Lists;
 import com.voxelutopia.ultramarine.data.recipe.CompositeSmeltingRecipe;
 import com.voxelutopia.ultramarine.data.registry.BlockEntityRegistry;
 import com.voxelutopia.ultramarine.data.registry.RecipeTypeRegistry;
-import com.voxelutopia.ultramarine.world.block.BrickFurnace;
-import com.voxelutopia.ultramarine.world.block.menu.BrickFurnaceMenu;
+import com.voxelutopia.ultramarine.world.block.menu.BrickKlinMenu;
 import it.unimi.dsi.fastutil.objects.Object2IntMap;
 import it.unimi.dsi.fastutil.objects.Object2IntOpenHashMap;
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
-import net.minecraft.core.NonNullList;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.ListTag;
 import net.minecraft.network.chat.Component;
@@ -27,24 +25,18 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.inventory.ContainerData;
 import net.minecraft.world.inventory.RecipeHolder;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.AbstractCookingRecipe;
 import net.minecraft.world.item.crafting.Recipe;
 import net.minecraft.world.item.crafting.RecipeType;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.AbstractFurnaceBlock;
-import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.entity.AbstractFurnaceBlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.Vec3;
 import net.minecraftforge.common.ForgeHooks;
 import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.common.util.LazyOptional;
-import net.minecraftforge.items.IItemHandler;
-import net.minecraftforge.items.ItemHandlerHelper;
 import net.minecraftforge.items.ItemStackHandler;
 import net.minecraftforge.items.wrapper.CombinedInvWrapper;
 import net.minecraftforge.items.wrapper.RecipeWrapper;
@@ -57,7 +49,7 @@ import java.util.List;
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 @SuppressWarnings("unused")
-public class BrickFurnaceBlockEntity extends BlockEntity implements MenuProvider, RecipeHolder {
+public class BrickKilnBlockEntity extends BlockEntity implements MenuProvider, RecipeHolder {
 
     public static final int SLOT_INPUT_PRIMARY = 0;
     public static final int SLOT_INPUT_SECONDARY = 1;
@@ -72,7 +64,7 @@ public class BrickFurnaceBlockEntity extends BlockEntity implements MenuProvider
     public static final int BURN_TIME_STANDARD = 200;
     public static final int BURN_COOL_SPEED = 2;
 
-    private static final Component CONTAINER_TITLE = new TranslatableComponent("container.brick_furnace");
+    private static final Component CONTAINER_TITLE = new TranslatableComponent("container.brick_kiln");
 
     int litTime;
     int litDuration;
@@ -117,20 +109,20 @@ public class BrickFurnaceBlockEntity extends BlockEntity implements MenuProvider
     protected final ContainerData dataAccess = new ContainerData() {
         public int get(int key) {
             return switch (key) {
-                case DATA_LIT_TIME -> BrickFurnaceBlockEntity.this.litTime;
-                case DATA_LIT_DURATION -> BrickFurnaceBlockEntity.this.litDuration;
-                case DATA_COOKING_PROGRESS -> BrickFurnaceBlockEntity.this.cookingProgress;
-                case DATA_COOKING_TOTAL_TIME -> BrickFurnaceBlockEntity.this.cookingTotalTime;
+                case DATA_LIT_TIME -> BrickKilnBlockEntity.this.litTime;
+                case DATA_LIT_DURATION -> BrickKilnBlockEntity.this.litDuration;
+                case DATA_COOKING_PROGRESS -> BrickKilnBlockEntity.this.cookingProgress;
+                case DATA_COOKING_TOTAL_TIME -> BrickKilnBlockEntity.this.cookingTotalTime;
                 default -> 0;
             };
         }
 
         public void set(int key, int value) {
             switch (key) {
-                case DATA_LIT_TIME -> BrickFurnaceBlockEntity.this.litTime = value;
-                case DATA_LIT_DURATION -> BrickFurnaceBlockEntity.this.litDuration = value;
-                case DATA_COOKING_PROGRESS -> BrickFurnaceBlockEntity.this.cookingProgress = value;
-                case DATA_COOKING_TOTAL_TIME -> BrickFurnaceBlockEntity.this.cookingTotalTime = value;
+                case DATA_LIT_TIME -> BrickKilnBlockEntity.this.litTime = value;
+                case DATA_LIT_DURATION -> BrickKilnBlockEntity.this.litDuration = value;
+                case DATA_COOKING_PROGRESS -> BrickKilnBlockEntity.this.cookingProgress = value;
+                case DATA_COOKING_TOTAL_TIME -> BrickKilnBlockEntity.this.cookingTotalTime = value;
             }
         }
 
@@ -141,11 +133,11 @@ public class BrickFurnaceBlockEntity extends BlockEntity implements MenuProvider
 
     private final Object2IntOpenHashMap<ResourceLocation> recipesUsed = new Object2IntOpenHashMap<>();
 
-    public BrickFurnaceBlockEntity(BlockPos blockPos, BlockState blockState) {
-        super(BlockEntityRegistry.BRICK_FURNACE.get(), blockPos, blockState);
+    public BrickKilnBlockEntity(BlockPos blockPos, BlockState blockState) {
+        super(BlockEntityRegistry.BRICK_KILN.get(), blockPos, blockState);
     }
 
-    public static void serverTick(Level pLevel, BlockPos pPos, BlockState pState, BrickFurnaceBlockEntity pBlockEntity){
+    public static void serverTick(Level pLevel, BlockPos pPos, BlockState pState, BrickKilnBlockEntity pBlockEntity){
         boolean lit = pBlockEntity.isLit();
         boolean changed = false;
 
@@ -227,7 +219,7 @@ public class BrickFurnaceBlockEntity extends BlockEntity implements MenuProvider
         }
     }
 
-    private boolean burn(Recipe<Container> pRecipe, BrickFurnaceBlockEntity entity, ItemStack fuel, ItemStack primary, ItemStack secondary, ItemStack resultPrev, int maxStackSize) {
+    private boolean burn(Recipe<Container> pRecipe, BrickKilnBlockEntity entity, ItemStack fuel, ItemStack primary, ItemStack secondary, ItemStack resultPrev, int maxStackSize) {
         if (this.canBurn(pRecipe, fuel, primary, secondary, resultPrev, maxStackSize)) {
             ItemStack newResult = (pRecipe.assemble(new SimpleContainer(primary, secondary)));
             if (resultPrev.isEmpty()) {
@@ -246,7 +238,7 @@ public class BrickFurnaceBlockEntity extends BlockEntity implements MenuProvider
         }
     }
 
-    private static int getTotalCookTime(Level pLevel, BrickFurnaceBlockEntity entity) {
+    private static int getTotalCookTime(Level pLevel, BrickKilnBlockEntity entity) {
         return pLevel.getRecipeManager().getRecipeFor(RecipeTypeRegistry.COMPOSITE_SMELTING.get(), wrapRecipe(entity), pLevel).map(CompositeSmeltingRecipe::getCookingTime).orElse(200);
     }
 
@@ -308,7 +300,7 @@ public class BrickFurnaceBlockEntity extends BlockEntity implements MenuProvider
     @Nullable
     @Override
     public AbstractContainerMenu createMenu(int pContainerId, Inventory pInventory, Player pPlayer) {
-        return new BrickFurnaceMenu(pContainerId, this.worldPosition, pInventory,
+        return new BrickKlinMenu(pContainerId, this.worldPosition, pInventory,
                 wrapHandlers(), this.dataAccess);
     }
 
@@ -316,7 +308,7 @@ public class BrickFurnaceBlockEntity extends BlockEntity implements MenuProvider
         return new CombinedInvWrapper(this.ingredientsHandler, this.fuelHandler, this.resultHandler);
     }
 
-    private static RecipeWrapper wrapRecipe(BrickFurnaceBlockEntity entity){
+    private static RecipeWrapper wrapRecipe(BrickKilnBlockEntity entity){
         return new RecipeWrapper(entity.ingredientsHandler);
     }
 

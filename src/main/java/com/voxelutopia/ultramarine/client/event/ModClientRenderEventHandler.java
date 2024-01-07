@@ -1,7 +1,7 @@
 package com.voxelutopia.ultramarine.client.event;
 
 import com.voxelutopia.ultramarine.client.render.SeatEntityRenderer;
-import com.voxelutopia.ultramarine.client.screen.BrickFurnaceScreen;
+import com.voxelutopia.ultramarine.client.screen.BrickKilnScreen;
 import com.voxelutopia.ultramarine.client.screen.ContainerDecorativeBlockScreen;
 import com.voxelutopia.ultramarine.client.screen.WoodworkingWorkbenchScreen;
 import com.voxelutopia.ultramarine.data.registry.BlockRegistry;
@@ -175,7 +175,7 @@ public class ModClientRenderEventHandler {
             MenuScreens.register(MenuTypeRegistry.CONTAINER_DECORATIVE_BLOCK_MENU_FOOD_9X3.get(), ContainerDecorativeBlockScreen::new);
             MenuScreens.register(MenuTypeRegistry.CONTAINER_DECORATIVE_BLOCK_MENU_FOOD_9X6.get(), ContainerDecorativeBlockScreen::new);
             MenuScreens.register(MenuTypeRegistry.WOODWORKING_WORKBENCH.get(), WoodworkingWorkbenchScreen::new);
-            MenuScreens.register(MenuTypeRegistry.BRICK_FURNACE.get(), BrickFurnaceScreen::new);
+            MenuScreens.register(MenuTypeRegistry.BRICK_KILN.get(), BrickKilnScreen::new);
         });
     }
 

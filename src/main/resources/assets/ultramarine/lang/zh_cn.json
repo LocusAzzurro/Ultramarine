@@ -436,6 +436,7 @@
 
   "__comment9__": "Functional Blocks",
   "block.ultramarine.woodworking_workbench": "木工桌",
+  "block.ultramarine.brick_kiln": "砖窑",
 
   "__comment10__": "Resource Blocks",
   "block.ultramarine.jade_ore": "玉矿石",
@@ -548,6 +549,7 @@
   "container.ebony_cabinet": "乌木橱柜",
 
   "container.woodworking_workbench": "木工桌",
+  "container.brick_kiln": "砖窑",
 
   "__comment22__": "Entity",
   "entity.ultramarine.seat": "座位",

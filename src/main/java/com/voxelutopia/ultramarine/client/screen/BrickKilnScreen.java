@@ -3,8 +3,7 @@ package com.voxelutopia.ultramarine.client.screen;
 import com.mojang.blaze3d.systems.RenderSystem;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.voxelutopia.ultramarine.Ultramarine;
-import com.voxelutopia.ultramarine.world.block.menu.BrickFurnaceMenu;
-import com.voxelutopia.ultramarine.world.block.menu.WoodworkingWorkbenchMenu;
+import com.voxelutopia.ultramarine.world.block.menu.BrickKlinMenu;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
 import net.minecraft.client.renderer.GameRenderer;
@@ -12,11 +11,11 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Inventory;
 
-public class BrickFurnaceScreen extends AbstractContainerScreen<BrickFurnaceMenu> {
+public class BrickKilnScreen extends AbstractContainerScreen<BrickKlinMenu> {
 
-    private static final ResourceLocation BACKGROUND = new ResourceLocation(Ultramarine.MOD_ID, "textures/gui/brick_furnace.png");
+    private static final ResourceLocation BACKGROUND = new ResourceLocation(Ultramarine.MOD_ID, "textures/gui/brick_kiln.png");
 
-    public BrickFurnaceScreen(BrickFurnaceMenu pMenu, Inventory pPlayerInventory, Component pTitle) {
+    public BrickKilnScreen(BrickKlinMenu pMenu, Inventory pPlayerInventory, Component pTitle) {
         super(pMenu, pPlayerInventory, pTitle);
     }
 

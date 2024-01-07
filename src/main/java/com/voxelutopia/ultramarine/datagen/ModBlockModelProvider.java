@@ -1,7 +1,6 @@
 package com.voxelutopia.ultramarine.datagen;
 
 import com.voxelutopia.ultramarine.data.registry.BlockRegistry;
-import com.voxelutopia.ultramarine.data.registry.ItemRegistry;
 import com.voxelutopia.ultramarine.world.block.state.ChiralBlockType;
 import com.voxelutopia.ultramarine.world.block.state.ModBlockStateProperties;
 import com.voxelutopia.ultramarine.world.block.*;
@@ -344,7 +343,7 @@ public class ModBlockModelProvider extends BlockStateProvider {
         simpleBlock(BlockRegistry.HEMATITE_ORE.get());
 
         //TEMP TODO
-        simpleBlock(BlockRegistry.BRICK_FURNACE.get());
+        simpleBlock(BlockRegistry.BRICK_KILN.get());
     }
 
     private ResourceLocation blockLoc(Block block){

@@ -2,13 +2,13 @@
   "type": "minecraft:block",
   "pools": [
     {
-      "name": "brick_furnace",
+      "name": "brick_kiln",
       "rolls": 1.0,
       "bonus_rolls": 0.0,
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "ultramarine:brick_furnace"
+          "name": "ultramarine:brick_kiln"
         }
       ]
     }
