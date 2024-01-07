@@ -14,7 +14,7 @@ public class CreativeTabDefinitions {
     };
     public static final CreativeModeTab TOOLS = new CreativeModeTab(Ultramarine.MOD_ID + ".tools") {
         @Override public ItemStack makeIcon() {
-            return new ItemStack(ItemRegistry.WOODEN_HAMMER.get());
+            return new ItemStack(ItemRegistry.WOODEN_MALLET.get());
         }
     };
     public static final CreativeModeTab BUILDING_BLOCKS = new CreativeModeTab(Ultramarine.MOD_ID + ".building_blocks") {

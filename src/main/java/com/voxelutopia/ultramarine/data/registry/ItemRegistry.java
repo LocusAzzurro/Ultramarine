@@ -5,7 +5,7 @@ import com.voxelutopia.ultramarine.data.ModCreativeTab;
 import com.voxelutopia.ultramarine.data.ModFoods;
 import com.voxelutopia.ultramarine.world.item.AquaticPlantBlockItem;
 import com.voxelutopia.ultramarine.world.item.BaseFood;
-import com.voxelutopia.ultramarine.world.item.WoodenHammer;
+import com.voxelutopia.ultramarine.world.item.WoodenMallet;
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
@@ -719,7 +719,7 @@ public class ItemRegistry {
      *  TOOLS
      */
 
-    public static final RegistryObject<Item> WOODEN_HAMMER = ITEMS.register("wooden_hammer", WoodenHammer::new);
+    public static final RegistryObject<Item> WOODEN_MALLET = ITEMS.register("wooden_mallet", WoodenMallet::new);
     public static final RegistryObject<Item> WOODWORKING_WORKBENCH = fromBlock(BlockRegistry.WOODWORKING_WORKBENCH, ModCreativeTab.TOOLS);
     public static final RegistryObject<Item> BRICK_FURNACE = fromBlock(BlockRegistry.BRICK_FURNACE, ModCreativeTab.TOOLS);
 

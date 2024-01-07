@@ -18,9 +18,9 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.Optional;
 
-public class WoodenHammer extends Item {
+public class WoodenMallet extends Item {
 
-    public WoodenHammer() {
+    public WoodenMallet() {
         super(new Item.Properties().tab(CreativeTabDefinitions.TOOLS).durability(100));
     }
 
