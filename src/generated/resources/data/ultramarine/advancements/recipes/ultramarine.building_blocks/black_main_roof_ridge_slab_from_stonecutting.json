@@ -2,17 +2,17 @@
   "parent": "minecraft:recipes/root",
   "rewards": {
     "recipes": [
-      "ultramarine:variegated_rocks"
+      "ultramarine:black_main_roof_ridge_slab_from_stonecutting"
     ]
   },
   "criteria": {
-    "has_cobblestone": {
+    "has_black_main_roof_ridge_connection": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
             "items": [
-              "minecraft:cobblestone"
+              "ultramarine:black_main_roof_ridge_connection"
             ]
           }
         ]
@@ -21,13 +21,13 @@
     "has_the_recipe": {
       "trigger": "minecraft:recipe_unlocked",
       "conditions": {
-        "recipe": "ultramarine:variegated_rocks"
+        "recipe": "ultramarine:black_main_roof_ridge_slab_from_stonecutting"
       }
     }
   },
   "requirements": [
     [
-      "has_cobblestone",
+      "has_black_main_roof_ridge_connection",
       "has_the_recipe"
     ]
   ]

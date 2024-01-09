@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "BBB",
+    "BDB",
+    "BBB"
+  ],
+  "key": {
+    "B": {
+      "item": "ultramarine:black_floor_tiles_moderate_mossy"
+    },
+    "D": {
+      "item": "minecraft:moss_block"
+    }
+  },
+  "result": {
+    "item": "ultramarine:black_floor_tiles_very_mossy",
+    "count": 8
+  }
+}

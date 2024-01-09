@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:blasting",
+  "ingredient": {
+    "item": "minecraft:crimson_planks"
+  },
+  "result": "ultramarine:rosewood_planks",
+  "experience": 0.05,
+  "cookingtime": 100
+}

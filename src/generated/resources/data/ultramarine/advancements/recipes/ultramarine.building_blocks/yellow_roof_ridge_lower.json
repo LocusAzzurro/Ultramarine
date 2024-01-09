@@ -2,17 +2,17 @@
   "parent": "minecraft:recipes/root",
   "rewards": {
     "recipes": [
-      "ultramarine:variegated_rocks"
+      "ultramarine:yellow_roof_ridge_lower"
     ]
   },
   "criteria": {
-    "has_cobblestone": {
+    "has_yellow_roof_tile": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
             "items": [
-              "minecraft:cobblestone"
+              "ultramarine:yellow_roof_tile"
             ]
           }
         ]
@@ -21,13 +21,13 @@
     "has_the_recipe": {
       "trigger": "minecraft:recipe_unlocked",
       "conditions": {
-        "recipe": "ultramarine:variegated_rocks"
+        "recipe": "ultramarine:yellow_roof_ridge_lower"
       }
     }
   },
   "requirements": [
     [
-      "has_cobblestone",
+      "has_yellow_roof_tile",
       "has_the_recipe"
     ]
   ]

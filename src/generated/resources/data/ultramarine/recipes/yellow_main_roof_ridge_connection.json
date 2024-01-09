@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "TTT",
+    "RRR"
+  ],
+  "key": {
+    "R": {
+      "item": "ultramarine:yellow_roof_ridge_connection"
+    },
+    "T": {
+      "item": "ultramarine:yellow_roof_tile"
+    }
+  },
+  "result": {
+    "item": "ultramarine:yellow_main_roof_ridge_connection",
+    "count": 3
+  }
+}

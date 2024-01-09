@@ -2,17 +2,17 @@
   "parent": "minecraft:recipes/root",
   "rewards": {
     "recipes": [
-      "ultramarine:variegated_rocks"
+      "ultramarine:black_floor_tiles_very_mossy"
     ]
   },
   "criteria": {
-    "has_cobblestone": {
+    "has_black_floor_tiles_moderate_mossy": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
             "items": [
-              "minecraft:cobblestone"
+              "ultramarine:black_floor_tiles_moderate_mossy"
             ]
           }
         ]
@@ -21,13 +21,13 @@
     "has_the_recipe": {
       "trigger": "minecraft:recipe_unlocked",
       "conditions": {
-        "recipe": "ultramarine:variegated_rocks"
+        "recipe": "ultramarine:black_floor_tiles_very_mossy"
       }
     }
   },
   "requirements": [
     [
-      "has_cobblestone",
+      "has_black_floor_tiles_moderate_mossy",
       "has_the_recipe"
     ]
   ]

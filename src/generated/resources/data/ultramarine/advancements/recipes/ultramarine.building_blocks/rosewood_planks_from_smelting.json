@@ -2,17 +2,17 @@
   "parent": "minecraft:recipes/root",
   "rewards": {
     "recipes": [
-      "ultramarine:variegated_rocks"
+      "ultramarine:rosewood_planks_from_smelting"
     ]
   },
   "criteria": {
-    "has_cobblestone": {
+    "has_crimson_planks": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
             "items": [
-              "minecraft:cobblestone"
+              "minecraft:crimson_planks"
             ]
           }
         ]
@@ -21,13 +21,13 @@
     "has_the_recipe": {
       "trigger": "minecraft:recipe_unlocked",
       "conditions": {
-        "recipe": "ultramarine:variegated_rocks"
+        "recipe": "ultramarine:rosewood_planks_from_smelting"
       }
     }
   },
   "requirements": [
     [
-      "has_cobblestone",
+      "has_crimson_planks",
       "has_the_recipe"
     ]
   ]

@@ -29,14 +29,17 @@ public class ItemRegistry {
     public static final RegistryObject<Item> CYAN_BRICK_SLAB = fromBlock(BlockRegistry.CYAN_BRICK_SLAB, ModCreativeTab.BUILDING_BLOCKS);
     public static final RegistryObject<Item> CYAN_BRICK_STAIRS = fromBlock(BlockRegistry.CYAN_BRICK_STAIRS, ModCreativeTab.BUILDING_BLOCKS);
     public static final RegistryObject<Item> CYAN_BRICK_WALL = fromBlock(BlockRegistry.CYAN_BRICK_WALL, ModCreativeTab.BUILDING_BLOCKS);
+
     public static final RegistryObject<Item> BLACK_BRICKS = fromBlock(BlockRegistry.BLACK_BRICKS, ModCreativeTab.BUILDING_BLOCKS);
     public static final RegistryObject<Item> BLACK_BRICK_SLAB = fromBlock(BlockRegistry.BLACK_BRICK_SLAB, ModCreativeTab.BUILDING_BLOCKS);
     public static final RegistryObject<Item> BLACK_BRICK_STAIRS = fromBlock(BlockRegistry.BLACK_BRICK_STAIRS, ModCreativeTab.BUILDING_BLOCKS);
     public static final RegistryObject<Item> BLACK_BRICK_WALL = fromBlock(BlockRegistry.BLACK_BRICK_WALL, ModCreativeTab.BUILDING_BLOCKS);
+
     public static final RegistryObject<Item> BROWNISH_RED_STONE_BRICKS = fromBlock(BlockRegistry.BROWNISH_RED_STONE_BRICKS, ModCreativeTab.BUILDING_BLOCKS);
     public static final RegistryObject<Item> BROWNISH_RED_STONE_BRICK_SLAB = fromBlock(BlockRegistry.BROWNISH_RED_STONE_BRICK_SLAB, ModCreativeTab.BUILDING_BLOCKS);
     public static final RegistryObject<Item> BROWNISH_RED_STONE_BRICK_STAIRS = fromBlock(BlockRegistry.BROWNISH_RED_STONE_BRICK_STAIRS, ModCreativeTab.BUILDING_BLOCKS);
     public static final RegistryObject<Item> BROWNISH_RED_STONE_BRICK_WALL = fromBlock(BlockRegistry.BROWNISH_RED_STONE_BRICK_WALL, ModCreativeTab.BUILDING_BLOCKS);
+
     public static final RegistryObject<Item> WHITE_AND_PINK_MIXED_BRICKS = fromBlock(BlockRegistry.WHITE_AND_PINK_MIXED_BRICKS, ModCreativeTab.BUILDING_BLOCKS);
     public static final RegistryObject<Item> GREEN_WEATHERED_BRICKS = fromBlock(BlockRegistry.GREEN_WEATHERED_BRICKS, ModCreativeTab.BUILDING_BLOCKS);
 
@@ -45,16 +48,20 @@ public class ItemRegistry {
     public static final RegistryObject<Item> PALE_YELLOW_STONE = fromBlock(BlockRegistry.PALE_YELLOW_STONE, ModCreativeTab.BUILDING_BLOCKS);
     public static final RegistryObject<Item> PALE_YELLOW_STONE_SLAB = fromBlock(BlockRegistry.PALE_YELLOW_STONE_SLAB, ModCreativeTab.BUILDING_BLOCKS);
     public static final RegistryObject<Item> PALE_YELLOW_STONE_STAIRS = fromBlock(BlockRegistry.PALE_YELLOW_STONE_STAIRS, ModCreativeTab.BUILDING_BLOCKS);
+
     public static final RegistryObject<Item> VARIEGATED_ROCKS = fromBlock(BlockRegistry.VARIEGATED_ROCKS, ModCreativeTab.BUILDING_BLOCKS);
     public static final RegistryObject<Item> VARIEGATED_ROCK_SLAB = fromBlock(BlockRegistry.VARIEGATED_ROCK_SLAB, ModCreativeTab.BUILDING_BLOCKS);
     public static final RegistryObject<Item> VARIEGATED_ROCK_STAIRS = fromBlock(BlockRegistry.VARIEGATED_ROCK_STAIRS, ModCreativeTab.BUILDING_BLOCKS);
+
     public static final RegistryObject<Item> WEATHERED_STONE = fromBlock(BlockRegistry.WEATHERED_STONE, ModCreativeTab.BUILDING_BLOCKS);
     public static final RegistryObject<Item> WEATHERED_STONE_SLAB = fromBlock(BlockRegistry.WEATHERED_STONE_SLAB, ModCreativeTab.BUILDING_BLOCKS);
     public static final RegistryObject<Item> WEATHERED_STONE_STAIRS = fromBlock(BlockRegistry.WEATHERED_STONE_STAIRS, ModCreativeTab.BUILDING_BLOCKS);
+
     public static final RegistryObject<Item> POLISHED_WEATHERED_STONE = fromBlock(BlockRegistry.POLISHED_WEATHERED_STONE, ModCreativeTab.BUILDING_BLOCKS);
     public static final RegistryObject<Item> POLISHED_WEATHERED_STONE_SLAB = fromBlock(BlockRegistry.POLISHED_WEATHERED_STONE_SLAB, ModCreativeTab.BUILDING_BLOCKS);
     public static final RegistryObject<Item> POLISHED_WEATHERED_STONE_STAIRS = fromBlock(BlockRegistry.POLISHED_WEATHERED_STONE_STAIRS, ModCreativeTab.BUILDING_BLOCKS);
     public static final RegistryObject<Item> POLISHED_WEATHERED_STONE_WALL = fromBlock(BlockRegistry.POLISHED_WEATHERED_STONE_WALL, ModCreativeTab.BUILDING_BLOCKS);
+
     public static final RegistryObject<Item> GREEN_WEATHERED_STONE = fromBlock(BlockRegistry.GREEN_WEATHERED_STONE, ModCreativeTab.BUILDING_BLOCKS);
 
     // FLOOR TILES
@@ -63,21 +70,26 @@ public class ItemRegistry {
     public static final RegistryObject<Item> LIGHT_CYAN_FLOOR_TILE_SLAB = fromBlock(BlockRegistry.LIGHT_CYAN_FLOOR_TILE_SLAB, ModCreativeTab.BUILDING_BLOCKS);
     public static final RegistryObject<Item> LIGHT_CYAN_FLOOR_TILE_STAIRS = fromBlock(BlockRegistry.LIGHT_CYAN_FLOOR_TILE_STAIRS, ModCreativeTab.BUILDING_BLOCKS);
     public static final RegistryObject<Item> LIGHT_CYAN_FLOOR_TILE_WALL = fromBlock(BlockRegistry.LIGHT_CYAN_FLOOR_TILE_WALL, ModCreativeTab.BUILDING_BLOCKS);
+
     public static final RegistryObject<Item> CYAN_FLOOR_TILE = fromBlock(BlockRegistry.CYAN_FLOOR_TILE, ModCreativeTab.BUILDING_BLOCKS);
     public static final RegistryObject<Item> CYAN_FLOOR_TILE_SLAB = fromBlock(BlockRegistry.CYAN_FLOOR_TILE_SLAB, ModCreativeTab.BUILDING_BLOCKS);
     public static final RegistryObject<Item> CYAN_FLOOR_TILE_STAIRS = fromBlock(BlockRegistry.CYAN_FLOOR_TILE_STAIRS, ModCreativeTab.BUILDING_BLOCKS);
     public static final RegistryObject<Item> CYAN_FLOOR_TILE_WALL = fromBlock(BlockRegistry.CYAN_FLOOR_TILE_WALL, ModCreativeTab.BUILDING_BLOCKS);
+
     public static final RegistryObject<Item> DARK_CYAN_FLOOR_TILE = fromBlock(BlockRegistry.DARK_CYAN_FLOOR_TILE, ModCreativeTab.BUILDING_BLOCKS);
     public static final RegistryObject<Item> LAYERED_CYAN_FLOOR_TILES = fromBlock(BlockRegistry.LAYERED_CYAN_FLOOR_TILES, ModCreativeTab.BUILDING_BLOCKS);
     public static final RegistryObject<Item> VERTICAL_CYAN_FLOOR_TILES = fromBlock(BlockRegistry.VERTICAL_CYAN_FLOOR_TILES, ModCreativeTab.BUILDING_BLOCKS);
     public static final RegistryObject<Item> MIXED_CYAN_FLOOR_TILES = fromBlock(BlockRegistry.MIXED_CYAN_FLOOR_TILES, ModCreativeTab.BUILDING_BLOCKS);
     public static final RegistryObject<Item> CHISELED_CYAN_FLOOR_TILE = fromBlock(BlockRegistry.CHISELED_CYAN_FLOOR_TILE, ModCreativeTab.BUILDING_BLOCKS);
     public static final RegistryObject<Item> CUT_CYAN_FLOOR_TILES = fromBlock(BlockRegistry.CUT_CYAN_FLOOR_TILES, ModCreativeTab.BUILDING_BLOCKS);
+
     public static final RegistryObject<Item> WEATHERED_RED_STONE_TILE = fromBlock(BlockRegistry.WEATHERED_RED_STONE_TILE, ModCreativeTab.BUILDING_BLOCKS);
     public static final RegistryObject<Item> BLUE_AND_BLACK_TILE = fromBlock(BlockRegistry.BLUE_AND_BLACK_TILE, ModCreativeTab.BUILDING_BLOCKS);
+
     public static final RegistryObject<Item> GREEN_GLAZED_TILES = fromBlock(BlockRegistry.GREEN_GLAZED_TILES, ModCreativeTab.BUILDING_BLOCKS);
     public static final RegistryObject<Item> GREEN_GLAZED_TILE_SLAB = fromBlock(BlockRegistry.GREEN_GLAZED_TILE_SLAB, ModCreativeTab.BUILDING_BLOCKS);
     public static final RegistryObject<Item> GREEN_GLAZED_TILE_STAIRS = fromBlock(BlockRegistry.GREEN_GLAZED_TILE_STAIRS, ModCreativeTab.BUILDING_BLOCKS);
+
     public static final RegistryObject<Item> BLACK_FLOOR_TILES = fromBlock(BlockRegistry.BLACK_FLOOR_TILES, ModCreativeTab.BUILDING_BLOCKS);
     public static final RegistryObject<Item> BLACK_FLOOR_TILES_LITTLE_MOSSY = fromBlock(BlockRegistry.BLACK_FLOOR_TILES_LITTLE_MOSSY, ModCreativeTab.BUILDING_BLOCKS);
     public static final RegistryObject<Item> BLACK_FLOOR_TILES_MODERATE_MOSSY = fromBlock(BlockRegistry.BLACK_FLOOR_TILES_MODERATE_MOSSY, ModCreativeTab.BUILDING_BLOCKS);
