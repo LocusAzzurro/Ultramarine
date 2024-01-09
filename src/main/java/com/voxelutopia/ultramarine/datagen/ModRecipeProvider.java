@@ -1,10 +1,11 @@
 package com.voxelutopia.ultramarine.datagen;
 
+import com.google.common.collect.ImmutableSet;
 import com.voxelutopia.ultramarine.data.ModItemTags;
 import com.voxelutopia.ultramarine.data.recipe.CompositeSmeltingRecipeBuilder;
 import com.voxelutopia.ultramarine.data.registry.ItemRegistry;
 import com.voxelutopia.ultramarine.data.registry.RecipeSerializerRegistry;
-import net.minecraft.advancements.critereon.InventoryChangeTrigger;
+import net.minecraft.advancements.critereon.*;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.recipes.*;
 import net.minecraft.resources.ResourceLocation;
@@ -12,6 +13,7 @@ import net.minecraft.tags.ItemTags;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.item.alchemy.Potion;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.ItemLike;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -166,6 +168,19 @@ public class ModRecipeProvider extends RecipeProvider {
         ShapelessRecipeBuilder.shapeless(Items.BRICK, 1).requires(ItemRegistry.FIRED_BRICK.get())
                 .unlockedBy("has_" + ItemRegistry.FIRED_BRICK.get(), InventoryChangeTrigger.TriggerInstance.hasItems(ItemRegistry.FIRED_BRICK.get())).save(recipeConsumer);
 
+        //TOOLS
+
+        ShapedRecipeBuilder.shaped(ItemRegistry.WOODEN_MALLET.get(), 1)
+                .define('S', ItemTags.WOODEN_FENCES)
+                .define('W', ItemTags.PLANKS)
+                .pattern("WWW")
+                .pattern(" S ")
+                .pattern(" S ")
+                .unlockedBy("has_fence", InventoryChangeTrigger.TriggerInstance.hasItems(
+                        new ItemPredicate(ItemTags.WOODEN_FENCES, ImmutableSet.of(),
+                                MinMaxBounds.Ints.ANY, MinMaxBounds.Ints.ANY,
+                                EnchantmentPredicate.NONE, EnchantmentPredicate.NONE, null, NbtPredicate.ANY)))
+                .save(recipeConsumer);
 
         //LAMPS
         generateLampRecipes(recipeConsumer);
