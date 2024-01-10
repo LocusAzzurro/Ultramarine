@@ -1,0 +1,12 @@
+{
+  "type": "ultramarine:composite_smelting",
+  "primary_ingredient": {
+    "item": "ultramarine:unfired_roof_tile"
+  },
+  "secondary_ingredient": {
+    "item": "ultramarine:yellow_dye_powder"
+  },
+  "result": "ultramarine:yellow_roof_tile",
+  "experience": 0.05,
+  "cookingtime": 20
+}

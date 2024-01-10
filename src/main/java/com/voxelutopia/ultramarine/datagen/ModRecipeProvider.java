@@ -167,7 +167,28 @@ public class ModRecipeProvider extends RecipeProvider {
 
         //ROOF TILE
 
-        //TODO
+        ShapedRecipeBuilder.shaped(ItemRegistry.UNFIRED_ROOF_TILE.get(), 2)
+                .define('C', Items.CLAY_BALL).pattern("C ").pattern(" C")
+                .unlockedBy(itemUnlockName(Items.CLAY_BALL), itemCriterion(Items.CLAY_BALL))
+                .save(recipeConsumer);
+        CompositeSmeltingRecipeBuilder.compositeSmelting(Ingredient.of(ItemRegistry.UNFIRED_ROOF_TILE.get()), Ingredient.of(ItemRegistry.GRAY_DYE_POWDER.get()),
+                        ItemRegistry.GRAY_ROOF_TILE.get(), 0.05f, 20)
+                .unlockedBy(itemUnlockName(ItemRegistry.UNFIRED_ROOF_TILE.get()), itemCriterion(ItemRegistry.UNFIRED_ROOF_TILE.get())).save(recipeConsumer);
+        CompositeSmeltingRecipeBuilder.compositeSmelting(Ingredient.of(ItemRegistry.UNFIRED_ROOF_TILE.get()), Ingredient.of(ItemRegistry.YELLOW_DYE_POWDER.get()),
+                        ItemRegistry.YELLOW_ROOF_TILE.get(), 0.05f, 20)
+                .unlockedBy(itemUnlockName(ItemRegistry.UNFIRED_ROOF_TILE.get()), itemCriterion(ItemRegistry.UNFIRED_ROOF_TILE.get())).save(recipeConsumer);
+        CompositeSmeltingRecipeBuilder.compositeSmelting(Ingredient.of(ItemRegistry.UNFIRED_ROOF_TILE.get()), Ingredient.of(ItemRegistry.GREEN_DYE_POWDER.get()),
+                        ItemRegistry.GREEN_ROOF_TILE.get(), 0.05f, 20)
+                .unlockedBy(itemUnlockName(ItemRegistry.UNFIRED_ROOF_TILE.get()), itemCriterion(ItemRegistry.UNFIRED_ROOF_TILE.get())).save(recipeConsumer);
+        CompositeSmeltingRecipeBuilder.compositeSmelting(Ingredient.of(ItemRegistry.UNFIRED_ROOF_TILE.get()), Ingredient.of(ItemRegistry.BLUE_DYE_POWDER.get()),
+                        ItemRegistry.BLUE_ROOF_TILE.get(), 0.05f, 20)
+                .unlockedBy(itemUnlockName(ItemRegistry.UNFIRED_ROOF_TILE.get()), itemCriterion(ItemRegistry.UNFIRED_ROOF_TILE.get())).save(recipeConsumer);
+        CompositeSmeltingRecipeBuilder.compositeSmelting(Ingredient.of(ItemRegistry.UNFIRED_ROOF_TILE.get()), Ingredient.of(ItemRegistry.CYAN_DYE_POWDER.get()),
+                        ItemRegistry.CYAN_ROOF_TILE.get(), 0.05f, 20)
+                .unlockedBy(itemUnlockName(ItemRegistry.UNFIRED_ROOF_TILE.get()), itemCriterion(ItemRegistry.UNFIRED_ROOF_TILE.get())).save(recipeConsumer);
+        CompositeSmeltingRecipeBuilder.compositeSmelting(Ingredient.of(ItemRegistry.UNFIRED_ROOF_TILE.get()), Ingredient.of(ItemRegistry.BLACK_DYE_POWDER.get()),
+                        ItemRegistry.BLACK_ROOF_TILE.get(), 0.05f, 20)
+                .unlockedBy(itemUnlockName(ItemRegistry.UNFIRED_ROOF_TILE.get()), itemCriterion(ItemRegistry.UNFIRED_ROOF_TILE.get())).save(recipeConsumer);
 
         // POLISHED PLANK
 

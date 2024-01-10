@@ -677,6 +677,7 @@ public class ItemRegistry {
 
     // ROOF TILE
 
+    public static final RegistryObject<Item> UNFIRED_ROOF_TILE = simpleItem("unfired_roof_tile", ModCreativeTab.MATERIALS);
     public static final RegistryObject<Item> GRAY_ROOF_TILE = simpleItem("gray_roof_tile", ModCreativeTab.MATERIALS);
     public static final RegistryObject<Item> YELLOW_ROOF_TILE = simpleItem("yellow_roof_tile", ModCreativeTab.MATERIALS);
     public static final RegistryObject<Item> GREEN_ROOF_TILE = simpleItem("green_roof_tile", ModCreativeTab.MATERIALS);
