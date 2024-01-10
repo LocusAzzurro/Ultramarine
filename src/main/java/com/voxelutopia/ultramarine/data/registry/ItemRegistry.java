@@ -197,7 +197,7 @@ public class ItemRegistry {
     public static final RegistryObject<Item> CHISELED_GILDED_DARK_OAK = fromBlock(BlockRegistry.CHISELED_GILDED_DARK_OAK, ModCreativeTab.DECORATIVE_BLOCKS);
     public static final RegistryObject<Item> GILDED_DARK_OAK_SLAB = fromBlock(BlockRegistry.GILDED_DARK_OAK_SLAB, ModCreativeTab.DECORATIVE_BLOCKS);
     public static final RegistryObject<Item> GILDED_DARK_OAK_STAIRS = fromBlock(BlockRegistry.GILDED_DARK_OAK_STAIRS, ModCreativeTab.DECORATIVE_BLOCKS);
-    public static final RegistryObject<Item> GILDED_DARK_OAK_BEAM_BRACKET = fromBlock(BlockRegistry.GILDED_DARK_OAK_BRACKET, ModCreativeTab.DECORATIVE_BLOCKS);
+    public static final RegistryObject<Item> GILDED_DARK_OAK_BRACKET = fromBlock(BlockRegistry.GILDED_DARK_OAK_BRACKET, ModCreativeTab.DECORATIVE_BLOCKS);
 
     // PILLARS
 
@@ -251,7 +251,7 @@ public class ItemRegistry {
     public static final RegistryObject<Item> BLUE_ZHAOTOU_EDGE = fromBlock(BlockRegistry.BLUE_ZHAOTOU_EDGE, ModCreativeTab.DECORATIVE_BLOCKS);
     public static final RegistryObject<Item> GREEN_AND_BLUE_ZHAOTOU = fromBlock(BlockRegistry.GREEN_AND_BLUE_ZHAOTOU, ModCreativeTab.DECORATIVE_BLOCKS);
     public static final RegistryObject<Item> BLUE_AND_GREEN_ZHAOTOU = fromBlock(BlockRegistry.BLUE_AND_GREEN_ZHAOTOU, ModCreativeTab.DECORATIVE_BLOCKS);
-    public static final RegistryObject<Item> blue_and_green_double_layered_zhaotou = fromBlock(BlockRegistry.blue_and_green_double_layered_zhaotou, ModCreativeTab.DECORATIVE_BLOCKS);
+    public static final RegistryObject<Item> BLUE_AND_GREEN_DOUBLE_LAYERED_ZHAOTOU = fromBlock(BlockRegistry.BLUE_AND_GREEN_DOUBLE_LAYERED_ZHAOTOU, ModCreativeTab.DECORATIVE_BLOCKS);
     public static final RegistryObject<Item> CYAN_AND_RED_ZHAOTOU = fromBlock(BlockRegistry.CYAN_AND_RED_ZHAOTOU, ModCreativeTab.DECORATIVE_BLOCKS);
     public static final RegistryObject<Item> CYAN_AND_BLUE_ZHAOTOU = fromBlock(BlockRegistry.CYAN_AND_BLUE_ZHAOTOU, ModCreativeTab.DECORATIVE_BLOCKS);
     public static final RegistryObject<Item> GRAY_BLACK_RED_ZHAOTOU = fromBlock(BlockRegistry.GRAY_BLACK_RED_ZHAOTOU, ModCreativeTab.DECORATIVE_BLOCKS);
