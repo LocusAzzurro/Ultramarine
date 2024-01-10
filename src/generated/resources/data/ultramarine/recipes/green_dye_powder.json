@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "tag": "forge:dyes/green"
+    }
+  ],
+  "result": {
+    "item": "ultramarine:green_dye_powder",
+    "count": 8
+  }
+}

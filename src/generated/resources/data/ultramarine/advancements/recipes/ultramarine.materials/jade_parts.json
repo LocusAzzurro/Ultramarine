@@ -2,7 +2,7 @@
   "parent": "minecraft:recipes/root",
   "rewards": {
     "recipes": [
-      "ultramarine:jade"
+      "ultramarine:jade_parts"
     ]
   },
   "criteria": {
@@ -21,7 +21,7 @@
     "has_the_recipe": {
       "trigger": "minecraft:recipe_unlocked",
       "conditions": {
-        "recipe": "ultramarine:jade"
+        "recipe": "ultramarine:jade_parts"
       }
     }
   },

@@ -191,7 +191,7 @@ public class ModRecipeProvider extends RecipeProvider {
         SingleItemRecipeBuilder.stonecutting(Ingredient.of(Items.GOLD_INGOT), ItemRegistry.GOLD_PARTS.get(), 2)
                 .unlockedBy(itemUnlockName(Items.GOLD_INGOT), itemCriterion(Items.GOLD_INGOT))
                 .save(recipeConsumer);
-        SingleItemRecipeBuilder.stonecutting(Ingredient.of(ItemRegistry.JADE.get()), ItemRegistry.JADE.get(), 2)
+        SingleItemRecipeBuilder.stonecutting(Ingredient.of(ItemRegistry.JADE.get()), ItemRegistry.JADE_PARTS.get(), 2)
                 .unlockedBy(itemUnlockName(ItemRegistry.JADE.get()), itemCriterion(ItemRegistry.JADE.get()))
                 .save(recipeConsumer);
         simpleStonecutting(ItemRegistry.BLUE_AND_WHITE_PORCELAIN_PIECE.get(), ItemRegistry.PORCELAIN_PARTS.get(), recipeConsumer); //todo add porcelain variants
@@ -677,7 +677,8 @@ public class ModRecipeProvider extends RecipeProvider {
         ShapelessRecipeBuilder.shapeless(powder, 8).requires(dye).unlockedBy("has_dye", InventoryChangeTrigger.TriggerInstance.hasItems(
                 new ItemPredicate(dye, ImmutableSet.of(),
                         MinMaxBounds.Ints.ANY, MinMaxBounds.Ints.ANY,
-                        EnchantmentPredicate.NONE, EnchantmentPredicate.NONE, null, NbtPredicate.ANY)));
+                        EnchantmentPredicate.NONE, EnchantmentPredicate.NONE, null, NbtPredicate.ANY)))
+                .save(pFinishedRecipeConsumer);
     }
 
     public static SingleItemRecipeBuilder woodworking(Ingredient pIngredient, ItemLike pResult) {
