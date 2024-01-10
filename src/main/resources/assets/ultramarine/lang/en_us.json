@@ -577,6 +577,7 @@
   "entity.minecraft.villager.ultramarine.cook": "Cook",
 
   "gui.jei.category.woodworking": "Woodworking",
+  "gui.jei.category.composite_smelting": "Composite Smelting",
 
   "__EOF__": ""
 }

@@ -57,6 +57,14 @@ public class CompositeSmeltingRecipe implements Recipe<Container> {
         return true;
     }
 
+    public Ingredient getPrimaryIngredient() {
+        return primaryIngredient;
+    }
+
+    public Ingredient getSecondaryIngredient() {
+        return secondaryIngredient;
+    }
+
     @Override
     public ItemStack getResultItem() {
         return result.copy();
@@ -79,6 +87,10 @@ public class CompositeSmeltingRecipe implements Recipe<Container> {
 
     public int getCookingTime() {
         return cookingTime;
+    }
+
+    public float getExp(){
+        return experience;
     }
 
     public static class Serializer implements RecipeSerializer<CompositeSmeltingRecipe> {

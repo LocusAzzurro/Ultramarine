@@ -249,6 +249,13 @@ public class ModRecipeProvider extends RecipeProvider {
                                 MinMaxBounds.Ints.ANY, MinMaxBounds.Ints.ANY,
                                 EnchantmentPredicate.NONE, EnchantmentPredicate.NONE, null, NbtPredicate.ANY)))
                 .save(recipeConsumer);
+        ShapedRecipeBuilder.shaped(ItemRegistry.WOODWORKING_WORKBENCH.get(), 1)
+                .define('P', ItemTags.PLANKS)
+                .define('C', Items.CRAFTING_TABLE)
+                .pattern("P")
+                .pattern("C")
+                .unlockedBy(itemUnlockName(Items.CRAFTING_TABLE), itemCriterion(Items.CRAFTING_TABLE))
+                .save(recipeConsumer);
 
         //LAMPS
         generateLampRecipes(recipeConsumer);
