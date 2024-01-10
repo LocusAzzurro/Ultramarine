@@ -710,6 +710,26 @@ public class ItemRegistry {
     public static final RegistryObject<Item> JADE_PARTS = simpleItem("jade_parts", ModCreativeTab.MATERIALS);
     public static final RegistryObject<Item> PORCELAIN_PARTS = simpleItem("porcelain_parts", ModCreativeTab.MATERIALS);
 
+    // DYE POWDERS
+
+    public static final RegistryObject<Item> WHITE_DYE_POWDER = simpleItem("white_dye_powder", ModCreativeTab.MATERIALS);
+    public static final RegistryObject<Item> ORANGE_DYE_POWDER = simpleItem("orange_dye_powder", ModCreativeTab.MATERIALS);
+    public static final RegistryObject<Item> MAGENTA_DYE_POWDER = simpleItem("magenta_dye_powder", ModCreativeTab.MATERIALS);
+    public static final RegistryObject<Item> LIGHT_BLUE_DYE_POWDER = simpleItem("light_blue_dye_powder", ModCreativeTab.MATERIALS);
+    public static final RegistryObject<Item> YELLOW_DYE_POWDER = simpleItem("yellow_dye_powder", ModCreativeTab.MATERIALS);
+    public static final RegistryObject<Item> LIME_DYE_POWDER = simpleItem("lime_dye_powder", ModCreativeTab.MATERIALS);
+    public static final RegistryObject<Item> PINK_DYE_POWDER = simpleItem("pink_dye_powder", ModCreativeTab.MATERIALS);
+    public static final RegistryObject<Item> GRAY_DYE_POWDER = simpleItem("gray_dye_powder", ModCreativeTab.MATERIALS);
+    public static final RegistryObject<Item> LIGHT_GRAY_DYE_POWDER = simpleItem("light_gray_dye_powder", ModCreativeTab.MATERIALS);
+    public static final RegistryObject<Item> CYAN_DYE_POWDER = simpleItem("cyan_dye_powder", ModCreativeTab.MATERIALS);
+    public static final RegistryObject<Item> PURPLE_DYE_POWDER = simpleItem("purple_dye_powder", ModCreativeTab.MATERIALS);
+    public static final RegistryObject<Item> BLUE_DYE_POWDER = simpleItem("blue_dye_powder", ModCreativeTab.MATERIALS);
+    public static final RegistryObject<Item> BROWN_DYE_POWDER = simpleItem("brown_dye_powder", ModCreativeTab.MATERIALS);
+    public static final RegistryObject<Item> GREEN_DYE_POWDER = simpleItem("green_dye_powder", ModCreativeTab.MATERIALS);
+    public static final RegistryObject<Item> RED_DYE_POWDER = simpleItem("red_dye_powder", ModCreativeTab.MATERIALS);
+    public static final RegistryObject<Item> BLACK_DYE_POWDER = simpleItem("black_dye_powder", ModCreativeTab.MATERIALS);
+
+
     // MATERIALS
 
     public static final RegistryObject<Item> INCENSE = simpleItem("incense", ModCreativeTab.MATERIALS);
