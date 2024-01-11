@@ -26,6 +26,7 @@ public class ModItemTags {
     public static final TagKey<Item> FORGE_GREEN_DYE = forgeTag("dyes/green");
     public static final TagKey<Item> FORGE_RED_DYE = forgeTag("dyes/red");
     public static final TagKey<Item> FORGE_BLACK_DYE = forgeTag("dyes/black");
+    public static final TagKey<Item> FORGE_DYES = forgeTag("dyes");
 
     private static TagKey<Item> forgeTag(String path){
         return ItemTags.create(new ResourceLocation("forge", path));

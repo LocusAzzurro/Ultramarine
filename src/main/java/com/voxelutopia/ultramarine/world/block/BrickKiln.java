@@ -32,7 +32,7 @@ public class BrickKiln extends Block implements EntityBlock, BaseBlockPropertyHo
     public static final BooleanProperty LIT = BlockStateProperties.LIT;
 
     public BrickKiln() {
-        super(BaseBlockProperty.STONE.properties);
+        super(BaseBlockProperty.STONE.copy().properties);
         this.registerDefaultState(this.stateDefinition.any().setValue(FACING, Direction.NORTH).setValue(LIT, Boolean.FALSE));
     }
 

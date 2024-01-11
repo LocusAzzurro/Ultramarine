@@ -822,6 +822,7 @@ public class BlockRegistry {
 
     public static final RegistryObject<Block> WOODWORKING_WORKBENCH = BLOCKS.register("woodworking_workbench", WoodworkingWorkBench::new);
     public static final RegistryObject<Block> BRICK_KILN = BLOCKS.register("brick_kiln", BrickKiln::new);
+    public static final RegistryObject<Block> CHISEL_TABLE = BLOCKS.register("chisel_table", ChiselTable::new);
 
     private static RegistryObject<Block> simpleBlock(String name, Material material) {
         return BLOCKS.register(name, () -> new Block(BlockBehaviour.Properties.of(material)));

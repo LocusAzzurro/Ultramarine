@@ -1,0 +1,15 @@
+{
+    "type": "ultramarine:chisel_table",
+    "template": {
+      "item": "ultramarine:polished_oak_plank"
+    },
+    "colors": [
+        {
+            "item": "ultramarine:black_dye_powder"
+        },
+        {
+            "item": "ultramarine:black_dye_powder"
+        }
+    ],
+    "result": "minecraft:diamond"
+  }

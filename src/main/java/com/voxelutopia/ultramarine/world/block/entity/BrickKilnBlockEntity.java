@@ -4,7 +4,7 @@ import com.google.common.collect.Lists;
 import com.voxelutopia.ultramarine.data.recipe.CompositeSmeltingRecipe;
 import com.voxelutopia.ultramarine.data.registry.BlockEntityRegistry;
 import com.voxelutopia.ultramarine.data.registry.RecipeTypeRegistry;
-import com.voxelutopia.ultramarine.world.block.menu.BrickKlinMenu;
+import com.voxelutopia.ultramarine.world.block.menu.BrickKilnMenu;
 import it.unimi.dsi.fastutil.objects.Object2IntMap;
 import it.unimi.dsi.fastutil.objects.Object2IntOpenHashMap;
 import net.minecraft.MethodsReturnNonnullByDefault;
@@ -300,7 +300,7 @@ public class BrickKilnBlockEntity extends BlockEntity implements MenuProvider, R
     @Nullable
     @Override
     public AbstractContainerMenu createMenu(int pContainerId, Inventory pInventory, Player pPlayer) {
-        return new BrickKlinMenu(pContainerId, this.worldPosition, pInventory,
+        return new BrickKilnMenu(pContainerId, this.worldPosition, pInventory,
                 wrapHandlers(), this.dataAccess);
     }
 

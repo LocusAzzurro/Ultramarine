@@ -21,7 +21,7 @@ import org.jetbrains.annotations.NotNull;
 
 import javax.annotation.Nonnull;
 
-public class BrickKlinMenu extends AbstractContainerMenu {
+public class BrickKilnMenu extends AbstractContainerMenu {
 
     public static final int SLOT_INPUT_PRIMARY = BrickKilnBlockEntity.SLOT_INPUT_PRIMARY; //0
     public static final int SLOT_INPUT_SECONDARY = BrickKilnBlockEntity.SLOT_INPUT_SECONDARY; //1
@@ -37,11 +37,11 @@ public class BrickKlinMenu extends AbstractContainerMenu {
     private final IItemHandler inventory;
     private final ContainerData data;
 
-    public BrickKlinMenu(int pId, BlockPos pos, Inventory inventory) {
+    public BrickKilnMenu(int pId, BlockPos pos, Inventory inventory) {
         this(pId, pos, inventory, new ItemStackHandler(4), new SimpleContainerData(4));
     }
 
-    public BrickKlinMenu(int id, BlockPos pos, Inventory inventory, IItemHandler container, ContainerData containerData){
+    public BrickKilnMenu(int id, BlockPos pos, Inventory inventory, IItemHandler container, ContainerData containerData){
         super(MenuTypeRegistry.BRICK_KILN.get(), id);
         this.playerEntity = inventory.player;
         this.blockEntity = playerEntity.getCommandSenderWorld().getBlockEntity(pos);

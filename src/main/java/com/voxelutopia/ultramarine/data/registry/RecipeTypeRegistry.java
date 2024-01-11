@@ -1,6 +1,7 @@
 package com.voxelutopia.ultramarine.data.registry;
 
 import com.voxelutopia.ultramarine.Ultramarine;
+import com.voxelutopia.ultramarine.data.recipe.ChiselTableRecipe;
 import com.voxelutopia.ultramarine.data.recipe.CompositeSmeltingRecipe;
 import com.voxelutopia.ultramarine.data.recipe.WoodworkingRecipe;
 import net.minecraft.core.Registry;
@@ -16,6 +17,7 @@ public class RecipeTypeRegistry {
 
     public static RegistryObject<RecipeType<WoodworkingRecipe>> WOODWORKING = register("woodworking");
     public static RegistryObject<RecipeType<CompositeSmeltingRecipe>> COMPOSITE_SMELTING = register("composite_smelting");
+    public static RegistryObject<RecipeType<ChiselTableRecipe>> CHISEL_TABLE = register("chisel_table");
 
     private static <T extends Recipe<?>> RegistryObject<RecipeType<T>> register(String name) {
         return RECIPE_TYPES.register(name, () -> new RecipeType<>() {
