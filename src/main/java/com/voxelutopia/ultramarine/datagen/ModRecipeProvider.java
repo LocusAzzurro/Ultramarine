@@ -264,9 +264,9 @@ public class ModRecipeProvider extends RecipeProvider {
         //TESTS
         CompositeSmeltingRecipeBuilder.compositeSmelting(Ingredient.of(ItemRegistry.UNFIRED_CLAY_BRICK.get()), Ingredient.of(ItemRegistry.PRISMARINE_DUST.get()), ItemRegistry.CYAN_BRICK.get(), 0.1f, 40)
                 .unlockedBy(itemUnlockName(ItemRegistry.UNFIRED_CLAY_BRICK.get()), itemCriterion(ItemRegistry.UNFIRED_CLAY_BRICK.get())).save(recipeConsumer);
-        ChiselTableRecipeBuilder.chiselTableRecipe(Ingredient.of(ItemTags.LOGS), Ingredient.of(ItemRegistry.POLISHED_ROSEWOOD_PLANK.get()),
-                new Ingredient[]{Ingredient.of(ModItemTags.FORGE_RED_DYE), Ingredient.of(ItemRegistry.RED_DYE_POWDER.get())}, ItemRegistry.RED_CARVED_WOOD.get())
-                .unlockedBy(itemUnlockName(ItemRegistry.POLISHED_ROSEWOOD_PLANK.get()), itemCriterion(ItemRegistry.POLISHED_ROSEWOOD_PLANK.get())).save(recipeConsumer);
+        ChiselTableRecipeBuilder.chiselTableRecipe(Ingredient.of(ItemTags.LOGS), Ingredient.of(ItemRegistry.CHISELED_WOOD_TEMPLATE.get()),
+                new Ingredient[]{Ingredient.of(ModItemTags.FORGE_RED_DYE), Ingredient.of(ModItemTags.FORGE_RED_DYE)}, ItemRegistry.RED_CARVED_WOOD.get())
+                .unlockedBy(itemUnlockName(ItemRegistry.CHISELED_WOOD_TEMPLATE.get()), itemCriterion(ItemRegistry.CHISELED_WOOD_TEMPLATE.get())).save(recipeConsumer);
     }
 
     private static void generateLampRecipes(@NotNull Consumer<FinishedRecipe> recipeConsumer) {

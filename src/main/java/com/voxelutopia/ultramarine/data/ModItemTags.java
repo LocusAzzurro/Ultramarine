@@ -10,6 +10,7 @@ public class ModItemTags {
 
     public static final TagKey<Item> POLISHED_PLANKS = modTag("polished_planks");
     public static final TagKey<Item> DYE_POWDER = modTag("dye_powder");
+    public static final TagKey<Item> CHISEL_TEMPLATES = modTag("chisel_templates");
 
     public static final TagKey<Item> FORGE_WHITE_DYE = forgeTag("dyes/white");
     public static final TagKey<Item> FORGE_ORANGE_DYE = forgeTag("dyes/orange");

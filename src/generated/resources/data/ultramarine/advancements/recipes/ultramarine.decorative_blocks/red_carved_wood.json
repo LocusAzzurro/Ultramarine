@@ -6,13 +6,13 @@
     ]
   },
   "criteria": {
-    "has_polished_rosewood_plank": {
+    "has_chiseled_wood_template": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
             "items": [
-              "ultramarine:polished_rosewood_plank"
+              "ultramarine:chiseled_wood_template"
             ]
           }
         ]
@@ -27,7 +27,7 @@
   },
   "requirements": [
     [
-      "has_polished_rosewood_plank",
+      "has_chiseled_wood_template",
       "has_the_recipe"
     ]
   ]

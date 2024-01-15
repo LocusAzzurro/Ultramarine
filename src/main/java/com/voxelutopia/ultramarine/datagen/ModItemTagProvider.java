@@ -2,12 +2,14 @@ package com.voxelutopia.ultramarine.datagen;
 
 import com.voxelutopia.ultramarine.data.ModItemTags;
 import com.voxelutopia.ultramarine.data.registry.ItemRegistry;
+import com.voxelutopia.ultramarine.world.item.ChiselTemplate;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.tags.BlockTagsProvider;
 import net.minecraft.data.tags.ItemTagsProvider;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.Item;
 import net.minecraftforge.common.data.ExistingFileHelper;
+import net.minecraftforge.registries.RegistryObject;
 import org.jetbrains.annotations.NotNull;
 
 public class ModItemTagProvider extends ItemTagsProvider {
@@ -48,6 +50,8 @@ public class ModItemTagProvider extends ItemTagsProvider {
                 .add(ItemRegistry.GREEN_DYE_POWDER.get())
                 .add(ItemRegistry.RED_DYE_POWDER.get())
                 .add(ItemRegistry.BLACK_DYE_POWDER.get());
+        tag(ModItemTags.CHISEL_TEMPLATES).add(ItemRegistry.ITEMS.getEntries().stream().filter(reg -> reg.get() instanceof ChiselTemplate)
+                .map(RegistryObject::get).toList().toArray(new Item[0]));
 
     }
     @NotNull

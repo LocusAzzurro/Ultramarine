@@ -4,14 +4,14 @@
     "tag": "minecraft:logs"
   },
   "template": {
-    "item": "ultramarine:polished_rosewood_plank"
+    "item": "ultramarine:chiseled_wood_template"
   },
   "colors": [
     {
       "tag": "forge:dyes/red"
     },
     {
-      "item": "ultramarine:red_dye_powder"
+      "tag": "forge:dyes/red"
     }
   ],
   "result": "ultramarine:red_carved_wood"

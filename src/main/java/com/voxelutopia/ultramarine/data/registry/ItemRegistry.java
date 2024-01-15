@@ -5,6 +5,7 @@ import com.voxelutopia.ultramarine.data.ModCreativeTab;
 import com.voxelutopia.ultramarine.data.ModFoods;
 import com.voxelutopia.ultramarine.world.item.AquaticPlantBlockItem;
 import com.voxelutopia.ultramarine.world.item.BaseFood;
+import com.voxelutopia.ultramarine.world.item.ChiselTemplate;
 import com.voxelutopia.ultramarine.world.item.WoodenMallet;
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.BlockItem;
@@ -730,6 +731,9 @@ public class ItemRegistry {
     public static final RegistryObject<Item> RED_DYE_POWDER = simpleItem("red_dye_powder", ModCreativeTab.MATERIALS);
     public static final RegistryObject<Item> BLACK_DYE_POWDER = simpleItem("black_dye_powder", ModCreativeTab.MATERIALS);
 
+    // TEMPLATES
+
+    public static final RegistryObject<Item> CHISELED_WOOD_TEMPLATE = ITEMS.register("chiseled_wood_template", ChiselTemplate::new);
 
     // MATERIALS
 

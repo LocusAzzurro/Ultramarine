@@ -12,10 +12,6 @@ import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.*;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Items;
-import net.minecraft.world.item.crafting.Recipe;
-import net.minecraft.world.item.crafting.RecipeType;
-import net.minecraft.world.item.crafting.UpgradeRecipe;
 import net.minecraft.world.level.Level;
 import net.minecraftforge.items.IItemHandler;
 import net.minecraftforge.items.ItemStackHandler;
@@ -40,8 +36,8 @@ public class ChiselTableMenu extends AbstractContainerMenu{
     private static final int USE_ROW_SLOT_END = 43;
 
     private static final Predicate<ItemStack> IS_LOG = i -> i.is(ItemTags.LOGS);
-    private static final Predicate<ItemStack> IS_TEMPLATE = i -> i.is(ModItemTags.POLISHED_PLANKS); //todo change to template
-    private static final Predicate<ItemStack> IS_COLOR = i -> i.is(ModItemTags.FORGE_DYES) || i.is(ModItemTags.DYE_POWDER); //todo change to powder
+    private static final Predicate<ItemStack> IS_TEMPLATE = i -> i.is(ModItemTags.CHISEL_TEMPLATES);
+    private static final Predicate<ItemStack> IS_COLOR = i -> i.is(ModItemTags.FORGE_DYES) || i.is(ModItemTags.DYE_POWDER);
 
     private final ContainerLevelAccess access;
     private final Player player;
