@@ -1,5 +1,8 @@
 {
     "type": "ultramarine:chisel_table",
+    "material": {
+        "tag": "minecraft:logs"
+    },
     "template": {
       "item": "ultramarine:polished_oak_plank"
     },

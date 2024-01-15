@@ -1,0 +1,18 @@
+{
+  "type": "ultramarine:chisel_table",
+  "material": {
+    "tag": "minecraft:logs"
+  },
+  "template": {
+    "item": "ultramarine:polished_rosewood_plank"
+  },
+  "colors": [
+    {
+      "tag": "forge:dyes/red"
+    },
+    {
+      "item": "ultramarine:red_dye_powder"
+    }
+  ],
+  "result": "ultramarine:red_carved_wood"
+}

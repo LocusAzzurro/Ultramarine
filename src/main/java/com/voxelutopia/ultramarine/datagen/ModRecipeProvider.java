@@ -3,6 +3,7 @@ package com.voxelutopia.ultramarine.datagen;
 import com.google.common.collect.ImmutableSet;
 import com.voxelutopia.ultramarine.data.ModBlockTags;
 import com.voxelutopia.ultramarine.data.ModItemTags;
+import com.voxelutopia.ultramarine.data.recipe.ChiselTableRecipeBuilder;
 import com.voxelutopia.ultramarine.data.recipe.CompositeSmeltingRecipeBuilder;
 import com.voxelutopia.ultramarine.data.registry.ItemRegistry;
 import com.voxelutopia.ultramarine.data.registry.RecipeSerializerRegistry;
@@ -263,6 +264,9 @@ public class ModRecipeProvider extends RecipeProvider {
         //TESTS
         CompositeSmeltingRecipeBuilder.compositeSmelting(Ingredient.of(ItemRegistry.UNFIRED_CLAY_BRICK.get()), Ingredient.of(ItemRegistry.PRISMARINE_DUST.get()), ItemRegistry.CYAN_BRICK.get(), 0.1f, 40)
                 .unlockedBy(itemUnlockName(ItemRegistry.UNFIRED_CLAY_BRICK.get()), itemCriterion(ItemRegistry.UNFIRED_CLAY_BRICK.get())).save(recipeConsumer);
+        ChiselTableRecipeBuilder.chiselTableRecipe(Ingredient.of(ItemTags.LOGS), Ingredient.of(ItemRegistry.POLISHED_ROSEWOOD_PLANK.get()),
+                new Ingredient[]{Ingredient.of(ModItemTags.FORGE_RED_DYE), Ingredient.of(ItemRegistry.RED_DYE_POWDER.get())}, ItemRegistry.RED_CARVED_WOOD.get())
+                .unlockedBy(itemUnlockName(ItemRegistry.POLISHED_ROSEWOOD_PLANK.get()), itemCriterion(ItemRegistry.POLISHED_ROSEWOOD_PLANK.get())).save(recipeConsumer);
     }
 
     private static void generateLampRecipes(@NotNull Consumer<FinishedRecipe> recipeConsumer) {
