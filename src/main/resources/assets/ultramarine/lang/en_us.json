@@ -516,6 +516,7 @@
   "item.ultramarine.green_dye_powder": "Green Dye Powder",
   "item.ultramarine.red_dye_powder": "Red Dye Powder",
   "item.ultramarine.black_dye_powder": "Black Dye Powder",
+  "item.ultramarine.chiseled_wood_template": "Template: Chiseled Wood",
 
   "item.ultramarine.wooden_mallet": "Wooden Mallet",
 
@@ -568,6 +569,7 @@
 
   "container.woodworking_workbench": "Woodworking Workbench",
   "container.brick_kiln": "Brick Kiln",
+  "container.chisel_table": "Chisel Table",
 
   "__comment22__": "Entity",
   "entity.ultramarine.seat": "Seat",

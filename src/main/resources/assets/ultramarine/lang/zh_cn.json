@@ -515,6 +515,7 @@
   "item.ultramarine.green_dye_powder": "绿色染料粉",
   "item.ultramarine.red_dye_powder": "红色染料粉",
   "item.ultramarine.black_dye_powder": "黑色染料粉",
+  "item.ultramarine.chiseled_wood_template": "模板：雕花木",
 
   "item.ultramarine.wooden_mallet": "木锤",
 
@@ -567,6 +568,7 @@
 
   "container.woodworking_workbench": "木工桌",
   "container.brick_kiln": "砖窑",
+  "container.chisel_table": "雕刻桌",
 
   "__comment22__": "Entity",
   "entity.ultramarine.seat": "座位",

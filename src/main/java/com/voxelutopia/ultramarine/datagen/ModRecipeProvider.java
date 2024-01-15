@@ -257,6 +257,13 @@ public class ModRecipeProvider extends RecipeProvider {
                 .pattern("C")
                 .unlockedBy(itemUnlockName(Items.CRAFTING_TABLE), itemCriterion(Items.CRAFTING_TABLE))
                 .save(recipeConsumer);
+        ShapedRecipeBuilder.shaped(ItemRegistry.CHISEL_TABLE.get(), 1)
+                .define('A', Items.AMETHYST_SHARD)
+                .define('C', Items.CRAFTING_TABLE)
+                .pattern("A")
+                .pattern("C")
+                .unlockedBy(itemUnlockName(Items.CRAFTING_TABLE), itemCriterion(Items.CRAFTING_TABLE))
+                .save(recipeConsumer);
 
         //LAMPS
         generateLampRecipes(recipeConsumer);
