@@ -4,7 +4,10 @@ import com.voxelutopia.ultramarine.data.ModBlockTags;
 import com.voxelutopia.ultramarine.data.registry.SoundRegistry;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.TagKey;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.material.Material;
@@ -93,7 +96,18 @@ public final class BaseBlockProperty {
     }
 
     public BaseBlockProperty copy(){
-        return new BaseBlockProperty(this.properties, this.material);
+        BlockBehaviour.Properties properties1 = BlockBehaviour.Properties.copy(new BlockBehaviour(this.properties) {
+            @Override
+            public Item asItem() {
+                return Items.AIR;
+            }
+
+            @Override
+            protected Block asBlock() {
+                return Blocks.AIR;
+            }
+        });
+        return new BaseBlockProperty(properties1, this.material);
     }
 
     public enum BlockMaterial{
