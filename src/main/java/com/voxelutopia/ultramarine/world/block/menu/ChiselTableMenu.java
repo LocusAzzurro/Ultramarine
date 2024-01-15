@@ -1,8 +1,10 @@
 package com.voxelutopia.ultramarine.world.block.menu;
 
 import com.voxelutopia.ultramarine.data.ModItemTags;
+import com.voxelutopia.ultramarine.data.recipe.ChiselTableRecipe;
 import com.voxelutopia.ultramarine.data.registry.BlockRegistry;
 import com.voxelutopia.ultramarine.data.registry.MenuTypeRegistry;
+import com.voxelutopia.ultramarine.data.registry.RecipeTypeRegistry;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.world.Container;
 import net.minecraft.world.SimpleContainer;
@@ -11,18 +13,21 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.*;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.item.crafting.Recipe;
 import net.minecraft.world.item.crafting.RecipeType;
 import net.minecraft.world.item.crafting.UpgradeRecipe;
+import net.minecraft.world.level.Level;
 import net.minecraftforge.items.IItemHandler;
 import net.minecraftforge.items.ItemStackHandler;
 import net.minecraftforge.items.SlotItemHandler;
 import net.minecraftforge.items.wrapper.InvWrapper;
+import org.jetbrains.annotations.NotNull;
 
 import javax.annotation.Nonnull;
 import java.util.List;
 import java.util.function.Predicate;
 
-public class ChiselTableMenu extends AbstractContainerMenu {
+public class ChiselTableMenu extends AbstractContainerMenu{
 
     public static final int SLOT_MATERIAL = 0;
     public static final int SLOT_TEMPLATE = 1;
@@ -36,7 +41,7 @@ public class ChiselTableMenu extends AbstractContainerMenu {
 
     private static final Predicate<ItemStack> IS_LOG = i -> i.is(ItemTags.LOGS);
     private static final Predicate<ItemStack> IS_TEMPLATE = i -> i.is(ModItemTags.POLISHED_PLANKS); //todo change to template
-    private static final Predicate<ItemStack> IS_COLOR = i -> i.is(ModItemTags.FORGE_DYES); //todo change to powder
+    private static final Predicate<ItemStack> IS_COLOR = i -> i.is(ModItemTags.FORGE_DYES) || i.is(ModItemTags.DYE_POWDER); //todo change to powder
 
     private final ContainerLevelAccess access;
     private final Player player;
@@ -74,26 +79,39 @@ public class ChiselTableMenu extends AbstractContainerMenu {
 
     public void slotsChanged(SlotItemHandler slot) {
         this.broadcastChanges();
-        if (slot.getSlotIndex() < SLOT_RESULT){
+        if (slot.getSlotIndex() <= SLOT_RESULT){
             this.createResult();
         }
     }
 
     public void createResult() {
-
+        Level level = player.level;
+        Container ingredients = this.wrapIngredients();
+        List<ChiselTableRecipe> list = level.getRecipeManager().getRecipesFor(RecipeTypeRegistry.CHISEL_TABLE.get(), ingredients, level);
+        if (list.isEmpty()) {
+            this.result.setStackInSlot(0, ItemStack.EMPTY);
+        } else {
+            ChiselTableRecipe recipe = list.get(0);
+            ItemStack resultItemStack = recipe.assemble(ingredients);
+            this.result.setStackInSlot(0, resultItemStack);
+        }
+        /*
         //List<UpgradeRecipe> list = this.access.getRecipeManager().getRecipesFor(RecipeType.SMITHING, this.inputSlots, this.level);
         if (this.crafting.getStackInSlot(SLOT_COLOR_START).is(Items.BLUE_DYE))
             this.result.setStackInSlot(0, Items.DIAMOND.getDefaultInstance());
         //todo temp
+
+         */
     }
 
-    protected void onTake(Player player, ItemStack itemStack){
+    protected void onTake(Player player, ItemStack itemStack, SlotItemHandler slot){
         for (int i = 0; i < SLOT_COLOR_END; i++){
-            if (i == SLOT_TEMPLATE) continue;
             ItemStack item = crafting.getStackInSlot(i);
-            item.shrink(1);
             crafting.setStackInSlot(i, item);
+            if (i != SLOT_TEMPLATE)
+                item.shrink(1);
         }
+        this.slotsChanged(slot);
     }
 
     @Override
@@ -105,6 +123,7 @@ public class ChiselTableMenu extends AbstractContainerMenu {
             ItemStack slotItem = slot.getItem();
             itemstack = slotItem.copy();
             if (pIndex == SLOT_RESULT) {
+                slotItem.getItem().onCraftedBy(slotItem, pPlayer.level, pPlayer);
                 if (!this.moveItemStackTo(slotItem, INV_SLOT_START, USE_ROW_SLOT_END, true)) {
                     return ItemStack.EMPTY;
                 }
@@ -132,6 +151,18 @@ public class ChiselTableMenu extends AbstractContainerMenu {
             } else if (!this.moveItemStackTo(slotItem, INV_SLOT_START, USE_ROW_SLOT_END, false)) {
                 return ItemStack.EMPTY;
             }
+
+            if (slotItem.isEmpty()) {
+                slot.set(ItemStack.EMPTY);
+            }
+            slot.setChanged();
+
+            if (slotItem.getCount() == itemstack.getCount()) {
+                return ItemStack.EMPTY;
+            }
+
+            slot.onTake(pPlayer, slotItem);
+            this.broadcastChanges();
         }
         return itemstack;
     }
@@ -171,7 +202,22 @@ public class ChiselTableMenu extends AbstractContainerMenu {
 
         @Override
         public void onTake(Player pPlayer, ItemStack pStack) {
-            ChiselTableMenu.this.onTake(pPlayer, pStack);
+            super.onTake(pPlayer, pStack);
+            ChiselTableMenu.this.onTake(pPlayer, pStack, this);
+        }
+
+        @Override
+        public void setChanged() {
+            super.setChanged();
+            ChiselTableMenu.this.slotsChanged(this);
+        }
+
+        @Override
+        public void onQuickCraft(@NotNull ItemStack oldStackIn, @NotNull ItemStack newStackIn) {
+            int i = newStackIn.getCount() - oldStackIn.getCount();
+            if (i > 0) {
+                this.onQuickCraft(newStackIn, i);
+            }
         }
     }
 

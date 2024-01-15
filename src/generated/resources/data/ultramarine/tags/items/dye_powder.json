@@ -1,0 +1,21 @@
+{
+  "replace": false,
+  "values": [
+    "ultramarine:white_dye_powder",
+    "ultramarine:orange_dye_powder",
+    "ultramarine:magenta_dye_powder",
+    "ultramarine:light_blue_dye_powder",
+    "ultramarine:yellow_dye_powder",
+    "ultramarine:lime_dye_powder",
+    "ultramarine:pink_dye_powder",
+    "ultramarine:gray_dye_powder",
+    "ultramarine:light_gray_dye_powder",
+    "ultramarine:cyan_dye_powder",
+    "ultramarine:purple_dye_powder",
+    "ultramarine:blue_dye_powder",
+    "ultramarine:brown_dye_powder",
+    "ultramarine:green_dye_powder",
+    "ultramarine:red_dye_powder",
+    "ultramarine:black_dye_powder"
+  ]
+}

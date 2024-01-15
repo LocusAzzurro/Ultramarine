@@ -171,42 +171,42 @@ public class WoodworkingWorkbenchMenu extends AbstractContainerMenu {
         ItemStack itemstack = ItemStack.EMPTY;
         Slot slot = this.slots.get(pIndex);
         if (slot.hasItem()) {
-            ItemStack itemstack1 = slot.getItem();
-            Item item = itemstack1.getItem();
-            itemstack = itemstack1.copy();
+            ItemStack slotItem = slot.getItem();
+            Item item = slotItem.getItem();
+            itemstack = slotItem.copy();
             if (pIndex == 1) {
-                item.onCraftedBy(itemstack1, pPlayer.level, pPlayer);
-                if (!this.moveItemStackTo(itemstack1, 2, 38, true)) {
+                item.onCraftedBy(slotItem, pPlayer.level, pPlayer);
+                if (!this.moveItemStackTo(slotItem, 2, 38, true)) {
                     return ItemStack.EMPTY;
                 }
 
-                slot.onQuickCraft(itemstack1, itemstack);
+                slot.onQuickCraft(slotItem, itemstack);
             } else if (pIndex == 0) {
-                if (!this.moveItemStackTo(itemstack1, 2, 38, false)) {
+                if (!this.moveItemStackTo(slotItem, 2, 38, false)) {
                     return ItemStack.EMPTY;
                 }
-            } else if (this.level.getRecipeManager().getRecipeFor(RecipeTypeRegistry.WOODWORKING.get(), new SimpleContainer(itemstack1), this.level).isPresent()) {
-                if (!this.moveItemStackTo(itemstack1, 0, 1, false)) {
+            } else if (this.level.getRecipeManager().getRecipeFor(RecipeTypeRegistry.WOODWORKING.get(), new SimpleContainer(slotItem), this.level).isPresent()) {
+                if (!this.moveItemStackTo(slotItem, 0, 1, false)) {
                     return ItemStack.EMPTY;
                 }
             } else if (pIndex >= 2 && pIndex < 29) {
-                if (!this.moveItemStackTo(itemstack1, 29, 38, false)) {
+                if (!this.moveItemStackTo(slotItem, 29, 38, false)) {
                     return ItemStack.EMPTY;
                 }
-            } else if (pIndex >= 29 && pIndex < 38 && !this.moveItemStackTo(itemstack1, 2, 29, false)) {
+            } else if (pIndex >= 29 && pIndex < 38 && !this.moveItemStackTo(slotItem, 2, 29, false)) {
                 return ItemStack.EMPTY;
             }
 
-            if (itemstack1.isEmpty()) {
+            if (slotItem.isEmpty()) {
                 slot.set(ItemStack.EMPTY);
             }
 
             slot.setChanged();
-            if (itemstack1.getCount() == itemstack.getCount()) {
+            if (slotItem.getCount() == itemstack.getCount()) {
                 return ItemStack.EMPTY;
             }
 
-            slot.onTake(pPlayer, itemstack1);
+            slot.onTake(pPlayer, slotItem);
             this.broadcastChanges();
         }
 

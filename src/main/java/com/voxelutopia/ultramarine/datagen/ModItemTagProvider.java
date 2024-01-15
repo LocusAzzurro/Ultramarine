@@ -31,6 +31,23 @@ public class ModItemTagProvider extends ItemTagsProvider {
                 .add(ItemRegistry.POLISHED_WARPED_PLANK.get())
                 .add(ItemRegistry.POLISHED_ROSEWOOD_PLANK.get())
                 .add(ItemRegistry.POLISHED_EBONY_PLANK.get());
+        tag(ModItemTags.DYE_POWDER)
+                .add(ItemRegistry.WHITE_DYE_POWDER.get())
+                .add(ItemRegistry.ORANGE_DYE_POWDER.get())
+                .add(ItemRegistry.MAGENTA_DYE_POWDER.get())
+                .add(ItemRegistry.LIGHT_BLUE_DYE_POWDER.get())
+                .add(ItemRegistry.YELLOW_DYE_POWDER.get())
+                .add(ItemRegistry.LIME_DYE_POWDER.get())
+                .add(ItemRegistry.PINK_DYE_POWDER.get())
+                .add(ItemRegistry.GRAY_DYE_POWDER.get())
+                .add(ItemRegistry.LIGHT_GRAY_DYE_POWDER.get())
+                .add(ItemRegistry.CYAN_DYE_POWDER.get())
+                .add(ItemRegistry.PURPLE_DYE_POWDER.get())
+                .add(ItemRegistry.BLUE_DYE_POWDER.get())
+                .add(ItemRegistry.BROWN_DYE_POWDER.get())
+                .add(ItemRegistry.GREEN_DYE_POWDER.get())
+                .add(ItemRegistry.RED_DYE_POWDER.get())
+                .add(ItemRegistry.BLACK_DYE_POWDER.get());
 
     }
     @NotNull
