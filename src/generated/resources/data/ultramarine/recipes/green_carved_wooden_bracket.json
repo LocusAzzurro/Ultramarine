@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "T",
+    "B"
+  ],
+  "key": {
+    "T": {
+      "item": "ultramarine:blue_carved_wooden_slab"
+    },
+    "B": {
+      "item": "ultramarine:green_carved_wooden_stairs"
+    }
+  },
+  "result": {
+    "item": "ultramarine:green_carved_wooden_bracket",
+    "count": 2
+  }
+}

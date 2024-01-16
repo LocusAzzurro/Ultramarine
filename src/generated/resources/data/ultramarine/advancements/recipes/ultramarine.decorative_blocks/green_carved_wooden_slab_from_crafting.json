@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "ultramarine:green_carved_wooden_slab_from_crafting"
+    ]
+  },
+  "criteria": {
+    "has_green_carved_wood": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "ultramarine:green_carved_wood"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "ultramarine:green_carved_wooden_slab_from_crafting"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_green_carved_wood",
+      "has_the_recipe"
+    ]
+  ]
+}

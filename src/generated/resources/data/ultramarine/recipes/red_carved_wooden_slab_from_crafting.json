@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "BBB"
+  ],
+  "key": {
+    "B": {
+      "item": "ultramarine:red_carved_wood"
+    }
+  },
+  "result": {
+    "item": "ultramarine:red_carved_wooden_slab",
+    "count": 6
+  }
+}

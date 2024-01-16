@@ -1,7 +1,6 @@
 package com.voxelutopia.ultramarine.datagen;
 
 import com.google.common.collect.ImmutableSet;
-import com.voxelutopia.ultramarine.data.ModBlockTags;
 import com.voxelutopia.ultramarine.data.ModItemTags;
 import com.voxelutopia.ultramarine.data.recipe.ChiselTableRecipeBuilder;
 import com.voxelutopia.ultramarine.data.recipe.CompositeSmeltingRecipeBuilder;
@@ -15,7 +14,6 @@ import net.minecraft.tags.ItemTags;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
-import net.minecraft.world.item.alchemy.Potion;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.ItemLike;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -140,6 +138,40 @@ public class ModRecipeProvider extends RecipeProvider {
         roofTileRidgesRecipe("yellow", recipeConsumer);
         roofTileRidgesRecipe("black", recipeConsumer);
 
+        // DECORATIVE BLOCKS
+
+        // SIMPLE CARVED WOOD
+
+        carvedWood(ItemRegistry.RED_CARVED_WOOD.get(), new Ingredient[]{Ingredient.of(ModItemTags.FORGE_RED_DYE), Ingredient.of(ModItemTags.FORGE_RED_DYE)}, recipeConsumer);
+        woodSlabAndStairsRecipe(ItemRegistry.RED_CARVED_WOOD.get(), ItemRegistry.RED_CARVED_WOODEN_SLAB.get(), ItemRegistry.RED_CARVED_WOODEN_STAIRS.get(), recipeConsumer);
+        carvedWood(ItemRegistry.BLUE_CARVED_WOOD.get(), new Ingredient[]{Ingredient.of(ModItemTags.FORGE_BLUE_DYE), Ingredient.of(ModItemTags.FORGE_BLUE_DYE)}, recipeConsumer);
+        woodSlabAndStairsRecipe(ItemRegistry.BLUE_CARVED_WOOD.get(), ItemRegistry.BLUE_CARVED_WOODEN_SLAB.get(), ItemRegistry.BLUE_CARVED_WOODEN_STAIRS.get(), recipeConsumer);
+        ShapedRecipeBuilder.shaped(ItemRegistry.BLUE_CARVED_WOODEN_BRACKET.get(), 2)
+                .define('T', ItemRegistry.GREEN_CARVED_WOODEN_SLAB.get())
+                .define('B', ItemRegistry.BLUE_CARVED_WOODEN_STAIRS.get())
+                .pattern("T").pattern("B")
+                .unlockedBy(itemUnlockName(ItemRegistry.BLUE_CARVED_WOODEN_STAIRS.get()), itemCriterion(ItemRegistry.BLUE_CARVED_WOODEN_STAIRS.get()))
+                .save(recipeConsumer);
+        ShapelessRecipeBuilder.shapeless(ItemRegistry.BLUE_CARVED_WOODEN_BRACKET_STAIRS.get())
+                .requires(ItemRegistry.BLUE_CARVED_WOODEN_STAIRS.get()).requires(ItemRegistry.YELLOW_DYE_POWDER.get())
+                .unlockedBy(itemUnlockName(ItemRegistry.BLUE_CARVED_WOODEN_STAIRS.get()), itemCriterion(ItemRegistry.BLUE_CARVED_WOODEN_STAIRS.get()))
+                .save(recipeConsumer);
+        carvedWood(ItemRegistry.CYAN_CARVED_WOOD.get(), new Ingredient[]{Ingredient.of(ModItemTags.FORGE_CYAN_DYE), Ingredient.of(ModItemTags.FORGE_CYAN_DYE)}, recipeConsumer);
+        woodSlabAndStairsRecipe(ItemRegistry.CYAN_CARVED_WOOD.get(), ItemRegistry.CYAN_CARVED_WOODEN_SLAB.get(), ItemRegistry.CYAN_CARVED_WOODEN_STAIRS.get(), recipeConsumer);
+        ShapedRecipeBuilder.shaped(ItemRegistry.CYAN_CARVED_WOODEN_BRACKET.get(), 2)
+                .define('T', ItemRegistry.CYAN_CARVED_WOODEN_SLAB.get())
+                .define('B', ItemRegistry.RED_CARVED_WOODEN_STAIRS.get())
+                .pattern("T").pattern("B")
+                .unlockedBy(itemUnlockName(ItemRegistry.CYAN_CARVED_WOODEN_SLAB.get()), itemCriterion(ItemRegistry.CYAN_CARVED_WOODEN_SLAB.get()))
+                .save(recipeConsumer);
+        carvedWood(ItemRegistry.GREEN_CARVED_WOOD.get(), new Ingredient[]{Ingredient.of(ModItemTags.FORGE_GREEN_DYE), Ingredient.of(ModItemTags.FORGE_GREEN_DYE)}, recipeConsumer);
+        woodSlabAndStairsRecipe(ItemRegistry.GREEN_CARVED_WOOD.get(), ItemRegistry.GREEN_CARVED_WOODEN_SLAB.get(), ItemRegistry.GREEN_CARVED_WOODEN_STAIRS.get(), recipeConsumer);
+        ShapedRecipeBuilder.shaped(ItemRegistry.GREEN_CARVED_WOODEN_BRACKET.get(), 2)
+                .define('T', ItemRegistry.BLUE_CARVED_WOODEN_SLAB.get())
+                .define('B', ItemRegistry.GREEN_CARVED_WOODEN_STAIRS.get())
+                .pattern("T").pattern("B")
+                .unlockedBy(itemUnlockName(ItemRegistry.GREEN_CARVED_WOODEN_STAIRS.get()), itemCriterion(ItemRegistry.GREEN_CARVED_WOODEN_STAIRS.get()))
+                .save(recipeConsumer);
 
         //MATERIALS
 
@@ -257,6 +289,14 @@ public class ModRecipeProvider extends RecipeProvider {
                 .pattern("C")
                 .unlockedBy(itemUnlockName(Items.CRAFTING_TABLE), itemCriterion(Items.CRAFTING_TABLE))
                 .save(recipeConsumer);
+        ShapedRecipeBuilder.shaped(ItemRegistry.BRICK_KILN.get(), 1)
+                .define('B', ItemRegistry.CYAN_BRICK.get())
+                .define('F', Items.FURNACE)
+                .pattern("BBB")
+                .pattern("BFB")
+                .pattern("BBB")
+                .unlockedBy(itemUnlockName(ItemRegistry.CYAN_BRICK.get()), itemCriterion(ItemRegistry.CYAN_BRICK.get()))
+                .save(recipeConsumer);
         ShapedRecipeBuilder.shaped(ItemRegistry.CHISEL_TABLE.get(), 1)
                 .define('A', Items.AMETHYST_SHARD)
                 .define('C', Items.CRAFTING_TABLE)
@@ -271,9 +311,6 @@ public class ModRecipeProvider extends RecipeProvider {
         //TESTS
         CompositeSmeltingRecipeBuilder.compositeSmelting(Ingredient.of(ItemRegistry.UNFIRED_CLAY_BRICK.get()), Ingredient.of(ItemRegistry.PRISMARINE_DUST.get()), ItemRegistry.CYAN_BRICK.get(), 0.1f, 40)
                 .unlockedBy(itemUnlockName(ItemRegistry.UNFIRED_CLAY_BRICK.get()), itemCriterion(ItemRegistry.UNFIRED_CLAY_BRICK.get())).save(recipeConsumer);
-        ChiselTableRecipeBuilder.chiselTableRecipe(Ingredient.of(ItemTags.LOGS), Ingredient.of(ItemRegistry.CHISELED_WOOD_TEMPLATE.get()),
-                new Ingredient[]{Ingredient.of(ModItemTags.FORGE_RED_DYE), Ingredient.of(ModItemTags.FORGE_RED_DYE)}, ItemRegistry.RED_CARVED_WOOD.get())
-                .unlockedBy(itemUnlockName(ItemRegistry.CHISELED_WOOD_TEMPLATE.get()), itemCriterion(ItemRegistry.CHISELED_WOOD_TEMPLATE.get())).save(recipeConsumer);
     }
 
     private static void generateLampRecipes(@NotNull Consumer<FinishedRecipe> recipeConsumer) {
@@ -740,8 +777,14 @@ public class ModRecipeProvider extends RecipeProvider {
                 .save(pFinishedRecipeConsumer);
     }
 
+    public static void carvedWood(Item result, Ingredient[] dye, Consumer<FinishedRecipe> pFinishedRecipeConsumer){
+        ChiselTableRecipeBuilder.chiselTableRecipe(Ingredient.of(ItemTags.LOGS), Ingredient.of(ItemRegistry.CHISELED_WOOD_TEMPLATE.get()), dye, result)
+                .unlockedBy(itemUnlockName(ItemRegistry.CHISELED_WOOD_TEMPLATE.get()), itemCriterion(ItemRegistry.CHISELED_WOOD_TEMPLATE.get())).save(pFinishedRecipeConsumer);
+    }
+
     private static String name(Item item){
         return Objects.requireNonNull(item.getRegistryName()).getPath();
     }
+
 
 }

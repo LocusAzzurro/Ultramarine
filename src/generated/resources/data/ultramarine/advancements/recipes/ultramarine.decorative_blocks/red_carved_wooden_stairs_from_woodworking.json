@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "ultramarine:red_carved_wooden_stairs_from_woodworking"
+    ]
+  },
+  "criteria": {
+    "has_red_carved_wood": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "ultramarine:red_carved_wood"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "ultramarine:red_carved_wooden_stairs_from_woodworking"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_red_carved_wood",
+      "has_the_recipe"
+    ]
+  ]
+}
