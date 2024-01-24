@@ -343,7 +343,8 @@ public class ModBlockModelProvider extends BlockStateProvider {
         simpleBlock(BlockRegistry.HEMATITE_ORE.get());
 
         //todo temp model to make datagen happy
-        simpleBlock(BlockRegistry.BRICK_KILN.get());
+        simpleBlock(BlockRegistry.BRICK_KILN.get(), models().cubeAll(name(BlockRegistry.BRICK_KILN.get()), modLoc(BLOCK + "test")));
+        //simpleBlock(BlockRegistry.BRICK_KILN.get());
         simpleBlock(BlockRegistry.CHISEL_TABLE.get());
     }
 
