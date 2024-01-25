@@ -141,7 +141,7 @@ public class ModBlockModelProvider extends BlockStateProvider {
         simpleBlock(BlockRegistry.BLACK_WHITE_GREEN_CARVED_WOOD.get());
         simpleBlock(BlockRegistry.BLACK_WHITE_BLUE_CARVED_WOOD.get());
         simpleBlock(BlockRegistry.RED_AND_GREEN_CARVED_WOOD.get());
-        simpleBlock(BlockRegistry.BLUE_AND_WHITE_CARVED_WOOD.get());
+        simpleBlock(BlockRegistry.BLUE_AND_RED_CARVED_WOOD.get());
         simpleBlock(BlockRegistry.BLUE_WHITE_RED_CARVED_WOOD.get());
         simpleBlock(BlockRegistry.GREEN_WHITE_RED_CARVED_WOOD.get());
         simpleBlock(BlockRegistry.RED_AND_CYAN_CARVED_ARCHITRAVE.get());
