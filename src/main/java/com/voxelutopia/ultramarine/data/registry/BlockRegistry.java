@@ -172,6 +172,7 @@ public class BlockRegistry {
     public static final RegistryObject<Block> BLACK_WHITE_BLUE_CARVED_WOOD = BLOCKS.register("black_white_blue_carved_wood", () -> new BaseBlock(BaseBlockProperty.WOOD));
     public static final RegistryObject<Block> RED_AND_GREEN_CARVED_WOOD = BLOCKS.register("red_and_green_carved_wood", () -> new BaseBlock(BaseBlockProperty.WOOD));
     public static final RegistryObject<Block> BLUE_AND_WHITE_CARVED_WOOD = BLOCKS.register("blue_and_white_carved_wood", () -> new BaseBlock(BaseBlockProperty.WOOD));
+
     public static final RegistryObject<Block> BLUE_WHITE_RED_CARVED_WOOD = BLOCKS.register("blue_white_red_carved_wood", () -> new BaseBlock(BaseBlockProperty.WOOD));
     public static final RegistryObject<Block> GREEN_WHITE_RED_CARVED_WOOD = BLOCKS.register("green_white_red_carved_wood", () -> new BaseBlock(BaseBlockProperty.WOOD));
     public static final RegistryObject<Block> BLUE_AND_YELLOW_CARVED_WOOD_VARIANT_1 = BLOCKS.register("blue_and_yellow_carved_wood_variant_1", () -> new BaseBlock(BaseBlockProperty.WOOD));

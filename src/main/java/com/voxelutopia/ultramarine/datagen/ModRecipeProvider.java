@@ -185,8 +185,24 @@ public class ModRecipeProvider extends RecipeProvider {
                 .pattern("T").pattern("B")
                 .unlockedBy(itemUnlockName(ItemRegistry.GREEN_CARVED_WOODEN_STAIRS.get()), itemCriterion(ItemRegistry.GREEN_CARVED_WOODEN_STAIRS.get()))
                 .save(recipeConsumer);
+        carvedWood(ItemRegistry.ORANGE_AND_BLUE_CARVED_WOOD.get(), new Ingredient[]{
+                Ingredient.of(ModItemTags.FORGE_ORANGE_DYE), Ingredient.of(ModItemTags.FORGE_LIGHT_BLUE_DYE)}, recipeConsumer);
+        carvedWood(ItemRegistry.ORANGE_AND_GREEN_CARVED_WOOD.get(), new Ingredient[]{
+                Ingredient.of(ModItemTags.FORGE_ORANGE_DYE), Ingredient.of(ModItemTags.FORGE_LIME_DYE)}, recipeConsumer);
+        carvedWood(ItemRegistry.GREEN_AND_BLUE_CARVED_WOOD.get(), new Ingredient[]{
+                Ingredient.of(ModItemTags.FORGE_LIME_DYE), Ingredient.of(ModItemTags.FORGE_LIGHT_BLUE_DYE)}, recipeConsumer);
+        carvedWood(ItemRegistry.DARK_GREEN_AND_DARK_BLUE_CARVED_WOOD.get(), new Ingredient[]{
+                Ingredient.of(ModItemTags.FORGE_GREEN_DYE), Ingredient.of(ItemRegistry.LIME_DYE_POWDER.get()), Ingredient.of(ModItemTags.FORGE_BLUE_DYE)}, recipeConsumer);
+        carvedWood(ItemRegistry.DARK_BLUE_AND_DARK_GREEN_CARVED_WOOD.get(), new Ingredient[]{
+                Ingredient.of(ModItemTags.FORGE_BLUE_DYE), Ingredient.of(ItemRegistry.LIGHT_BLUE_DYE_POWDER.get()), Ingredient.of(ModItemTags.FORGE_GREEN_DYE)}, recipeConsumer);
 
+        carvedWood(ItemRegistry.BLACK_WHITE_GREEN_CARVED_WOOD.get(), new Ingredient[]{
+                Ingredient.of(ModItemTags.FORGE_BLACK_DYE), Ingredient.of(ItemRegistry.WHITE_DYE_POWDER.get()), Ingredient.of(ModItemTags.FORGE_GREEN_DYE)}, recipeConsumer);
+        carvedWood(ItemRegistry.BLACK_WHITE_BLUE_CARVED_WOOD.get(), new Ingredient[]{
+                Ingredient.of(ModItemTags.FORGE_BLACK_DYE), Ingredient.of(ItemRegistry.WHITE_DYE_POWDER.get()), Ingredient.of(ModItemTags.FORGE_BLUE_DYE)}, recipeConsumer);
 
+        carvedWood(ItemRegistry.RED_AND_GREEN_CARVED_WOOD.get(), new Ingredient[]{
+                Ingredient.of(ModItemTags.FORGE_RED_DYE), Ingredient.of(ModItemTags.FORGE_GREEN_DYE)}, recipeConsumer);
 
     }
 
