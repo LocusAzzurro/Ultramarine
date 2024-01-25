@@ -1,7 +1,19 @@
 {
   "variants": {
-    "": {
+    "facing=north": {
+      "model": "ultramarine:block/chisel_table",
+      "y": 180
+    },
+    "facing=south": {
       "model": "ultramarine:block/chisel_table"
+    },
+    "facing=west": {
+      "model": "ultramarine:block/chisel_table",
+      "y": 90
+    },
+    "facing=east": {
+      "model": "ultramarine:block/chisel_table",
+      "y": 270
     }
   }
 }

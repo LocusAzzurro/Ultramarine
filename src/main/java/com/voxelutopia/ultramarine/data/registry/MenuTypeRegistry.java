@@ -1,7 +1,6 @@
 package com.voxelutopia.ultramarine.data.registry;
 
 import com.voxelutopia.ultramarine.Ultramarine;
-import com.voxelutopia.ultramarine.world.block.ChiselTable;
 import com.voxelutopia.ultramarine.world.block.menu.BrickKilnMenu;
 import com.voxelutopia.ultramarine.world.block.menu.ChiselTableMenu;
 import com.voxelutopia.ultramarine.world.block.menu.ContainerDecorativeBlockMenu;

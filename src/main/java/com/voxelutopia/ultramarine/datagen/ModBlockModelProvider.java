@@ -50,7 +50,8 @@ public class ModBlockModelProvider extends BlockStateProvider {
             BlockRegistry.GREEN_GLAZED_ROOF_CHARM, -90
     );
     private final List<RegistryObject<Block>> SKIP_DECO = List.of(
-            BlockRegistry.BRICK_KILN
+            BlockRegistry.BRICK_KILN,
+            BlockRegistry.CHISEL_TABLE
     );
 
     public ModBlockModelProvider(DataGenerator generator, ExistingFileHelper existingFileHelper) {
@@ -348,15 +349,19 @@ public class ModBlockModelProvider extends BlockStateProvider {
             String blockPath = blockState.getValue(LIT) ? resourceLocation.getPath() + "_on" : resourceLocation.getPath();
             return getDecorativeBlockConfiguredModels((DecorativeBlock) BlockRegistry.BRICK_KILN.get(), blockState, blockPath, modelFile, 180);
         });
+        getVariantBuilder(BlockRegistry.CHISEL_TABLE.get()).forAllStates(blockState -> {
+            var modelFile = ConfiguredModel.builder();
+            ResourceLocation resourceLocation = Objects.requireNonNull(BlockRegistry.CHISEL_TABLE.get().getRegistryName());
+            String blockPath = resourceLocation.getPath();
+            return getDecorativeBlockConfiguredModels((DecorativeBlock) BlockRegistry.CHISEL_TABLE.get(), blockState, blockPath, modelFile, 0);
+        }); //todo add chisel table model
 
         simpleBlock(BlockRegistry.JADE_ORE.get());
         simpleBlock(BlockRegistry.MAGNESITE_ORE.get());
         simpleBlock(BlockRegistry.HEMATITE_ORE.get());
 
         //todo temp model to make datagen happy
-        //simpleBlock(BlockRegistry.BRICK_KILN.get(), models().cubeAll(name(BlockRegistry.BRICK_KILN.get()), modLoc(BLOCK + "test")));
-        //simpleBlock(BlockRegistry.BRICK_KILN.get());
-        simpleBlock(BlockRegistry.CHISEL_TABLE.get());
+        //simpleBlock(BlockRegistry.CHISEL_TABLE.get());
     }
 
     private ResourceLocation blockLoc(Block block){
