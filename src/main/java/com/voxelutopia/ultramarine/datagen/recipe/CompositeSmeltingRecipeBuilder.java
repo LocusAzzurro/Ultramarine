@@ -1,7 +1,7 @@
-package com.voxelutopia.ultramarine.data.recipe;
+package com.voxelutopia.ultramarine.datagen.recipe;
 
-import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
+import com.voxelutopia.ultramarine.data.recipe.CompositeSmeltingRecipe;
 import com.voxelutopia.ultramarine.data.registry.RecipeSerializerRegistry;
 import net.minecraft.advancements.Advancement;
 import net.minecraft.advancements.AdvancementRewards;
@@ -16,33 +16,31 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraft.world.level.ItemLike;
-import org.checkerframework.checker.units.qual.A;
 import org.jetbrains.annotations.Nullable;
 
-import java.util.Arrays;
-import java.util.List;
 import java.util.function.Consumer;
 
-public class ChiselTableRecipeBuilder implements RecipeBuilder {
+public class CompositeSmeltingRecipeBuilder implements RecipeBuilder {
 
     private final Item result;
-    private final Ingredient material;
-    private final Ingredient template;
-    protected final List<Ingredient> colors;
+    private final Ingredient primaryIngredient;
+    private final Ingredient secondaryIngredient;
+    private final float experience;
+    private final int cookingTime;
     private final Advancement.Builder advancementBuilder = Advancement.Builder.advancement();
     @Nullable private String group;
-    private static final RecipeSerializer<ChiselTableRecipe> SERIALIZER = RecipeSerializerRegistry.CHISEL_TABLE_SERIALIZER.get();
+    private static final RecipeSerializer<CompositeSmeltingRecipe> SERIALIZER = RecipeSerializerRegistry.COMPOSITE_SMELTING_SERIALIZER.get();
 
-    public ChiselTableRecipeBuilder(ItemLike result, Ingredient material, Ingredient template, List<Ingredient> colors){
+    public CompositeSmeltingRecipeBuilder(ItemLike result, Ingredient primaryIngredient, Ingredient secondaryIngredient, float experience, int cookingTime) {
         this.result = result.asItem();
-        this.material = material;
-        this.template = template;
-        this.colors = colors;
+        this.primaryIngredient = primaryIngredient;
+        this.secondaryIngredient = secondaryIngredient;
+        this.experience = experience;
+        this.cookingTime = cookingTime;
     }
 
-    public static ChiselTableRecipeBuilder chiselTableRecipe(Ingredient material, Ingredient template, Ingredient[] colors, ItemLike result){
-        List<Ingredient> colorList = Arrays.asList(colors).stream().filter(i -> !i.isEmpty()).toList();
-        return new ChiselTableRecipeBuilder(result, material, template, colorList);
+    public static CompositeSmeltingRecipeBuilder compositeSmelting(Ingredient primaryIngredient, Ingredient secondaryIngredient, ItemLike pResult, float pExperience, int pCookingTime) {
+        return new CompositeSmeltingRecipeBuilder(pResult, primaryIngredient, secondaryIngredient, pExperience, pCookingTime);
     }
 
     @Override
@@ -67,28 +65,30 @@ public class ChiselTableRecipeBuilder implements RecipeBuilder {
         this.advancementBuilder.parent(new ResourceLocation("recipes/root"))
                 .addCriterion("has_the_recipe", RecipeUnlockedTrigger.unlocked(pRecipeId)).rewards(AdvancementRewards.Builder.recipe(pRecipeId)).requirements(RequirementsStrategy.OR);
         pFinishedRecipeConsumer.accept(new Result(pRecipeId, this.group == null ? "" : this.group,
-                this.material, this.template, this.colors, this.result, this.advancementBuilder,
+                this.primaryIngredient, this.secondaryIngredient, this.result, this.experience, this.cookingTime, this.advancementBuilder,
                 new ResourceLocation(pRecipeId.getNamespace(), "recipes/" + this.result.getItemCategory().getRecipeFolderName() + "/" + pRecipeId.getPath())));
     }
 
     private static class Result implements FinishedRecipe{
         private final ResourceLocation id;
         private final String group;
+        private final Ingredient primaryIngredient;
+        private final Ingredient secondaryIngredient;
         private final Item result;
-        private final Ingredient material;
-        private final Ingredient template;
-        protected final List<Ingredient> colors;
+        private final float experience;
+        private final int cookingTime;
         private final Advancement.Builder advancementBuilder;
         private final ResourceLocation advancementId;
 
-        public Result(ResourceLocation pId, String pGroup, Ingredient material, Ingredient template, List<Ingredient> colors, Item result,
-                      Advancement.Builder pAdvancement, ResourceLocation pAdvancementId){
+        public Result(ResourceLocation pId, String pGroup, Ingredient primaryIngredient, Ingredient secondaryIngredient, Item pResult,
+                      float pExperience, int pCookingTime, Advancement.Builder pAdvancement, ResourceLocation pAdvancementId) {
             this.id = pId;
             this.group = pGroup;
-            this.result = result;
-            this.material = material;
-            this.template = template;
-            this.colors = colors;
+            this.primaryIngredient = primaryIngredient;
+            this.secondaryIngredient = secondaryIngredient;
+            this.result = pResult;
+            this.experience = pExperience;
+            this.cookingTime = pCookingTime;
             this.advancementBuilder = pAdvancement;
             this.advancementId = pAdvancementId;
         }
@@ -98,14 +98,11 @@ public class ChiselTableRecipeBuilder implements RecipeBuilder {
             if (!this.group.isEmpty()) {
                 pJson.addProperty("group", this.group);
             }
-            pJson.add("material", this.material.toJson());
-            pJson.add("template", this.template.toJson());
-            JsonArray colorsJson = new JsonArray();
-            for (Ingredient color: this.colors){
-                colorsJson.add(color.toJson());
-            }
-            pJson.add("colors", colorsJson);
+            pJson.add("primary_ingredient", this.primaryIngredient.toJson());
+            pJson.add("secondary_ingredient", this.secondaryIngredient.toJson());
             pJson.addProperty("result", Registry.ITEM.getKey(this.result).toString());
+            pJson.addProperty("experience", this.experience);
+            pJson.addProperty("cookingtime", this.cookingTime);
         }
 
         @Override
@@ -115,7 +112,7 @@ public class ChiselTableRecipeBuilder implements RecipeBuilder {
 
         @Override
         public RecipeSerializer<?> getType() {
-            return ChiselTableRecipeBuilder.SERIALIZER;
+            return CompositeSmeltingRecipeBuilder.SERIALIZER;
         }
 
         @Nullable

@@ -2,8 +2,8 @@ package com.voxelutopia.ultramarine.datagen;
 
 import com.google.common.collect.ImmutableSet;
 import com.voxelutopia.ultramarine.data.ModItemTags;
-import com.voxelutopia.ultramarine.data.recipe.ChiselTableRecipeBuilder;
-import com.voxelutopia.ultramarine.data.recipe.CompositeSmeltingRecipeBuilder;
+import com.voxelutopia.ultramarine.datagen.recipe.ChiselTableRecipeBuilder;
+import com.voxelutopia.ultramarine.datagen.recipe.CompositeSmeltingRecipeBuilder;
 import com.voxelutopia.ultramarine.data.registry.ItemRegistry;
 import com.voxelutopia.ultramarine.data.registry.RecipeSerializerRegistry;
 import net.minecraft.advancements.critereon.*;
