@@ -22,6 +22,7 @@ import net.minecraftforge.registries.RegistryObject;
 import org.apache.commons.lang3.tuple.Pair;
 import org.jetbrains.annotations.NotNull;
 
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
@@ -47,6 +48,9 @@ public class ModBlockModelProvider extends BlockStateProvider {
             BlockRegistry.WOODEN_POLES, 90,
             BlockRegistry.GOLDEN_GLAZED_ROOF_CHARM, -90,
             BlockRegistry.GREEN_GLAZED_ROOF_CHARM, -90
+    );
+    private final List<RegistryObject<Block>> SKIP_DECO = List.of(
+            BlockRegistry.BRICK_KILN
     );
 
     public ModBlockModelProvider(DataGenerator generator, ExistingFileHelper existingFileHelper) {
@@ -313,7 +317,7 @@ public class ModBlockModelProvider extends BlockStateProvider {
                 .forEach(rafterEnd -> shiftedDirectionalBlock(rafterEnd.get(), 180));
 
         BlockRegistry.BLOCKS.getEntries().stream().filter(blockRegistryObject -> blockRegistryObject.get() instanceof DecorativeBlock)
-                .forEach(decorativeBlock -> {
+                .filter(block -> !SKIP_DECO.contains(block)).forEach(decorativeBlock -> {
                     DecorativeBlock block = (DecorativeBlock) decorativeBlock.get();
                     if (ROTATED_DECO.containsKey(decorativeBlock)) decorativeBlock(block, ROTATED_DECO.get(decorativeBlock));
                     else if (block instanceof ConsumableDecorativeBlock consumableDecorativeBlock) consumableDecorativeBlock(consumableDecorativeBlock);
@@ -338,12 +342,19 @@ public class ModBlockModelProvider extends BlockStateProvider {
                 });
 
         horizontalBlock(BlockRegistry.WOODWORKING_WORKBENCH.get(), models().getExistingFile(blockLoc(BlockRegistry.WOODWORKING_WORKBENCH.get())));
+        getVariantBuilder(BlockRegistry.BRICK_KILN.get()).forAllStates(blockState -> {
+            var modelFile = ConfiguredModel.builder();
+            ResourceLocation resourceLocation = Objects.requireNonNull(BlockRegistry.BRICK_KILN.get().getRegistryName());
+            String blockPath = blockState.getValue(LIT) ? resourceLocation.getPath() + "_on" : resourceLocation.getPath();
+            return getDecorativeBlockConfiguredModels((DecorativeBlock) BlockRegistry.BRICK_KILN.get(), blockState, blockPath, modelFile, 180);
+        });
+
         simpleBlock(BlockRegistry.JADE_ORE.get());
         simpleBlock(BlockRegistry.MAGNESITE_ORE.get());
         simpleBlock(BlockRegistry.HEMATITE_ORE.get());
 
         //todo temp model to make datagen happy
-        simpleBlock(BlockRegistry.BRICK_KILN.get(), models().cubeAll(name(BlockRegistry.BRICK_KILN.get()), modLoc(BLOCK + "test")));
+        //simpleBlock(BlockRegistry.BRICK_KILN.get(), models().cubeAll(name(BlockRegistry.BRICK_KILN.get()), modLoc(BLOCK + "test")));
         //simpleBlock(BlockRegistry.BRICK_KILN.get());
         simpleBlock(BlockRegistry.CHISEL_TABLE.get());
     }
