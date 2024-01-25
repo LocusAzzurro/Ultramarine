@@ -1,6 +1,7 @@
 package com.voxelutopia.ultramarine.client.integration.jei;
 
 import com.voxelutopia.ultramarine.Ultramarine;
+import com.voxelutopia.ultramarine.data.recipe.ChiselTableRecipe;
 import com.voxelutopia.ultramarine.data.recipe.CompositeSmeltingRecipe;
 import com.voxelutopia.ultramarine.data.recipe.WoodworkingRecipe;
 import com.voxelutopia.ultramarine.data.registry.BlockRegistry;
@@ -12,7 +13,6 @@ import mezz.jei.api.helpers.IJeiHelpers;
 import mezz.jei.api.registration.IRecipeCatalystRegistration;
 import mezz.jei.api.registration.IRecipeCategoryRegistration;
 import mezz.jei.api.registration.IRecipeRegistration;
-import mezz.jei.api.runtime.IJeiRuntime;
 import net.minecraft.client.Minecraft;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
@@ -41,6 +41,7 @@ public class UltramarinePlugin implements IModPlugin {
         IGuiHelper guiHelper = jeiHelpers.getGuiHelper();
         registration.addRecipeCategories(new WoodworkingRecipeCategory(guiHelper));
         registration.addRecipeCategories(new CompositeSmeltingRecipeCategory(guiHelper));
+        registration.addRecipeCategories(new ChiselTableRecipeCategory(guiHelper));
     }
 
     @Override
@@ -50,13 +51,16 @@ public class UltramarinePlugin implements IModPlugin {
         List<WoodworkingRecipe> woodworkingRecipes = recipeManager.getAllRecipesFor(RecipeTypeRegistry.WOODWORKING.get());
         registration.addRecipes(WoodworkingRecipeCategory.WOODWORKING_RECIPE_TYPE, woodworkingRecipes);
         List<CompositeSmeltingRecipe> compositeSmeltingRecipes = recipeManager.getAllRecipesFor(RecipeTypeRegistry.COMPOSITE_SMELTING.get());
-        registration.addRecipes(CompositeSmeltingRecipeCategory.COMPOSITE_SMELTING_RECIPE_RECIPE_TYPE, compositeSmeltingRecipes);
+        registration.addRecipes(CompositeSmeltingRecipeCategory.COMPOSITE_SMELTING_RECIPE_TYPE, compositeSmeltingRecipes);
+        List<ChiselTableRecipe> chiselTableRecipes = recipeManager.getAllRecipesFor(RecipeTypeRegistry.CHISEL_TABLE.get());
+        registration.addRecipes(ChiselTableRecipeCategory.CHISEL_TABLE_RECIPE_TYPE, chiselTableRecipes);
     }
 
     @Override
     public void registerRecipeCatalysts(IRecipeCatalystRegistration registration) {
         registration.addRecipeCatalyst(new ItemStack(BlockRegistry.WOODWORKING_WORKBENCH.get()), WoodworkingRecipeCategory.WOODWORKING_RECIPE_TYPE);
-        registration.addRecipeCatalyst(new ItemStack(BlockRegistry.BRICK_KILN.get()), CompositeSmeltingRecipeCategory.COMPOSITE_SMELTING_RECIPE_RECIPE_TYPE);
+        registration.addRecipeCatalyst(new ItemStack(BlockRegistry.BRICK_KILN.get()), CompositeSmeltingRecipeCategory.COMPOSITE_SMELTING_RECIPE_TYPE);
+        registration.addRecipeCatalyst(new ItemStack(BlockRegistry.CHISEL_TABLE.get()), ChiselTableRecipeCategory.CHISEL_TABLE_RECIPE_TYPE);
     }
 
 }

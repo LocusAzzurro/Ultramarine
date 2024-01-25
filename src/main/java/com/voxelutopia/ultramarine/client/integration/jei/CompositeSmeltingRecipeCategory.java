@@ -6,7 +6,6 @@ import com.google.common.cache.LoadingCache;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.voxelutopia.ultramarine.Ultramarine;
 import com.voxelutopia.ultramarine.data.recipe.CompositeSmeltingRecipe;
-import com.voxelutopia.ultramarine.data.recipe.WoodworkingRecipe;
 import com.voxelutopia.ultramarine.data.registry.BlockRegistry;
 import mezz.jei.api.constants.VanillaTypes;
 import mezz.jei.api.gui.builder.IRecipeLayoutBuilder;
@@ -25,7 +24,6 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.level.block.Block;
 
 import static mezz.jei.api.recipe.RecipeIngredientRole.INPUT;
 import static mezz.jei.api.recipe.RecipeIngredientRole.OUTPUT;
@@ -34,7 +32,7 @@ public class CompositeSmeltingRecipeCategory implements IRecipeCategory<Composit
 
     public static final ResourceLocation UID = new ResourceLocation(Ultramarine.MOD_ID, "composite_smelting");
 
-    public static final RecipeType<CompositeSmeltingRecipe> COMPOSITE_SMELTING_RECIPE_RECIPE_TYPE =
+    public static final RecipeType<CompositeSmeltingRecipe> COMPOSITE_SMELTING_RECIPE_TYPE =
             new RecipeType<>(UID, CompositeSmeltingRecipe.class);
 
     public static final ResourceLocation TEXTURE_GUI = new ResourceLocation(Ultramarine.MOD_ID, "textures/gui/brick_kiln.png");

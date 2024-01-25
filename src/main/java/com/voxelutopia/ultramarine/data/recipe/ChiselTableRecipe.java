@@ -67,6 +67,18 @@ public class ChiselTableRecipe implements Recipe<Container> {
         return result.copy();
     }
 
+    public Ingredient getMaterial() {
+        return material;
+    }
+
+    public Ingredient getTemplate() {
+        return template;
+    }
+
+    public List<Ingredient> getColors() {
+        return colors;
+    }
+
     @Override
     public ResourceLocation getId() {
         return id;
