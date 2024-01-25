@@ -27,6 +27,8 @@ import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
+import net.minecraftforge.items.wrapper.CombinedInvWrapper;
+import net.minecraftforge.items.wrapper.RecipeWrapper;
 import net.minecraftforge.network.NetworkHooks;
 import org.jetbrains.annotations.Nullable;
 
@@ -75,13 +77,7 @@ public class BrickKiln extends DecorativeBlock implements EntityBlock, BaseBlock
             BlockEntity blockentity = pLevel.getBlockEntity(pPos);
             if (blockentity instanceof BrickKilnBlockEntity furnace) {
                 if (pLevel instanceof ServerLevel) {
-
-                    Containers.dropContents(pLevel, pPos, NonNullList.of(
-                            furnace.wrapHandlers().getStackInSlot(0),
-                            furnace.wrapHandlers().getStackInSlot(1),
-                            furnace.wrapHandlers().getStackInSlot(2),
-                            furnace.wrapHandlers().getStackInSlot(3)
-                            ));
+                    Containers.dropContents(pLevel, pPos, new RecipeWrapper(furnace.wrapHandlers()));
                     furnace.getRecipesToAwardAndPopExperience((ServerLevel)pLevel, Vec3.atCenterOf(pPos));
                 }
 
