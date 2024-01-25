@@ -360,8 +360,6 @@ public class ModBlockModelProvider extends BlockStateProvider {
         simpleBlock(BlockRegistry.MAGNESITE_ORE.get());
         simpleBlock(BlockRegistry.HEMATITE_ORE.get());
 
-        //todo temp model to make datagen happy
-        //simpleBlock(BlockRegistry.CHISEL_TABLE.get());
     }
 
     private ResourceLocation blockLoc(Block block){

@@ -433,13 +433,6 @@ public class ModRecipeProvider extends RecipeProvider {
                 .pattern("BBB")
                 .unlockedBy(itemUnlockName(ItemRegistry.CYAN_BRICK.get()), itemCriterion(ItemRegistry.CYAN_BRICK.get()))
                 .save(recipeConsumer);
-        ShapedRecipeBuilder.shaped(ItemRegistry.CHISEL_TABLE.get(), 1)
-                .define('A', Items.AMETHYST_SHARD)
-                .define('C', Items.CRAFTING_TABLE)
-                .pattern("A")
-                .pattern("C")
-                .unlockedBy(itemUnlockName(Items.CRAFTING_TABLE), itemCriterion(Items.CRAFTING_TABLE))
-                .save(recipeConsumer);
     }
 
     @NotNull

@@ -1,8 +1,12 @@
 package com.voxelutopia.ultramarine.event;
 
 import com.voxelutopia.ultramarine.data.ModBlockTags;
+import com.voxelutopia.ultramarine.data.registry.BlockRegistry;
 import com.voxelutopia.ultramarine.data.registry.ItemRegistry;
 import com.voxelutopia.ultramarine.data.registry.VillagerProfessionRegistry;
+import com.voxelutopia.ultramarine.world.block.ChiselTableMedium;
+import com.voxelutopia.ultramarine.world.block.DecorativeBlock;
+import net.minecraft.core.BlockPos;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.entity.item.ItemEntity;
@@ -16,6 +20,7 @@ import net.minecraftforge.common.Tags;
 import net.minecraftforge.event.entity.item.ItemExpireEvent;
 import net.minecraftforge.event.entity.player.PlayerEvent;
 import net.minecraftforge.event.village.VillagerTradesEvent;
+import net.minecraftforge.event.world.BlockEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 
@@ -43,6 +48,29 @@ public class CommonEventHandler {
             event.setCanceled(true);
         }
     }
+
+    @SubscribeEvent
+    public static void chiselTableMultiblock(BlockEvent event){
+        if (event instanceof BlockEvent.EntityPlaceEvent placeEvent){
+            BlockState placedBlock = placeEvent.getPlacedBlock();
+            if (!placedBlock.is(BlockRegistry.BRUSH_AND_INKSTONE.get())) return;
+            BlockPos pos = placeEvent.getPos();
+            BlockState blockBelow = placeEvent.getWorld().getBlockState(pos.below());
+            if (blockBelow.is(BlockRegistry.PORCELAIN_INLAID_TABLE.get())) {
+                placeEvent.getWorld().setBlock(pos,
+                        BlockRegistry.CHISEL_TABLE.get().defaultBlockState().setValue(DecorativeBlock.FACING, placedBlock.getValue(DecorativeBlock.FACING)), 3);
+            }
+        }
+        if (event instanceof BlockEvent.BreakEvent breakEvent){
+            BlockState block = breakEvent.getState();
+            BlockPos pos = breakEvent.getPos();
+            if (block.is(BlockRegistry.PORCELAIN_INLAID_TABLE.get()) && breakEvent.getWorld().getBlockState(pos.above()).is(BlockRegistry.CHISEL_TABLE.get())){
+                breakEvent.getWorld().setBlock(pos.above(),
+                        BlockRegistry.BRUSH_AND_INKSTONE.get().defaultBlockState().setValue(DecorativeBlock.FACING, block.getValue(DecorativeBlock.FACING)), 3);
+            }
+        }
+    }
+
 
     @SubscribeEvent
     public static void villagerTraders(VillagerTradesEvent event){
