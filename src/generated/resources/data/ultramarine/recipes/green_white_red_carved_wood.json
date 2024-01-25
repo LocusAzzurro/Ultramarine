@@ -1,0 +1,24 @@
+{
+  "type": "ultramarine:chisel_table",
+  "material": {
+    "tag": "minecraft:logs"
+  },
+  "template": {
+    "item": "ultramarine:chiseled_wood_template"
+  },
+  "colors": [
+    {
+      "item": "ultramarine:green_dye_powder"
+    },
+    {
+      "item": "ultramarine:white_dye_powder"
+    },
+    {
+      "tag": "forge:dyes/red"
+    },
+    {
+      "item": "ultramarine:blue_dye_powder"
+    }
+  ],
+  "result": "ultramarine:green_white_red_carved_wood"
+}

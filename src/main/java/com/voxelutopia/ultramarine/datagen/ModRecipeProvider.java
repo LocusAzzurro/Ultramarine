@@ -195,14 +195,45 @@ public class ModRecipeProvider extends RecipeProvider {
                 Ingredient.of(ModItemTags.FORGE_GREEN_DYE), Ingredient.of(ItemRegistry.LIME_DYE_POWDER.get()), Ingredient.of(ModItemTags.FORGE_BLUE_DYE)}, recipeConsumer);
         carvedWood(ItemRegistry.DARK_BLUE_AND_DARK_GREEN_CARVED_WOOD.get(), new Ingredient[]{
                 Ingredient.of(ModItemTags.FORGE_BLUE_DYE), Ingredient.of(ItemRegistry.LIGHT_BLUE_DYE_POWDER.get()), Ingredient.of(ModItemTags.FORGE_GREEN_DYE)}, recipeConsumer);
-
         carvedWood(ItemRegistry.BLACK_WHITE_GREEN_CARVED_WOOD.get(), new Ingredient[]{
                 Ingredient.of(ModItemTags.FORGE_BLACK_DYE), Ingredient.of(ItemRegistry.WHITE_DYE_POWDER.get()), Ingredient.of(ModItemTags.FORGE_GREEN_DYE)}, recipeConsumer);
         carvedWood(ItemRegistry.BLACK_WHITE_BLUE_CARVED_WOOD.get(), new Ingredient[]{
                 Ingredient.of(ModItemTags.FORGE_BLACK_DYE), Ingredient.of(ItemRegistry.WHITE_DYE_POWDER.get()), Ingredient.of(ModItemTags.FORGE_BLUE_DYE)}, recipeConsumer);
-
         carvedWood(ItemRegistry.RED_AND_GREEN_CARVED_WOOD.get(), new Ingredient[]{
                 Ingredient.of(ModItemTags.FORGE_RED_DYE), Ingredient.of(ModItemTags.FORGE_GREEN_DYE)}, recipeConsumer);
+        carvedWood(ItemRegistry.BLUE_AND_RED_CARVED_WOOD.get(), new Ingredient[]{
+                Ingredient.of(ModItemTags.FORGE_BLUE_DYE), Ingredient.of(ModItemTags.FORGE_RED_DYE)}, recipeConsumer);
+        carvedWood(ItemRegistry.BLUE_WHITE_RED_CARVED_WOOD.get(), new Ingredient[]{
+                Ingredient.of(ItemRegistry.BLUE_DYE_POWDER.get()), Ingredient.of(ItemRegistry.WHITE_DYE_POWDER.get()),
+                Ingredient.of(ModItemTags.FORGE_RED_DYE), Ingredient.of(ItemRegistry.GREEN_DYE_POWDER.get())}, recipeConsumer);
+        carvedWood(ItemRegistry.GREEN_WHITE_RED_CARVED_WOOD.get(), new Ingredient[]{
+                Ingredient.of(ItemRegistry.GREEN_DYE_POWDER.get()), Ingredient.of(ItemRegistry.WHITE_DYE_POWDER.get()),
+                Ingredient.of(ModItemTags.FORGE_RED_DYE), Ingredient.of(ItemRegistry.BLUE_DYE_POWDER.get())}, recipeConsumer);
+        carvedWood(ItemRegistry.BLUE_AND_YELLOW_CARVED_WOOD_VARIANT_1.get(), new Ingredient[]{
+                Ingredient.of(ModItemTags.FORGE_BLUE_DYE), Ingredient.of(ModItemTags.FORGE_BLUE_DYE),
+                Ingredient.of(ItemRegistry.GREEN_DYE_POWDER.get()), Ingredient.of(ModItemTags.FORGE_YELLOW_DYE)}, recipeConsumer);
+        woodworking(Ingredient.of(ItemRegistry.BLUE_AND_YELLOW_CARVED_WOOD_VARIANT_1.get()), ItemRegistry.BLUE_AND_YELLOW_CARVED_WOOD_VARIANT_2.get())
+                .unlockedBy(itemUnlockName(ItemRegistry.BLUE_AND_YELLOW_CARVED_WOOD_VARIANT_1.get()), itemCriterion(ItemRegistry.BLUE_AND_YELLOW_CARVED_WOOD_VARIANT_1.get()))
+                .save(recipeConsumer, new ResourceLocation(DataGenerators.MOD_ID, "blue_and_yellow_carved_wood_1_to_2"));
+        woodworking(Ingredient.of(ItemRegistry.BLUE_AND_YELLOW_CARVED_WOOD_VARIANT_1.get()), ItemRegistry.BLUE_AND_YELLOW_CARVED_WOOD_VARIANT_3.get())
+                .unlockedBy(itemUnlockName(ItemRegistry.BLUE_AND_YELLOW_CARVED_WOOD_VARIANT_1.get()), itemCriterion(ItemRegistry.BLUE_AND_YELLOW_CARVED_WOOD_VARIANT_1.get()))
+                .save(recipeConsumer, new ResourceLocation(DataGenerators.MOD_ID, "blue_and_yellow_carved_wood_1_to_3"));
+        woodworking(Ingredient.of(ItemRegistry.BLUE_AND_YELLOW_CARVED_WOOD_VARIANT_2.get()), ItemRegistry.BLUE_AND_YELLOW_CARVED_WOOD_VARIANT_1.get())
+                .unlockedBy(itemUnlockName(ItemRegistry.BLUE_AND_YELLOW_CARVED_WOOD_VARIANT_2.get()), itemCriterion(ItemRegistry.BLUE_AND_YELLOW_CARVED_WOOD_VARIANT_2.get()))
+                .save(recipeConsumer, new ResourceLocation(DataGenerators.MOD_ID, "blue_and_yellow_carved_wood_2_to_1"));
+        woodworking(Ingredient.of(ItemRegistry.BLUE_AND_YELLOW_CARVED_WOOD_VARIANT_2.get()), ItemRegistry.BLUE_AND_YELLOW_CARVED_WOOD_VARIANT_3.get())
+                .unlockedBy(itemUnlockName(ItemRegistry.BLUE_AND_YELLOW_CARVED_WOOD_VARIANT_2.get()), itemCriterion(ItemRegistry.BLUE_AND_YELLOW_CARVED_WOOD_VARIANT_2.get()))
+                .save(recipeConsumer, new ResourceLocation(DataGenerators.MOD_ID, "blue_and_yellow_carved_wood_2_to_3"));
+        woodworking(Ingredient.of(ItemRegistry.BLUE_AND_YELLOW_CARVED_WOOD_VARIANT_3.get()), ItemRegistry.BLUE_AND_YELLOW_CARVED_WOOD_VARIANT_1.get())
+                .unlockedBy(itemUnlockName(ItemRegistry.BLUE_AND_YELLOW_CARVED_WOOD_VARIANT_3.get()), itemCriterion(ItemRegistry.BLUE_AND_YELLOW_CARVED_WOOD_VARIANT_3.get()))
+                .save(recipeConsumer, new ResourceLocation(DataGenerators.MOD_ID, "blue_and_yellow_carved_wood_3_to_1"));
+        woodworking(Ingredient.of(ItemRegistry.BLUE_AND_YELLOW_CARVED_WOOD_VARIANT_3.get()), ItemRegistry.BLUE_AND_YELLOW_CARVED_WOOD_VARIANT_2.get())
+                .unlockedBy(itemUnlockName(ItemRegistry.BLUE_AND_YELLOW_CARVED_WOOD_VARIANT_3.get()), itemCriterion(ItemRegistry.BLUE_AND_YELLOW_CARVED_WOOD_VARIANT_3.get()))
+                .save(recipeConsumer, new ResourceLocation(DataGenerators.MOD_ID, "blue_and_yellow_carved_wood_3_to_2"));
+        carvedWood(ItemRegistry.YELLOW_AND_GREEN_CARVED_WOOD.get(), new Ingredient[]{
+                Ingredient.of(ItemRegistry.YELLOW_DYE_POWDER.get()), Ingredient.of(ModItemTags.FORGE_GREEN_DYE), Ingredient.of(ModItemTags.FORGE_GREEN_DYE)}, recipeConsumer);
+        carvedWood(ItemRegistry.YELLOW_GREEN_BLUE_CARVED_WOOD.get(), new Ingredient[]{
+                Ingredient.of(ItemRegistry.YELLOW_DYE_POWDER.get()), Ingredient.of(ModItemTags.FORGE_GREEN_DYE), Ingredient.of(ModItemTags.FORGE_BLUE_DYE)}, recipeConsumer);
 
     }
 
