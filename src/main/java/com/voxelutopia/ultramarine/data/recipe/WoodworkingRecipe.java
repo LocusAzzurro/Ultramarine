@@ -46,6 +46,11 @@ public class WoodworkingRecipe extends SingleItemRecipe {
     }
 
     @Override
+    public boolean isSpecial() {
+        return true;
+    }
+
+    @Override
     public ItemStack getResultItem() {
         return result.copy();
     }

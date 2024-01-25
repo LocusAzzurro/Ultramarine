@@ -129,7 +129,6 @@ public class RailingBlock extends Block implements BaseBlockPropertyHolder, Simp
             west = connectsTo(pFacingState, pFacingState.isFaceSturdy(pLevel, pFacingPos, Direction.EAST));
         }
         boolean up = pState.getValue(POLE_LOCKED) || !((east && west && !north && !south) || (!east && !west && north && south));
-        //boolean up = pState.getValue(POLE_LOCKED) || !((east && west && !north && !south) || (!east && !west && north && south));
         return pState.setValue(NORTH, north).setValue(SOUTH, south).setValue(EAST, east).setValue(WEST, west).setValue(UP, up);
     }
 
