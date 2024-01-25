@@ -100,7 +100,7 @@ public class RailingBlock extends Block implements BaseBlockPropertyHolder, Simp
         boolean west = this.connectsTo(westState, westState.isFaceSturdy(levelreader, westSide, Direction.EAST));
         boolean up = !((east && west && !north && !south) || (!east && !west && north && south));
         BlockState waterState = this.defaultBlockState().setValue(WATERLOGGED, fluidstate.getType() == Fluids.WATER);
-        return waterState.setValue(NORTH, north).setValue(SOUTH, south).setValue(EAST, east).setValue(SOUTH, south).setValue(UP, up);
+        return waterState.setValue(NORTH, north).setValue(SOUTH, south).setValue(EAST, east).setValue(WEST, west).setValue(UP, up);
     }
 
     @Override
@@ -129,6 +129,7 @@ public class RailingBlock extends Block implements BaseBlockPropertyHolder, Simp
             west = connectsTo(pFacingState, pFacingState.isFaceSturdy(pLevel, pFacingPos, Direction.EAST));
         }
         boolean up = pState.getValue(POLE_LOCKED) || !((east && west && !north && !south) || (!east && !west && north && south));
+        //boolean up = pState.getValue(POLE_LOCKED) || !((east && west && !north && !south) || (!east && !west && north && south));
         return pState.setValue(NORTH, north).setValue(SOUTH, south).setValue(EAST, east).setValue(WEST, west).setValue(UP, up);
     }
 
