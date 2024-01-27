@@ -1,5 +1,6 @@
 package com.voxelutopia.ultramarine.event;
 
+import com.voxelutopia.ultramarine.Ultramarine;
 import com.voxelutopia.ultramarine.data.ModBlockTags;
 import com.voxelutopia.ultramarine.data.registry.BlockRegistry;
 import com.voxelutopia.ultramarine.data.registry.ItemRegistry;
@@ -15,6 +16,7 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.trading.MerchantOffer;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.common.Tags;
 import net.minecraftforge.event.entity.item.ItemExpireEvent;
@@ -23,9 +25,12 @@ import net.minecraftforge.event.village.VillagerTradesEvent;
 import net.minecraftforge.event.world.BlockEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
+import org.slf4j.Logger;
 
 @Mod.EventBusSubscriber
 public class CommonEventHandler {
+
+    private static final Logger LOGGER = Ultramarine.getLogger();
 
     @SubscribeEvent
     public static void breakSpeed(PlayerEvent.BreakSpeed event){
@@ -68,6 +73,13 @@ public class CommonEventHandler {
                 breakEvent.getWorld().setBlock(pos.above(),
                         BlockRegistry.BRUSH_AND_INKSTONE.get().defaultBlockState().setValue(DecorativeBlock.FACING, block.getValue(DecorativeBlock.FACING)), 3);
             }
+        }
+    }
+
+    @SubscribeEvent
+    public static void snowFallTest(BlockEvent.NeighborNotifyEvent event){
+        if (event.getState().is(Blocks.SNOW)){
+            LOGGER.info("Snowfall Event: " + event.getPos());
         }
     }
 

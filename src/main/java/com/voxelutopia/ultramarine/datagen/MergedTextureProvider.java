@@ -1,10 +1,12 @@
 package com.voxelutopia.ultramarine.datagen;
 
 import com.voxelutopia.ultramarine.Ultramarine;
+import com.voxelutopia.ultramarine.world.block.RoofTiles;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.DataProvider;
 import net.minecraft.data.HashCache;
 import net.minecraftforge.common.data.ExistingFileHelper;
+import org.lwjgl.system.CallbackI;
 import org.slf4j.Logger;
 
 import javax.imageio.ImageIO;
@@ -32,16 +34,23 @@ public class MergedTextureProvider implements DataProvider {
     @Override
     public void run(HashCache pCache) throws IOException {
 
-        BufferedImage existingTexture = ImageIO.read(getInputTexture("bamboo_mat"));
-        BufferedImage overlay = new BufferedImage(16, 16, BufferedImage.TYPE_INT_ARGB);
-        BufferedImage combined = new BufferedImage(16, 16, BufferedImage.TYPE_INT_ARGB);
-        overlay.setRGB(1, 1, 0xffff00ff);
-        Graphics graphics = combined.getGraphics();
-        graphics.drawImage(existingTexture, 0, 0, null);
-        graphics.drawImage(overlay, 0, 0, null);
-        graphics.dispose();
-
-        save(pCache, combined, getOutputPath("test"));
+        BufferedImage roofTileBase, snowLayer, combinedTexture;
+        String[] roofTileColors = {"gray", "yellow", "green", "blue", "cyan", "black"};
+        for (RoofTiles.RoofTileType type: RoofTiles.RoofTileType.values()){
+            int maxSnowStages = type.getMaxSnowStages();
+            for (String color : roofTileColors){
+                for (int i = 1; i <= maxSnowStages; i++){
+                    roofTileBase = ImageIO.read(getInputTexture(color + "_" + type));
+                    snowLayer = ImageIO.read(getInputTexture(type + "_snow_stage_" + i));
+                    combinedTexture = new BufferedImage(roofTileBase.getWidth(), roofTileBase.getHeight(), BufferedImage.TYPE_INT_ARGB);
+                    Graphics graphics = combinedTexture.getGraphics();
+                    graphics.drawImage(roofTileBase, 0, 0, null);
+                    graphics.drawImage(snowLayer, 0, 0, null);
+                    graphics.dispose();
+                    save(pCache, combinedTexture, getOutputPath(color + "_" + type + "_snow_stage_" + i));
+                }
+            }
+        }
     }
 
     @Override
