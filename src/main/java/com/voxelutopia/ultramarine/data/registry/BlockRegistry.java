@@ -7,6 +7,7 @@ import com.voxelutopia.ultramarine.world.block.*;
 import com.voxelutopia.ultramarine.world.block.BaseAxialBlock;
 import net.minecraft.core.Direction;
 import net.minecraft.world.food.Foods;
+import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockBehaviour;
@@ -98,24 +99,24 @@ public class BlockRegistry {
 
     // ROOF TILES
 
-    public static final RegistryObject<Block> GRAY_ROOF_TILES = BLOCKS.register("gray_roof_tiles", RoofTiles::new);
-    public static final RegistryObject<Block> GRAY_ROOF_TILE_STAIRS = BLOCKS.register("gray_roof_tile_stairs", RoofTiles::new);
-    public static final RegistryObject<Block> GRAY_ROOF_TILE_EDGE = BLOCKS.register("gray_roof_tile_edge", RoofTiles::new);
-    public static final RegistryObject<Block> YELLOW_ROOF_TILES = BLOCKS.register("yellow_roof_tiles", RoofTiles::new);
-    public static final RegistryObject<Block> YELLOW_ROOF_TILE_STAIRS = BLOCKS.register("yellow_roof_tile_stairs", RoofTiles::new);
-    public static final RegistryObject<Block> YELLOW_ROOF_TILE_EDGE = BLOCKS.register("yellow_roof_tile_edge", RoofTiles::new);
-    public static final RegistryObject<Block> GREEN_ROOF_TILES = BLOCKS.register("green_roof_tiles", RoofTiles::new);
-    public static final RegistryObject<Block> GREEN_ROOF_TILE_STAIRS = BLOCKS.register("green_roof_tile_stairs", RoofTiles::new);
-    public static final RegistryObject<Block> GREEN_ROOF_TILE_EDGE = BLOCKS.register("green_roof_tile_edge", RoofTiles::new);
-    public static final RegistryObject<Block> BLUE_ROOF_TILES = BLOCKS.register("blue_roof_tiles", RoofTiles::new);
-    public static final RegistryObject<Block> BLUE_ROOF_TILE_STAIRS = BLOCKS.register("blue_roof_tile_stairs", RoofTiles::new);
-    public static final RegistryObject<Block> BLUE_ROOF_TILE_EDGE = BLOCKS.register("blue_roof_tile_edge", RoofTiles::new);
-    public static final RegistryObject<Block> CYAN_ROOF_TILES = BLOCKS.register("cyan_roof_tiles", RoofTiles::new);
-    public static final RegistryObject<Block> CYAN_ROOF_TILE_STAIRS = BLOCKS.register("cyan_roof_tile_stairs", RoofTiles::new);
-    public static final RegistryObject<Block> CYAN_ROOF_TILE_EDGE = BLOCKS.register("cyan_roof_tile_edge", RoofTiles::new);
-    public static final RegistryObject<Block> BLACK_ROOF_TILES = BLOCKS.register("black_roof_tiles", RoofTiles::new);
-    public static final RegistryObject<Block> BLACK_ROOF_TILE_STAIRS = BLOCKS.register("black_roof_tile_stairs", RoofTiles::new);
-    public static final RegistryObject<Block> BLACK_ROOF_TILE_EDGE = BLOCKS.register("black_roof_tile_edge", RoofTiles::new);
+    public static final RegistryObject<Block> GRAY_ROOF_TILES = BLOCKS.register("gray_roof_tiles", () -> new RoofTiles(DyeColor.GRAY, RoofTiles.RoofTileType.NORMAL));
+    public static final RegistryObject<Block> GRAY_ROOF_TILE_STAIRS = BLOCKS.register("gray_roof_tile_stairs", () -> new RoofTiles(DyeColor.GRAY, RoofTiles.RoofTileType.STAIRS));
+    public static final RegistryObject<Block> GRAY_ROOF_TILE_EDGE = BLOCKS.register("gray_roof_tile_edge", () -> new RoofTiles(DyeColor.GRAY, RoofTiles.RoofTileType.EDGE));
+    public static final RegistryObject<Block> YELLOW_ROOF_TILES = BLOCKS.register("yellow_roof_tiles", () -> new RoofTiles(DyeColor.YELLOW, RoofTiles.RoofTileType.NORMAL));
+    public static final RegistryObject<Block> YELLOW_ROOF_TILE_STAIRS = BLOCKS.register("yellow_roof_tile_stairs", () -> new RoofTiles(DyeColor.YELLOW, RoofTiles.RoofTileType.STAIRS));
+    public static final RegistryObject<Block> YELLOW_ROOF_TILE_EDGE = BLOCKS.register("yellow_roof_tile_edge", () -> new RoofTiles(DyeColor.YELLOW, RoofTiles.RoofTileType.EDGE));
+    public static final RegistryObject<Block> GREEN_ROOF_TILES = BLOCKS.register("green_roof_tiles", () -> new RoofTiles(DyeColor.GREEN, RoofTiles.RoofTileType.NORMAL));
+    public static final RegistryObject<Block> GREEN_ROOF_TILE_STAIRS = BLOCKS.register("green_roof_tile_stairs", () -> new RoofTiles(DyeColor.GREEN, RoofTiles.RoofTileType.STAIRS));
+    public static final RegistryObject<Block> GREEN_ROOF_TILE_EDGE = BLOCKS.register("green_roof_tile_edge", () -> new RoofTiles(DyeColor.GREEN, RoofTiles.RoofTileType.EDGE));
+    public static final RegistryObject<Block> BLUE_ROOF_TILES = BLOCKS.register("blue_roof_tiles", () -> new RoofTiles(DyeColor.BLUE, RoofTiles.RoofTileType.NORMAL));
+    public static final RegistryObject<Block> BLUE_ROOF_TILE_STAIRS = BLOCKS.register("blue_roof_tile_stairs", () -> new RoofTiles(DyeColor.BLUE, RoofTiles.RoofTileType.STAIRS));
+    public static final RegistryObject<Block> BLUE_ROOF_TILE_EDGE = BLOCKS.register("blue_roof_tile_edge", () -> new RoofTiles(DyeColor.BLUE, RoofTiles.RoofTileType.EDGE));
+    public static final RegistryObject<Block> CYAN_ROOF_TILES = BLOCKS.register("cyan_roof_tiles", () -> new RoofTiles(DyeColor.CYAN, RoofTiles.RoofTileType.NORMAL));
+    public static final RegistryObject<Block> CYAN_ROOF_TILE_STAIRS = BLOCKS.register("cyan_roof_tile_stairs", () -> new RoofTiles(DyeColor.CYAN, RoofTiles.RoofTileType.STAIRS));
+    public static final RegistryObject<Block> CYAN_ROOF_TILE_EDGE = BLOCKS.register("cyan_roof_tile_edge", () -> new RoofTiles(DyeColor.CYAN, RoofTiles.RoofTileType.EDGE));
+    public static final RegistryObject<Block> BLACK_ROOF_TILES = BLOCKS.register("black_roof_tiles", () -> new RoofTiles(DyeColor.BLACK, RoofTiles.RoofTileType.NORMAL));
+    public static final RegistryObject<Block> BLACK_ROOF_TILE_STAIRS = BLOCKS.register("black_roof_tile_stairs", () -> new RoofTiles(DyeColor.BLACK, RoofTiles.RoofTileType.STAIRS));
+    public static final RegistryObject<Block> BLACK_ROOF_TILE_EDGE = BLOCKS.register("black_roof_tile_edge", () -> new RoofTiles(DyeColor.BLACK, RoofTiles.RoofTileType.EDGE));
 
     // ROOF RIDGE
 

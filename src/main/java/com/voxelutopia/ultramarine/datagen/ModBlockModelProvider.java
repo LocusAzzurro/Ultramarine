@@ -9,6 +9,7 @@ import com.voxelutopia.ultramarine.world.block.state.StackableBlockType;
 import net.minecraft.core.Direction;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.DoorHingeSide;
@@ -244,24 +245,29 @@ public class ModBlockModelProvider extends BlockStateProvider {
         directionalSideEnd(BlockRegistry.BLUE_AND_YELLOW_GUTOU.get(), sideLoc(BlockRegistry.BLUE_AND_YELLOW_GUTOU.get()), mcLoc(BLOCK + "green_wool"));
 
 
-        roofTiles(BlockRegistry.GRAY_ROOF_TILES.get(), "gray", RoofTiles.RoofTileType.NORMAL);
-        roofTiles(BlockRegistry.GRAY_ROOF_TILE_STAIRS.get(), "gray", RoofTiles.RoofTileType.STAIRS);
-        roofTiles(BlockRegistry.GRAY_ROOF_TILE_EDGE.get(), "gray", RoofTiles.RoofTileType.EDGE);
-        roofTiles(BlockRegistry.YELLOW_ROOF_TILES.get(), "yellow", RoofTiles.RoofTileType.NORMAL);
-        roofTiles(BlockRegistry.YELLOW_ROOF_TILE_STAIRS.get(), "yellow", RoofTiles.RoofTileType.STAIRS);
-        roofTiles(BlockRegistry.YELLOW_ROOF_TILE_EDGE.get(), "yellow", RoofTiles.RoofTileType.EDGE);
-        roofTiles(BlockRegistry.GREEN_ROOF_TILES.get(), "green", RoofTiles.RoofTileType.NORMAL);
-        roofTiles(BlockRegistry.GREEN_ROOF_TILE_STAIRS.get(), "green", RoofTiles.RoofTileType.STAIRS);
-        roofTiles(BlockRegistry.GREEN_ROOF_TILE_EDGE.get(), "green", RoofTiles.RoofTileType.EDGE);
-        roofTiles(BlockRegistry.BLUE_ROOF_TILES.get(), "blue", RoofTiles.RoofTileType.NORMAL);
-        roofTiles(BlockRegistry.BLUE_ROOF_TILE_STAIRS.get(), "blue", RoofTiles.RoofTileType.STAIRS);
-        roofTiles(BlockRegistry.BLUE_ROOF_TILE_EDGE.get(), "blue", RoofTiles.RoofTileType.EDGE);
-        roofTiles(BlockRegistry.CYAN_ROOF_TILES.get(), "cyan", RoofTiles.RoofTileType.NORMAL);
-        roofTiles(BlockRegistry.CYAN_ROOF_TILE_STAIRS.get(), "cyan", RoofTiles.RoofTileType.STAIRS);
-        roofTiles(BlockRegistry.CYAN_ROOF_TILE_EDGE.get(), "cyan", RoofTiles.RoofTileType.EDGE);
-        roofTiles(BlockRegistry.BLACK_ROOF_TILES.get(), "black", RoofTiles.RoofTileType.NORMAL);
-        roofTiles(BlockRegistry.BLACK_ROOF_TILE_STAIRS.get(), "black", RoofTiles.RoofTileType.STAIRS);
-        roofTiles(BlockRegistry.BLACK_ROOF_TILE_EDGE.get(), "black", RoofTiles.RoofTileType.EDGE);
+        BlockRegistry.BLOCKS.getEntries().stream().filter(blockRegistryObject -> blockRegistryObject.get() instanceof RoofTiles)
+                .forEach(tile -> roofTiles(tile.get()));
+        /*
+        roofTiles(BlockRegistry.GRAY_ROOF_TILES.get());
+        roofTiles(BlockRegistry.GRAY_ROOF_TILE_STAIRS.get());
+        roofTiles(BlockRegistry.GRAY_ROOF_TILE_EDGE.get());
+        roofTiles(BlockRegistry.YELLOW_ROOF_TILES.get());
+        roofTiles(BlockRegistry.YELLOW_ROOF_TILE_STAIRS.get());
+        roofTiles(BlockRegistry.YELLOW_ROOF_TILE_EDGE.get());
+        roofTiles(BlockRegistry.GREEN_ROOF_TILES.get());
+        roofTiles(BlockRegistry.GREEN_ROOF_TILE_STAIRS.get());
+        roofTiles(BlockRegistry.GREEN_ROOF_TILE_EDGE.get());
+        roofTiles(BlockRegistry.BLUE_ROOF_TILES.get());
+        roofTiles(BlockRegistry.BLUE_ROOF_TILE_STAIRS.get());
+        roofTiles(BlockRegistry.BLUE_ROOF_TILE_EDGE.get());
+        roofTiles(BlockRegistry.CYAN_ROOF_TILES.get());
+        roofTiles(BlockRegistry.CYAN_ROOF_TILE_STAIRS.get());
+        roofTiles(BlockRegistry.CYAN_ROOF_TILE_EDGE.get());
+        roofTiles(BlockRegistry.BLACK_ROOF_TILES.get());
+        roofTiles(BlockRegistry.BLACK_ROOF_TILE_STAIRS.get());
+        roofTiles(BlockRegistry.BLACK_ROOF_TILE_EDGE.get());
+
+         */
 
 
         sideBottomTop(BlockRegistry.BLACK_ROOF_RIDGE_UPPER.get());
@@ -455,22 +461,26 @@ public class ModBlockModelProvider extends BlockStateProvider {
         });
     }
 
-    private void roofTiles(Block block, String color, RoofTiles.RoofTileType type) {
+    private void roofTiles(Block block) {
+        if (!(block instanceof RoofTiles)) return;
+        RoofTiles tile = (RoofTiles) block;
+        String color = tile.getColor().toString();
+        RoofTiles.RoofTileType type = tile.getType();
         models().withExistingParent(modLoc(BLOCK + color + "_" + type).getPath(), modLoc(BLOCK + type))
-                .texture("1", blockLoc(block)).texture("particle", mcLoc(BLOCK + color + "_concrete"));
+                .texture("1", blockLoc(tile)).texture("particle", mcLoc(BLOCK + color + "_concrete"));
         models().withExistingParent(modLoc(BLOCK + color + "_" + type + "_shifted").getPath(), modLoc(BLOCK + type + "_shifted"))
-                .texture("1", blockLoc(block)).texture("particle", mcLoc(BLOCK + color + "_concrete"));
+                .texture("1", blockLoc(tile)).texture("particle", mcLoc(BLOCK + color + "_concrete"));
         for (int i = 1; i <= 15; i++){
             int layerToStage = type.getSnowStages().get(i).getLeft();
             models().withExistingParent(modLoc(BLOCK + color + "_" + type + "_snow_layer_" + i).getPath(), modLoc(BLOCK + type))
-                    .texture("1", modLoc(BLOCK + name(block) + "_snow_stage_" + layerToStage)).texture("particle", mcLoc(BLOCK + color + "_concrete"));
+                    .texture("1", modLoc(BLOCK + name(tile) + "_snow_stage_" + layerToStage)).texture("particle", mcLoc(BLOCK + color + "_concrete"));
             models().withExistingParent(modLoc(BLOCK + color + "_" + type + "_shifted" + "_snow_layer_" + i).getPath(), modLoc(BLOCK + type + "_shifted"))
-                    .texture("1", modLoc(BLOCK + name(block) + "_snow_stage_" + layerToStage)).texture("particle", mcLoc(BLOCK + color + "_concrete"));
+                    .texture("1", modLoc(BLOCK + name(tile) + "_snow_stage_" + layerToStage)).texture("particle", mcLoc(BLOCK + color + "_concrete"));
         }
         // texture format - ultramarine:block/<color>_roof_<type>_snow_stage_<stage>
-        getVariantBuilder(block).forAllStates(blockState -> {
+        getVariantBuilder(tile).forAllStates(blockState -> {
             StringBuilder builder = new StringBuilder();
-            builder.append(BLOCK).append(name(block));
+            builder.append(BLOCK).append(name(tile));
             if (blockState.getValue(ModBlockStateProperties.SHIFTED))
                 builder.append("_shifted");
             int snow = blockState.getValue(RoofTiles.SNOW_LAYERS);

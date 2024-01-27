@@ -2,7 +2,9 @@ package com.voxelutopia.ultramarine.world.block;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.util.StringRepresentable;
 import net.minecraft.world.entity.Entity;
+import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
@@ -18,8 +20,10 @@ import net.minecraft.world.level.block.state.properties.IntegerProperty;
 import net.minecraft.world.level.gameevent.GameEvent;
 import net.minecraft.world.level.material.Material;
 import net.minecraft.world.phys.shapes.CollisionContext;
+import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import org.apache.commons.lang3.tuple.Pair;
+import org.lwjgl.system.CallbackI;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -31,8 +35,24 @@ public class RoofTiles extends ShiftableBlock{
     public static final DirectionProperty FACING = HorizontalDirectionalBlock.FACING;
     public static final IntegerProperty SNOW_LAYERS = IntegerProperty.create("snow_layers", 0, 15);
 
-    public RoofTiles(){
+    private static final VoxelShape BOTTOM_AABB = Block.box(0.0D, 0.0D, 0.0D, 16.0D, 8.0D, 16.0D);
+    private static final VoxelShape BOTTOM_AABB_SHIFTED = Block.box(0.0D, -8.0D, 0.0D, 16.0D, 0.0D, 16.0D);
+    private static final VoxelShape EAST_SHAPE = Shapes.or(BOTTOM_AABB, Block.box(8.0D, 8.0D, 0.0D, 16.0D, 16.0D, 16.0D));
+    private static final VoxelShape NORTH_SHAPE = Shapes.or(BOTTOM_AABB, Block.box(0.0D, 8.0D, 0.0D, 16.0D, 16.0D, 8.0D));
+    private static final VoxelShape SOUTH_SHAPE = Shapes.or(BOTTOM_AABB, Block.box(0.0D, 8.0D, 8.0D, 16.0D, 16.0D, 16.0D));
+    private static final VoxelShape WEST_SHAPE = Shapes.or(BOTTOM_AABB, Block.box(0.0D, 8.0D, 0.0D, 8.0D, 16.0D, 16.0D));
+    private static final VoxelShape EAST_SHAPE_SHIFTED = Shapes.or(BOTTOM_AABB_SHIFTED, Block.box(8.0D, 0.0D, 0.0D, 16.0D, 8.0D, 16.0D));
+    private static final VoxelShape NORTH_SHAPE_SHIFTED = Shapes.or(BOTTOM_AABB_SHIFTED, Block.box(0.0D, 0.0D, 0.0D, 16.0D, 8.0D, 8.0D));
+    private static final VoxelShape SOUTH_SHAPE_SHIFTED = Shapes.or(BOTTOM_AABB_SHIFTED, Block.box(0.0D, 0.0D, 8.0D, 16.0D, 8.0D, 16.0D));
+    private static final VoxelShape WEST_SHAPE_SHIFTED = Shapes.or(BOTTOM_AABB_SHIFTED, Block.box(0.0D, 0.0D, 0.0D, 8.0D, 8.0D, 16.0D));
+
+    private final DyeColor color;
+    private final RoofTileType type;
+
+    public RoofTiles(DyeColor color, RoofTileType type){
         super(PROPERTIES);
+        this.color = color;
+        this.type = type;
         this.registerDefaultState(this.stateDefinition.any()
                 .setValue(FACING, Direction.NORTH)
                 .setValue(SHIFTED, Boolean.FALSE)
@@ -49,6 +69,14 @@ public class RoofTiles extends ShiftableBlock{
         super.handlePrecipitation(pState, pLevel, pPos, pPrecipitation);
     }
 
+    public DyeColor getColor() {
+        return color;
+    }
+
+    public RoofTileType getType() {
+        return type;
+    }
+
     @Override
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> pBuilder) {
         super.createBlockStateDefinition(pBuilder);
@@ -60,10 +88,20 @@ public class RoofTiles extends ShiftableBlock{
         return super.getStateForPlacement(pContext).setValue(FACING, pContext.getHorizontalDirection());
     }
 
-
     @Override
     public VoxelShape getShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
-        return Block.box(0.0D, 0.0D, 0.0D, 16.0D, 8.0D, 16.0D);
+        Boolean shifted = pState.getValue(SHIFTED);
+        if (type != RoofTileType.STAIRS)
+            return shifted ? Block.box(0.0D, -8.0D, 0.0D, 16.0D, 0.0D, 16.0D) : Block.box(0.0D, 0.0D, 0.0D, 16.0D, 8.0D, 16.0D);
+        else {
+            return switch (pState.getValue(FACING)) {
+                case NORTH -> shifted ? NORTH_SHAPE_SHIFTED : NORTH_SHAPE;
+                case SOUTH -> shifted ? SOUTH_SHAPE_SHIFTED : SOUTH_SHAPE;
+                case WEST -> shifted ? WEST_SHAPE_SHIFTED : WEST_SHAPE;
+                case EAST -> shifted ? EAST_SHAPE_SHIFTED : EAST_SHAPE;
+                default -> Shapes.empty();
+            };
+        }
     }
 
     public enum RoofTileType implements ShiftedTileType{
@@ -107,6 +145,45 @@ public class RoofTiles extends ShiftableBlock{
         @Override
         public String toString() {
             return blockName;
+        }
+    }
+
+    public enum SnowSide implements StringRepresentable {
+        LEFT("left"), RIGHT("right"), NONE("none"), BOTH("both");
+
+        String name;
+        SnowSide(String name){
+            this.name = name;
+        }
+
+        public static SnowSide add(SnowSide current, SnowSide toAdd){
+            if (toAdd == NONE) return current;
+            if (current == LEFT || current == RIGHT){
+                if (current == toAdd) return current;
+                else return BOTH;
+            }
+            else if (current == NONE){
+                return toAdd;
+            }
+            return current;
+        }
+
+        public static SnowSide remove(SnowSide current, SnowSide toRemove){
+            if (toRemove == NONE) return current;
+            if (current == LEFT || current == RIGHT){
+                if (toRemove == BOTH || current == toRemove) return NONE;
+                else return current;
+            }
+            else if (current == BOTH){
+                if (toRemove == BOTH) return NONE;
+                else return toRemove == LEFT ? RIGHT : LEFT;
+            }
+            return current;
+        }
+
+        @Override
+        public String getSerializedName() {
+            return name;
         }
     }
 

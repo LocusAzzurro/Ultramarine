@@ -79,7 +79,7 @@ public class CommonEventHandler {
     @SubscribeEvent
     public static void snowFallTest(BlockEvent.NeighborNotifyEvent event){
         if (event.getState().is(Blocks.SNOW)){
-            LOGGER.info("Snowfall Event: " + event.getPos());
+            //LOGGER.info("Snowfall Event: " + event.getPos());
         }
     }
 
