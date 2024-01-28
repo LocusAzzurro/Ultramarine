@@ -7,6 +7,7 @@ import com.voxelutopia.ultramarine.data.registry.ItemRegistry;
 import com.voxelutopia.ultramarine.data.registry.VillagerProfessionRegistry;
 import com.voxelutopia.ultramarine.world.block.ChiselTableMedium;
 import com.voxelutopia.ultramarine.world.block.DecorativeBlock;
+import com.voxelutopia.ultramarine.world.block.SnowRoofRidge;
 import net.minecraft.core.BlockPos;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
@@ -77,9 +78,14 @@ public class CommonEventHandler {
     }
 
     @SubscribeEvent
-    public static void snowFallTest(BlockEvent.NeighborNotifyEvent event){
+    public static void roofSnowFall(BlockEvent.NeighborNotifyEvent event){
         if (event.getState().is(Blocks.SNOW)){
-            //LOGGER.info("Snowfall Event: " + event.getPos());
+            BlockState blockBelow = event.getWorld().getBlockState(event.getPos().below());
+            if (blockBelow.getBlock() instanceof SnowRoofRidge ridge && blockBelow.getValue(SnowRoofRidge.SNOW_LAYERS) < 15){
+                ridge.handleSnow(blockBelow, event.getWorld(), event.getPos().below());
+                event.getWorld().setBlock(event.getPos(), Blocks.AIR.defaultBlockState(), 3);
+                event.setCanceled(true);
+            }
         }
     }
 

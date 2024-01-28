@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/cube_bottom_top",
+  "textures": {
+    "side": "ultramarine:block/yellow_roof_ridge_upper_side",
+    "bottom": "ultramarine:block/yellow_roof_ridge_upper_bottom",
+    "top": "ultramarine:block/yellow_roof_ridge_upper_top"
+  }
+}

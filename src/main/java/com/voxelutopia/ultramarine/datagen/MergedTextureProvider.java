@@ -35,7 +35,11 @@ public class MergedTextureProvider implements DataProvider {
     public void run(HashCache pCache) throws IOException {
 
         roofTilesTextureMerge(pCache);
+        roofRidgeTextureMerge(pCache);
 
+    }
+
+    private void roofRidgeTextureMerge(HashCache pCache) throws IOException {
         BufferedImage roofRidgeSideBase, snowLayer, combinedTexture;
         String[] roofRidgeColors = {"black", "yellow"};
         String[] roofRidgeSideTypes = {
@@ -63,8 +67,6 @@ public class MergedTextureProvider implements DataProvider {
                 }
             }
         }
-
-
     }
 
     private void roofTilesTextureMerge(HashCache pCache) throws IOException {

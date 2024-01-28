@@ -193,7 +193,7 @@ public class RoofTiles extends ShiftableBlock{
                 if (blockAbove instanceof RoofTiles) return SlopeAngle.HIGHER;
                 Block blockLevel = other.getBlock();
                 if (blockLevel instanceof RoofTiles tileLevel){
-                    if (other.getValue(SHIFTED)) return SlopeAngle.LOWER;
+                    if (!other.getValue(SHIFTED)) return SlopeAngle.HIGHER;
                     return tileLevel.getType() == RoofTileType.STAIRS ? SlopeAngle.HIGHER : SlopeAngle.LEVEL;
                 }
                 if (!other.isAir()) return SlopeAngle.LEVEL; //todo need to check actual block shapes
@@ -204,7 +204,7 @@ public class RoofTiles extends ShiftableBlock{
                     return SlopeAngle.HIGHER;
                 Block blockLevel = other.getBlock();
                 if (blockLevel instanceof RoofTiles tileLevel){
-                    if (!other.getValue(SHIFTED)) return SlopeAngle.HIGHER;
+                    if (other.getValue(SHIFTED)) return SlopeAngle.LOWER;
                     else return tileLevel.getType() == RoofTileType.STAIRS ? SlopeAngle.HIGHER : SlopeAngle.LEVEL;
                 }
                 if (!other.isAir()) return SlopeAngle.HIGHER;
