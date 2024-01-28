@@ -1,25 +1,22 @@
 package com.voxelutopia.ultramarine.world.block;
 
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.Direction;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.LevelReader;
-import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.phys.BlockHitResult;
 
-public class RoofRidge extends BaseBlock implements SnowRoofRidge{
+public class RoofRidgeConnection extends BaseAxialBlock implements SnowRoofRidge{
 
     private final DyeColor color;
     private final RoofRidgeType type;
 
-    public RoofRidge(DyeColor color, RoofRidgeType type){
+    public RoofRidgeConnection(DyeColor color, RoofRidgeType type) {
         super(BaseBlockProperty.STONE);
         this.type = type;
         this.color = color;
@@ -38,10 +35,12 @@ public class RoofRidge extends BaseBlock implements SnowRoofRidge{
         pBuilder.add(SNOW_LAYERS);
     }
 
+    @Override
     public DyeColor getColor() {
         return color;
     }
 
+    @Override
     public RoofRidgeType getType() {
         return type;
     }

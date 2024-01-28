@@ -4,7 +4,7 @@
       "model": "ultramarine:block/yellow_roof_ridge_lower"
     },
     "snow_layers=1": {
-      "model": "ultramarine:block/yellow_roof_ridge_lower"
+      "model": "ultramarine:block/yellow_roof_ridge_lower_snow_layer_1"
     },
     "snow_layers=2": {
       "model": "ultramarine:block/yellow_roof_ridge_lower_snow_layer_2"

@@ -251,9 +251,9 @@ public class ModBlockModelProvider extends BlockStateProvider {
 
         roofRidgeSideBottomTop(BlockRegistry.BLACK_ROOF_RIDGE_UPPER.get(), sideLoc(BlockRegistry.BLACK_ROOF_RIDGE_UPPER.get()), bottomLoc(BlockRegistry.BLACK_ROOF_RIDGE_UPPER.get()), topLoc(BlockRegistry.BLACK_ROOF_RIDGE_UPPER.get()));
         roofRidgeSideBottomTop(BlockRegistry.BLACK_ROOF_RIDGE_LOWER.get(), sideLoc(BlockRegistry.BLACK_ROOF_RIDGE_LOWER.get()), bottomLoc(BlockRegistry.BLACK_ROOF_RIDGE_UPPER.get()), bottomLoc(BlockRegistry.BLACK_ROOF_RIDGE_UPPER.get()));
-
-        axialFrontSideBottomTop(BlockRegistry.BLACK_ROOF_RIDGE_CONNECTION.get(), frontLoc(BlockRegistry.BLACK_ROOF_RIDGE_CONNECTION.get()), sideLoc(BlockRegistry.BLACK_ROOF_RIDGE_CONNECTION.get()),
+        roofRidgeFrontSideBottomTop(BlockRegistry.BLACK_ROOF_RIDGE_CONNECTION.get(), frontLoc(BlockRegistry.BLACK_ROOF_RIDGE_CONNECTION.get()), sideLoc(BlockRegistry.BLACK_ROOF_RIDGE_CONNECTION.get()),
                 bottomLoc(BlockRegistry.BLACK_ROOF_RIDGE_UPPER.get()), topLoc(BlockRegistry.BLACK_ROOF_RIDGE_UPPER.get()));
+
         horizontalFrontSideBottomTop(BlockRegistry.BLACK_MAIN_ROOF_RIDGE_CONNECTION.get(), frontLoc(BlockRegistry.BLACK_MAIN_ROOF_RIDGE_CONNECTION.get()), sideLoc(BlockRegistry.BLACK_ROOF_RIDGE_CONNECTION.get()),
                 frontLoc(BlockRegistry.BLACK_MAIN_ROOF_RIDGE_CONNECTION.get()), topLoc(BlockRegistry.BLACK_MAIN_ROOF_RIDGE_CONNECTION.get()));
         slabSideBottomTopNoFull(BlockRegistry.BLACK_ROOF_RIDGE_UPPER_SLAB.get(), sideLoc(BlockRegistry.BLACK_ROOF_RIDGE_UPPER_SLAB.get()), bottomLoc(BlockRegistry.BLACK_ROOF_RIDGE_UPPER.get()), topLoc(BlockRegistry.BLACK_ROOF_RIDGE_UPPER.get()));
@@ -267,9 +267,9 @@ public class ModBlockModelProvider extends BlockStateProvider {
 
         roofRidgeSideBottomTop(BlockRegistry.YELLOW_ROOF_RIDGE_UPPER.get(), sideLoc(BlockRegistry.YELLOW_ROOF_RIDGE_UPPER.get()), bottomLoc(BlockRegistry.YELLOW_ROOF_RIDGE_UPPER.get()), topLoc(BlockRegistry.YELLOW_ROOF_RIDGE_UPPER.get()));
         roofRidgeSideBottomTop(BlockRegistry.YELLOW_ROOF_RIDGE_LOWER.get(), sideLoc(BlockRegistry.YELLOW_ROOF_RIDGE_LOWER.get()), bottomLoc(BlockRegistry.YELLOW_ROOF_RIDGE_UPPER.get()), bottomLoc(BlockRegistry.YELLOW_ROOF_RIDGE_UPPER.get()));
-
-        axialFrontSideBottomTop(BlockRegistry.YELLOW_ROOF_RIDGE_CONNECTION.get(), frontLoc(BlockRegistry.YELLOW_ROOF_RIDGE_CONNECTION.get()), sideLoc(BlockRegistry.YELLOW_ROOF_RIDGE_CONNECTION.get()),
+        roofRidgeFrontSideBottomTop(BlockRegistry.YELLOW_ROOF_RIDGE_CONNECTION.get(), frontLoc(BlockRegistry.YELLOW_ROOF_RIDGE_CONNECTION.get()), sideLoc(BlockRegistry.YELLOW_ROOF_RIDGE_CONNECTION.get()),
                 bottomLoc(BlockRegistry.YELLOW_ROOF_RIDGE_UPPER.get()), topLoc(BlockRegistry.YELLOW_ROOF_RIDGE_UPPER.get()));
+
         horizontalFrontSideBottomTop(BlockRegistry.YELLOW_MAIN_ROOF_RIDGE_CONNECTION.get(), frontLoc(BlockRegistry.YELLOW_MAIN_ROOF_RIDGE_CONNECTION.get()), sideLoc(BlockRegistry.YELLOW_ROOF_RIDGE_CONNECTION.get()),
                 frontLoc(BlockRegistry.YELLOW_MAIN_ROOF_RIDGE_CONNECTION.get()), topLoc(BlockRegistry.YELLOW_MAIN_ROOF_RIDGE_CONNECTION.get()));
 
@@ -501,17 +501,17 @@ public class ModBlockModelProvider extends BlockStateProvider {
         if (block instanceof RoofRidge ridge){
             DyeColor color = ridge.getColor();
             SnowRoofRidge.RoofRidgeType type = ridge.getType();
-            models().cubeBottomTop(modLoc(BLOCK + name(ridge)).getPath(),
+            models().cubeBottomTop(name(ridge),
                     side, bottom, top);
 
             for (int layer = 1; layer <= 15; layer++){
                 int snowStage = SnowRoofRidge.SNOW_STAGES.get(layer);
                 if (snowStage == 0){
-                    models().cubeBottomTop(modLoc(BLOCK + name(ridge) + "_snow_layer_" + layer).getPath(),
+                    models().cubeBottomTop(name(ridge) + "_snow_layer_" + layer,
                             side, bottom, top);
                 }
                 else {
-                    models().cubeBottomTop(modLoc(BLOCK + name(ridge) + "_snow_layer_" + layer).getPath(),
+                    models().cubeBottomTop(name(ridge) + "_snow_layer_" + layer,
                             modLoc(side.getPath() + "_snow_stage_" + snowStage),
                             bottom,
                             mcLoc(BLOCK + "snow"));
@@ -522,8 +522,7 @@ public class ModBlockModelProvider extends BlockStateProvider {
                 int snow = blockState.getValue(RoofTiles.SNOW_LAYERS);
                 StringBuilder builder = new StringBuilder();
                 builder.append(BLOCK).append(name(ridge));
-                int snowStage = SnowRoofRidge.SNOW_STAGES.get(snow);
-                if (snowStage > 0){
+                if (snow > 0){
                     builder.append("_snow_layer_").append(snow);
                 }
                 String modelName = builder.toString();
@@ -531,6 +530,47 @@ public class ModBlockModelProvider extends BlockStateProvider {
                 return ConfiguredModel.builder().modelFile(models().getExistingFile(modLoc(modelName))).build();
             });
 
+        }
+    }
+
+    private void roofRidgeFrontSideBottomTop(Block block, ResourceLocation front, ResourceLocation side, ResourceLocation bottom, ResourceLocation top){
+        if (!(block instanceof SnowRoofRidge)) return;
+        if (block instanceof RoofRidgeConnection ridge){
+            DyeColor color = ridge.getColor();
+            SnowRoofRidge.RoofRidgeType type = ridge.getType();
+            models().cube(name(ridge), bottom, top, front, front, side, side).texture("particle", side);
+
+            for (int layer = 1; layer <= 15; layer++){
+                int snowStage = SnowRoofRidge.SNOW_STAGES.get(layer);
+                if (snowStage == 0){
+                    models().cube(name(ridge) + "_snow_layer_" + layer, bottom, top, front, front, side, side).texture("particle", side);
+                }
+                else {
+                    models().cube(name(ridge) + "_snow_layer_" + layer,
+                            bottom, mcLoc(BLOCK + "snow"),
+                            modLoc(front.getPath() + "_snow_stage_" + snowStage),
+                            modLoc(front.getPath() + "_snow_stage_" + snowStage),
+                            modLoc(side.getPath() + "_snow_stage_" + snowStage),
+                            modLoc(side.getPath() + "_snow_stage_" + snowStage))
+                            .texture("particle", side);
+                }
+            }
+
+            getVariantBuilder(ridge).forAllStates(blockState -> {
+                int snow = blockState.getValue(RoofTiles.SNOW_LAYERS);
+                StringBuilder builder = new StringBuilder();
+                builder.append(BLOCK).append(name(ridge));
+                if (snow > 0){
+                    builder.append("_snow_layer_").append(snow);
+                }
+                String modelName = builder.toString();
+
+                Direction.Axis axis = blockState.getValue(HORIZONTAL_AXIS);
+
+                if (axis == Direction.Axis.Z)
+                    return ConfiguredModel.builder().modelFile(models().getExistingFile(modLoc(modelName))).build();
+                else return ConfiguredModel.builder().modelFile(models().getExistingFile(modLoc(modelName))).rotationY(90).build();
+            });
         }
     }
 

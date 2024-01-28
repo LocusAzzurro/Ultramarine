@@ -7,6 +7,7 @@ import net.minecraft.util.StringRepresentable;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
@@ -56,6 +57,10 @@ public interface SnowRoofRidge {
         }
         return InteractionResult.PASS;
     }
+
+    DyeColor getColor();
+
+    RoofRidgeType getType();
 
     enum RoofRidgeType implements StringRepresentable {
         UPPER("roof_ridge_upper"), LOWER("roof_ridge_lower"), CONNECTION("roof_ridge_connection"), MAIN_CONNECTION("main_roof_ridge_connection");
