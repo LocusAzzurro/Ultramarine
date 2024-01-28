@@ -26,6 +26,7 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 import org.apache.commons.lang3.tuple.Pair;
 
 import java.util.Map;
+import java.util.Random;
 
 public class RoofTiles extends ShiftableBlock{
 
@@ -64,8 +65,44 @@ public class RoofTiles extends ShiftableBlock{
     @Override
     public void handlePrecipitation(BlockState pState, Level pLevel, BlockPos pPos, Biome.Precipitation pPrecipitation) {
         if (pPrecipitation == Biome.Precipitation.SNOW) {
-            handleSnow(pState, pLevel, pPos);
+            tryPushSnow(pState, pLevel, pPos);
         }
+    }
+
+    private void tryPushSnow(BlockState pState, Level pLevel, BlockPos pPos) {
+        Random random = pLevel.getRandom();
+        SlopeAngle forwardAngle = checkForwardSlopeAngle(pLevel, pState, pPos);
+        if (forwardAngle == SlopeAngle.HIGHER) {
+            handleSnow(pState, pLevel, pPos);
+            return;
+        }
+        else {
+            BlockState blockForward = pLevel.getBlockState(pPos.relative(pState.getValue(FACING).getOpposite()));
+            BlockState blockForwardBelow = pLevel.getBlockState(pPos.relative(pState.getValue(FACING).getOpposite()).below());
+            if (forwardAngle == SlopeAngle.LEVEL && random.nextFloat() < 0.5f) {
+                if (blockForward.getBlock() instanceof RoofTiles){
+                    if (blockForward.getValue(SNOW_LAYERS) == 15 && random.nextFloat() > 0.9f){
+                        tryPushSnow(blockForward, pLevel, pPos.relative(pState.getValue(FACING).getOpposite()));
+                        return;
+                    }
+                }
+            }
+            if ((forwardAngle == SlopeAngle.LOWER && random.nextFloat() < 0.8f)){
+                if (blockForward.getBlock() instanceof RoofTiles){
+                    if (blockForward.getValue(SNOW_LAYERS) == 15 && random.nextFloat() > 0.9f){
+                        tryPushSnow(blockForward, pLevel, pPos.relative(pState.getValue(FACING).getOpposite()));
+                        return;
+                    }
+                }
+                else if (blockForwardBelow.getBlock() instanceof RoofTiles){
+                    if (blockForwardBelow.getValue(SNOW_LAYERS) == 15 && random.nextFloat() > 0.9f){
+                        tryPushSnow(blockForwardBelow, pLevel, pPos.relative(pState.getValue(FACING).getOpposite()));
+                        return;
+                    }
+                }
+            }
+        }
+        handleSnow(pState, pLevel, pPos);
     }
 
     private void handleSnow(BlockState pState, Level pLevel, BlockPos pPos){
@@ -146,7 +183,7 @@ public class RoofTiles extends ShiftableBlock{
     }
 
     //slope - other relative to self
-    private static SlopeAngle checkSideSlopeAngle(Level level, BlockState self, BlockPos selfPos, BlockState other, BlockPos otherPos){
+    private SlopeAngle checkSideSlopeAngle(Level level, BlockState self, BlockPos selfPos, BlockState other, BlockPos otherPos){
         Boolean selfShifted = self.getValue(SHIFTED);
         RoofTileType type = ((RoofTiles) self.getBlock()).getType();
         if (type != RoofTileType.STAIRS){  // Normal tile and edge tile
@@ -195,6 +232,58 @@ public class RoofTiles extends ShiftableBlock{
             }
         }
         return SlopeAngle.LEVEL;
+    }
+
+    private SlopeAngle checkForwardSlopeAngle(Level level, BlockState self, BlockPos selfPos){
+        Boolean selfShifted = self.getValue(SHIFTED);
+        Direction direction = self.getValue(FACING);
+        RoofTileType type = ((RoofTiles) self.getBlock()).getType();
+        BlockState blockForward = level.getBlockState(selfPos.relative(direction.getOpposite()));
+        if (type != RoofTileType.STAIRS) {
+            if (selfShifted) {
+                if (blockForward.getBlock() instanceof RoofTiles tileForward){
+                    if (!blockForward.getValue(SHIFTED)) return SlopeAngle.HIGHER;
+                    else return tileForward.getType() == RoofTileType.STAIRS ? SlopeAngle.HIGHER : SlopeAngle.LEVEL;
+                }
+                BlockState blockForwardBelow = level.getBlockState(selfPos.relative(direction.getOpposite()).above());
+                if (blockForwardBelow.getBlock() instanceof RoofTiles && !blockForwardBelow.getValue(SHIFTED))
+                    return SlopeAngle.LOWER;
+            }
+            else {
+                BlockState blockForwardAbove = level.getBlockState(selfPos.relative(direction.getOpposite()).above());
+                if (blockForwardAbove.getBlock() instanceof RoofTiles && blockForwardAbove.getValue(SHIFTED))
+                    return SlopeAngle.HIGHER;
+                if (blockForward.getBlock() instanceof RoofTiles tileForward){
+                    if (tileForward.getType() == RoofTileType.STAIRS)
+                        return blockForward.getValue(SHIFTED) ? SlopeAngle.LOWER : SlopeAngle.HIGHER;
+                    else return blockForward.getValue(SHIFTED) ? SlopeAngle.LOWER : SlopeAngle.LEVEL;
+                }
+            }
+        }
+        else {
+            if (selfShifted) {
+                if (blockForward.getBlock() instanceof RoofTiles tileForward && tileForward.getType() != RoofTileType.STAIRS)
+                    return SlopeAngle.LOWER;
+                if (!blockForward.isAir()) return SlopeAngle.HIGHER;
+                BlockState blockForwardBelow = level.getBlockState(selfPos.relative(direction.getOpposite()).above());
+                if (blockForwardBelow.getBlock() instanceof RoofTiles tilesForwardBelow) {
+                    if (blockForwardBelow.getValue(SHIFTED))
+                        return tilesForwardBelow.getType() == RoofTileType.STAIRS ? SlopeAngle.LOWER : SlopeAngle.HIGHER;
+                    else return SlopeAngle.LOWER;
+                }
+            }
+            else {
+                BlockState blockForwardAbove = level.getBlockState(selfPos.relative(direction.getOpposite()).above());
+                if (blockForwardAbove.getBlock() instanceof RoofTiles && blockForwardAbove.getValue(SHIFTED))
+                    return SlopeAngle.HIGHER;
+                if (blockForward.getBlock() instanceof RoofTiles tileForward){
+                    if (blockForward.getValue(SHIFTED))
+                        return tileForward.getType() == RoofTileType.STAIRS ? SlopeAngle.HIGHER : SlopeAngle.LOWER;
+                    else return SlopeAngle.LOWER;
+                }
+            }
+        }
+        return SlopeAngle.HIGHER;
     }
 
     public DyeColor getColor() {
