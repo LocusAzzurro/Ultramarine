@@ -6,6 +6,7 @@ import net.minecraft.data.DataGenerator;
 import net.minecraft.data.DataProvider;
 import net.minecraft.data.HashCache;
 import net.minecraftforge.common.data.ExistingFileHelper;
+import org.apache.commons.lang3.tuple.Pair;
 import org.lwjgl.system.CallbackI;
 import org.slf4j.Logger;
 
@@ -15,10 +16,8 @@ import java.awt.image.BufferedImage;
 import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.util.ArrayList;
-import java.util.Collection;
+import java.util.*;
 import java.util.List;
-import java.util.Objects;
 
 public class MergedTextureProvider implements DataProvider {
 
@@ -34,20 +33,60 @@ public class MergedTextureProvider implements DataProvider {
     @Override
     public void run(HashCache pCache) throws IOException {
 
-        BufferedImage roofTileBase, snowLayer, combinedTexture;
+        BufferedImage roofTileBase, snowLayer, snowSideUp, snowSideLeft, snowSideRight, combinedTexture;
         String[] roofTileColors = {"gray", "yellow", "green", "blue", "cyan", "black"};
         for (RoofTiles.RoofTileType type: RoofTiles.RoofTileType.values()){
-            int maxSnowStages = type.getMaxSnowStages();
+            Map<Integer, Pair<Integer, Boolean>> snowStages = type.getSnowStages();
+            boolean usesSideSnow;
+            int layerSnowStage, snowStageCounter;
             for (String color : roofTileColors){
-                for (int i = 1; i <= maxSnowStages; i++){
-                    roofTileBase = ImageIO.read(getInputTexture(color + "_" + type));
-                    snowLayer = ImageIO.read(getInputTexture(type + "_snow_stage_" + i));
-                    combinedTexture = new BufferedImage(roofTileBase.getWidth(), roofTileBase.getHeight(), BufferedImage.TYPE_INT_ARGB);
-                    Graphics graphics = combinedTexture.getGraphics();
-                    graphics.drawImage(roofTileBase, 0, 0, null);
-                    graphics.drawImage(snowLayer, 0, 0, null);
-                    graphics.dispose();
-                    save(pCache, combinedTexture, getOutputPath(color + "_" + type + "_snow_stage_" + i));
+                snowStageCounter = 0;
+                for (int layer = 1; layer <= 15; layer++){
+                    layerSnowStage = snowStages.get(layer).getLeft();
+                    usesSideSnow = snowStages.get(layer).getRight();
+                    if (layerSnowStage > snowStageCounter){
+                        snowStageCounter = layerSnowStage;
+                        roofTileBase = ImageIO.read(getInputTexture(color + "_" + type));
+                        Graphics graphics;
+
+                        //full layer for no side state and "both" state
+                        snowLayer = ImageIO.read(getInputTexture(type + "_snow_stage_" + snowStageCounter));
+                        combinedTexture = new BufferedImage(roofTileBase.getWidth(), roofTileBase.getHeight(), BufferedImage.TYPE_INT_ARGB);
+                        graphics = combinedTexture.getGraphics();
+                        graphics.drawImage(roofTileBase, 0, 0, null);
+                        graphics.drawImage(snowLayer, 0, 0, null);
+
+                        save(pCache, combinedTexture, getOutputPath(color + "_" + type + "_snow_stage_" + snowStageCounter));
+
+                        if (usesSideSnow){
+                            snowSideLeft = ImageIO.read(getInputTexture(type + "_snow_stage_" + snowStageCounter + "_l"));
+                            snowSideRight = ImageIO.read(getInputTexture(type + "_snow_stage_" + snowStageCounter + "_r"));
+                            snowSideUp = ImageIO.read(getInputTexture(type + "_snow_stage_" + snowStageCounter + "_u"));
+
+                            combinedTexture = new BufferedImage(roofTileBase.getWidth(), roofTileBase.getHeight(), BufferedImage.TYPE_INT_ARGB);
+                            graphics = combinedTexture.getGraphics();
+                            graphics.drawImage(roofTileBase, 0, 0, null);
+                            graphics.drawImage(snowSideUp, 0, 0, null);
+                            save(pCache, combinedTexture, getOutputPath(color + "_" + type + "_snow_stage_" + snowStageCounter + "_none"));
+
+                            combinedTexture = new BufferedImage(roofTileBase.getWidth(), roofTileBase.getHeight(), BufferedImage.TYPE_INT_ARGB);
+                            graphics = combinedTexture.getGraphics();
+                            graphics.drawImage(roofTileBase, 0, 0, null);
+                            graphics.drawImage(snowSideUp, 0, 0, null);
+                            graphics.drawImage(snowSideLeft, 0, 0, null);
+                            save(pCache, combinedTexture, getOutputPath(color + "_" + type + "_snow_stage_" + snowStageCounter + "_left"));
+
+                            combinedTexture = new BufferedImage(roofTileBase.getWidth(), roofTileBase.getHeight(), BufferedImage.TYPE_INT_ARGB);
+                            graphics = combinedTexture.getGraphics();
+                            graphics.drawImage(roofTileBase, 0, 0, null);
+                            graphics.drawImage(snowSideUp, 0, 0, null);
+                            graphics.drawImage(snowSideRight, 0, 0, null);
+                            save(pCache, combinedTexture, getOutputPath(color + "_" + type + "_snow_stage_" + snowStageCounter + "_right"));
+
+                        }
+                        graphics.dispose();
+                    }
+
                 }
             }
         }

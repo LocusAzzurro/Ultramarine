@@ -462,8 +462,7 @@ public class ModBlockModelProvider extends BlockStateProvider {
     }
 
     private void roofTiles(Block block) {
-        if (!(block instanceof RoofTiles)) return;
-        RoofTiles tile = (RoofTiles) block;
+        if (!(block instanceof RoofTiles tile)) return;
         String color = tile.getColor().toString();
         RoofTiles.RoofTileType type = tile.getType();
         models().withExistingParent(modLoc(BLOCK + color + "_" + type).getPath(), modLoc(BLOCK + type))
@@ -472,20 +471,43 @@ public class ModBlockModelProvider extends BlockStateProvider {
                 .texture("1", blockLoc(tile)).texture("particle", mcLoc(BLOCK + color + "_concrete"));
         for (int i = 1; i <= 15; i++){
             int layerToStage = type.getSnowStages().get(i).getLeft();
+            boolean usesSideSnow = type.getSnowStages().get(i).getRight();
+
             models().withExistingParent(modLoc(BLOCK + color + "_" + type + "_snow_layer_" + i).getPath(), modLoc(BLOCK + type))
                     .texture("1", modLoc(BLOCK + name(tile) + "_snow_stage_" + layerToStage)).texture("particle", mcLoc(BLOCK + color + "_concrete"));
             models().withExistingParent(modLoc(BLOCK + color + "_" + type + "_shifted" + "_snow_layer_" + i).getPath(), modLoc(BLOCK + type + "_shifted"))
                     .texture("1", modLoc(BLOCK + name(tile) + "_snow_stage_" + layerToStage)).texture("particle", mcLoc(BLOCK + color + "_concrete"));
+            if (usesSideSnow) {
+                models().withExistingParent(modLoc(BLOCK + color + "_" + type + "_snow_layer_" + i + "_none").getPath(), modLoc(BLOCK + type))
+                        .texture("1", modLoc(BLOCK + name(tile) + "_snow_stage_" + layerToStage + "_none")).texture("particle", mcLoc(BLOCK + color + "_concrete"));
+                models().withExistingParent(modLoc(BLOCK + color + "_" + type + "_shifted" + "_snow_layer_" + i + "_left").getPath(), modLoc(BLOCK + type + "_shifted"))
+                        .texture("1", modLoc(BLOCK + name(tile) + "_snow_stage_" + layerToStage + "_left")).texture("particle", mcLoc(BLOCK + color + "_concrete"));
+                models().withExistingParent(modLoc(BLOCK + color + "_" + type + "_snow_layer_" + i + "_right").getPath(), modLoc(BLOCK + type))
+                        .texture("1", modLoc(BLOCK + name(tile) + "_snow_stage_" + layerToStage + "_right")).texture("particle", mcLoc(BLOCK + color + "_concrete"));
+                models().withExistingParent(modLoc(BLOCK + color + "_" + type + "_shifted" + "_snow_layer_" + i + "_none").getPath(), modLoc(BLOCK + type + "_shifted"))
+                        .texture("1", modLoc(BLOCK + name(tile) + "_snow_stage_" + layerToStage + "_none")).texture("particle", mcLoc(BLOCK + color + "_concrete"));
+                models().withExistingParent(modLoc(BLOCK + color + "_" + type + "_snow_layer_" + i + "_left").getPath(), modLoc(BLOCK + type))
+                        .texture("1", modLoc(BLOCK + name(tile) + "_snow_stage_" + layerToStage + "_left")).texture("particle", mcLoc(BLOCK + color + "_concrete"));
+                models().withExistingParent(modLoc(BLOCK + color + "_" + type + "_shifted" + "_snow_layer_" + i + "_right").getPath(), modLoc(BLOCK + type + "_shifted"))
+                        .texture("1", modLoc(BLOCK + name(tile) + "_snow_stage_" + layerToStage + "_right")).texture("particle", mcLoc(BLOCK + color + "_concrete"));
+            }
+
         }
-        // texture format - ultramarine:block/<color>_roof_<type>_snow_stage_<stage>
+        // texture format - ultramarine:block/<color>_roof_<type>_snow_stage_<stage>_[side]
+        // model format - ultramarine:block/<color>_roof_<type>_[shifted]_snow_layer_<layer>_[side]
         getVariantBuilder(tile).forAllStates(blockState -> {
+            int snow = blockState.getValue(RoofTiles.SNOW_LAYERS);
             StringBuilder builder = new StringBuilder();
             builder.append(BLOCK).append(name(tile));
             if (blockState.getValue(ModBlockStateProperties.SHIFTED))
                 builder.append("_shifted");
-            int snow = blockState.getValue(RoofTiles.SNOW_LAYERS);
-            if (snow > 0)
+            if (snow > 0) {
                 builder.append("_snow_layer_").append(snow);
+                boolean usesSideSnow = type.getSnowStages().get(snow).getRight();
+                if (usesSideSnow && blockState.getValue(RoofTiles.SNOW_SIDE) != RoofTiles.SnowSide.BOTH) {
+                    builder.append("_").append(blockState.getValue(RoofTiles.SNOW_SIDE).getSerializedName());
+                }
+            }
             String modelName = builder.toString();
             return ConfiguredModel.builder().modelFile(models().getExistingFile(modLoc(modelName)))
                     .rotationY((int) blockState.getValue(HORIZONTAL_FACING).toYRot()).build();

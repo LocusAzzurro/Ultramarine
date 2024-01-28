@@ -66,7 +66,6 @@ public class RoofTiles extends ShiftableBlock{
         if (pPrecipitation == Biome.Precipitation.SNOW) {
             handleSnow(pState, pLevel, pPos);
         }
-        super.handlePrecipitation(pState, pLevel, pPos, pPrecipitation);
     }
 
     private void handleSnow(BlockState pState, Level pLevel, BlockPos pPos){
@@ -79,6 +78,7 @@ public class RoofTiles extends ShiftableBlock{
         }
     }
 
+    @SuppressWarnings("deprecation")
     @Override
     public InteractionResult use(BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, InteractionHand pHand, BlockHitResult pHit) {
         ItemStack item = pPlayer.getItemInHand(pHand);
@@ -90,12 +90,14 @@ public class RoofTiles extends ShiftableBlock{
         return InteractionResult.PASS;
     }
 
+    @SuppressWarnings("deprecation")
     @Override
     public void neighborChanged(BlockState pState, Level pLevel, BlockPos pPos, Block pBlock, BlockPos pFromPos, boolean pIsMoving) {
         updateSideSnow(pState, pLevel, pPos);
         super.neighborChanged(pState, pLevel, pPos, pBlock, pFromPos, pIsMoving);
     }
 
+    @SuppressWarnings("deprecation")
     @Override
     public void onPlace(BlockState pState, Level pLevel, BlockPos pPos, BlockState pOldState, boolean pIsMoving) {
         updateSideSnow(pState, pLevel, pPos);
@@ -103,6 +105,7 @@ public class RoofTiles extends ShiftableBlock{
         super.onPlace(pState, pLevel, pPos, pOldState, pIsMoving);
     }
 
+    @SuppressWarnings("deprecation")
     @Override
     public void onRemove(BlockState pState, Level pLevel, BlockPos pPos, BlockState pNewState, boolean pIsMoving) {
         updateNeighborSideSnow(pState, pLevel, pPos);
@@ -214,6 +217,7 @@ public class RoofTiles extends ShiftableBlock{
         return super.getStateForPlacement(pContext).setValue(FACING, pContext.getHorizontalDirection());
     }
 
+    @SuppressWarnings("deprecation")
     @Override
     public VoxelShape getShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
         Boolean shifted = pState.getValue(SHIFTED);
@@ -239,9 +243,9 @@ public class RoofTiles extends ShiftableBlock{
         ), 11),
         STAIRS("roof_tile_stairs", Map.ofEntries(
                 Map.entry(0, Pair.of(0, false)), Map.entry(1, Pair.of(1, false)), Map.entry(2, Pair.of(1, false)), Map.entry(3, Pair.of(1, false)),
-                Map.entry(4, Pair.of(1, false)), Map.entry(5, Pair.of(1, false)), Map.entry(6, Pair.of(2, true)), Map.entry(7, Pair.of(2, true)),
-                Map.entry(8, Pair.of(2, true)), Map.entry(9, Pair.of(3, true)), Map.entry(10, Pair.of(3, true)), Map.entry(11, Pair.of(3, true)),
-                Map.entry(12, Pair.of(4, true)), Map.entry(13, Pair.of(4, true)), Map.entry(14, Pair.of(4, true)), Map.entry(15, Pair.of(5, true))
+                Map.entry(4, Pair.of(1, false)), Map.entry(5, Pair.of(1, false)), Map.entry(6, Pair.of(2, false)), Map.entry(7, Pair.of(2, false)),
+                Map.entry(8, Pair.of(2, false)), Map.entry(9, Pair.of(3, false)), Map.entry(10, Pair.of(3, false)), Map.entry(11, Pair.of(3, false)),
+                Map.entry(12, Pair.of(4, false)), Map.entry(13, Pair.of(4, false)), Map.entry(14, Pair.of(4, false)), Map.entry(15, Pair.of(5, false))
         ), 5),
         EDGE("roof_tile_edge", Map.ofEntries(
                 Map.entry(0, Pair.of(0, false)), Map.entry(1, Pair.of(1, true)), Map.entry(2, Pair.of(1, true)), Map.entry(3, Pair.of(1, true)),
@@ -250,9 +254,11 @@ public class RoofTiles extends ShiftableBlock{
                 Map.entry(12, Pair.of(2, true)), Map.entry(13, Pair.of(3, true)), Map.entry(14, Pair.of(3, true)), Map.entry(15, Pair.of(3, true))
         ), 3),;
 
-        String blockName;
-        Map<Integer, Pair<Integer, Boolean>> snowStages;
-        Integer maxSnowStages;
+        // Right boolean in pair - true = use LR side snow / false = use the full stage texture
+
+        final String blockName;
+        final Map<Integer, Pair<Integer, Boolean>> snowStages;
+        final Integer maxSnowStages;
 
         RoofTileType(String blockName, Map<Integer, Pair<Integer, Boolean>> snowStages, int maxSnowStages){
             this.blockName = blockName;
@@ -277,7 +283,7 @@ public class RoofTiles extends ShiftableBlock{
     public enum SnowSide implements StringRepresentable {
         LEFT("left"), RIGHT("right"), NONE("none"), BOTH("both");
 
-        String name;
+        final String name;
         SnowSide(String name){
             this.name = name;
         }

@@ -121,363 +121,363 @@
       "y": 270
     },
     "facing=north,shifted=false,snow_layers=4,snow_side=left,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_4",
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_4_left",
       "y": 180
     },
     "facing=south,shifted=false,snow_layers=4,snow_side=left,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_4"
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_4_left"
     },
     "facing=west,shifted=false,snow_layers=4,snow_side=left,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_4",
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_4_left",
       "y": 90
     },
     "facing=east,shifted=false,snow_layers=4,snow_side=left,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_4",
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_4_left",
       "y": 270
     },
     "facing=north,shifted=true,snow_layers=4,snow_side=left,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_4",
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_4_left",
       "y": 180
     },
     "facing=south,shifted=true,snow_layers=4,snow_side=left,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_4"
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_4_left"
     },
     "facing=west,shifted=true,snow_layers=4,snow_side=left,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_4",
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_4_left",
       "y": 90
     },
     "facing=east,shifted=true,snow_layers=4,snow_side=left,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_4",
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_4_left",
       "y": 270
     },
     "facing=north,shifted=false,snow_layers=5,snow_side=left,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_5",
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_5_left",
       "y": 180
     },
     "facing=south,shifted=false,snow_layers=5,snow_side=left,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_5"
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_5_left"
     },
     "facing=west,shifted=false,snow_layers=5,snow_side=left,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_5",
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_5_left",
       "y": 90
     },
     "facing=east,shifted=false,snow_layers=5,snow_side=left,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_5",
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_5_left",
       "y": 270
     },
     "facing=north,shifted=true,snow_layers=5,snow_side=left,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_5",
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_5_left",
       "y": 180
     },
     "facing=south,shifted=true,snow_layers=5,snow_side=left,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_5"
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_5_left"
     },
     "facing=west,shifted=true,snow_layers=5,snow_side=left,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_5",
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_5_left",
       "y": 90
     },
     "facing=east,shifted=true,snow_layers=5,snow_side=left,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_5",
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_5_left",
       "y": 270
     },
     "facing=north,shifted=false,snow_layers=6,snow_side=left,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_6",
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_6_left",
       "y": 180
     },
     "facing=south,shifted=false,snow_layers=6,snow_side=left,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_6"
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_6_left"
     },
     "facing=west,shifted=false,snow_layers=6,snow_side=left,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_6",
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_6_left",
       "y": 90
     },
     "facing=east,shifted=false,snow_layers=6,snow_side=left,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_6",
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_6_left",
       "y": 270
     },
     "facing=north,shifted=true,snow_layers=6,snow_side=left,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_6",
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_6_left",
       "y": 180
     },
     "facing=south,shifted=true,snow_layers=6,snow_side=left,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_6"
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_6_left"
     },
     "facing=west,shifted=true,snow_layers=6,snow_side=left,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_6",
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_6_left",
       "y": 90
     },
     "facing=east,shifted=true,snow_layers=6,snow_side=left,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_6",
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_6_left",
       "y": 270
     },
     "facing=north,shifted=false,snow_layers=7,snow_side=left,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_7",
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_7_left",
       "y": 180
     },
     "facing=south,shifted=false,snow_layers=7,snow_side=left,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_7"
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_7_left"
     },
     "facing=west,shifted=false,snow_layers=7,snow_side=left,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_7",
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_7_left",
       "y": 90
     },
     "facing=east,shifted=false,snow_layers=7,snow_side=left,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_7",
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_7_left",
       "y": 270
     },
     "facing=north,shifted=true,snow_layers=7,snow_side=left,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_7",
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_7_left",
       "y": 180
     },
     "facing=south,shifted=true,snow_layers=7,snow_side=left,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_7"
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_7_left"
     },
     "facing=west,shifted=true,snow_layers=7,snow_side=left,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_7",
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_7_left",
       "y": 90
     },
     "facing=east,shifted=true,snow_layers=7,snow_side=left,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_7",
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_7_left",
       "y": 270
     },
     "facing=north,shifted=false,snow_layers=8,snow_side=left,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_8",
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_8_left",
       "y": 180
     },
     "facing=south,shifted=false,snow_layers=8,snow_side=left,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_8"
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_8_left"
     },
     "facing=west,shifted=false,snow_layers=8,snow_side=left,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_8",
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_8_left",
       "y": 90
     },
     "facing=east,shifted=false,snow_layers=8,snow_side=left,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_8",
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_8_left",
       "y": 270
     },
     "facing=north,shifted=true,snow_layers=8,snow_side=left,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_8",
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_8_left",
       "y": 180
     },
     "facing=south,shifted=true,snow_layers=8,snow_side=left,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_8"
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_8_left"
     },
     "facing=west,shifted=true,snow_layers=8,snow_side=left,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_8",
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_8_left",
       "y": 90
     },
     "facing=east,shifted=true,snow_layers=8,snow_side=left,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_8",
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_8_left",
       "y": 270
     },
     "facing=north,shifted=false,snow_layers=9,snow_side=left,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_9",
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_9_left",
       "y": 180
     },
     "facing=south,shifted=false,snow_layers=9,snow_side=left,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_9"
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_9_left"
     },
     "facing=west,shifted=false,snow_layers=9,snow_side=left,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_9",
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_9_left",
       "y": 90
     },
     "facing=east,shifted=false,snow_layers=9,snow_side=left,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_9",
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_9_left",
       "y": 270
     },
     "facing=north,shifted=true,snow_layers=9,snow_side=left,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_9",
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_9_left",
       "y": 180
     },
     "facing=south,shifted=true,snow_layers=9,snow_side=left,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_9"
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_9_left"
     },
     "facing=west,shifted=true,snow_layers=9,snow_side=left,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_9",
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_9_left",
       "y": 90
     },
     "facing=east,shifted=true,snow_layers=9,snow_side=left,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_9",
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_9_left",
       "y": 270
     },
     "facing=north,shifted=false,snow_layers=10,snow_side=left,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_10",
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_10_left",
       "y": 180
     },
     "facing=south,shifted=false,snow_layers=10,snow_side=left,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_10"
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_10_left"
     },
     "facing=west,shifted=false,snow_layers=10,snow_side=left,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_10",
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_10_left",
       "y": 90
     },
     "facing=east,shifted=false,snow_layers=10,snow_side=left,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_10",
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_10_left",
       "y": 270
     },
     "facing=north,shifted=true,snow_layers=10,snow_side=left,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_10",
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_10_left",
       "y": 180
     },
     "facing=south,shifted=true,snow_layers=10,snow_side=left,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_10"
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_10_left"
     },
     "facing=west,shifted=true,snow_layers=10,snow_side=left,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_10",
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_10_left",
       "y": 90
     },
     "facing=east,shifted=true,snow_layers=10,snow_side=left,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_10",
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_10_left",
       "y": 270
     },
     "facing=north,shifted=false,snow_layers=11,snow_side=left,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_11",
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_11_left",
       "y": 180
     },
     "facing=south,shifted=false,snow_layers=11,snow_side=left,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_11"
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_11_left"
     },
     "facing=west,shifted=false,snow_layers=11,snow_side=left,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_11",
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_11_left",
       "y": 90
     },
     "facing=east,shifted=false,snow_layers=11,snow_side=left,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_11",
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_11_left",
       "y": 270
     },
     "facing=north,shifted=true,snow_layers=11,snow_side=left,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_11",
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_11_left",
       "y": 180
     },
     "facing=south,shifted=true,snow_layers=11,snow_side=left,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_11"
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_11_left"
     },
     "facing=west,shifted=true,snow_layers=11,snow_side=left,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_11",
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_11_left",
       "y": 90
     },
     "facing=east,shifted=true,snow_layers=11,snow_side=left,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_11",
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_11_left",
       "y": 270
     },
     "facing=north,shifted=false,snow_layers=12,snow_side=left,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_12",
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_12_left",
       "y": 180
     },
     "facing=south,shifted=false,snow_layers=12,snow_side=left,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_12"
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_12_left"
     },
     "facing=west,shifted=false,snow_layers=12,snow_side=left,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_12",
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_12_left",
       "y": 90
     },
     "facing=east,shifted=false,snow_layers=12,snow_side=left,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_12",
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_12_left",
       "y": 270
     },
     "facing=north,shifted=true,snow_layers=12,snow_side=left,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_12",
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_12_left",
       "y": 180
     },
     "facing=south,shifted=true,snow_layers=12,snow_side=left,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_12"
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_12_left"
     },
     "facing=west,shifted=true,snow_layers=12,snow_side=left,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_12",
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_12_left",
       "y": 90
     },
     "facing=east,shifted=true,snow_layers=12,snow_side=left,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_12",
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_12_left",
       "y": 270
     },
     "facing=north,shifted=false,snow_layers=13,snow_side=left,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_13",
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_13_left",
       "y": 180
     },
     "facing=south,shifted=false,snow_layers=13,snow_side=left,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_13"
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_13_left"
     },
     "facing=west,shifted=false,snow_layers=13,snow_side=left,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_13",
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_13_left",
       "y": 90
     },
     "facing=east,shifted=false,snow_layers=13,snow_side=left,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_13",
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_13_left",
       "y": 270
     },
     "facing=north,shifted=true,snow_layers=13,snow_side=left,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_13",
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_13_left",
       "y": 180
     },
     "facing=south,shifted=true,snow_layers=13,snow_side=left,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_13"
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_13_left"
     },
     "facing=west,shifted=true,snow_layers=13,snow_side=left,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_13",
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_13_left",
       "y": 90
     },
     "facing=east,shifted=true,snow_layers=13,snow_side=left,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_13",
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_13_left",
       "y": 270
     },
     "facing=north,shifted=false,snow_layers=14,snow_side=left,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_14",
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_14_left",
       "y": 180
     },
     "facing=south,shifted=false,snow_layers=14,snow_side=left,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_14"
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_14_left"
     },
     "facing=west,shifted=false,snow_layers=14,snow_side=left,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_14",
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_14_left",
       "y": 90
     },
     "facing=east,shifted=false,snow_layers=14,snow_side=left,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_14",
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_14_left",
       "y": 270
     },
     "facing=north,shifted=true,snow_layers=14,snow_side=left,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_14",
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_14_left",
       "y": 180
     },
     "facing=south,shifted=true,snow_layers=14,snow_side=left,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_14"
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_14_left"
     },
     "facing=west,shifted=true,snow_layers=14,snow_side=left,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_14",
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_14_left",
       "y": 90
     },
     "facing=east,shifted=true,snow_layers=14,snow_side=left,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_14",
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_14_left",
       "y": 270
     },
     "facing=north,shifted=false,snow_layers=15,snow_side=left,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_15",
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_15_left",
       "y": 180
     },
     "facing=south,shifted=false,snow_layers=15,snow_side=left,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_15"
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_15_left"
     },
     "facing=west,shifted=false,snow_layers=15,snow_side=left,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_15",
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_15_left",
       "y": 90
     },
     "facing=east,shifted=false,snow_layers=15,snow_side=left,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_15",
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_15_left",
       "y": 270
     },
     "facing=north,shifted=true,snow_layers=15,snow_side=left,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_15",
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_15_left",
       "y": 180
     },
     "facing=south,shifted=true,snow_layers=15,snow_side=left,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_15"
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_15_left"
     },
     "facing=west,shifted=true,snow_layers=15,snow_side=left,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_15",
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_15_left",
       "y": 90
     },
     "facing=east,shifted=true,snow_layers=15,snow_side=left,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_15",
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_15_left",
       "y": 270
     },
     "facing=north,shifted=false,snow_layers=0,snow_side=right,waterlogged=false": {
@@ -601,363 +601,363 @@
       "y": 270
     },
     "facing=north,shifted=false,snow_layers=4,snow_side=right,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_4",
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_4_right",
       "y": 180
     },
     "facing=south,shifted=false,snow_layers=4,snow_side=right,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_4"
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_4_right"
     },
     "facing=west,shifted=false,snow_layers=4,snow_side=right,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_4",
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_4_right",
       "y": 90
     },
     "facing=east,shifted=false,snow_layers=4,snow_side=right,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_4",
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_4_right",
       "y": 270
     },
     "facing=north,shifted=true,snow_layers=4,snow_side=right,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_4",
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_4_right",
       "y": 180
     },
     "facing=south,shifted=true,snow_layers=4,snow_side=right,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_4"
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_4_right"
     },
     "facing=west,shifted=true,snow_layers=4,snow_side=right,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_4",
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_4_right",
       "y": 90
     },
     "facing=east,shifted=true,snow_layers=4,snow_side=right,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_4",
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_4_right",
       "y": 270
     },
     "facing=north,shifted=false,snow_layers=5,snow_side=right,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_5",
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_5_right",
       "y": 180
     },
     "facing=south,shifted=false,snow_layers=5,snow_side=right,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_5"
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_5_right"
     },
     "facing=west,shifted=false,snow_layers=5,snow_side=right,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_5",
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_5_right",
       "y": 90
     },
     "facing=east,shifted=false,snow_layers=5,snow_side=right,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_5",
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_5_right",
       "y": 270
     },
     "facing=north,shifted=true,snow_layers=5,snow_side=right,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_5",
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_5_right",
       "y": 180
     },
     "facing=south,shifted=true,snow_layers=5,snow_side=right,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_5"
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_5_right"
     },
     "facing=west,shifted=true,snow_layers=5,snow_side=right,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_5",
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_5_right",
       "y": 90
     },
     "facing=east,shifted=true,snow_layers=5,snow_side=right,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_5",
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_5_right",
       "y": 270
     },
     "facing=north,shifted=false,snow_layers=6,snow_side=right,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_6",
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_6_right",
       "y": 180
     },
     "facing=south,shifted=false,snow_layers=6,snow_side=right,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_6"
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_6_right"
     },
     "facing=west,shifted=false,snow_layers=6,snow_side=right,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_6",
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_6_right",
       "y": 90
     },
     "facing=east,shifted=false,snow_layers=6,snow_side=right,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_6",
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_6_right",
       "y": 270
     },
     "facing=north,shifted=true,snow_layers=6,snow_side=right,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_6",
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_6_right",
       "y": 180
     },
     "facing=south,shifted=true,snow_layers=6,snow_side=right,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_6"
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_6_right"
     },
     "facing=west,shifted=true,snow_layers=6,snow_side=right,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_6",
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_6_right",
       "y": 90
     },
     "facing=east,shifted=true,snow_layers=6,snow_side=right,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_6",
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_6_right",
       "y": 270
     },
     "facing=north,shifted=false,snow_layers=7,snow_side=right,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_7",
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_7_right",
       "y": 180
     },
     "facing=south,shifted=false,snow_layers=7,snow_side=right,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_7"
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_7_right"
     },
     "facing=west,shifted=false,snow_layers=7,snow_side=right,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_7",
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_7_right",
       "y": 90
     },
     "facing=east,shifted=false,snow_layers=7,snow_side=right,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_7",
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_7_right",
       "y": 270
     },
     "facing=north,shifted=true,snow_layers=7,snow_side=right,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_7",
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_7_right",
       "y": 180
     },
     "facing=south,shifted=true,snow_layers=7,snow_side=right,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_7"
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_7_right"
     },
     "facing=west,shifted=true,snow_layers=7,snow_side=right,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_7",
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_7_right",
       "y": 90
     },
     "facing=east,shifted=true,snow_layers=7,snow_side=right,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_7",
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_7_right",
       "y": 270
     },
     "facing=north,shifted=false,snow_layers=8,snow_side=right,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_8",
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_8_right",
       "y": 180
     },
     "facing=south,shifted=false,snow_layers=8,snow_side=right,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_8"
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_8_right"
     },
     "facing=west,shifted=false,snow_layers=8,snow_side=right,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_8",
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_8_right",
       "y": 90
     },
     "facing=east,shifted=false,snow_layers=8,snow_side=right,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_8",
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_8_right",
       "y": 270
     },
     "facing=north,shifted=true,snow_layers=8,snow_side=right,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_8",
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_8_right",
       "y": 180
     },
     "facing=south,shifted=true,snow_layers=8,snow_side=right,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_8"
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_8_right"
     },
     "facing=west,shifted=true,snow_layers=8,snow_side=right,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_8",
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_8_right",
       "y": 90
     },
     "facing=east,shifted=true,snow_layers=8,snow_side=right,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_8",
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_8_right",
       "y": 270
     },
     "facing=north,shifted=false,snow_layers=9,snow_side=right,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_9",
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_9_right",
       "y": 180
     },
     "facing=south,shifted=false,snow_layers=9,snow_side=right,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_9"
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_9_right"
     },
     "facing=west,shifted=false,snow_layers=9,snow_side=right,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_9",
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_9_right",
       "y": 90
     },
     "facing=east,shifted=false,snow_layers=9,snow_side=right,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_9",
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_9_right",
       "y": 270
     },
     "facing=north,shifted=true,snow_layers=9,snow_side=right,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_9",
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_9_right",
       "y": 180
     },
     "facing=south,shifted=true,snow_layers=9,snow_side=right,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_9"
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_9_right"
     },
     "facing=west,shifted=true,snow_layers=9,snow_side=right,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_9",
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_9_right",
       "y": 90
     },
     "facing=east,shifted=true,snow_layers=9,snow_side=right,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_9",
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_9_right",
       "y": 270
     },
     "facing=north,shifted=false,snow_layers=10,snow_side=right,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_10",
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_10_right",
       "y": 180
     },
     "facing=south,shifted=false,snow_layers=10,snow_side=right,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_10"
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_10_right"
     },
     "facing=west,shifted=false,snow_layers=10,snow_side=right,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_10",
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_10_right",
       "y": 90
     },
     "facing=east,shifted=false,snow_layers=10,snow_side=right,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_10",
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_10_right",
       "y": 270
     },
     "facing=north,shifted=true,snow_layers=10,snow_side=right,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_10",
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_10_right",
       "y": 180
     },
     "facing=south,shifted=true,snow_layers=10,snow_side=right,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_10"
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_10_right"
     },
     "facing=west,shifted=true,snow_layers=10,snow_side=right,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_10",
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_10_right",
       "y": 90
     },
     "facing=east,shifted=true,snow_layers=10,snow_side=right,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_10",
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_10_right",
       "y": 270
     },
     "facing=north,shifted=false,snow_layers=11,snow_side=right,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_11",
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_11_right",
       "y": 180
     },
     "facing=south,shifted=false,snow_layers=11,snow_side=right,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_11"
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_11_right"
     },
     "facing=west,shifted=false,snow_layers=11,snow_side=right,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_11",
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_11_right",
       "y": 90
     },
     "facing=east,shifted=false,snow_layers=11,snow_side=right,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_11",
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_11_right",
       "y": 270
     },
     "facing=north,shifted=true,snow_layers=11,snow_side=right,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_11",
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_11_right",
       "y": 180
     },
     "facing=south,shifted=true,snow_layers=11,snow_side=right,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_11"
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_11_right"
     },
     "facing=west,shifted=true,snow_layers=11,snow_side=right,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_11",
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_11_right",
       "y": 90
     },
     "facing=east,shifted=true,snow_layers=11,snow_side=right,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_11",
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_11_right",
       "y": 270
     },
     "facing=north,shifted=false,snow_layers=12,snow_side=right,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_12",
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_12_right",
       "y": 180
     },
     "facing=south,shifted=false,snow_layers=12,snow_side=right,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_12"
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_12_right"
     },
     "facing=west,shifted=false,snow_layers=12,snow_side=right,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_12",
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_12_right",
       "y": 90
     },
     "facing=east,shifted=false,snow_layers=12,snow_side=right,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_12",
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_12_right",
       "y": 270
     },
     "facing=north,shifted=true,snow_layers=12,snow_side=right,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_12",
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_12_right",
       "y": 180
     },
     "facing=south,shifted=true,snow_layers=12,snow_side=right,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_12"
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_12_right"
     },
     "facing=west,shifted=true,snow_layers=12,snow_side=right,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_12",
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_12_right",
       "y": 90
     },
     "facing=east,shifted=true,snow_layers=12,snow_side=right,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_12",
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_12_right",
       "y": 270
     },
     "facing=north,shifted=false,snow_layers=13,snow_side=right,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_13",
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_13_right",
       "y": 180
     },
     "facing=south,shifted=false,snow_layers=13,snow_side=right,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_13"
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_13_right"
     },
     "facing=west,shifted=false,snow_layers=13,snow_side=right,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_13",
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_13_right",
       "y": 90
     },
     "facing=east,shifted=false,snow_layers=13,snow_side=right,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_13",
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_13_right",
       "y": 270
     },
     "facing=north,shifted=true,snow_layers=13,snow_side=right,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_13",
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_13_right",
       "y": 180
     },
     "facing=south,shifted=true,snow_layers=13,snow_side=right,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_13"
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_13_right"
     },
     "facing=west,shifted=true,snow_layers=13,snow_side=right,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_13",
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_13_right",
       "y": 90
     },
     "facing=east,shifted=true,snow_layers=13,snow_side=right,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_13",
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_13_right",
       "y": 270
     },
     "facing=north,shifted=false,snow_layers=14,snow_side=right,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_14",
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_14_right",
       "y": 180
     },
     "facing=south,shifted=false,snow_layers=14,snow_side=right,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_14"
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_14_right"
     },
     "facing=west,shifted=false,snow_layers=14,snow_side=right,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_14",
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_14_right",
       "y": 90
     },
     "facing=east,shifted=false,snow_layers=14,snow_side=right,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_14",
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_14_right",
       "y": 270
     },
     "facing=north,shifted=true,snow_layers=14,snow_side=right,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_14",
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_14_right",
       "y": 180
     },
     "facing=south,shifted=true,snow_layers=14,snow_side=right,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_14"
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_14_right"
     },
     "facing=west,shifted=true,snow_layers=14,snow_side=right,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_14",
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_14_right",
       "y": 90
     },
     "facing=east,shifted=true,snow_layers=14,snow_side=right,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_14",
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_14_right",
       "y": 270
     },
     "facing=north,shifted=false,snow_layers=15,snow_side=right,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_15",
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_15_right",
       "y": 180
     },
     "facing=south,shifted=false,snow_layers=15,snow_side=right,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_15"
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_15_right"
     },
     "facing=west,shifted=false,snow_layers=15,snow_side=right,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_15",
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_15_right",
       "y": 90
     },
     "facing=east,shifted=false,snow_layers=15,snow_side=right,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_15",
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_15_right",
       "y": 270
     },
     "facing=north,shifted=true,snow_layers=15,snow_side=right,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_15",
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_15_right",
       "y": 180
     },
     "facing=south,shifted=true,snow_layers=15,snow_side=right,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_15"
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_15_right"
     },
     "facing=west,shifted=true,snow_layers=15,snow_side=right,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_15",
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_15_right",
       "y": 90
     },
     "facing=east,shifted=true,snow_layers=15,snow_side=right,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_15",
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_15_right",
       "y": 270
     },
     "facing=north,shifted=false,snow_layers=0,snow_side=none,waterlogged=false": {
@@ -1081,363 +1081,363 @@
       "y": 270
     },
     "facing=north,shifted=false,snow_layers=4,snow_side=none,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_4",
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_4_none",
       "y": 180
     },
     "facing=south,shifted=false,snow_layers=4,snow_side=none,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_4"
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_4_none"
     },
     "facing=west,shifted=false,snow_layers=4,snow_side=none,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_4",
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_4_none",
       "y": 90
     },
     "facing=east,shifted=false,snow_layers=4,snow_side=none,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_4",
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_4_none",
       "y": 270
     },
     "facing=north,shifted=true,snow_layers=4,snow_side=none,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_4",
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_4_none",
       "y": 180
     },
     "facing=south,shifted=true,snow_layers=4,snow_side=none,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_4"
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_4_none"
     },
     "facing=west,shifted=true,snow_layers=4,snow_side=none,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_4",
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_4_none",
       "y": 90
     },
     "facing=east,shifted=true,snow_layers=4,snow_side=none,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_4",
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_4_none",
       "y": 270
     },
     "facing=north,shifted=false,snow_layers=5,snow_side=none,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_5",
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_5_none",
       "y": 180
     },
     "facing=south,shifted=false,snow_layers=5,snow_side=none,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_5"
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_5_none"
     },
     "facing=west,shifted=false,snow_layers=5,snow_side=none,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_5",
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_5_none",
       "y": 90
     },
     "facing=east,shifted=false,snow_layers=5,snow_side=none,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_5",
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_5_none",
       "y": 270
     },
     "facing=north,shifted=true,snow_layers=5,snow_side=none,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_5",
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_5_none",
       "y": 180
     },
     "facing=south,shifted=true,snow_layers=5,snow_side=none,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_5"
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_5_none"
     },
     "facing=west,shifted=true,snow_layers=5,snow_side=none,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_5",
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_5_none",
       "y": 90
     },
     "facing=east,shifted=true,snow_layers=5,snow_side=none,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_5",
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_5_none",
       "y": 270
     },
     "facing=north,shifted=false,snow_layers=6,snow_side=none,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_6",
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_6_none",
       "y": 180
     },
     "facing=south,shifted=false,snow_layers=6,snow_side=none,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_6"
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_6_none"
     },
     "facing=west,shifted=false,snow_layers=6,snow_side=none,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_6",
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_6_none",
       "y": 90
     },
     "facing=east,shifted=false,snow_layers=6,snow_side=none,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_6",
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_6_none",
       "y": 270
     },
     "facing=north,shifted=true,snow_layers=6,snow_side=none,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_6",
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_6_none",
       "y": 180
     },
     "facing=south,shifted=true,snow_layers=6,snow_side=none,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_6"
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_6_none"
     },
     "facing=west,shifted=true,snow_layers=6,snow_side=none,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_6",
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_6_none",
       "y": 90
     },
     "facing=east,shifted=true,snow_layers=6,snow_side=none,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_6",
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_6_none",
       "y": 270
     },
     "facing=north,shifted=false,snow_layers=7,snow_side=none,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_7",
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_7_none",
       "y": 180
     },
     "facing=south,shifted=false,snow_layers=7,snow_side=none,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_7"
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_7_none"
     },
     "facing=west,shifted=false,snow_layers=7,snow_side=none,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_7",
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_7_none",
       "y": 90
     },
     "facing=east,shifted=false,snow_layers=7,snow_side=none,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_7",
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_7_none",
       "y": 270
     },
     "facing=north,shifted=true,snow_layers=7,snow_side=none,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_7",
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_7_none",
       "y": 180
     },
     "facing=south,shifted=true,snow_layers=7,snow_side=none,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_7"
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_7_none"
     },
     "facing=west,shifted=true,snow_layers=7,snow_side=none,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_7",
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_7_none",
       "y": 90
     },
     "facing=east,shifted=true,snow_layers=7,snow_side=none,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_7",
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_7_none",
       "y": 270
     },
     "facing=north,shifted=false,snow_layers=8,snow_side=none,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_8",
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_8_none",
       "y": 180
     },
     "facing=south,shifted=false,snow_layers=8,snow_side=none,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_8"
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_8_none"
     },
     "facing=west,shifted=false,snow_layers=8,snow_side=none,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_8",
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_8_none",
       "y": 90
     },
     "facing=east,shifted=false,snow_layers=8,snow_side=none,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_8",
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_8_none",
       "y": 270
     },
     "facing=north,shifted=true,snow_layers=8,snow_side=none,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_8",
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_8_none",
       "y": 180
     },
     "facing=south,shifted=true,snow_layers=8,snow_side=none,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_8"
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_8_none"
     },
     "facing=west,shifted=true,snow_layers=8,snow_side=none,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_8",
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_8_none",
       "y": 90
     },
     "facing=east,shifted=true,snow_layers=8,snow_side=none,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_8",
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_8_none",
       "y": 270
     },
     "facing=north,shifted=false,snow_layers=9,snow_side=none,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_9",
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_9_none",
       "y": 180
     },
     "facing=south,shifted=false,snow_layers=9,snow_side=none,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_9"
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_9_none"
     },
     "facing=west,shifted=false,snow_layers=9,snow_side=none,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_9",
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_9_none",
       "y": 90
     },
     "facing=east,shifted=false,snow_layers=9,snow_side=none,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_9",
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_9_none",
       "y": 270
     },
     "facing=north,shifted=true,snow_layers=9,snow_side=none,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_9",
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_9_none",
       "y": 180
     },
     "facing=south,shifted=true,snow_layers=9,snow_side=none,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_9"
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_9_none"
     },
     "facing=west,shifted=true,snow_layers=9,snow_side=none,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_9",
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_9_none",
       "y": 90
     },
     "facing=east,shifted=true,snow_layers=9,snow_side=none,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_9",
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_9_none",
       "y": 270
     },
     "facing=north,shifted=false,snow_layers=10,snow_side=none,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_10",
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_10_none",
       "y": 180
     },
     "facing=south,shifted=false,snow_layers=10,snow_side=none,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_10"
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_10_none"
     },
     "facing=west,shifted=false,snow_layers=10,snow_side=none,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_10",
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_10_none",
       "y": 90
     },
     "facing=east,shifted=false,snow_layers=10,snow_side=none,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_10",
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_10_none",
       "y": 270
     },
     "facing=north,shifted=true,snow_layers=10,snow_side=none,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_10",
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_10_none",
       "y": 180
     },
     "facing=south,shifted=true,snow_layers=10,snow_side=none,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_10"
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_10_none"
     },
     "facing=west,shifted=true,snow_layers=10,snow_side=none,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_10",
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_10_none",
       "y": 90
     },
     "facing=east,shifted=true,snow_layers=10,snow_side=none,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_10",
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_10_none",
       "y": 270
     },
     "facing=north,shifted=false,snow_layers=11,snow_side=none,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_11",
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_11_none",
       "y": 180
     },
     "facing=south,shifted=false,snow_layers=11,snow_side=none,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_11"
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_11_none"
     },
     "facing=west,shifted=false,snow_layers=11,snow_side=none,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_11",
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_11_none",
       "y": 90
     },
     "facing=east,shifted=false,snow_layers=11,snow_side=none,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_11",
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_11_none",
       "y": 270
     },
     "facing=north,shifted=true,snow_layers=11,snow_side=none,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_11",
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_11_none",
       "y": 180
     },
     "facing=south,shifted=true,snow_layers=11,snow_side=none,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_11"
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_11_none"
     },
     "facing=west,shifted=true,snow_layers=11,snow_side=none,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_11",
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_11_none",
       "y": 90
     },
     "facing=east,shifted=true,snow_layers=11,snow_side=none,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_11",
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_11_none",
       "y": 270
     },
     "facing=north,shifted=false,snow_layers=12,snow_side=none,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_12",
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_12_none",
       "y": 180
     },
     "facing=south,shifted=false,snow_layers=12,snow_side=none,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_12"
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_12_none"
     },
     "facing=west,shifted=false,snow_layers=12,snow_side=none,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_12",
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_12_none",
       "y": 90
     },
     "facing=east,shifted=false,snow_layers=12,snow_side=none,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_12",
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_12_none",
       "y": 270
     },
     "facing=north,shifted=true,snow_layers=12,snow_side=none,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_12",
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_12_none",
       "y": 180
     },
     "facing=south,shifted=true,snow_layers=12,snow_side=none,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_12"
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_12_none"
     },
     "facing=west,shifted=true,snow_layers=12,snow_side=none,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_12",
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_12_none",
       "y": 90
     },
     "facing=east,shifted=true,snow_layers=12,snow_side=none,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_12",
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_12_none",
       "y": 270
     },
     "facing=north,shifted=false,snow_layers=13,snow_side=none,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_13",
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_13_none",
       "y": 180
     },
     "facing=south,shifted=false,snow_layers=13,snow_side=none,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_13"
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_13_none"
     },
     "facing=west,shifted=false,snow_layers=13,snow_side=none,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_13",
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_13_none",
       "y": 90
     },
     "facing=east,shifted=false,snow_layers=13,snow_side=none,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_13",
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_13_none",
       "y": 270
     },
     "facing=north,shifted=true,snow_layers=13,snow_side=none,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_13",
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_13_none",
       "y": 180
     },
     "facing=south,shifted=true,snow_layers=13,snow_side=none,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_13"
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_13_none"
     },
     "facing=west,shifted=true,snow_layers=13,snow_side=none,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_13",
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_13_none",
       "y": 90
     },
     "facing=east,shifted=true,snow_layers=13,snow_side=none,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_13",
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_13_none",
       "y": 270
     },
     "facing=north,shifted=false,snow_layers=14,snow_side=none,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_14",
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_14_none",
       "y": 180
     },
     "facing=south,shifted=false,snow_layers=14,snow_side=none,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_14"
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_14_none"
     },
     "facing=west,shifted=false,snow_layers=14,snow_side=none,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_14",
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_14_none",
       "y": 90
     },
     "facing=east,shifted=false,snow_layers=14,snow_side=none,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_14",
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_14_none",
       "y": 270
     },
     "facing=north,shifted=true,snow_layers=14,snow_side=none,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_14",
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_14_none",
       "y": 180
     },
     "facing=south,shifted=true,snow_layers=14,snow_side=none,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_14"
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_14_none"
     },
     "facing=west,shifted=true,snow_layers=14,snow_side=none,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_14",
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_14_none",
       "y": 90
     },
     "facing=east,shifted=true,snow_layers=14,snow_side=none,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_14",
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_14_none",
       "y": 270
     },
     "facing=north,shifted=false,snow_layers=15,snow_side=none,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_15",
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_15_none",
       "y": 180
     },
     "facing=south,shifted=false,snow_layers=15,snow_side=none,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_15"
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_15_none"
     },
     "facing=west,shifted=false,snow_layers=15,snow_side=none,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_15",
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_15_none",
       "y": 90
     },
     "facing=east,shifted=false,snow_layers=15,snow_side=none,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_15",
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_15_none",
       "y": 270
     },
     "facing=north,shifted=true,snow_layers=15,snow_side=none,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_15",
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_15_none",
       "y": 180
     },
     "facing=south,shifted=true,snow_layers=15,snow_side=none,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_15"
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_15_none"
     },
     "facing=west,shifted=true,snow_layers=15,snow_side=none,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_15",
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_15_none",
       "y": 90
     },
     "facing=east,shifted=true,snow_layers=15,snow_side=none,waterlogged=false": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_15",
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_15_none",
       "y": 270
     },
     "facing=north,shifted=false,snow_layers=0,snow_side=both,waterlogged=false": {
@@ -2041,363 +2041,363 @@
       "y": 270
     },
     "facing=north,shifted=false,snow_layers=4,snow_side=left,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_4",
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_4_left",
       "y": 180
     },
     "facing=south,shifted=false,snow_layers=4,snow_side=left,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_4"
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_4_left"
     },
     "facing=west,shifted=false,snow_layers=4,snow_side=left,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_4",
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_4_left",
       "y": 90
     },
     "facing=east,shifted=false,snow_layers=4,snow_side=left,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_4",
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_4_left",
       "y": 270
     },
     "facing=north,shifted=true,snow_layers=4,snow_side=left,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_4",
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_4_left",
       "y": 180
     },
     "facing=south,shifted=true,snow_layers=4,snow_side=left,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_4"
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_4_left"
     },
     "facing=west,shifted=true,snow_layers=4,snow_side=left,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_4",
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_4_left",
       "y": 90
     },
     "facing=east,shifted=true,snow_layers=4,snow_side=left,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_4",
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_4_left",
       "y": 270
     },
     "facing=north,shifted=false,snow_layers=5,snow_side=left,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_5",
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_5_left",
       "y": 180
     },
     "facing=south,shifted=false,snow_layers=5,snow_side=left,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_5"
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_5_left"
     },
     "facing=west,shifted=false,snow_layers=5,snow_side=left,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_5",
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_5_left",
       "y": 90
     },
     "facing=east,shifted=false,snow_layers=5,snow_side=left,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_5",
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_5_left",
       "y": 270
     },
     "facing=north,shifted=true,snow_layers=5,snow_side=left,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_5",
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_5_left",
       "y": 180
     },
     "facing=south,shifted=true,snow_layers=5,snow_side=left,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_5"
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_5_left"
     },
     "facing=west,shifted=true,snow_layers=5,snow_side=left,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_5",
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_5_left",
       "y": 90
     },
     "facing=east,shifted=true,snow_layers=5,snow_side=left,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_5",
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_5_left",
       "y": 270
     },
     "facing=north,shifted=false,snow_layers=6,snow_side=left,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_6",
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_6_left",
       "y": 180
     },
     "facing=south,shifted=false,snow_layers=6,snow_side=left,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_6"
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_6_left"
     },
     "facing=west,shifted=false,snow_layers=6,snow_side=left,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_6",
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_6_left",
       "y": 90
     },
     "facing=east,shifted=false,snow_layers=6,snow_side=left,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_6",
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_6_left",
       "y": 270
     },
     "facing=north,shifted=true,snow_layers=6,snow_side=left,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_6",
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_6_left",
       "y": 180
     },
     "facing=south,shifted=true,snow_layers=6,snow_side=left,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_6"
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_6_left"
     },
     "facing=west,shifted=true,snow_layers=6,snow_side=left,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_6",
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_6_left",
       "y": 90
     },
     "facing=east,shifted=true,snow_layers=6,snow_side=left,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_6",
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_6_left",
       "y": 270
     },
     "facing=north,shifted=false,snow_layers=7,snow_side=left,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_7",
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_7_left",
       "y": 180
     },
     "facing=south,shifted=false,snow_layers=7,snow_side=left,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_7"
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_7_left"
     },
     "facing=west,shifted=false,snow_layers=7,snow_side=left,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_7",
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_7_left",
       "y": 90
     },
     "facing=east,shifted=false,snow_layers=7,snow_side=left,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_7",
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_7_left",
       "y": 270
     },
     "facing=north,shifted=true,snow_layers=7,snow_side=left,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_7",
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_7_left",
       "y": 180
     },
     "facing=south,shifted=true,snow_layers=7,snow_side=left,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_7"
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_7_left"
     },
     "facing=west,shifted=true,snow_layers=7,snow_side=left,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_7",
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_7_left",
       "y": 90
     },
     "facing=east,shifted=true,snow_layers=7,snow_side=left,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_7",
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_7_left",
       "y": 270
     },
     "facing=north,shifted=false,snow_layers=8,snow_side=left,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_8",
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_8_left",
       "y": 180
     },
     "facing=south,shifted=false,snow_layers=8,snow_side=left,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_8"
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_8_left"
     },
     "facing=west,shifted=false,snow_layers=8,snow_side=left,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_8",
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_8_left",
       "y": 90
     },
     "facing=east,shifted=false,snow_layers=8,snow_side=left,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_8",
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_8_left",
       "y": 270
     },
     "facing=north,shifted=true,snow_layers=8,snow_side=left,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_8",
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_8_left",
       "y": 180
     },
     "facing=south,shifted=true,snow_layers=8,snow_side=left,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_8"
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_8_left"
     },
     "facing=west,shifted=true,snow_layers=8,snow_side=left,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_8",
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_8_left",
       "y": 90
     },
     "facing=east,shifted=true,snow_layers=8,snow_side=left,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_8",
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_8_left",
       "y": 270
     },
     "facing=north,shifted=false,snow_layers=9,snow_side=left,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_9",
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_9_left",
       "y": 180
     },
     "facing=south,shifted=false,snow_layers=9,snow_side=left,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_9"
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_9_left"
     },
     "facing=west,shifted=false,snow_layers=9,snow_side=left,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_9",
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_9_left",
       "y": 90
     },
     "facing=east,shifted=false,snow_layers=9,snow_side=left,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_9",
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_9_left",
       "y": 270
     },
     "facing=north,shifted=true,snow_layers=9,snow_side=left,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_9",
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_9_left",
       "y": 180
     },
     "facing=south,shifted=true,snow_layers=9,snow_side=left,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_9"
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_9_left"
     },
     "facing=west,shifted=true,snow_layers=9,snow_side=left,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_9",
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_9_left",
       "y": 90
     },
     "facing=east,shifted=true,snow_layers=9,snow_side=left,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_9",
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_9_left",
       "y": 270
     },
     "facing=north,shifted=false,snow_layers=10,snow_side=left,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_10",
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_10_left",
       "y": 180
     },
     "facing=south,shifted=false,snow_layers=10,snow_side=left,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_10"
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_10_left"
     },
     "facing=west,shifted=false,snow_layers=10,snow_side=left,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_10",
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_10_left",
       "y": 90
     },
     "facing=east,shifted=false,snow_layers=10,snow_side=left,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_10",
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_10_left",
       "y": 270
     },
     "facing=north,shifted=true,snow_layers=10,snow_side=left,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_10",
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_10_left",
       "y": 180
     },
     "facing=south,shifted=true,snow_layers=10,snow_side=left,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_10"
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_10_left"
     },
     "facing=west,shifted=true,snow_layers=10,snow_side=left,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_10",
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_10_left",
       "y": 90
     },
     "facing=east,shifted=true,snow_layers=10,snow_side=left,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_10",
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_10_left",
       "y": 270
     },
     "facing=north,shifted=false,snow_layers=11,snow_side=left,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_11",
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_11_left",
       "y": 180
     },
     "facing=south,shifted=false,snow_layers=11,snow_side=left,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_11"
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_11_left"
     },
     "facing=west,shifted=false,snow_layers=11,snow_side=left,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_11",
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_11_left",
       "y": 90
     },
     "facing=east,shifted=false,snow_layers=11,snow_side=left,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_11",
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_11_left",
       "y": 270
     },
     "facing=north,shifted=true,snow_layers=11,snow_side=left,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_11",
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_11_left",
       "y": 180
     },
     "facing=south,shifted=true,snow_layers=11,snow_side=left,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_11"
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_11_left"
     },
     "facing=west,shifted=true,snow_layers=11,snow_side=left,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_11",
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_11_left",
       "y": 90
     },
     "facing=east,shifted=true,snow_layers=11,snow_side=left,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_11",
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_11_left",
       "y": 270
     },
     "facing=north,shifted=false,snow_layers=12,snow_side=left,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_12",
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_12_left",
       "y": 180
     },
     "facing=south,shifted=false,snow_layers=12,snow_side=left,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_12"
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_12_left"
     },
     "facing=west,shifted=false,snow_layers=12,snow_side=left,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_12",
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_12_left",
       "y": 90
     },
     "facing=east,shifted=false,snow_layers=12,snow_side=left,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_12",
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_12_left",
       "y": 270
     },
     "facing=north,shifted=true,snow_layers=12,snow_side=left,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_12",
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_12_left",
       "y": 180
     },
     "facing=south,shifted=true,snow_layers=12,snow_side=left,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_12"
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_12_left"
     },
     "facing=west,shifted=true,snow_layers=12,snow_side=left,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_12",
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_12_left",
       "y": 90
     },
     "facing=east,shifted=true,snow_layers=12,snow_side=left,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_12",
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_12_left",
       "y": 270
     },
     "facing=north,shifted=false,snow_layers=13,snow_side=left,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_13",
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_13_left",
       "y": 180
     },
     "facing=south,shifted=false,snow_layers=13,snow_side=left,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_13"
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_13_left"
     },
     "facing=west,shifted=false,snow_layers=13,snow_side=left,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_13",
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_13_left",
       "y": 90
     },
     "facing=east,shifted=false,snow_layers=13,snow_side=left,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_13",
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_13_left",
       "y": 270
     },
     "facing=north,shifted=true,snow_layers=13,snow_side=left,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_13",
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_13_left",
       "y": 180
     },
     "facing=south,shifted=true,snow_layers=13,snow_side=left,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_13"
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_13_left"
     },
     "facing=west,shifted=true,snow_layers=13,snow_side=left,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_13",
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_13_left",
       "y": 90
     },
     "facing=east,shifted=true,snow_layers=13,snow_side=left,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_13",
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_13_left",
       "y": 270
     },
     "facing=north,shifted=false,snow_layers=14,snow_side=left,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_14",
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_14_left",
       "y": 180
     },
     "facing=south,shifted=false,snow_layers=14,snow_side=left,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_14"
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_14_left"
     },
     "facing=west,shifted=false,snow_layers=14,snow_side=left,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_14",
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_14_left",
       "y": 90
     },
     "facing=east,shifted=false,snow_layers=14,snow_side=left,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_14",
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_14_left",
       "y": 270
     },
     "facing=north,shifted=true,snow_layers=14,snow_side=left,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_14",
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_14_left",
       "y": 180
     },
     "facing=south,shifted=true,snow_layers=14,snow_side=left,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_14"
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_14_left"
     },
     "facing=west,shifted=true,snow_layers=14,snow_side=left,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_14",
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_14_left",
       "y": 90
     },
     "facing=east,shifted=true,snow_layers=14,snow_side=left,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_14",
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_14_left",
       "y": 270
     },
     "facing=north,shifted=false,snow_layers=15,snow_side=left,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_15",
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_15_left",
       "y": 180
     },
     "facing=south,shifted=false,snow_layers=15,snow_side=left,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_15"
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_15_left"
     },
     "facing=west,shifted=false,snow_layers=15,snow_side=left,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_15",
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_15_left",
       "y": 90
     },
     "facing=east,shifted=false,snow_layers=15,snow_side=left,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_15",
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_15_left",
       "y": 270
     },
     "facing=north,shifted=true,snow_layers=15,snow_side=left,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_15",
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_15_left",
       "y": 180
     },
     "facing=south,shifted=true,snow_layers=15,snow_side=left,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_15"
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_15_left"
     },
     "facing=west,shifted=true,snow_layers=15,snow_side=left,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_15",
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_15_left",
       "y": 90
     },
     "facing=east,shifted=true,snow_layers=15,snow_side=left,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_15",
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_15_left",
       "y": 270
     },
     "facing=north,shifted=false,snow_layers=0,snow_side=right,waterlogged=true": {
@@ -2521,363 +2521,363 @@
       "y": 270
     },
     "facing=north,shifted=false,snow_layers=4,snow_side=right,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_4",
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_4_right",
       "y": 180
     },
     "facing=south,shifted=false,snow_layers=4,snow_side=right,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_4"
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_4_right"
     },
     "facing=west,shifted=false,snow_layers=4,snow_side=right,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_4",
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_4_right",
       "y": 90
     },
     "facing=east,shifted=false,snow_layers=4,snow_side=right,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_4",
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_4_right",
       "y": 270
     },
     "facing=north,shifted=true,snow_layers=4,snow_side=right,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_4",
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_4_right",
       "y": 180
     },
     "facing=south,shifted=true,snow_layers=4,snow_side=right,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_4"
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_4_right"
     },
     "facing=west,shifted=true,snow_layers=4,snow_side=right,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_4",
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_4_right",
       "y": 90
     },
     "facing=east,shifted=true,snow_layers=4,snow_side=right,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_4",
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_4_right",
       "y": 270
     },
     "facing=north,shifted=false,snow_layers=5,snow_side=right,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_5",
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_5_right",
       "y": 180
     },
     "facing=south,shifted=false,snow_layers=5,snow_side=right,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_5"
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_5_right"
     },
     "facing=west,shifted=false,snow_layers=5,snow_side=right,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_5",
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_5_right",
       "y": 90
     },
     "facing=east,shifted=false,snow_layers=5,snow_side=right,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_5",
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_5_right",
       "y": 270
     },
     "facing=north,shifted=true,snow_layers=5,snow_side=right,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_5",
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_5_right",
       "y": 180
     },
     "facing=south,shifted=true,snow_layers=5,snow_side=right,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_5"
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_5_right"
     },
     "facing=west,shifted=true,snow_layers=5,snow_side=right,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_5",
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_5_right",
       "y": 90
     },
     "facing=east,shifted=true,snow_layers=5,snow_side=right,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_5",
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_5_right",
       "y": 270
     },
     "facing=north,shifted=false,snow_layers=6,snow_side=right,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_6",
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_6_right",
       "y": 180
     },
     "facing=south,shifted=false,snow_layers=6,snow_side=right,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_6"
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_6_right"
     },
     "facing=west,shifted=false,snow_layers=6,snow_side=right,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_6",
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_6_right",
       "y": 90
     },
     "facing=east,shifted=false,snow_layers=6,snow_side=right,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_6",
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_6_right",
       "y": 270
     },
     "facing=north,shifted=true,snow_layers=6,snow_side=right,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_6",
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_6_right",
       "y": 180
     },
     "facing=south,shifted=true,snow_layers=6,snow_side=right,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_6"
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_6_right"
     },
     "facing=west,shifted=true,snow_layers=6,snow_side=right,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_6",
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_6_right",
       "y": 90
     },
     "facing=east,shifted=true,snow_layers=6,snow_side=right,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_6",
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_6_right",
       "y": 270
     },
     "facing=north,shifted=false,snow_layers=7,snow_side=right,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_7",
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_7_right",
       "y": 180
     },
     "facing=south,shifted=false,snow_layers=7,snow_side=right,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_7"
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_7_right"
     },
     "facing=west,shifted=false,snow_layers=7,snow_side=right,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_7",
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_7_right",
       "y": 90
     },
     "facing=east,shifted=false,snow_layers=7,snow_side=right,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_7",
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_7_right",
       "y": 270
     },
     "facing=north,shifted=true,snow_layers=7,snow_side=right,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_7",
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_7_right",
       "y": 180
     },
     "facing=south,shifted=true,snow_layers=7,snow_side=right,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_7"
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_7_right"
     },
     "facing=west,shifted=true,snow_layers=7,snow_side=right,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_7",
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_7_right",
       "y": 90
     },
     "facing=east,shifted=true,snow_layers=7,snow_side=right,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_7",
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_7_right",
       "y": 270
     },
     "facing=north,shifted=false,snow_layers=8,snow_side=right,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_8",
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_8_right",
       "y": 180
     },
     "facing=south,shifted=false,snow_layers=8,snow_side=right,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_8"
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_8_right"
     },
     "facing=west,shifted=false,snow_layers=8,snow_side=right,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_8",
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_8_right",
       "y": 90
     },
     "facing=east,shifted=false,snow_layers=8,snow_side=right,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_8",
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_8_right",
       "y": 270
     },
     "facing=north,shifted=true,snow_layers=8,snow_side=right,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_8",
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_8_right",
       "y": 180
     },
     "facing=south,shifted=true,snow_layers=8,snow_side=right,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_8"
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_8_right"
     },
     "facing=west,shifted=true,snow_layers=8,snow_side=right,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_8",
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_8_right",
       "y": 90
     },
     "facing=east,shifted=true,snow_layers=8,snow_side=right,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_8",
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_8_right",
       "y": 270
     },
     "facing=north,shifted=false,snow_layers=9,snow_side=right,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_9",
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_9_right",
       "y": 180
     },
     "facing=south,shifted=false,snow_layers=9,snow_side=right,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_9"
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_9_right"
     },
     "facing=west,shifted=false,snow_layers=9,snow_side=right,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_9",
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_9_right",
       "y": 90
     },
     "facing=east,shifted=false,snow_layers=9,snow_side=right,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_9",
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_9_right",
       "y": 270
     },
     "facing=north,shifted=true,snow_layers=9,snow_side=right,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_9",
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_9_right",
       "y": 180
     },
     "facing=south,shifted=true,snow_layers=9,snow_side=right,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_9"
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_9_right"
     },
     "facing=west,shifted=true,snow_layers=9,snow_side=right,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_9",
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_9_right",
       "y": 90
     },
     "facing=east,shifted=true,snow_layers=9,snow_side=right,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_9",
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_9_right",
       "y": 270
     },
     "facing=north,shifted=false,snow_layers=10,snow_side=right,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_10",
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_10_right",
       "y": 180
     },
     "facing=south,shifted=false,snow_layers=10,snow_side=right,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_10"
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_10_right"
     },
     "facing=west,shifted=false,snow_layers=10,snow_side=right,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_10",
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_10_right",
       "y": 90
     },
     "facing=east,shifted=false,snow_layers=10,snow_side=right,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_10",
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_10_right",
       "y": 270
     },
     "facing=north,shifted=true,snow_layers=10,snow_side=right,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_10",
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_10_right",
       "y": 180
     },
     "facing=south,shifted=true,snow_layers=10,snow_side=right,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_10"
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_10_right"
     },
     "facing=west,shifted=true,snow_layers=10,snow_side=right,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_10",
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_10_right",
       "y": 90
     },
     "facing=east,shifted=true,snow_layers=10,snow_side=right,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_10",
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_10_right",
       "y": 270
     },
     "facing=north,shifted=false,snow_layers=11,snow_side=right,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_11",
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_11_right",
       "y": 180
     },
     "facing=south,shifted=false,snow_layers=11,snow_side=right,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_11"
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_11_right"
     },
     "facing=west,shifted=false,snow_layers=11,snow_side=right,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_11",
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_11_right",
       "y": 90
     },
     "facing=east,shifted=false,snow_layers=11,snow_side=right,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_11",
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_11_right",
       "y": 270
     },
     "facing=north,shifted=true,snow_layers=11,snow_side=right,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_11",
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_11_right",
       "y": 180
     },
     "facing=south,shifted=true,snow_layers=11,snow_side=right,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_11"
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_11_right"
     },
     "facing=west,shifted=true,snow_layers=11,snow_side=right,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_11",
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_11_right",
       "y": 90
     },
     "facing=east,shifted=true,snow_layers=11,snow_side=right,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_11",
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_11_right",
       "y": 270
     },
     "facing=north,shifted=false,snow_layers=12,snow_side=right,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_12",
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_12_right",
       "y": 180
     },
     "facing=south,shifted=false,snow_layers=12,snow_side=right,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_12"
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_12_right"
     },
     "facing=west,shifted=false,snow_layers=12,snow_side=right,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_12",
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_12_right",
       "y": 90
     },
     "facing=east,shifted=false,snow_layers=12,snow_side=right,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_12",
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_12_right",
       "y": 270
     },
     "facing=north,shifted=true,snow_layers=12,snow_side=right,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_12",
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_12_right",
       "y": 180
     },
     "facing=south,shifted=true,snow_layers=12,snow_side=right,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_12"
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_12_right"
     },
     "facing=west,shifted=true,snow_layers=12,snow_side=right,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_12",
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_12_right",
       "y": 90
     },
     "facing=east,shifted=true,snow_layers=12,snow_side=right,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_12",
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_12_right",
       "y": 270
     },
     "facing=north,shifted=false,snow_layers=13,snow_side=right,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_13",
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_13_right",
       "y": 180
     },
     "facing=south,shifted=false,snow_layers=13,snow_side=right,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_13"
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_13_right"
     },
     "facing=west,shifted=false,snow_layers=13,snow_side=right,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_13",
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_13_right",
       "y": 90
     },
     "facing=east,shifted=false,snow_layers=13,snow_side=right,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_13",
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_13_right",
       "y": 270
     },
     "facing=north,shifted=true,snow_layers=13,snow_side=right,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_13",
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_13_right",
       "y": 180
     },
     "facing=south,shifted=true,snow_layers=13,snow_side=right,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_13"
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_13_right"
     },
     "facing=west,shifted=true,snow_layers=13,snow_side=right,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_13",
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_13_right",
       "y": 90
     },
     "facing=east,shifted=true,snow_layers=13,snow_side=right,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_13",
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_13_right",
       "y": 270
     },
     "facing=north,shifted=false,snow_layers=14,snow_side=right,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_14",
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_14_right",
       "y": 180
     },
     "facing=south,shifted=false,snow_layers=14,snow_side=right,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_14"
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_14_right"
     },
     "facing=west,shifted=false,snow_layers=14,snow_side=right,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_14",
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_14_right",
       "y": 90
     },
     "facing=east,shifted=false,snow_layers=14,snow_side=right,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_14",
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_14_right",
       "y": 270
     },
     "facing=north,shifted=true,snow_layers=14,snow_side=right,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_14",
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_14_right",
       "y": 180
     },
     "facing=south,shifted=true,snow_layers=14,snow_side=right,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_14"
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_14_right"
     },
     "facing=west,shifted=true,snow_layers=14,snow_side=right,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_14",
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_14_right",
       "y": 90
     },
     "facing=east,shifted=true,snow_layers=14,snow_side=right,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_14",
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_14_right",
       "y": 270
     },
     "facing=north,shifted=false,snow_layers=15,snow_side=right,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_15",
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_15_right",
       "y": 180
     },
     "facing=south,shifted=false,snow_layers=15,snow_side=right,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_15"
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_15_right"
     },
     "facing=west,shifted=false,snow_layers=15,snow_side=right,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_15",
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_15_right",
       "y": 90
     },
     "facing=east,shifted=false,snow_layers=15,snow_side=right,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_15",
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_15_right",
       "y": 270
     },
     "facing=north,shifted=true,snow_layers=15,snow_side=right,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_15",
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_15_right",
       "y": 180
     },
     "facing=south,shifted=true,snow_layers=15,snow_side=right,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_15"
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_15_right"
     },
     "facing=west,shifted=true,snow_layers=15,snow_side=right,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_15",
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_15_right",
       "y": 90
     },
     "facing=east,shifted=true,snow_layers=15,snow_side=right,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_15",
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_15_right",
       "y": 270
     },
     "facing=north,shifted=false,snow_layers=0,snow_side=none,waterlogged=true": {
@@ -3001,363 +3001,363 @@
       "y": 270
     },
     "facing=north,shifted=false,snow_layers=4,snow_side=none,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_4",
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_4_none",
       "y": 180
     },
     "facing=south,shifted=false,snow_layers=4,snow_side=none,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_4"
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_4_none"
     },
     "facing=west,shifted=false,snow_layers=4,snow_side=none,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_4",
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_4_none",
       "y": 90
     },
     "facing=east,shifted=false,snow_layers=4,snow_side=none,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_4",
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_4_none",
       "y": 270
     },
     "facing=north,shifted=true,snow_layers=4,snow_side=none,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_4",
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_4_none",
       "y": 180
     },
     "facing=south,shifted=true,snow_layers=4,snow_side=none,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_4"
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_4_none"
     },
     "facing=west,shifted=true,snow_layers=4,snow_side=none,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_4",
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_4_none",
       "y": 90
     },
     "facing=east,shifted=true,snow_layers=4,snow_side=none,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_4",
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_4_none",
       "y": 270
     },
     "facing=north,shifted=false,snow_layers=5,snow_side=none,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_5",
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_5_none",
       "y": 180
     },
     "facing=south,shifted=false,snow_layers=5,snow_side=none,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_5"
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_5_none"
     },
     "facing=west,shifted=false,snow_layers=5,snow_side=none,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_5",
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_5_none",
       "y": 90
     },
     "facing=east,shifted=false,snow_layers=5,snow_side=none,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_5",
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_5_none",
       "y": 270
     },
     "facing=north,shifted=true,snow_layers=5,snow_side=none,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_5",
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_5_none",
       "y": 180
     },
     "facing=south,shifted=true,snow_layers=5,snow_side=none,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_5"
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_5_none"
     },
     "facing=west,shifted=true,snow_layers=5,snow_side=none,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_5",
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_5_none",
       "y": 90
     },
     "facing=east,shifted=true,snow_layers=5,snow_side=none,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_5",
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_5_none",
       "y": 270
     },
     "facing=north,shifted=false,snow_layers=6,snow_side=none,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_6",
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_6_none",
       "y": 180
     },
     "facing=south,shifted=false,snow_layers=6,snow_side=none,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_6"
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_6_none"
     },
     "facing=west,shifted=false,snow_layers=6,snow_side=none,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_6",
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_6_none",
       "y": 90
     },
     "facing=east,shifted=false,snow_layers=6,snow_side=none,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_6",
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_6_none",
       "y": 270
     },
     "facing=north,shifted=true,snow_layers=6,snow_side=none,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_6",
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_6_none",
       "y": 180
     },
     "facing=south,shifted=true,snow_layers=6,snow_side=none,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_6"
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_6_none"
     },
     "facing=west,shifted=true,snow_layers=6,snow_side=none,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_6",
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_6_none",
       "y": 90
     },
     "facing=east,shifted=true,snow_layers=6,snow_side=none,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_6",
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_6_none",
       "y": 270
     },
     "facing=north,shifted=false,snow_layers=7,snow_side=none,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_7",
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_7_none",
       "y": 180
     },
     "facing=south,shifted=false,snow_layers=7,snow_side=none,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_7"
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_7_none"
     },
     "facing=west,shifted=false,snow_layers=7,snow_side=none,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_7",
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_7_none",
       "y": 90
     },
     "facing=east,shifted=false,snow_layers=7,snow_side=none,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_7",
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_7_none",
       "y": 270
     },
     "facing=north,shifted=true,snow_layers=7,snow_side=none,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_7",
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_7_none",
       "y": 180
     },
     "facing=south,shifted=true,snow_layers=7,snow_side=none,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_7"
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_7_none"
     },
     "facing=west,shifted=true,snow_layers=7,snow_side=none,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_7",
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_7_none",
       "y": 90
     },
     "facing=east,shifted=true,snow_layers=7,snow_side=none,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_7",
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_7_none",
       "y": 270
     },
     "facing=north,shifted=false,snow_layers=8,snow_side=none,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_8",
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_8_none",
       "y": 180
     },
     "facing=south,shifted=false,snow_layers=8,snow_side=none,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_8"
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_8_none"
     },
     "facing=west,shifted=false,snow_layers=8,snow_side=none,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_8",
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_8_none",
       "y": 90
     },
     "facing=east,shifted=false,snow_layers=8,snow_side=none,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_8",
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_8_none",
       "y": 270
     },
     "facing=north,shifted=true,snow_layers=8,snow_side=none,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_8",
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_8_none",
       "y": 180
     },
     "facing=south,shifted=true,snow_layers=8,snow_side=none,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_8"
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_8_none"
     },
     "facing=west,shifted=true,snow_layers=8,snow_side=none,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_8",
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_8_none",
       "y": 90
     },
     "facing=east,shifted=true,snow_layers=8,snow_side=none,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_8",
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_8_none",
       "y": 270
     },
     "facing=north,shifted=false,snow_layers=9,snow_side=none,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_9",
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_9_none",
       "y": 180
     },
     "facing=south,shifted=false,snow_layers=9,snow_side=none,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_9"
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_9_none"
     },
     "facing=west,shifted=false,snow_layers=9,snow_side=none,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_9",
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_9_none",
       "y": 90
     },
     "facing=east,shifted=false,snow_layers=9,snow_side=none,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_9",
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_9_none",
       "y": 270
     },
     "facing=north,shifted=true,snow_layers=9,snow_side=none,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_9",
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_9_none",
       "y": 180
     },
     "facing=south,shifted=true,snow_layers=9,snow_side=none,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_9"
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_9_none"
     },
     "facing=west,shifted=true,snow_layers=9,snow_side=none,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_9",
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_9_none",
       "y": 90
     },
     "facing=east,shifted=true,snow_layers=9,snow_side=none,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_9",
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_9_none",
       "y": 270
     },
     "facing=north,shifted=false,snow_layers=10,snow_side=none,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_10",
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_10_none",
       "y": 180
     },
     "facing=south,shifted=false,snow_layers=10,snow_side=none,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_10"
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_10_none"
     },
     "facing=west,shifted=false,snow_layers=10,snow_side=none,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_10",
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_10_none",
       "y": 90
     },
     "facing=east,shifted=false,snow_layers=10,snow_side=none,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_10",
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_10_none",
       "y": 270
     },
     "facing=north,shifted=true,snow_layers=10,snow_side=none,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_10",
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_10_none",
       "y": 180
     },
     "facing=south,shifted=true,snow_layers=10,snow_side=none,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_10"
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_10_none"
     },
     "facing=west,shifted=true,snow_layers=10,snow_side=none,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_10",
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_10_none",
       "y": 90
     },
     "facing=east,shifted=true,snow_layers=10,snow_side=none,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_10",
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_10_none",
       "y": 270
     },
     "facing=north,shifted=false,snow_layers=11,snow_side=none,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_11",
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_11_none",
       "y": 180
     },
     "facing=south,shifted=false,snow_layers=11,snow_side=none,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_11"
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_11_none"
     },
     "facing=west,shifted=false,snow_layers=11,snow_side=none,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_11",
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_11_none",
       "y": 90
     },
     "facing=east,shifted=false,snow_layers=11,snow_side=none,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_11",
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_11_none",
       "y": 270
     },
     "facing=north,shifted=true,snow_layers=11,snow_side=none,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_11",
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_11_none",
       "y": 180
     },
     "facing=south,shifted=true,snow_layers=11,snow_side=none,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_11"
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_11_none"
     },
     "facing=west,shifted=true,snow_layers=11,snow_side=none,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_11",
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_11_none",
       "y": 90
     },
     "facing=east,shifted=true,snow_layers=11,snow_side=none,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_11",
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_11_none",
       "y": 270
     },
     "facing=north,shifted=false,snow_layers=12,snow_side=none,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_12",
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_12_none",
       "y": 180
     },
     "facing=south,shifted=false,snow_layers=12,snow_side=none,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_12"
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_12_none"
     },
     "facing=west,shifted=false,snow_layers=12,snow_side=none,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_12",
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_12_none",
       "y": 90
     },
     "facing=east,shifted=false,snow_layers=12,snow_side=none,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_12",
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_12_none",
       "y": 270
     },
     "facing=north,shifted=true,snow_layers=12,snow_side=none,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_12",
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_12_none",
       "y": 180
     },
     "facing=south,shifted=true,snow_layers=12,snow_side=none,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_12"
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_12_none"
     },
     "facing=west,shifted=true,snow_layers=12,snow_side=none,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_12",
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_12_none",
       "y": 90
     },
     "facing=east,shifted=true,snow_layers=12,snow_side=none,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_12",
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_12_none",
       "y": 270
     },
     "facing=north,shifted=false,snow_layers=13,snow_side=none,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_13",
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_13_none",
       "y": 180
     },
     "facing=south,shifted=false,snow_layers=13,snow_side=none,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_13"
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_13_none"
     },
     "facing=west,shifted=false,snow_layers=13,snow_side=none,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_13",
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_13_none",
       "y": 90
     },
     "facing=east,shifted=false,snow_layers=13,snow_side=none,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_13",
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_13_none",
       "y": 270
     },
     "facing=north,shifted=true,snow_layers=13,snow_side=none,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_13",
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_13_none",
       "y": 180
     },
     "facing=south,shifted=true,snow_layers=13,snow_side=none,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_13"
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_13_none"
     },
     "facing=west,shifted=true,snow_layers=13,snow_side=none,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_13",
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_13_none",
       "y": 90
     },
     "facing=east,shifted=true,snow_layers=13,snow_side=none,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_13",
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_13_none",
       "y": 270
     },
     "facing=north,shifted=false,snow_layers=14,snow_side=none,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_14",
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_14_none",
       "y": 180
     },
     "facing=south,shifted=false,snow_layers=14,snow_side=none,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_14"
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_14_none"
     },
     "facing=west,shifted=false,snow_layers=14,snow_side=none,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_14",
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_14_none",
       "y": 90
     },
     "facing=east,shifted=false,snow_layers=14,snow_side=none,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_14",
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_14_none",
       "y": 270
     },
     "facing=north,shifted=true,snow_layers=14,snow_side=none,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_14",
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_14_none",
       "y": 180
     },
     "facing=south,shifted=true,snow_layers=14,snow_side=none,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_14"
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_14_none"
     },
     "facing=west,shifted=true,snow_layers=14,snow_side=none,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_14",
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_14_none",
       "y": 90
     },
     "facing=east,shifted=true,snow_layers=14,snow_side=none,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_14",
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_14_none",
       "y": 270
     },
     "facing=north,shifted=false,snow_layers=15,snow_side=none,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_15",
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_15_none",
       "y": 180
     },
     "facing=south,shifted=false,snow_layers=15,snow_side=none,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_15"
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_15_none"
     },
     "facing=west,shifted=false,snow_layers=15,snow_side=none,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_15",
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_15_none",
       "y": 90
     },
     "facing=east,shifted=false,snow_layers=15,snow_side=none,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_15",
+      "model": "ultramarine:block/cyan_roof_tiles_snow_layer_15_none",
       "y": 270
     },
     "facing=north,shifted=true,snow_layers=15,snow_side=none,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_15",
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_15_none",
       "y": 180
     },
     "facing=south,shifted=true,snow_layers=15,snow_side=none,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_15"
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_15_none"
     },
     "facing=west,shifted=true,snow_layers=15,snow_side=none,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_15",
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_15_none",
       "y": 90
     },
     "facing=east,shifted=true,snow_layers=15,snow_side=none,waterlogged=true": {
-      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_15",
+      "model": "ultramarine:block/cyan_roof_tiles_shifted_snow_layer_15_none",
       "y": 270
     },
     "facing=north,shifted=false,snow_layers=0,snow_side=both,waterlogged=true": {
