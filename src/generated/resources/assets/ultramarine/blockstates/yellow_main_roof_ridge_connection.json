@@ -1,18 +1,243 @@
 {
   "variants": {
-    "facing=north": {
+    "facing=north,snow_layers=0": {
       "model": "ultramarine:block/yellow_main_roof_ridge_connection",
       "y": 180
     },
-    "facing=south": {
+    "facing=south,snow_layers=0": {
       "model": "ultramarine:block/yellow_main_roof_ridge_connection"
     },
-    "facing=west": {
+    "facing=west,snow_layers=0": {
       "model": "ultramarine:block/yellow_main_roof_ridge_connection",
       "y": 90
     },
-    "facing=east": {
+    "facing=east,snow_layers=0": {
       "model": "ultramarine:block/yellow_main_roof_ridge_connection",
+      "y": 270
+    },
+    "facing=north,snow_layers=1": {
+      "model": "ultramarine:block/yellow_main_roof_ridge_connection_snow_layer_1",
+      "y": 180
+    },
+    "facing=south,snow_layers=1": {
+      "model": "ultramarine:block/yellow_main_roof_ridge_connection_snow_layer_1"
+    },
+    "facing=west,snow_layers=1": {
+      "model": "ultramarine:block/yellow_main_roof_ridge_connection_snow_layer_1",
+      "y": 90
+    },
+    "facing=east,snow_layers=1": {
+      "model": "ultramarine:block/yellow_main_roof_ridge_connection_snow_layer_1",
+      "y": 270
+    },
+    "facing=north,snow_layers=2": {
+      "model": "ultramarine:block/yellow_main_roof_ridge_connection_snow_layer_2",
+      "y": 180
+    },
+    "facing=south,snow_layers=2": {
+      "model": "ultramarine:block/yellow_main_roof_ridge_connection_snow_layer_2"
+    },
+    "facing=west,snow_layers=2": {
+      "model": "ultramarine:block/yellow_main_roof_ridge_connection_snow_layer_2",
+      "y": 90
+    },
+    "facing=east,snow_layers=2": {
+      "model": "ultramarine:block/yellow_main_roof_ridge_connection_snow_layer_2",
+      "y": 270
+    },
+    "facing=north,snow_layers=3": {
+      "model": "ultramarine:block/yellow_main_roof_ridge_connection_snow_layer_3",
+      "y": 180
+    },
+    "facing=south,snow_layers=3": {
+      "model": "ultramarine:block/yellow_main_roof_ridge_connection_snow_layer_3"
+    },
+    "facing=west,snow_layers=3": {
+      "model": "ultramarine:block/yellow_main_roof_ridge_connection_snow_layer_3",
+      "y": 90
+    },
+    "facing=east,snow_layers=3": {
+      "model": "ultramarine:block/yellow_main_roof_ridge_connection_snow_layer_3",
+      "y": 270
+    },
+    "facing=north,snow_layers=4": {
+      "model": "ultramarine:block/yellow_main_roof_ridge_connection_snow_layer_4",
+      "y": 180
+    },
+    "facing=south,snow_layers=4": {
+      "model": "ultramarine:block/yellow_main_roof_ridge_connection_snow_layer_4"
+    },
+    "facing=west,snow_layers=4": {
+      "model": "ultramarine:block/yellow_main_roof_ridge_connection_snow_layer_4",
+      "y": 90
+    },
+    "facing=east,snow_layers=4": {
+      "model": "ultramarine:block/yellow_main_roof_ridge_connection_snow_layer_4",
+      "y": 270
+    },
+    "facing=north,snow_layers=5": {
+      "model": "ultramarine:block/yellow_main_roof_ridge_connection_snow_layer_5",
+      "y": 180
+    },
+    "facing=south,snow_layers=5": {
+      "model": "ultramarine:block/yellow_main_roof_ridge_connection_snow_layer_5"
+    },
+    "facing=west,snow_layers=5": {
+      "model": "ultramarine:block/yellow_main_roof_ridge_connection_snow_layer_5",
+      "y": 90
+    },
+    "facing=east,snow_layers=5": {
+      "model": "ultramarine:block/yellow_main_roof_ridge_connection_snow_layer_5",
+      "y": 270
+    },
+    "facing=north,snow_layers=6": {
+      "model": "ultramarine:block/yellow_main_roof_ridge_connection_snow_layer_6",
+      "y": 180
+    },
+    "facing=south,snow_layers=6": {
+      "model": "ultramarine:block/yellow_main_roof_ridge_connection_snow_layer_6"
+    },
+    "facing=west,snow_layers=6": {
+      "model": "ultramarine:block/yellow_main_roof_ridge_connection_snow_layer_6",
+      "y": 90
+    },
+    "facing=east,snow_layers=6": {
+      "model": "ultramarine:block/yellow_main_roof_ridge_connection_snow_layer_6",
+      "y": 270
+    },
+    "facing=north,snow_layers=7": {
+      "model": "ultramarine:block/yellow_main_roof_ridge_connection_snow_layer_7",
+      "y": 180
+    },
+    "facing=south,snow_layers=7": {
+      "model": "ultramarine:block/yellow_main_roof_ridge_connection_snow_layer_7"
+    },
+    "facing=west,snow_layers=7": {
+      "model": "ultramarine:block/yellow_main_roof_ridge_connection_snow_layer_7",
+      "y": 90
+    },
+    "facing=east,snow_layers=7": {
+      "model": "ultramarine:block/yellow_main_roof_ridge_connection_snow_layer_7",
+      "y": 270
+    },
+    "facing=north,snow_layers=8": {
+      "model": "ultramarine:block/yellow_main_roof_ridge_connection_snow_layer_8",
+      "y": 180
+    },
+    "facing=south,snow_layers=8": {
+      "model": "ultramarine:block/yellow_main_roof_ridge_connection_snow_layer_8"
+    },
+    "facing=west,snow_layers=8": {
+      "model": "ultramarine:block/yellow_main_roof_ridge_connection_snow_layer_8",
+      "y": 90
+    },
+    "facing=east,snow_layers=8": {
+      "model": "ultramarine:block/yellow_main_roof_ridge_connection_snow_layer_8",
+      "y": 270
+    },
+    "facing=north,snow_layers=9": {
+      "model": "ultramarine:block/yellow_main_roof_ridge_connection_snow_layer_9",
+      "y": 180
+    },
+    "facing=south,snow_layers=9": {
+      "model": "ultramarine:block/yellow_main_roof_ridge_connection_snow_layer_9"
+    },
+    "facing=west,snow_layers=9": {
+      "model": "ultramarine:block/yellow_main_roof_ridge_connection_snow_layer_9",
+      "y": 90
+    },
+    "facing=east,snow_layers=9": {
+      "model": "ultramarine:block/yellow_main_roof_ridge_connection_snow_layer_9",
+      "y": 270
+    },
+    "facing=north,snow_layers=10": {
+      "model": "ultramarine:block/yellow_main_roof_ridge_connection_snow_layer_10",
+      "y": 180
+    },
+    "facing=south,snow_layers=10": {
+      "model": "ultramarine:block/yellow_main_roof_ridge_connection_snow_layer_10"
+    },
+    "facing=west,snow_layers=10": {
+      "model": "ultramarine:block/yellow_main_roof_ridge_connection_snow_layer_10",
+      "y": 90
+    },
+    "facing=east,snow_layers=10": {
+      "model": "ultramarine:block/yellow_main_roof_ridge_connection_snow_layer_10",
+      "y": 270
+    },
+    "facing=north,snow_layers=11": {
+      "model": "ultramarine:block/yellow_main_roof_ridge_connection_snow_layer_11",
+      "y": 180
+    },
+    "facing=south,snow_layers=11": {
+      "model": "ultramarine:block/yellow_main_roof_ridge_connection_snow_layer_11"
+    },
+    "facing=west,snow_layers=11": {
+      "model": "ultramarine:block/yellow_main_roof_ridge_connection_snow_layer_11",
+      "y": 90
+    },
+    "facing=east,snow_layers=11": {
+      "model": "ultramarine:block/yellow_main_roof_ridge_connection_snow_layer_11",
+      "y": 270
+    },
+    "facing=north,snow_layers=12": {
+      "model": "ultramarine:block/yellow_main_roof_ridge_connection_snow_layer_12",
+      "y": 180
+    },
+    "facing=south,snow_layers=12": {
+      "model": "ultramarine:block/yellow_main_roof_ridge_connection_snow_layer_12"
+    },
+    "facing=west,snow_layers=12": {
+      "model": "ultramarine:block/yellow_main_roof_ridge_connection_snow_layer_12",
+      "y": 90
+    },
+    "facing=east,snow_layers=12": {
+      "model": "ultramarine:block/yellow_main_roof_ridge_connection_snow_layer_12",
+      "y": 270
+    },
+    "facing=north,snow_layers=13": {
+      "model": "ultramarine:block/yellow_main_roof_ridge_connection_snow_layer_13",
+      "y": 180
+    },
+    "facing=south,snow_layers=13": {
+      "model": "ultramarine:block/yellow_main_roof_ridge_connection_snow_layer_13"
+    },
+    "facing=west,snow_layers=13": {
+      "model": "ultramarine:block/yellow_main_roof_ridge_connection_snow_layer_13",
+      "y": 90
+    },
+    "facing=east,snow_layers=13": {
+      "model": "ultramarine:block/yellow_main_roof_ridge_connection_snow_layer_13",
+      "y": 270
+    },
+    "facing=north,snow_layers=14": {
+      "model": "ultramarine:block/yellow_main_roof_ridge_connection_snow_layer_14",
+      "y": 180
+    },
+    "facing=south,snow_layers=14": {
+      "model": "ultramarine:block/yellow_main_roof_ridge_connection_snow_layer_14"
+    },
+    "facing=west,snow_layers=14": {
+      "model": "ultramarine:block/yellow_main_roof_ridge_connection_snow_layer_14",
+      "y": 90
+    },
+    "facing=east,snow_layers=14": {
+      "model": "ultramarine:block/yellow_main_roof_ridge_connection_snow_layer_14",
+      "y": 270
+    },
+    "facing=north,snow_layers=15": {
+      "model": "ultramarine:block/yellow_main_roof_ridge_connection_snow_layer_15",
+      "y": 180
+    },
+    "facing=south,snow_layers=15": {
+      "model": "ultramarine:block/yellow_main_roof_ridge_connection_snow_layer_15"
+    },
+    "facing=west,snow_layers=15": {
+      "model": "ultramarine:block/yellow_main_roof_ridge_connection_snow_layer_15",
+      "y": 90
+    },
+    "facing=east,snow_layers=15": {
+      "model": "ultramarine:block/yellow_main_roof_ridge_connection_snow_layer_15",
       "y": 270
     }
   }

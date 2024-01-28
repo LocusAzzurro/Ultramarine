@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "down": "ultramarine:block/black_main_roof_ridge_connection_front",
+    "up": "minecraft:block/snow",
+    "north": "ultramarine:block/black_main_roof_ridge_connection_front_snow_stage_2",
+    "south": "ultramarine:block/black_main_roof_ridge_connection_front_snow_stage_2",
+    "east": "ultramarine:block/black_roof_ridge_connection_side_snow_stage_2",
+    "west": "ultramarine:block/black_roof_ridge_connection_side_snow_stage_2",
+    "particle": "ultramarine:block/black_roof_ridge_connection_side"
+  }
+}

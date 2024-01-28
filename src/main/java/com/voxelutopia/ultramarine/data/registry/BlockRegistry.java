@@ -123,7 +123,7 @@ public class BlockRegistry {
     public static final RegistryObject<Block> BLACK_ROOF_RIDGE_UPPER = BLOCKS.register("black_roof_ridge_upper", () -> new RoofRidge(DyeColor.BLACK, RoofRidge.RoofRidgeType.UPPER));
     public static final RegistryObject<Block> BLACK_ROOF_RIDGE_LOWER = BLOCKS.register("black_roof_ridge_lower", () -> new RoofRidge(DyeColor.BLACK, RoofRidge.RoofRidgeType.LOWER));
     public static final RegistryObject<Block> BLACK_ROOF_RIDGE_CONNECTION = BLOCKS.register("black_roof_ridge_connection", () -> new RoofRidgeConnection(DyeColor.BLACK, SnowRoofRidge.RoofRidgeType.CONNECTION));
-    public static final RegistryObject<Block> BLACK_MAIN_ROOF_RIDGE_CONNECTION = BLOCKS.register("black_main_roof_ridge_connection", () -> new BaseHorizontalDirectionalBlock(BaseBlockProperty.STONE));
+    public static final RegistryObject<Block> BLACK_MAIN_ROOF_RIDGE_CONNECTION = BLOCKS.register("black_main_roof_ridge_connection", () -> new RoofMainRidgeConnection(DyeColor.BLACK, SnowRoofRidge.RoofRidgeType.MAIN_CONNECTION));
     public static final RegistryObject<Block> BLACK_ROOF_RIDGE_UPPER_SLAB = BLOCKS.register("black_roof_ridge_upper_slab", () -> new BaseSlab(BaseBlockProperty.STONE));
     public static final RegistryObject<Block> BLACK_MAIN_ROOF_RIDGE_SLAB = BLOCKS.register("black_main_roof_ridge_slab", () -> new BaseHorizontalDirectionalSlab(BaseBlockProperty.STONE));
     public static final RegistryObject<Block> BLACK_MAIN_ROOF_RIDGE_PANEL = BLOCKS.register("black_main_roof_ridge_panel", () -> new RoofRidgePanel(BaseBlockProperty.STONE));
@@ -133,7 +133,7 @@ public class BlockRegistry {
     public static final RegistryObject<Block> YELLOW_ROOF_RIDGE_UPPER = BLOCKS.register("yellow_roof_ridge_upper", () -> new RoofRidge(DyeColor.YELLOW, RoofRidge.RoofRidgeType.UPPER));
     public static final RegistryObject<Block> YELLOW_ROOF_RIDGE_LOWER = BLOCKS.register("yellow_roof_ridge_lower", () -> new RoofRidge(DyeColor.YELLOW, RoofRidge.RoofRidgeType.LOWER));
     public static final RegistryObject<Block> YELLOW_ROOF_RIDGE_CONNECTION = BLOCKS.register("yellow_roof_ridge_connection", () -> new RoofRidgeConnection(DyeColor.YELLOW, SnowRoofRidge.RoofRidgeType.CONNECTION));
-    public static final RegistryObject<Block> YELLOW_MAIN_ROOF_RIDGE_CONNECTION = BLOCKS.register("yellow_main_roof_ridge_connection", () -> new BaseHorizontalDirectionalBlock(BaseBlockProperty.STONE));
+    public static final RegistryObject<Block> YELLOW_MAIN_ROOF_RIDGE_CONNECTION = BLOCKS.register("yellow_main_roof_ridge_connection", () -> new RoofMainRidgeConnection(DyeColor.YELLOW, SnowRoofRidge.RoofRidgeType.MAIN_CONNECTION));
     public static final RegistryObject<Block> YELLOW_ROOF_RIDGE_UPPER_SLAB = BLOCKS.register("yellow_roof_ridge_upper_slab", () -> new BaseSlab(BaseBlockProperty.STONE));
     public static final RegistryObject<Block> YELLOW_MAIN_ROOF_RIDGE_SLAB = BLOCKS.register("yellow_main_roof_ridge_slab", () -> new BaseHorizontalDirectionalSlab(BaseBlockProperty.STONE));
     public static final RegistryObject<Block> YELLOW_MAIN_ROOF_RIDGE_PANEL = BLOCKS.register("yellow_main_roof_ridge_panel", () -> new RoofRidgePanel(BaseBlockProperty.STONE));
