@@ -247,27 +247,7 @@ public class ModBlockModelProvider extends BlockStateProvider {
 
         BlockRegistry.BLOCKS.getEntries().stream().filter(blockRegistryObject -> blockRegistryObject.get() instanceof RoofTiles)
                 .forEach(tile -> roofTiles(tile.get()));
-        /*
-        roofTiles(BlockRegistry.GRAY_ROOF_TILES.get());
-        roofTiles(BlockRegistry.GRAY_ROOF_TILE_STAIRS.get());
-        roofTiles(BlockRegistry.GRAY_ROOF_TILE_EDGE.get());
-        roofTiles(BlockRegistry.YELLOW_ROOF_TILES.get());
-        roofTiles(BlockRegistry.YELLOW_ROOF_TILE_STAIRS.get());
-        roofTiles(BlockRegistry.YELLOW_ROOF_TILE_EDGE.get());
-        roofTiles(BlockRegistry.GREEN_ROOF_TILES.get());
-        roofTiles(BlockRegistry.GREEN_ROOF_TILE_STAIRS.get());
-        roofTiles(BlockRegistry.GREEN_ROOF_TILE_EDGE.get());
-        roofTiles(BlockRegistry.BLUE_ROOF_TILES.get());
-        roofTiles(BlockRegistry.BLUE_ROOF_TILE_STAIRS.get());
-        roofTiles(BlockRegistry.BLUE_ROOF_TILE_EDGE.get());
-        roofTiles(BlockRegistry.CYAN_ROOF_TILES.get());
-        roofTiles(BlockRegistry.CYAN_ROOF_TILE_STAIRS.get());
-        roofTiles(BlockRegistry.CYAN_ROOF_TILE_EDGE.get());
-        roofTiles(BlockRegistry.BLACK_ROOF_TILES.get());
-        roofTiles(BlockRegistry.BLACK_ROOF_TILE_STAIRS.get());
-        roofTiles(BlockRegistry.BLACK_ROOF_TILE_EDGE.get());
 
-         */
 
 
         sideBottomTop(BlockRegistry.BLACK_ROOF_RIDGE_UPPER.get());

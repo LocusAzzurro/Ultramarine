@@ -1,5 +1,6 @@
 package com.voxelutopia.ultramarine.world.block;
 
+import com.voxelutopia.ultramarine.world.block.state.ModBlockStateProperties;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.util.StringRepresentable;
@@ -33,8 +34,8 @@ public class RoofTiles extends ShiftableBlock{
     public static final BlockBehaviour.Properties PROPERTIES = BlockBehaviour.Properties.of(Material.STONE)
             .requiresCorrectToolForDrops().strength(1.5F, 4.0F).sound(SoundType.DEEPSLATE_TILES);
     public static final DirectionProperty FACING = HorizontalDirectionalBlock.FACING;
-    public static final IntegerProperty SNOW_LAYERS = IntegerProperty.create("snow_layers", 0, 15);
-    public static final EnumProperty<SnowSide> SNOW_SIDE = EnumProperty.create("snow_side", SnowSide.class);
+    public static final IntegerProperty SNOW_LAYERS = ModBlockStateProperties.SNOW_LAYERS;
+    public static final EnumProperty<SnowSide> SNOW_SIDE = ModBlockStateProperties.SNOW_SIDE;
 
     private static final VoxelShape BOTTOM_AABB = Block.box(0.0D, 0.0D, 0.0D, 16.0D, 8.0D, 16.0D);
     private static final VoxelShape BOTTOM_AABB_SHIFTED = Block.box(0.0D, -8.0D, 0.0D, 16.0D, 0.0D, 16.0D);
@@ -293,6 +294,7 @@ public class RoofTiles extends ShiftableBlock{
     public RoofTileType getType() {
         return type;
     }
+
 
     @Override
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> pBuilder) {

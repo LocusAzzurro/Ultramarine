@@ -2,6 +2,7 @@ package com.voxelutopia.ultramarine.datagen;
 
 import com.voxelutopia.ultramarine.Ultramarine;
 import com.voxelutopia.ultramarine.world.block.RoofTiles;
+import com.voxelutopia.ultramarine.world.block.SnowRoofRidge;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.DataProvider;
 import net.minecraft.data.HashCache;
@@ -33,6 +34,40 @@ public class MergedTextureProvider implements DataProvider {
     @Override
     public void run(HashCache pCache) throws IOException {
 
+        roofTilesTextureMerge(pCache);
+
+        BufferedImage roofRidgeSideBase, snowLayer, combinedTexture;
+        String[] roofRidgeColors = {"black", "yellow"};
+        String[] roofRidgeSideTypes = {
+                "roof_ridge_upper_side",
+                "roof_ridge_lower_side",
+                "roof_ridge_connection_front",
+                "roof_ridge_connection_side",
+                "main_roof_ridge_connection_front"};
+        int maxSnowStages = SnowRoofRidge.MAX_SNOW_STAGES;
+
+        for (String color : roofRidgeColors){
+            for (String type : roofRidgeSideTypes){
+                for (int stage = 1; stage <= maxSnowStages; stage++){
+
+                    roofRidgeSideBase = ImageIO.read(getInputTexture(color + "_" + type));
+                    snowLayer = ImageIO.read(getInputTexture("roof_ridge_side_snow_stage_" + stage));
+                    combinedTexture = new BufferedImage(16, 16, BufferedImage.TYPE_INT_ARGB);
+
+                    Graphics graphics = combinedTexture.getGraphics();
+                    graphics.drawImage(roofRidgeSideBase, 0, 0, null);
+                    graphics.drawImage(snowLayer, 0, 0, null);
+
+                    save(pCache, combinedTexture, getOutputPath(color + "_" + type + "_snow_stage_" + stage));
+                    graphics.dispose();
+                }
+            }
+        }
+
+
+    }
+
+    private void roofTilesTextureMerge(HashCache pCache) throws IOException {
         BufferedImage roofTileBase, snowLayer, snowSideUp, snowSideLeft, snowSideRight, combinedTexture;
         String[] roofTileColors = {"gray", "yellow", "green", "blue", "cyan", "black"};
         for (RoofTiles.RoofTileType type: RoofTiles.RoofTileType.values()){
@@ -91,6 +126,8 @@ public class MergedTextureProvider implements DataProvider {
             }
         }
     }
+
+
 
     @Override
     public String getName() {
