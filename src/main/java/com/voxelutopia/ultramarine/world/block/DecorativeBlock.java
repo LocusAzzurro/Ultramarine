@@ -130,6 +130,7 @@ public class DecorativeBlock extends HorizontalDirectionalBlock implements BaseB
 
     @Override
     public void onPlace(BlockState pState, Level pLevel, BlockPos pPos, BlockState pOldState, boolean pIsMoving) {
+        /*
         if (offsetDirection != null) {
             switch (offsetDirection) {
                 case DOWN -> {
@@ -146,6 +147,9 @@ public class DecorativeBlock extends HorizontalDirectionalBlock implements BaseB
                 }
             }
         }
+
+         */
+        //todo add config or toggle
     }
 
     @Override
