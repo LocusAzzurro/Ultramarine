@@ -808,6 +808,8 @@ public class BlockRegistry {
             () -> new HangingLantern(HangingLantern.HangingLanternType.POLE));
     public static final RegistryObject<Block> HANGING_RED_LANTERN_STREETLIGHT = BLOCKS.register("hanging_red_lantern_streetlight",
             () -> new HangingLantern(HangingLantern.HangingLanternType.HANGING));
+    public static final RegistryObject<Block> STREETLIGHT_POLE = BLOCKS.register("streetlight_pole",
+            () -> DecorativeBlock.with(BaseBlockProperty.WOOD).shaped(HangingLantern.POLE_ONLY).directional().noOcclusion().build());
 
     // CANDLESTICK
 

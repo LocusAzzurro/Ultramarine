@@ -115,6 +115,9 @@
   "block.ultramarine.white_sky_lantern": "白孔明灯",
   "block.ultramarine.red_sky_lantern": "红孔明灯",
   "block.ultramarine.yellow_sky_lantern": "黄孔明灯",
+  "block.ultramarine.red_lantern_streetlight": "红灯笼路灯",
+  "block.ultramarine.hanging_red_lantern_streetlight": "悬挂红灯笼路灯",
+  "block.ultramarine.streetlight_pole": "路灯杆",
 
   "__comment4__": "Decorations",
   "block.ultramarine.brush_tools": "笔具",
