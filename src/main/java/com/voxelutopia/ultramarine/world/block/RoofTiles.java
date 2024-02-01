@@ -1,5 +1,6 @@
 package com.voxelutopia.ultramarine.world.block;
 
+import com.voxelutopia.ultramarine.util.RawVoxelShape;
 import com.voxelutopia.ultramarine.world.block.state.ModBlockStateProperties;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -39,10 +40,11 @@ public class RoofTiles extends ShiftableBlock{
 
     private static final VoxelShape BOTTOM_AABB = Block.box(0.0D, 0.0D, 0.0D, 16.0D, 8.0D, 16.0D);
     private static final VoxelShape BOTTOM_AABB_SHIFTED = Block.box(0.0D, -8.0D, 0.0D, 16.0D, 0.0D, 16.0D);
-    private static final VoxelShape EAST_SHAPE = Shapes.or(BOTTOM_AABB, Block.box(8.0D, 8.0D, 0.0D, 16.0D, 16.0D, 16.0D));
-    private static final VoxelShape NORTH_SHAPE = Shapes.or(BOTTOM_AABB, Block.box(0.0D, 8.0D, 0.0D, 16.0D, 16.0D, 8.0D));
-    private static final VoxelShape SOUTH_SHAPE = Shapes.or(BOTTOM_AABB, Block.box(0.0D, 8.0D, 8.0D, 16.0D, 16.0D, 16.0D));
-    private static final VoxelShape WEST_SHAPE = Shapes.or(BOTTOM_AABB, Block.box(0.0D, 8.0D, 0.0D, 8.0D, 16.0D, 16.0D));
+    private static final RawVoxelShape NORTH_UPPER_RAW = new RawVoxelShape(0.0D, 8.0D, 0.0D, 16.0D, 16.0D, 8.0D);
+    private static final VoxelShape NORTH_SHAPE = Shapes.or(BOTTOM_AABB, NORTH_UPPER_RAW.copy().toVoxelShape());
+    private static final VoxelShape WEST_SHAPE = Shapes.or(BOTTOM_AABB, NORTH_UPPER_RAW.copy().rotateY(90).toVoxelShape());
+    private static final VoxelShape SOUTH_SHAPE = Shapes.or(BOTTOM_AABB, NORTH_UPPER_RAW.copy().rotateY(180).toVoxelShape());
+    private static final VoxelShape EAST_SHAPE = Shapes.or(BOTTOM_AABB, NORTH_UPPER_RAW.copy().rotateY(270).toVoxelShape());
     private static final VoxelShape EAST_SHAPE_SHIFTED = Shapes.or(BOTTOM_AABB_SHIFTED, Block.box(8.0D, 0.0D, 0.0D, 16.0D, 8.0D, 16.0D));
     private static final VoxelShape NORTH_SHAPE_SHIFTED = Shapes.or(BOTTOM_AABB_SHIFTED, Block.box(0.0D, 0.0D, 0.0D, 16.0D, 8.0D, 8.0D));
     private static final VoxelShape SOUTH_SHAPE_SHIFTED = Shapes.or(BOTTOM_AABB_SHIFTED, Block.box(0.0D, 0.0D, 8.0D, 16.0D, 8.0D, 16.0D));
