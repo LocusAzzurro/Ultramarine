@@ -18,6 +18,7 @@ import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.IntegerProperty;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
+import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import org.jetbrains.annotations.NotNull;
 
@@ -25,25 +26,59 @@ public class HangingLantern extends DecorativeBlock {
 
     public static final IntegerProperty LANTERNS = ModBlockStateProperties.LANTERNS;
     private static final RawVoxelShape POLE_NORTH_RAW = new RawVoxelShape(7, -16, 1, 9, 32, 3);
+    private static final RawVoxelShape POLE_HANGING_X_RAW = new RawVoxelShape(0, 28, 7, 16, 30, 9);
+    private static final VoxelShape HANGING_INTERACTION = Block.box(4, -8, 4, 12, 24, 12);
     private static final VoxelShape POLE_NORTH = POLE_NORTH_RAW.copy().toVoxelShape();
     private static final VoxelShape POLE_WEST = POLE_NORTH_RAW.copy().rotateY(90).toVoxelShape();
     private static final VoxelShape POLE_SOUTH = POLE_NORTH_RAW.copy().rotateY(180).toVoxelShape();
     private static final VoxelShape POLE_EAST = POLE_NORTH_RAW.copy().rotateY(270).toVoxelShape();
+    private static final VoxelShape POLE_HANGING_X = POLE_HANGING_X_RAW.copy().toVoxelShape();
+    private static final VoxelShape POLE_HANGING_Z = POLE_HANGING_X_RAW.copy().rotateY(90).toVoxelShape();
+    private static final VoxelShape HANGING_INTERACTION_X = Shapes.or(HANGING_INTERACTION, POLE_HANGING_X);
+    private static final VoxelShape HANGING_INTERACTION_Z = Shapes.or(HANGING_INTERACTION, POLE_HANGING_Z);
 
-    public HangingLantern() {
+    private final HangingLanternType type;
+
+    public HangingLantern(HangingLanternType type) {
         super(DecorativeBlock.with(BaseBlockProperty.WOOD).directional().luminous());
         this.registerDefaultState(this.stateDefinition.any()
                 .setValue(LANTERNS, 1));
+        this.type = type;
     }
 
     @Override
     public VoxelShape getShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
-        return switch (pState.getValue(FACING)){
-            case DOWN, UP, NORTH -> POLE_NORTH;
-            case SOUTH -> POLE_SOUTH;
-            case WEST -> POLE_WEST;
-            case EAST -> POLE_EAST;
-        };
+        switch (this.type){
+            case POLE -> {
+                return switch (pState.getValue(FACING)){
+                    case DOWN, UP, NORTH -> POLE_NORTH;
+                    case SOUTH -> POLE_SOUTH;
+                    case WEST -> POLE_WEST;
+                    case EAST -> POLE_EAST;
+                };
+            }
+            case HANGING -> {
+                return switch (pState.getValue(FACING)){
+                    case DOWN, UP, NORTH, SOUTH -> POLE_HANGING_X;
+                    case EAST, WEST -> POLE_HANGING_Z;
+                };
+            }
+        }
+        return Shapes.empty();
+    }
+
+    @Override
+    public VoxelShape getInteractionShape(BlockState pState, BlockGetter pLevel, BlockPos pPos) {
+        switch (this.type){
+            case POLE -> getShape(pState, pLevel, pPos, CollisionContext.empty());
+            case HANGING -> {
+                return switch (pState.getValue(FACING)){
+                    case DOWN, UP, NORTH, SOUTH -> HANGING_INTERACTION_X;
+                    case EAST, WEST -> HANGING_INTERACTION_Z;
+                };
+            }
+        }
+        return super.getInteractionShape(pState, pLevel, pPos);
     }
 
     @Override
@@ -69,4 +104,10 @@ public class HangingLantern extends DecorativeBlock {
         super.createBlockStateDefinition(pBuilder);
         pBuilder.add(LANTERNS);
     }
+
+    public enum HangingLanternType{
+        POLE, HANGING;
+
+    }
+
 }

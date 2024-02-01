@@ -805,7 +805,9 @@ public class BlockRegistry {
     // STREETLIGHT
 
     public static final RegistryObject<Block> RED_LANTERN_STREETLIGHT = BLOCKS.register("red_lantern_streetlight",
-            HangingLantern::new);
+            () -> new HangingLantern(HangingLantern.HangingLanternType.POLE));
+    public static final RegistryObject<Block> HANGING_RED_LANTERN_STREETLIGHT = BLOCKS.register("hanging_red_lantern_streetlight",
+            () -> new HangingLantern(HangingLantern.HangingLanternType.HANGING));
 
     // CANDLESTICK
 

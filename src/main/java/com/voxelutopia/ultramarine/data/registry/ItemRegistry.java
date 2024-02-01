@@ -640,6 +640,7 @@ public class ItemRegistry {
     // STREETLIGHT
 
     public static final RegistryObject<Item> RED_LANTERN_STREETLIGHT = fromBlock(BlockRegistry.RED_LANTERN_STREETLIGHT, ModCreativeTab.LAMPS);
+    public static final RegistryObject<Item> HANGING_RED_LANTERN_STREETLIGHT = fromBlock(BlockRegistry.HANGING_RED_LANTERN_STREETLIGHT, ModCreativeTab.LAMPS);
 
     // CANDLESTICK
 

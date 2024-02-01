@@ -1,0 +1,68 @@
+{
+	"credit": "Made with Blockbench",
+	"texture_size": [128, 128],
+	"textures": {
+		"2": "ultramarine:block/hanging_red_lantern_streetlight",
+		"particle": "block/spruce_planks"
+	},
+	"elements": [
+		{
+			"from": [0, 28, 7],
+			"to": [16, 30, 9],
+			"rotation": {"angle": 0, "axis": "y", "origin": [8, 0, 8]},
+			"faces": {
+				"north": {"uv": [5.5, 2.875, 7.625, 3.125], "texture": "#2"},
+				"east": {"uv": [4.5, 5.875, 4.75, 6.125], "texture": "#2"},
+				"south": {"uv": [5.5, 3.25, 7.625, 3.5], "texture": "#2"},
+				"west": {"uv": [4.875, 5.875, 5.125, 6.125], "texture": "#2"},
+				"up": {"uv": [7.625, 3.875, 5.5, 3.625], "texture": "#2"},
+				"down": {"uv": [7.625, 4, 5.5, 4.25], "texture": "#2"}
+			}
+		}
+	],
+	"display": {
+		"thirdperson_righthand": {
+			"rotation": [75, 45, 0],
+			"translation": [0, 1, 0],
+			"scale": [0.375, 0.375, 0.375]
+		},
+		"thirdperson_lefthand": {
+			"rotation": [75, 45, 0],
+			"translation": [0, 1, 0],
+			"scale": [0.375, 0.375, 0.375]
+		},
+		"firstperson_righthand": {
+			"translation": [1.75, 0.25, 0],
+			"scale": [0.4, 0.4, 0.4]
+		},
+		"firstperson_lefthand": {
+			"translation": [1.75, 0.25, 0],
+			"scale": [0.4, 0.4, 0.4]
+		},
+		"ground": {
+			"scale": [0.3, 0.3, 0.3]
+		},
+		"gui": {
+			"rotation": [30, 45, 0],
+			"translation": [0, -1.25, 0],
+			"scale": [0.3, 0.3, 0.3]
+		},
+		"head": {
+			"translation": [0, -0.25, -7],
+			"scale": [0.3, 0.3, 0.3]
+		},
+		"fixed": {
+			"rotation": [0, 25, 0],
+			"translation": [4.5, 0, -11.75],
+			"scale": [2, 2, 2]
+		}
+	},
+	"groups": [
+		{
+			"name": "bone",
+			"origin": [0, 0, 0],
+			"color": 0,
+			"children": [0]
+		}
+	]
+}
