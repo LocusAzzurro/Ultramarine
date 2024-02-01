@@ -18,5 +18,6 @@ public class ModBlockStateProperties {
     public static final EnumProperty<StackableBlockType> STACKABLE_BLOCK_TYPE = EnumProperty.create("type", StackableBlockType.class);
     public static final IntegerProperty SNOW_LAYERS = IntegerProperty.create("snow_layers", 0, 15);
     public static final EnumProperty<RoofTiles.SnowSide> SNOW_SIDE = EnumProperty.create("snow_side", RoofTiles.SnowSide.class);
+    public static final IntegerProperty LANTERNS = IntegerProperty.create("lanterns", 0, 3);
 
 }

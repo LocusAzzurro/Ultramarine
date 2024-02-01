@@ -4,7 +4,7 @@ import com.voxelutopia.ultramarine.Ultramarine;
 import com.voxelutopia.ultramarine.data.ContainerType;
 import com.voxelutopia.ultramarine.data.ModFoods;
 import com.voxelutopia.ultramarine.world.block.*;
-import com.voxelutopia.ultramarine.world.block.BaseAxialBlock;
+import com.voxelutopia.ultramarine.world.block.HangingLantern;
 import net.minecraft.core.Direction;
 import net.minecraft.world.food.Foods;
 import net.minecraft.world.item.DyeColor;
@@ -801,6 +801,11 @@ public class BlockRegistry {
             () -> DecorativeBlock.with(BaseBlockProperty.WOOD).shaped(DecorativeBlock.FULL_6).diagonallyPlaceable().luminous().build());
     public static final RegistryObject<Block> STONE_LAMP = BLOCKS.register("stone_lamp",
             () -> DecorativeBlock.with(BaseBlockProperty.STONE).luminous().build());
+
+    // STREETLIGHT
+
+    public static final RegistryObject<Block> RED_LANTERN_STREETLIGHT = BLOCKS.register("red_lantern_streetlight",
+            HangingLantern::new);
 
     // CANDLESTICK
 

@@ -637,6 +637,10 @@ public class ItemRegistry {
     public static final RegistryObject<Item> SMALL_STANDING_LAMP = fromBlock(BlockRegistry.SMALL_STANDING_LAMP, ModCreativeTab.LAMPS);
     public static final RegistryObject<Item> STONE_LAMP = fromBlock(BlockRegistry.STONE_LAMP, ModCreativeTab.LAMPS);
 
+    // STREETLIGHT
+
+    public static final RegistryObject<Item> RED_LANTERN_STREETLIGHT = fromBlock(BlockRegistry.RED_LANTERN_STREETLIGHT, ModCreativeTab.LAMPS);
+
     // CANDLESTICK
 
     public static final RegistryObject<Item> RED_CANDLE = fromBlock(BlockRegistry.RED_CANDLE, ModCreativeTab.LAMPS);

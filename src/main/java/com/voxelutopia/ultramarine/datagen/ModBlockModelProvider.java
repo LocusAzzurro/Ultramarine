@@ -313,6 +313,7 @@ public class ModBlockModelProvider extends BlockStateProvider {
                     else if (block instanceof ConsumableDecorativeBlock consumableDecorativeBlock) consumableDecorativeBlock(consumableDecorativeBlock);
                     else if (block instanceof Censer censer) censer(censer, 0);
                     else if (block instanceof OpeningBlock openingBlock) openingBlock(openingBlock);
+                    else if (block instanceof HangingLantern lantern) hangingLantern(lantern);
                     else decorativeBlock(block);
                 });
 
@@ -703,6 +704,14 @@ public class ModBlockModelProvider extends BlockStateProvider {
                 blockPath = blockName;
             }
             return getDecorativeBlockConfiguredModels(block, blockState, blockPath, modelFile, 0);
+        });
+    }
+
+    private void hangingLantern(HangingLantern lantern){
+        getVariantBuilder(lantern).forAllStates(blockState -> {
+            var modelFile = ConfiguredModel.builder();
+            String blockPath = name(lantern) + "_" + blockState.getValue(LANTERNS);
+            return getDecorativeBlockConfiguredModels(lantern, blockState, blockPath, modelFile, 0);
         });
     }
 
