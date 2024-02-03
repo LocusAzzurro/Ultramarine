@@ -82,6 +82,9 @@ public final class BaseBlockProperty {
     public static BaseBlockProperty DYE = new BaseBlockProperty(BlockBehaviour.Properties.of(Material.CLOTH_DECORATION)
             .sound(SoundType.WOOL)
             .strength(1F, 1F), BlockMaterial.PAPER);
+    public static BaseBlockProperty ICE = new BaseBlockProperty(BlockBehaviour.Properties.of(Material.ICE)
+            .sound(SoundType.CROP)
+            .strength(0.5F, 1.0F), BlockMaterial.ICE);
 
     final BlockBehaviour.Properties properties;
     final BlockMaterial material;
@@ -113,6 +116,7 @@ public final class BaseBlockProperty {
     public enum BlockMaterial{
         STONE(BlockTags.MINEABLE_WITH_PICKAXE),
         METAL(BlockTags.MINEABLE_WITH_PICKAXE),
+        ICE(BlockTags.MINEABLE_WITH_PICKAXE),
         WOOD(BlockTags.MINEABLE_WITH_AXE),
         PORCELAIN(BlockTags.MINEABLE_WITH_PICKAXE),
         BAMBOO(BlockTags.MINEABLE_WITH_AXE),

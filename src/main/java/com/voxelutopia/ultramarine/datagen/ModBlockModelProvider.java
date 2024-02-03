@@ -323,6 +323,8 @@ public class ModBlockModelProvider extends BlockStateProvider {
                     if (block instanceof WallSideBlock wallSideBlock){
                         if (block instanceof OrientableWallSideBlock orientableWallSideBlock)
                             orientableWallSideBlock(orientableWallSideBlock);
+                        else if (block instanceof Icicle icicle)
+                            icicle(icicle);
                         else wallSideBlock(wallSideBlock);
                     }
                     else if (block instanceof SixSideBlock sixSideBlock){
@@ -377,6 +379,16 @@ public class ModBlockModelProvider extends BlockStateProvider {
         getVariantBuilder(block).forAllStates(blockState -> ConfiguredModel.builder().modelFile(models().getExistingFile(modLoc(BLOCK + name(block))))
                 .rotationY((int) blockState.getValue(HORIZONTAL_FACING).toYRot()).build());
     }
+
+    private void icicle(Block block){
+        getVariantBuilder(block).forAllStates(blockState -> {
+            int numVariants = ((Icicle) block).getNumVariants();
+            int variant = blockState.getValue(Icicle.VARIANT);
+            return ConfiguredModel.builder().modelFile(models().getExistingFile(modLoc(BLOCK + name(block) + "_" + Math.min(variant, numVariants - 1))))
+                    .rotationY((int) blockState.getValue(HORIZONTAL_FACING).toYRot()).build();
+        });
+    }
+
     private void sixSideBlock(Block block){
         getVariantBuilder(block).forAllStates(blockState -> {
             ConfiguredModel.Builder<?> model = ConfiguredModel.builder().modelFile(models().getExistingFile(modLoc(BLOCK + name(block))));

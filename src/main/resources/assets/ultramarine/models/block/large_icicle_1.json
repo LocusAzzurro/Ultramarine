@@ -1,0 +1,6 @@
+{
+	"parent": "ultramarine:block/large_icicle",
+	"textures": {
+		"2": "ultramarine:block/large_icicle_1"
+	}
+}

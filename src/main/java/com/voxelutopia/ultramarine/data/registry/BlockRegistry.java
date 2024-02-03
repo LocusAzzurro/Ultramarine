@@ -572,6 +572,15 @@ public class BlockRegistry {
                     .whenFinished((pState, pLevel, pPos, pPlayer) -> {pLevel.setBlock(pPos, Blocks.AIR.defaultBlockState(), Block.UPDATE_ALL); pLevel.gameEvent(pPlayer, GameEvent.BLOCK_DESTROY, pPos);})
                     .shaped(DecorativeBlock.FULL_BLOCK).noOcclusion().directional().build());
 
+    // ICE
+
+    public static final RegistryObject<Block> ICICLE = BLOCKS.register("icicle", () -> new Icicle(3));
+    public static final RegistryObject<Block> LARGE_ICICLE = BLOCKS.register("large_icicle", () -> new Icicle(2));
+
+    // CELEBRATION
+
+    public static final RegistryObject<Block> COUPLET = BLOCKS.register("couplet", () -> new OrientableWallSideBlock(BaseBlockProperty.PAPER));
+
     /**
      *  FURNITURE
      */

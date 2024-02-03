@@ -120,6 +120,8 @@ public class ModClientRenderEventHandler {
             ItemBlockRenderTypes.setRenderLayer(BlockRegistry.CHESS_TABLE.get(), RenderType.cutout());
             ItemBlockRenderTypes.setRenderLayer(BlockRegistry.HIGH_TABLE_WITH_WHITE_TOP.get(), RenderType.cutout());
             ItemBlockRenderTypes.setRenderLayer(BlockRegistry.CENSER_TABLE.get(), RenderType.cutout());
+            ItemBlockRenderTypes.setRenderLayer(BlockRegistry.ICICLE.get(), RenderType.cutout());
+            ItemBlockRenderTypes.setRenderLayer(BlockRegistry.LARGE_ICICLE.get(), RenderType.cutout());
             ItemBlockRenderTypes.setRenderLayer(BlockRegistry.PORCELAIN_INLAID_GRAND_CHAIR.get(), RenderType.cutout());
             ItemBlockRenderTypes.setRenderLayer(BlockRegistry.PORCELAIN_INLAID_TABLE.get(), RenderType.cutout());
             ItemBlockRenderTypes.setRenderLayer(BlockRegistry.CHAIR_WITH_YELLOW_CUSHION.get(), RenderType.cutout());

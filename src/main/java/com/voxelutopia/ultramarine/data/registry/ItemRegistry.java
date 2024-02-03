@@ -491,6 +491,15 @@ public class ItemRegistry {
     public static final RegistryObject<Item> WINE_POT = fromBlock(BlockRegistry.WINE_POT, ModCreativeTab.DECORATIONS);
     public static final RegistryObject<Item> XIAOLONGBAO = fromBlock(BlockRegistry.XIAOLONGBAO, ModCreativeTab.DECORATIONS);
 
+    // ICE
+
+    public static final RegistryObject<Item> ICICLE = fromBlock(BlockRegistry.ICICLE, ModCreativeTab.DECORATIONS);
+    public static final RegistryObject<Item> LARGE_ICICLE = fromBlock(BlockRegistry.LARGE_ICICLE, ModCreativeTab.DECORATIONS);
+
+    // CELEBRATION
+
+    public static final RegistryObject<Item> COUPLET = fromBlock(BlockRegistry.COUPLET, ModCreativeTab.DECORATIONS);
+
     /**
      *  FURNITURE
      */
@@ -734,6 +743,7 @@ public class ItemRegistry {
     public static final RegistryObject<Item> GREEN_DYE_POWDER = dyePowderItem("green_dye_powder", DyeColor.GREEN);
     public static final RegistryObject<Item> RED_DYE_POWDER = dyePowderItem("red_dye_powder", DyeColor.RED);
     public static final RegistryObject<Item> BLACK_DYE_POWDER = dyePowderItem("black_dye_powder", DyeColor.BLACK);
+    public static final RegistryObject<Item> GOLD_DYE_POWDER = dyePowderItem("gold_dye_powder", DyeColor.YELLOW);
 
     // TEMPLATES
 
