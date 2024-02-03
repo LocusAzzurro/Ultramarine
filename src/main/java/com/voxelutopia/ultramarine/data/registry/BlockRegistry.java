@@ -580,6 +580,8 @@ public class BlockRegistry {
     // CELEBRATION
 
     public static final RegistryObject<Block> COUPLET = BLOCKS.register("couplet", () -> new OrientableWallSideBlock(BaseBlockProperty.PAPER));
+    public static final RegistryObject<Block> COUPLET_TOP = BLOCKS.register("couplet_top", () -> new WallSideBlock(BaseBlockProperty.PAPER));
+    public static final RegistryObject<Block> FU_MARK = BLOCKS.register("fu_mark", () -> new WallSideBlock(BaseBlockProperty.PAPER));
 
     /**
      *  FURNITURE

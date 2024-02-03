@@ -499,6 +499,8 @@ public class ItemRegistry {
     // CELEBRATION
 
     public static final RegistryObject<Item> COUPLET = fromBlock(BlockRegistry.COUPLET, ModCreativeTab.DECORATIONS);
+    public static final RegistryObject<Item> COUPLET_TOP = fromBlock(BlockRegistry.COUPLET_TOP, ModCreativeTab.DECORATIONS);
+    public static final RegistryObject<Item> FU_MARK = fromBlock(BlockRegistry.FU_MARK, ModCreativeTab.DECORATIONS);
 
     /**
      *  FURNITURE
