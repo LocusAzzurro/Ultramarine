@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "B  ",
+    "BB ",
+    "BBB"
+  ],
+  "key": {
+    "B": {
+      "item": "ultramarine:gilded_dark_oak"
+    }
+  },
+  "result": {
+    "item": "ultramarine:gilded_dark_oak_stairs",
+    "count": 4
+  }
+}

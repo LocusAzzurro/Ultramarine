@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "ultramarine:wooden_parts",
+    "ultramarine:porcelain_parts",
+    "ultramarine:jade_parts",
+    "ultramarine:gold_parts"
+  ]
+}

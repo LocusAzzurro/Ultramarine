@@ -737,7 +737,7 @@ public class ItemRegistry {
 
     // TEMPLATES
 
-    public static final RegistryObject<Item> CHISELED_WOOD_TEMPLATE = ITEMS.register("chiseled_wood_template", ChiselTemplate::new);
+    public static final RegistryObject<Item> CARVED_WOOD_TEMPLATE = ITEMS.register("carved_wood_template", ChiselTemplate::new);
     public static final RegistryObject<Item> FANGXIN_TEMPLATE = ITEMS.register("fangxin_template", ChiselTemplate::new);
     public static final RegistryObject<Item> FANGXIN_EDGE_TEMPLATE = ITEMS.register("fangxin_edge_template", ChiselTemplate::new);
     public static final RegistryObject<Item> ZHAOTOU_TEMPLATE = ITEMS.register("zhaotou_template", ChiselTemplate::new);

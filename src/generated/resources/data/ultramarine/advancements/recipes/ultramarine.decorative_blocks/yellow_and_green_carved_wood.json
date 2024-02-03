@@ -6,13 +6,13 @@
     ]
   },
   "criteria": {
-    "has_chiseled_wood_template": {
+    "has_carved_wood_template": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
             "items": [
-              "ultramarine:chiseled_wood_template"
+              "ultramarine:carved_wood_template"
             ]
           }
         ]
@@ -27,7 +27,7 @@
   },
   "requirements": [
     [
-      "has_chiseled_wood_template",
+      "has_carved_wood_template",
       "has_the_recipe"
     ]
   ]

@@ -1,0 +1,8 @@
+{
+  "type": "ultramarine:woodworking",
+  "ingredient": {
+    "item": "ultramarine:gilded_dark_oak"
+  },
+  "result": "ultramarine:chiseled_gilded_dark_oak",
+  "count": 1
+}

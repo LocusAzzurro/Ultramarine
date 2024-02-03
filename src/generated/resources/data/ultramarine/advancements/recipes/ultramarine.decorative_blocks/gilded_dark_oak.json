@@ -2,17 +2,17 @@
   "parent": "minecraft:recipes/root",
   "rewards": {
     "recipes": [
-      "ultramarine:black_white_green_carved_wood"
+      "ultramarine:gilded_dark_oak"
     ]
   },
   "criteria": {
-    "has_carved_wood_template": {
+    "has_stripped_dark_oak_wood": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
             "items": [
-              "ultramarine:carved_wood_template"
+              "minecraft:stripped_dark_oak_wood"
             ]
           }
         ]
@@ -21,13 +21,13 @@
     "has_the_recipe": {
       "trigger": "minecraft:recipe_unlocked",
       "conditions": {
-        "recipe": "ultramarine:black_white_green_carved_wood"
+        "recipe": "ultramarine:gilded_dark_oak"
       }
     }
   },
   "requirements": [
     [
-      "has_carved_wood_template",
+      "has_stripped_dark_oak_wood",
       "has_the_recipe"
     ]
   ]

@@ -3,12 +3,14 @@ package com.voxelutopia.ultramarine.datagen;
 import com.voxelutopia.ultramarine.data.ModItemTags;
 import com.voxelutopia.ultramarine.data.registry.ItemRegistry;
 import com.voxelutopia.ultramarine.world.item.ChiselTemplate;
+import com.voxelutopia.ultramarine.world.item.DyePowder;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.tags.BlockTagsProvider;
 import net.minecraft.data.tags.ItemTagsProvider;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.Item;
 import net.minecraftforge.common.data.ExistingFileHelper;
+import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.registries.RegistryObject;
 import org.jetbrains.annotations.NotNull;
 
@@ -33,25 +35,15 @@ public class ModItemTagProvider extends ItemTagsProvider {
                 .add(ItemRegistry.POLISHED_WARPED_PLANK.get())
                 .add(ItemRegistry.POLISHED_ROSEWOOD_PLANK.get())
                 .add(ItemRegistry.POLISHED_EBONY_PLANK.get());
-        tag(ModItemTags.DYE_POWDER)
-                .add(ItemRegistry.WHITE_DYE_POWDER.get())
-                .add(ItemRegistry.ORANGE_DYE_POWDER.get())
-                .add(ItemRegistry.MAGENTA_DYE_POWDER.get())
-                .add(ItemRegistry.LIGHT_BLUE_DYE_POWDER.get())
-                .add(ItemRegistry.YELLOW_DYE_POWDER.get())
-                .add(ItemRegistry.LIME_DYE_POWDER.get())
-                .add(ItemRegistry.PINK_DYE_POWDER.get())
-                .add(ItemRegistry.GRAY_DYE_POWDER.get())
-                .add(ItemRegistry.LIGHT_GRAY_DYE_POWDER.get())
-                .add(ItemRegistry.CYAN_DYE_POWDER.get())
-                .add(ItemRegistry.PURPLE_DYE_POWDER.get())
-                .add(ItemRegistry.BLUE_DYE_POWDER.get())
-                .add(ItemRegistry.BROWN_DYE_POWDER.get())
-                .add(ItemRegistry.GREEN_DYE_POWDER.get())
-                .add(ItemRegistry.RED_DYE_POWDER.get())
-                .add(ItemRegistry.BLACK_DYE_POWDER.get());
+        tag(ModItemTags.DYE_POWDER).add(ItemRegistry.ITEMS.getEntries().stream().filter(reg -> reg.get() instanceof DyePowder)
+                .map(RegistryObject::get).toList().toArray(new Item[0]));
         tag(ModItemTags.CHISEL_TEMPLATES).add(ItemRegistry.ITEMS.getEntries().stream().filter(reg -> reg.get() instanceof ChiselTemplate)
                 .map(RegistryObject::get).toList().toArray(new Item[0]));
+        tag(ModItemTags.PARTS)
+                .add(ItemRegistry.WOODEN_PARTS.get())
+                .add(ItemRegistry.PORCELAIN_PARTS.get())
+                .add(ItemRegistry.JADE_PARTS.get())
+                .add(ItemRegistry.GOLD_PARTS.get());
 
     }
     @NotNull

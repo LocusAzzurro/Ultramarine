@@ -235,6 +235,21 @@ public class ModRecipeProvider extends RecipeProvider {
         carvedWood(ItemRegistry.YELLOW_GREEN_BLUE_CARVED_WOOD.get(), new Ingredient[]{
                 Ingredient.of(ItemRegistry.YELLOW_DYE_POWDER.get()), Ingredient.of(ModItemTags.FORGE_GREEN_DYE), Ingredient.of(ModItemTags.FORGE_BLUE_DYE)}, recipeConsumer);
 
+        woodworking(Ingredient.of(Items.STRIPPED_DARK_OAK_LOG), ItemRegistry.CARVED_DARK_OAK_BEAM.get())
+                .unlockedBy(itemUnlockName(Items.STRIPPED_DARK_OAK_LOG), itemCriterion(Items.STRIPPED_DARK_OAK_LOG)).save(recipeConsumer);
+        woodworking(Ingredient.of(Items.STRIPPED_DARK_OAK_LOG), ItemRegistry.CARVED_DARK_OAK_BEAM_EDGE.get())
+                .unlockedBy(itemUnlockName(Items.STRIPPED_DARK_OAK_LOG), itemCriterion(Items.STRIPPED_DARK_OAK_LOG)).save(recipeConsumer);
+        ShapedRecipeBuilder.shaped(ItemRegistry.GILDED_DARK_OAK.get(), 1)
+                .define('O', Items.STRIPPED_DARK_OAK_WOOD)
+                .define('G', ItemRegistry.GOLD_PARTS.get())
+                .pattern(" G ").pattern("GOG").pattern(" G ")
+                .unlockedBy(itemUnlockName(Items.STRIPPED_DARK_OAK_WOOD), itemCriterion(Items.STRIPPED_DARK_OAK_WOOD))
+                .save(recipeConsumer);
+        woodworking(Ingredient.of(ItemRegistry.GILDED_DARK_OAK.get()), ItemRegistry.CHISELED_GILDED_DARK_OAK.get())
+                .unlockedBy(itemUnlockName(ItemRegistry.GILDED_DARK_OAK.get()), itemCriterion(ItemRegistry.GILDED_DARK_OAK.get())).save(recipeConsumer);
+        woodSlabAndStairsRecipe(ItemRegistry.GILDED_DARK_OAK.get(), ItemRegistry.GILDED_DARK_OAK_SLAB.get(), ItemRegistry.GILDED_DARK_OAK_STAIRS.get(), recipeConsumer);
+        woodworking(Ingredient.of(ItemRegistry.GILDED_DARK_OAK.get()), ItemRegistry.GILDED_DARK_OAK_BRACKET.get())
+                .unlockedBy(itemUnlockName(ItemRegistry.GILDED_DARK_OAK.get()), itemCriterion(ItemRegistry.GILDED_DARK_OAK.get())).save(recipeConsumer);
     }
 
     private static void categoryLamps(@NotNull Consumer<FinishedRecipe> recipeConsumer) {
@@ -827,8 +842,8 @@ public class ModRecipeProvider extends RecipeProvider {
     }
 
     public static void carvedWood(Item result, Ingredient[] dye, Consumer<FinishedRecipe> pFinishedRecipeConsumer){
-        ChiselTableRecipeBuilder.chiselTableRecipe(Ingredient.of(ItemTags.LOGS), Ingredient.of(ItemRegistry.CHISELED_WOOD_TEMPLATE.get()), dye, result)
-                .unlockedBy(itemUnlockName(ItemRegistry.CHISELED_WOOD_TEMPLATE.get()), itemCriterion(ItemRegistry.CHISELED_WOOD_TEMPLATE.get())).save(pFinishedRecipeConsumer);
+        ChiselTableRecipeBuilder.chiselTableRecipe(Ingredient.of(ItemTags.LOGS), Ingredient.of(ItemRegistry.CARVED_WOOD_TEMPLATE.get()), dye, result)
+                .unlockedBy(itemUnlockName(ItemRegistry.CARVED_WOOD_TEMPLATE.get()), itemCriterion(ItemRegistry.CARVED_WOOD_TEMPLATE.get())).save(pFinishedRecipeConsumer);
     }
 
     private static String name(Item item){
