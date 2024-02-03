@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "minecraft:chiseled_stone_bricks"
+  },
+  "result": "ultramarine:stone_pillar_base",
+  "count": 1
+}

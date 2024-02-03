@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "ultramarine:gilded_dark_oak_pillar_head_variant_1"
+    ]
+  },
+  "criteria": {
+    "has_gilded_dark_oak": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "ultramarine:gilded_dark_oak"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "ultramarine:gilded_dark_oak_pillar_head_variant_1"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_gilded_dark_oak",
+      "has_the_recipe"
+    ]
+  ]
+}

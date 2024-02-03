@@ -1,5 +1,6 @@
 package com.voxelutopia.ultramarine.world.block.menu;
 
+import com.voxelutopia.ultramarine.Ultramarine;
 import com.voxelutopia.ultramarine.data.ModItemTags;
 import com.voxelutopia.ultramarine.data.recipe.ChiselTableRecipe;
 import com.voxelutopia.ultramarine.data.registry.BlockRegistry;
@@ -86,6 +87,10 @@ public class ChiselTableMenu extends AbstractContainerMenu{
         Level level = player.level;
         Container ingredients = this.wrapIngredients();
         List<ChiselTableRecipe> list = level.getRecipeManager().getRecipesFor(RecipeTypeRegistry.CHISEL_TABLE.get(), ingredients, level);
+        if (list.size() > 1){
+            Ultramarine.getLogger().warn("Duplicate chisel table recipe: ");
+            list.forEach(recipe -> Ultramarine.getLogger().warn(recipe.getId().getPath()));
+        }
         if (list.isEmpty()) {
             this.result.setStackInSlot(0, ItemStack.EMPTY);
         } else {
