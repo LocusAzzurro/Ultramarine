@@ -3,12 +3,10 @@ package com.voxelutopia.ultramarine.data.registry;
 import com.voxelutopia.ultramarine.Ultramarine;
 import com.voxelutopia.ultramarine.data.ModCreativeTab;
 import com.voxelutopia.ultramarine.data.ModFoods;
-import com.voxelutopia.ultramarine.world.item.AquaticPlantBlockItem;
-import com.voxelutopia.ultramarine.world.item.BaseFood;
-import com.voxelutopia.ultramarine.world.item.ChiselTemplate;
-import com.voxelutopia.ultramarine.world.item.WoodenMallet;
+import com.voxelutopia.ultramarine.world.item.*;
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.BlockItem;
+import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraftforge.registries.DeferredRegister;
@@ -720,26 +718,30 @@ public class ItemRegistry {
 
     // DYE POWDERS
 
-    public static final RegistryObject<Item> WHITE_DYE_POWDER = simpleItem("white_dye_powder", ModCreativeTab.MATERIALS);
-    public static final RegistryObject<Item> ORANGE_DYE_POWDER = simpleItem("orange_dye_powder", ModCreativeTab.MATERIALS);
-    public static final RegistryObject<Item> MAGENTA_DYE_POWDER = simpleItem("magenta_dye_powder", ModCreativeTab.MATERIALS);
-    public static final RegistryObject<Item> LIGHT_BLUE_DYE_POWDER = simpleItem("light_blue_dye_powder", ModCreativeTab.MATERIALS);
-    public static final RegistryObject<Item> YELLOW_DYE_POWDER = simpleItem("yellow_dye_powder", ModCreativeTab.MATERIALS);
-    public static final RegistryObject<Item> LIME_DYE_POWDER = simpleItem("lime_dye_powder", ModCreativeTab.MATERIALS);
-    public static final RegistryObject<Item> PINK_DYE_POWDER = simpleItem("pink_dye_powder", ModCreativeTab.MATERIALS);
-    public static final RegistryObject<Item> GRAY_DYE_POWDER = simpleItem("gray_dye_powder", ModCreativeTab.MATERIALS);
-    public static final RegistryObject<Item> LIGHT_GRAY_DYE_POWDER = simpleItem("light_gray_dye_powder", ModCreativeTab.MATERIALS);
-    public static final RegistryObject<Item> CYAN_DYE_POWDER = simpleItem("cyan_dye_powder", ModCreativeTab.MATERIALS);
-    public static final RegistryObject<Item> PURPLE_DYE_POWDER = simpleItem("purple_dye_powder", ModCreativeTab.MATERIALS);
-    public static final RegistryObject<Item> BLUE_DYE_POWDER = simpleItem("blue_dye_powder", ModCreativeTab.MATERIALS);
-    public static final RegistryObject<Item> BROWN_DYE_POWDER = simpleItem("brown_dye_powder", ModCreativeTab.MATERIALS);
-    public static final RegistryObject<Item> GREEN_DYE_POWDER = simpleItem("green_dye_powder", ModCreativeTab.MATERIALS);
-    public static final RegistryObject<Item> RED_DYE_POWDER = simpleItem("red_dye_powder", ModCreativeTab.MATERIALS);
-    public static final RegistryObject<Item> BLACK_DYE_POWDER = simpleItem("black_dye_powder", ModCreativeTab.MATERIALS);
+    public static final RegistryObject<Item> WHITE_DYE_POWDER = dyePowderItem("white_dye_powder", DyeColor.WHITE);
+    public static final RegistryObject<Item> ORANGE_DYE_POWDER = dyePowderItem("orange_dye_powder", DyeColor.ORANGE);
+    public static final RegistryObject<Item> MAGENTA_DYE_POWDER = dyePowderItem("magenta_dye_powder", DyeColor.MAGENTA);
+    public static final RegistryObject<Item> LIGHT_BLUE_DYE_POWDER = dyePowderItem("light_blue_dye_powder", DyeColor.LIGHT_BLUE);
+    public static final RegistryObject<Item> YELLOW_DYE_POWDER = dyePowderItem("yellow_dye_powder", DyeColor.YELLOW);
+    public static final RegistryObject<Item> LIME_DYE_POWDER = dyePowderItem("lime_dye_powder", DyeColor.LIME);
+    public static final RegistryObject<Item> PINK_DYE_POWDER = dyePowderItem("pink_dye_powder", DyeColor.PINK);
+    public static final RegistryObject<Item> GRAY_DYE_POWDER = dyePowderItem("gray_dye_powder", DyeColor.GRAY);
+    public static final RegistryObject<Item> LIGHT_GRAY_DYE_POWDER = dyePowderItem("light_gray_dye_powder", DyeColor.LIGHT_GRAY);
+    public static final RegistryObject<Item> CYAN_DYE_POWDER = dyePowderItem("cyan_dye_powder", DyeColor.CYAN);
+    public static final RegistryObject<Item> PURPLE_DYE_POWDER = dyePowderItem("purple_dye_powder", DyeColor.PURPLE);
+    public static final RegistryObject<Item> BLUE_DYE_POWDER = dyePowderItem("blue_dye_powder", DyeColor.BLUE);
+    public static final RegistryObject<Item> BROWN_DYE_POWDER = dyePowderItem("brown_dye_powder", DyeColor.BROWN);
+    public static final RegistryObject<Item> GREEN_DYE_POWDER = dyePowderItem("green_dye_powder", DyeColor.GREEN);
+    public static final RegistryObject<Item> RED_DYE_POWDER = dyePowderItem("red_dye_powder", DyeColor.RED);
+    public static final RegistryObject<Item> BLACK_DYE_POWDER = dyePowderItem("black_dye_powder", DyeColor.BLACK);
 
     // TEMPLATES
 
     public static final RegistryObject<Item> CHISELED_WOOD_TEMPLATE = ITEMS.register("chiseled_wood_template", ChiselTemplate::new);
+    public static final RegistryObject<Item> FANGXIN_TEMPLATE = ITEMS.register("fangxin_template", ChiselTemplate::new);
+    public static final RegistryObject<Item> FANGXIN_EDGE_TEMPLATE = ITEMS.register("fangxin_edge_template", ChiselTemplate::new);
+    public static final RegistryObject<Item> ZHAOTOU_TEMPLATE = ITEMS.register("zhaotou_template", ChiselTemplate::new);
+    public static final RegistryObject<Item> GUTOU_EDGE_TEMPLATE = ITEMS.register("gutou_template", ChiselTemplate::new);
 
     // MATERIALS
 
@@ -793,6 +795,12 @@ public class ItemRegistry {
 
     private static RegistryObject<Item> foodItem(String name, FoodProperties food){
         RegistryObject<Item> registryObject = ITEMS.register(name, () -> new BaseFood(food));
+        ModCreativeTab.putItemInSet(registryObject, ModCreativeTab.MATERIALS);
+        return registryObject;
+    }
+
+    private static RegistryObject<Item> dyePowderItem(String name, DyeColor color){
+        RegistryObject<Item> registryObject = ITEMS.register(name, () -> new DyePowder(color));
         ModCreativeTab.putItemInSet(registryObject, ModCreativeTab.MATERIALS);
         return registryObject;
     }
