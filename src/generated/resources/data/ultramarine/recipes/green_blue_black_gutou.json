@@ -1,0 +1,24 @@
+{
+  "type": "ultramarine:chisel_table",
+  "material": {
+    "tag": "minecraft:logs"
+  },
+  "template": {
+    "item": "ultramarine:gutou_template"
+  },
+  "colors": [
+    {
+      "tag": "forge:dyes/green"
+    },
+    {
+      "item": "ultramarine:yellow_dye_powder"
+    },
+    {
+      "item": "ultramarine:light_blue_dye_powder"
+    },
+    {
+      "item": "ultramarine:black_dye_powder"
+    }
+  ],
+  "result": "ultramarine:green_blue_black_gutou"
+}

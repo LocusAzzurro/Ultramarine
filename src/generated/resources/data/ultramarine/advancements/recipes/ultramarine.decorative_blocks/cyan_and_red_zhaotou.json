@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "ultramarine:cyan_and_red_zhaotou"
+    ]
+  },
+  "criteria": {
+    "has_zhaotou_template": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "ultramarine:zhaotou_template"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "ultramarine:cyan_and_red_zhaotou"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_zhaotou_template",
+      "has_the_recipe"
+    ]
+  ]
+}

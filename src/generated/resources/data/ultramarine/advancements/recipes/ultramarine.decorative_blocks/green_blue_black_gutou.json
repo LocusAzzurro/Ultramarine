@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "ultramarine:green_blue_black_gutou"
+    ]
+  },
+  "criteria": {
+    "has_gutou_template": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "ultramarine:gutou_template"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "ultramarine:green_blue_black_gutou"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_gutou_template",
+      "has_the_recipe"
+    ]
+  ]
+}
