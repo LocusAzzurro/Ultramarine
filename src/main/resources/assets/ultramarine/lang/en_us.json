@@ -525,7 +525,11 @@
   "item.ultramarine.green_dye_powder": "Green Dye Powder",
   "item.ultramarine.red_dye_powder": "Red Dye Powder",
   "item.ultramarine.black_dye_powder": "Black Dye Powder",
-  "item.ultramarine.chiseled_wood_template": "Template: Chiseled Wood",
+  "item.ultramarine.carved_wood_template": "Template: Carved Wood",
+  "item.ultramarine.fangxin_template": "Template: Fangxin",
+  "item.ultramarine.fangxin_edge_template": "Template: Fangxin Edge",
+  "item.ultramarine.gutou_template": "Template: Gutou",
+  "item.ultramarine.zhaotou_template": "Template: Zhaotou",
 
   "item.ultramarine.wooden_mallet": "Wooden Mallet",
 

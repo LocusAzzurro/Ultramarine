@@ -524,7 +524,11 @@
   "item.ultramarine.green_dye_powder": "绿色染料粉",
   "item.ultramarine.red_dye_powder": "红色染料粉",
   "item.ultramarine.black_dye_powder": "黑色染料粉",
-  "item.ultramarine.chiseled_wood_template": "模板：雕花木",
+  "item.ultramarine.carved_wood_template": "模板：雕花木",
+  "item.ultramarine.fangxin_template": "模板：枋心",
+  "item.ultramarine.fangxin_edge_template": "模板：枋心边缘",
+  "item.ultramarine.gutou_template": "模板：箍头",
+  "item.ultramarine.zhaotou_template": "模板：找头",
 
   "item.ultramarine.wooden_mallet": "木锤",
 
