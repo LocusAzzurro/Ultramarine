@@ -1005,7 +1005,7 @@ public class ModRecipeProvider extends RecipeProvider {
     }
 
     public static void dyePowder(TagKey<Item> dye, ItemLike powder, Consumer<FinishedRecipe> pFinishedRecipeConsumer){
-        ShapelessRecipeBuilder.shapeless(powder, 8).requires(dye).unlockedBy("has_dye", InventoryChangeTrigger.TriggerInstance.hasItems(
+        ShapelessRecipeBuilder.shapeless(powder, 4).requires(dye).unlockedBy("has_dye", InventoryChangeTrigger.TriggerInstance.hasItems(
                 new ItemPredicate(dye, ImmutableSet.of(),
                         MinMaxBounds.Ints.ANY, MinMaxBounds.Ints.ANY,
                         EnchantmentPredicate.NONE, EnchantmentPredicate.NONE, null, NbtPredicate.ANY)))
