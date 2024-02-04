@@ -1,0 +1,24 @@
+{
+  "type": "ultramarine:chisel_table",
+  "material": {
+    "tag": "minecraft:logs"
+  },
+  "template": {
+    "item": "ultramarine:fangxin_edge_template"
+  },
+  "colors": [
+    {
+      "tag": "forge:dyes/cyan"
+    },
+    {
+      "item": "ultramarine:yellow_dye_powder"
+    },
+    {
+      "item": "ultramarine:green_dye_powder"
+    },
+    {
+      "item": "ultramarine:blue_dye_powder"
+    }
+  ],
+  "result": "ultramarine:cyan_and_yellow_fangxin_edge"
+}

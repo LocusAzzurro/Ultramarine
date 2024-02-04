@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "ultramarine:white_and_cyan_fangxin"
+    ]
+  },
+  "criteria": {
+    "has_fangxin_template": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "ultramarine:fangxin_template"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "ultramarine:white_and_cyan_fangxin"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_fangxin_template",
+      "has_the_recipe"
+    ]
+  ]
+}
