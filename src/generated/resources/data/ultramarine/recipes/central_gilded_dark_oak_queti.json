@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "CC"
+  ],
+  "key": {
+    "C": {
+      "item": "ultramarine:horizontal_gilded_dark_oak_queti"
+    }
+  },
+  "result": {
+    "item": "ultramarine:central_gilded_dark_oak_queti"
+  }
+}

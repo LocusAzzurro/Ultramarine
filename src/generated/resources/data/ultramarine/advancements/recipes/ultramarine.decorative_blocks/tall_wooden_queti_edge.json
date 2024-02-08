@@ -2,17 +2,17 @@
   "parent": "minecraft:recipes/root",
   "rewards": {
     "recipes": [
-      "ultramarine:wooden_mallet"
+      "ultramarine:tall_wooden_queti_edge"
     ]
   },
   "criteria": {
-    "has_fence": {
+    "has_plank": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
             "items": [],
-            "tag": "minecraft:fences"
+            "tag": "minecraft:planks"
           }
         ]
       }
@@ -20,13 +20,13 @@
     "has_the_recipe": {
       "trigger": "minecraft:recipe_unlocked",
       "conditions": {
-        "recipe": "ultramarine:wooden_mallet"
+        "recipe": "ultramarine:tall_wooden_queti_edge"
       }
     }
   },
   "requirements": [
     [
-      "has_fence",
+      "has_plank",
       "has_the_recipe"
     ]
   ]

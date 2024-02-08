@@ -2,17 +2,18 @@
   "parent": "minecraft:recipes/root",
   "rewards": {
     "recipes": [
-      "ultramarine:wooden_mallet"
+      "ultramarine:thick_carved_queti"
     ]
   },
   "criteria": {
-    "has_fence": {
+    "has_green_glazed_tiles": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
-            "items": [],
-            "tag": "minecraft:fences"
+            "items": [
+              "ultramarine:green_glazed_tiles"
+            ]
           }
         ]
       }
@@ -20,13 +21,13 @@
     "has_the_recipe": {
       "trigger": "minecraft:recipe_unlocked",
       "conditions": {
-        "recipe": "ultramarine:wooden_mallet"
+        "recipe": "ultramarine:thick_carved_queti"
       }
     }
   },
   "requirements": [
     [
-      "has_fence",
+      "has_green_glazed_tiles",
       "has_the_recipe"
     ]
   ]

@@ -2,17 +2,18 @@
   "parent": "minecraft:recipes/root",
   "rewards": {
     "recipes": [
-      "ultramarine:wooden_mallet"
+      "ultramarine:carved_stone_panel_center"
     ]
   },
   "criteria": {
-    "has_fence": {
+    "has_stone": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
-            "items": [],
-            "tag": "minecraft:fences"
+            "items": [
+              "minecraft:stone"
+            ]
           }
         ]
       }
@@ -20,13 +21,13 @@
     "has_the_recipe": {
       "trigger": "minecraft:recipe_unlocked",
       "conditions": {
-        "recipe": "ultramarine:wooden_mallet"
+        "recipe": "ultramarine:carved_stone_panel_center"
       }
     }
   },
   "requirements": [
     [
-      "has_fence",
+      "has_stone",
       "has_the_recipe"
     ]
   ]

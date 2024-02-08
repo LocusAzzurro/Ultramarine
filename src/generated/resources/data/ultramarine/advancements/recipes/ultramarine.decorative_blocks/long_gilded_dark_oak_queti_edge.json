@@ -2,17 +2,18 @@
   "parent": "minecraft:recipes/root",
   "rewards": {
     "recipes": [
-      "ultramarine:wooden_mallet"
+      "ultramarine:long_gilded_dark_oak_queti_edge"
     ]
   },
   "criteria": {
-    "has_fence": {
+    "has_long_gilded_dark_oak_queti": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
-            "items": [],
-            "tag": "minecraft:fences"
+            "items": [
+              "ultramarine:long_gilded_dark_oak_queti"
+            ]
           }
         ]
       }
@@ -20,13 +21,13 @@
     "has_the_recipe": {
       "trigger": "minecraft:recipe_unlocked",
       "conditions": {
-        "recipe": "ultramarine:wooden_mallet"
+        "recipe": "ultramarine:long_gilded_dark_oak_queti_edge"
       }
     }
   },
   "requirements": [
     [
-      "has_fence",
+      "has_long_gilded_dark_oak_queti",
       "has_the_recipe"
     ]
   ]

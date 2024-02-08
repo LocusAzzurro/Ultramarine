@@ -6,10 +6,12 @@ import com.voxelutopia.ultramarine.datagen.recipe.ChiselTableRecipeBuilder;
 import com.voxelutopia.ultramarine.datagen.recipe.CompositeSmeltingRecipeBuilder;
 import com.voxelutopia.ultramarine.data.registry.ItemRegistry;
 import com.voxelutopia.ultramarine.data.registry.RecipeSerializerRegistry;
+import net.minecraft.advancements.CriterionTriggerInstance;
 import net.minecraft.advancements.critereon.*;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.recipes.*;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
@@ -516,8 +518,47 @@ public class ModRecipeProvider extends RecipeProvider {
 
         // QUETI
 
+        woodworking(ItemRegistry.GILDED_DARK_OAK.get(), ItemRegistry.LONG_GILDED_DARK_OAK_QUETI.get(), 1, recipeConsumer);
+        ShapedRecipeBuilder.shaped(ItemRegistry.LONG_GILDED_DARK_OAK_QUETI_EDGE.get()).define('C', ItemRegistry.LONG_GILDED_DARK_OAK_QUETI.get()).pattern("CC")
+                .unlockedBy(itemUnlockName(ItemRegistry.LONG_GILDED_DARK_OAK_QUETI.get()), itemCriterion(ItemRegistry.LONG_GILDED_DARK_OAK_QUETI.get())).save(recipeConsumer);
+        woodworking(ItemRegistry.GILDED_DARK_OAK.get(), ItemRegistry.HORIZONTAL_GILDED_DARK_OAK_QUETI.get(), 1, recipeConsumer);
+        ShapedRecipeBuilder.shaped(ItemRegistry.CENTRAL_GILDED_DARK_OAK_QUETI.get()).define('C', ItemRegistry.HORIZONTAL_GILDED_DARK_OAK_QUETI.get()).pattern("CC")
+                .unlockedBy(itemUnlockName(ItemRegistry.HORIZONTAL_GILDED_DARK_OAK_QUETI.get()), itemCriterion(ItemRegistry.HORIZONTAL_GILDED_DARK_OAK_QUETI.get())).save(recipeConsumer);
+        woodworking(ItemRegistry.GILDED_DARK_OAK.get(), ItemRegistry.VERTICAL_GILDED_DARK_OAK_QUETI.get(), 1, recipeConsumer);
+        woodworking(Ingredient.of(ItemTags.PLANKS), ItemRegistry.WOODEN_QUETI.get(), 2).unlockedBy("has_plank", tagUnlock(ItemTags.PLANKS)).save(recipeConsumer);
+        woodworking(Ingredient.of(ItemTags.PLANKS), ItemRegistry.WOODEN_QUETI_EDGE.get(), 2).unlockedBy("has_plank", tagUnlock(ItemTags.PLANKS)).save(recipeConsumer);
+        woodworking(Ingredient.of(ItemTags.PLANKS), ItemRegistry.TALL_WOODEN_QUETI_EDGE.get(), 1).unlockedBy("has_plank", tagUnlock(ItemTags.PLANKS)).save(recipeConsumer);
+        woodworking(Ingredient.of(ItemTags.PLANKS), ItemRegistry.LARGE_WOODEN_QUETI_EDGE.get(), 1).unlockedBy("has_plank", tagUnlock(ItemTags.PLANKS)).save(recipeConsumer);
+        SingleItemRecipeBuilder.stonecutting(Ingredient.of(ItemRegistry.GREEN_GLAZED_TILES.get()), ItemRegistry.SHORT_GLAZED_QUETI.get(), 4)
+                .unlockedBy(itemUnlockName(ItemRegistry.GREEN_GLAZED_TILES.get()), itemCriterion(ItemRegistry.GREEN_GLAZED_TILES.get())).save(recipeConsumer);
+        SingleItemRecipeBuilder.stonecutting(Ingredient.of(ItemRegistry.GREEN_GLAZED_TILES.get()), ItemRegistry.THICK_CARVED_QUETI.get(), 2)
+                .unlockedBy(itemUnlockName(ItemRegistry.GREEN_GLAZED_TILES.get()), itemCriterion(ItemRegistry.GREEN_GLAZED_TILES.get())).save(recipeConsumer);
+        SingleItemRecipeBuilder.stonecutting(Ingredient.of(ItemRegistry.GREEN_GLAZED_TILES.get()), ItemRegistry.SHORT_THICK_GLAZED_QUETI.get(), 1)
+                .unlockedBy(itemUnlockName(ItemRegistry.GREEN_GLAZED_TILES.get()), itemCriterion(ItemRegistry.GREEN_GLAZED_TILES.get())).save(recipeConsumer);
+        woodworking(Ingredient.of(ItemTags.PLANKS), ItemRegistry.WOODEN_GUALUO.get(), 1).unlockedBy("has_plank", tagUnlock(ItemTags.PLANKS)).save(recipeConsumer);
+        woodworking(Ingredient.of(ItemTags.PLANKS), ItemRegistry.LARGE_WOODEN_GUALUO.get(), 1).unlockedBy("has_plank", tagUnlock(ItemTags.PLANKS)).save(recipeConsumer);
+        woodworking(Ingredient.of(ItemTags.PLANKS), ItemRegistry.LARGE_WOODEN_GUALUO_EDGE.get(), 1).unlockedBy("has_plank", tagUnlock(ItemTags.PLANKS)).save(recipeConsumer);
+        SingleItemRecipeBuilder.stonecutting(Ingredient.of(Items.STONE), ItemRegistry.CARVED_STONE_PANEL.get(), 1)
+                .unlockedBy(itemUnlockName(Items.STONE), itemCriterion(Items.STONE)).save(recipeConsumer);
+        SingleItemRecipeBuilder.stonecutting(Ingredient.of(Items.STONE), ItemRegistry.CARVED_STONE_PANEL_EDGE.get(), 1)
+                .unlockedBy(itemUnlockName(Items.STONE), itemCriterion(Items.STONE)).save(recipeConsumer);
+        SingleItemRecipeBuilder.stonecutting(Ingredient.of(Items.STONE), ItemRegistry.CARVED_STONE_PANEL_CENTER.get(), 1)
+                .unlockedBy(itemUnlockName(Items.STONE), itemCriterion(Items.STONE)).save(recipeConsumer);
+        ShapedRecipeBuilder.shaped(ItemRegistry.CARVED_STONE_QUETI_PART.get())
+                .define('E', ItemRegistry.CARVED_STONE_PANEL_EDGE.get())
+                .define('C', ItemRegistry.CARVED_STONE_PANEL_CENTER.get())
+                .pattern("EC")
+                .unlockedBy(itemUnlockName(ItemRegistry.CARVED_STONE_PANEL.get()), itemCriterion(ItemRegistry.CARVED_STONE_PANEL.get())).save(recipeConsumer);
+        ShapedRecipeBuilder.shaped(ItemRegistry.CARVED_STONE_BEAM.get())
+                .define('C', ItemRegistry.CARVED_STONE_PANEL.get())
+                .pattern("CCC")
+                .unlockedBy(itemUnlockName(ItemRegistry.CARVED_STONE_PANEL.get()), itemCriterion(ItemRegistry.CARVED_STONE_PANEL.get())).save(recipeConsumer);
+        ShapedRecipeBuilder.shaped(ItemRegistry.CARVED_STONE_QUETI.get())
+                .define('E', ItemRegistry.CARVED_STONE_PANEL_EDGE.get())
+                .pattern("E").pattern("E")
+                .unlockedBy(itemUnlockName(ItemRegistry.CARVED_STONE_PANEL.get()), itemCriterion(ItemRegistry.CARVED_STONE_PANEL.get())).save(recipeConsumer);
 
-
+        // PATTERNS
     }
 
     private static void categoryLamps(@NotNull Consumer<FinishedRecipe> recipeConsumer) {
@@ -744,10 +785,7 @@ public class ModRecipeProvider extends RecipeProvider {
                 .pattern("WWW")
                 .pattern(" S ")
                 .pattern(" S ")
-                .unlockedBy("has_fence", InventoryChangeTrigger.TriggerInstance.hasItems(
-                        new ItemPredicate(ItemTags.WOODEN_FENCES, ImmutableSet.of(),
-                                MinMaxBounds.Ints.ANY, MinMaxBounds.Ints.ANY,
-                                EnchantmentPredicate.NONE, EnchantmentPredicate.NONE, null, NbtPredicate.ANY)))
+                .unlockedBy("has_fence", tagUnlock(ItemTags.FENCES))
                 .save(recipeConsumer);
         ShapedRecipeBuilder.shaped(ItemRegistry.WOODWORKING_WORKBENCH.get(), 1)
                 .define('P', ItemTags.PLANKS)
@@ -1148,6 +1186,12 @@ public class ModRecipeProvider extends RecipeProvider {
     public static void architrave(Item result, Ingredient[] dye, Consumer<FinishedRecipe> pFinishedRecipeConsumer){
         ChiselTableRecipeBuilder.chiselTableRecipe(Ingredient.of(ItemTags.LOGS), Ingredient.of(ItemRegistry.ARCHITRAVE_TEMPLATE.get()), dye, result)
                 .unlockedBy(itemUnlockName(ItemRegistry.ARCHITRAVE_TEMPLATE.get()), itemCriterion(ItemRegistry.ARCHITRAVE_TEMPLATE.get())).save(pFinishedRecipeConsumer);
+    }
+
+    public static CriterionTriggerInstance tagUnlock(TagKey<Item> tag){
+        return InventoryChangeTrigger.TriggerInstance.hasItems(new ItemPredicate(tag, ImmutableSet.of(),
+                MinMaxBounds.Ints.ANY, MinMaxBounds.Ints.ANY,
+                EnchantmentPredicate.NONE, EnchantmentPredicate.NONE, null, NbtPredicate.ANY));
     }
 
     private static String name(Item item){
