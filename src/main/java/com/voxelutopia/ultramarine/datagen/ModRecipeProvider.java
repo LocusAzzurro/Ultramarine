@@ -11,7 +11,6 @@ import net.minecraft.advancements.critereon.*;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.recipes.*;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
@@ -1225,7 +1224,7 @@ public class ModRecipeProvider extends RecipeProvider {
 
     private static void polishedPlankRecipe(Item planks, Item polishedPlank, Consumer<FinishedRecipe> pFinishedRecipeConsumer){
         woodworking(Ingredient.of(planks), polishedPlank, 2)
-                .unlockedBy("has_" + planks.getRegistryName().getPath(), InventoryChangeTrigger.TriggerInstance.hasItems(planks))
+                .unlockedBy(itemUnlockName(planks), InventoryChangeTrigger.TriggerInstance.hasItems(planks))
                 .save(pFinishedRecipeConsumer);
     }
 
@@ -1350,13 +1349,13 @@ public class ModRecipeProvider extends RecipeProvider {
 
     public static void woodworking(Item input, ItemLike pResult, int pCount, Consumer<FinishedRecipe> pFinishedRecipeConsumer) {
             var recipe = new SingleItemRecipeBuilder(RecipeSerializerRegistry.WOODWORKING_SERIALIZER.get(), Ingredient.of(input), pResult, pCount);
-            recipe.unlockedBy("has_" + input.getRegistryName().getPath(), InventoryChangeTrigger.TriggerInstance.hasItems(input))
+            recipe.unlockedBy(itemUnlockName(input), itemCriterion(input))
                 .save(pFinishedRecipeConsumer);
     }
 
     public static void woodworking(Ingredient ingredient, ItemLike pResult, int pCount, Item unlockItem, Consumer<FinishedRecipe> pFinishedRecipeConsumer) {
         var recipe = new SingleItemRecipeBuilder(RecipeSerializerRegistry.WOODWORKING_SERIALIZER.get(), ingredient, pResult, pCount);
-        recipe.unlockedBy("has_" + unlockItem.getRegistryName().getPath(), InventoryChangeTrigger.TriggerInstance.hasItems(unlockItem))
+        recipe.unlockedBy(itemUnlockName(unlockItem), itemCriterion(unlockItem))
                 .save(pFinishedRecipeConsumer);
     }
 
