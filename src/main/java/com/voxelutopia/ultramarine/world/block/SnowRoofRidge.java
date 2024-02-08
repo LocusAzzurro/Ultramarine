@@ -10,6 +10,7 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.item.ShovelItem;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.block.state.BlockState;
@@ -48,11 +49,27 @@ public interface SnowRoofRidge {
         }
     }
 
+    default void removeSnow(BlockState pState, Level pLevel, BlockPos pPos){
+        if (!pLevel.isClientSide()) {
+            int snow = pState.getValue(SNOW_LAYERS);
+            snow--;
+            BlockState newState = pState.setValue(SNOW_LAYERS, Math.max(0, snow));
+            pLevel.setBlockAndUpdate(pPos, newState);
+        }
+    }
+
     default InteractionResult use(BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, InteractionHand pHand, BlockHitResult pHit) {
         ItemStack item = pPlayer.getItemInHand(pHand);
         if (item.is(Items.SNOWBALL)){
             handleSnow(pState, pLevel, pPos);
             if (!pPlayer.isCreative()) item.shrink(1);
+            return InteractionResult.sidedSuccess(pLevel.isClientSide);
+        }
+        if (item.getItem() instanceof ShovelItem){
+            removeSnow(pState, pLevel, pPos);
+            if (!pPlayer.isCreative()) {
+                item.hurtAndBreak(1, pPlayer, p -> p.broadcastBreakEvent(pHand));
+            }
             return InteractionResult.sidedSuccess(pLevel.isClientSide);
         }
         return InteractionResult.PASS;
