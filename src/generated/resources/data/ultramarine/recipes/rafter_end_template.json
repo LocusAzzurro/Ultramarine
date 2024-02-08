@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "minecraft:polished_blackstone"
+  },
+  "result": "ultramarine:rafter_end_template",
+  "count": 1
+}

@@ -726,6 +726,7 @@ public class ItemRegistry {
     public static final RegistryObject<Item> GOLD_PARTS = simpleItem("gold_parts", ModCreativeTab.MATERIALS);
     public static final RegistryObject<Item> JADE_PARTS = simpleItem("jade_parts", ModCreativeTab.MATERIALS);
     public static final RegistryObject<Item> PORCELAIN_PARTS = simpleItem("porcelain_parts", ModCreativeTab.MATERIALS);
+    public static final RegistryObject<Item> BRONZE_PARTS = simpleItem("bronze_parts", ModCreativeTab.MATERIALS);
 
     // DYE POWDERS
 
@@ -767,6 +768,8 @@ public class ItemRegistry {
     public static final RegistryObject<Item> SILK = simpleItem("silk", ModCreativeTab.MATERIALS);
     public static final RegistryObject<Item> XUAN_PAPER = simpleItem("xuan_paper", ModCreativeTab.MATERIALS);
     public static final RegistryObject<Item> COPPER_CASH_COIN = simpleItem("copper_cash_coin", ModCreativeTab.MATERIALS);
+    public static final RegistryObject<Item> BRONZE_INGOT = simpleItem("bronze_ingot", ModCreativeTab.MATERIALS);
+    public static final RegistryObject<Item> BRONZE_DUST = simpleItem("bronze_dust", ModCreativeTab.MATERIALS);
 
     // FOOD
 

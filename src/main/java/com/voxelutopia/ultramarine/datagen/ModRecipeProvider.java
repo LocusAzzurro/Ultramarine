@@ -936,7 +936,7 @@ public class ModRecipeProvider extends RecipeProvider {
         //polishedPlankRecipe(ItemRegistry.EBONY_PLANKS.get(), ItemRegistry.POLISHED_EBONY_PLANK.get(), recipeConsumer);
         woodworking(Ingredient.of(ItemTags.PLANKS), ItemRegistry.WOODEN_FRAME.get(), 2, Items.OAK_PLANKS, recipeConsumer);
 
-        // PORCELAIN
+        // PORCELAIN dropped by porcelain blocks
 
         // PARTS
 
@@ -948,6 +948,9 @@ public class ModRecipeProvider extends RecipeProvider {
                 .unlockedBy(itemUnlockName(ItemRegistry.JADE.get()), itemCriterion(ItemRegistry.JADE.get()))
                 .save(recipeConsumer);
         simpleStonecutting(ItemRegistry.BLUE_AND_WHITE_PORCELAIN_PIECE.get(), ItemRegistry.PORCELAIN_PARTS.get(), recipeConsumer); //todo add porcelain variants
+        SingleItemRecipeBuilder.stonecutting(Ingredient.of(ItemRegistry.BRONZE_INGOT.get()), ItemRegistry.BRONZE_PARTS.get(), 2)
+                .unlockedBy(itemUnlockName(ItemRegistry.BRONZE_INGOT.get()), itemCriterion(ItemRegistry.BRONZE_INGOT.get()))
+                .save(recipeConsumer);
 
         // DYE POWDERS
 
@@ -967,6 +970,24 @@ public class ModRecipeProvider extends RecipeProvider {
         dyePowder(ModItemTags.FORGE_GREEN_DYE, ItemRegistry.GREEN_DYE_POWDER.get(), recipeConsumer);
         dyePowder(ModItemTags.FORGE_RED_DYE, ItemRegistry.RED_DYE_POWDER.get(), recipeConsumer);
         dyePowder(ModItemTags.FORGE_BLACK_DYE, ItemRegistry.BLACK_DYE_POWDER.get(), recipeConsumer);
+        simpleStonecutting(Items.GOLD_NUGGET, ItemRegistry.GOLD_DYE_POWDER.get(), recipeConsumer);
+
+        // TEMPLATES
+
+        simpleStonecutting(Items.POLISHED_BLACKSTONE, ItemRegistry.CARVED_WOOD_TEMPLATE.get(), recipeConsumer);
+        simpleStonecutting(Items.POLISHED_BLACKSTONE, ItemRegistry.FANGXIN_TEMPLATE.get(), recipeConsumer);
+        simpleStonecutting(Items.POLISHED_BLACKSTONE, ItemRegistry.FANGXIN_EDGE_TEMPLATE.get(), recipeConsumer);
+        simpleStonecutting(Items.POLISHED_BLACKSTONE, ItemRegistry.ZHAOTOU_TEMPLATE.get(), recipeConsumer);
+        simpleStonecutting(Items.POLISHED_BLACKSTONE, ItemRegistry.GUTOU_TEMPLATE.get(), recipeConsumer);
+        simpleStonecutting(Items.POLISHED_BLACKSTONE, ItemRegistry.RAFTER_TEMPLATE.get(), recipeConsumer);
+        simpleStonecutting(Items.POLISHED_BLACKSTONE, ItemRegistry.RAFTER_END_TEMPLATE.get(), recipeConsumer);
+        simpleStonecutting(Items.POLISHED_BLACKSTONE, ItemRegistry.ARCHITRAVE_TEMPLATE.get(), recipeConsumer);
+        simpleStonecutting(Items.POLISHED_BLACKSTONE, ItemRegistry.CAIHUA_TEMPLATE.get(), recipeConsumer);
+
+        // MATERIALS
+
+        dust(ItemRegistry.BRONZE_INGOT.get(), ItemRegistry.BRONZE_DUST.get(), recipeConsumer);
+
     }
 
     private static void categoryTools(@NotNull Consumer<FinishedRecipe> recipeConsumer) {

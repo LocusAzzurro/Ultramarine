@@ -116,6 +116,14 @@ public class CommonEventHandler {
             ));
         }
 
+        if (profession == VillagerProfession.TOOLSMITH){
+            trades.get(4).add(($1, $2) -> new MerchantOffer(
+                    new ItemStack(Items.EMERALD, 6),
+                    new ItemStack(ItemRegistry.BRONZE_INGOT.get(), 1),
+                    12, 10, 0.05f
+            ));
+        }
+
         if (profession == VillagerProfession.FARMER){
             trades.get(3).add(($1, $2) -> new MerchantOffer(
                     new ItemStack(Items.EMERALD, 4),
