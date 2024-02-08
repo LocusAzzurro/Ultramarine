@@ -1,0 +1,28 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " SP",
+    "DGG",
+    "RGG"
+  ],
+  "key": {
+    "G": {
+      "item": "minecraft:yellow_glazed_terracotta"
+    },
+    "R": {
+      "item": "ultramarine:yellow_roof_ridge_connection"
+    },
+    "S": {
+      "item": "ultramarine:yellow_roof_tile_stairs"
+    },
+    "P": {
+      "item": "ultramarine:gold_parts"
+    },
+    "D": {
+      "item": "ultramarine:gold_dye_powder"
+    }
+  },
+  "result": {
+    "item": "ultramarine:golden_glazed_roof_charm"
+  }
+}

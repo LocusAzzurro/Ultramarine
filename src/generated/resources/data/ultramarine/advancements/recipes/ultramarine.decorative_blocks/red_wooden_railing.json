@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "ultramarine:red_wooden_railing"
+    ]
+  },
+  "criteria": {
+    "has_red_wooden_railing_edge": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "ultramarine:red_wooden_railing_edge"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "ultramarine:red_wooden_railing"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_red_wooden_railing_edge",
+      "has_the_recipe"
+    ]
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "S",
+    "B",
+    "P"
+  ],
+  "key": {
+    "S": {
+      "item": "ultramarine:gilded_dark_oak_slab"
+    },
+    "B": {
+      "item": "ultramarine:gilded_dark_oak"
+    },
+    "P": {
+      "item": "ultramarine:gold_parts"
+    }
+  },
+  "result": {
+    "item": "ultramarine:gilded_dark_oak_chuihua"
+  }
+}

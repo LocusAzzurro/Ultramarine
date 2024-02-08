@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "ultramarine:golden_glazed_roof_charm_accessory"
+    ]
+  },
+  "criteria": {
+    "has_yellow_glazed_terracotta": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "ultramarine:golden_glazed_roof_charm_accessory"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "ultramarine:golden_glazed_roof_charm_accessory"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_yellow_glazed_terracotta",
+      "has_the_recipe"
+    ]
+  ]
+}

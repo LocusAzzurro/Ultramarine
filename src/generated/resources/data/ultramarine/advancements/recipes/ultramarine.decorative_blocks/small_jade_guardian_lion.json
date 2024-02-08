@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "ultramarine:small_jade_guardian_lion"
+    ]
+  },
+  "criteria": {
+    "has_small_stone_guardian_lion": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "ultramarine:small_stone_guardian_lion"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "ultramarine:small_jade_guardian_lion"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_small_stone_guardian_lion",
+      "has_the_recipe"
+    ]
+  ]
+}

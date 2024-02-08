@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "ultramarine:cyan_and_yellow_chuihua"
+    ]
+  },
+  "criteria": {
+    "has_cyan_carved_wooden_slab": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "ultramarine:cyan_carved_wooden_slab"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "ultramarine:cyan_and_yellow_chuihua"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_cyan_carved_wooden_slab",
+      "has_the_recipe"
+    ]
+  ]
+}

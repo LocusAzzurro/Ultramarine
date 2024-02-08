@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "ultramarine:blue_and_green_chuihua"
+    ]
+  },
+  "criteria": {
+    "has_blue_carved_wooden_slab": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "ultramarine:blue_carved_wooden_slab"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "ultramarine:blue_and_green_chuihua"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_blue_carved_wooden_slab",
+      "has_the_recipe"
+    ]
+  ]
+}

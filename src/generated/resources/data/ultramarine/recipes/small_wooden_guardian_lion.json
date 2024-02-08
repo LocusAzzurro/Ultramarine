@@ -1,0 +1,8 @@
+{
+  "type": "ultramarine:woodworking",
+  "ingredient": {
+    "tag": "minecraft:logs"
+  },
+  "result": "ultramarine:small_wooden_guardian_lion",
+  "count": 1
+}

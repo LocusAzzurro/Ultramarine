@@ -631,6 +631,125 @@ public class ModRecipeProvider extends RecipeProvider {
                 Ingredient.of(ItemRegistry.YELLOW_DYE_POWDER.get()), Ingredient.of(ItemRegistry.BLUE_DYE_POWDER.get()), Ingredient.of(ModItemTags.FORGE_GRAY_DYE), Ingredient.of(ModItemTags.FORGE_GRAY_DYE)
         }, recipeConsumer);
 
+        // CHUIHUA
+
+        ShapedRecipeBuilder.shaped(ItemRegistry.BLUE_AND_GREEN_CHUIHUA.get())
+                .define('R', ItemRegistry.RED_CARVED_WOODEN_SLAB.get())
+                .define('B', ItemRegistry.BLUE_CARVED_WOODEN_SLAB.get())
+                .define('G', ItemRegistry.GREEN_CARVED_WOODEN_SLAB.get())
+                .pattern("R").pattern("B").pattern("G")
+                .unlockedBy(itemUnlockName(ItemRegistry.BLUE_CARVED_WOODEN_SLAB.get()), itemCriterion(ItemRegistry.BLUE_CARVED_WOODEN_SLAB.get()))
+                .save(recipeConsumer);
+        ShapedRecipeBuilder.shaped(ItemRegistry.CYAN_AND_YELLOW_CHUIHUA.get())
+                .define('C', ItemRegistry.CYAN_CARVED_WOODEN_SLAB.get())
+                .define('O', ItemRegistry.BLUE_AND_RED_CARVED_WOOD.get())
+                .define('G', ItemRegistry.YELLOW_AND_GREEN_CARVED_WOOD.get())
+                .pattern("C").pattern("O").pattern("G")
+                .unlockedBy(itemUnlockName(ItemRegistry.CYAN_CARVED_WOODEN_SLAB.get()), itemCriterion(ItemRegistry.CYAN_CARVED_WOODEN_SLAB.get()))
+                .save(recipeConsumer);
+        ShapedRecipeBuilder.shaped(ItemRegistry.GILDED_DARK_OAK_CHUIHUA.get())
+                .define('S', ItemRegistry.GILDED_DARK_OAK_SLAB.get())
+                .define('B', ItemRegistry.GILDED_DARK_OAK.get())
+                .define('P', ItemRegistry.GOLD_PARTS.get())
+                .pattern("S").pattern("B").pattern("P")
+                .unlockedBy(itemUnlockName(ItemRegistry.GILDED_DARK_OAK.get()), itemCriterion(ItemRegistry.GILDED_DARK_OAK.get()))
+                .save(recipeConsumer);
+
+        // ROOF CHARM
+
+        ShapedRecipeBuilder.shaped(ItemRegistry.GOLDEN_GLAZED_ROOF_CHARM.get())
+                .define('G', Items.YELLOW_GLAZED_TERRACOTTA)
+                .define('R', ItemRegistry.YELLOW_ROOF_RIDGE_CONNECTION.get())
+                .define('S', ItemRegistry.YELLOW_ROOF_TILE_STAIRS.get())
+                .define('P', ItemRegistry.GOLD_PARTS.get())
+                .define('D', ItemRegistry.GOLD_DYE_POWDER.get())
+                .pattern(" SP")
+                .pattern("DGG")
+                .pattern("RGG")
+                .unlockedBy(itemUnlockName(Items.YELLOW_GLAZED_TERRACOTTA), itemCriterion(Items.YELLOW_GLAZED_TERRACOTTA))
+                .save(recipeConsumer);
+        simpleStonecutting(Items.YELLOW_GLAZED_TERRACOTTA, ItemRegistry.GOLDEN_GLAZED_ROOF_CHARM_ACCESSORY.get(), recipeConsumer);
+        ShapedRecipeBuilder.shaped(ItemRegistry.GREEN_GLAZED_ROOF_CHARM.get())
+                .define('G', Items.GREEN_GLAZED_TERRACOTTA)
+                .define('R', ItemRegistry.BLACK_ROOF_RIDGE_CONNECTION.get())
+                .define('P', ItemRegistry.GOLD_PARTS.get())
+                .define('S', ItemRegistry.GRAY_ROOF_TILE_STAIRS.get())
+                .pattern(" SP")
+                .pattern(" PG")
+                .pattern("RRG")
+                .unlockedBy(itemUnlockName(Items.GREEN_GLAZED_TERRACOTTA), itemCriterion(Items.GREEN_GLAZED_TERRACOTTA))
+                .save(recipeConsumer);
+
+        // CEILING
+
+        ShapedRecipeBuilder.shaped(ItemRegistry.QING_GOLDEN_DRAGON_CEILING.get())
+                .define('G', ItemRegistry.GREEN_CARVED_WOOD.get())
+                .define('B', ModItemTags.FORGE_BLUE_DYE)
+                .define('D', ItemRegistry.GOLD_DYE_POWDER.get())
+                .pattern("G").pattern("B").pattern("D")
+                .unlockedBy(itemUnlockName(ItemRegistry.GREEN_CARVED_WOOD.get()), itemCriterion(ItemRegistry.GREEN_CARVED_WOOD.get()))
+                .save(recipeConsumer);
+
+        // RAILING
+
+        simpleStonecutting(Items.QUARTZ_BLOCK, ItemRegistry.WHITE_MARBLE_RAILING.get(), recipeConsumer);
+        simpleStonecutting(Items.QUARTZ_BLOCK, ItemRegistry.WHITE_MARBLE_RAILING_SLANT.get(), recipeConsumer);
+        woodworking(Ingredient.of(ItemTags.PLANKS), ItemRegistry.CARVED_WOODEN_RAILING.get(), 1).unlockedBy("has_plank", tagUnlock(ItemTags.PLANKS)).save(recipeConsumer);
+        woodworking(Ingredient.of(ItemTags.PLANKS), ItemRegistry.WOODEN_RAILING.get(), 1).unlockedBy("has_plank", tagUnlock(ItemTags.PLANKS)).save(recipeConsumer);
+        woodworking(Ingredient.of(ItemTags.PLANKS), ItemRegistry.WOODEN_RAILING_VARIANT.get(), 1).unlockedBy("has_plank", tagUnlock(ItemTags.PLANKS)).save(recipeConsumer);
+        blockTransform(ItemRegistry.WOODEN_RAILING.get(), ModItemTags.FORGE_RED_DYE, ItemRegistry.RED_WOODEN_RAILING_EDGE.get(), recipeConsumer);
+        ShapedRecipeBuilder.shaped(ItemRegistry.RED_WOODEN_RAILING.get(), 2).define('C', ItemRegistry.RED_WOODEN_RAILING_EDGE.get()).pattern("CC")
+                .unlockedBy(itemUnlockName(ItemRegistry.RED_WOODEN_RAILING_EDGE.get()), itemCriterion(ItemRegistry.RED_WOODEN_RAILING_EDGE.get())).save(recipeConsumer);
+
+        // GUARDIAN LION
+
+        woodworking(Ingredient.of(ItemTags.LOGS), ItemRegistry.SMALL_WOODEN_GUARDIAN_LION.get(), 1).unlockedBy("has_log", tagUnlock(ItemTags.LOGS)).save(recipeConsumer);
+        simpleStonecutting(Items.STONE, ItemRegistry.SMALL_STONE_GUARDIAN_LION.get(), recipeConsumer);
+        ShapedRecipeBuilder.shaped(ItemRegistry.SMALL_JADE_GUARDIAN_LION.get())
+                .define('L', ItemRegistry.SMALL_STONE_GUARDIAN_LION.get())
+                .define('J', ItemRegistry.JADE.get())
+                .define('P', ItemRegistry.JADE_PARTS.get())
+                .pattern("PJP")
+                .pattern("JLJ")
+                .pattern("PJP")
+                .unlockedBy(itemUnlockName(ItemRegistry.SMALL_STONE_GUARDIAN_LION.get()), itemCriterion(ItemRegistry.SMALL_STONE_GUARDIAN_LION.get()))
+                .save(recipeConsumer);
+        ShapedRecipeBuilder.shaped(ItemRegistry.SMALL_YELLOW_GLAZED_GUARDIAN_LION.get())
+                .define('L', ItemRegistry.SMALL_STONE_GUARDIAN_LION.get())
+                .define('G', Items.YELLOW_GLAZED_TERRACOTTA)
+                .define('P', ItemRegistry.GOLD_PARTS.get())
+                .define('D', ItemRegistry.GOLD_DYE_POWDER.get())
+                .pattern("DGD")
+                .pattern("GLG")
+                .pattern("PGP")
+                .unlockedBy(itemUnlockName(ItemRegistry.SMALL_STONE_GUARDIAN_LION.get()), itemCriterion(ItemRegistry.SMALL_STONE_GUARDIAN_LION.get()))
+                .save(recipeConsumer);
+        ShapedRecipeBuilder.shaped(ItemRegistry.SMALL_GREEN_GLAZED_GUARDIAN_LION.get())
+                .define('L', ItemRegistry.SMALL_STONE_GUARDIAN_LION.get())
+                .define('G', ItemRegistry.GREEN_GLAZED_TILES.get())
+                .define('P', ItemRegistry.PORCELAIN_PARTS.get())
+                .pattern("PGP")
+                .pattern("GLG")
+                .pattern("PGP")
+                .unlockedBy(itemUnlockName(ItemRegistry.SMALL_STONE_GUARDIAN_LION.get()), itemCriterion(ItemRegistry.SMALL_STONE_GUARDIAN_LION.get()))
+                .save(recipeConsumer);
+        ShapedRecipeBuilder.shaped(ItemRegistry.XUMI_STONE_MONOLITH.get())
+                .define('B', ItemRegistry.STONE_PILLAR_BASE.get())
+                .define('C', Items.CHISELED_STONE_BRICKS)
+                .define('S', Items.STONE)
+                .define('H', Items.STONE_SLAB)
+                .pattern("HHH")
+                .pattern("SCS")
+                .pattern("BBB")
+                .unlockedBy(itemUnlockName(ItemRegistry.STONE_PILLAR_BASE.get()), itemCriterion(ItemRegistry.STONE_PILLAR_BASE.get()))
+                .save(recipeConsumer);
+
+        // MISC DECORATIONS
+
+        // Baskets sold by Cook villager
+        woodworking(Items.BOOKSHELF, ItemRegistry.BOOKSHELF.get(), 1, recipeConsumer);
+        woodworking(Items.BOOKSHELF, ItemRegistry.BOOKSHELF_VARIANT.get(), 1, recipeConsumer);
+
     }
 
     private static void categoryLamps(@NotNull Consumer<FinishedRecipe> recipeConsumer) {
