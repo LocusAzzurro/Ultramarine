@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "ultramarine:white_and_red_slab"
+    ]
+  },
+  "criteria": {
+    "has_architrave_template": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "ultramarine:architrave_template"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "ultramarine:white_and_red_slab"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_architrave_template",
+      "has_the_recipe"
+    ]
+  ]
+}

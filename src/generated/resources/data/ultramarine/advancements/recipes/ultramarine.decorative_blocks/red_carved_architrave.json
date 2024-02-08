@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "ultramarine:red_carved_architrave"
+    ]
+  },
+  "criteria": {
+    "has_architrave_template": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "ultramarine:architrave_template"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "ultramarine:red_carved_architrave"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_architrave_template",
+      "has_the_recipe"
+    ]
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "type": "ultramarine:chisel_table",
+  "material": {
+    "tag": "minecraft:logs"
+  },
+  "template": {
+    "item": "ultramarine:architrave_template"
+  },
+  "colors": [
+    {
+      "tag": "forge:dyes/cyan"
+    },
+    {
+      "item": "ultramarine:light_blue_dye_powder"
+    },
+    {
+      "item": "ultramarine:red_dye_powder"
+    },
+    {
+      "item": "ultramarine:cyan_dye_powder"
+    }
+  ],
+  "result": "ultramarine:red_and_cyan_tuanhua_slab"
+}

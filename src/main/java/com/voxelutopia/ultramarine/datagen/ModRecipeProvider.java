@@ -490,6 +490,34 @@ public class ModRecipeProvider extends RecipeProvider {
 
         // ARCHITRAVE
 
+        architrave(ItemRegistry.RED_AND_CYAN_CARVED_ARCHITRAVE.get(), new Ingredient[]{
+                Ingredient.of(ModItemTags.FORGE_RED_DYE), Ingredient.of(ItemRegistry.WHITE_DYE_POWDER.get()), Ingredient.of(ModItemTags.FORGE_CYAN_DYE)
+        }, recipeConsumer);
+        woodworking(ItemRegistry.RED_AND_CYAN_CARVED_ARCHITRAVE.get(), ItemRegistry.RED_AND_CYAN_CARVED_ARCHITRAVE_SLAB.get(), 2, recipeConsumer);
+        architrave(ItemRegistry.RED_AND_BLUE_CARVED_ARCHITRAVE.get(), new Ingredient[]{
+                Ingredient.of(ModItemTags.FORGE_RED_DYE), Ingredient.of(ItemRegistry.WHITE_DYE_POWDER.get()), Ingredient.of(ModItemTags.FORGE_BLUE_DYE)
+        }, recipeConsumer);
+        woodworking(ItemRegistry.RED_AND_BLUE_CARVED_ARCHITRAVE.get(), ItemRegistry.RED_AND_BLUE_CARVED_ARCHITRAVE_SLAB.get(), 2, recipeConsumer);
+        architrave(ItemRegistry.EMPTY_TUANHUA_SLAB.get(), new Ingredient[]{
+                Ingredient.of(ModItemTags.FORGE_CYAN_DYE), Ingredient.of(ItemRegistry.LIGHT_BLUE_DYE_POWDER.get()), Ingredient.of(ModItemTags.FORGE_YELLOW_DYE), Ingredient.of(ItemRegistry.WHITE_DYE_POWDER.get())
+        }, recipeConsumer);
+        architrave(ItemRegistry.FULL_TUANHUA_SLAB.get(), new Ingredient[]{
+                Ingredient.of(ModItemTags.FORGE_CYAN_DYE), Ingredient.of(ItemRegistry.LIGHT_BLUE_DYE_POWDER.get()), Ingredient.of(ItemRegistry.YELLOW_DYE_POWDER.get()), Ingredient.of(ItemRegistry.CYAN_DYE_POWDER.get())
+        }, recipeConsumer);
+        architrave(ItemRegistry.RED_AND_CYAN_TUANHUA_SLAB.get(), new Ingredient[]{
+                Ingredient.of(ModItemTags.FORGE_CYAN_DYE), Ingredient.of(ItemRegistry.LIGHT_BLUE_DYE_POWDER.get()), Ingredient.of(ItemRegistry.RED_DYE_POWDER.get()), Ingredient.of(ItemRegistry.CYAN_DYE_POWDER.get())
+        }, recipeConsumer);
+        architrave(ItemRegistry.RED_CARVED_ARCHITRAVE.get(), new Ingredient[]{
+                Ingredient.of(ModItemTags.FORGE_RED_DYE), Ingredient.of(ItemRegistry.WHITE_DYE_POWDER.get()), Ingredient.of(ModItemTags.FORGE_RED_DYE)
+        }, recipeConsumer);
+        architrave(ItemRegistry.WHITE_AND_RED_SLAB.get(), new Ingredient[]{
+                Ingredient.of(ItemRegistry.WHITE_DYE_POWDER.get()), Ingredient.of(ModItemTags.FORGE_RED_DYE), Ingredient.of(ModItemTags.FORGE_RED_DYE), Ingredient.of(ItemRegistry.WHITE_DYE_POWDER.get())
+        }, recipeConsumer);
+
+        // QUETI
+
+
+
     }
 
     private static void categoryLamps(@NotNull Consumer<FinishedRecipe> recipeConsumer) {
@@ -1115,6 +1143,11 @@ public class ModRecipeProvider extends RecipeProvider {
     public static void rafterEnd(Item result, Ingredient[] dye, Consumer<FinishedRecipe> pFinishedRecipeConsumer){
         ChiselTableRecipeBuilder.chiselTableRecipe(Ingredient.of(ItemTags.LOGS), Ingredient.of(ItemRegistry.RAFTER_END_TEMPLATE.get()), dye, result)
                 .unlockedBy(itemUnlockName(ItemRegistry.RAFTER_END_TEMPLATE.get()), itemCriterion(ItemRegistry.RAFTER_END_TEMPLATE.get())).save(pFinishedRecipeConsumer);
+    }
+
+    public static void architrave(Item result, Ingredient[] dye, Consumer<FinishedRecipe> pFinishedRecipeConsumer){
+        ChiselTableRecipeBuilder.chiselTableRecipe(Ingredient.of(ItemTags.LOGS), Ingredient.of(ItemRegistry.ARCHITRAVE_TEMPLATE.get()), dye, result)
+                .unlockedBy(itemUnlockName(ItemRegistry.ARCHITRAVE_TEMPLATE.get()), itemCriterion(ItemRegistry.ARCHITRAVE_TEMPLATE.get())).save(pFinishedRecipeConsumer);
     }
 
     private static String name(Item item){

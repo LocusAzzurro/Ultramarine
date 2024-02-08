@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "ultramarine:full_tuanhua_slab"
+    ]
+  },
+  "criteria": {
+    "has_architrave_template": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "ultramarine:architrave_template"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "ultramarine:full_tuanhua_slab"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_architrave_template",
+      "has_the_recipe"
+    ]
+  ]
+}

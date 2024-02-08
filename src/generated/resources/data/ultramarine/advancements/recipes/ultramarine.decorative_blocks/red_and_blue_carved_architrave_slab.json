@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "ultramarine:red_and_blue_carved_architrave_slab"
+    ]
+  },
+  "criteria": {
+    "has_red_and_blue_carved_architrave": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "ultramarine:red_and_blue_carved_architrave"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "ultramarine:red_and_blue_carved_architrave_slab"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_red_and_blue_carved_architrave",
+      "has_the_recipe"
+    ]
+  ]
+}
