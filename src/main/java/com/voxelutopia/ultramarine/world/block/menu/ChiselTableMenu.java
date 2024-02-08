@@ -36,11 +36,9 @@ public class ChiselTableMenu extends AbstractContainerMenu{
     private static final int USE_ROW_SLOT_START = 34;
     private static final int USE_ROW_SLOT_END = 43;
 
-    private static final Predicate<ItemStack> IS_LOG = i -> i.is(ItemTags.LOGS);
+    private static final Predicate<ItemStack> IS_WOOD = i -> i.is(ItemTags.LOGS) || i.is(ModItemTags.POLISHED_PLANKS);
     private static final Predicate<ItemStack> IS_TEMPLATE = i -> i.is(ModItemTags.CHISEL_TEMPLATES);
     private static final Predicate<ItemStack> IS_COLOR = i -> i.is(ModItemTags.FORGE_DYES) || i.is(ModItemTags.DYE_POWDER);
-    private static final Predicate<ItemStack> IS_PART = i -> i.is(ModItemTags.PARTS);
-    private static final Predicate<ItemStack> IS_COLOR_OR_PART = IS_COLOR.or(IS_PART);
 
     private final ContainerLevelAccess access;
     private final Player player;
@@ -132,7 +130,7 @@ public class ChiselTableMenu extends AbstractContainerMenu{
                 }
                 slot.onQuickCraft(slotItem, itemstack);
             } else if (pIndex > SLOT_RESULT) { // inv slots
-                if (IS_LOG.test(slotItem)){
+                if (IS_WOOD.test(slotItem)){
                     if (!this.moveItemStackTo(slotItem, SLOT_MATERIAL, SLOT_MATERIAL + 1, false)) {
                         return ItemStack.EMPTY;
                     }
@@ -259,7 +257,7 @@ public class ChiselTableMenu extends AbstractContainerMenu{
 
         @Override
         public boolean mayPlace(@Nonnull ItemStack stack) {
-            return IS_LOG.test(stack);
+            return IS_WOOD.test(stack);
         }
 
     }
