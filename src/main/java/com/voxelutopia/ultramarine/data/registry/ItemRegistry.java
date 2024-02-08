@@ -754,6 +754,9 @@ public class ItemRegistry {
     public static final RegistryObject<Item> FANGXIN_EDGE_TEMPLATE = ITEMS.register("fangxin_edge_template", ChiselTemplate::new);
     public static final RegistryObject<Item> ZHAOTOU_TEMPLATE = ITEMS.register("zhaotou_template", ChiselTemplate::new);
     public static final RegistryObject<Item> GUTOU_TEMPLATE = ITEMS.register("gutou_template", ChiselTemplate::new);
+    public static final RegistryObject<Item> RAFTER_TEMPLATE = ITEMS.register("rafter_template", ChiselTemplate::new);
+    public static final RegistryObject<Item> RAFTER_END_TEMPLATE = ITEMS.register("rafter_end_template", ChiselTemplate::new);
+    public static final RegistryObject<Item> CAIHUA_TEMPLATE = ITEMS.register("caihua_template", ChiselTemplate::new);
 
     // MATERIALS
 
