@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "ultramarine:gilded_dark_oak_rafter"
+    ]
+  },
+  "criteria": {
+    "has_dark_oak_rafter": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "ultramarine:dark_oak_rafter"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "ultramarine:gilded_dark_oak_rafter"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_dark_oak_rafter",
+      "has_the_recipe"
+    ]
+  ]
+}

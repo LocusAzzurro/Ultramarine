@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "ultramarine:dark_oak_rafter"
+    },
+    {
+      "item": "ultramarine:gold_parts"
+    }
+  ],
+  "result": {
+    "item": "ultramarine:gilded_dark_oak_rafter"
+  }
+}

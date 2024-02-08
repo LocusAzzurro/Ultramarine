@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "ultramarine:green_tiger_eye_rafter_end"
+    ]
+  },
+  "criteria": {
+    "has_rafter_end_template": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "ultramarine:rafter_end_template"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "ultramarine:green_tiger_eye_rafter_end"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_rafter_end_template",
+      "has_the_recipe"
+    ]
+  ]
+}
