@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "ultramarine:golden_dragon_fangxin_pattern"
+    ]
+  },
+  "criteria": {
+    "has_blue_fangxin_pattern": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "ultramarine:blue_fangxin_pattern"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "ultramarine:golden_dragon_fangxin_pattern"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_blue_fangxin_pattern",
+      "has_the_recipe"
+    ]
+  ]
+}

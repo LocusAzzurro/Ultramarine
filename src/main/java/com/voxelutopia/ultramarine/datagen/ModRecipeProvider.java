@@ -559,6 +559,78 @@ public class ModRecipeProvider extends RecipeProvider {
                 .unlockedBy(itemUnlockName(ItemRegistry.CARVED_STONE_PANEL.get()), itemCriterion(ItemRegistry.CARVED_STONE_PANEL.get())).save(recipeConsumer);
 
         // PATTERNS
+
+        caihua(ItemRegistry.YELLOW_CARVED_PATTERN.get(), new Ingredient[]{
+                Ingredient.of(ModItemTags.FORGE_YELLOW_DYE), Ingredient.of(ModItemTags.FORGE_YELLOW_DYE)
+        }, recipeConsumer);
+        caihua(ItemRegistry.CIRCULAR_YELLOW_CARVED_PATTERN.get(), new Ingredient[]{
+                Ingredient.of(ItemRegistry.YELLOW_DYE_POWDER.get()), Ingredient.of(ModItemTags.FORGE_YELLOW_DYE), Ingredient.of(ItemRegistry.YELLOW_DYE_POWDER.get())
+        }, recipeConsumer);
+        fangxinEdgePattern(ItemRegistry.YELLOW_CARVED_FANGXIN_EDGE_PATTERN.get(), new Ingredient[]{
+                Ingredient.of(ModItemTags.FORGE_YELLOW_DYE), Ingredient.of(ModItemTags.FORGE_YELLOW_DYE)
+        }, recipeConsumer);
+        fangxinPattern(ItemRegistry.YELLOW_CARVED_FANGXIN_PATTERN.get(), new Ingredient[]{
+                Ingredient.of(ModItemTags.FORGE_YELLOW_DYE), Ingredient.of(ModItemTags.FORGE_YELLOW_DYE)
+        }, recipeConsumer);
+        caihua(ItemRegistry.LARGE_YELLOW_CARVED_PATTERN.get(), new Ingredient[]{
+                Ingredient.of(ModItemTags.FORGE_YELLOW_DYE), Ingredient.of(ModItemTags.FORGE_YELLOW_DYE), Ingredient.of(ModItemTags.FORGE_YELLOW_DYE), Ingredient.of(ModItemTags.FORGE_YELLOW_DYE)
+        }, recipeConsumer);
+        caihua(ItemRegistry.MEDIUM_YELLOW_CARVED_PATTERN.get(), new Ingredient[]{
+                Ingredient.of(ItemRegistry.YELLOW_DYE_POWDER.get()), Ingredient.of(ModItemTags.FORGE_YELLOW_DYE), Ingredient.of(ModItemTags.FORGE_YELLOW_DYE), Ingredient.of(ItemRegistry.YELLOW_DYE_POWDER.get())
+        }, recipeConsumer);
+        zhaotouPattern(ItemRegistry.YELLOW_CARVED_ZHAOTOU_PATTERN.get(), new Ingredient[]{
+                Ingredient.of(ModItemTags.FORGE_YELLOW_DYE), Ingredient.of(ModItemTags.FORGE_YELLOW_DYE)
+        }, recipeConsumer);
+        zhaotouPattern(ItemRegistry.LONG_YELLOW_CARVED_ZHAOTOU_PATTERN.get(), new Ingredient[]{
+                Ingredient.of(ModItemTags.FORGE_YELLOW_DYE), Ingredient.of(ModItemTags.FORGE_YELLOW_DYE), Ingredient.of(ItemRegistry.YELLOW_DYE_POWDER.get())
+        }, recipeConsumer);
+        zhaotouPattern(ItemRegistry.CARVED_ZHAOTOU_PATTERN.get(), new Ingredient[]{
+                Ingredient.of(ModItemTags.FORGE_YELLOW_DYE), Ingredient.of(ModItemTags.FORGE_WHITE_DYE)
+        }, recipeConsumer);
+        caihua(ItemRegistry.FLAME_ARCH_WALL_PATTERN.get(), new Ingredient[]{
+                Ingredient.of(ModItemTags.FORGE_ORANGE_DYE), Ingredient.of(ItemRegistry.WHITE_DYE_POWDER.get()), Ingredient.of(ItemRegistry.BLUE_DYE_POWDER.get()), Ingredient.of(ItemRegistry.GREEN_DYE_POWDER.get())
+        }, recipeConsumer);
+        fangxinPattern(ItemRegistry.BLUE_FANGXIN_PATTERN.get(), new Ingredient[]{
+                Ingredient.of(ItemRegistry.BLACK_DYE_POWDER.get()), Ingredient.of(ItemRegistry.LIGHT_BLUE_DYE_POWDER.get()), Ingredient.of(ItemRegistry.BROWN_DYE_POWDER.get()), Ingredient.of(ModItemTags.FORGE_BLUE_DYE)
+        }, recipeConsumer);
+        fangxinEdgePattern(ItemRegistry.BLUE_FANGXIN_PATTERN_EDGE.get(), new Ingredient[]{
+                Ingredient.of(ItemRegistry.BLACK_DYE_POWDER.get()), Ingredient.of(ItemRegistry.LIGHT_BLUE_DYE_POWDER.get()), Ingredient.of(ItemRegistry.BROWN_DYE_POWDER.get()), Ingredient.of(ModItemTags.FORGE_BLUE_DYE)
+        }, recipeConsumer);
+        fangxinPattern(ItemRegistry.GREEN_FANGXIN_PATTERN.get(), new Ingredient[]{
+                Ingredient.of(ItemRegistry.BLACK_DYE_POWDER.get()), Ingredient.of(ItemRegistry.LIGHT_BLUE_DYE_POWDER.get()), Ingredient.of(ItemRegistry.BROWN_DYE_POWDER.get()), Ingredient.of(ModItemTags.FORGE_GREEN_DYE)
+        }, recipeConsumer);
+        fangxinEdgePattern(ItemRegistry.GREEN_FANGXIN_PATTERN_EDGE.get(), new Ingredient[]{
+                Ingredient.of(ItemRegistry.BLACK_DYE_POWDER.get()), Ingredient.of(ItemRegistry.LIGHT_BLUE_DYE_POWDER.get()), Ingredient.of(ItemRegistry.BROWN_DYE_POWDER.get()), Ingredient.of(ModItemTags.FORGE_GREEN_DYE)
+        }, recipeConsumer);
+        ShapedRecipeBuilder.shaped(ItemRegistry.GOLDEN_DRAGON_FANGXIN_PATTERN.get())
+                .define('C', ItemRegistry.BLUE_FANGXIN_PATTERN.get())
+                .define('E', ItemRegistry.BLUE_FANGXIN_PATTERN_EDGE.get())
+                .define('G', ItemRegistry.GOLD_DYE_POWDER.get())
+                .pattern("GGG").pattern("ECE")
+                .unlockedBy(itemUnlockName(ItemRegistry.BLUE_FANGXIN_PATTERN.get()), itemCriterion(ItemRegistry.BLUE_FANGXIN_PATTERN.get()))
+                .save(recipeConsumer);
+        caihua(ItemRegistry.LIGHT_BLUE_SU_STYLE_CAIHUA.get(), new Ingredient[]{
+                Ingredient.of(ItemRegistry.GREEN_DYE_POWDER.get()), Ingredient.of(ItemRegistry.RED_DYE_POWDER.get()), Ingredient.of(ModItemTags.FORGE_LIGHT_BLUE_DYE)
+        }, recipeConsumer);
+        caihua(ItemRegistry.YELLOW_SU_STYLE_CAIHUA.get(), new Ingredient[]{
+                Ingredient.of(ItemRegistry.GREEN_DYE_POWDER.get()), Ingredient.of(ItemRegistry.RED_DYE_POWDER.get()), Ingredient.of(ModItemTags.FORGE_YELLOW_DYE)
+        }, recipeConsumer);
+        caihua(ItemRegistry.LIGHT_YELLOW_SU_STYLE_CAIHUA.get(), new Ingredient[]{
+                Ingredient.of(ItemRegistry.GREEN_DYE_POWDER.get()), Ingredient.of(ItemRegistry.RED_DYE_POWDER.get()), Ingredient.of(ModItemTags.FORGE_YELLOW_DYE), Ingredient.of(ItemRegistry.WHITE_DYE_POWDER.get())
+        }, recipeConsumer);
+        caihua(ItemRegistry.MEDIUM_SU_STYLE_CAIHUA.get(), new Ingredient[]{
+                Ingredient.of(ItemRegistry.YELLOW_DYE_POWDER.get()), Ingredient.of(ItemRegistry.BLUE_DYE_POWDER.get()), Ingredient.of(ModItemTags.FORGE_GREEN_DYE), Ingredient.of(ItemRegistry.WHITE_DYE_POWDER.get())
+        }, recipeConsumer);
+        caihua(ItemRegistry.LARGE_WHITE_SU_STYLE_CAIHUA.get(), new Ingredient[]{
+                Ingredient.of(ItemRegistry.YELLOW_DYE_POWDER.get()), Ingredient.of(ItemRegistry.BLUE_DYE_POWDER.get()), Ingredient.of(ModItemTags.FORGE_WHITE_DYE), Ingredient.of(ModItemTags.FORGE_WHITE_DYE)
+        }, recipeConsumer);
+        caihua(ItemRegistry.LARGE_GREEN_SU_STYLE_CAIHUA.get(), new Ingredient[]{
+                Ingredient.of(ItemRegistry.YELLOW_DYE_POWDER.get()), Ingredient.of(ItemRegistry.BLUE_DYE_POWDER.get()), Ingredient.of(ModItemTags.FORGE_GREEN_DYE), Ingredient.of(ModItemTags.FORGE_GREEN_DYE)
+        }, recipeConsumer);
+        caihua(ItemRegistry.LARGE_GRAY_SU_STYLE_CAIHUA.get(), new Ingredient[]{
+                Ingredient.of(ItemRegistry.YELLOW_DYE_POWDER.get()), Ingredient.of(ItemRegistry.BLUE_DYE_POWDER.get()), Ingredient.of(ModItemTags.FORGE_GRAY_DYE), Ingredient.of(ModItemTags.FORGE_GRAY_DYE)
+        }, recipeConsumer);
+
     }
 
     private static void categoryLamps(@NotNull Consumer<FinishedRecipe> recipeConsumer) {
@@ -1187,6 +1259,27 @@ public class ModRecipeProvider extends RecipeProvider {
         ChiselTableRecipeBuilder.chiselTableRecipe(Ingredient.of(ItemTags.LOGS), Ingredient.of(ItemRegistry.ARCHITRAVE_TEMPLATE.get()), dye, result)
                 .unlockedBy(itemUnlockName(ItemRegistry.ARCHITRAVE_TEMPLATE.get()), itemCriterion(ItemRegistry.ARCHITRAVE_TEMPLATE.get())).save(pFinishedRecipeConsumer);
     }
+
+    public static void caihua(Item result, Ingredient[] dye, Consumer<FinishedRecipe> pFinishedRecipeConsumer){
+        ChiselTableRecipeBuilder.chiselTableRecipe(Ingredient.of(ModItemTags.POLISHED_PLANKS), Ingredient.of(ItemRegistry.CAIHUA_TEMPLATE.get()), dye, result)
+                .unlockedBy(itemUnlockName(ItemRegistry.CAIHUA_TEMPLATE.get()), itemCriterion(ItemRegistry.CAIHUA_TEMPLATE.get())).save(pFinishedRecipeConsumer);
+    }
+
+    public static void fangxinPattern(Item result, Ingredient[] dye, Consumer<FinishedRecipe> pFinishedRecipeConsumer){
+        ChiselTableRecipeBuilder.chiselTableRecipe(Ingredient.of(ModItemTags.POLISHED_PLANKS), Ingredient.of(ItemRegistry.FANGXIN_TEMPLATE.get()), dye, result)
+                .unlockedBy(itemUnlockName(ItemRegistry.FANGXIN_TEMPLATE.get()), itemCriterion(ItemRegistry.FANGXIN_TEMPLATE.get())).save(pFinishedRecipeConsumer);
+    }
+
+    public static void fangxinEdgePattern(Item result, Ingredient[] dye, Consumer<FinishedRecipe> pFinishedRecipeConsumer){
+        ChiselTableRecipeBuilder.chiselTableRecipe(Ingredient.of(ModItemTags.POLISHED_PLANKS), Ingredient.of(ItemRegistry.FANGXIN_EDGE_TEMPLATE.get()), dye, result)
+                .unlockedBy(itemUnlockName(ItemRegistry.FANGXIN_EDGE_TEMPLATE.get()), itemCriterion(ItemRegistry.FANGXIN_EDGE_TEMPLATE.get())).save(pFinishedRecipeConsumer);
+    }
+
+    public static void zhaotouPattern(Item result, Ingredient[] dye, Consumer<FinishedRecipe> pFinishedRecipeConsumer){
+        ChiselTableRecipeBuilder.chiselTableRecipe(Ingredient.of(ModItemTags.POLISHED_PLANKS), Ingredient.of(ItemRegistry.ZHAOTOU_TEMPLATE.get()), dye, result)
+                .unlockedBy(itemUnlockName(ItemRegistry.ZHAOTOU_TEMPLATE.get()), itemCriterion(ItemRegistry.ZHAOTOU_TEMPLATE.get())).save(pFinishedRecipeConsumer);
+    }
+
 
     public static CriterionTriggerInstance tagUnlock(TagKey<Item> tag){
         return InventoryChangeTrigger.TriggerInstance.hasItems(new ItemPredicate(tag, ImmutableSet.of(),

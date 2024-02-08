@@ -1,0 +1,24 @@
+{
+  "type": "ultramarine:chisel_table",
+  "material": {
+    "tag": "ultramarine:polished_planks"
+  },
+  "template": {
+    "item": "ultramarine:caihua_template"
+  },
+  "colors": [
+    {
+      "tag": "forge:dyes/yellow"
+    },
+    {
+      "tag": "forge:dyes/yellow"
+    },
+    {
+      "tag": "forge:dyes/yellow"
+    },
+    {
+      "tag": "forge:dyes/yellow"
+    }
+  ],
+  "result": "ultramarine:large_yellow_carved_pattern"
+}
