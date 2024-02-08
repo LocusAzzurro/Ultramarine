@@ -284,6 +284,11 @@ public class CommonEventHandler {
                 new ItemStack(ItemRegistry.PAINTING_SCROLL.get(), 1),
                 1, 30, 0.05f
         ));
+        rareTrades.add(($1, $2) -> new MerchantOffer(
+                new ItemStack(Items.EMERALD, 20),
+                new ItemStack(ItemRegistry.BLUE_AND_WHITE_PORCELAIN_VASE.get(), 1),
+                1, 30, 0.05f
+        ));
         //todo move some trades to special trader
 
     }
