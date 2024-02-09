@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "ultramarine:ruler"
+    ]
+  },
+  "criteria": {
+    "has_wooden_parts": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "ultramarine:wooden_parts"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "ultramarine:ruler"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_wooden_parts",
+      "has_the_recipe"
+    ]
+  ]
+}

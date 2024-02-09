@@ -36,6 +36,8 @@ public class ModRecipeProvider extends RecipeProvider {
 
         categoryBuildingBlocks(recipeConsumer);
         categoryDecorativeBlocks(recipeConsumer);
+        categoryDecorations(recipeConsumer);
+        categoryFurniture(recipeConsumer);
         categoryMaterials(recipeConsumer);
         categoryTools(recipeConsumer);
         categoryLamps(recipeConsumer);
@@ -751,6 +753,130 @@ public class ModRecipeProvider extends RecipeProvider {
 
     }
 
+    private static void categoryDecorations(@NotNull Consumer<FinishedRecipe> recipeConsumer){
+
+        // STUDY
+
+        ShapedRecipeBuilder.shaped(ItemRegistry.ABACUS.get())
+                .define('F', ItemRegistry.WOODEN_FRAME.get())
+                .define('P', ItemRegistry.WOODEN_PARTS.get())
+                .define('S', Items.STICK)
+                .pattern("PFP")
+                .pattern("SSS")
+                .pattern("PFP")
+                .unlockedBy(itemUnlockName(ItemRegistry.WOODEN_PARTS.get()), itemCriterion(ItemRegistry.WOODEN_PARTS.get()))
+                .save(recipeConsumer);
+        ShapedRecipeBuilder.shaped(ItemRegistry.BRUSH_TOOLS.get())
+                .define('F', ItemRegistry.WOODEN_FRAME.get())
+                .define('P', ItemRegistry.WOODEN_PARTS.get())
+                .define('S', Items.STICK)
+                .pattern("SSS")
+                .pattern("S S")
+                .pattern("PFP")
+                .unlockedBy(itemUnlockName(ItemRegistry.WOODEN_PARTS.get()), itemCriterion(ItemRegistry.WOODEN_PARTS.get()))
+                .save(recipeConsumer);
+        ShapedRecipeBuilder.shaped(ItemRegistry.BRUSH_AND_INKSTONE.get())
+                .define('S', Items.STICK)
+                .define('F', ItemRegistry.FUR.get())
+                .define('R', Items.STONE_SLAB)
+                .define('I', Items.INK_SAC)
+                .define('P', ItemRegistry.XUAN_PAPER.get())
+                .pattern("S ")
+                .pattern("FI")
+                .pattern("RP")
+                .unlockedBy(itemUnlockName(ItemRegistry.XUAN_PAPER.get()), itemCriterion(ItemRegistry.XUAN_PAPER.get()))
+                .save(recipeConsumer);
+        ShapedRecipeBuilder.shaped(ItemRegistry.RULER.get())
+                .define('S', Items.STICK)
+                .define('P', ItemRegistry.WOODEN_PARTS.get())
+                .pattern("SPS")
+                .unlockedBy(itemUnlockName(ItemRegistry.WOODEN_PARTS.get()), itemCriterion(ItemRegistry.WOODEN_PARTS.get()))
+                .save(recipeConsumer);
+        ShapedRecipeBuilder.shaped(ItemRegistry.BOOK_STACK.get())
+                .define('B', Items.BOOK)
+                .define('D', ItemRegistry.BLUE_DYE_POWDER.get())
+                .pattern("BD").pattern("BD").pattern("BD")
+                .unlockedBy(itemUnlockName(Items.BOOK), itemCriterion(Items.BOOK))
+                .save(recipeConsumer);
+        ShapedRecipeBuilder.shaped(ItemRegistry.PAPER.get(), 2)
+                .define('P', ItemRegistry.XUAN_PAPER.get())
+                .pattern("PP")
+                .unlockedBy(itemUnlockName(ItemRegistry.XUAN_PAPER.get()), itemCriterion(ItemRegistry.XUAN_PAPER.get()))
+                .save(recipeConsumer);
+        ShapedRecipeBuilder.shaped(ItemRegistry.BLUE_BOOK.get())
+                .define('B', Items.BOOK)
+                .define('D', ItemRegistry.BLUE_DYE_POWDER.get())
+                .pattern("BD")
+                .unlockedBy(itemUnlockName(Items.BOOK), itemCriterion(Items.BOOK))
+                .save(recipeConsumer);
+        ShapedRecipeBuilder.shaped(ItemRegistry.BAMBOO_SLIPS.get())
+                .define('S', Items.STRING)
+                .define('B', Items.BAMBOO)
+                .pattern("BBS").pattern("BBS").pattern("BBS")
+                .unlockedBy(itemUnlockName(Items.BAMBOO), itemCriterion(Items.BAMBOO))
+                .save(recipeConsumer);
+
+
+
+        // ICE
+
+        simpleStonecutting(Items.ICE, ItemRegistry.ICICLE.get(), recipeConsumer);
+        simpleStonecutting(Items.ICE, ItemRegistry.LARGE_ICICLE.get(), recipeConsumer);
+
+        // CELEBRATIONS
+
+        ShapedRecipeBuilder.shaped(ItemRegistry.COUPLET.get(), 2)
+                .define('P', ItemRegistry.XUAN_PAPER.get())
+                .define('R', ItemRegistry.RED_DYE_POWDER.get())
+                .define('I', Items.INK_SAC)
+                .pattern("PRP")
+                .pattern("PIP")
+                .pattern("PRP")
+                .unlockedBy(itemUnlockName(ItemRegistry.XUAN_PAPER.get()), itemCriterion(ItemRegistry.XUAN_PAPER.get()))
+                .save(recipeConsumer);
+        ShapedRecipeBuilder.shaped(ItemRegistry.COUPLET_TOP.get())
+                .define('P', ItemRegistry.XUAN_PAPER.get())
+                .define('R', ItemRegistry.RED_DYE_POWDER.get())
+                .define('I', Items.INK_SAC)
+                .pattern("PPP")
+                .pattern("RIR")
+                .unlockedBy(itemUnlockName(ItemRegistry.XUAN_PAPER.get()), itemCriterion(ItemRegistry.XUAN_PAPER.get()))
+                .save(recipeConsumer);
+        ShapedRecipeBuilder.shaped(ItemRegistry.FU_MARK.get())
+                .define('P', ItemRegistry.XUAN_PAPER.get())
+                .define('R', ItemRegistry.RED_DYE_POWDER.get())
+                .define('G', ItemRegistry.GOLD_DYE_POWDER.get())
+                .define('I', Items.INK_SAC)
+                .pattern("GPR")
+                .pattern("PIP")
+                .pattern("RPG")
+                .unlockedBy(itemUnlockName(ItemRegistry.XUAN_PAPER.get()), itemCriterion(ItemRegistry.XUAN_PAPER.get()))
+                .save(recipeConsumer);
+
+    }
+
+    private static void categoryFurniture(@NotNull Consumer<FinishedRecipe> recipeConsumer){
+
+        // CABINET
+
+        // TABLE
+
+        ShapedRecipeBuilder.shaped(ItemRegistry.PORCELAIN_INLAID_TABLE.get())
+                .define('P', ItemRegistry.PORCELAIN_PARTS.get())
+                .define('W', ItemRegistry.WOODEN_PARTS.get())
+                .define('F', ItemRegistry.WOODEN_FRAME.get())
+                .define('S', ItemRegistry.POLISHED_SPRUCE_PLANK.get())
+                .define('L', Items.SPRUCE_PLANKS)
+                .pattern(" P ")
+                .pattern("WSW")
+                .pattern("LFL")
+                .unlockedBy(itemUnlockName(ItemRegistry.XUAN_PAPER.get()), itemCriterion(ItemRegistry.XUAN_PAPER.get()))
+                .save(recipeConsumer);
+
+        //todo add rest of furniture's
+
+    }
+
     private static void categoryLamps(@NotNull Consumer<FinishedRecipe> recipeConsumer) {
         ShapedRecipeBuilder.shaped(Items.WHITE_CANDLE, 1)
                 .define('S', Items.STRING)
@@ -869,6 +995,31 @@ public class ModRecipeProvider extends RecipeProvider {
                 .pattern("P")
                 .unlockedBy(itemUnlockName(Items.CANDLE), itemCriterion(Items.CANDLE))
                 .save(recipeConsumer);
+        ShapedRecipeBuilder.shaped(ItemRegistry.RED_LANTERN_STREETLIGHT.get())
+                .define('L', ItemTags.LOGS)
+                .define('P', ItemTags.PLANKS)
+                .define('R', ItemRegistry.SMALL_RED_LANTERN.get())
+                .pattern("PP")
+                .pattern("LR")
+                .pattern("L ")
+                .unlockedBy(itemUnlockName(ItemRegistry.SMALL_RED_LANTERN.get()), itemCriterion(ItemRegistry.SMALL_RED_LANTERN.get()))
+                .save(recipeConsumer);
+        ShapedRecipeBuilder.shaped(ItemRegistry.HANGING_RED_LANTERN_STREETLIGHT.get())
+                .define('P', ItemTags.PLANKS)
+                .define('R', ItemRegistry.SMALL_RED_LANTERN.get())
+                .pattern("PPP")
+                .pattern(" R ")
+                .unlockedBy(itemUnlockName(ItemRegistry.SMALL_RED_LANTERN.get()), itemCriterion(ItemRegistry.SMALL_RED_LANTERN.get()))
+                .save(recipeConsumer);
+        ShapedRecipeBuilder.shaped(ItemRegistry.STREETLIGHT_POLE.get())
+                .define('L', ItemTags.LOGS)
+                .define('P', ItemTags.PLANKS)
+                .pattern("P")
+                .pattern("L")
+                .pattern("L")
+                .unlockedBy(itemUnlockName(ItemRegistry.SMALL_RED_LANTERN.get()), itemCriterion(ItemRegistry.SMALL_RED_LANTERN.get()))
+                .save(recipeConsumer);
+
     }
 
     private static void categoryMaterials(@NotNull Consumer<FinishedRecipe> recipeConsumer) {

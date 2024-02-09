@@ -1,0 +1,28 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " P ",
+    "WSW",
+    "LFL"
+  ],
+  "key": {
+    "P": {
+      "item": "ultramarine:porcelain_parts"
+    },
+    "W": {
+      "item": "ultramarine:wooden_parts"
+    },
+    "F": {
+      "item": "ultramarine:wooden_frame"
+    },
+    "S": {
+      "item": "ultramarine:polished_spruce_plank"
+    },
+    "L": {
+      "item": "minecraft:spruce_planks"
+    }
+  },
+  "result": {
+    "item": "ultramarine:porcelain_inlaid_table"
+  }
+}

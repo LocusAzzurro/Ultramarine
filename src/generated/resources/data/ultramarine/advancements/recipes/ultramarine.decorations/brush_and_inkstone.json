@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "ultramarine:brush_and_inkstone"
+    ]
+  },
+  "criteria": {
+    "has_xuan_paper": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "ultramarine:xuan_paper"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "ultramarine:brush_and_inkstone"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_xuan_paper",
+      "has_the_recipe"
+    ]
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "PP",
+    "LR",
+    "L "
+  ],
+  "key": {
+    "L": {
+      "tag": "minecraft:logs"
+    },
+    "P": {
+      "tag": "minecraft:planks"
+    },
+    "R": {
+      "item": "ultramarine:small_red_lantern"
+    }
+  },
+  "result": {
+    "item": "ultramarine:red_lantern_streetlight"
+  }
+}

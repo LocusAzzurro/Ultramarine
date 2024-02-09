@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "ultramarine:large_icicle"
+    ]
+  },
+  "criteria": {
+    "has_ice": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "ultramarine:large_icicle"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "ultramarine:large_icicle"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_ice",
+      "has_the_recipe"
+    ]
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "GPR",
+    "PIP",
+    "RPG"
+  ],
+  "key": {
+    "P": {
+      "item": "ultramarine:xuan_paper"
+    },
+    "R": {
+      "item": "ultramarine:red_dye_powder"
+    },
+    "G": {
+      "item": "ultramarine:gold_dye_powder"
+    },
+    "I": {
+      "item": "minecraft:ink_sac"
+    }
+  },
+  "result": {
+    "item": "ultramarine:fu_mark"
+  }
+}
