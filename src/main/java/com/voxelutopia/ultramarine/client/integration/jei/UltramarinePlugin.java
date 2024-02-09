@@ -24,6 +24,7 @@ import java.util.Objects;
 @JeiPlugin
 public class UltramarinePlugin implements IModPlugin {
 
+    public static final ResourceLocation JEI_GUI_VANILLA = new ResourceLocation("jei", "textures/gui/gui_vanilla.png");
     private static final Logger LOGGER = Ultramarine.getLogger();
 
     public UltramarinePlugin(){

@@ -17,7 +17,6 @@ import mezz.jei.api.helpers.IGuiHelper;
 import mezz.jei.api.recipe.IFocusGroup;
 import mezz.jei.api.recipe.RecipeType;
 import mezz.jei.api.recipe.category.IRecipeCategory;
-import mezz.jei.config.Constants;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.Font;
 import net.minecraft.network.chat.Component;
@@ -55,11 +54,11 @@ public class CompositeSmeltingRecipeCategory implements IRecipeCategory<Composit
                 .build(new CacheLoader<>() {
                     @Override
                     public IDrawableAnimated load(Integer cookTime) {
-                        return guiHelper.drawableBuilder(Constants.RECIPE_GUI_VANILLA, 82, 128, 24, 17)
+                        return guiHelper.drawableBuilder(UltramarinePlugin.JEI_GUI_VANILLA, 82, 128, 24, 17)
                                 .buildAnimated(cookTime, IDrawableAnimated.StartDirection.LEFT, false);
                     }
                 });
-        this.staticFlame = guiHelper.createDrawable(Constants.RECIPE_GUI_VANILLA, 82, 114, 14, 14);
+        this.staticFlame = guiHelper.createDrawable(UltramarinePlugin.JEI_GUI_VANILLA, 82, 114, 14, 14);
         this.animatedFlame = guiHelper.createAnimatedDrawable(staticFlame, 300, IDrawableAnimated.StartDirection.TOP, true);
     }
 

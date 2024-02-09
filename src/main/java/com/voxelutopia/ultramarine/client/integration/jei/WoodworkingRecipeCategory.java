@@ -13,7 +13,6 @@ import mezz.jei.api.recipe.IFocusGroup;
 import mezz.jei.api.recipe.RecipeIngredientRole;
 import mezz.jei.api.recipe.RecipeType;
 import mezz.jei.api.recipe.category.IRecipeCategory;
-import mezz.jei.config.Constants;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.resources.ResourceLocation;
@@ -21,12 +20,6 @@ import net.minecraft.world.item.ItemStack;
 
 public class WoodworkingRecipeCategory implements IRecipeCategory<WoodworkingRecipe> {
 
-
-    /*
-    public static final RecipeType<WoodworkingRecipe> WOODWORKING_RECIPE_TYPE =
-            RecipeType.create(Ultramarine.MOD_ID, "woodworking", WoodworkingRecipe.class);
-
-     */
 
     public static final ResourceLocation UID = new ResourceLocation(Ultramarine.MOD_ID, "woodworking");
 
@@ -41,8 +34,7 @@ public class WoodworkingRecipeCategory implements IRecipeCategory<WoodworkingRec
     private final Component localizedName;
 
     public WoodworkingRecipeCategory(IGuiHelper guiHelper) {
-        ResourceLocation location = Constants.RECIPE_GUI_VANILLA;
-        background = guiHelper.createDrawable(location, 0, 220, WIDTH, HEIGHT);
+        background = guiHelper.createDrawable(UltramarinePlugin.JEI_GUI_VANILLA, 0, 220, WIDTH, HEIGHT);
         icon = guiHelper.createDrawableIngredient(VanillaTypes.ITEM_STACK, new ItemStack(BlockRegistry.WOODWORKING_WORKBENCH.get()));
         localizedName = new TranslatableComponent("gui.jei.category.woodworking");
     }
