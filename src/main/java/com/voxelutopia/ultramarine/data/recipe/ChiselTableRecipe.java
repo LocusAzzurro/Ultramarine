@@ -147,9 +147,9 @@ public class ChiselTableRecipe implements Recipe<Container> {
             Ingredient template = Ingredient.fromNetwork(pBuffer);
             Ingredient[] colors = new Ingredient[4];
             for (int i = 0; i < 4; i++){
-                Ingredient.fromNetwork(pBuffer);
+                colors[i] = Ingredient.fromNetwork(pBuffer);
             }
-            colors = Arrays.stream(colors).filter(i -> !i.isEmpty()).toList().toArray(new Ingredient[4]);
+            colors = Arrays.stream(colors).filter(i -> !i.isEmpty()).toList().toArray(new Ingredient[0]);
             ItemStack result = pBuffer.readItem();
             return new ChiselTableRecipe(pRecipeId, group, material, template, colors, result);
         }
@@ -162,6 +162,9 @@ public class ChiselTableRecipe implements Recipe<Container> {
             Ingredient[] colors = new Ingredient[4];
             for (int i = 0; i < 4; i++) {
                 colors[i] = i < pRecipe.colors.size() ? pRecipe.colors.get(i) : Ingredient.EMPTY;
+            }
+            for (int i = 0; i < 4; i++) {
+                colors[i].toNetwork(pBuffer);
             }
             pBuffer.writeItem(pRecipe.result);
         }
