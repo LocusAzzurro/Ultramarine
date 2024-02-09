@@ -816,7 +816,18 @@ public class ModRecipeProvider extends RecipeProvider {
                 .unlockedBy(itemUnlockName(Items.BAMBOO), itemCriterion(Items.BAMBOO))
                 .save(recipeConsumer);
 
+        // FOOD
 
+        ShapedRecipeBuilder.shaped(ItemRegistry.FOOD_HAMPER.get())
+                .define('C', Items.CHEST)
+                .define('F', ItemRegistry.WOODEN_FRAME.get())
+                .define('P', ModItemTags.POLISHED_PLANKS)
+                .define('B', Items.BREAD)
+                .pattern("FBF")
+                .pattern("PCP")
+                .pattern("PCP")
+                .unlockedBy(itemUnlockName(Items.CHEST), itemCriterion(Items.CHEST))
+                .save(recipeConsumer);
 
         // ICE
 
