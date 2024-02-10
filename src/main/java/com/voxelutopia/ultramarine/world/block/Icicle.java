@@ -37,6 +37,7 @@ public class Icicle extends WallSideBlock{
     @Override
     public BlockState getStateForPlacement(BlockPlaceContext pContext) {
         BlockState state = super.getStateForPlacement(pContext);
+        if (state == null) return null;
         return state.setValue(VARIANT, 0);
     }
 
