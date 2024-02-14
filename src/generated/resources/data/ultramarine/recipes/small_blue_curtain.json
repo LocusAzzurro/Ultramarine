@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "SSS",
+    "DDD"
+  ],
+  "key": {
+    "S": {
+      "item": "ultramarine:silk"
+    },
+    "D": {
+      "item": "ultramarine:blue_dye_powder"
+    }
+  },
+  "result": {
+    "item": "ultramarine:small_blue_curtain",
+    "count": 2
+  }
+}

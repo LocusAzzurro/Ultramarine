@@ -38,6 +38,7 @@ public class ModRecipeProvider extends RecipeProvider {
         categoryDecorativeBlocks(recipeConsumer);
         categoryDecorations(recipeConsumer);
         categoryFurniture(recipeConsumer);
+        categoryWindowsDoors(recipeConsumer);
         categoryMaterials(recipeConsumer);
         categoryTools(recipeConsumer);
         categoryLamps(recipeConsumer);
@@ -885,6 +886,115 @@ public class ModRecipeProvider extends RecipeProvider {
                 .save(recipeConsumer);
 
         //todo add rest of furniture's
+
+    }
+
+    private static void categoryWindowsDoors(@NotNull Consumer<FinishedRecipe> recipeConsumer){
+
+        // DOOR
+
+        woodworking(Ingredient.of(ItemTags.LOGS), ItemRegistry.CARVED_WOODEN_DOOR.get(), 1).unlockedBy("has_log", tagUnlock(ItemTags.LOGS)).save(recipeConsumer);
+        woodworking(Ingredient.of(ItemTags.LOGS), ItemRegistry.SONG_WOODEN_DOOR.get(), 1).unlockedBy("has_log", tagUnlock(ItemTags.LOGS)).save(recipeConsumer);
+
+        // WINDOW
+
+        woodworking(Ingredient.of(ItemTags.PLANKS), ItemRegistry.SONG_WOODEN_WINDOW.get(), 1).unlockedBy("has_plank", tagUnlock(ItemTags.PLANKS)).save(recipeConsumer);
+        woodworking(Ingredient.of(ItemRegistry.ROSEWOOD_PLANKS.get()), ItemRegistry.ROYAL_ROSEWOOD_WINDOW.get(), 1)
+                .unlockedBy(itemUnlockName(ItemRegistry.ROSEWOOD_PLANKS.get()), itemCriterion(ItemRegistry.ROSEWOOD_PLANKS.get())).save(recipeConsumer);
+        ShapedRecipeBuilder.shaped(ItemRegistry.TALL_ROYAL_ROSEWOOD_WINDOW.get(), 1)
+                .define('W', ItemRegistry.ROYAL_ROSEWOOD_WINDOW.get())
+                .pattern("W").pattern("W")
+                .unlockedBy(itemUnlockName(ItemRegistry.ROYAL_ROSEWOOD_WINDOW.get()), itemCriterion(ItemRegistry.ROYAL_ROSEWOOD_WINDOW.get()))
+                .save(recipeConsumer);
+        ShapedRecipeBuilder.shaped(ItemRegistry.GLAZED_TILE_GRID_WINDOW.get())
+                .define('G', ItemRegistry.GREEN_GLAZED_TILES.get())
+                .define('I', Items.IRON_BARS)
+                .pattern("GGG")
+                .pattern("GIG")
+                .pattern("GGG")
+                .unlockedBy(itemUnlockName(ItemRegistry.GREEN_GLAZED_TILES.get()), itemCriterion(ItemRegistry.GREEN_GLAZED_TILES.get()))
+                .save(recipeConsumer);
+        simpleStonecutting(Items.CHISELED_STONE_BRICKS, ItemRegistry.STONE_FLOWER_WINDOW.get(), recipeConsumer);
+
+        // DOOR DECO
+
+        ShapedRecipeBuilder.shaped(ItemRegistry.KNOCKER.get())
+                .define('I', ItemRegistry.BRONZE_INGOT.get())
+                .define('P', ItemRegistry.BRONZE_PARTS.get())
+                .pattern("IP")
+                .unlockedBy(itemUnlockName(ItemRegistry.BRONZE_INGOT.get()), itemCriterion(ItemRegistry.BRONZE_INGOT.get()))
+                .save(recipeConsumer);
+        woodworking(Ingredient.of(ItemRegistry.ROSEWOOD_PLANKS.get()), ItemRegistry.ROSEWOOD_PANEL.get(), 1)
+                .unlockedBy(itemUnlockName(ItemRegistry.ROSEWOOD_PLANKS.get()), itemCriterion(ItemRegistry.ROSEWOOD_PLANKS.get())).save(recipeConsumer);
+        woodworking(Ingredient.of(ItemRegistry.ROSEWOOD_PLANKS.get()), ItemRegistry.ROSEWOOD_DOOR_PANEL.get(), 1)
+                .unlockedBy(itemUnlockName(ItemRegistry.ROSEWOOD_PLANKS.get()), itemCriterion(ItemRegistry.ROSEWOOD_PLANKS.get())).save(recipeConsumer);
+        woodworking(Ingredient.of(ItemRegistry.ROSEWOOD_PLANKS.get()), ItemRegistry.LARGE_ROSEWOOD_PANEL.get(), 1)
+                .unlockedBy(itemUnlockName(ItemRegistry.ROSEWOOD_PLANKS.get()), itemCriterion(ItemRegistry.ROSEWOOD_PLANKS.get())).save(recipeConsumer);
+        woodworking(Ingredient.of(ItemRegistry.ROSEWOOD_PLANKS.get()), ItemRegistry.LARGE_ROSEWOOD_PANEL_EDGE.get(), 1)
+                .unlockedBy(itemUnlockName(ItemRegistry.ROSEWOOD_PLANKS.get()), itemCriterion(ItemRegistry.ROSEWOOD_PLANKS.get())).save(recipeConsumer);
+        woodworking(Ingredient.of(ItemTags.PLANKS), ItemRegistry.CARVED_WOODEN_DOOR_PANEL.get(), 1).unlockedBy("has_plank", tagUnlock(ItemTags.PLANKS)).save(recipeConsumer);
+        ShapedRecipeBuilder.shaped(ItemRegistry.PLAQUE.get())
+                .define('P', ItemRegistry.XUAN_PAPER.get())
+                .define('W', ItemRegistry.WOODEN_PARTS.get())
+                .define('F', ItemRegistry.WOODEN_FRAME.get())
+                .define('S', ModItemTags.POLISHED_PLANKS)
+                .define('I', Items.INK_SAC)
+                .pattern("W W")
+                .pattern("FSF")
+                .pattern("PIP")
+                .unlockedBy(itemUnlockName(ItemRegistry.XUAN_PAPER.get()), itemCriterion(ItemRegistry.XUAN_PAPER.get()))
+                .save(recipeConsumer);
+        ShapedRecipeBuilder.shaped(ItemRegistry.PAPER_STRIP_SEAL.get(), 2)
+                .define('P', ItemRegistry.XUAN_PAPER.get())
+                .define('I', Items.INK_SAC)
+                .pattern("P P")
+                .pattern(" I ")
+                .pattern("P P")
+                .unlockedBy(itemUnlockName(ItemRegistry.XUAN_PAPER.get()), itemCriterion(ItemRegistry.XUAN_PAPER.get()))
+                .save(recipeConsumer);
+
+        // WINDOW DECO
+
+        ShapedRecipeBuilder.shaped(ItemRegistry.SMALL_BLUE_CURTAIN.get(), 2)
+                .define('S', ItemRegistry.SILK.get())
+                .define('D', ItemRegistry.BLUE_DYE_POWDER.get())
+                .pattern("SSS")
+                .pattern("DDD")
+                .unlockedBy(itemUnlockName(ItemRegistry.SILK.get()), itemCriterion(ItemRegistry.SILK.get()))
+                .save(recipeConsumer);
+        ShapedRecipeBuilder.shaped(ItemRegistry.MEDIUM_BLUE_CURTAIN.get(), 1)
+                .define('C', ItemRegistry.SMALL_BLUE_CURTAIN.get())
+                .pattern("CC")
+                .unlockedBy(itemUnlockName(ItemRegistry.SMALL_BLUE_CURTAIN.get()), itemCriterion(ItemRegistry.SMALL_BLUE_CURTAIN.get()))
+                .save(recipeConsumer);
+        ShapedRecipeBuilder.shaped(ItemRegistry.LARGE_BLUE_CURTAIN.get(), 1)
+                .define('C', ItemRegistry.SMALL_BLUE_CURTAIN.get())
+                .pattern("CCC")
+                .unlockedBy(itemUnlockName(ItemRegistry.SMALL_BLUE_CURTAIN.get()), itemCriterion(ItemRegistry.SMALL_BLUE_CURTAIN.get()))
+                .save(recipeConsumer);
+        ShapedRecipeBuilder.shaped(ItemRegistry.RED_CURTAIN.get())
+                .define('S', ItemRegistry.SILK.get())
+                .define('D', ItemRegistry.RED_DYE_POWDER.get())
+                .define('G', ItemRegistry.GOLD_PARTS.get())
+                .pattern("SSS")
+                .pattern("DDD")
+                .pattern(" G ")
+                .unlockedBy(itemUnlockName(ItemRegistry.SILK.get()), itemCriterion(ItemRegistry.SILK.get()))
+                .save(recipeConsumer);
+        ShapedRecipeBuilder.shaped(ItemRegistry.RED_CURTAIN_CORNER.get())
+                .define('C', ItemRegistry.RED_CURTAIN.get())
+                .pattern("C ")
+                .pattern(" C")
+                .unlockedBy(itemUnlockName(ItemRegistry.RED_CURTAIN.get()), itemCriterion(ItemRegistry.RED_CURTAIN.get()))
+                .save(recipeConsumer);
+        ShapedRecipeBuilder.shaped(ItemRegistry.BAMBOO_CURTAIN.get())
+                .define('B', Items.BAMBOO)
+                .define('S', Items.STRING)
+                .pattern("BBB")
+                .pattern("SSS")
+                .pattern("BBB")
+                .unlockedBy(itemUnlockName(Items.BAMBOO), itemCriterion(Items.BAMBOO))
+                .save(recipeConsumer);
 
     }
 
