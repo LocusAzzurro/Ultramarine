@@ -1,28 +1,28 @@
 {
   "type": "minecraft:crafting_shaped",
   "pattern": [
-    " P ",
-    "WSW",
-    "LFL"
+    "AWA",
+    "FPF",
+    "WBW"
   ],
   "key": {
-    "P": {
-      "item": "ultramarine:porcelain_parts"
-    },
-    "W": {
-      "item": "ultramarine:wooden_parts"
-    },
     "F": {
       "item": "ultramarine:wooden_frame"
     },
-    "S": {
+    "W": {
       "item": "ultramarine:polished_rosewood_plank"
     },
-    "L": {
+    "B": {
       "item": "ultramarine:rosewood_planks"
+    },
+    "A": {
+      "item": "ultramarine:wooden_parts"
+    },
+    "P": {
+      "tag": "ultramarine:painting_scroll_items"
     }
   },
   "result": {
-    "item": "ultramarine:porcelain_inlaid_table"
+    "item": "ultramarine:painted_screen"
   }
 }

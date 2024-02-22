@@ -2,7 +2,7 @@
   "parent": "minecraft:recipes/root",
   "rewards": {
     "recipes": [
-      "ultramarine:porcelain_inlaid_table"
+      "ultramarine:porcelain_inlaid_grand_chair"
     ]
   },
   "criteria": {
@@ -21,7 +21,7 @@
     "has_the_recipe": {
       "trigger": "minecraft:recipe_unlocked",
       "conditions": {
-        "recipe": "ultramarine:porcelain_inlaid_table"
+        "recipe": "ultramarine:porcelain_inlaid_grand_chair"
       }
     }
   },

@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "FIA",
+    "WIA",
+    "WFW"
+  ],
+  "key": {
+    "F": {
+      "item": "ultramarine:wooden_frame"
+    },
+    "W": {
+      "item": "ultramarine:polished_rosewood_plank"
+    },
+    "A": {
+      "item": "ultramarine:wooden_parts"
+    },
+    "I": {
+      "item": "ultramarine:porcelain_parts"
+    }
+  },
+  "result": {
+    "item": "ultramarine:porcelain_inlaid_grand_chair"
+  }
+}

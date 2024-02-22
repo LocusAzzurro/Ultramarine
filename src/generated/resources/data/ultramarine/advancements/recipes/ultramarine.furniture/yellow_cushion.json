@@ -2,17 +2,17 @@
   "parent": "minecraft:recipes/root",
   "rewards": {
     "recipes": [
-      "ultramarine:porcelain_inlaid_table"
+      "ultramarine:yellow_cushion"
     ]
   },
   "criteria": {
-    "has_polished_rosewood_plank": {
+    "has_silk": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
             "items": [
-              "ultramarine:polished_rosewood_plank"
+              "ultramarine:silk"
             ]
           }
         ]
@@ -21,13 +21,13 @@
     "has_the_recipe": {
       "trigger": "minecraft:recipe_unlocked",
       "conditions": {
-        "recipe": "ultramarine:porcelain_inlaid_table"
+        "recipe": "ultramarine:yellow_cushion"
       }
     }
   },
   "requirements": [
     [
-      "has_polished_rosewood_plank",
+      "has_silk",
       "has_the_recipe"
     ]
   ]

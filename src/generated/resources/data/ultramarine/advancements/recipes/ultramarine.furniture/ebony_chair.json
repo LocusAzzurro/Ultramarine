@@ -2,17 +2,17 @@
   "parent": "minecraft:recipes/root",
   "rewards": {
     "recipes": [
-      "ultramarine:porcelain_inlaid_table"
+      "ultramarine:ebony_chair"
     ]
   },
   "criteria": {
-    "has_polished_rosewood_plank": {
+    "has_polished_ebony_plank": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
             "items": [
-              "ultramarine:polished_rosewood_plank"
+              "ultramarine:polished_ebony_plank"
             ]
           }
         ]
@@ -21,13 +21,13 @@
     "has_the_recipe": {
       "trigger": "minecraft:recipe_unlocked",
       "conditions": {
-        "recipe": "ultramarine:porcelain_inlaid_table"
+        "recipe": "ultramarine:ebony_chair"
       }
     }
   },
   "requirements": [
     [
-      "has_polished_rosewood_plank",
+      "has_polished_ebony_plank",
       "has_the_recipe"
     ]
   ]

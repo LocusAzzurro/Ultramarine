@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "GWG",
+    "WCW",
+    "WCW"
+  ],
+  "key": {
+    "W": {
+      "item": "ultramarine:polished_ebony_plank"
+    },
+    "G": {
+      "item": "ultramarine:gold_parts"
+    },
+    "C": {
+      "item": "minecraft:chest"
+    }
+  },
+  "result": {
+    "item": "ultramarine:ebony_cabinet"
+  }
+}

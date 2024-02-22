@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "GWG",
+    "SFS",
+    "SWS"
+  ],
+  "key": {
+    "F": {
+      "item": "ultramarine:wooden_frame"
+    },
+    "S": {
+      "item": "minecraft:stick"
+    },
+    "W": {
+      "item": "ultramarine:polished_spruce_plank"
+    },
+    "G": {
+      "item": "ultramarine:gold_parts"
+    }
+  },
+  "result": {
+    "item": "ultramarine:censer_table"
+  }
+}

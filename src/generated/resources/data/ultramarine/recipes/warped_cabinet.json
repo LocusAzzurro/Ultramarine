@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "WWW",
+    "WCW",
+    "PFP"
+  ],
+  "key": {
+    "F": {
+      "item": "ultramarine:wooden_frame"
+    },
+    "W": {
+      "item": "ultramarine:polished_warped_plank"
+    },
+    "P": {
+      "item": "minecraft:warped_planks"
+    },
+    "C": {
+      "item": "minecraft:chest"
+    }
+  },
+  "result": {
+    "item": "ultramarine:warped_cabinet"
+  }
+}

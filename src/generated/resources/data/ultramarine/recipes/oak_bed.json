@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "FAF",
+    "WWW",
+    "WFW"
+  ],
+  "key": {
+    "F": {
+      "item": "ultramarine:wooden_frame"
+    },
+    "W": {
+      "item": "ultramarine:polished_oak_plank"
+    },
+    "A": {
+      "item": "ultramarine:wooden_parts"
+    }
+  },
+  "result": {
+    "item": "ultramarine:oak_bed"
+  }
+}

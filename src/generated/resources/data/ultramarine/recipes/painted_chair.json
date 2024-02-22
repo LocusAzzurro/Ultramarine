@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "P  ",
+    "FWA",
+    "WFW"
+  ],
+  "key": {
+    "F": {
+      "item": "ultramarine:wooden_frame"
+    },
+    "W": {
+      "tag": "ultramarine:polished_planks"
+    },
+    "A": {
+      "item": "ultramarine:wooden_parts"
+    },
+    "P": {
+      "tag": "ultramarine:painting_scroll_items"
+    }
+  },
+  "result": {
+    "item": "ultramarine:painted_chair"
+  }
+}

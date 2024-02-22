@@ -44,6 +44,17 @@ public class ModItemTagProvider extends ItemTagsProvider {
                 .add(ItemRegistry.PORCELAIN_PARTS.get())
                 .add(ItemRegistry.JADE_PARTS.get())
                 .add(ItemRegistry.GOLD_PARTS.get());
+        tag(ModItemTags.PAINTING_SCROLL_ITEMS)
+                .add(ItemRegistry.LONG_HANGING_PAINTING.get())
+                .add(ItemRegistry.WHITE_LANDSCAPE_PAINTING.get())
+                .add(ItemRegistry.HORIZONTAL_OLD_LANDSCAPE_PAINTING.get())
+                .add(ItemRegistry.HORIZONTAL_CALLIGRAPHY.get())
+                .add(ItemRegistry.HORIZONTAL_LANDSCAPE_PAINTING.get())
+                .add(ItemRegistry.LONG_YELLOW_HANGING_PAINTING.get())
+                .add(ItemRegistry.PORTRAIT.get())
+                .add(ItemRegistry.SINCERE_CALLIGRAPHY.get());
+
+
 
     }
     @NotNull

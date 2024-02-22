@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "FC ",
+    "SFS"
+  ],
+  "key": {
+    "F": {
+      "item": "ultramarine:wooden_frame"
+    },
+    "S": {
+      "item": "minecraft:stick"
+    },
+    "C": {
+      "item": "ultramarine:yellow_cushion"
+    }
+  },
+  "result": {
+    "item": "ultramarine:chair_with_yellow_cushion"
+  }
+}

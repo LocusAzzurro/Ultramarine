@@ -2,17 +2,17 @@
   "parent": "minecraft:recipes/root",
   "rewards": {
     "recipes": [
-      "ultramarine:porcelain_inlaid_table"
+      "ultramarine:chess_table"
     ]
   },
   "criteria": {
-    "has_polished_rosewood_plank": {
+    "has_chessboard": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
             "items": [
-              "ultramarine:polished_rosewood_plank"
+              "ultramarine:chessboard"
             ]
           }
         ]
@@ -21,13 +21,13 @@
     "has_the_recipe": {
       "trigger": "minecraft:recipe_unlocked",
       "conditions": {
-        "recipe": "ultramarine:porcelain_inlaid_table"
+        "recipe": "ultramarine:chess_table"
       }
     }
   },
   "requirements": [
     [
-      "has_polished_rosewood_plank",
+      "has_chessboard",
       "has_the_recipe"
     ]
   ]
