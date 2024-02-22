@@ -1,0 +1,39 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "ultramarine:small_lotus_leaf"
+    ]
+  },
+  "criteria": {
+    "has_big_dripleaf": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:lily_pad"
+            ]
+          },
+          {
+            "items": [
+              "minecraft:big_dripleaf"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "ultramarine:small_lotus_leaf"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_big_dripleaf",
+      "has_the_recipe"
+    ]
+  ]
+}

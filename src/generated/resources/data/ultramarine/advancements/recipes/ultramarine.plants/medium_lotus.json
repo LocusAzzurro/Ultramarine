@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "ultramarine:medium_lotus"
+    ]
+  },
+  "criteria": {
+    "has_lotus_bud": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "ultramarine:lotus_bud"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "ultramarine:medium_lotus"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_lotus_bud",
+      "has_the_recipe"
+    ]
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "ultramarine:large_lotus_leaf"
+    }
+  ],
+  "result": {
+    "item": "ultramarine:tilted_lotus_leaf"
+  }
+}

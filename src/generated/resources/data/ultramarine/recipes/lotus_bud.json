@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "F",
+    "L"
+  ],
+  "key": {
+    "L": {
+      "item": "minecraft:big_dripleaf"
+    },
+    "F": {
+      "item": "minecraft:spore_blossom"
+    }
+  },
+  "result": {
+    "item": "ultramarine:lotus_bud"
+  }
+}

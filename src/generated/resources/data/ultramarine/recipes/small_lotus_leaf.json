@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "minecraft:lily_pad"
+    },
+    {
+      "item": "minecraft:big_dripleaf"
+    }
+  ],
+  "result": {
+    "item": "ultramarine:small_lotus_leaf",
+    "count": 2
+  }
+}

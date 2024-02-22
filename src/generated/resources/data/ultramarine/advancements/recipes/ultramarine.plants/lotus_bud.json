@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "ultramarine:lotus_bud"
+    ]
+  },
+  "criteria": {
+    "has_spore_blossom": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:spore_blossom"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "ultramarine:lotus_bud"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_spore_blossom",
+      "has_the_recipe"
+    ]
+  ]
+}
