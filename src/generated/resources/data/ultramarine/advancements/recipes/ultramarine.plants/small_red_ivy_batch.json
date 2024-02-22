@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "ultramarine:small_red_ivy_batch"
+    ]
+  },
+  "criteria": {
+    "has_vine": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:vine"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "ultramarine:small_red_ivy_batch"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_vine",
+      "has_the_recipe"
+    ]
+  ]
+}

@@ -1080,6 +1080,8 @@ public class ModRecipeProvider extends RecipeProvider {
 
     private static void categoryPlants(@NotNull Consumer<FinishedRecipe> recipeConsumer){
 
+        // LOTUS
+
         ShapelessRecipeBuilder.shapeless(ItemRegistry.SMALL_LOTUS_LEAF.get(), 2).requires(Items.LILY_PAD).requires(Items.BIG_DRIPLEAF)
                 .unlockedBy(itemUnlockName(Items.BIG_DRIPLEAF), itemCriterion(Items.LILY_PAD, Items.BIG_DRIPLEAF)).save(recipeConsumer);
         ShapelessRecipeBuilder.shapeless(ItemRegistry.SMALL_DARK_GREEN_LOTUS_LEAF.get(), 1).requires(ItemRegistry.SMALL_LOTUS_LEAF.get())
@@ -1098,7 +1100,6 @@ public class ModRecipeProvider extends RecipeProvider {
         ShapedRecipeBuilder.shaped(ItemRegistry.MEDIUM_LOTUS_LEAF_CLUSTER.get(), 2)
                 .define('L', ItemRegistry.MEDIUM_LOTUS_LEAF.get()).pattern("L ").pattern(" L")
                 .unlockedBy(itemUnlockName(ItemRegistry.MEDIUM_LOTUS_LEAF.get()), itemCriterion(ItemRegistry.MEDIUM_LOTUS_LEAF.get())).save(recipeConsumer);
-
         ShapedRecipeBuilder.shaped(ItemRegistry.LOTUS_BUD.get(), 1)
                 .define('L', Items.BIG_DRIPLEAF)
                 .define('F', Items.SPORE_BLOSSOM)
@@ -1106,6 +1107,45 @@ public class ModRecipeProvider extends RecipeProvider {
                 .unlockedBy(itemUnlockName(Items.SPORE_BLOSSOM), itemCriterion(Items.SPORE_BLOSSOM)).save(recipeConsumer);
         ShapelessRecipeBuilder.shapeless(ItemRegistry.MEDIUM_LOTUS.get(), 1).requires(ItemRegistry.LOTUS_BUD.get()).requires(Items.BONE_MEAL)
                 .unlockedBy(itemUnlockName(ItemRegistry.LOTUS_BUD.get()), itemCriterion(ItemRegistry.LOTUS_BUD.get())).save(recipeConsumer);
+
+        // IVY
+
+        blockTransform(Items.VINE, ModItemTags.FORGE_RED_DYE, ItemRegistry.SMALL_RED_IVY.get(), recipeConsumer);
+        ShapedRecipeBuilder.shaped(ItemRegistry.MEDIUM_RED_IVY.get(), 1)
+                .define('I', ItemRegistry.SMALL_RED_IVY.get())
+                .pattern("I").pattern("I")
+                .unlockedBy(itemUnlockName(ItemRegistry.SMALL_RED_IVY.get()), itemCriterion(ItemRegistry.SMALL_RED_IVY.get())).save(recipeConsumer);
+        ShapedRecipeBuilder.shaped(ItemRegistry.LARGE_RED_IVY.get(), 1)
+                .define('I', ItemRegistry.SMALL_RED_IVY.get())
+                .pattern("I").pattern("I").pattern("I")
+                .unlockedBy(itemUnlockName(ItemRegistry.SMALL_RED_IVY.get()), itemCriterion(ItemRegistry.SMALL_RED_IVY.get())).save(recipeConsumer);
+        blockTransform(Items.VINE, ModItemTags.FORGE_YELLOW_DYE, ItemRegistry.SMALL_YELLOW_IVY.get(), recipeConsumer);
+        ShapedRecipeBuilder.shaped(ItemRegistry.MEDIUM_YELLOW_IVY.get(), 1)
+                .define('I', ItemRegistry.SMALL_YELLOW_IVY.get())
+                .pattern("I").pattern("I")
+                .unlockedBy(itemUnlockName(ItemRegistry.SMALL_YELLOW_IVY.get()), itemCriterion(ItemRegistry.SMALL_YELLOW_IVY.get())).save(recipeConsumer);
+        ShapedRecipeBuilder.shaped(ItemRegistry.LARGE_YELLOW_IVY.get(), 1)
+                .define('I', ItemRegistry.SMALL_YELLOW_IVY.get())
+                .pattern("I").pattern("I").pattern("I")
+                .unlockedBy(itemUnlockName(ItemRegistry.SMALL_YELLOW_IVY.get()), itemCriterion(ItemRegistry.SMALL_YELLOW_IVY.get())).save(recipeConsumer);
+        blockTransform(Items.VINE, ModItemTags.FORGE_GREEN_DYE, ItemRegistry.SMALL_GREEN_IVY.get(), recipeConsumer);
+        ShapedRecipeBuilder.shaped(ItemRegistry.MEDIUM_GREEN_IVY.get(), 1)
+                .define('I', ItemRegistry.SMALL_GREEN_IVY.get())
+                .pattern("I").pattern("I")
+                .unlockedBy(itemUnlockName(ItemRegistry.SMALL_GREEN_IVY.get()), itemCriterion(ItemRegistry.SMALL_GREEN_IVY.get())).save(recipeConsumer);
+        ShapedRecipeBuilder.shaped(ItemRegistry.LARGE_GREEN_IVY.get(), 1)
+                .define('I', ItemRegistry.SMALL_RED_IVY.get())
+                .pattern("I").pattern("I").pattern("I")
+                .unlockedBy(itemUnlockName(ItemRegistry.SMALL_GREEN_IVY.get()), itemCriterion(ItemRegistry.SMALL_GREEN_IVY.get())).save(recipeConsumer);
+
+        // LEAVES
+
+        woodworking(Ingredient.of(ItemTags.LEAVES), ItemRegistry.SMALL_LEAF_PILE.get(), 8)
+                .unlockedBy("has_leaves", tagUnlock(ItemTags.LEAVES)).save(recipeConsumer);
+        woodworking(Ingredient.of(ItemTags.LEAVES), ItemRegistry.MEDIUM_LEAF_PILE.get(), 5)
+                .unlockedBy("has_leaves", tagUnlock(ItemTags.LEAVES)).save(recipeConsumer);
+        woodworking(Ingredient.of(ItemTags.LEAVES), ItemRegistry.LARGE_LEAF_PILE.get(), 3)
+                .unlockedBy("has_leaves", tagUnlock(ItemTags.LEAVES)).save(recipeConsumer);
 
     }
 

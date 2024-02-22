@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "ultramarine:large_green_ivy"
+    ]
+  },
+  "criteria": {
+    "has_small_green_ivy": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "ultramarine:small_green_ivy"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "ultramarine:large_green_ivy"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_small_green_ivy",
+      "has_the_recipe"
+    ]
+  ]
+}

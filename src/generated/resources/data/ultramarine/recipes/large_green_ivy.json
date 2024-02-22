@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "I",
+    "I",
+    "I"
+  ],
+  "key": {
+    "I": {
+      "item": "ultramarine:small_red_ivy"
+    }
+  },
+  "result": {
+    "item": "ultramarine:large_green_ivy"
+  }
+}
