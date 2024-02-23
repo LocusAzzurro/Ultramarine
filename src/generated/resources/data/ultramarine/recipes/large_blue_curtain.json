@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "CCC"
+  ],
+  "key": {
+    "C": {
+      "item": "ultramarine:small_blue_curtain"
+    }
+  },
+  "result": {
+    "item": "ultramarine:large_blue_curtain"
+  }
+}

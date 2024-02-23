@@ -1,0 +1,8 @@
+{
+  "type": "ultramarine:woodworking",
+  "ingredient": {
+    "tag": "minecraft:planks"
+  },
+  "result": "ultramarine:song_wooden_window",
+  "count": 1
+}

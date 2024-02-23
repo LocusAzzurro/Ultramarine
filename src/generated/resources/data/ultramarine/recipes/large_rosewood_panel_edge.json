@@ -1,0 +1,8 @@
+{
+  "type": "ultramarine:woodworking",
+  "ingredient": {
+    "item": "ultramarine:rosewood_planks"
+  },
+  "result": "ultramarine:large_rosewood_panel_edge",
+  "count": 1
+}

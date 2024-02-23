@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "ultramarine:tall_royal_rosewood_window"
+    ]
+  },
+  "criteria": {
+    "has_royal_rosewood_window": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "ultramarine:royal_rosewood_window"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "ultramarine:tall_royal_rosewood_window"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_royal_rosewood_window",
+      "has_the_recipe"
+    ]
+  ]
+}

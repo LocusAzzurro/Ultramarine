@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "SSS",
+    "DDD",
+    " G "
+  ],
+  "key": {
+    "S": {
+      "item": "ultramarine:silk"
+    },
+    "D": {
+      "item": "ultramarine:red_dye_powder"
+    },
+    "G": {
+      "item": "ultramarine:gold_parts"
+    }
+  },
+  "result": {
+    "item": "ultramarine:red_curtain"
+  }
+}

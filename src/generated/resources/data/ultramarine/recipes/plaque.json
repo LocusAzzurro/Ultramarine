@@ -1,0 +1,28 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "W W",
+    "FSF",
+    "PIP"
+  ],
+  "key": {
+    "P": {
+      "item": "ultramarine:xuan_paper"
+    },
+    "W": {
+      "item": "ultramarine:wooden_parts"
+    },
+    "F": {
+      "item": "ultramarine:wooden_frame"
+    },
+    "S": {
+      "tag": "ultramarine:polished_planks"
+    },
+    "I": {
+      "item": "minecraft:ink_sac"
+    }
+  },
+  "result": {
+    "item": "ultramarine:plaque"
+  }
+}
