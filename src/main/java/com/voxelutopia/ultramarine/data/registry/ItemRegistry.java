@@ -665,8 +665,11 @@ public class ItemRegistry {
     // ORE BLOCK
 
     public static final RegistryObject<Item> JADE_ORE = fromBlock(BlockRegistry.JADE_ORE, ModCreativeTab.MATERIALS);
+    public static final RegistryObject<Item> DEEPSLATE_JADE_ORE = fromBlock(BlockRegistry.DEEPSLATE_JADE_ORE, ModCreativeTab.MATERIALS);
     public static final RegistryObject<Item> MAGNESITE_ORE = fromBlock(BlockRegistry.MAGNESITE_ORE, ModCreativeTab.MATERIALS);
+    public static final RegistryObject<Item> DEEPSLATE_MAGNESITE_ORE = fromBlock(BlockRegistry.DEEPSLATE_MAGNESITE_ORE, ModCreativeTab.MATERIALS);
     public static final RegistryObject<Item> HEMATITE_ORE = fromBlock(BlockRegistry.HEMATITE_ORE, ModCreativeTab.MATERIALS);
+    public static final RegistryObject<Item> DEEPSLATE_HEMATITE_ORE = fromBlock(BlockRegistry.DEEPSLATE_HEMATITE_ORE, ModCreativeTab.MATERIALS);
 
     // ORE PRODUCT
 

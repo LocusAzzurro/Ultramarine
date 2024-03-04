@@ -450,8 +450,11 @@
 
   "__comment10__": "Resource Blocks",
   "block.ultramarine.jade_ore": "Jade Ore",
+  "block.ultramarine.deepslate_jade_ore": "Deepslate Jade Ore",
   "block.ultramarine.magnesite_ore": "Magnesite Ore",
+  "block.ultramarine.deepslate_magnesite_ore": "Deepslate Magnesite Ore",
   "block.ultramarine.hematite_ore": "Hematite Ore",
+  "block.ultramarine.deepslate_hematite_ore": "Deepslate Hematite Ore",
 
   "__comment11__": "Items",
   "item.ultramarine.cyan_brick": "Cyan Brick",

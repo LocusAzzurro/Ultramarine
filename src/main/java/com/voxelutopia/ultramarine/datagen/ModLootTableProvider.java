@@ -52,6 +52,9 @@ public class ModLootTableProvider extends BaseLootTableProvider {
         ore(BlockRegistry.JADE_ORE, ItemRegistry.JADE);
         ore(BlockRegistry.HEMATITE_ORE, ItemRegistry.RAW_HEMATITE);
         abundantOre(BlockRegistry.MAGNESITE_ORE, ItemRegistry.MAGNESITE);
+        ore(BlockRegistry.DEEPSLATE_JADE_ORE, ItemRegistry.JADE);
+        ore(BlockRegistry.DEEPSLATE_HEMATITE_ORE, ItemRegistry.RAW_HEMATITE);
+        abundantOre(BlockRegistry.DEEPSLATE_MAGNESITE_ORE, ItemRegistry.MAGNESITE);
 
         porcelain(BlockRegistry.BLUE_AND_WHITE_PORCELAIN_FLOWERPOT, ItemRegistry.BLUE_AND_WHITE_PORCELAIN_PIECE, ItemRegistry.BLUE_AND_WHITE_PORCELAIN_SHARDS);
         //todo blue porcelain flowerpot
