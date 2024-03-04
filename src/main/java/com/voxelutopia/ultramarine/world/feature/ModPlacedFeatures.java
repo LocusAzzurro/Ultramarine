@@ -13,4 +13,14 @@ public class ModPlacedFeatures {
                     HeightRangePlacement.triangle(VerticalAnchor.aboveBottom(-80), VerticalAnchor.aboveBottom(80))
             ));
 
+    public static final Holder<PlacedFeature> MAGNESITE_ORE_PLACED_FEATURE = PlacementUtils.register("magnesite_ore",
+            ModConfiguredFeatures.MAGNESITE_ORE, ModOrePlacement.commonOrePlacement(4,
+                    HeightRangePlacement.triangle(VerticalAnchor.aboveBottom(-40), VerticalAnchor.aboveBottom(60))
+            ));
+
+    public static final Holder<PlacedFeature> HEMATITE_ORE_PLACED_FEATURE = PlacementUtils.register("hematite_ore",
+            ModConfiguredFeatures.HEMATITE_ORE, ModOrePlacement.commonOrePlacement(10,
+                    HeightRangePlacement.triangle(VerticalAnchor.aboveBottom(-24), VerticalAnchor.aboveBottom(56))
+            ));
+
 }

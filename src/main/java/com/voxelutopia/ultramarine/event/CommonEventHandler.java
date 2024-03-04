@@ -303,6 +303,8 @@ public class CommonEventHandler {
         List<Holder<PlacedFeature>> undergroundOres = event.getGeneration().getFeatures(GenerationStep.Decoration.UNDERGROUND_ORES);
 
         undergroundOres.add(ModPlacedFeatures.JADE_ORE_PLACED_FEATURE);
+        undergroundOres.add(ModPlacedFeatures.MAGNESITE_ORE_PLACED_FEATURE);
+        undergroundOres.add(ModPlacedFeatures.HEMATITE_ORE_PLACED_FEATURE);
 
     }
 }

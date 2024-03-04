@@ -16,6 +16,20 @@ public class ModConfiguredFeatures {
             OreConfiguration.target(OreFeatures.STONE_ORE_REPLACEABLES, BlockRegistry.JADE_ORE.get().defaultBlockState()),
             OreConfiguration.target(OreFeatures.DEEPSLATE_ORE_REPLACEABLES, BlockRegistry.DEEPSLATE_JADE_ORE.get().defaultBlockState()));
 
+    public static final List<OreConfiguration.TargetBlockState> OVERWORLD_MAGNESITE_ORES = List.of(
+            OreConfiguration.target(OreFeatures.STONE_ORE_REPLACEABLES, BlockRegistry.MAGNESITE_ORE.get().defaultBlockState()),
+            OreConfiguration.target(OreFeatures.DEEPSLATE_ORE_REPLACEABLES, BlockRegistry.DEEPSLATE_MAGNESITE_ORE.get().defaultBlockState()));
+
+    public static final List<OreConfiguration.TargetBlockState> OVERWORLD_HEMATITE_ORES = List.of(
+            OreConfiguration.target(OreFeatures.STONE_ORE_REPLACEABLES, BlockRegistry.HEMATITE_ORE.get().defaultBlockState()),
+            OreConfiguration.target(OreFeatures.DEEPSLATE_ORE_REPLACEABLES, BlockRegistry.DEEPSLATE_HEMATITE_ORE.get().defaultBlockState()));
+
     public static final Holder<ConfiguredFeature<OreConfiguration, ?>> JADE_ORE = FeatureUtils.register("jade_ore",
             Feature.ORE, new OreConfiguration(OVERWORLD_JADE_ORES, 4));
+
+    public static final Holder<ConfiguredFeature<OreConfiguration, ?>> MAGNESITE_ORE = FeatureUtils.register("magnesite_ore",
+            Feature.ORE, new OreConfiguration(OVERWORLD_MAGNESITE_ORES, 7));
+
+    public static final Holder<ConfiguredFeature<OreConfiguration, ?>> HEMATITE_ORE = FeatureUtils.register("hematite_ore",
+            Feature.ORE, new OreConfiguration(OVERWORLD_HEMATITE_ORES, 9));
 }
