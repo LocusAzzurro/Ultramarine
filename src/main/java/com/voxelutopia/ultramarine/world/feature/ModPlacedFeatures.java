@@ -23,4 +23,9 @@ public class ModPlacedFeatures {
                     HeightRangePlacement.triangle(VerticalAnchor.aboveBottom(-24), VerticalAnchor.aboveBottom(56))
             ));
 
+    public static final Holder<PlacedFeature> COBALT_ORE_PLACED_FEATURE = PlacementUtils.register("cobalt_ore",
+            ModConfiguredFeatures.COBALT_ORE, ModOrePlacement.commonOrePlacement(8,
+                    HeightRangePlacement.uniform(VerticalAnchor.aboveBottom(0), VerticalAnchor.aboveBottom(32))
+            ));
+
 }

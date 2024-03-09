@@ -841,6 +841,7 @@ public class BlockRegistry {
     public static final RegistryObject<Block> DEEPSLATE_MAGNESITE_ORE = BLOCKS.register("deepslate_magnesite_ore", () -> new BaseOreBlock(2, 5));
     public static final RegistryObject<Block> HEMATITE_ORE = BLOCKS.register("hematite_ore", () -> new BaseOreBlock(1, 3));
     public static final RegistryObject<Block> DEEPSLATE_HEMATITE_ORE = BLOCKS.register("deepslate_hematite_ore", () -> new BaseOreBlock(1, 3));
+    public static final RegistryObject<Block> NETHER_COBALT_ORE = BLOCKS.register("nether_cobalt_ore", () -> new BaseOreBlock(2, 5));
 
     /**
      *  TOOLS

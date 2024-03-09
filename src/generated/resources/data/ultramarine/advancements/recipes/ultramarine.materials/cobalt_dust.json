@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "ultramarine:cobalt_dust"
+    ]
+  },
+  "criteria": {
+    "has_raw_cobalt": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "ultramarine:raw_cobalt"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "ultramarine:cobalt_dust"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_raw_cobalt",
+      "has_the_recipe"
+    ]
+  ]
+}

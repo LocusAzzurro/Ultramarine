@@ -24,6 +24,9 @@ public class ModConfiguredFeatures {
             OreConfiguration.target(OreFeatures.STONE_ORE_REPLACEABLES, BlockRegistry.HEMATITE_ORE.get().defaultBlockState()),
             OreConfiguration.target(OreFeatures.DEEPSLATE_ORE_REPLACEABLES, BlockRegistry.DEEPSLATE_HEMATITE_ORE.get().defaultBlockState()));
 
+    public static final List<OreConfiguration.TargetBlockState> NETHER_COBALT_ORES = List.of(
+            OreConfiguration.target(OreFeatures.NETHERRACK, BlockRegistry.NETHER_COBALT_ORE.get().defaultBlockState()));
+
     public static final Holder<ConfiguredFeature<OreConfiguration, ?>> JADE_ORE = FeatureUtils.register("jade_ore",
             Feature.ORE, new OreConfiguration(OVERWORLD_JADE_ORES, 4));
 
@@ -32,4 +35,7 @@ public class ModConfiguredFeatures {
 
     public static final Holder<ConfiguredFeature<OreConfiguration, ?>> HEMATITE_ORE = FeatureUtils.register("hematite_ore",
             Feature.ORE, new OreConfiguration(OVERWORLD_HEMATITE_ORES, 9));
+
+    public static final Holder<ConfiguredFeature<OreConfiguration, ?>> COBALT_ORE = FeatureUtils.register("cobalt_ore",
+            Feature.ORE, new OreConfiguration(NETHER_COBALT_ORES, 6));
 }

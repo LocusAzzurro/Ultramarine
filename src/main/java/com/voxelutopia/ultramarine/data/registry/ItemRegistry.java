@@ -670,6 +670,7 @@ public class ItemRegistry {
     public static final RegistryObject<Item> DEEPSLATE_MAGNESITE_ORE = fromBlock(BlockRegistry.DEEPSLATE_MAGNESITE_ORE, ModCreativeTab.MATERIALS);
     public static final RegistryObject<Item> HEMATITE_ORE = fromBlock(BlockRegistry.HEMATITE_ORE, ModCreativeTab.MATERIALS);
     public static final RegistryObject<Item> DEEPSLATE_HEMATITE_ORE = fromBlock(BlockRegistry.DEEPSLATE_HEMATITE_ORE, ModCreativeTab.MATERIALS);
+    public static final RegistryObject<Item> NETHER_COBALT_ORE = fromBlock(BlockRegistry.NETHER_COBALT_ORE, ModCreativeTab.MATERIALS);
 
     // ORE PRODUCT
 
@@ -678,6 +679,8 @@ public class ItemRegistry {
     public static final RegistryObject<Item> MAGNESITE_DUST = simpleItem("magnesite_dust", ModCreativeTab.MATERIALS);
     public static final RegistryObject<Item> RAW_HEMATITE = simpleItem("raw_hematite", ModCreativeTab.MATERIALS);
     public static final RegistryObject<Item> HEMATITE_DUST = simpleItem("hematite_dust", ModCreativeTab.MATERIALS);
+    public static final RegistryObject<Item> RAW_COBALT = simpleItem("raw_cobalt", ModCreativeTab.MATERIALS);
+    public static final RegistryObject<Item> COBALT_DUST = simpleItem("cobalt_dust", ModCreativeTab.MATERIALS);
 
     // BRICK
 

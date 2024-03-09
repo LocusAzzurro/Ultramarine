@@ -349,12 +349,12 @@ public class ModBlockModelProvider extends BlockStateProvider {
         }); //todo add chisel table model
 
         simpleBlock(BlockRegistry.JADE_ORE.get());
-        simpleBlock(BlockRegistry.MAGNESITE_ORE.get());
-        simpleBlock(BlockRegistry.HEMATITE_ORE.get());
         simpleBlock(BlockRegistry.DEEPSLATE_JADE_ORE.get());
+        simpleBlock(BlockRegistry.MAGNESITE_ORE.get());
         simpleBlock(BlockRegistry.DEEPSLATE_MAGNESITE_ORE.get());
+        simpleBlock(BlockRegistry.HEMATITE_ORE.get());
         simpleBlock(BlockRegistry.DEEPSLATE_HEMATITE_ORE.get());
-
+        simpleBlock(BlockRegistry.NETHER_COBALT_ORE.get());
     }
 
     private ResourceLocation blockLoc(Block block){
