@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "WS",
+    "WS"
+  ],
+  "key": {
+    "W": {
+      "item": "minecraft:yellow_wool"
+    },
+    "S": {
+      "item": "ultramarine:silk"
+    }
+  },
+  "result": {
+    "item": "ultramarine:back_cushion"
+  }
+}

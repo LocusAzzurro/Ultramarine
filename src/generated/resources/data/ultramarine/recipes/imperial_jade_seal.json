@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "PG",
+    "JJ",
+    "JJ"
+  ],
+  "key": {
+    "J": {
+      "item": "ultramarine:jade"
+    },
+    "G": {
+      "item": "minecraft:enchanted_golden_apple"
+    },
+    "P": {
+      "item": "ultramarine:gold_parts"
+    }
+  },
+  "result": {
+    "item": "ultramarine:imperial_jade_seal"
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "ultramarine:back_cushion"
+    ]
+  },
+  "criteria": {
+    "has_silk": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "ultramarine:silk"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "ultramarine:back_cushion"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_silk",
+      "has_the_recipe"
+    ]
+  ]
+}

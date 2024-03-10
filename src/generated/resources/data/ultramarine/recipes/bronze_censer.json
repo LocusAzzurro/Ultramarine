@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "PIP",
+    "III"
+  ],
+  "key": {
+    "I": {
+      "item": "ultramarine:bronze_ingot"
+    },
+    "P": {
+      "item": "ultramarine:bronze_parts"
+    }
+  },
+  "result": {
+    "item": "ultramarine:bronze_censer"
+  }
+}

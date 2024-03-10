@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "ultramarine:imperial_jade_seal"
+    ]
+  },
+  "criteria": {
+    "has_jade": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "ultramarine:jade"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "ultramarine:imperial_jade_seal"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_jade",
+      "has_the_recipe"
+    ]
+  ]
+}

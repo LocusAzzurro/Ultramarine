@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "BW",
+    "PP"
+  ],
+  "key": {
+    "P": {
+      "tag": "ultramarine:polished_planks"
+    },
+    "B": {
+      "item": "minecraft:polished_blackstone"
+    },
+    "W": {
+      "item": "minecraft:smooth_quartz"
+    }
+  },
+  "result": {
+    "item": "ultramarine:chessboard"
+  }
+}

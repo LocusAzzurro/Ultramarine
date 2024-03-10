@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "J",
+    "S",
+    "R"
+  ],
+  "key": {
+    "J": {
+      "item": "ultramarine:jade"
+    },
+    "S": {
+      "item": "minecraft:string"
+    },
+    "R": {
+      "item": "ultramarine:red_dye_powder"
+    }
+  },
+  "result": {
+    "item": "ultramarine:jade_pendant"
+  }
+}

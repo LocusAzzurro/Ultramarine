@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "ultramarine:royal_censer"
+    ]
+  },
+  "criteria": {
+    "has_bronze_censer": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "ultramarine:bronze_censer"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "ultramarine:royal_censer"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_bronze_censer",
+      "has_the_recipe"
+    ]
+  ]
+}

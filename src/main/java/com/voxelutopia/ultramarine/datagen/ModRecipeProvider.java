@@ -818,6 +818,99 @@ public class ModRecipeProvider extends RecipeProvider {
                 .unlockedBy(itemUnlockName(Items.BAMBOO), itemCriterion(Items.BAMBOO))
                 .save(recipeConsumer);
 
+        // ROOM DECO
+
+        ShapedRecipeBuilder.shaped(ItemRegistry.BACK_CUSHION.get())
+                .define('W', Items.YELLOW_WOOL)
+                .define('S', ItemRegistry.SILK.get())
+                .pattern("WS")
+                .pattern("WS")
+                .unlockedBy(itemUnlockName(ItemRegistry.SILK.get()), itemCriterion(ItemRegistry.SILK.get()))
+                .save(recipeConsumer);
+        ShapedRecipeBuilder.shaped(ItemRegistry.CHESSBOARD.get())
+                .define('P', ModItemTags.POLISHED_PLANKS)
+                .define('B', Items.POLISHED_BLACKSTONE)
+                .define('W', Items.SMOOTH_QUARTZ)
+                .pattern("BW")
+                .pattern("PP")
+                .unlockedBy("has_polished_plank", tagUnlock(ModItemTags.POLISHED_PLANKS))
+                .save(recipeConsumer);
+        /* todo
+            BLUE_AND_WHITE_PORCELAIN_VASE
+            LARGE_BLUE_AND_WHITE_PORCELAIN_VASE
+            SHORT_BLUE_AND_WHITE_PORCELAIN_POT
+            TALL_BLUE_AND_WHITE_PORCELAIN_POT
+            BLUE_AND_WHITE_PORCELAIN_BOWL
+         */
+        ShapedRecipeBuilder.shaped(ItemRegistry.BRONZE_MIRROR.get())
+                .define('I', ItemRegistry.BRONZE_INGOT.get())
+                .define('P', ItemRegistry.BRONZE_PARTS.get())
+                .define('C', Items.COPPER_INGOT)
+                .pattern("PIP")
+                .pattern("CIC")
+                .unlockedBy(itemUnlockName(ItemRegistry.BRONZE_INGOT.get()), itemCriterion(ItemRegistry.BRONZE_INGOT.get()))
+                .save(recipeConsumer);
+        ShapedRecipeBuilder.shaped(ItemRegistry.MEMORIAL_TABLET.get())
+                .define('F', ItemRegistry.WOODEN_FRAME.get())
+                .define('P', ModItemTags.POLISHED_PLANKS)
+                .define('E', ItemRegistry.WOODEN_PARTS.get())
+                .define('S', ItemRegistry.SILK.get())
+                .define('W', Items.BLACK_WOOL)
+                .pattern("EWE")
+                .pattern("SPS")
+                .pattern("EFE")
+                .unlockedBy("has_polished_plank", tagUnlock(ModItemTags.POLISHED_PLANKS))
+                .save(recipeConsumer);
+        ShapedRecipeBuilder.shaped(ItemRegistry.BRONZE_CENSER.get())
+                .define('I', ItemRegistry.BRONZE_INGOT.get())
+                .define('P', ItemRegistry.BRONZE_PARTS.get())
+                .pattern("PIP")
+                .pattern("III")
+                .unlockedBy(itemUnlockName(ItemRegistry.BRONZE_INGOT.get()), itemCriterion(ItemRegistry.BRONZE_INGOT.get()))
+                .save(recipeConsumer);
+        CompositeSmeltingRecipeBuilder.compositeSmelting(Ingredient.of(ItemRegistry.BRONZE_CENSER.get()), Ingredient.of(ModItemTags.FORGE_CYAN_DYE),
+                ItemRegistry.ROYAL_CENSER.get(), 0.5f, 200)
+                .unlockedBy(itemUnlockName(ItemRegistry.BRONZE_CENSER.get()), itemCriterion(ItemRegistry.BRONZE_CENSER.get()))
+                .save(recipeConsumer);
+        //todo PORCELAIN_TEAPOT
+        ShapedRecipeBuilder.shaped(ItemRegistry.BOOTS.get())
+                .define('B', Items.LEATHER_BOOTS)
+                .define('S', ItemRegistry.SILK.get())
+                .define('D', ItemRegistry.BLACK_DYE_POWDER.get())
+                .pattern("D D")
+                .pattern("SBS")
+                .pattern("SSS")
+                .unlockedBy(itemUnlockName(ItemRegistry.SILK.get()), itemCriterion(ItemRegistry.SILK.get()))
+                .save(recipeConsumer);
+        ShapedRecipeBuilder.shaped(ItemRegistry.JADE_PENDANT.get())
+                .define('J', ItemRegistry.JADE.get())
+                .define('S', Items.STRING)
+                .define('R', ItemRegistry.RED_DYE_POWDER.get())
+                .pattern("J")
+                .pattern("S")
+                .pattern("R")
+                .unlockedBy(itemUnlockName(ItemRegistry.JADE.get()), itemCriterion(ItemRegistry.JADE.get()))
+                .save(recipeConsumer);
+        ShapedRecipeBuilder.shaped(ItemRegistry.IMPERIAL_JADE_SEAL.get())
+                .define('J', ItemRegistry.JADE.get())
+                .define('G', Items.ENCHANTED_GOLDEN_APPLE)
+                .define('P', ItemRegistry.GOLD_PARTS.get())
+                .pattern("PG")
+                .pattern("JJ")
+                .pattern("JJ")
+                .unlockedBy(itemUnlockName(ItemRegistry.JADE.get()), itemCriterion(ItemRegistry.JADE.get()))
+                .save(recipeConsumer);
+        ShapedRecipeBuilder.shaped(ItemRegistry.LONG_PILLOW.get())
+                .define('Y', Items.YELLOW_WOOL)
+                .define('R', Items.RED_WOOL)
+                .define('S', ItemRegistry.SILK.get())
+                .pattern("SSS")
+                .pattern("YRY")
+                .unlockedBy(itemUnlockName(ItemRegistry.SILK.get()), itemCriterion(ItemRegistry.SILK.get()))
+                .save(recipeConsumer);
+
+
+
         // FOOD
 
         ShapedRecipeBuilder.shaped(ItemRegistry.FOOD_HAMPER.get())

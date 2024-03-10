@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "D D",
+    "SBS",
+    "SSS"
+  ],
+  "key": {
+    "B": {
+      "item": "minecraft:leather_boots"
+    },
+    "S": {
+      "item": "ultramarine:silk"
+    },
+    "D": {
+      "item": "ultramarine:black_dye_powder"
+    }
+  },
+  "result": {
+    "item": "ultramarine:boots"
+  }
+}

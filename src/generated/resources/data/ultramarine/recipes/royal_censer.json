@@ -1,0 +1,12 @@
+{
+  "type": "ultramarine:composite_smelting",
+  "primary_ingredient": {
+    "item": "ultramarine:bronze_censer"
+  },
+  "secondary_ingredient": {
+    "tag": "forge:dyes/cyan"
+  },
+  "result": "ultramarine:royal_censer",
+  "experience": 0.5,
+  "cookingtime": 200
+}
