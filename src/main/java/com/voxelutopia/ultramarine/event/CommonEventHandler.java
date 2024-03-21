@@ -260,6 +260,11 @@ public class CommonEventHandler {
                     new ItemStack(ItemRegistry.XIAOLONGBAO.get(), 1),
                     2, 30, 0.05f
             ));
+            trades.get(5).add(($1, $2) -> new MerchantOffer(
+                    new ItemStack(Items.EMERALD, 40),
+                    new ItemStack(ItemRegistry.BOTTLE_GOURD.get(), 1),
+                    1, 30, 0.05f
+            ));
         }
 
     }

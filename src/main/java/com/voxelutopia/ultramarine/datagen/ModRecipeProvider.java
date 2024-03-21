@@ -909,6 +909,16 @@ public class ModRecipeProvider extends RecipeProvider {
                 .unlockedBy(itemUnlockName(ItemRegistry.SILK.get()), itemCriterion(ItemRegistry.SILK.get()))
                 .save(recipeConsumer);
 
+        // MISC OBJECTS
+        // Fabric rolls and dolls sold by special trader
+        // Bottle Gourd sold by Cook
+
+        // FLOWER POTS
+        // todo flowerpot items
+
+        // COURTYARD
+
+
 
 
         // FOOD
