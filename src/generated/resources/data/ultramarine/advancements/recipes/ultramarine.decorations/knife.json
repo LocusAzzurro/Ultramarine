@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "ultramarine:knife"
+    ]
+  },
+  "criteria": {
+    "has_bronze_parts": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "ultramarine:bronze_parts"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "ultramarine:knife"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_bronze_parts",
+      "has_the_recipe"
+    ]
+  ]
+}

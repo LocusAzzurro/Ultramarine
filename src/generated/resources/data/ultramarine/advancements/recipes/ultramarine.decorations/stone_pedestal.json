@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "ultramarine:stone_pedestal"
+    ]
+  },
+  "criteria": {
+    "has_pale_yellow_stone": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "ultramarine:stone_pedestal"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "ultramarine:stone_pedestal"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_pale_yellow_stone",
+      "has_the_recipe"
+    ]
+  ]
+}

@@ -126,6 +126,11 @@ public class CommonEventHandler {
                     new ItemStack(ItemRegistry.BRONZE_INGOT.get(), 1),
                     12, 10, 0.05f
             ));
+            trades.get(5).add(($1, $2) -> new MerchantOffer(
+                    new ItemStack(Items.EMERALD, 40),
+                    new ItemStack(ItemRegistry.CARRIAGE.get(), 1),
+                    1, 10, 0.05f
+            ));
         }
 
         if (profession == VillagerProfession.FARMER){
@@ -146,6 +151,14 @@ public class CommonEventHandler {
                     new ItemStack(Items.EMERALD, 20),
                     new ItemStack(ItemRegistry.XUAN_PAPER.get(), 4),
                     10, 20, 0.05f
+            ));
+        }
+
+        if (profession == VillagerProfession.CLERIC){
+            trades.get(5).add(($1, $2) -> new MerchantOffer(
+                    new ItemStack(Items.EMERALD, 40),
+                    new ItemStack(ItemRegistry.SUNDIAL.get(), 1),
+                    1, 20, 0.05f
             ));
         }
 

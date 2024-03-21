@@ -1,0 +1,33 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "ultramarine:wooden_crate"
+    ]
+  },
+  "criteria": {
+    "has_polished_plank": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [],
+            "tag": "ultramarine:polished_planks"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "ultramarine:wooden_crate"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_polished_plank",
+      "has_the_recipe"
+    ]
+  ]
+}

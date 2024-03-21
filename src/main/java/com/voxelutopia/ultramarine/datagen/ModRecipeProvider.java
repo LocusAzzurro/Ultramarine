@@ -918,8 +918,94 @@ public class ModRecipeProvider extends RecipeProvider {
 
         // COURTYARD
 
-
-
+        ShapedRecipeBuilder.shaped(ItemRegistry.SACK.get())
+                .define('T', Items.STRING)
+                .define('S', ItemRegistry.SILK.get())
+                .pattern(" T ")
+                .pattern("SSS")
+                .unlockedBy(itemUnlockName(ItemRegistry.SILK.get()), itemCriterion(ItemRegistry.SILK.get()))
+                .save(recipeConsumer);
+        // tea basket todo tea item
+        ShapedRecipeBuilder.shaped(ItemRegistry.STRAW_HAT.get())
+                .define('W', Items.WHEAT)
+                .define('S', ItemRegistry.SILK.get())
+                .define('R', ItemRegistry.RED_DYE_POWDER.get())
+                .pattern("RSR")
+                .pattern("WWW")
+                .unlockedBy(itemUnlockName(ItemRegistry.SILK.get()), itemCriterion(ItemRegistry.SILK.get()))
+                .save(recipeConsumer);
+        ShapedRecipeBuilder.shaped(ItemRegistry.KNIFE.get())
+                .define('S', Items.IRON_SWORD)
+                .define('B', ItemRegistry.BRONZE_PARTS.get())
+                .pattern("S ")
+                .pattern(" B")
+                .unlockedBy(itemUnlockName(ItemRegistry.BRONZE_PARTS.get()), itemCriterion(ItemRegistry.BRONZE_PARTS.get()))
+                .save(recipeConsumer);
+        // sundial sold by cleric todo time showing
+        ShapedRecipeBuilder.shaped(ItemRegistry.BROOM.get())
+                .define('S', Items.STICK)
+                .define('H', Items.HAY_BLOCK)
+                .pattern("S")
+                .pattern("H")
+                .unlockedBy(itemUnlockName(Items.HAY_BLOCK), itemCriterion(Items.HAY_BLOCK))
+                .save(recipeConsumer);
+        simpleStonecutting(ItemRegistry.PALE_YELLOW_STONE.get(), ItemRegistry.STONE_PEDESTAL.get(), recipeConsumer);
+        ShapedRecipeBuilder.shaped(ItemRegistry.TERRACOTTA_POT.get())
+                .define('T', Items.CYAN_TERRACOTTA)
+                .pattern("T T")
+                .pattern("TTT")
+                .unlockedBy(itemUnlockName(Items.CYAN_TERRACOTTA), itemCriterion(Items.CYAN_TERRACOTTA))
+                .save(recipeConsumer);
+        // Chinese herbs bag sold by special trader
+        ShapedRecipeBuilder.shaped(ItemRegistry.FRUIT_BOX.get())
+                .define('F', ItemRegistry.WOODEN_FRAME.get())
+                .define('P', ModItemTags.POLISHED_PLANKS)
+                .define('A', Items.APPLE)
+                .pattern("PAP")
+                .pattern("PFP")
+                .unlockedBy(itemUnlockName(Items.APPLE), itemCriterion(Items.APPLE))
+                .save(recipeConsumer);
+        ShapedRecipeBuilder.shaped(ItemRegistry.WOODEN_CRATE.get())
+                .define('F', ItemRegistry.WOODEN_FRAME.get())
+                .define('P', ModItemTags.POLISHED_PLANKS)
+                .pattern("PPP")
+                .pattern("PFP")
+                .pattern("PPP")
+                .unlockedBy("has_polished_plank", tagUnlock(ModItemTags.POLISHED_PLANKS))
+                .save(recipeConsumer);
+        ShapedRecipeBuilder.shaped(ItemRegistry.GUNNY_SACK.get())
+                .define('S', ItemRegistry.SILK.get())
+                .pattern("S S")
+                .pattern("S S")
+                .pattern("SSS")
+                .unlockedBy(itemUnlockName(ItemRegistry.SILK.get()), itemCriterion(ItemRegistry.SILK.get()))
+                .save(recipeConsumer);
+        // bronze ding only from special loot
+        // carriage from toolsmith
+        ShapedRecipeBuilder.shaped(ItemRegistry.WOODEN_POLES.get())
+                .define('F', ItemTags.WOODEN_FENCES)
+                .pattern("F F")
+                .pattern("F F")
+                .pattern("F F")
+                .unlockedBy("has_fence", tagUnlock(ItemTags.WOODEN_FENCES))
+                .save(recipeConsumer);
+        ShapedRecipeBuilder.shaped(ItemRegistry.TEAHOUSE_FLAG.get())
+                .define('F', ItemTags.WOODEN_FENCES)
+                .define('P', ItemRegistry.WOODEN_PARTS.get())
+                .define('B', ItemTags.BANNERS)
+                .pattern("PFP")
+                .pattern(" B ")
+                .pattern(" F ")
+                .unlockedBy("has_banner", tagUnlock(ItemTags.BANNERS))
+                .save(recipeConsumer);
+        ShapedRecipeBuilder.shaped(ItemRegistry.KNIFE_REST.get())
+                .define('F', ItemTags.WOODEN_FENCES)
+                .define('P', ItemTags.PLANKS)
+                .pattern("FFF")
+                .pattern("PPP")
+                .pattern("FFF")
+                .unlockedBy("has_fence", tagUnlock(ItemTags.WOODEN_FENCES))
+                .save(recipeConsumer);
 
         // FOOD
 

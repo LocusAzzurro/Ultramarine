@@ -1,0 +1,33 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "ultramarine:teahouse_flag"
+    ]
+  },
+  "criteria": {
+    "has_banner": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [],
+            "tag": "minecraft:banners"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "ultramarine:teahouse_flag"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_banner",
+      "has_the_recipe"
+    ]
+  ]
+}

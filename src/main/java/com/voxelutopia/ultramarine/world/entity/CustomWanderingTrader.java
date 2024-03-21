@@ -60,6 +60,7 @@ public class CustomWanderingTrader extends WanderingTrader {
                 new MerchantOffer(new ItemStack(ItemRegistry.COPPER_CASH_COIN.get(), 15), new ItemStack(ItemRegistry.PURPLE_SILK_FABRIC_ROLL.get()), 5, 5, 0.05f),
                 new MerchantOffer(new ItemStack(ItemRegistry.COPPER_CASH_COIN.get(), 20), new ItemStack(ItemRegistry.CLAY_DOLL_MALE.get()), 5, 5, 0.05f),
                 new MerchantOffer(new ItemStack(ItemRegistry.COPPER_CASH_COIN.get(), 20), new ItemStack(ItemRegistry.CLAY_DOLL_FEMALE.get()), 5, 5, 0.05f),
+                new MerchantOffer(new ItemStack(ItemRegistry.COPPER_CASH_COIN.get(), 10), new ItemStack(ItemRegistry.CHINESE_HERBS_BAG.get()), 5, 5, 0.05f),
                 new MerchantOffer(new ItemStack(Items.AMETHYST_SHARD), new ItemStack(ItemRegistry.COPPER_CASH_COIN.get(), 6), 8, 5, 0.05f),
                 new MerchantOffer(new ItemStack(Items.ENDER_PEARL), new ItemStack(ItemRegistry.COPPER_CASH_COIN.get(), 3), 10, 5, 0.05f),
                 new MerchantOffer(new ItemStack(Items.BOOK), new ItemStack(ItemRegistry.COPPER_CASH_COIN.get(), 3), 5, 5, 0.05f),

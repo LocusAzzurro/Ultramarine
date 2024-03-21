@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "ultramarine:terracotta_pot"
+    ]
+  },
+  "criteria": {
+    "has_cyan_terracotta": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:cyan_terracotta"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "ultramarine:terracotta_pot"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_cyan_terracotta",
+      "has_the_recipe"
+    ]
+  ]
+}
