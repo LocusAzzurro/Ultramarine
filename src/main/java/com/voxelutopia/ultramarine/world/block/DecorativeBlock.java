@@ -1,5 +1,6 @@
 package com.voxelutopia.ultramarine.world.block;
 
+import com.voxelutopia.ultramarine.data.shape.ShapeFunction;
 import com.voxelutopia.ultramarine.world.block.state.ModBlockStateProperties;
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
@@ -22,7 +23,7 @@ import org.jetbrains.annotations.NotNull;
 
 import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;
-import java.util.Optional;
+import java.util.function.Function;
 
 @ParametersAreNonnullByDefault
 @MethodsReturnNonnullByDefault
@@ -52,7 +53,7 @@ public class DecorativeBlock extends HorizontalDirectionalBlock implements BaseB
     public static final BooleanProperty LIT = BlockStateProperties.LIT;
 
     private final BaseBlockProperty property;
-    private final ShapeFunction shape;
+    private final Function<BlockState, VoxelShape> shapeFunction;
     private final boolean diagonallyPlaceable;
     private final boolean directional;
     private final boolean noCollision;
@@ -61,13 +62,13 @@ public class DecorativeBlock extends HorizontalDirectionalBlock implements BaseB
     private final @Nullable Direction offsetDirection;
     protected StateDefinition<Block, BlockState> stateDefinition;
 
-    public DecorativeBlock(BaseBlockProperty property, ShapeFunction shape,
+    public DecorativeBlock(BaseBlockProperty property, Function<BlockState, VoxelShape> shapeFunction,
                            boolean directional, boolean diagonallyPlaceable,
                            boolean luminous, boolean noCollision, boolean noFenceConnect,
                            @Nullable Direction offset) {
         super(property.properties);
         this.property = property;
-        this.shape = shape;
+        this.shapeFunction = shapeFunction;
         this.directional = directional;
         this.diagonallyPlaceable = diagonallyPlaceable;
         this.luminous = luminous;
@@ -88,7 +89,7 @@ public class DecorativeBlock extends HorizontalDirectionalBlock implements BaseB
     }
 
     public DecorativeBlock(Builder builder) {
-        this(builder.property, builder.shape, builder.directional, builder.diagonallyPlaceable,
+        this(builder.property, builder.shapeFunction, builder.directional, builder.diagonallyPlaceable,
                 builder.luminous, builder.noCollision, builder.noFenceConnect, builder.offset);
     }
 
@@ -154,7 +155,7 @@ public class DecorativeBlock extends HorizontalDirectionalBlock implements BaseB
 
     @Override
     public VoxelShape getShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
-        return shape.getShape(pState, pLevel, pPos, pContext);
+        return this.shapeFunction.apply(pState);
     }
 
     @Override
@@ -198,7 +199,7 @@ public class DecorativeBlock extends HorizontalDirectionalBlock implements BaseB
     public static class Builder extends AbstractBuilder<Builder> {
 
         private final BaseBlockProperty property;
-        private ShapeFunction shape = simpleShape(FULL_14);
+        private Function<BlockState, VoxelShape> shapeFunction = ShapeFunction.simpleShape(FULL_14);
         private boolean diagonallyPlaceable;
         private boolean directional;
         private boolean luminous;
@@ -211,11 +212,11 @@ public class DecorativeBlock extends HorizontalDirectionalBlock implements BaseB
         }
 
         public Builder shaped(VoxelShape shape) {
-            return shaped(simpleShape(shape));
+            return shaped(ShapeFunction.simpleShape(shape));
         }
 
-        public Builder shaped(ShapeFunction shape) {
-            this.shape = shape;
+        public Builder shaped(Function<BlockState, VoxelShape> shapeFunction) {
+            this.shapeFunction = shapeFunction;
             return this;
         }
 
@@ -262,16 +263,6 @@ public class DecorativeBlock extends HorizontalDirectionalBlock implements BaseB
         public Builder self() {
             return this;
         }
-    }
-
-    @FunctionalInterface
-    public interface ShapeFunction{
-
-        VoxelShape getShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext);
-    }
-
-    protected static ShapeFunction simpleShape(VoxelShape shape){
-        return ($1, $2, $3, $4) -> shape;
     }
 
     @Override

@@ -21,6 +21,8 @@ import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
+import java.util.function.Function;
+
 public class OpeningBlock extends DecorativeBlock{
 
     public static final DirectionProperty FACING = HorizontalDirectionalBlock.FACING;
@@ -30,7 +32,7 @@ public class OpeningBlock extends DecorativeBlock{
 
     protected static final VoxelShape NS_AABB = Block.box(0.0D, 0.0D, 7.0D, 16.0D, 16.0D, 9.0D);
     protected static final VoxelShape EW_AABB = Block.box(7.0D, 0.0D, 0.0D, 9.0D, 16.0D, 16.0D);
-    public static ShapeFunction MIDDLE_AXIAL = (state, level, pos, context) -> (state.getValue(FACING) == Direction.NORTH) || (state.getValue(FACING) == Direction.SOUTH) ? NS_AABB : EW_AABB;
+    public static Function<BlockState, VoxelShape> MIDDLE_AXIAL = (state) -> (state.getValue(FACING) == Direction.NORTH) || (state.getValue(FACING) == Direction.SOUTH) ? NS_AABB : EW_AABB;
 
     public OpeningBlock(Builder builder) {
         super(builder);

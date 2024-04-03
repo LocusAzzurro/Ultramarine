@@ -1,6 +1,5 @@
-package com.voxelutopia.ultramarine.util;
+package com.voxelutopia.ultramarine.data.shape;
 
-import com.mojang.math.Matrix3f;
 import com.mojang.math.Vector3f;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.phys.shapes.VoxelShape;
