@@ -300,8 +300,8 @@ public class BlockRegistry {
 
     // QUETI
 
-    public static final RegistryObject<Block> LONG_GILDED_DARK_OAK_QUETI = BLOCKS.register("long_gilded_dark_oak_queti", () -> new WallSideBlock(BaseBlockProperty.WOOD));
-    public static final RegistryObject<Block> LONG_GILDED_DARK_OAK_QUETI_EDGE = BLOCKS.register("long_gilded_dark_oak_queti_edge", () -> new OrientableWallSideBlock(BaseBlockProperty.WOOD));
+    public static final RegistryObject<Block> LONG_GILDED_DARK_OAK_QUETI = BLOCKS.register("long_gilded_dark_oak_queti", () -> new WallSideBlock(BaseBlockProperty.WOOD, ShapeFunction.sideShape(0,4,13,16,16,15)));
+    public static final RegistryObject<Block> LONG_GILDED_DARK_OAK_QUETI_EDGE = BLOCKS.register("long_gilded_dark_oak_queti_edge", () -> new OrientableWallSideBlock(BaseBlockProperty.WOOD, ShapeFunction.sideOrientedShape(0,-4,12,32,16,16)));
     public static final RegistryObject<Block> HORIZONTAL_GILDED_DARK_OAK_QUETI = BLOCKS.register("horizontal_gilded_dark_oak_queti", () -> new SideAxialBlock(BaseBlockProperty.WOOD, 4));
     public static final RegistryObject<Block> CENTRAL_GILDED_DARK_OAK_QUETI = BLOCKS.register("central_gilded_dark_oak_queti", () -> new CentralAxialBlock(BaseBlockProperty.WOOD, 4));
     public static final RegistryObject<Block> VERTICAL_GILDED_DARK_OAK_QUETI = BLOCKS.register("vertical_gilded_dark_oak_queti", () -> new SideAxialBlock(BaseBlockProperty.WOOD, 4));

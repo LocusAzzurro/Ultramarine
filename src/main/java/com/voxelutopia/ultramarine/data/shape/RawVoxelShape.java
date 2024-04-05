@@ -34,6 +34,18 @@ public class RawVoxelShape {
         return this;
     }
 
+    public RawVoxelShape mirrorZ(){
+        minP.mul(-1, 1, 1);
+        minP.add(16, 0, 0);
+        maxP.mul(-1, 1, 1);
+        maxP.add(16, 0, 0);
+        XZcorner1.mul(-1, 1, 1);
+        XZcorner1.add(16, 0, 0);
+        XZcorner2.mul(-1, 1, 1);
+        XZcorner2.add(16, 0, 0);
+        return this;
+    }
+
     public RawVoxelShape copy(){
         return new RawVoxelShape(minP.x(), minP.y(), minP.z(), maxP.x(), maxP.y(), maxP.z());
     }

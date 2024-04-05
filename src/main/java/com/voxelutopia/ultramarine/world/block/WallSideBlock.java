@@ -1,5 +1,6 @@
 package com.voxelutopia.ultramarine.world.block;
 
+import com.voxelutopia.ultramarine.data.shape.ShapeFunction;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.item.context.BlockPlaceContext;
@@ -23,18 +24,22 @@ import java.util.Map;
 public class WallSideBlock extends Block implements BaseBlockPropertyHolder, SimpleWaterloggedBlock, SideBlock {
 
     protected final BaseBlockProperty property;
-    private final Map<Direction, VoxelShape> shapeByDirection;
+    private final ShapeFunction shapeFunction;
 
     public static final DirectionProperty FACING = HorizontalDirectionalBlock.FACING;
     public static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
 
-    public WallSideBlock(BaseBlockProperty property, int sideThickness) {
+    public WallSideBlock(BaseBlockProperty property, ShapeFunction shapeFunction) {
         super(property.copy().properties.noOcclusion().noCollission());
         this.property = property;
         this.registerDefaultState(this.getStateDefinition().any()
                 .setValue(FACING, Direction.NORTH)
                 .setValue(WATERLOGGED, false));
-        this.shapeByDirection = SideBlock.faceShapeByDirection(sideThickness);
+        this.shapeFunction = shapeFunction;
+    }
+
+    public WallSideBlock(BaseBlockProperty property, int sideThickness) {
+        this(property, ShapeFunction.sideShape(sideThickness));
     }
 
     public WallSideBlock(BaseBlockProperty property) {
@@ -42,7 +47,7 @@ public class WallSideBlock extends Block implements BaseBlockPropertyHolder, Sim
     }
 
     public VoxelShape getShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
-        return this.shapeByDirection.get(pState.getValue(FACING));
+        return this.shapeFunction.apply(pState);
     }
 
     @Nullable

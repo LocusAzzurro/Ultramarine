@@ -2,7 +2,7 @@ package com.voxelutopia.ultramarine.data.shape;
 
 import com.google.common.collect.Maps;
 import com.voxelutopia.ultramarine.world.block.state.ModBlockStateProperties;
-import net.minecraft.Util;
+import com.voxelutopia.ultramarine.world.block.state.OrientableBlockType;
 import net.minecraft.core.Direction;
 import net.minecraft.util.Mth;
 import net.minecraft.world.level.block.Block;
@@ -18,16 +18,7 @@ import java.util.function.Function;
 
 public class ShapeFunction implements Function<BlockState, VoxelShape> {
 
-    static final Map<Pair<Direction, Direction>, Integer> rotations = Map.of(
-            Pair.of(Direction.NORTH, Direction.EAST), 135,
-            Pair.of(Direction.EAST, Direction.NORTH), 135,
-            Pair.of(Direction.EAST, Direction.SOUTH), 45,
-            Pair.of(Direction.SOUTH, Direction.EAST), 45,
-            Pair.of(Direction.SOUTH, Direction.WEST), 315,
-            Pair.of(Direction.WEST, Direction.SOUTH), 315,
-            Pair.of(Direction.WEST, Direction.NORTH), 225,
-            Pair.of(Direction.NORTH, Direction.WEST), 225);
-
+    private static final Map<Pair<Direction, Direction>, Integer> ROTATIONS;
     private final Function<BlockState, VoxelShape> processFunction;
     private final Map<BlockState, VoxelShape> cache = Maps.newConcurrentMap();
 
@@ -65,8 +56,8 @@ public class ShapeFunction implements Function<BlockState, VoxelShape> {
                     case WEST -> northShape.copy().rotateY(90).toVoxelShape();
                     case EAST -> northShape.copy().rotateY(270).toVoxelShape();
                 };
-            } else if (rotations.containsKey(Pair.of(primaryDir, shiftDir))) {
-                return northShape.copy().rotateY(rotations.get((Pair.of(primaryDir, shiftDir))) + diagonalRotationOffset).toVoxelShape();
+            } else if (ROTATIONS.containsKey(Pair.of(primaryDir, shiftDir))) {
+                return northShape.copy().rotateY(ROTATIONS.get((Pair.of(primaryDir, shiftDir))) + diagonalRotationOffset).toVoxelShape();
             }
             else return northShape.copy().toVoxelShape();
         });
@@ -112,9 +103,62 @@ public class ShapeFunction implements Function<BlockState, VoxelShape> {
                 });
     }
 
+    public static ShapeFunction sideShape(int thickness){
+        return sideShape(0, 0, 16 - thickness, 16, 16, 16);
+    }
+
+    //values from north facing
+    public static ShapeFunction sideShape(int nWidthStart, int nHeightStart, int nDepthStart, int nWidthEnd, int nHeightEnd, int nDepthEnd){
+        return new ShapeFunction(
+                state -> {
+                    Direction direction = state.getValue(HorizontalDirectionalBlock.FACING);
+                    RawVoxelShape northShape = new RawVoxelShape(nWidthStart, nHeightStart, nDepthStart, nWidthEnd, nHeightEnd, nDepthEnd);
+                    return switch (direction){
+                        case DOWN, UP -> null;
+                        case NORTH -> northShape.copy().toVoxelShape();
+                        case SOUTH -> northShape.copy().rotateY(180).toVoxelShape();
+                        case WEST -> northShape.copy().rotateY(90).toVoxelShape();
+                        case EAST -> northShape.copy().rotateY(270).toVoxelShape();
+                    };
+                });
+    }
+
+    //values from north facing left orientation
+    public static ShapeFunction sideOrientedShape(int NLWidthStart, int NLHeightStart, int NLDepthStart, int NLWidthEnd, int NLHeightEnd, int NLDepthEnd){
+        return new ShapeFunction(
+                state -> {
+                    Direction facing = state.getValue(HorizontalDirectionalBlock.FACING);
+                    OrientableBlockType direction = state.getValue(ModBlockStateProperties.ORIENTABLE_BLOCK_TYPE);
+                    RawVoxelShape northLeftShape = new RawVoxelShape(NLWidthStart, NLHeightStart, NLDepthStart, NLWidthEnd, NLHeightEnd, NLDepthEnd);
+                    RawVoxelShape northRightShape = northLeftShape.copy().mirrorZ();
+                    RawVoxelShape shape = switch (direction){
+                        case LEFT -> northLeftShape.copy();
+                        case RIGHT -> northRightShape.copy();
+                    };
+                    return switch (facing){
+                        case DOWN, UP -> null;
+                        case NORTH -> shape.copy().toVoxelShape();
+                        case SOUTH -> shape.copy().rotateY(180).toVoxelShape();
+                        case WEST -> shape.copy().rotateY(90).toVoxelShape();
+                        case EAST -> shape.copy().rotateY(270).toVoxelShape();
+                    };
+                });
+    }
+
     public static ShapeFunction simpleShape(VoxelShape shape){
         return new ShapeFunction(state -> shape);
     }
 
+    static {
+        ROTATIONS = Map.of(
+                Pair.of(Direction.NORTH, Direction.EAST), 135,
+                Pair.of(Direction.EAST, Direction.NORTH), 135,
+                Pair.of(Direction.EAST, Direction.SOUTH), 45,
+                Pair.of(Direction.SOUTH, Direction.EAST), 45,
+                Pair.of(Direction.SOUTH, Direction.WEST), 315,
+                Pair.of(Direction.WEST, Direction.SOUTH), 315,
+                Pair.of(Direction.WEST, Direction.NORTH), 225,
+                Pair.of(Direction.NORTH, Direction.WEST), 225);
+    }
 
 }
