@@ -38,7 +38,7 @@ public class HangingLantern extends DecorativeBlock {
     private static final VoxelShape POLE_HANGING_Z = POLE_HANGING_X_RAW.copy().rotateY(90).toVoxelShape();
     private static final VoxelShape HANGING_INTERACTION_X = Shapes.or(HANGING_INTERACTION, POLE_HANGING_X);
     private static final VoxelShape HANGING_INTERACTION_Z = Shapes.or(HANGING_INTERACTION, POLE_HANGING_Z);
-    public static final Function<BlockState, VoxelShape> POLE_ONLY = ShapeFunction.cardinalRotations(new RawVoxelShape(7, 0, 1, 9, 32, 3));
+    public static final ShapeFunction POLE_ONLY = ShapeFunction.cardinalRotations(new RawVoxelShape(7, 0, 1, 9, 32, 3));
 
     private final HangingLanternType type;
 

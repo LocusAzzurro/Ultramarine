@@ -9,10 +9,11 @@ import net.minecraft.world.level.material.FluidState;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
 import java.util.Map;
+import java.util.function.Function;
 
 public interface SideBlock extends SimpleWaterloggedBlock {
 
-    default Map<Direction, VoxelShape> faceShapeByDirection(int thickness){
+    static Map<Direction, VoxelShape> faceShapeByDirection(int thickness){
         double t = thickness;
         ImmutableMap.Builder<Direction, VoxelShape> builder = ImmutableMap.builder();
         builder.put(Direction.UP, Block.box(0, 0, 0, 16, t, 16));

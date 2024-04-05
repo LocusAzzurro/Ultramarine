@@ -53,7 +53,7 @@ public class DecorativeBlock extends HorizontalDirectionalBlock implements BaseB
     public static final BooleanProperty LIT = BlockStateProperties.LIT;
 
     private final BaseBlockProperty property;
-    private final Function<BlockState, VoxelShape> shapeFunction;
+    private final ShapeFunction shapeFunction;
     private final boolean diagonallyPlaceable;
     private final boolean directional;
     private final boolean noCollision;
@@ -62,7 +62,7 @@ public class DecorativeBlock extends HorizontalDirectionalBlock implements BaseB
     private final @Nullable Direction offsetDirection;
     protected StateDefinition<Block, BlockState> stateDefinition;
 
-    public DecorativeBlock(BaseBlockProperty property, Function<BlockState, VoxelShape> shapeFunction,
+    public DecorativeBlock(BaseBlockProperty property, ShapeFunction shapeFunction,
                            boolean directional, boolean diagonallyPlaceable,
                            boolean luminous, boolean noCollision, boolean noFenceConnect,
                            @Nullable Direction offset) {
@@ -199,7 +199,7 @@ public class DecorativeBlock extends HorizontalDirectionalBlock implements BaseB
     public static class Builder extends AbstractBuilder<Builder> {
 
         private final BaseBlockProperty property;
-        private Function<BlockState, VoxelShape> shapeFunction = ShapeFunction.simpleShape(FULL_14);
+        private ShapeFunction shapeFunction = ShapeFunction.simpleShape(FULL_14);
         private boolean diagonallyPlaceable;
         private boolean directional;
         private boolean luminous;
@@ -215,7 +215,7 @@ public class DecorativeBlock extends HorizontalDirectionalBlock implements BaseB
             return shaped(ShapeFunction.simpleShape(shape));
         }
 
-        public Builder shaped(Function<BlockState, VoxelShape> shapeFunction) {
+        public Builder shaped(ShapeFunction shapeFunction) {
             this.shapeFunction = shapeFunction;
             return this;
         }

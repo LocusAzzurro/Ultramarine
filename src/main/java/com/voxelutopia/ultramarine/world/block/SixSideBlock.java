@@ -34,7 +34,7 @@ public class SixSideBlock extends Block implements BaseBlockPropertyHolder, Simp
         this.registerDefaultState(this.getStateDefinition().any()
                 .setValue(FACING, Direction.NORTH)
                 .setValue(WATERLOGGED, false));
-        this.shapeByDirection = faceShapeByDirection(sideThickness);
+        this.shapeByDirection = SideBlock.faceShapeByDirection(sideThickness);
         this.hasCollision = hasCollision;
     }
 

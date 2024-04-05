@@ -34,7 +34,7 @@ public class WallSideBlock extends Block implements BaseBlockPropertyHolder, Sim
         this.registerDefaultState(this.getStateDefinition().any()
                 .setValue(FACING, Direction.NORTH)
                 .setValue(WATERLOGGED, false));
-        this.shapeByDirection = faceShapeByDirection(sideThickness);
+        this.shapeByDirection = SideBlock.faceShapeByDirection(sideThickness);
     }
 
     public WallSideBlock(BaseBlockProperty property) {
