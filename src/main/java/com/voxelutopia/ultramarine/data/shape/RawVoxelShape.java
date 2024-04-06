@@ -18,6 +18,10 @@ public class RawVoxelShape {
         this.XZcorner2 = new Vector3f((float) maxX, (float) minY, (float) minZ);
     }
 
+    public RawVoxelShape(){
+        this(0,0,0,16,16,16);
+    }
+
     public RawVoxelShape rotateY(float degrees){
         minP.add(-8f, -8f, -8f);
         maxP.add(-8f, -8f, -8f);

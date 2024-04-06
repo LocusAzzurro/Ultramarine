@@ -39,8 +39,4 @@ public class BaseAxialBlock extends Block implements AxialBlock, BaseBlockProper
         return property;
     }
 
-    @Override
-    public Direction.Axis getAxis(BlockState pState) {
-        return pState.getValue(AXIS);
-    }
 }

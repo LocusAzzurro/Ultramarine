@@ -9,10 +9,12 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.HorizontalDirectionalBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
+import net.minecraft.world.phys.shapes.BooleanOp;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import org.apache.commons.lang3.tuple.Pair;
 
+import java.util.Arrays;
 import java.util.Map;
 import java.util.function.Function;
 
@@ -35,8 +37,16 @@ public class ShapeFunction implements Function<BlockState, VoxelShape> {
         return new ShapeFunction(processFunction);
     }
 
-    public static ShapeFunction compose(ShapeFunction a, ShapeFunction b){
+    public static ShapeFunction or(ShapeFunction a, ShapeFunction b){
         return new ShapeFunction(state -> Shapes.or(a.apply(state), b.apply(state)));
+    }
+
+    public static ShapeFunction or(ShapeFunction a, ShapeFunction... b){
+        return Arrays.stream(b).reduce(a, ShapeFunction::or);
+    }
+
+    public static ShapeFunction exclude(ShapeFunction a, ShapeFunction b){
+        return new ShapeFunction(state -> Shapes.join(a.apply(state), b.apply(state), BooleanOp.ONLY_FIRST));
     }
 
     public static ShapeFunction eightRotations(RawVoxelShape northShape){
@@ -50,7 +60,7 @@ public class ShapeFunction implements Function<BlockState, VoxelShape> {
             Direction shiftDir = state.getValue(ModBlockStateProperties.HORIZONTAL_FACING_SHIFT);
             if (primaryDir == shiftDir) {
                 return switch (primaryDir){
-                    case DOWN, UP -> null;
+                    case DOWN, UP -> Shapes.empty();
                     case NORTH -> northShape.copy().toVoxelShape();
                     case SOUTH -> northShape.copy().rotateY(180).toVoxelShape();
                     case WEST -> northShape.copy().rotateY(90).toVoxelShape();
@@ -68,7 +78,7 @@ public class ShapeFunction implements Function<BlockState, VoxelShape> {
                 state -> {
                     Direction direction = state.getValue(HorizontalDirectionalBlock.FACING);
                     return switch (direction){
-                        case DOWN, UP -> null;
+                        case DOWN, UP -> Shapes.empty();
                         case NORTH -> northShape.copy().toVoxelShape();
                         case SOUTH -> northShape.copy().rotateY(180).toVoxelShape();
                         case WEST -> northShape.copy().rotateY(90).toVoxelShape();
@@ -82,7 +92,8 @@ public class ShapeFunction implements Function<BlockState, VoxelShape> {
                 state -> {
                     Direction.Axis axis = state.getValue(BlockStateProperties.HORIZONTAL_AXIS);
                     return switch (axis){
-                        case X, Y -> xShape.copy().toVoxelShape();
+                        case X -> xShape.copy().toVoxelShape();
+                        case Y -> Shapes.empty();
                         case Z -> xShape.copy().rotateY(90).toVoxelShape();
                     };
                 });
@@ -104,32 +115,15 @@ public class ShapeFunction implements Function<BlockState, VoxelShape> {
     }
 
     public static ShapeFunction sideShape(int thickness){
-        return sideShape(0, 0, 16 - thickness, 16, 16, 16);
-    }
-
-    //values from north facing
-    public static ShapeFunction sideShape(int nWidthStart, int nHeightStart, int nDepthStart, int nWidthEnd, int nHeightEnd, int nDepthEnd){
-        return new ShapeFunction(
-                state -> {
-                    Direction direction = state.getValue(HorizontalDirectionalBlock.FACING);
-                    RawVoxelShape northShape = new RawVoxelShape(nWidthStart, nHeightStart, nDepthStart, nWidthEnd, nHeightEnd, nDepthEnd);
-                    return switch (direction){
-                        case DOWN, UP -> null;
-                        case NORTH -> northShape.copy().toVoxelShape();
-                        case SOUTH -> northShape.copy().rotateY(180).toVoxelShape();
-                        case WEST -> northShape.copy().rotateY(90).toVoxelShape();
-                        case EAST -> northShape.copy().rotateY(270).toVoxelShape();
-                    };
-                });
+        return cardinalRotations(new RawVoxelShape(0, 0, 16 - thickness, 16, 16, 16));
     }
 
     //values from north facing left orientation
-    public static ShapeFunction sideOrientedShape(int NLWidthStart, int NLHeightStart, int NLDepthStart, int NLWidthEnd, int NLHeightEnd, int NLDepthEnd){
+    public static ShapeFunction sideOrientedShape(RawVoxelShape northLeftShape){
         return new ShapeFunction(
                 state -> {
                     Direction facing = state.getValue(HorizontalDirectionalBlock.FACING);
                     OrientableBlockType direction = state.getValue(ModBlockStateProperties.ORIENTABLE_BLOCK_TYPE);
-                    RawVoxelShape northLeftShape = new RawVoxelShape(NLWidthStart, NLHeightStart, NLDepthStart, NLWidthEnd, NLHeightEnd, NLDepthEnd);
                     RawVoxelShape northRightShape = northLeftShape.copy().mirrorZ();
                     RawVoxelShape shape = switch (direction){
                         case LEFT -> northLeftShape.copy();

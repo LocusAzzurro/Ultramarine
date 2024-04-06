@@ -300,11 +300,14 @@ public class BlockRegistry {
 
     // QUETI
 
-    public static final RegistryObject<Block> LONG_GILDED_DARK_OAK_QUETI = BLOCKS.register("long_gilded_dark_oak_queti", () -> new WallSideBlock(BaseBlockProperty.WOOD, ShapeFunction.sideShape(0,4,13,16,16,15)));
-    public static final RegistryObject<Block> LONG_GILDED_DARK_OAK_QUETI_EDGE = BLOCKS.register("long_gilded_dark_oak_queti_edge", () -> new OrientableWallSideBlock(BaseBlockProperty.WOOD, ShapeFunction.sideOrientedShape(0,-4,12,32,16,16)));
-    public static final RegistryObject<Block> HORIZONTAL_GILDED_DARK_OAK_QUETI = BLOCKS.register("horizontal_gilded_dark_oak_queti", () -> new SideAxialBlock(BaseBlockProperty.WOOD, 4));
-    public static final RegistryObject<Block> CENTRAL_GILDED_DARK_OAK_QUETI = BLOCKS.register("central_gilded_dark_oak_queti", () -> new CentralAxialBlock(BaseBlockProperty.WOOD, 4));
-    public static final RegistryObject<Block> VERTICAL_GILDED_DARK_OAK_QUETI = BLOCKS.register("vertical_gilded_dark_oak_queti", () -> new SideAxialBlock(BaseBlockProperty.WOOD, 4));
+    public static final RegistryObject<Block> LONG_GILDED_DARK_OAK_QUETI = BLOCKS.register("long_gilded_dark_oak_queti", () -> new WallSideBlock(BaseBlockProperty.WOOD, ShapeFunction.cardinalRotations(new RawVoxelShape(0,4,13,16,16,15))));
+    public static final RegistryObject<Block> LONG_GILDED_DARK_OAK_QUETI_EDGE = BLOCKS.register("long_gilded_dark_oak_queti_edge", () -> new OrientableWallSideBlock(BaseBlockProperty.WOOD, ShapeFunction.sideOrientedShape(new RawVoxelShape(0,-4,12,32,16,16))));
+    public static final RegistryObject<Block> HORIZONTAL_GILDED_DARK_OAK_QUETI = BLOCKS.register("horizontal_gilded_dark_oak_queti", () -> new SideAxialBlock(BaseBlockProperty.WOOD,
+            ShapeFunction.or(ShapeFunction.cardinalRotations(new RawVoxelShape(6,0,0,10,16,16)), ShapeFunction.cardinalRotations(new RawVoxelShape(6,8,-16,10,16,0)))));
+    public static final RegistryObject<Block> CENTRAL_GILDED_DARK_OAK_QUETI = BLOCKS.register("central_gilded_dark_oak_queti", () -> new CentralAxialBlock(BaseBlockProperty.WOOD,
+            ShapeFunction.exclude(ShapeFunction.axialRotations(new RawVoxelShape(-16,0,6,32,16,10)), ShapeFunction.axialRotations(new RawVoxelShape(0,0,6,16,8,10)))));
+    public static final RegistryObject<Block> VERTICAL_GILDED_DARK_OAK_QUETI = BLOCKS.register("vertical_gilded_dark_oak_queti", () -> new SideAxialBlock(BaseBlockProperty.WOOD,
+            ShapeFunction.or(ShapeFunction.cardinalRotations(new RawVoxelShape(6,0,0,10,16,16)), ShapeFunction.cardinalRotations(new RawVoxelShape(6,-16,8,10,0,16)))));
     public static final RegistryObject<Block> WOODEN_QUETI = BLOCKS.register("wooden_queti", () -> new WallSideBlock(BaseBlockProperty.WOOD));
     public static final RegistryObject<Block> WOODEN_QUETI_EDGE = BLOCKS.register("wooden_queti_edge", () -> new OrientableWallSideBlock(BaseBlockProperty.WOOD));
     public static final RegistryObject<Block> TALL_WOODEN_QUETI_EDGE = BLOCKS.register("tall_wooden_queti_edge", () -> new OrientableWallSideBlock(BaseBlockProperty.WOOD));
@@ -436,7 +439,7 @@ public class BlockRegistry {
     public static final RegistryObject<Block> CHESSBOARD = BLOCKS.register("chessboard",
             () -> DecorativeBlock.with(BaseBlockProperty.WOOD).shaped(ShapeFunction.diagonalSquare(32, 1)).directional().diagonallyPlaceable().noCollision().noOcclusion().build());
     public static final RegistryObject<Block> BLUE_AND_WHITE_PORCELAIN_VASE = BLOCKS.register("blue_and_white_porcelain_vase",
-            () -> DecorativeBlock.with(BaseBlockProperty.PORCELAIN).shaped(ShapeFunction.compose(ShapeFunction.diagonalSquare(8, 7), ShapeFunction.diagonalSquare(5, 14))).diagonallyPlaceable().build());
+            () -> DecorativeBlock.with(BaseBlockProperty.PORCELAIN).shaped(ShapeFunction.or(ShapeFunction.diagonalSquare(8, 7), ShapeFunction.diagonalSquare(5, 14))).diagonallyPlaceable().build());
     public static final RegistryObject<Block> LARGE_BLUE_AND_WHITE_PORCELAIN_VASE = BLOCKS.register("large_blue_and_white_porcelain_vase",
             () -> DecorativeBlock.with(BaseBlockProperty.PORCELAIN).shaped(ShapeFunction.centeredSquare(12, 28)).directional().build());
     public static final RegistryObject<Block> SHORT_BLUE_AND_WHITE_PORCELAIN_POT = BLOCKS.register("short_blue_and_white_porcelain_pot",

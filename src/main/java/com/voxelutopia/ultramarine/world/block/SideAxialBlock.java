@@ -1,5 +1,7 @@
 package com.voxelutopia.ultramarine.world.block;
 
+import com.voxelutopia.ultramarine.data.shape.RawVoxelShape;
+import com.voxelutopia.ultramarine.data.shape.ShapeFunction;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.item.context.BlockPlaceContext;
@@ -21,33 +23,34 @@ import java.util.Map;
 public class SideAxialBlock extends BaseHorizontalDirectionalBlock implements AxialBlock, SimpleWaterloggedBlock {
 
     public static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
-    protected Map<Direction.Axis, VoxelShape> shapeByAxis;
-
-    private final int thickness;
+    private final ShapeFunction shapeFunction;
     private final boolean hasCollision;
-    private final int height;
 
-    public SideAxialBlock(BaseBlockProperty property, int thickness, int height, boolean hasCollision) {
+    public SideAxialBlock(BaseBlockProperty property, ShapeFunction shapeFunction, boolean hasCollision) {
         super(property);
         BlockState state = this.stateDefinition.any()
                 .setValue(WATERLOGGED, Boolean.FALSE)
                 .setValue(FACING, Direction.NORTH);
         this.registerDefaultState(state);
-        this.thickness = thickness;
-        this.shapeByAxis = this.makeAxialShapes(thickness, height);
-        this.height = height;
+        this.shapeFunction = shapeFunction;
         this.hasCollision = hasCollision;
+    }
+
+    public SideAxialBlock(BaseBlockProperty property, int thickness, int height, boolean hasCollision) {
+        this(property, ShapeFunction.cardinalRotations(new RawVoxelShape(0,0,(16-thickness)/2f,16,height,16-(16-thickness)/2f)), hasCollision);
     }
 
     public SideAxialBlock(BaseBlockProperty property, int thickness) {
         this(property, thickness, 16, false);
     }
 
+    public SideAxialBlock(BaseBlockProperty property, ShapeFunction shape) {
+        this(property, shape, false);
+    }
+
     @Override
     public VoxelShape getShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
-        Direction direction = pState.getValue(FACING);
-        if (direction == Direction.EAST || direction == Direction.WEST) return this.shapeByAxis.get(Direction.Axis.X);
-        else return this.shapeByAxis.get(Direction.Axis.Z);
+        return this.shapeFunction.apply(pState);
     }
 
     @Override
@@ -72,8 +75,4 @@ public class SideAxialBlock extends BaseHorizontalDirectionalBlock implements Ax
         return hasCollision ? this.getShape(pState, pLevel, pPos, pContext) : Shapes.empty();
     }
 
-    @Override
-    public Direction.Axis getAxis(BlockState pState) {
-        return pState.getValue(FACING).getAxis();
-    }
 }

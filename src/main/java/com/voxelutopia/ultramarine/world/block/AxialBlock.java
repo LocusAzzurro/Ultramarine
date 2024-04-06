@@ -25,9 +25,4 @@ public interface AxialBlock{
         return makeAxialShapes(thickness, 0, height);
     }
 
-    default Map<Direction.Axis, VoxelShape> makeAxialShapes(int thickness){
-        return makeAxialShapes(thickness, 16);
-    }
-
-    Direction.Axis getAxis(BlockState pState);
 }

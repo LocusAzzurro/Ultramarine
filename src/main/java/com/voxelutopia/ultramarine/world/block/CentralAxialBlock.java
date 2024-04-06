@@ -1,5 +1,7 @@
 package com.voxelutopia.ultramarine.world.block;
 
+import com.voxelutopia.ultramarine.data.shape.RawVoxelShape;
+import com.voxelutopia.ultramarine.data.shape.ShapeFunction;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.item.context.BlockPlaceContext;
@@ -25,20 +27,21 @@ public class CentralAxialBlock extends Block implements AxialBlock, SimpleWaterl
     public static final EnumProperty<Direction.Axis> AXIS = BlockStateProperties.HORIZONTAL_AXIS;
     protected Map<Direction.Axis, VoxelShape> shapeByAxis;
 
-    private final int thickness;
     private final boolean hasCollision;
-    private final int height;
+    private final ShapeFunction shapeFunction;
 
-    public CentralAxialBlock(BaseBlockProperty property, int thickness, int height, boolean hasCollision) {
+    public CentralAxialBlock(BaseBlockProperty property, ShapeFunction shapeFunction, boolean hasCollision) {
         super(property.properties);
         BlockState state = this.stateDefinition.any()
                 .setValue(WATERLOGGED, Boolean.FALSE)
                 .setValue(AXIS, Direction.Axis.X);
         this.registerDefaultState(state);
-        this.thickness = thickness;
-        this.shapeByAxis = this.makeAxialShapes(thickness, height);
-        this.height = height;
+        this.shapeFunction = shapeFunction;
         this.hasCollision = hasCollision;
+    }
+
+    public CentralAxialBlock(BaseBlockProperty property, int thickness, int height, boolean hasCollision) {
+        this(property, ShapeFunction.axialRotations(new RawVoxelShape(0,0,(16-thickness)/2f,16,height,16-(16-thickness)/2f)), hasCollision);
     }
 
     public CentralAxialBlock(BaseBlockProperty property, int thickness) {
@@ -49,10 +52,13 @@ public class CentralAxialBlock extends Block implements AxialBlock, SimpleWaterl
         this(property, thickness, height, true);
     }
 
+    public CentralAxialBlock(BaseBlockProperty property, ShapeFunction shapeFunction){
+        this(property, shapeFunction, false);
+    }
+
     @Override
     public VoxelShape getShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
-        Direction.Axis axis = pState.getValue(AXIS);
-        return this.shapeByAxis.get(axis);
+        return shapeFunction.apply(pState);
     }
 
     @Override
@@ -77,8 +83,4 @@ public class CentralAxialBlock extends Block implements AxialBlock, SimpleWaterl
         return this.hasCollision ? getShape(pState, pLevel, pPos, pContext) : Shapes.empty();
     }
 
-    @Override
-    public Direction.Axis getAxis(BlockState pState) {
-        return pState.getValue(AXIS);
-    }
 }

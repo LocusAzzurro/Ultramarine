@@ -1,5 +1,6 @@
 package com.voxelutopia.ultramarine.world.block;
 
+import com.voxelutopia.ultramarine.data.shape.RawVoxelShape;
 import com.voxelutopia.ultramarine.data.shape.ShapeFunction;
 import com.voxelutopia.ultramarine.world.block.state.ModBlockStateProperties;
 import com.voxelutopia.ultramarine.world.block.state.OrientableBlockType;
@@ -24,7 +25,7 @@ public class OrientableWallSideBlock extends WallSideBlock implements SideBlock{
     private final ShapeFunction shapeFunction;
 
     public OrientableWallSideBlock(BaseBlockProperty property) {
-        this(property, ShapeFunction.sideOrientedShape(0,0,15,16,16,16));
+        this(property, ShapeFunction.sideOrientedShape(new RawVoxelShape(0,0,15,16,16,16)));
     }
 
     public OrientableWallSideBlock(BaseBlockProperty property, ShapeFunction shapeFunction) {
