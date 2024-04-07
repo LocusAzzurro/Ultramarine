@@ -41,7 +41,7 @@ public class CentralAxialBlock extends Block implements AxialBlock, SimpleWaterl
     }
 
     public CentralAxialBlock(BaseBlockProperty property, int thickness, int height, boolean hasCollision) {
-        this(property, ShapeFunction.axialRotations(new RawVoxelShape(0,0,(16-thickness)/2f,16,height,16-(16-thickness)/2f)), hasCollision);
+        this(property, ShapeFunction.axialRotations(new RawVoxelShape(0, 0, (16-thickness)/2f, 16, height, 16-(16-thickness)/2f)), hasCollision);
     }
 
     public CentralAxialBlock(BaseBlockProperty property, int thickness) {

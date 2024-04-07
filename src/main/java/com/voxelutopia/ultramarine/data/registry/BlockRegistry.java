@@ -308,22 +308,24 @@ public class BlockRegistry {
             ShapeFunction.exclude(ShapeFunction.axialRotations(new RawVoxelShape(-16,0,6,32,16,10)), ShapeFunction.axialRotations(new RawVoxelShape(0,0,6,16,8,10)))));
     public static final RegistryObject<Block> VERTICAL_GILDED_DARK_OAK_QUETI = BLOCKS.register("vertical_gilded_dark_oak_queti", () -> new SideAxialBlock(BaseBlockProperty.WOOD,
             ShapeFunction.or(ShapeFunction.cardinalRotations(new RawVoxelShape(6,0,0,10,16,16)), ShapeFunction.cardinalRotations(new RawVoxelShape(6,-16,8,10,0,16)))));
-    public static final RegistryObject<Block> WOODEN_QUETI = BLOCKS.register("wooden_queti", () -> new WallSideBlock(BaseBlockProperty.WOOD));
-    public static final RegistryObject<Block> WOODEN_QUETI_EDGE = BLOCKS.register("wooden_queti_edge", () -> new OrientableWallSideBlock(BaseBlockProperty.WOOD));
-    public static final RegistryObject<Block> TALL_WOODEN_QUETI_EDGE = BLOCKS.register("tall_wooden_queti_edge", () -> new OrientableWallSideBlock(BaseBlockProperty.WOOD));
-    public static final RegistryObject<Block> LARGE_WOODEN_QUETI_EDGE = BLOCKS.register("large_wooden_queti_edge", () -> new OrientableWallSideBlock(BaseBlockProperty.WOOD));
-    public static final RegistryObject<Block> SHORT_GLAZED_QUETI = BLOCKS.register("short_glazed_queti", () -> new OrientableWallSideBlock(BaseBlockProperty.WOOD));
-    public static final RegistryObject<Block> THICK_CARVED_QUETI = BLOCKS.register("thick_carved_queti", () -> new SideAxialBlock(BaseBlockProperty.WOOD, 4));
-    public static final RegistryObject<Block> SHORT_THICK_GLAZED_QUETI = BLOCKS.register("short_thick_glazed_queti", () -> new SideAxialBlock(BaseBlockProperty.WOOD, 8));
-    public static final RegistryObject<Block> WOODEN_GUALUO = BLOCKS.register("wooden_gualuo", () -> new WallSideBlock(BaseBlockProperty.WOOD));
-    public static final RegistryObject<Block> LARGE_WOODEN_GUALUO = BLOCKS.register("large_wooden_gualuo", () -> new WallSideBlock(BaseBlockProperty.WOOD));
-    public static final RegistryObject<Block> LARGE_WOODEN_GUALUO_EDGE = BLOCKS.register("large_wooden_gualuo_edge", () -> new OrientableWallSideBlock(BaseBlockProperty.WOOD));
+    public static final RegistryObject<Block> WOODEN_QUETI = BLOCKS.register("wooden_queti", () -> new WallSideBlock(BaseBlockProperty.WOOD, ShapeFunction.cardinalRotations(new RawVoxelShape(0,11,14,16,16,15))));
+    public static final RegistryObject<Block> WOODEN_QUETI_EDGE = BLOCKS.register("wooden_queti_edge", () -> new OrientableWallSideBlock(BaseBlockProperty.WOOD, ShapeFunction.cardinalRotations(new RawVoxelShape(0,0,14,16,16,15))));
+    public static final RegistryObject<Block> TALL_WOODEN_QUETI_EDGE = BLOCKS.register("tall_wooden_queti_edge", () -> new OrientableWallSideBlock(BaseBlockProperty.WOOD,
+            ShapeFunction.or(ShapeFunction.cardinalRotations(new RawVoxelShape(0,0,14,16,16,15)), ShapeFunction.cardinalRotations(new RawVoxelShape(0,-16,14,8,0,15)))));
+    public static final RegistryObject<Block> LARGE_WOODEN_QUETI_EDGE = BLOCKS.register("large_wooden_queti_edge", () -> new OrientableWallSideBlock(BaseBlockProperty.WOOD,
+            ShapeFunction.or(ShapeFunction.cardinalRotations(new RawVoxelShape(0,0,14,16,16,15)), ShapeFunction.cardinalRotations(new RawVoxelShape(0,-16,14,8,0,15)), ShapeFunction.cardinalRotations(new RawVoxelShape(16,8,14,32,16,15)))));
+    public static final RegistryObject<Block> SHORT_GLAZED_QUETI = BLOCKS.register("short_glazed_queti", () -> new OrientableWallSideBlock(BaseBlockProperty.WOOD, ShapeFunction.sideOrientedShape(new RawVoxelShape(0,0,14,32,16,15))));
+    public static final RegistryObject<Block> THICK_CARVED_QUETI = BLOCKS.register("thick_carved_queti", () -> new SideAxialBlock(BaseBlockProperty.WOOD, ShapeFunction.cardinalRotations(new RawVoxelShape(6,0,-7,10,16,32))));
+    public static final RegistryObject<Block> SHORT_THICK_GLAZED_QUETI = BLOCKS.register("short_thick_glazed_queti", () -> new SideAxialBlock(BaseBlockProperty.WOOD, ShapeFunction.cardinalRotations(new RawVoxelShape(4,0,-16,12,16,16))));
+    public static final RegistryObject<Block> WOODEN_GUALUO = BLOCKS.register("wooden_gualuo", () -> new WallSideBlock(BaseBlockProperty.WOOD, ShapeFunction.cardinalRotations(new RawVoxelShape(0,0,13,16,16,15))));
+    public static final RegistryObject<Block> LARGE_WOODEN_GUALUO = BLOCKS.register("large_wooden_gualuo", () -> new WallSideBlock(BaseBlockProperty.WOOD, ShapeFunction.cardinalRotations(new RawVoxelShape(0,0,13,16,16,15))));
+    public static final RegistryObject<Block> LARGE_WOODEN_GUALUO_EDGE = BLOCKS.register("large_wooden_gualuo_edge", () -> new OrientableWallSideBlock(BaseBlockProperty.WOOD, ShapeFunction.cardinalRotations(new RawVoxelShape(0,0,13,16,16,15))));
     public static final RegistryObject<Block> CARVED_STONE_PANEL = BLOCKS.register("carved_stone_panel", () -> new CentralAxialBlock(BaseBlockProperty.STONE, 8));
     public static final RegistryObject<Block> CARVED_STONE_PANEL_EDGE = BLOCKS.register("carved_stone_panel_edge", () -> new SideAxialBlock(BaseBlockProperty.STONE, 8));
     public static final RegistryObject<Block> CARVED_STONE_PANEL_CENTER = BLOCKS.register("carved_stone_panel_center", () -> new CentralAxialBlock(BaseBlockProperty.STONE, 8));
-    public static final RegistryObject<Block> CARVED_STONE_QUETI_PART = BLOCKS.register("carved_stone_queti_part", () -> new SideAxialBlock(BaseBlockProperty.STONE, 8));
-    public static final RegistryObject<Block> CARVED_STONE_BEAM = BLOCKS.register("carved_stone_beam", () -> new SideAxialBlock(BaseBlockProperty.STONE, 8));
-    public static final RegistryObject<Block> CARVED_STONE_QUETI = BLOCKS.register("carved_stone_queti", () -> new SideAxialBlock(BaseBlockProperty.STONE, 8));
+    public static final RegistryObject<Block> CARVED_STONE_QUETI_PART = BLOCKS.register("carved_stone_queti_part", () -> new SideAxialBlock(BaseBlockProperty.STONE, ShapeFunction.cardinalRotations(new RawVoxelShape(4,0,-9,12,16,31))));
+    public static final RegistryObject<Block> CARVED_STONE_BEAM = BLOCKS.register("carved_stone_beam", () -> new SideAxialBlock(BaseBlockProperty.STONE, ShapeFunction.cardinalRotations(new RawVoxelShape(3.5,0,-16,12.5,16,32))));
+    public static final RegistryObject<Block> CARVED_STONE_QUETI = BLOCKS.register("carved_stone_queti", () -> new SideAxialBlock(BaseBlockProperty.STONE, ShapeFunction.cardinalRotations(new RawVoxelShape(4,-16,0,12,16,16))));
 
     // PATTERNS
 

@@ -37,7 +37,7 @@ public class SideAxialBlock extends BaseHorizontalDirectionalBlock implements Ax
     }
 
     public SideAxialBlock(BaseBlockProperty property, int thickness, int height, boolean hasCollision) {
-        this(property, ShapeFunction.cardinalRotations(new RawVoxelShape(0,0,(16-thickness)/2f,16,height,16-(16-thickness)/2f)), hasCollision);
+        this(property, ShapeFunction.cardinalRotations(new RawVoxelShape((16-thickness)/2f,0,0,16-(16-thickness)/2f,height,16)), hasCollision);
     }
 
     public SideAxialBlock(BaseBlockProperty property, int thickness) {
