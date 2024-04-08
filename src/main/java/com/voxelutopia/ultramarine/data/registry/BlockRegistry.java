@@ -358,23 +358,30 @@ public class BlockRegistry {
     // CHUIHUA
 
     public static final RegistryObject<Block> BLUE_AND_GREEN_CHUIHUA = BLOCKS.register("blue_and_green_chuihua",
-            () -> DecorativeBlock.with(BaseBlockProperty.WOOD).diagonallyPlaceable().build());
+            () -> DecorativeBlock.with(BaseBlockProperty.WOOD).shaped(ShapeFunction.diagonal(new RawVoxelShape(2,2,2,14,16,14))).diagonallyPlaceable().noOcclusion().build());
     public static final RegistryObject<Block> CYAN_AND_YELLOW_CHUIHUA = BLOCKS.register("cyan_and_yellow_chuihua",
-            () -> DecorativeBlock.with(BaseBlockProperty.WOOD).build());
-    public static final RegistryObject<Block> GILDED_DARK_OAK_CHUIHUA = BLOCKS.register("gilded_dark_oak_chuihua", () -> new SixSideBlock(BaseBlockProperty.WOOD, 14, true));
+            () -> DecorativeBlock.with(BaseBlockProperty.WOOD).shaped(ShapeFunction.simpleShape(new RawVoxelShape(0,-16,0,16,16,16))).noOcclusion().build());
+    public static final RegistryObject<Block> GILDED_DARK_OAK_CHUIHUA = BLOCKS.register("gilded_dark_oak_chuihua", () -> new SixSideBlock(BaseBlockProperty.WOOD,
+            ShapeFunction.sixSideShape(new RawVoxelShape(2,2,2,14,14,16), new RawVoxelShape(2,0,2,14,14,14)), true));
 
     // ROOF CHARM
 
     public static final RegistryObject<Block> GOLDEN_GLAZED_ROOF_CHARM = BLOCKS.register("golden_glazed_roof_charm",
-            () -> DecorativeBlock.with(BaseBlockProperty.GLAZED).directional().build());
-    public static final RegistryObject<Block> GOLDEN_GLAZED_ROOF_CHARM_ACCESSORY = BLOCKS.register("golden_glazed_roof_charm_accessory", () -> new WallSideBlock(BaseBlockProperty.GLAZED, 4));
+            () -> DecorativeBlock.with(BaseBlockProperty.GLAZED).shaped(
+                    ShapeFunction.or(ShapeFunction.cardinalRotations(new RawVoxelShape(0,-16,-16,16,0,32)), ShapeFunction.cardinalRotations(new RawVoxelShape(0,0,-16,16,16,16)),
+                            ShapeFunction.cardinalRotations(new RawVoxelShape(4.5,16,-7.5,11.5,29,-0.5)), ShapeFunction.cardinalRotations(new RawVoxelShape(1,16,7,15,31,23))))
+                    .directional().noOcclusion().build());
+    public static final RegistryObject<Block> GOLDEN_GLAZED_ROOF_CHARM_ACCESSORY = BLOCKS.register("golden_glazed_roof_charm_accessory", () -> new WallSideBlock(BaseBlockProperty.GLAZED, ShapeFunction.cardinalRotations(new RawVoxelShape(6,6,10,10,10,16))));
     public static final RegistryObject<Block> GREEN_GLAZED_ROOF_CHARM = BLOCKS.register("green_glazed_roof_charm",
-            () -> DecorativeBlock.with(BaseBlockProperty.GLAZED).directional().build());
+            () -> DecorativeBlock.with(BaseBlockProperty.GLAZED).shaped(
+                    ShapeFunction.or(ShapeFunction.cardinalRotations(new RawVoxelShape(0,-16,0,16,4,32)), ShapeFunction.cardinalRotations(new RawVoxelShape(0,0,0,16,16,16)),
+                            ShapeFunction.cardinalRotations(new RawVoxelShape(0,16,0,16,22,20)), ShapeFunction.cardinalRotations(new RawVoxelShape(0,0,12,16,34,26))))
+                    .directional().build());
 
     // CEILING
 
     public static final RegistryObject<Block> QING_GOLDEN_DRAGON_CEILING = BLOCKS.register("qing_golden_dragon_ceiling",
-            () -> DecorativeBlock.with(BaseBlockProperty.WOOD).shaped(DecorativeBlock.HALF_BLOCK).build());
+            () -> DecorativeBlock.with(BaseBlockProperty.WOOD).shaped(BlockShapes.S16_H8).build());
 
     // RAILING
 
@@ -389,17 +396,17 @@ public class BlockRegistry {
     // GUARDIAN LION
 
     public static final RegistryObject<Block> SMALL_WOODEN_GUARDIAN_LION = BLOCKS.register("small_wooden_guardian_lion",
-            () -> DecorativeBlock.with(BaseBlockProperty.WOOD).shaped(DecorativeBlock.FULL_BLOCK).directional().noOcclusion().noFenceConnect().build());
+            () -> DecorativeBlock.with(BaseBlockProperty.WOOD).shaped(BlockShapes.BACKWARD_3B_L).directional().noOcclusion().noFenceConnect().build());
     public static final RegistryObject<Block> SMALL_STONE_GUARDIAN_LION = BLOCKS.register("small_stone_guardian_lion",
-            () -> DecorativeBlock.with(BaseBlockProperty.STONE).shaped(DecorativeBlock.FULL_BLOCK).directional().noOcclusion().noFenceConnect().build());
+            () -> DecorativeBlock.with(BaseBlockProperty.STONE).shaped(BlockShapes.BACKWARD_3B_L).directional().noOcclusion().noFenceConnect().build());
     public static final RegistryObject<Block> SMALL_JADE_GUARDIAN_LION = BLOCKS.register("small_jade_guardian_lion",
-            () -> DecorativeBlock.with(BaseBlockProperty.JADE).shaped(DecorativeBlock.FULL_BLOCK).directional().noOcclusion().noFenceConnect().build());
+            () -> DecorativeBlock.with(BaseBlockProperty.JADE).shaped(BlockShapes.BACKWARD_3B_L).directional().noOcclusion().noFenceConnect().build());
     public static final RegistryObject<Block> SMALL_YELLOW_GLAZED_GUARDIAN_LION = BLOCKS.register("small_yellow_glazed_guardian_lion",
-            () -> DecorativeBlock.with(BaseBlockProperty.GLAZED).shaped(DecorativeBlock.FULL_BLOCK).directional().noOcclusion().noFenceConnect().build());
+            () -> DecorativeBlock.with(BaseBlockProperty.GLAZED).shaped(BlockShapes.BACKWARD_3B_L).directional().noOcclusion().noFenceConnect().build());
     public static final RegistryObject<Block> SMALL_GREEN_GLAZED_GUARDIAN_LION = BLOCKS.register("small_green_glazed_guardian_lion",
-            () -> DecorativeBlock.with(BaseBlockProperty.GLAZED).shaped(DecorativeBlock.FULL_BLOCK).directional().noOcclusion().noFenceConnect().build());
+            () -> DecorativeBlock.with(BaseBlockProperty.GLAZED).shaped(BlockShapes.BACKWARD_3B_L).directional().noOcclusion().noFenceConnect().build());
     public static final RegistryObject<Block> XUMI_STONE_MONOLITH = BLOCKS.register("xumi_stone_monolith",
-            () -> DecorativeBlock.with(BaseBlockProperty.STONE).shaped(DecorativeBlock.FULL_BLOCK).directional().noOcclusion().noFenceConnect().build());
+            () -> DecorativeBlock.with(BaseBlockProperty.STONE).shaped(ShapeFunction.cardinalRotations(new RawVoxelShape(-8,0,-1,24,32,17))).directional().noOcclusion().noFenceConnect().build());
 
     // MISC DECORATIONS
 

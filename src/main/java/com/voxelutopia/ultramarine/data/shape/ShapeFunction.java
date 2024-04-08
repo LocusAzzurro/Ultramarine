@@ -114,6 +114,14 @@ public class ShapeFunction implements Function<BlockState, VoxelShape> {
                 });
     }
 
+    public static ShapeFunction diagonal(RawVoxelShape normalShape){
+        return new ShapeFunction(
+                state -> {
+                    boolean diagonal = state.getValue(ModBlockStateProperties.DIAGONAL);
+                    return diagonal ? normalShape.copy().rotateY(45).toVoxelShape() : normalShape.copy().toVoxelShape();
+                });
+    }
+
     public static ShapeFunction sideShape(int thickness){
         return cardinalRotations(new RawVoxelShape(0, 0, 16 - thickness, 16, 16, 16));
     }
@@ -192,6 +200,10 @@ public class ShapeFunction implements Function<BlockState, VoxelShape> {
 
     public static ShapeFunction simpleShape(VoxelShape shape){
         return new ShapeFunction(state -> shape);
+    }
+
+    public static ShapeFunction simpleShape(RawVoxelShape shape){
+        return new ShapeFunction(state -> shape.toVoxelShape());
     }
 
     static {
