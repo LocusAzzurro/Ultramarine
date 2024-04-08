@@ -329,28 +329,31 @@ public class BlockRegistry {
 
     // PATTERNS
 
-    public static final RegistryObject<Block> YELLOW_CARVED_PATTERN = BLOCKS.register("yellow_carved_pattern", () -> new WallSideBlock(BaseBlockProperty.DYE));
+    public static final RegistryObject<Block> YELLOW_CARVED_PATTERN = BLOCKS.register("yellow_carved_pattern", () -> new WallSideBlock(BaseBlockProperty.DYE, ShapeFunction.cardinalRotations(new RawVoxelShape(-6,2,15,22,14,16))));
     public static final RegistryObject<Block> CIRCULAR_YELLOW_CARVED_PATTERN = BLOCKS.register("circular_yellow_carved_pattern", () -> new SixSideBlock(BaseBlockProperty.DYE));
     public static final RegistryObject<Block> YELLOW_CARVED_FANGXIN_EDGE_PATTERN = BLOCKS.register("yellow_carved_fangxin_edge_pattern", () -> new OrientableSixSideBlock(BaseBlockProperty.DYE));
     public static final RegistryObject<Block> YELLOW_CARVED_FANGXIN_PATTERN = BLOCKS.register("yellow_carved_fangxin_pattern", () -> new OrientableSixSideBlock(BaseBlockProperty.DYE));
-    public static final RegistryObject<Block> LARGE_YELLOW_CARVED_PATTERN = BLOCKS.register("large_yellow_carved_pattern", () -> new SixSideBlock(BaseBlockProperty.DYE));
-    public static final RegistryObject<Block> MEDIUM_YELLOW_CARVED_PATTERN = BLOCKS.register("medium_yellow_carved_pattern", () -> new OrientableSixSideBlock(BaseBlockProperty.DYE));
+    public static final RegistryObject<Block> LARGE_YELLOW_CARVED_PATTERN = BLOCKS.register("large_yellow_carved_pattern", () -> new SixSideBlock(BaseBlockProperty.DYE,
+            ShapeFunction.sixSideShape(new RawVoxelShape(-16,-16,15,32,32,16), new RawVoxelShape(-16,0,-16,32,1,32))));
+    public static final RegistryObject<Block> MEDIUM_YELLOW_CARVED_PATTERN = BLOCKS.register("medium_yellow_carved_pattern", () -> new OrientableSixSideBlock(BaseBlockProperty.DYE,
+            ShapeFunction.orientedSixSideShape(new RawVoxelShape(-16,0,15,32,32,16), new RawVoxelShape(-16,0,-16,32,1,16))));
     public static final RegistryObject<Block> YELLOW_CARVED_ZHAOTOU_PATTERN = BLOCKS.register("yellow_carved_zhaotou_pattern", () -> new OrientableSixSideBlock(BaseBlockProperty.DYE));
-    public static final RegistryObject<Block> LONG_YELLOW_CARVED_ZHAOTOU_PATTERN = BLOCKS.register("long_yellow_carved_zhaotou_pattern", () -> new OrientableSixSideBlock(BaseBlockProperty.DYE));
+    public static final RegistryObject<Block> LONG_YELLOW_CARVED_ZHAOTOU_PATTERN = BLOCKS.register("long_yellow_carved_zhaotou_pattern", () -> new OrientableSixSideBlock(BaseBlockProperty.DYE,
+            ShapeFunction.orientedSixSideShape(new RawVoxelShape(0,0,15,16,32,16), new RawVoxelShape(0,0,-16,16,1,16))));
     public static final RegistryObject<Block> CARVED_ZHAOTOU_PATTERN = BLOCKS.register("carved_zhaotou_pattern", () -> new OrientableSixSideBlock(BaseBlockProperty.DYE));
-    public static final RegistryObject<Block> FLAME_ARCH_WALL_PATTERN = BLOCKS.register("flame_arch_wall_pattern", () -> new WallSideBlock(BaseBlockProperty.DYE));
-    public static final RegistryObject<Block> GOLDEN_DRAGON_FANGXIN_PATTERN = BLOCKS.register("golden_dragon_fangxin_pattern", () -> new WallSideBlock(BaseBlockProperty.DYE));
+    public static final RegistryObject<Block> FLAME_ARCH_WALL_PATTERN = BLOCKS.register("flame_arch_wall_pattern", () -> new WallSideBlock(BaseBlockProperty.DYE, ShapeFunction.cardinalRotations(new RawVoxelShape(-4,0,15,20,16,16))));
+    public static final RegistryObject<Block> GOLDEN_DRAGON_FANGXIN_PATTERN = BLOCKS.register("golden_dragon_fangxin_pattern", () -> new WallSideBlock(BaseBlockProperty.DYE, ShapeFunction.cardinalRotations(new RawVoxelShape(-16,0,15,32,16,16))));
     public static final RegistryObject<Block> BLUE_FANGXIN_PATTERN = BLOCKS.register("blue_fangxin_pattern", () -> new OrientableSixSideBlock(BaseBlockProperty.DYE));
     public static final RegistryObject<Block> BLUE_FANGXIN_PATTERN_EDGE = BLOCKS.register("blue_fangxin_pattern_edge", () -> new OrientableSixSideBlock(BaseBlockProperty.DYE));
     public static final RegistryObject<Block> GREEN_FANGXIN_PATTERN = BLOCKS.register("green_fangxin_pattern", () -> new OrientableSixSideBlock(BaseBlockProperty.DYE));
     public static final RegistryObject<Block> GREEN_FANGXIN_PATTERN_EDGE = BLOCKS.register("green_fangxin_pattern_edge", () -> new OrientableSixSideBlock(BaseBlockProperty.DYE));
-    public static final RegistryObject<Block> LIGHT_BLUE_SU_STYLE_CAIHUA = BLOCKS.register("light_blue_su_style_caihua", () -> new WallSideBlock(BaseBlockProperty.DYE));
-    public static final RegistryObject<Block> YELLOW_SU_STYLE_CAIHUA = BLOCKS.register("yellow_su_style_caihua", () -> new WallSideBlock(BaseBlockProperty.DYE));
-    public static final RegistryObject<Block> LIGHT_YELLOW_SU_STYLE_CAIHUA = BLOCKS.register("light_yellow_su_style_caihua", () -> new WallSideBlock(BaseBlockProperty.DYE));
-    public static final RegistryObject<Block> MEDIUM_SU_STYLE_CAIHUA = BLOCKS.register("medium_su_style_caihua", () -> new WallSideBlock(BaseBlockProperty.DYE));
-    public static final RegistryObject<Block> LARGE_WHITE_SU_STYLE_CAIHUA = BLOCKS.register("large_white_su_style_caihua", () -> new WallSideBlock(BaseBlockProperty.DYE));
-    public static final RegistryObject<Block> LARGE_GREEN_SU_STYLE_CAIHUA = BLOCKS.register("large_green_su_style_caihua", () -> new WallSideBlock(BaseBlockProperty.DYE));
-    public static final RegistryObject<Block> LARGE_GRAY_SU_STYLE_CAIHUA = BLOCKS.register("large_gray_su_style_caihua", () -> new WallSideBlock(BaseBlockProperty.DYE));
+    public static final RegistryObject<Block> LIGHT_BLUE_SU_STYLE_CAIHUA = BLOCKS.register("light_blue_su_style_caihua", () -> new WallSideBlock(BaseBlockProperty.DYE, ShapeFunction.cardinalRotations(new RawVoxelShape(-9,0,15,23,16,16))));
+    public static final RegistryObject<Block> YELLOW_SU_STYLE_CAIHUA = BLOCKS.register("yellow_su_style_caihua", () -> new WallSideBlock(BaseBlockProperty.DYE, ShapeFunction.cardinalRotations(new RawVoxelShape(-9,0,15,23,16,16))));
+    public static final RegistryObject<Block> LIGHT_YELLOW_SU_STYLE_CAIHUA = BLOCKS.register("light_yellow_su_style_caihua", () -> new WallSideBlock(BaseBlockProperty.DYE, ShapeFunction.cardinalRotations(new RawVoxelShape(-9,0,15,23,16,16))));
+    public static final RegistryObject<Block> MEDIUM_SU_STYLE_CAIHUA = BLOCKS.register("medium_su_style_caihua", () -> new WallSideBlock(BaseBlockProperty.DYE, ShapeFunction.cardinalRotations(new RawVoxelShape(-16,8,15,32,32,16))));
+    public static final RegistryObject<Block> LARGE_WHITE_SU_STYLE_CAIHUA = BLOCKS.register("large_white_su_style_caihua", () -> new WallSideBlock(BaseBlockProperty.DYE, ShapeFunction.cardinalRotations(new RawVoxelShape(-16,0,15,32,32,16))));
+    public static final RegistryObject<Block> LARGE_GREEN_SU_STYLE_CAIHUA = BLOCKS.register("large_green_su_style_caihua", () -> new WallSideBlock(BaseBlockProperty.DYE, ShapeFunction.cardinalRotations(new RawVoxelShape(-16,0,15,32,32,16))));
+    public static final RegistryObject<Block> LARGE_GRAY_SU_STYLE_CAIHUA = BLOCKS.register("large_gray_su_style_caihua", () -> new WallSideBlock(BaseBlockProperty.DYE, ShapeFunction.cardinalRotations(new RawVoxelShape(-16,0,15,32,32,16))));
 
     // CHUIHUA
 

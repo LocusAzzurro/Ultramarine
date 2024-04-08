@@ -1,5 +1,6 @@
 package com.voxelutopia.ultramarine.world.block;
 
+import com.voxelutopia.ultramarine.data.shape.ShapeFunction;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.item.context.BlockPlaceContext;
@@ -22,24 +23,32 @@ import java.util.Map;
 public class SixSideBlock extends Block implements BaseBlockPropertyHolder, SimpleWaterloggedBlock, SideBlock {
 
     protected final BaseBlockProperty property;
-    private final Map<Direction, VoxelShape> shapeByDirection;
+    protected final ShapeFunction shapeFunction;
     private final boolean hasCollision;
 
     public static final DirectionProperty FACING = BlockStateProperties.FACING;
     public static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
 
-    public SixSideBlock(BaseBlockProperty property, int sideThickness, boolean hasCollision) {
+    public SixSideBlock(BaseBlockProperty property, ShapeFunction shapeFunction, boolean hasCollision) {
         super(property.copy().properties.noOcclusion().noCollission());
         this.property = property;
         this.registerDefaultState(this.getStateDefinition().any()
                 .setValue(FACING, Direction.NORTH)
                 .setValue(WATERLOGGED, false));
-        this.shapeByDirection = SideBlock.faceShapeByDirection(sideThickness);
+        this.shapeFunction = shapeFunction;
         this.hasCollision = hasCollision;
+    }
+
+    public SixSideBlock(BaseBlockProperty property, int sideThickness, boolean hasCollision) {
+        this(property, ShapeFunction.sixSideShape(sideThickness), hasCollision);
     }
 
     public SixSideBlock(BaseBlockProperty property) {
         this(property,  1);
+    }
+
+    public SixSideBlock(BaseBlockProperty property, ShapeFunction shapeFunction) {
+        this(property, shapeFunction, false);
     }
 
     public SixSideBlock(BaseBlockProperty property, int sideThickness){
@@ -47,7 +56,7 @@ public class SixSideBlock extends Block implements BaseBlockPropertyHolder, Simp
     }
 
     public VoxelShape getShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
-        return this.shapeByDirection.get(pState.getValue(FACING));
+        return this.shapeFunction.apply(pState);
     }
 
     @Override

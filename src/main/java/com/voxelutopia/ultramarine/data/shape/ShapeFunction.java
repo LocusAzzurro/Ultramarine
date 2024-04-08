@@ -118,6 +118,10 @@ public class ShapeFunction implements Function<BlockState, VoxelShape> {
         return cardinalRotations(new RawVoxelShape(0, 0, 16 - thickness, 16, 16, 16));
     }
 
+    public static ShapeFunction sixSideShape(int thickness){
+        return sixSideShape(new RawVoxelShape(0, 0, 16 - thickness, 16, 16, 16), new RawVoxelShape(0, 0, 0, 16, thickness, 16));
+    }
+
     //values from north facing left orientation
     public static ShapeFunction sideOrientedShape(RawVoxelShape northLeftShape){
         return new ShapeFunction(
@@ -130,12 +134,59 @@ public class ShapeFunction implements Function<BlockState, VoxelShape> {
                         case RIGHT -> northRightShape.copy();
                     };
                     return switch (facing){
-                        case DOWN, UP -> null;
+                        case DOWN, UP -> Shapes.empty();
                         case NORTH -> shape.copy().toVoxelShape();
                         case SOUTH -> shape.copy().rotateY(180).toVoxelShape();
                         case WEST -> shape.copy().rotateY(90).toVoxelShape();
                         case EAST -> shape.copy().rotateY(270).toVoxelShape();
                     };
+                });
+    }
+
+    public static ShapeFunction sixSideShape(RawVoxelShape northShape, RawVoxelShape topShape){
+        return new ShapeFunction(
+                state -> {
+                    Direction facing = state.getValue(BlockStateProperties.FACING);
+                    return switch (facing) {
+                        case UP -> topShape.copy().toVoxelShape();
+                        case DOWN -> topShape.copy().mirrorY().toVoxelShape();
+                        case NORTH -> northShape.copy().toVoxelShape();
+                        case SOUTH -> northShape.copy().rotateY(180).toVoxelShape();
+                        case WEST -> northShape.copy().rotateY(90).toVoxelShape();
+                        case EAST -> northShape.copy().rotateY(270).toVoxelShape();
+                    };
+                });
+    }
+
+    public static ShapeFunction orientedSixSideShape(RawVoxelShape northUpShape, RawVoxelShape topNorthShape){
+        return new ShapeFunction(
+                state -> {
+                    Direction facing = state.getValue(BlockStateProperties.FACING);
+                    Direction direction = state.getValue(ModBlockStateProperties.ON_FACE_DIRECTION);
+                    RawVoxelShape shape;
+                    if (facing == Direction.UP || facing == Direction.DOWN) {
+                        shape = topNorthShape.copy();
+                        if (facing == Direction.DOWN) shape = topNorthShape.copy().mirrorY();
+                        switch (direction) {
+                            case NORTH -> shape = shape.copy();
+                            case SOUTH -> shape = shape.copy().rotateY(180);
+                            case WEST -> shape = shape.copy().rotateY(90);
+                            case EAST -> shape = shape.copy().rotateY(270);
+                        }
+                    }
+                    else {
+                        shape = northUpShape.copy();
+                        if (facing.getClockWise() == direction) shape = shape.copy().rotateZ(-90);
+                        else if (facing.getCounterClockWise() == direction) shape = shape.copy().rotateZ(90);
+                        else if (direction == Direction.DOWN) shape = shape.copy().mirrorY();
+                        switch (facing) {
+                            case NORTH -> shape = shape.copy();
+                            case SOUTH -> shape = shape.copy().rotateY(180);
+                            case WEST -> shape = shape.copy().rotateY(90);
+                            case EAST -> shape = shape.copy().rotateY(270);
+                        }
+                    }
+                    return shape.toVoxelShape();
                 });
     }
 

@@ -1,5 +1,6 @@
 package com.voxelutopia.ultramarine.world.block;
 
+import com.voxelutopia.ultramarine.data.shape.ShapeFunction;
 import com.voxelutopia.ultramarine.world.block.state.ModBlockStateProperties;
 import net.minecraft.core.Direction;
 import net.minecraft.world.item.context.BlockPlaceContext;
@@ -17,13 +18,16 @@ public class OrientableSixSideBlock extends SixSideBlock implements SideBlock{
     public static final DirectionProperty FACING = BlockStateProperties.FACING;
     public static final DirectionProperty DIRECTION = ModBlockStateProperties.ON_FACE_DIRECTION;
 
-
-    public OrientableSixSideBlock(BaseBlockProperty property, int sideThickness) {
-        super(property, sideThickness);
+    public OrientableSixSideBlock(BaseBlockProperty property, ShapeFunction shapeFunction) {
+        super(property, shapeFunction);
         this.registerDefaultState(this.getStateDefinition().any()
                 .setValue(FACING, Direction.NORTH)
                 .setValue(DIRECTION, Direction.EAST)
                 .setValue(WATERLOGGED, false));
+    }
+
+    public OrientableSixSideBlock(BaseBlockProperty property, int sideThickness) {
+        this(property, ShapeFunction.sixSideShape(sideThickness));
     }
 
     public OrientableSixSideBlock(BaseBlockProperty property) {

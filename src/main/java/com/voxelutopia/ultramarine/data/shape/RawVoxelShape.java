@@ -38,6 +38,22 @@ public class RawVoxelShape {
         return this;
     }
 
+    public RawVoxelShape rotateZ(float degrees){
+        minP.add(-8f, -8f, -8f);
+        maxP.add(-8f, -8f, -8f);
+        XZcorner1.add(-8f, -8f, -8f);
+        XZcorner2.add(-8f, -8f, -8f);
+        minP.transform(Vector3f.ZP.rotationDegrees(degrees));
+        maxP.transform(Vector3f.ZP.rotationDegrees(degrees));
+        XZcorner1.transform(Vector3f.ZP.rotationDegrees(degrees));
+        XZcorner2.transform(Vector3f.ZP.rotationDegrees(degrees));
+        minP.add(8f, 8f, 8f);
+        maxP.add(8f, 8f, 8f);
+        XZcorner1.add(8f, 8f, 8f);
+        XZcorner2.add(8f, 8f, 8f);
+        return this;
+    }
+
     public RawVoxelShape mirrorZ(){
         minP.mul(-1, 1, 1);
         minP.add(16, 0, 0);
@@ -47,6 +63,18 @@ public class RawVoxelShape {
         XZcorner1.add(16, 0, 0);
         XZcorner2.mul(-1, 1, 1);
         XZcorner2.add(16, 0, 0);
+        return this;
+    }
+
+    public RawVoxelShape mirrorY(){
+        minP.mul(1, -1, 1);
+        minP.add(0, 16, 0);
+        maxP.mul(1, -1, 1);
+        maxP.add(0, 16, 0);
+        XZcorner1.mul(1, -1, 1);
+        XZcorner1.add(0, 16, 0);
+        XZcorner2.mul(1, -1, 1);
+        XZcorner2.add(0, 16, 0);
         return this;
     }
 
