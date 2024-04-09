@@ -482,39 +482,39 @@ public class BlockRegistry {
     // MISC OBJECTS
 
     public static final RegistryObject<Block> RED_SILK_FABRIC_ROLL = BLOCKS.register("red_silk_fabric_roll",
-            () -> DecorativeBlock.with(BaseBlockProperty.SILK).shaped(DecorativeBlock.QUARTER_12).directional().diagonallyPlaceable().build());
+            () -> DecorativeBlock.with(BaseBlockProperty.SILK).shaped(ShapeFunction.eightRotations(new RawVoxelShape(-7,0,4,23,4,12))).directional().diagonallyPlaceable().noCollision().noOcclusion().build());
     public static final RegistryObject<Block> GREEN_SILK_FABRIC_ROLL = BLOCKS.register("green_silk_fabric_roll",
-            () -> DecorativeBlock.with(BaseBlockProperty.SILK).shaped(DecorativeBlock.QUARTER_12).directional().diagonallyPlaceable().build());
+            () -> DecorativeBlock.with(BaseBlockProperty.SILK).shaped(ShapeFunction.eightRotations(new RawVoxelShape(-7,0,4,23,4,12))).directional().diagonallyPlaceable().noCollision().noOcclusion().build());
     public static final RegistryObject<Block> PURPLE_SILK_FABRIC_ROLL = BLOCKS.register("purple_silk_fabric_roll",
-            () -> DecorativeBlock.with(BaseBlockProperty.SILK).shaped(DecorativeBlock.QUARTER_12).directional().diagonallyPlaceable().build());
+            () -> DecorativeBlock.with(BaseBlockProperty.SILK).shaped(ShapeFunction.eightRotations(new RawVoxelShape(-7,0,4,23,4,12))).directional().diagonallyPlaceable().noCollision().noOcclusion().build());
     public static final RegistryObject<Block> CLAY_DOLL_MALE = BLOCKS.register("clay_doll_male",
-            () -> DecorativeBlock.with(BaseBlockProperty.TERRACOTTA).shaped(DecorativeBlock.FULL_10).directional().diagonallyPlaceable().noCollision().build());
+            () -> DecorativeBlock.with(BaseBlockProperty.TERRACOTTA).shaped(ShapeFunction.diagonalSquare(8, 16)).directional().diagonallyPlaceable().build());
     public static final RegistryObject<Block> CLAY_DOLL_FEMALE = BLOCKS.register("clay_doll_female",
-            () -> DecorativeBlock.with(BaseBlockProperty.TERRACOTTA).shaped(DecorativeBlock.FULL_10).directional().diagonallyPlaceable().noCollision().build());
+            () -> DecorativeBlock.with(BaseBlockProperty.TERRACOTTA).shaped(ShapeFunction.diagonalSquare(8, 16)).directional().diagonallyPlaceable().build());
     public static final RegistryObject<Block> BOTTLE_GOURD = BLOCKS.register("bottle_gourd",
-            () -> new BottleGourd(DecorativeBlock.with(BaseBlockProperty.WOOD).shaped(BottleGourd.GOURD).directional().diagonallyPlaceable()));
+            () -> new BottleGourd(DecorativeBlock.with(BaseBlockProperty.WOOD).shaped(ShapeFunction.diagonalSquare(7, 12)).directional().diagonallyPlaceable()));
 
     // FLOWER POTS
 
     public static final RegistryObject<Block> BLUE_AND_WHITE_PORCELAIN_FLOWERPOT = BLOCKS.register("blue_and_white_porcelain_flowerpot",
-            () -> DecorativeBlock.with(BaseBlockProperty.PORCELAIN).shaped(DecorativeBlock.FULL_6).diagonallyPlaceable().build());
+            () -> DecorativeBlock.with(BaseBlockProperty.PORCELAIN).shaped(ShapeFunction.diagonalSquare(10, 17)).diagonallyPlaceable().build());
     public static final RegistryObject<Block> TERRACOTTA_FLOWERPOT = BLOCKS.register("terracotta_flowerpot",
-            () -> DecorativeBlock.with(BaseBlockProperty.TERRACOTTA).shaped(DecorativeBlock.VASE).diagonallyPlaceable().build());
+            () -> DecorativeBlock.with(BaseBlockProperty.TERRACOTTA).shaped(ShapeFunction.diagonalSquare(12, 17)).diagonallyPlaceable().noOcclusion().build());
     public static final RegistryObject<Block> BLACK_IRON_FLOWERPOT = BLOCKS.register("black_iron_flowerpot",
-            () -> DecorativeBlock.with(BaseBlockProperty.IRON).shaped(DecorativeBlock.VASE).directional().build());
+            () -> DecorativeBlock.with(BaseBlockProperty.IRON).shaped(ShapeFunction.centeredSquare(8, 8)).directional().build());
     public static final RegistryObject<Block> BLUE_PORCELAIN_FLOWERPOT = BLOCKS.register("blue_porcelain_flowerpot",
-            () -> DecorativeBlock.with(BaseBlockProperty.PORCELAIN).shaped(DecorativeBlock.FULL_14).directional().build());
+            () -> DecorativeBlock.with(BaseBlockProperty.PORCELAIN).shaped(ShapeFunction.centeredSquare(12, 17)).directional().build());
 
     // COURTYARD
 
     public static final RegistryObject<Block> SACK = BLOCKS.register("sack",
-            () -> ContainerDecorativeBlock.with(BaseBlockProperty.SILK).content(ContainerType.COMMON_SMALL).shaped(DecorativeBlock.HALF_6).directional().noCollision().build());
+            () -> ContainerDecorativeBlock.with(BaseBlockProperty.SILK).content(ContainerType.COMMON_SMALL).shaped(ShapeFunction.centeredSquare(6, 6)).directional().noCollision().build());
     public static final RegistryObject<Block> BAMBOO_TEA_BASKET = BLOCKS.register("bamboo_tea_basket",
-            () -> ContainerDecorativeBlock.with(BaseBlockProperty.BAMBOO_WOOD).content(ContainerType.FOOD_REGULAR).shaped(DecorativeBlock.FULL_14).directional().diagonallyPlaceable().build());
+            () -> ContainerDecorativeBlock.with(BaseBlockProperty.BAMBOO_WOOD).content(ContainerType.FOOD_REGULAR).shaped(ShapeFunction.eightRotations(new RawVoxelShape(1,0,2,15,24,16))).directional().diagonallyPlaceable().noOcclusion().build());
     public static final RegistryObject<Block> EMPTY_BAMBOO_TEA_BASKET = BLOCKS.register("empty_bamboo_tea_basket",
-            () -> ContainerDecorativeBlock.with(BaseBlockProperty.BAMBOO_WOOD).content(ContainerType.FOOD_REGULAR).shaped(DecorativeBlock.FULL_14).directional().diagonallyPlaceable().build());
+            () -> ContainerDecorativeBlock.with(BaseBlockProperty.BAMBOO_WOOD).content(ContainerType.FOOD_REGULAR).shaped(ShapeFunction.eightRotations(new RawVoxelShape(1,0,2,15,24,16))).directional().diagonallyPlaceable().noOcclusion()t.build());
     public static final RegistryObject<Block> STRAW_HAT = BLOCKS.register("straw_hat",
-            () -> DecorativeBlock.with(BaseBlockProperty.FLAX).shaped(DecorativeBlock.QUARTER_16).diagonallyPlaceable().noCollision().noOcclusion().build());
+            () -> DecorativeBlock.with(BaseBlockProperty.FLAX).shaped(ShapeFunction.diagonalSquare(14, 5)).diagonallyPlaceable().noCollision().noOcclusion().build());
     public static final RegistryObject<Block> KNIFE = BLOCKS.register("knife",
             () -> DecorativeBlock.with(BaseBlockProperty.IRON).shaped(DecorativeBlock.FLAT_16).directional().diagonallyPlaceable().noCollision().noOcclusion().build());
     public static final RegistryObject<Block> SUNDIAL = BLOCKS.register("sundial",
