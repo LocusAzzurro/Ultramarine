@@ -56,6 +56,7 @@ public class ModClientRenderEventHandler {
             ItemBlockRenderTypes.setRenderLayer(BlockRegistry.PLATED_MUNG_BEAN_CAKES.get(), RenderType.cutout());
             ItemBlockRenderTypes.setRenderLayer(BlockRegistry.PLATED_FISH.get(), RenderType.cutout());
             ItemBlockRenderTypes.setRenderLayer(BlockRegistry.WINE_POT.get(), RenderType.cutout());
+            ItemBlockRenderTypes.setRenderLayer(BlockRegistry.TERRACOTTA_POT.get(), RenderType.cutout());
             ItemBlockRenderTypes.setRenderLayer(BlockRegistry.OCTAGONAL_PALACE_LANTERN.get(), RenderType.cutout());
             ItemBlockRenderTypes.setRenderLayer(BlockRegistry.SQUARE_PALACE_LANTERN.get(), RenderType.cutout());
             ItemBlockRenderTypes.setRenderLayer(BlockRegistry.STANDING_LAMP.get(), RenderType.cutout());
