@@ -512,7 +512,7 @@ public class BlockRegistry {
     public static final RegistryObject<Block> BAMBOO_TEA_BASKET = BLOCKS.register("bamboo_tea_basket",
             () -> ContainerDecorativeBlock.with(BaseBlockProperty.BAMBOO_WOOD).content(ContainerType.FOOD_REGULAR).shaped(ShapeFunction.eightRotations(new RawVoxelShape(1,0,2,15,24,16))).directional().diagonallyPlaceable().noOcclusion().build());
     public static final RegistryObject<Block> EMPTY_BAMBOO_TEA_BASKET = BLOCKS.register("empty_bamboo_tea_basket",
-            () -> ContainerDecorativeBlock.with(BaseBlockProperty.BAMBOO_WOOD).content(ContainerType.FOOD_REGULAR).shaped(ShapeFunction.eightRotations(new RawVoxelShape(1,0,2,15,24,16))).directional().diagonallyPlaceable().noOcclusion()t.build());
+            () -> ContainerDecorativeBlock.with(BaseBlockProperty.BAMBOO_WOOD).content(ContainerType.FOOD_REGULAR).shaped(ShapeFunction.eightRotations(new RawVoxelShape(1,0,2,15,24,16))).directional().diagonallyPlaceable().noOcclusion().build());
     public static final RegistryObject<Block> STRAW_HAT = BLOCKS.register("straw_hat",
             () -> DecorativeBlock.with(BaseBlockProperty.FLAX).shaped(ShapeFunction.diagonalSquare(14, 5)).diagonallyPlaceable().noCollision().noOcclusion().build());
     public static final RegistryObject<Block> KNIFE = BLOCKS.register("knife",
