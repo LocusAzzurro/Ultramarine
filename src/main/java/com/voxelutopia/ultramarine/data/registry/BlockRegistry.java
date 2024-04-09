@@ -516,23 +516,23 @@ public class BlockRegistry {
     public static final RegistryObject<Block> STRAW_HAT = BLOCKS.register("straw_hat",
             () -> DecorativeBlock.with(BaseBlockProperty.FLAX).shaped(ShapeFunction.diagonalSquare(14, 5)).diagonallyPlaceable().noCollision().noOcclusion().build());
     public static final RegistryObject<Block> KNIFE = BLOCKS.register("knife",
-            () -> DecorativeBlock.with(BaseBlockProperty.IRON).shaped(DecorativeBlock.FLAT_16).directional().diagonallyPlaceable().noCollision().noOcclusion().build());
+            () -> DecorativeBlock.with(BaseBlockProperty.IRON).shaped(ShapeFunction.eightRotations(new RawVoxelShape(6.5,0,-2.5,9.5,1,18.5))).directional().diagonallyPlaceable().noCollision().noOcclusion().build());
     public static final RegistryObject<Block> SUNDIAL = BLOCKS.register("sundial",
-            () -> DecorativeBlock.with(BaseBlockProperty.STONE).shaped(DecorativeBlock.FULL_14).directional().build());
+            () -> DecorativeBlock.with(BaseBlockProperty.STONE).shaped(ShapeFunction.cardinalRotations(new RawVoxelShape(-3,0,4.5,19,20,16))).directional().build());
     public static final RegistryObject<Block> BROOM = BLOCKS.register("broom",
-            () -> DecorativeBlock.with(BaseBlockProperty.STONE).shaped(DecorativeBlock.FULL_8).directional().build());
+            () -> DecorativeBlock.with(BaseBlockProperty.STONE).shaped(ShapeFunction.cardinalRotations(new RawVoxelShape(5,0,5,11,24,16.5))).directional().build());
     public static final RegistryObject<Block> STONE_PEDESTAL = BLOCKS.register("stone_pedestal",
-            () -> DecorativeBlock.with(BaseBlockProperty.STONE).shaped(DecorativeBlock.HALF_BLOCK).diagonallyPlaceable().noOcclusion().build());
+            () -> DecorativeBlock.with(BaseBlockProperty.STONE).shaped(ShapeFunction.diagonalSquare(12, 8)).diagonallyPlaceable().noOcclusion().build());
     public static final RegistryObject<Block> TERRACOTTA_POT = BLOCKS.register("terracotta_pot",
-            () -> DecorativeBlock.with(BaseBlockProperty.TERRACOTTA).shaped(DecorativeBlock.FULL_14).directional().build());
+            () -> DecorativeBlock.with(BaseBlockProperty.TERRACOTTA).shaped(ShapeFunction.centeredSquare(10, 13)).directional().build());
     public static final RegistryObject<Block> CHINESE_HERBS_BAG = BLOCKS.register("chinese_herbs_bag",
-            () -> DecorativeBlock.with(BaseBlockProperty.SILK).shaped(DecorativeBlock.HALF_BLOCK).directional().build());
+            () -> DecorativeBlock.with(BaseBlockProperty.SILK).shaped(BlockShapes.S16_H8).directional().build());
     public static final RegistryObject<Block> FRUIT_BOX = BLOCKS.register("fruit_box",
-            () -> ContainerDecorativeBlock.with(BaseBlockProperty.WOOD).content(ContainerType.FOOD_REGULAR).shaped(DecorativeBlock.FULL_14).directional().diagonallyPlaceable().build());
+            () -> ContainerDecorativeBlock.with(BaseBlockProperty.WOOD).content(ContainerType.FOOD_REGULAR).shaped(ShapeFunction.eightRotations(new RawVoxelShape(0,0,3,16,8,13))).directional().diagonallyPlaceable().build());
     public static final RegistryObject<Block> WOODEN_CRATE = BLOCKS.register("wooden_crate",
-            () -> ContainerDecorativeBlock.with(BaseBlockProperty.WOOD).content(ContainerType.COMMON_REGULAR).shaped(DecorativeBlock.FULL_BLOCK).build());
+            () -> ContainerDecorativeBlock.with(BaseBlockProperty.WOOD).content(ContainerType.COMMON_REGULAR).shaped(BlockShapes.S16_H16).build());
     public static final RegistryObject<Block> GUNNY_SACK = BLOCKS.register("gunny_sack",
-            () -> ContainerDecorativeBlock.with(BaseBlockProperty.FLAX).content(ContainerType.COMMON_REGULAR).shaped(DecorativeBlock.FULL_14).directional().build());
+            () -> ContainerDecorativeBlock.with(BaseBlockProperty.FLAX).content(ContainerType.COMMON_REGULAR).shaped(ShapeFunction.cardinalRotations(new RawVoxelShape(3,0,2,15,13,14))).directional().build());
     public static final RegistryObject<Block> BRONZE_DING = BLOCKS.register("bronze_ding",
             () -> DecorativeBlock.with(BaseBlockProperty.BRONZE).shaped(DecorativeBlock.FULL_BLOCK).placeOffset(Direction.UP).directional().noOcclusion().build());
     public static final RegistryObject<Block> CARRIAGE = BLOCKS.register("carriage",
