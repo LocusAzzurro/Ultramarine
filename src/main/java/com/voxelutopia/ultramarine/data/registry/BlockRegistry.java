@@ -8,6 +8,7 @@ import com.voxelutopia.ultramarine.data.shape.ShapeFunction;
 import com.voxelutopia.ultramarine.data.shape.BlockShapes;
 import com.voxelutopia.ultramarine.world.block.*;
 import com.voxelutopia.ultramarine.world.block.HangingLantern;
+import com.voxelutopia.ultramarine.world.block.state.ModBlockStateProperties;
 import net.minecraft.core.Direction;
 import net.minecraft.world.food.Foods;
 import net.minecraft.world.item.DyeColor;
@@ -534,72 +535,94 @@ public class BlockRegistry {
     public static final RegistryObject<Block> GUNNY_SACK = BLOCKS.register("gunny_sack",
             () -> ContainerDecorativeBlock.with(BaseBlockProperty.FLAX).content(ContainerType.COMMON_REGULAR).shaped(ShapeFunction.cardinalRotations(new RawVoxelShape(3,0,2,15,13,14))).directional().build());
     public static final RegistryObject<Block> BRONZE_DING = BLOCKS.register("bronze_ding",
-            () -> DecorativeBlock.with(BaseBlockProperty.BRONZE).shaped(DecorativeBlock.FULL_BLOCK).placeOffset(Direction.UP).directional().noOcclusion().build());
+            () -> DecorativeBlock.with(BaseBlockProperty.BRONZE).shaped(
+                    ShapeFunction.or(ShapeFunction.exclude(ShapeFunction.cardinalRotations(new RawVoxelShape(-7,-3,-7,23,16,23)), ShapeFunction.cardinalRotations(new RawVoxelShape(-4,1,-4,20,16,20))),/*main shape*/
+                            ShapeFunction.cardinalRotations(new RawVoxelShape(-5,-16,-5,1,-3,1)), ShapeFunction.cardinalRotations(new RawVoxelShape(15,-16,-5,21,-3,1)),
+                            ShapeFunction.cardinalRotations(new RawVoxelShape(-5,-16,15,1,-3,21)),ShapeFunction.cardinalRotations(new RawVoxelShape(15,-16,15,21,-3,21)), /*legs*/
+                            ShapeFunction.cardinalRotations(new RawVoxelShape(-7,16,3,-4,24,13)), ShapeFunction.cardinalRotations(new RawVoxelShape(20,16,3,23,24,13)))) /*handles*/
+                    .placeOffset(Direction.UP).directional().noOcclusion().build());
     public static final RegistryObject<Block> CARRIAGE = BLOCKS.register("carriage",
-            () -> DecorativeBlock.with(BaseBlockProperty.WOOD).shaped(DecorativeBlock.FULL_BLOCK).directional().noOcclusion().build());
+            () -> DecorativeBlock.with(BaseBlockProperty.WOOD).shaped(
+                    ShapeFunction.or(
+                            ShapeFunction.cardinalRotations(new RawVoxelShape(-7,4,20,23,7.5,16)), ShapeFunction.cardinalRotations(new RawVoxelShape(-7,5.5,16,23,9,12)),
+                            ShapeFunction.cardinalRotations(new RawVoxelShape(-7,7,12,23,10.5,8)), ShapeFunction.cardinalRotations(new RawVoxelShape(-7,8.5,8,23,12,4)),
+                            ShapeFunction.cardinalRotations(new RawVoxelShape(-7,10,4,23,13.5,0)), ShapeFunction.cardinalRotations(new RawVoxelShape(-7,11.5,0,23,15,-4)),
+                            ShapeFunction.cardinalRotations(new RawVoxelShape(-7,13,-4,23,16.5,-8)), ShapeFunction.cardinalRotations(new RawVoxelShape(-7,14.5,-8,23,18,-12)),
+                            ShapeFunction.cardinalRotations(new RawVoxelShape(-5,14.5,-14,21,32,-6)),
+                            ShapeFunction.cardinalRotations(new RawVoxelShape(19,4,20,21,21.5,16)), ShapeFunction.cardinalRotations(new RawVoxelShape(19,5.5,16,21,23,12)),
+                            ShapeFunction.cardinalRotations(new RawVoxelShape(19,7,12,21,24.5,8)), ShapeFunction.cardinalRotations(new RawVoxelShape(19,8.5,8,21,26,4)),
+                            ShapeFunction.cardinalRotations(new RawVoxelShape(19,10,4,21,27.5,0)), ShapeFunction.cardinalRotations(new RawVoxelShape(19,11.5,0,21,29,-4)),
+                            ShapeFunction.cardinalRotations(new RawVoxelShape(19,13,-4,21,30.5,-8)), ShapeFunction.cardinalRotations(new RawVoxelShape(19,14.5,-8,21,32,-12)),
+                            ShapeFunction.cardinalRotations(new RawVoxelShape(-5,4,20,-3,21.5,16)), ShapeFunction.cardinalRotations(new RawVoxelShape(-5,5.5,16,-3,23,12)),
+                            ShapeFunction.cardinalRotations(new RawVoxelShape(-5,7,12,-3,24.5,8)), ShapeFunction.cardinalRotations(new RawVoxelShape(-5,8.5,8,-3,26,4)),
+                            ShapeFunction.cardinalRotations(new RawVoxelShape(-5,10,4,-3,27.5,0)), ShapeFunction.cardinalRotations(new RawVoxelShape(-5,11.5,0,-3,29,-4)),
+                            ShapeFunction.cardinalRotations(new RawVoxelShape(-5,13,-4,-3,30.5,-8)), ShapeFunction.cardinalRotations(new RawVoxelShape(-5,14.5,-8,-3,32,-12)),
+                            ShapeFunction.cardinalRotations(new RawVoxelShape(-9,0,-9,-6,19.5,12)), ShapeFunction.cardinalRotations(new RawVoxelShape(22,0,-9,25,19.5,12)))
+            ).directional().noOcclusion().build());
     public static final RegistryObject<Block> WOODEN_POLES = BLOCKS.register("wooden_poles",
-            () -> DecorativeBlock.with(BaseBlockProperty.WOOD).shaped(DecorativeBlock.FULL_BLOCK).directional().noOcclusion().build());
+            () -> DecorativeBlock.with(BaseBlockProperty.WOOD).shaped(ShapeFunction.or(ShapeFunction.cardinalRotations(new RawVoxelShape(0,-16,0,16,32,16)), ShapeFunction.cardinalRotations(new RawVoxelShape(0,-16,16,16,0,32)))).directional().noOcclusion().build());
     public static final RegistryObject<Block> TEAHOUSE_FLAG = BLOCKS.register("teahouse_flag",
-            () -> DecorativeBlock.with(BaseBlockProperty.WOOD).shaped(DecorativeBlock.FULL_6).placeOffset(Direction.UP).directional().noOcclusion().build());
+            () -> DecorativeBlock.with(BaseBlockProperty.WOOD).shaped(ShapeFunction.or(ShapeFunction.cardinalRotations(new RawVoxelShape(7,-16,7,9,32,9)), ShapeFunction.cardinalRotations(new RawVoxelShape(-1.5,23.5,6,17.5,25,8)))).placeOffset(Direction.UP).directional().noOcclusion().build());
     public static final RegistryObject<Block> KNIFE_REST = BLOCKS.register("knife_rest",
-            () -> DecorativeBlock.with(BaseBlockProperty.WOOD).shaped(DecorativeBlock.FULL_BLOCK).directional().noOcclusion().build());
+            () -> DecorativeBlock.with(BaseBlockProperty.WOOD).shaped(ShapeFunction.cardinalRotations(new RawVoxelShape(-16,0,0,32,16,16))).directional().noOcclusion().build());
 
     // WALL HANGING
 
     public static final RegistryObject<Block> LONG_HANGING_PAINTING = BLOCKS.register("long_hanging_painting",
-            () -> new WallSideBlock(BaseBlockProperty.PAPER));
+            () -> new WallSideBlock(BaseBlockProperty.PAPER, ShapeFunction.cardinalRotations(new RawVoxelShape(0,-16,15,16,28,16))));
     public static final RegistryObject<Block> WHITE_LANDSCAPE_PAINTING = BLOCKS.register("white_landscape_painting",
-            () -> new WallSideBlock(BaseBlockProperty.PAPER));
+            () -> new WallSideBlock(BaseBlockProperty.PAPER, ShapeFunction.cardinalRotations(new RawVoxelShape(-3,-8,15,19,32,16))));
     public static final RegistryObject<Block> HORIZONTAL_OLD_LANDSCAPE_PAINTING = BLOCKS.register("horizontal_old_landscape_painting",
-            () -> new WallSideBlock(BaseBlockProperty.PAPER));
+            () -> new WallSideBlock(BaseBlockProperty.PAPER, ShapeFunction.cardinalRotations(new RawVoxelShape(-12,0,15,28,16,16))));
     public static final RegistryObject<Block> HORIZONTAL_CALLIGRAPHY = BLOCKS.register("horizontal_calligraphy",
-            () -> new WallSideBlock(BaseBlockProperty.PAPER));
+            () -> new WallSideBlock(BaseBlockProperty.PAPER, ShapeFunction.cardinalRotations(new RawVoxelShape(-9,0,15,25,14,16))));
     public static final RegistryObject<Block> HORIZONTAL_LANDSCAPE_PAINTING = BLOCKS.register("horizontal_landscape_painting",
-            () -> new WallSideBlock(BaseBlockProperty.PAPER));
+            () -> new WallSideBlock(BaseBlockProperty.PAPER, ShapeFunction.cardinalRotations(new RawVoxelShape(-16,0,14,32,32,16))));
     public static final RegistryObject<Block> LONG_YELLOW_HANGING_PAINTING = BLOCKS.register("long_yellow_hanging_painting",
-            () -> new WallSideBlock(BaseBlockProperty.PAPER));
+            () -> new WallSideBlock(BaseBlockProperty.PAPER, ShapeFunction.cardinalRotations(new RawVoxelShape(0,-16,14,16,32,16))));
     public static final RegistryObject<Block> DAMAGED_LANDSCAPE_PAINTING = BLOCKS.register("damaged_landscape_painting",
-            () -> new WallSideBlock(BaseBlockProperty.PAPER));
+            () -> new WallSideBlock(BaseBlockProperty.PAPER, ShapeFunction.cardinalRotations(new RawVoxelShape(-16,0,15,32,32,16))));
     public static final RegistryObject<Block> PORTRAIT = BLOCKS.register("portrait",
-            () -> new WallSideBlock(BaseBlockProperty.PAPER));
+            () -> new WallSideBlock(BaseBlockProperty.PAPER, ShapeFunction.cardinalRotations(new RawVoxelShape(0,0,15,16,32,16))));
     public static final RegistryObject<Block> HANGING_PAINTING_FAN = BLOCKS.register("hanging_painting_fan",
-            () -> new WallSideBlock(BaseBlockProperty.PAPER));
+            () -> new WallSideBlock(BaseBlockProperty.PAPER, ShapeFunction.cardinalRotations(new RawVoxelShape(-3,6,15,19,17,16))));
     public static final RegistryObject<Block> SINCERE_CALLIGRAPHY = BLOCKS.register("sincere_calligraphy",
-            () -> new WallSideBlock(BaseBlockProperty.PAPER));
+            () -> new WallSideBlock(BaseBlockProperty.PAPER, ShapeFunction.cardinalRotations(new RawVoxelShape(0,0,14,16,32,16))));
 
     // FOOD
 
     public static final RegistryObject<Block> FOOD_HAMPER = BLOCKS.register("food_hamper",
-            () -> ContainerDecorativeBlock.with(BaseBlockProperty.WOOD).content(ContainerType.FOOD_LARGE).shaped(DecorativeBlock.FULL_6).directional().diagonallyPlaceable().build());
+            () -> ContainerDecorativeBlock.with(BaseBlockProperty.WOOD).content(ContainerType.FOOD_LARGE).shaped(ShapeFunction.diagonalSquare(7, 15)).directional().diagonallyPlaceable().build());
     public static final RegistryObject<Block> PLATED_MOONCAKES = BLOCKS.register("plated_mooncakes", //todo change stone slab plate to actual block
-            () -> ConsumableDecorativeBlock.with(BaseBlockProperty.PORCELAIN).bites(4).platedWith(Blocks.STONE_SLAB).food(ModFoods.MOONCAKE).shaped(DecorativeBlock.FLAT_16).directional().build());
+            () -> ConsumableDecorativeBlock.with(BaseBlockProperty.PORCELAIN).bites(4).platedWith(Blocks.STONE_SLAB).food(ModFoods.MOONCAKE).shaped(BlockShapes.S16_H1).directional().build());
     public static final RegistryObject<Block> PLATED_MUNG_BEAN_CAKES = BLOCKS.register("plated_mung_bean_cakes",
-            () -> ConsumableDecorativeBlock.with(BaseBlockProperty.GLAZED).bites(7).platedWith(Blocks.STONE_SLAB).food(ModFoods.MUNG_BEAN_CAKE).shaped(DecorativeBlock.FLAT_16).directional().noOcclusion().build());
+            () -> ConsumableDecorativeBlock.with(BaseBlockProperty.GLAZED).bites(7).platedWith(Blocks.STONE_SLAB).food(ModFoods.MUNG_BEAN_CAKE)
+                    .shaped(ShapeFunction.cardinalRotations(new RawVoxelShape(0,0,2,16,1,14))).directional().noOcclusion().build());
     public static final RegistryObject<Block> PLATED_HAM = BLOCKS.register("plated_ham",
-            () -> ConsumableDecorativeBlock.with(BaseBlockProperty.WOOD).bites(4).platedWith(ItemRegistry.POLISHED_OAK_PLANK).food(ModFoods.COOKED_MEAT).shaped(DecorativeBlock.FLAT_16).directional().noOcclusion().build());
+            () -> ConsumableDecorativeBlock.with(BaseBlockProperty.WOOD).bites(4).platedWith(ItemRegistry.POLISHED_OAK_PLANK).food(ModFoods.COOKED_MEAT).shaped(BlockShapes.S16_H1).directional().noOcclusion().build());
     public static final RegistryObject<Block> PLATED_FISH = BLOCKS.register("plated_fish",
-            () -> ConsumableDecorativeBlock.with(BaseBlockProperty.WOOD).bites(3).platedWith(ItemRegistry.POLISHED_OAK_PLANK).food(ModFoods.FISH).shaped(DecorativeBlock.FLAT_16).directional().noOcclusion().build());
+            () -> ConsumableDecorativeBlock.with(BaseBlockProperty.WOOD).bites(3).platedWith(ItemRegistry.POLISHED_OAK_PLANK).food(ModFoods.FISH).shaped(BlockShapes.S16_H1).directional().noOcclusion().build());
     public static final RegistryObject<Block> SCATTERED_CARROTS = BLOCKS.register("scattered_carrots",
             () -> ConsumableDecorativeBlock.with(BaseBlockProperty.CROP).bites(2).platedWith(ItemRegistry.POLISHED_OAK_PLANK).food(Foods.CARROT)
                     .whenFinished((pState, pLevel, pPos, pPlayer) -> {pLevel.setBlock(pPos, Blocks.AIR.defaultBlockState(), Block.UPDATE_ALL); pLevel.gameEvent(pPlayer, GameEvent.BLOCK_DESTROY, pPos);})
-                    .shaped(DecorativeBlock.QUARTER_16).directional().noOcclusion().build());
+                    .shaped(BlockShapes.S16_H4).directional().noOcclusion().build());
     public static final RegistryObject<Block> WINE_POT = BLOCKS.register("wine_pot",
-            () -> DecorativeBlock.with(BaseBlockProperty.PORCELAIN).shaped(DecorativeBlock.FULL_6).directional().build());
+            () -> DecorativeBlock.with(BaseBlockProperty.PORCELAIN).shaped(ShapeFunction.centeredSquare(6, 17)).directional().build());
     public static final RegistryObject<Block> XIAOLONGBAO = BLOCKS.register("xiaolongbao", //TODO xiaolongbao 8 bites in one block, return 2 containers
             () -> ConsumableDecorativeBlock.with(BaseBlockProperty.BAMBOO).bites(8).platedWith(ItemRegistry.POLISHED_OAK_PLANK).food(ModFoods.BAOZI)
                     .whenFinished((pState, pLevel, pPos, pPlayer) -> {pLevel.setBlock(pPos, Blocks.AIR.defaultBlockState(), Block.UPDATE_ALL); pLevel.gameEvent(pPlayer, GameEvent.BLOCK_DESTROY, pPos);})
-                    .shaped(DecorativeBlock.FULL_BLOCK).noOcclusion().directional().build());
+                    .shaped(ShapeFunction.of(state -> state.getValue(ModBlockStateProperties.BITES) <= 4 ? Block.box(0,0,0,16,8,16) : DecorativeBlock.FULL_BLOCK)).noOcclusion().directional().build());
 
     // ICE
 
     public static final RegistryObject<Block> ICICLE = BLOCKS.register("icicle", () -> new Icicle(3));
-    public static final RegistryObject<Block> LARGE_ICICLE = BLOCKS.register("large_icicle", () -> new Icicle(2));
+    public static final RegistryObject<Block> LARGE_ICICLE = BLOCKS.register("large_icicle", () -> new Icicle(2, ShapeFunction.cardinalRotations(new RawVoxelShape(0,0,15,16,32,16))));
 
     // CELEBRATION
 
-    public static final RegistryObject<Block> COUPLET = BLOCKS.register("couplet", () -> new OrientableWallSideBlock(BaseBlockProperty.PAPER));
-    public static final RegistryObject<Block> COUPLET_TOP = BLOCKS.register("couplet_top", () -> new WallSideBlock(BaseBlockProperty.PAPER));
-    public static final RegistryObject<Block> FU_MARK = BLOCKS.register("fu_mark", () -> new WallSideBlock(BaseBlockProperty.PAPER));
+    public static final RegistryObject<Block> COUPLET = BLOCKS.register("couplet", () -> new OrientableWallSideBlock(BaseBlockProperty.PAPER, ShapeFunction.sideOrientedShape(new RawVoxelShape(2,0,15,8,32,16))));
+    public static final RegistryObject<Block> COUPLET_TOP = BLOCKS.register("couplet_top", () -> new WallSideBlock(BaseBlockProperty.PAPER, ShapeFunction.cardinalRotations(new RawVoxelShape(6,2,15,26,8,16))));
+    public static final RegistryObject<Block> FU_MARK = BLOCKS.register("fu_mark", () -> new WallSideBlock(BaseBlockProperty.PAPER, ShapeFunction.cardinalRotations(new RawVoxelShape(9,7,15,23,21,16))));
 
     /**
      *  FURNITURE
