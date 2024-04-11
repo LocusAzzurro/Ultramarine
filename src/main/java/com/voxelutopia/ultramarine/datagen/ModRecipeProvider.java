@@ -158,6 +158,17 @@ public class ModRecipeProvider extends RecipeProvider {
 
     private static void categoryDecorativeBlocks(@NotNull Consumer<FinishedRecipe> recipeConsumer) {
 
+        // SIMPLE WOODEN
+
+        woodworking(Ingredient.of(ItemTags.OAK_LOGS), ItemRegistry.OAK_BRACKET.get()).unlockedBy("has_wood", tagUnlock(ItemTags.OAK_LOGS)).save(recipeConsumer);
+        woodworking(Ingredient.of(ItemTags.SPRUCE_LOGS), ItemRegistry.SPRUCE_BRACKET.get()).unlockedBy("has_wood", tagUnlock(ItemTags.SPRUCE_LOGS)).save(recipeConsumer);
+        woodworking(Ingredient.of(ItemTags.BIRCH_LOGS), ItemRegistry.BIRCH_BRACKET.get()).unlockedBy("has_wood", tagUnlock(ItemTags.BIRCH_LOGS)).save(recipeConsumer);
+        woodworking(Ingredient.of(ItemTags.JUNGLE_LOGS), ItemRegistry.JUNGLE_BRACKET.get()).unlockedBy("has_wood", tagUnlock(ItemTags.JUNGLE_LOGS)).save(recipeConsumer);
+        woodworking(Ingredient.of(ItemTags.ACACIA_LOGS), ItemRegistry.ACACIA_BRACKET.get()).unlockedBy("has_wood", tagUnlock(ItemTags.ACACIA_LOGS)).save(recipeConsumer);
+        woodworking(Ingredient.of(ItemTags.DARK_OAK_LOGS), ItemRegistry.DARK_OAK_BRACKET.get()).unlockedBy("has_wood", tagUnlock(ItemTags.DARK_OAK_LOGS)).save(recipeConsumer);
+        woodworking(Ingredient.of(ItemTags.CRIMSON_STEMS), ItemRegistry.CRIMSON_BRACKET.get()).unlockedBy("has_wood", tagUnlock(ItemTags.CRIMSON_STEMS)).save(recipeConsumer);
+        woodworking(Ingredient.of(ItemTags.WARPED_STEMS), ItemRegistry.WARPED_BRACKET.get()).unlockedBy("has_wood", tagUnlock(ItemTags.WARPED_STEMS)).save(recipeConsumer);
+
         // SIMPLE CARVED WOOD
 
         carvedWood(ItemRegistry.RED_CARVED_WOOD.get(), new Ingredient[]{Ingredient.of(ModItemTags.FORGE_RED_DYE), Ingredient.of(ModItemTags.FORGE_RED_DYE)}, recipeConsumer);

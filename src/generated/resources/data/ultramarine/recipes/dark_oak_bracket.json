@@ -1,0 +1,8 @@
+{
+  "type": "ultramarine:woodworking",
+  "ingredient": {
+    "tag": "minecraft:dark_oak_logs"
+  },
+  "result": "ultramarine:dark_oak_bracket",
+  "count": 1
+}

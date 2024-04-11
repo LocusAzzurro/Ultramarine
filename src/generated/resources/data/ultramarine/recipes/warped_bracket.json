@@ -1,0 +1,8 @@
+{
+  "type": "ultramarine:woodworking",
+  "ingredient": {
+    "tag": "minecraft:warped_stems"
+  },
+  "result": "ultramarine:warped_bracket",
+  "count": 1
+}

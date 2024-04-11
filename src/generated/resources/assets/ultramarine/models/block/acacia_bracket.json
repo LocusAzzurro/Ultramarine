@@ -1,0 +1,7 @@
+{
+  "parent": "ultramarine:block/wooden_bracket",
+  "textures": {
+    "1": "minecraft:block/stripped_acacia_log",
+    "particle": "minecraft:block/stripped_acacia_log"
+  }
+}

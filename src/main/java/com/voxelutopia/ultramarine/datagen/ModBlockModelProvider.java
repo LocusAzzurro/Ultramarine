@@ -118,6 +118,14 @@ public class ModBlockModelProvider extends BlockStateProvider {
         railingBlock(BlockRegistry.CARVED_WOODEN_RAILING.get());
 
 
+        woodenBracket(BlockRegistry.OAK_BRACKET.get(), mcLoc(BLOCK + "stripped_oak_log"));
+        woodenBracket(BlockRegistry.SPRUCE_BRACKET.get(), mcLoc(BLOCK + "stripped_spruce_log"));
+        woodenBracket(BlockRegistry.BIRCH_BRACKET.get(), mcLoc(BLOCK + "stripped_birch_log"));
+        woodenBracket(BlockRegistry.JUNGLE_BRACKET.get(), mcLoc(BLOCK + "stripped_jungle_log"));
+        woodenBracket(BlockRegistry.ACACIA_BRACKET.get(), mcLoc(BLOCK + "stripped_acacia_log"));
+        woodenBracket(BlockRegistry.DARK_OAK_BRACKET.get(), mcLoc(BLOCK + "stripped_dark_oak_log"));
+        woodenBracket(BlockRegistry.CRIMSON_BRACKET.get(), mcLoc(BLOCK + "stripped_crimson_stem"));
+        woodenBracket(BlockRegistry.WARPED_BRACKET.get(), mcLoc(BLOCK + "stripped_warped_stem"));
         simpleBlock(BlockRegistry.RED_CARVED_WOOD.get());
         carvedWoodenSlab(BlockRegistry.RED_CARVED_WOODEN_SLAB.get(), BlockRegistry.RED_CARVED_WOOD.get());
         straightStairs(BlockRegistry.RED_CARVED_WOODEN_STAIRS.get());
@@ -803,6 +811,10 @@ public class ModBlockModelProvider extends BlockStateProvider {
 
     private void horizontalBlockNoOffset(Block block){
         horizontalBlock(block, models().getExistingFile(modLoc(BLOCK + name(block))), 0);
+    }
+
+    private void woodenBracket(Block block, ResourceLocation texture){
+        horizontalBlock(block, models().withExistingParent(blockLoc(block).getPath(), modLoc(BLOCK + "wooden_bracket")).texture("1", texture).texture("particle", texture), 0);
     }
 
     private void shiftedHorizontalBlockNoOffset(Block block){

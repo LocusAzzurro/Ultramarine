@@ -148,6 +148,17 @@ public class BlockRegistry {
      *  DECORATIVE BLOCKS
      */
 
+    // SIMPLE WOODEN
+
+    public static final RegistryObject<Block> OAK_BRACKET = BLOCKS.register("oak_bracket", () -> new Bracket(BaseBlockProperty.WOOD));
+    public static final RegistryObject<Block> SPRUCE_BRACKET = BLOCKS.register("spruce_bracket", () -> new Bracket(BaseBlockProperty.WOOD));
+    public static final RegistryObject<Block> BIRCH_BRACKET = BLOCKS.register("birch_bracket", () -> new Bracket(BaseBlockProperty.WOOD));
+    public static final RegistryObject<Block> JUNGLE_BRACKET = BLOCKS.register("jungle_bracket", () -> new Bracket(BaseBlockProperty.WOOD));
+    public static final RegistryObject<Block> ACACIA_BRACKET = BLOCKS.register("acacia_bracket", () -> new Bracket(BaseBlockProperty.WOOD));
+    public static final RegistryObject<Block> DARK_OAK_BRACKET = BLOCKS.register("dark_oak_bracket", () -> new Bracket(BaseBlockProperty.WOOD));
+    public static final RegistryObject<Block> CRIMSON_BRACKET = BLOCKS.register("crimson_bracket", () -> new Bracket(BaseBlockProperty.WOOD));
+    public static final RegistryObject<Block> WARPED_BRACKET = BLOCKS.register("warped_bracket", () -> new Bracket(BaseBlockProperty.WOOD));
+
     // SIMPLE CARVED WOOD
 
     public static final RegistryObject<Block> RED_CARVED_WOOD = BLOCKS.register("red_carved_wood", () -> new BaseBlock(BaseBlockProperty.WOOD));
