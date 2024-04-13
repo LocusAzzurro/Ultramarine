@@ -440,6 +440,7 @@ public class ItemRegistry {
     public static final RegistryObject<Item> JADE_PENDANT = fromBlock(BlockRegistry.JADE_PENDANT, ModCreativeTab.DECORATIONS);
     public static final RegistryObject<Item> IMPERIAL_JADE_SEAL = fromBlock(BlockRegistry.IMPERIAL_JADE_SEAL, ModCreativeTab.DECORATIONS);
     public static final RegistryObject<Item> LONG_PILLOW = fromBlock(BlockRegistry.LONG_PILLOW, ModCreativeTab.DECORATIONS);
+    public static final RegistryObject<Item> WIND_CHIME = fromBlock(BlockRegistry.WIND_CHIME, ModCreativeTab.DECORATIONS);
 
     // MISC OBJECTS
 

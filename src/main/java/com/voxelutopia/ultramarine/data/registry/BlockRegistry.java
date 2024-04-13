@@ -490,6 +490,7 @@ public class BlockRegistry {
             () -> DecorativeBlock.with(BaseBlockProperty.JADE).shaped(ShapeFunction.cardinalRotations(new RawVoxelShape(5,0,4,10,14,10))).directional().build());
     public static final RegistryObject<Block> LONG_PILLOW = BLOCKS.register("long_pillow",
             () -> DecorativeBlock.with(BaseBlockProperty.SILK).shaped(ShapeFunction.eightRotations(new RawVoxelShape(-4,0,4,20,8,12))).directional().diagonallyPlaceable().noOcclusion().build());
+    public static final RegistryObject<Block> WIND_CHIME = BLOCKS.register("wind_chime", WindChime::new);
 
     // MISC OBJECTS
 

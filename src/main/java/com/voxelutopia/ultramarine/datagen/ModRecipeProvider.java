@@ -919,6 +919,15 @@ public class ModRecipeProvider extends RecipeProvider {
                 .pattern("YRY")
                 .unlockedBy(itemUnlockName(ItemRegistry.SILK.get()), itemCriterion(ItemRegistry.SILK.get()))
                 .save(recipeConsumer);
+        ShapedRecipeBuilder.shaped(ItemRegistry.WIND_CHIME.get())
+                .define('C', Items.CHAIN)
+                .define('B', ItemRegistry.BRONZE_INGOT.get())
+                .define('P', ItemRegistry.BRONZE_PARTS.get())
+                .pattern("C")
+                .pattern("B")
+                .pattern("P")
+                .unlockedBy(itemUnlockName(ItemRegistry.BRONZE_INGOT.get()), itemCriterion(ItemRegistry.BRONZE_INGOT.get()))
+                .save(recipeConsumer);
 
         // MISC OBJECTS
         // Fabric rolls and dolls sold by special trader
