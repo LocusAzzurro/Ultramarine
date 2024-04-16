@@ -643,30 +643,38 @@ public class BlockRegistry {
     // CABINET
 
     public static final RegistryObject<Block> OAK_CABINET = BLOCKS.register("oak_cabinet",
-            () -> ContainerDecorativeBlock.with(BaseBlockProperty.WOOD).content(ContainerType.COMMON_REGULAR).shaped(DecorativeBlock.FULL_BLOCK).directional().noFenceConnect().build());
+            () -> ContainerDecorativeBlock.with(BaseBlockProperty.WOOD).content(ContainerType.COMMON_REGULAR).shaped(
+                    ShapeFunction.or(ShapeFunction.cardinalRotations(new RawVoxelShape(-1.5,0,2,17.5,14,14)), ShapeFunction.cardinalRotations(new RawVoxelShape(-2.5,14,1,18.5,16,15))))
+                    .directional().noFenceConnect().build());
     public static final RegistryObject<Block> WARPED_CABINET = BLOCKS.register("warped_cabinet",
-            () -> ContainerDecorativeBlock.with(BaseBlockProperty.WOOD).content(ContainerType.COMMON_REGULAR).shaped(DecorativeBlock.FULL_BLOCK).directional().noFenceConnect().build());
+            () -> ContainerDecorativeBlock.with(BaseBlockProperty.WOOD).content(ContainerType.COMMON_REGULAR).shaped(
+                    ShapeFunction.or(ShapeFunction.cardinalRotations(new RawVoxelShape(-4.5,0,3,20.5,14,13)), ShapeFunction.cardinalRotations(new RawVoxelShape(-8,14,1,24,16,15))))
+                    .directional().noFenceConnect().build());
     public static final RegistryObject<Block> EBONY_CABINET = BLOCKS.register("ebony_cabinet",
-            () -> ContainerDecorativeBlock.with(BaseBlockProperty.WOOD).content(ContainerType.COMMON_LARGE).shaped(DecorativeBlock.FULL_BLOCK).directional().noFenceConnect().build());
+            () -> ContainerDecorativeBlock.with(BaseBlockProperty.WOOD).content(ContainerType.COMMON_LARGE).shaped(
+                    ShapeFunction.or(ShapeFunction.cardinalRotations(new RawVoxelShape(-6,0,0,22,30,16)), ShapeFunction.cardinalRotations(new RawVoxelShape(-7,30,-1,23,32,17))))
+                    .directional().noFenceConnect().build());
 
     // TABLE
 
     public static final RegistryObject<Block> LARGE_TEA_TABLE = BLOCKS.register("large_tea_table",
-            () -> DecorativeBlock.with(BaseBlockProperty.WOOD).shaped(DecorativeBlock.HALF_BLOCK).directional().build());
+            () -> DecorativeBlock.with(BaseBlockProperty.WOOD).shaped(ShapeFunction.cardinalRotations(new RawVoxelShape(-12,0,-3,28,8,19))).directional().build());
     public static final RegistryObject<Block> CHESS_TABLE = BLOCKS.register("chess_table",
-            () -> DecorativeBlock.with(BaseBlockProperty.WOOD).shaped(DecorativeBlock.QUARTER_16).directional().diagonallyPlaceable().build());
+            () -> DecorativeBlock.with(BaseBlockProperty.WOOD).shaped(ShapeFunction.centeredSquare(32, 4)).directional().diagonallyPlaceable().build());
     public static final RegistryObject<Block> HIGH_TABLE_WITH_WHITE_TOP = BLOCKS.register("high_table_with_white_top",
-            () -> DecorativeBlock.with(BaseBlockProperty.WOOD).shaped(DecorativeBlock.FULL_14).directional().build());
+            () -> DecorativeBlock.with(BaseBlockProperty.WOOD).shaped(ShapeFunction.centeredSquare(12, 32)).directional().build());
     public static final RegistryObject<Block> CENSER_TABLE = BLOCKS.register("censer_table",
-            () -> DecorativeBlock.with(BaseBlockProperty.WOOD).shaped(DecorativeBlock.FULL_14).directional().diagonallyPlaceable().build());
+            () -> DecorativeBlock.with(BaseBlockProperty.WOOD).shaped(ShapeFunction.or(
+                    ShapeFunction.diagonal(new RawVoxelShape(4,0,4,12,2,12)), ShapeFunction.diagonal(new RawVoxelShape(2,2,2,14,28,14)), ShapeFunction.diagonal(new RawVoxelShape(3,28,3,13,32,13))))
+                    .directional().diagonallyPlaceable().build());
     public static final RegistryObject<Block> PORCELAIN_INLAID_TABLE = BLOCKS.register("porcelain_inlaid_table",
-            () -> DecorativeBlock.with(BaseBlockProperty.WOOD).shaped(DecorativeBlock.FULL_BLOCK).directional().noFenceConnect().build());
+            () -> DecorativeBlock.with(BaseBlockProperty.WOOD).shaped(BlockShapes.S16_H16).directional().noFenceConnect().build());
     public static final RegistryObject<Block> SMALL_TABLE = BLOCKS.register("small_table",
-            () -> DecorativeBlock.with(BaseBlockProperty.WOOD).shaped(DecorativeBlock.FULL_14).directional().diagonallyPlaceable().build());
+            () -> DecorativeBlock.with(BaseBlockProperty.WOOD).shaped(ShapeFunction.diagonalSquare(11, 16)).directional().diagonallyPlaceable().build());
     public static final RegistryObject<Block> SMALL_EBONY_TABLE = BLOCKS.register("small_ebony_table",
-            () -> DecorativeBlock.with(BaseBlockProperty.WOOD).shaped(DecorativeBlock.FULL_14).directional().build());
+            () -> DecorativeBlock.with(BaseBlockProperty.WOOD).shaped(ShapeFunction.centeredSquare(13, 16)).directional().build());
     public static final RegistryObject<Block> LARGE_TABLE = BLOCKS.register("large_table",
-            () -> DecorativeBlock.with(BaseBlockProperty.WOOD).shaped(DecorativeBlock.FULL_BLOCK).directional().build());
+            () -> DecorativeBlock.with(BaseBlockProperty.WOOD).shaped(ShapeFunction.centeredSquare(48, 16)).directional().build());
 
     // CHAIR
 
