@@ -99,12 +99,16 @@ public class ShapeFunction implements Function<BlockState, VoxelShape> {
                 });
     }
 
-    public static ShapeFunction centeredSquare(int side, int height){
+    public static ShapeFunction centeredSquare(float side, float height){
         float d = (16f - side) / 2f;
         return simpleShape(Block.box(d, 0, d, 16 - d, height, 16 - d));
     }
 
-    public static ShapeFunction diagonalSquare(int side, int height){
+    public static ShapeFunction centeredSquare(int side, int height){
+        return centeredSquare((float)side, (float)height);
+    }
+
+    public static ShapeFunction diagonalSquare(float side, float height){
         return new ShapeFunction(
                 state -> {
                     boolean diagonal = state.getValue(ModBlockStateProperties.DIAGONAL);
@@ -112,6 +116,10 @@ public class ShapeFunction implements Function<BlockState, VoxelShape> {
                     float d = (16 - s)/2;
                     return Block.box(d, 0, d, 16 - d, height, 16 - d);
                 });
+    }
+
+    public static ShapeFunction diagonalSquare(int side, int height){
+        return diagonalSquare((float)side, (float)height);
     }
 
     public static ShapeFunction diagonal(RawVoxelShape normalShape){
