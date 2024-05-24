@@ -712,27 +712,27 @@ public class BlockRegistry {
 
     // DOOR
 
-    public static final RegistryObject<Block> CARVED_WOODEN_DOOR = BLOCKS.register("carved_wooden_door",
-            () -> new OpeningBlock(DecorativeBlock.with(BaseBlockProperty.WOOD).directional().noOcclusion()));
+    public static final RegistryObject<Block> CARVED_WOODEN_DOOR = BLOCKS.register("carved_wooden_door", //todo model not centered
+            () -> new OpeningBlock(DecorativeBlock.with(BaseBlockProperty.WOOD).shaped(ShapeFunction.cardinalRotations(new RawVoxelShape(0,-16,7,16,32,9))).directional().noOcclusion()));
     public static final RegistryObject<Block> SONG_WOODEN_DOOR = BLOCKS.register("song_wooden_door",
-            () -> new OpeningBlock(DecorativeBlock.with(BaseBlockProperty.WOOD).directional().noOcclusion()));
+            () -> new OpeningBlock(DecorativeBlock.with(BaseBlockProperty.WOOD).shaped(ShapeFunction.cardinalRotations(new RawVoxelShape(0,-16,7,16,32,9))).directional().noOcclusion()));
 
     // WINDOW
 
     public static final RegistryObject<Block> SONG_WOODEN_WINDOW = BLOCKS.register("song_wooden_window",
-            () -> new OpeningBlock(DecorativeBlock.with(BaseBlockProperty.WOOD).directional().noOcclusion()));
+            () -> new OpeningBlock(DecorativeBlock.with(BaseBlockProperty.WOOD).shaped(ShapeFunction.cardinalRotations(new RawVoxelShape(0,0,7,16,32,9))).directional().noOcclusion()));
     public static final RegistryObject<Block> ROYAL_ROSEWOOD_WINDOW = BLOCKS.register("royal_rosewood_window",
-            () -> new OpeningBlock(DecorativeBlock.with(BaseBlockProperty.WOOD).directional().noOcclusion()));
+            () -> new OpeningBlock(DecorativeBlock.with(BaseBlockProperty.WOOD).shaped(ShapeFunction.cardinalRotations(new RawVoxelShape(0,0,7,16,16,9))).directional().noOcclusion()));
     public static final RegistryObject<Block> TALL_ROYAL_ROSEWOOD_WINDOW = BLOCKS.register("tall_royal_rosewood_window",
-            () -> new OpeningBlock(DecorativeBlock.with(BaseBlockProperty.WOOD).directional().noOcclusion()));
+            () -> new OpeningBlock(DecorativeBlock.with(BaseBlockProperty.WOOD).shaped(ShapeFunction.cardinalRotations(new RawVoxelShape(0,0,7,16,32,9))).directional().noOcclusion()));
     public static final RegistryObject<Block> GLAZED_TILE_GRID_WINDOW = BLOCKS.register("glazed_tile_grid_window",
-            () -> new DecorativeBlock(DecorativeBlock.with(BaseBlockProperty.GLAZED).shaped(DecorativeBlock.FULL_BLOCK).directional().noOcclusion()));
+            () -> new DecorativeBlock(DecorativeBlock.with(BaseBlockProperty.GLAZED).shaped(ShapeFunction.cardinalRotations(new RawVoxelShape(-16,-16,-2,32,32,18))).directional().noOcclusion()));
     public static final RegistryObject<Block> STONE_FLOWER_WINDOW = BLOCKS.register("stone_flower_window", () -> new BaseBlock(BaseBlockProperty.IRON));
 
     // DOOR DECO
 
     public static final RegistryObject<Block> KNOCKER = BLOCKS.register("knocker",
-            () -> new WallSideBlock(BaseBlockProperty.COPPER));
+            () -> new WallSideBlock(BaseBlockProperty.COPPER, ShapeFunction.cardinalRotations(new RawVoxelShape(4,4,14,12,13,16))));
     public static final RegistryObject<Block> ROSEWOOD_PANEL = BLOCKS.register("rosewood_panel",
             () -> new SixSideBlock(BaseBlockProperty.WOOD, 3));
     public static final RegistryObject<Block> ROSEWOOD_DOOR_PANEL = BLOCKS.register("rosewood_door_panel",
@@ -742,26 +742,26 @@ public class BlockRegistry {
     public static final RegistryObject<Block> LARGE_ROSEWOOD_PANEL_EDGE = BLOCKS.register("large_rosewood_panel_edge",
             () -> new OrientableSixSideBlock(BaseBlockProperty.WOOD, 3));
     public static final RegistryObject<Block> CARVED_WOODEN_DOOR_PANEL = BLOCKS.register("carved_wooden_door_panel",
-            () -> new OpeningBlock(DecorativeBlock.with(BaseBlockProperty.WOOD).directional().noOcclusion()));
+            () -> new OpeningBlock(DecorativeBlock.with(BaseBlockProperty.WOOD).shaped(ShapeFunction.cardinalRotations(new RawVoxelShape(0,0,7,16,16,9))).directional().noOcclusion()));
     public static final RegistryObject<Block> PLAQUE = BLOCKS.register("plaque",
-            () -> new DecorativeBlock(DecorativeBlock.with(BaseBlockProperty.WOOD).directional().noOcclusion()));
+            () -> new DecorativeBlock(DecorativeBlock.with(BaseBlockProperty.WOOD).shaped(ShapeFunction.cardinalRotations(new RawVoxelShape(-16,0,7,32,15,15))).directional().noOcclusion()));
     public static final RegistryObject<Block> PAPER_STRIP_SEAL = BLOCKS.register("paper_strip_seal",
-            () -> new WallSideBlock(BaseBlockProperty.PAPER));
+            () -> new WallSideBlock(BaseBlockProperty.PAPER, ShapeFunction.cardinalRotations(new RawVoxelShape(7.5,1.5,15,24.5,18.5,16))));
 
     // WINDOW DECO
 
     public static final RegistryObject<Block> LARGE_BLUE_CURTAIN = BLOCKS.register("large_blue_curtain",
-            () -> new WallSideBlock(BaseBlockProperty.SILK));
+            () -> new WallSideBlock(BaseBlockProperty.SILK, ShapeFunction.cardinalRotations(new RawVoxelShape(-16,0,15,32,16,16))));
     public static final RegistryObject<Block> MEDIUM_BLUE_CURTAIN = BLOCKS.register("medium_blue_curtain",
-            () -> new WallSideBlock(BaseBlockProperty.SILK));
+            () -> new WallSideBlock(BaseBlockProperty.SILK, ShapeFunction.cardinalRotations(new RawVoxelShape(0,0,15,32,16,16))));
     public static final RegistryObject<Block> SMALL_BLUE_CURTAIN = BLOCKS.register("small_blue_curtain",
-            () -> new WallSideBlock(BaseBlockProperty.SILK));
+            () -> new WallSideBlock(BaseBlockProperty.SILK, ShapeFunction.cardinalRotations(new RawVoxelShape(0,0,15,16,16,16))));
     public static final RegistryObject<Block> RED_CURTAIN = BLOCKS.register("red_curtain",
-            () -> new OrientableWallSideBlock(BaseBlockProperty.SILK));
+            () -> new OrientableWallSideBlock(BaseBlockProperty.SILK, ShapeFunction.sideOrientedShape(new RawVoxelShape(0,-16,14,32,16,15))));
     public static final RegistryObject<Block> RED_CURTAIN_CORNER = BLOCKS.register("red_curtain_corner",
-            () -> new OrientableWallSideBlock(BaseBlockProperty.SILK));
+            () -> new OrientableWallSideBlock(BaseBlockProperty.SILK, ShapeFunction.sideOrientedShape(new RawVoxelShape(0,-16,14,32,16,15))));
     public static final RegistryObject<Block> BAMBOO_CURTAIN = BLOCKS.register("bamboo_curtain",
-            () -> new DecorativeBlock(DecorativeBlock.with(BaseBlockProperty.BAMBOO_WOOD).shaped(OpeningBlock.MIDDLE_AXIAL).directional().noOcclusion()));
+            () -> new DecorativeBlock(DecorativeBlock.with(BaseBlockProperty.BAMBOO_WOOD).shaped(ShapeFunction.cardinalRotations(new RawVoxelShape(0,2,7,16,16,9))).directional().noOcclusion()));
 
     /**
      *  PLANTS

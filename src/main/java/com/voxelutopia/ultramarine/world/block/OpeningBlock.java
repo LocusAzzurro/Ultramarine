@@ -84,14 +84,6 @@ public class OpeningBlock extends DecorativeBlock{
     }
 
     @Override
-    public VoxelShape getShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
-        return switch (pState.getValue(FACING)) {
-            case EAST, WEST -> EW_AABB;
-            default -> NS_AABB;
-        };
-    }
-
-    @Override
     public VoxelShape getCollisionShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
         return pState.getValue(OPEN) ? Shapes.empty() : getShape(pState, pLevel, pPos, pContext);
     }

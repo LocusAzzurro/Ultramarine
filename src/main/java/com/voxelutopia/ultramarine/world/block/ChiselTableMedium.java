@@ -1,5 +1,6 @@
 package com.voxelutopia.ultramarine.world.block;
 
+import com.voxelutopia.ultramarine.data.shape.BlockShapes;
 import com.voxelutopia.ultramarine.world.block.menu.ChiselTableMenu;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
@@ -22,7 +23,7 @@ public class ChiselTableMedium extends DecorativeBlock implements BaseBlockPrope
     private static final Component CONTAINER_TITLE = new TranslatableComponent("container.chisel_table");
 
     public ChiselTableMedium() {
-        super(DecorativeBlock.with(BaseBlockProperty.PAPER).shaped(DecorativeBlock.QUARTER_16).directional().noCollision().noOcclusion());
+        super(DecorativeBlock.with(BaseBlockProperty.PAPER).shaped(BlockShapes.S16_H4).directional().noCollision().noOcclusion());
     }
 
     @Override
