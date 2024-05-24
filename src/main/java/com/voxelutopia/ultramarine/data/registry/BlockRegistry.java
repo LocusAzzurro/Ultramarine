@@ -862,28 +862,36 @@ public class BlockRegistry {
     //LANTERN
 
     public static final RegistryObject<Block> OCTAGONAL_PALACE_LANTERN = BLOCKS.register("octagonal_palace_lantern",
-            () -> DecorativeBlock.with(BaseBlockProperty.WOOD).shaped(DecorativeBlock.FULL_BLOCK).luminous().noOcclusion().placeOffset(Direction.DOWN).build());
+            () -> DecorativeBlock.with(BaseBlockProperty.WOOD).shaped(
+                    ShapeFunction.or(ShapeFunction.simpleShape(new RawVoxelShape(2.5,4.5,2.5,13.5,18,13.5)), ShapeFunction.simpleShape(new RawVoxelShape(0,18,0,16,25,16))))
+                    .luminous().noOcclusion().placeOffset(Direction.DOWN).build());
     public static final RegistryObject<Block> SQUARE_PALACE_LANTERN = BLOCKS.register("square_palace_lantern",
-            () -> DecorativeBlock.with(BaseBlockProperty.WOOD).shaped(DecorativeBlock.FULL_BLOCK).diagonallyPlaceable().luminous().noOcclusion().build());
+            () -> DecorativeBlock.with(BaseBlockProperty.WOOD).shaped(
+                    ShapeFunction.or(ShapeFunction.diagonal(new RawVoxelShape(2,-8.5,2,14,6,14)), ShapeFunction.diagonal(new RawVoxelShape(0,6,0,16,11.5,16)))).diagonallyPlaceable().luminous().noOcclusion().build());
     public static final RegistryObject<Block> SMALL_RED_LANTERN = BLOCKS.register("small_red_lantern",
-            () -> DecorativeBlock.with(BaseBlockProperty.WOOD).shaped(DecorativeBlock.FULL_BLOCK).diagonallyPlaceable().luminous().build());
+            () -> DecorativeBlock.with(BaseBlockProperty.WOOD).shaped(ShapeFunction.diagonalSquare(10, 10)).diagonallyPlaceable().luminous().build());
     public static final RegistryObject<Block> WHITE_SKY_LANTERN = BLOCKS.register("white_sky_lantern",
-            () -> DecorativeBlock.with(BaseBlockProperty.BAMBOO).luminous().build());
+            () -> DecorativeBlock.with(BaseBlockProperty.BAMBOO).shaped(ShapeFunction.centeredSquare(16, 24)).luminous().build());
     public static final RegistryObject<Block> RED_SKY_LANTERN = BLOCKS.register("red_sky_lantern",
-            () -> DecorativeBlock.with(BaseBlockProperty.BAMBOO).luminous().build());
+            () -> DecorativeBlock.with(BaseBlockProperty.BAMBOO).shaped(ShapeFunction.centeredSquare(16, 24)).luminous().build());
     public static final RegistryObject<Block> YELLOW_SKY_LANTERN = BLOCKS.register("yellow_sky_lantern",
-            () -> DecorativeBlock.with(BaseBlockProperty.BAMBOO).luminous().build());
+            () -> DecorativeBlock.with(BaseBlockProperty.BAMBOO).shaped(ShapeFunction.centeredSquare(16, 24)).luminous().build());
 
     // LAMP
 
     public static final RegistryObject<Block> STANDING_LAMP = BLOCKS.register("standing_lamp",
-            () -> DecorativeBlock.with(BaseBlockProperty.WOOD).shaped(DecorativeBlock.FULL_6).diagonallyPlaceable().luminous().noOcclusion().build());
+            () -> DecorativeBlock.with(BaseBlockProperty.WOOD).shaped(
+                    ShapeFunction.or(ShapeFunction.diagonal(new RawVoxelShape(5,0,5,11,2,11)), ShapeFunction.diagonal(new RawVoxelShape(7,2,7,9,21,9)), ShapeFunction.diagonal(new RawVoxelShape(4,21,4,12,32,12))))
+                    .diagonallyPlaceable().luminous().noOcclusion().build());
     public static final RegistryObject<Block> SMALL_STANDING_LAMP = BLOCKS.register("small_standing_lamp",
-            () -> DecorativeBlock.with(BaseBlockProperty.WOOD).shaped(DecorativeBlock.FULL_6).diagonallyPlaceable().luminous().build());
+            () -> DecorativeBlock.with(BaseBlockProperty.WOOD).shaped(ShapeFunction.or(ShapeFunction.diagonal(new RawVoxelShape(7,0,7,9,5,9)), ShapeFunction.diagonal(new RawVoxelShape(6,5,6,10,12,10)))).diagonallyPlaceable().luminous().build());
     public static final RegistryObject<Block> STONE_LAMP = BLOCKS.register("stone_lamp",
-            () -> DecorativeBlock.with(BaseBlockProperty.STONE).luminous().build());
+            () -> DecorativeBlock.with(BaseBlockProperty.STONE).shaped(
+                    ShapeFunction.or(ShapeFunction.simpleShape(new RawVoxelShape(4,0,4,12,7,12)), ShapeFunction.simpleShape(new RawVoxelShape(2,7,2,14,9,14)),
+                            ShapeFunction.simpleShape(new RawVoxelShape(4,9,4,12,16,12)), ShapeFunction.simpleShape(new RawVoxelShape(0,16,0,16,21.5,16))))
+                    .luminous().build());
 
-    // STREETLIGHT
+    // STREETLIGHT //todo rewrite collision logic
 
     public static final RegistryObject<Block> RED_LANTERN_STREETLIGHT = BLOCKS.register("red_lantern_streetlight",
             () -> new HangingLantern(HangingLantern.HangingLanternType.POLE));
@@ -895,11 +903,18 @@ public class BlockRegistry {
     // CANDLESTICK
 
     public static final RegistryObject<Block> RED_CANDLE = BLOCKS.register("red_candle",
-            () -> new CandleStick(DecorativeBlock.with(BaseBlockProperty.WOOD).shaped(DecorativeBlock.FULL_4).directional().diagonallyPlaceable().luminous(), new Vec3(0.5,1.1,0.5)));
+            () -> new CandleStick(DecorativeBlock.with(BaseBlockProperty.WOOD).shaped(ShapeFunction.or(ShapeFunction.diagonalSquare(3.5f, 4), ShapeFunction.diagonalSquare(1.5f, 16)))
+                    .directional().diagonallyPlaceable().luminous(), new Vec3(0.5,1.1,0.5)));
     public static final RegistryObject<Block> TRICOLOR_CANDLESTICK = BLOCKS.register("tricolor_candlestick",
-            () -> new CandleStick(DecorativeBlock.with(BaseBlockProperty.IRON).shaped(DecorativeBlock.FULL_10).directional().diagonallyPlaceable().luminous(), new Vec3(0.5,1.25,0.5)));
+            () -> new CandleStick(DecorativeBlock.with(BaseBlockProperty.IRON).shaped(
+                    ShapeFunction.or(ShapeFunction.diagonal(new RawVoxelShape(5,0,5,11,2,11)), ShapeFunction.diagonal(new RawVoxelShape(4,2,4,12,4,12)), ShapeFunction.diagonal(new RawVoxelShape(7,0,7,9,18,9)),
+                            ShapeFunction.diagonal(new RawVoxelShape(5.5,9,5.5,10.5,10,10.5)), ShapeFunction.diagonal(new RawVoxelShape(6.7,9,6.7,9.3,13,9.3))))
+                    .directional().diagonallyPlaceable().luminous(), new Vec3(0.5,1.25,0.5)));
     public static final RegistryObject<Block> JADE_CANDLESTICK = BLOCKS.register("jade_candlestick",
-            () -> new CandleStick(DecorativeBlock.with(BaseBlockProperty.JADE).shaped(DecorativeBlock.FULL_6).directional().diagonallyPlaceable().luminous(), new Vec3(0.5,1.3,0.5)));
+            () -> new CandleStick(DecorativeBlock.with(BaseBlockProperty.JADE).shaped(
+                    ShapeFunction.or(ShapeFunction.diagonal(new RawVoxelShape(6,0,6,10,2,10)), ShapeFunction.diagonal(new RawVoxelShape(6.5,2,6.5,9.5,4,9.5)), ShapeFunction.diagonal(new RawVoxelShape(7.5,0,7.5,8.5,20,8.5)),
+                            ShapeFunction.diagonal(new RawVoxelShape(7,5.5,7,9,7.5,9)), ShapeFunction.diagonal(new RawVoxelShape(5.5,9,5.5,10.5,10.5,10.5)), ShapeFunction.diagonal(new RawVoxelShape(7,15,7,9,16,9))))
+                    .directional().diagonallyPlaceable().luminous(), new Vec3(0.5,1.3,0.5)));
 
     /**
      *  MATERIALS
