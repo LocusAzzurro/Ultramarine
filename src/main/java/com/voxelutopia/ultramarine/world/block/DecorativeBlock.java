@@ -1,5 +1,6 @@
 package com.voxelutopia.ultramarine.world.block;
 
+import com.voxelutopia.ultramarine.data.shape.BlockShapes;
 import com.voxelutopia.ultramarine.data.shape.ShapeFunction;
 import com.voxelutopia.ultramarine.world.block.state.ModBlockStateProperties;
 import net.minecraft.MethodsReturnNonnullByDefault;
@@ -29,14 +30,6 @@ import java.util.function.Function;
 @MethodsReturnNonnullByDefault
 @SuppressWarnings("deprecation")
 public class DecorativeBlock extends HorizontalDirectionalBlock implements BaseBlockPropertyHolder, DiagonallyPlaceable {
-
-    public static final VoxelShape FULL_BLOCK = Block.box(0.0D, 0.0D, 0.0D, 16.0D, 16.0D, 16.0D);
-    public static final VoxelShape FULL_14 = Block.box(1.0D, 0.0D, 1.0D, 15.0D, 16.0D, 15.0D);
-    public static final VoxelShape FULL_12 = Block.box(2.0D, 0.0D, 2.0D, 14.0D, 16.0D, 14.0D);
-    public static final VoxelShape FULL_10 = Block.box(3.0D, 0.0D, 3.0D, 13.0D, 16.0D, 13.0D);
-    public static final VoxelShape FULL_8 = Block.box(4.0D, 0.0D, 4.0D, 12.0D, 16.0D, 12.0D);
-    public static final VoxelShape FULL_6 = Block.box(5.0D, 0.0D, 5.0D, 11.0D, 16.0D, 11.0D);
-    public static final VoxelShape FULL_4 = Block.box(6.0D, 0.0D, 6.0D, 10.0D, 16.0D, 10.0D);
 
     public static final DirectionProperty HORIZONTAL_FACING_SHIFT = ModBlockStateProperties.HORIZONTAL_FACING_SHIFT;
     public static final BooleanProperty LIT = BlockStateProperties.LIT;
@@ -188,7 +181,7 @@ public class DecorativeBlock extends HorizontalDirectionalBlock implements BaseB
     public static class Builder extends AbstractBuilder<Builder> {
 
         private final BaseBlockProperty property;
-        private ShapeFunction shapeFunction = ShapeFunction.simpleShape(FULL_14);
+        private ShapeFunction shapeFunction = BlockShapes.S16_H16;
         private boolean diagonallyPlaceable;
         private boolean directional;
         private boolean luminous;
@@ -256,7 +249,7 @@ public class DecorativeBlock extends HorizontalDirectionalBlock implements BaseB
 
     @Override
     public VoxelShape getBlockSupportShape(BlockState pState, BlockGetter pReader, BlockPos pPos) {
-        return noFenceConnect ? FULL_14 : super.getBlockSupportShape(pState, pReader, pPos);
+        return noFenceConnect ? BlockShapes.S16_H12.apply(pState) : super.getBlockSupportShape(pState, pReader, pPos);
     }
 
     @Override
