@@ -679,26 +679,32 @@ public class BlockRegistry {
     // CHAIR
 
     public static final RegistryObject<Block> EBONY_CHAIR = BLOCKS.register("ebony_chair",
-            () -> SeatDecorativeBlock.with(BaseBlockProperty.WOOD).seatOffset(new Vec3(0.0f, -0.1f, 0.0f)).shaped(DecorativeBlock.HALF_12).directional().diagonallyPlaceable().build());
+            () -> SeatDecorativeBlock.with(BaseBlockProperty.WOOD).seatOffset(new Vec3(0.0f, -0.1f, 0.0f)).shaped(ShapeFunction.diagonalSquare(12, 9)).directional().diagonallyPlaceable().build());
     public static final RegistryObject<Block> CHAIR_WITH_YELLOW_CUSHION = BLOCKS.register("chair_with_yellow_cushion",
-            () -> SeatDecorativeBlock.with(BaseBlockProperty.WOOD).seatOffset(new Vec3(0.0f, -0.1f, 0.0f)).shaped(DecorativeBlock.HALF_BLOCK).directional().build());
+            () -> SeatDecorativeBlock.with(BaseBlockProperty.WOOD).seatOffset(new Vec3(0.0f, -0.1f, 0.0f)).shaped(ShapeFunction.centeredSquare(13, 8)).directional().build());
     public static final RegistryObject<Block> PAINTED_CHAIR = BLOCKS.register("painted_chair",
-            () -> SeatDecorativeBlock.with(BaseBlockProperty.WOOD).seatOffset(new Vec3(0.0f, -0.1f, 0.0f)).shaped(DecorativeBlock.HALF_BLOCK).directional().build());
+            () -> SeatDecorativeBlock.with(BaseBlockProperty.WOOD).seatOffset(new Vec3(0.0f, -0.1f, 0.0f)).shaped(ShapeFunction.centeredSquare(18, 10)).directional().build());
     public static final RegistryObject<Block> WOODEN_STOOL = BLOCKS.register("wooden_stool",
-            () -> SeatDecorativeBlock.with(BaseBlockProperty.WOOD).seatOffset(new Vec3(0.0f, -0.1f, 0.0f)).shaped(DecorativeBlock.HALF_12).directional().build());
+            () -> SeatDecorativeBlock.with(BaseBlockProperty.WOOD).seatOffset(new Vec3(0.0f, -0.1f, 0.0f)).shaped(ShapeFunction.centeredSquare(16, 12)).directional().build());
     public static final RegistryObject<Block> PORCELAIN_INLAID_GRAND_CHAIR = BLOCKS.register("porcelain_inlaid_grand_chair",
-            () -> SeatDecorativeBlock.with(BaseBlockProperty.WOOD).seatOffset(new Vec3(0.0f, -0.1f, 0.0f)).shaped(DecorativeBlock.HALF_14).directional().build());
+            () -> SeatDecorativeBlock.with(BaseBlockProperty.WOOD).seatOffset(new Vec3(0.0f, -0.1f, 0.0f)).shaped(ShapeFunction.centeredSquare(16, 12)).directional().build());
     public static final RegistryObject<Block> YELLOW_CUSHION = BLOCKS.register("yellow_cushion",
-            () -> SeatDecorativeBlock.with(BaseBlockProperty.SILK).seatOffset(new Vec3(0.0f, -0.5f, 0.0f)).shaped(DecorativeBlock.QUARTER_12).directional().diagonallyPlaceable().build());
+            () -> SeatDecorativeBlock.with(BaseBlockProperty.SILK).seatOffset(new Vec3(0.0f, -0.5f, 0.0f)).shaped(ShapeFunction.eightRotations(new RawVoxelShape(2,0,1.5,14,4,13.5))).directional().diagonallyPlaceable().noOcclusion().build());
     public static final RegistryObject<Block> OAK_BED = BLOCKS.register("oak_bed",
-            () -> SeatDecorativeBlock.with(BaseBlockProperty.WOOD).seatOffset(new Vec3(0.0f, -0.1f, 0.0f)).shaped(DecorativeBlock.HALF_BLOCK).directional().build());
+            () -> SeatDecorativeBlock.with(BaseBlockProperty.WOOD).seatOffset(new Vec3(0.0f, -0.1f, 0.0f)).shaped(ShapeFunction.cardinalRotations(new RawVoxelShape(-8,0,0,24,8,16))).directional().build());
 
     // SCREEN
 
     public static final RegistryObject<Block> LARGE_LANDSCAPE_PAINTING_SCREEN = BLOCKS.register("large_landscape_painting_screen",
-            () -> DecorativeBlock.with(BaseBlockProperty.WOOD).shaped(OpeningBlock.MIDDLE_AXIAL).placeOffset(Direction.UP).directional().build());
+            () -> DecorativeBlock.with(BaseBlockProperty.WOOD).shaped(
+                    ShapeFunction.or(ShapeFunction.cardinalRotations(new RawVoxelShape(-16,-16,6,32,-9,10)), ShapeFunction.cardinalRotations(new RawVoxelShape(-13,-16,3,-9,-9,13)), ShapeFunction.cardinalRotations(new RawVoxelShape(25,-16,3,29,-9,13)),
+                            ShapeFunction.cardinalRotations(new RawVoxelShape(-12,-9,7,28,13,9)), ShapeFunction.cardinalRotations(new RawVoxelShape(-15,13,7,31,19,9)), ShapeFunction.cardinalRotations(new RawVoxelShape(-10,19,7,26,26,9))))
+                    .placeOffset(Direction.UP).directional().build());
     public static final RegistryObject<Block> PAINTED_SCREEN = BLOCKS.register("painted_screen",
-            () -> DecorativeBlock.with(BaseBlockProperty.WOOD).shaped(OpeningBlock.MIDDLE_AXIAL).placeOffset(Direction.UP).directional().build());
+            () -> DecorativeBlock.with(BaseBlockProperty.WOOD).shaped(
+                    ShapeFunction.or(ShapeFunction.cardinalRotations(new RawVoxelShape(-5.5,-16,0,-2.5,-12,16)), ShapeFunction.cardinalRotations(new RawVoxelShape(18.5,-16,0,21.5,-12,16)),
+                            ShapeFunction.cardinalRotations(new RawVoxelShape(-6,-12,7,22,5,9)), ShapeFunction.cardinalRotations(new RawVoxelShape(-3,5,7,19,32,9))))
+                    .placeOffset(Direction.UP).directional().build());
 
     /**
      *  DOOR AND WINDOW
@@ -765,23 +771,23 @@ public class BlockRegistry {
 
 
     public static final RegistryObject<Block> SMALL_LOTUS_LEAF = BLOCKS.register("small_lotus_leaf",
-            () -> new AquaticPlantBlock(DecorativeBlock.with(BaseBlockProperty.LILY).shaped(DecorativeBlock.FLAT_16).directional().diagonallyPlaceable().noCollision().noOcclusion()));
+            () -> new AquaticPlantBlock(DecorativeBlock.with(BaseBlockProperty.LILY).shaped(BlockShapes.S16_H1).directional().diagonallyPlaceable().noCollision().noOcclusion()));
     public static final RegistryObject<Block> SMALL_DARK_GREEN_LOTUS_LEAF = BLOCKS.register("small_dark_green_lotus_leaf",
-            () -> new AquaticPlantBlock(DecorativeBlock.with(BaseBlockProperty.LILY).shaped(DecorativeBlock.FLAT_16).directional().diagonallyPlaceable().noCollision().noOcclusion()));
+            () -> new AquaticPlantBlock(DecorativeBlock.with(BaseBlockProperty.LILY).shaped(BlockShapes.S16_H1).directional().diagonallyPlaceable().noCollision().noOcclusion()));
     public static final RegistryObject<Block> MEDIUM_LOTUS_LEAF = BLOCKS.register("medium_lotus_leaf",
-            () -> new AquaticPlantBlock(DecorativeBlock.with(BaseBlockProperty.LILY).shaped(DecorativeBlock.FLAT_16).directional().diagonallyPlaceable().noCollision().noOcclusion()));
+            () -> new AquaticPlantBlock(DecorativeBlock.with(BaseBlockProperty.LILY).shaped(ShapeFunction.centeredSquare(24, 1)).directional().diagonallyPlaceable().noCollision().noOcclusion()));
     public static final RegistryObject<Block> LARGE_LOTUS_LEAF = BLOCKS.register("large_lotus_leaf",
-            () -> new AquaticPlantBlock(DecorativeBlock.with(BaseBlockProperty.LILY).shaped(DecorativeBlock.FLAT_16).directional().diagonallyPlaceable().noCollision().noOcclusion()));
+            () -> new AquaticPlantBlock(DecorativeBlock.with(BaseBlockProperty.LILY).shaped(ShapeFunction.centeredSquare(32, 1)).directional().diagonallyPlaceable().noCollision().noOcclusion()));
     public static final RegistryObject<Block> TILTED_LOTUS_LEAF = BLOCKS.register("tilted_lotus_leaf",
-            () -> new AquaticPlantBlock(DecorativeBlock.with(BaseBlockProperty.LILY).shaped(DecorativeBlock.HALF_BLOCK).directional().noCollision().noOcclusion()));
+            () -> new AquaticPlantBlock(DecorativeBlock.with(BaseBlockProperty.LILY).shaped(ShapeFunction.centeredSquare(32, 16)).directional().noCollision().noOcclusion()));
     public static final RegistryObject<Block> SMALL_LOTUS_LEAF_CLUSTER = BLOCKS.register("small_lotus_leaf_cluster",
-            () -> new AquaticPlantBlock(DecorativeBlock.with(BaseBlockProperty.LILY).shaped(DecorativeBlock.FLAT_16).directional().diagonallyPlaceable().noCollision().noOcclusion()));
+            () -> new AquaticPlantBlock(DecorativeBlock.with(BaseBlockProperty.LILY).shaped(BlockShapes.S16_H1).directional().diagonallyPlaceable().noCollision().noOcclusion()));
     public static final RegistryObject<Block> MEDIUM_LOTUS_LEAF_CLUSTER = BLOCKS.register("medium_lotus_leaf_cluster",
-            () -> new AquaticPlantBlock(DecorativeBlock.with(BaseBlockProperty.LILY).shaped(DecorativeBlock.FLAT_16).directional().diagonallyPlaceable().noCollision().noOcclusion()));
+            () -> new AquaticPlantBlock(DecorativeBlock.with(BaseBlockProperty.LILY).shaped(ShapeFunction.centeredSquare(32, 1)).directional().diagonallyPlaceable().noCollision().noOcclusion()));
     public static final RegistryObject<Block> LOTUS_BUD = BLOCKS.register("lotus_bud",
-            () -> new AquaticPlantBlock(DecorativeBlock.with(BaseBlockProperty.LILY).shaped(DecorativeBlock.FULL_8).directional().noCollision().noOcclusion()));
+            () -> new AquaticPlantBlock(DecorativeBlock.with(BaseBlockProperty.LILY).shaped(ShapeFunction.centeredSquare(8, 30)).directional().noCollision().noOcclusion()));
     public static final RegistryObject<Block> MEDIUM_LOTUS = BLOCKS.register("medium_lotus",
-            () -> new AquaticPlantBlock(DecorativeBlock.with(BaseBlockProperty.LILY).shaped(DecorativeBlock.FULL_BLOCK).directional().noCollision().noOcclusion()));
+            () -> new AquaticPlantBlock(DecorativeBlock.with(BaseBlockProperty.LILY).shaped(ShapeFunction.centeredSquare(42, 30)).directional().noCollision().noOcclusion()));
 
     // IVY
 
