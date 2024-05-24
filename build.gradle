@@ -136,6 +136,8 @@ dependencies {
     implementation fg.deobf("curse.maven:the-one-probe-245211:${top_version_id}")
     compileOnly fg.deobf("vazkii.patchouli:Patchouli:${patchouli_version}:api")
     runtimeOnly fg.deobf("vazkii.patchouli:Patchouli:${patchouli_version}")
+    //implementation fg.deobf("curse.maven:jer-240630:${jer_version_id}")
+
 }
 
 def resourceTargets = ['META-INF/mods.toml', 'pack.mcmeta']
@@ -143,7 +145,7 @@ def intoTargets = ["$rootDir/out/production/resources/", "$rootDir/out/productio
 def replaceProperties = [mod_id: mod_id, mod_name: mod_name, mod_version: mod_version,
                          mod_authors: mod_authors, mod_description: mod_description, mod_icon: mod_icon, mod_credits: mod_credits,
                          minecraft_version_range: minecraft_version_range, forge_version_range: forge_version_range, loader_version_range: loader_version_range,
-                         jei_version: jei_version, top_version_id: top_version_id, patchouli_version: patchouli_version]
+                         jei_version: jei_version, top_version_id: top_version_id, patchouli_version: patchouli_version, jer_version_id: jer_version_id]
 processResources {
     inputs.properties replaceProperties
     replaceProperties.put 'project', project

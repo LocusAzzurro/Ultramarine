@@ -792,32 +792,32 @@ public class BlockRegistry {
     // IVY
 
     public static final RegistryObject<Block> SMALL_RED_IVY = BLOCKS.register("small_red_ivy",
-            () -> new WallSideBlock(BaseBlockProperty.PLANT));
+            () -> new WallSideBlock(BaseBlockProperty.PLANT, ShapeFunction.sideShape(1)));
     public static final RegistryObject<Block> MEDIUM_RED_IVY = BLOCKS.register("medium_red_ivy",
-            () -> new WallSideBlock(BaseBlockProperty.PLANT));
+            () -> new WallSideBlock(BaseBlockProperty.PLANT, ShapeFunction.cardinalRotations(new RawVoxelShape(0,-16,15,16,16,16))));
     public static final RegistryObject<Block> LARGE_RED_IVY = BLOCKS.register("large_red_ivy",
-            () -> new WallSideBlock(BaseBlockProperty.PLANT));
+            () -> new WallSideBlock(BaseBlockProperty.PLANT, ShapeFunction.cardinalRotations(new RawVoxelShape(0,-16,15,16,32,16))));
     public static final RegistryObject<Block> SMALL_YELLOW_IVY = BLOCKS.register("small_yellow_ivy",
-            () -> new WallSideBlock(BaseBlockProperty.PLANT));
+            () -> new WallSideBlock(BaseBlockProperty.PLANT, ShapeFunction.sideShape(1)));
     public static final RegistryObject<Block> MEDIUM_YELLOW_IVY = BLOCKS.register("medium_yellow_ivy",
-            () -> new WallSideBlock(BaseBlockProperty.PLANT));
+            () -> new WallSideBlock(BaseBlockProperty.PLANT, ShapeFunction.cardinalRotations(new RawVoxelShape(0,-16,15,16,16,16))));
     public static final RegistryObject<Block> LARGE_YELLOW_IVY = BLOCKS.register("large_yellow_ivy",
-            () -> new WallSideBlock(BaseBlockProperty.PLANT));
+            () -> new WallSideBlock(BaseBlockProperty.PLANT, ShapeFunction.cardinalRotations(new RawVoxelShape(0,-16,15,16,32,16))));
     public static final RegistryObject<Block> SMALL_GREEN_IVY = BLOCKS.register("small_green_ivy",
-            () -> new WallSideBlock(BaseBlockProperty.PLANT));
+            () -> new WallSideBlock(BaseBlockProperty.PLANT, ShapeFunction.sideShape(1)));
     public static final RegistryObject<Block> MEDIUM_GREEN_IVY = BLOCKS.register("medium_green_ivy",
-            () -> new WallSideBlock(BaseBlockProperty.PLANT));
+            () -> new WallSideBlock(BaseBlockProperty.PLANT, ShapeFunction.cardinalRotations(new RawVoxelShape(0,-16,15,16,16,16))));
     public static final RegistryObject<Block> LARGE_GREEN_IVY = BLOCKS.register("large_green_ivy",
-            () -> new WallSideBlock(BaseBlockProperty.PLANT));
+            () -> new WallSideBlock(BaseBlockProperty.PLANT, ShapeFunction.cardinalRotations(new RawVoxelShape(0,-16,15,16,32,16))));
 
     // LEAVES
 
     public static final RegistryObject<Block> SMALL_LEAF_PILE = BLOCKS.register("small_leaf_pile",
-            () -> DecorativeBlock.with(BaseBlockProperty.PLANT).shaped(DecorativeBlock.FLAT_16).directional().noCollision().noOcclusion().build());
+            () -> DecorativeBlock.with(BaseBlockProperty.PLANT).shaped(BlockShapes.S16_H1).directional().noCollision().noOcclusion().build());
     public static final RegistryObject<Block> MEDIUM_LEAF_PILE = BLOCKS.register("medium_leaf_pile",
-            () -> DecorativeBlock.with(BaseBlockProperty.PLANT).shaped(DecorativeBlock.FLAT_16).directional().noCollision().noOcclusion().build());
+            () -> DecorativeBlock.with(BaseBlockProperty.PLANT).shaped(BlockShapes.S16_H1).directional().noCollision().noOcclusion().build());
     public static final RegistryObject<Block> LARGE_LEAF_PILE = BLOCKS.register("large_leaf_pile",
-            () -> DecorativeBlock.with(BaseBlockProperty.PLANT).shaped(DecorativeBlock.FLAT_16).directional().noCollision().noOcclusion().build());
+            () -> DecorativeBlock.with(BaseBlockProperty.PLANT).shaped(BlockShapes.S16_H1).directional().noCollision().noOcclusion().build());
 
     // BONSAI
 
