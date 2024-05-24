@@ -623,7 +623,7 @@ public class BlockRegistry {
     public static final RegistryObject<Block> XIAOLONGBAO = BLOCKS.register("xiaolongbao", //TODO xiaolongbao 8 bites in one block, return 2 containers
             () -> ConsumableDecorativeBlock.with(BaseBlockProperty.BAMBOO).bites(8).platedWith(ItemRegistry.POLISHED_OAK_PLANK).food(ModFoods.BAOZI)
                     .whenFinished((pState, pLevel, pPos, pPlayer) -> {pLevel.setBlock(pPos, Blocks.AIR.defaultBlockState(), Block.UPDATE_ALL); pLevel.gameEvent(pPlayer, GameEvent.BLOCK_DESTROY, pPos);})
-                    .shaped(ShapeFunction.of(state -> state.getValue(ModBlockStateProperties.BITES) <= 4 ? Block.box(0,0,0,16,8,16) : DecorativeBlock.FULL_BLOCK)).noOcclusion().directional().build());
+                    .shaped(ShapeFunction.of(state -> state.getValue(ModBlockStateProperties.BITES) <= 4 ? Block.box(0,0,0,16,8,16) : BlockShapes.S16_H16.apply(state))).noOcclusion().directional().build());
 
     // ICE
 
