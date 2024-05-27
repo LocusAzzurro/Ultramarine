@@ -613,7 +613,9 @@
 
   "__comment23__": "Villager Professions",
   "entity.minecraft.villager.ultramarine.cook": "Cook",
+  "entity.minecraft.villager.cook": "Cook",
 
+  "__comment24__": "JEI Categories",
   "gui.jei.category.woodworking": "Woodworking",
   "gui.jei.category.composite_smelting": "Composite Smelting",
   "gui.jei.category.chisel_table": "Chisel Table",
