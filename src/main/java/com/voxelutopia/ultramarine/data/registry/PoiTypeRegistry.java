@@ -15,10 +15,13 @@ public class PoiTypeRegistry {
 
     public static final RegistryObject<PoiType> COOKING_POI = POI_TYPES.register("cooking_poi",
             () -> new PoiType("cooking_poi", PoiType.getBlockStates(BlockRegistry.FOOD_HAMPER.get()), 1, 1));
+    public static final RegistryObject<PoiType> TRADE_POI = POI_TYPES.register("trade_poi",
+            () -> new PoiType("trade_poi", PoiType.getBlockStates(BlockRegistry.TEAHOUSE_FLAG.get()), 1, 5));
 
     public static void registerPOI (){
         try {
             ObfuscationReflectionHelper.findMethod(PoiType.class, "registerBlockStates", PoiType.class).invoke(null, COOKING_POI.get());
+            ObfuscationReflectionHelper.findMethod(PoiType.class, "registerBlockStates", PoiType.class).invoke(null, TRADE_POI.get());
         } catch (InvocationTargetException | IllegalAccessException e) {
             e.printStackTrace();
         }

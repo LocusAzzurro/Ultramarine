@@ -2,17 +2,22 @@ package com.voxelutopia.ultramarine.event;
 
 import com.voxelutopia.ultramarine.Ultramarine;
 import com.voxelutopia.ultramarine.data.ModBlockTags;
-import com.voxelutopia.ultramarine.data.registry.BlockRegistry;
-import com.voxelutopia.ultramarine.data.registry.ItemRegistry;
-import com.voxelutopia.ultramarine.data.registry.VillagerProfessionRegistry;
-import com.voxelutopia.ultramarine.world.block.ChiselTableMedium;
+import com.voxelutopia.ultramarine.data.registry.*;
 import com.voxelutopia.ultramarine.world.block.DecorativeBlock;
 import com.voxelutopia.ultramarine.world.block.SnowRoofRidge;
 import com.voxelutopia.ultramarine.world.feature.ModPlacedFeatures;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Holder;
+import net.minecraft.nbt.CompoundTag;
+import net.minecraft.network.chat.Component;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.MobSpawnType;
+import net.minecraft.world.entity.SpawnPlacements;
+import net.minecraft.world.entity.ai.village.poi.PoiManager;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.npc.VillagerProfession;
 import net.minecraft.world.entity.npc.VillagerTrades;
@@ -20,12 +25,18 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.trading.MerchantOffer;
+import net.minecraft.world.level.*;
+import net.minecraft.world.level.biome.Biomes;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.GenerationStep;
+import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraft.world.level.levelgen.placement.PlacedFeature;
+import net.minecraft.world.level.storage.ServerLevelData;
 import net.minecraftforge.common.Tags;
+import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.event.entity.item.ItemExpireEvent;
+import net.minecraftforge.event.entity.living.LivingSpawnEvent;
 import net.minecraftforge.event.entity.player.PlayerEvent;
 import net.minecraftforge.event.village.VillagerTradesEvent;
 import net.minecraftforge.event.village.WandererTradesEvent;
@@ -35,7 +46,10 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import org.slf4j.Logger;
 
+import javax.annotation.Nullable;
 import java.util.List;
+import java.util.Optional;
+import java.util.Random;
 
 @Mod.EventBusSubscriber
 public class CommonEventHandler {
@@ -94,6 +108,66 @@ public class CommonEventHandler {
                 ridge.handleSnow(blockBelow, event.getWorld(), event.getPos().below());
                 event.getWorld().setBlock(event.getPos(), Blocks.AIR.defaultBlockState(), 3);
                 event.setCanceled(true);
+            }
+        }
+    }
+
+    //@SubscribeEvent
+    public static void accelerateTraderTick(TickEvent.WorldTickEvent event){
+        if (!event.world.isClientSide() && event.phase == TickEvent.Phase.START){
+            ServerLevel world = (ServerLevel) event.world;
+            ServerLevelData levelData = (ServerLevelData) world.getLevelData();
+            if (world.getGameTime() % 600 == 0){
+                ServerPlayer player = world.getRandomPlayer();
+                if (player != null){
+                    EntityType.WANDERING_TRADER.spawn(world, (CompoundTag)null, (Component)null, (Player)null, player.blockPosition(), MobSpawnType.EVENT, false, false);
+                }
+            }
+        }
+    }
+
+    @SubscribeEvent
+    public static void travellingMerchantSpawn(LivingSpawnEvent.SpecialSpawn event){
+        if (!event.getWorld().isClientSide()){
+            ServerLevel world = ((ServerLevelAccessor) event.getWorld()).getLevel();
+            if (event.getEntityLiving().getType().equals(EntityType.WANDERING_TRADER) && event.getSpawnReason() == MobSpawnType.EVENT){
+                ServerPlayer player = world.getRandomPlayer();
+                if (player != null) {
+                    BlockPos blockpos = player.blockPosition();
+                    PoiManager poiManager = world.getPoiManager();
+                    Optional<BlockPos> poiPos = poiManager.find(PoiTypeRegistry.TRADE_POI.get().getPredicate(), (pos) -> true, blockpos, 16, PoiManager.Occupancy.ANY);
+                    poiPos.ifPresent(pos -> {
+
+                        BlockPos potentialSpawn = null;
+
+                        for(int i = 0; i < 10; ++i) {
+                            int j = pos.getX() + world.random.nextInt(4 * 2) - 4;
+                            int k = pos.getZ() + world.random.nextInt(4 * 2) - 4;
+                            int l = ((LevelReader) world).getHeight(Heightmap.Types.WORLD_SURFACE, j, k);
+                            BlockPos rolledPos = new BlockPos(j, l, k);
+                            if (NaturalSpawner.isSpawnPositionOk(SpawnPlacements.Type.ON_GROUND, world, rolledPos, EntityType.WANDERING_TRADER)) {
+                                potentialSpawn = rolledPos;
+                                break;
+                            }
+                        }
+
+                        if (potentialSpawn != null) {
+
+                            boolean hasSpaceAtSpawn = true;
+                            for (BlockPos blockPos : BlockPos.betweenClosed(potentialSpawn, potentialSpawn.offset(1, 2, 1))) {
+                                if (!((BlockGetter) world).getBlockState(blockPos).getCollisionShape(world, blockPos).isEmpty()) {
+                                    hasSpaceAtSpawn = false;
+                                    break;
+                                }
+                            }
+
+                            if (hasSpaceAtSpawn && !world.getBiome(pos).is(Biomes.THE_VOID)) {
+                                EntityTypeRegistry.CUSTOM_WANDERING_TRADER.get().spawn(
+                                        world, null, null, null, potentialSpawn.above().above(), MobSpawnType.EVENT, false, false);
+                            }
+                        }
+                    });
+                }
             }
         }
     }

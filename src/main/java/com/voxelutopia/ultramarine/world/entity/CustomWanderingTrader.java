@@ -1,5 +1,6 @@
 package com.voxelutopia.ultramarine.world.entity;
 
+import com.google.common.collect.ImmutableList;
 import com.voxelutopia.ultramarine.data.registry.ItemRegistry;
 import net.minecraft.network.protocol.Packet;
 import net.minecraft.world.entity.EntityType;
@@ -42,6 +43,10 @@ public class CustomWanderingTrader extends WanderingTrader {
                 .add(Attributes.MAX_HEALTH, 20.0d)
                 .add(Attributes.MOVEMENT_SPEED, 0.27d)
                 .add(Attributes.FOLLOW_RANGE, 32d);
+    }
+
+    public static List<MerchantOffer> getTradeOptions() {
+        return ImmutableList.copyOf(TRADE_OPTIONS);
     }
 
     @Override

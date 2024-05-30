@@ -619,6 +619,7 @@
   "gui.jei.category.woodworking": "Woodworking",
   "gui.jei.category.composite_smelting": "Composite Smelting",
   "gui.jei.category.chisel_table": "Chisel Table",
+  "gui.jei.category.custom_wandering_trader": "Custom Wandering Trader",
 
   "__EOF__": ""
 }

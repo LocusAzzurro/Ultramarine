@@ -6,6 +6,7 @@ import com.voxelutopia.ultramarine.data.recipe.CompositeSmeltingRecipe;
 import com.voxelutopia.ultramarine.data.recipe.WoodworkingRecipe;
 import com.voxelutopia.ultramarine.data.registry.BlockRegistry;
 import com.voxelutopia.ultramarine.data.registry.RecipeTypeRegistry;
+import com.voxelutopia.ultramarine.world.entity.CustomWanderingTrader;
 import mezz.jei.api.IModPlugin;
 import mezz.jei.api.JeiPlugin;
 import mezz.jei.api.helpers.IGuiHelper;
@@ -43,6 +44,7 @@ public class UltramarinePlugin implements IModPlugin {
         registration.addRecipeCategories(new WoodworkingRecipeCategory(guiHelper));
         registration.addRecipeCategories(new CompositeSmeltingRecipeCategory(guiHelper));
         registration.addRecipeCategories(new ChiselTableRecipeCategory(guiHelper));
+        registration.addRecipeCategories(new CustomWanderingTraderCategory(guiHelper));
     }
 
     @Override
@@ -55,6 +57,8 @@ public class UltramarinePlugin implements IModPlugin {
         registration.addRecipes(CompositeSmeltingRecipeCategory.COMPOSITE_SMELTING_RECIPE_TYPE, compositeSmeltingRecipes);
         List<ChiselTableRecipe> chiselTableRecipes = recipeManager.getAllRecipesFor(RecipeTypeRegistry.CHISEL_TABLE.get());
         registration.addRecipes(ChiselTableRecipeCategory.CHISEL_TABLE_RECIPE_TYPE, chiselTableRecipes);
+        List<CustomWanderingTraderWrapper> customWanderingTraderTrades = CustomWanderingTrader.getTradeOptions().stream().map(CustomWanderingTraderWrapper::new).toList();
+        registration.addRecipes(CustomWanderingTraderCategory.CUSTOM_WANDERING_TRADER_WRAPPER_RECIPE_TYPE, customWanderingTraderTrades);
     }
 
     @Override
@@ -62,6 +66,7 @@ public class UltramarinePlugin implements IModPlugin {
         registration.addRecipeCatalyst(new ItemStack(BlockRegistry.WOODWORKING_WORKBENCH.get()), WoodworkingRecipeCategory.WOODWORKING_RECIPE_TYPE);
         registration.addRecipeCatalyst(new ItemStack(BlockRegistry.BRICK_KILN.get()), CompositeSmeltingRecipeCategory.COMPOSITE_SMELTING_RECIPE_TYPE);
         registration.addRecipeCatalyst(new ItemStack(BlockRegistry.CHISEL_TABLE.get()), ChiselTableRecipeCategory.CHISEL_TABLE_RECIPE_TYPE);
+        registration.addRecipeCatalyst(new ItemStack(BlockRegistry.TEAHOUSE_FLAG.get()), CustomWanderingTraderCategory.CUSTOM_WANDERING_TRADER_WRAPPER_RECIPE_TYPE);
     }
 
 }
