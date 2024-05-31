@@ -5,6 +5,7 @@ import com.voxelutopia.ultramarine.data.ModBlockTags;
 import com.voxelutopia.ultramarine.data.registry.*;
 import com.voxelutopia.ultramarine.world.block.DecorativeBlock;
 import com.voxelutopia.ultramarine.world.block.SnowRoofRidge;
+import com.voxelutopia.ultramarine.world.entity.TravellingMerchant;
 import com.voxelutopia.ultramarine.world.feature.ModPlacedFeatures;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Holder;
@@ -46,10 +47,8 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import org.slf4j.Logger;
 
-import javax.annotation.Nullable;
 import java.util.List;
 import java.util.Optional;
-import java.util.Random;
 
 @Mod.EventBusSubscriber
 public class CommonEventHandler {
@@ -127,48 +126,43 @@ public class CommonEventHandler {
     }
 
     @SubscribeEvent
-    public static void travellingMerchantSpawn(LivingSpawnEvent.SpecialSpawn event){
-        if (!event.getWorld().isClientSide()){
-            ServerLevel world = ((ServerLevelAccessor) event.getWorld()).getLevel();
-            if (event.getEntityLiving().getType().equals(EntityType.WANDERING_TRADER) && event.getSpawnReason() == MobSpawnType.EVENT){
-                ServerPlayer player = world.getRandomPlayer();
-                if (player != null) {
-                    BlockPos blockpos = player.blockPosition();
-                    PoiManager poiManager = world.getPoiManager();
-                    Optional<BlockPos> poiPos = poiManager.find(PoiTypeRegistry.TRADE_POI.get().getPredicate(), (pos) -> true, blockpos, 16, PoiManager.Occupancy.ANY);
-                    poiPos.ifPresent(pos -> {
-
-                        BlockPos potentialSpawn = null;
-
-                        for(int i = 0; i < 10; ++i) {
-                            int j = pos.getX() + world.random.nextInt(4 * 2) - 4;
-                            int k = pos.getZ() + world.random.nextInt(4 * 2) - 4;
-                            int l = ((LevelReader) world).getHeight(Heightmap.Types.WORLD_SURFACE, j, k);
-                            BlockPos rolledPos = new BlockPos(j, l, k);
-                            if (NaturalSpawner.isSpawnPositionOk(SpawnPlacements.Type.ON_GROUND, world, rolledPos, EntityType.WANDERING_TRADER)) {
-                                potentialSpawn = rolledPos;
-                                break;
-                            }
-                        }
-
-                        if (potentialSpawn != null) {
-
-                            boolean hasSpaceAtSpawn = true;
-                            for (BlockPos blockPos : BlockPos.betweenClosed(potentialSpawn, potentialSpawn.offset(1, 2, 1))) {
-                                if (!((BlockGetter) world).getBlockState(blockPos).getCollisionShape(world, blockPos).isEmpty()) {
-                                    hasSpaceAtSpawn = false;
-                                    break;
-                                }
-                            }
-
-                            if (hasSpaceAtSpawn && !world.getBiome(pos).is(Biomes.THE_VOID)) {
-                                EntityTypeRegistry.CUSTOM_WANDERING_TRADER.get().spawn(
-                                        world, null, null, null, potentialSpawn.above().above(), MobSpawnType.EVENT, false, false);
-                            }
-                        }
-                    });
+    public static void travellingMerchantSpawn(LivingSpawnEvent.SpecialSpawn event) {
+        if (event.getWorld().isClientSide()) return;
+        ServerLevel world = ((ServerLevelAccessor) event.getWorld()).getLevel();
+        if (event.getEntityLiving().getType().equals(EntityType.WANDERING_TRADER) && event.getSpawnReason() == MobSpawnType.EVENT) {
+            ServerPlayer player = world.getRandomPlayer();
+            if (player == null) return;
+            BlockPos blockpos = player.blockPosition();
+            world.getPoiManager().find(PoiTypeRegistry.TRADE_POI.get().getPredicate(), (pos1) -> true, blockpos, 16, PoiManager.Occupancy.ANY).ifPresent(pos -> {
+                BlockPos potentialSpawn = null;
+                for (int i = 0; i < 10; ++i) {
+                    int x = pos.getX() + world.random.nextInt(4 * 2) - 4;
+                    int z = pos.getZ() + world.random.nextInt(4 * 2) - 4;
+                    int y = ((LevelReader) world).getHeight(Heightmap.Types.WORLD_SURFACE, x, z);
+                    BlockPos rolledPos = new BlockPos(x, y, z);
+                    if (NaturalSpawner.isSpawnPositionOk(SpawnPlacements.Type.ON_GROUND, world, rolledPos, EntityType.WANDERING_TRADER)) {
+                        potentialSpawn = rolledPos;
+                        break;
+                    }
                 }
-            }
+                if (potentialSpawn == null) return;
+
+                boolean hasSpaceAtSpawn = true;
+                for (BlockPos blockPos : BlockPos.betweenClosed(potentialSpawn, potentialSpawn.offset(1, 2, 1))) {
+                    if (!((BlockGetter) world).getBlockState(blockPos).getCollisionShape(world, blockPos).isEmpty()) {
+                        hasSpaceAtSpawn = false; break;
+                    }
+                }
+
+                if (hasSpaceAtSpawn && !world.getBiome(pos).is(Biomes.THE_VOID)) {
+                    TravellingMerchant merchant = EntityTypeRegistry.TRAVELLING_MERCHANT.get().spawn(
+                            world, null, null, null, potentialSpawn, MobSpawnType.EVENT, false, false);
+                    if (merchant == null) return;
+                    merchant.setDespawnDelay(24000);
+                    merchant.setWanderTarget(potentialSpawn);
+                    merchant.restrictTo(potentialSpawn, 8);
+                    }
+            });
         }
     }
 

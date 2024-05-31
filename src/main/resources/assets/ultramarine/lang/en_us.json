@@ -609,7 +609,7 @@
 
   "__comment22__": "Entity",
   "entity.ultramarine.seat": "Seat",
-  "entity.ultramarine.custom_wandering_trader": "Trader",
+  "entity.ultramarine.travelling_merchant": "Travelling Merchant",
 
   "__comment23__": "Villager Professions",
   "entity.minecraft.villager.ultramarine.cook": "Cook",
@@ -619,7 +619,7 @@
   "gui.jei.category.woodworking": "Woodworking",
   "gui.jei.category.composite_smelting": "Composite Smelting",
   "gui.jei.category.chisel_table": "Chisel Table",
-  "gui.jei.category.custom_wandering_trader": "Custom Wandering Trader",
+  "gui.jei.category.travelling_merchant": "Travelling Merchant",
 
   "__EOF__": ""
 }

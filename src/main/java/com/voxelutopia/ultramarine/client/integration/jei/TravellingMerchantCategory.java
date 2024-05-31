@@ -1,7 +1,6 @@
 package com.voxelutopia.ultramarine.client.integration.jei;
 
 import com.voxelutopia.ultramarine.Ultramarine;
-import com.voxelutopia.ultramarine.data.recipe.WoodworkingRecipe;
 import com.voxelutopia.ultramarine.data.registry.BlockRegistry;
 import mezz.jei.api.constants.VanillaTypes;
 import mezz.jei.api.gui.builder.IRecipeLayoutBuilder;
@@ -16,12 +15,12 @@ import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
 
-public class CustomWanderingTraderCategory implements IRecipeCategory<CustomWanderingTraderWrapper> {
+public class TravellingMerchantCategory implements IRecipeCategory<TravellingMerchantWrapper> {
 
     public static final ResourceLocation UID = new ResourceLocation(Ultramarine.MOD_ID, "custom_wandering_trader");
 
-    public static final RecipeType<CustomWanderingTraderWrapper> CUSTOM_WANDERING_TRADER_WRAPPER_RECIPE_TYPE =
-            new RecipeType<>(UID, CustomWanderingTraderWrapper.class);
+    public static final RecipeType<TravellingMerchantWrapper> CUSTOM_WANDERING_TRADER_WRAPPER_RECIPE_TYPE =
+            new RecipeType<>(UID, TravellingMerchantWrapper.class);
 
     public static final int WIDTH = 82;
     public static final int HEIGHT = 34;
@@ -30,10 +29,10 @@ public class CustomWanderingTraderCategory implements IRecipeCategory<CustomWand
     private final IDrawable icon;
     private final Component localizedName;
 
-    public CustomWanderingTraderCategory(IGuiHelper guiHelper) {
+    public TravellingMerchantCategory(IGuiHelper guiHelper) {
         background = guiHelper.createDrawable(UltramarinePlugin.JEI_GUI_VANILLA, 0, 220, WIDTH, HEIGHT);
         icon = guiHelper.createDrawableIngredient(VanillaTypes.ITEM_STACK, new ItemStack(BlockRegistry.TEAHOUSE_FLAG.get()));
-        localizedName = new TranslatableComponent("gui.jei.category.custom_wandering_trader");
+        localizedName = new TranslatableComponent("gui.jei.category.travelling_merchant");
     }
 
     @Override
@@ -59,17 +58,17 @@ public class CustomWanderingTraderCategory implements IRecipeCategory<CustomWand
 
     @SuppressWarnings("removal")
     @Override
-    public Class<? extends CustomWanderingTraderWrapper> getRecipeClass() {
-        return CustomWanderingTraderWrapper.class;
+    public Class<? extends TravellingMerchantWrapper> getRecipeClass() {
+        return TravellingMerchantWrapper.class;
     }
 
     @Override
-    public RecipeType<CustomWanderingTraderWrapper> getRecipeType() {
+    public RecipeType<TravellingMerchantWrapper> getRecipeType() {
         return CUSTOM_WANDERING_TRADER_WRAPPER_RECIPE_TYPE;
     }
 
     @Override
-    public void setRecipe(IRecipeLayoutBuilder builder, CustomWanderingTraderWrapper recipe, IFocusGroup focuses) {
+    public void setRecipe(IRecipeLayoutBuilder builder, TravellingMerchantWrapper recipe, IFocusGroup focuses) {
         builder.addSlot(RecipeIngredientRole.INPUT, 1, 9).addItemStack(recipe.getInput());
         builder.addSlot(RecipeIngredientRole.OUTPUT, 61, 9).addItemStack(recipe.getOutput());
     }

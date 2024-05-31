@@ -18,13 +18,12 @@ import net.minecraftforge.network.NetworkHooks;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-import java.util.stream.Collectors;
 
-public class CustomWanderingTrader extends WanderingTrader {
+public class TravellingMerchant extends WanderingTrader {
 
     private static final List<MerchantOffer> TRADE_OPTIONS = new ArrayList<>();
 
-    public CustomWanderingTrader(EntityType<? extends CustomWanderingTrader> entityType, Level level) {
+    public TravellingMerchant(EntityType<? extends TravellingMerchant> entityType, Level level) {
         super(entityType, level);
         var trades = new ArrayList<>(TRADE_OPTIONS);
         Collections.shuffle(trades);

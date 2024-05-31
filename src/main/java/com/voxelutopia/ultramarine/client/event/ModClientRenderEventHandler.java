@@ -189,7 +189,7 @@ public class ModClientRenderEventHandler {
     private static void registerEntityRenderers(FMLClientSetupEvent e){
         e.enqueueWork(() -> {
             EntityRenderers.register(EntityTypeRegistry.SEAT.get(), SeatEntityRenderer::new);
-            EntityRenderers.register(EntityTypeRegistry.CUSTOM_WANDERING_TRADER.get(), WanderingTraderRenderer::new);
+            EntityRenderers.register(EntityTypeRegistry.TRAVELLING_MERCHANT.get(), WanderingTraderRenderer::new);
         });
     }
 }

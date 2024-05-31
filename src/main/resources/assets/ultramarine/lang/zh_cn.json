@@ -608,7 +608,7 @@
 
   "__comment22__": "Entity",
   "entity.ultramarine.seat": "座位",
-  "entity.ultramarine.custom_wandering_trader": "商人",
+  "entity.ultramarine.travelling_merchant": "行商",
 
   "__comment23__": "Villager Professions",
   "entity.minecraft.villager.ultramarine.cook": "厨师",
@@ -618,7 +618,7 @@
   "gui.jei.category.woodworking": "木工桌",
   "gui.jei.category.composite_smelting": "复合烧炼",
   "gui.jei.category.chisel_table": "雕刻桌",
-  "gui.jei.category.custom_wandering_trader": "行商",
+  "gui.jei.category.travelling_merchant": "行商",
 
   "__EOF__": ""
 }
