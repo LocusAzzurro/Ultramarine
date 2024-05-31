@@ -60,6 +60,9 @@ public class ModBlockModelProvider extends BlockStateProvider {
     }
     @Override
     protected void registerStatesAndModels() {
+
+        // > BUILDING BLOCKS
+        // BRICKS
         simpleBlock(BlockRegistry.CYAN_BRICKS.get());
         slabAndStairs(BlockRegistry.CYAN_BRICKS.get(), BlockRegistry.CYAN_BRICK_SLAB.get(), BlockRegistry.CYAN_BRICK_STAIRS.get());
         wall(BlockRegistry.CYAN_BRICKS.get(), BlockRegistry.CYAN_BRICK_WALL.get());
@@ -69,6 +72,9 @@ public class ModBlockModelProvider extends BlockStateProvider {
         simpleBlock(BlockRegistry.BROWNISH_RED_STONE_BRICKS.get());
         slabAndStairs(BlockRegistry.BROWNISH_RED_STONE_BRICKS.get(), BlockRegistry.BROWNISH_RED_STONE_BRICK_SLAB.get(), BlockRegistry.BROWNISH_RED_STONE_BRICK_STAIRS.get());
         wall(BlockRegistry.BROWNISH_RED_STONE_BRICKS.get(), BlockRegistry.BROWNISH_RED_STONE_BRICK_WALL.get());
+        simpleBlock(BlockRegistry.WHITE_AND_PINK_MIXED_BRICKS.get());
+        simpleBlock(BlockRegistry.GREEN_WEATHERED_BRICKS.get());
+        // STONES
         simpleBlock(BlockRegistry.PALE_YELLOW_STONE.get());
         slabAndStairs(BlockRegistry.PALE_YELLOW_STONE.get(), BlockRegistry.PALE_YELLOW_STONE_SLAB.get(), BlockRegistry.PALE_YELLOW_STONE_STAIRS.get());
         simpleBlock(BlockRegistry.VARIEGATED_ROCKS.get());
@@ -77,107 +83,25 @@ public class ModBlockModelProvider extends BlockStateProvider {
         slabAndStairs(BlockRegistry.WEATHERED_STONE.get(), BlockRegistry.WEATHERED_STONE_SLAB.get(), BlockRegistry.WEATHERED_STONE_STAIRS.get());
         simpleBlock(BlockRegistry.POLISHED_WEATHERED_STONE.get());
         slabAndStairs(BlockRegistry.POLISHED_WEATHERED_STONE.get(), BlockRegistry.POLISHED_WEATHERED_STONE_SLAB.get(), BlockRegistry.POLISHED_WEATHERED_STONE_STAIRS.get());
+        wall(BlockRegistry.POLISHED_WEATHERED_STONE.get(), BlockRegistry.POLISHED_WEATHERED_STONE_WALL.get());
+        simpleBlock(BlockRegistry.GREEN_WEATHERED_STONE.get());
+        // FLOOR TILES
         simpleBlock(BlockRegistry.LIGHT_CYAN_FLOOR_TILE.get());
         slabAndStairs(BlockRegistry.LIGHT_CYAN_FLOOR_TILE.get(), BlockRegistry.LIGHT_CYAN_FLOOR_TILE_SLAB.get(), BlockRegistry.LIGHT_CYAN_FLOOR_TILE_STAIRS.get());
         wall(BlockRegistry.LIGHT_CYAN_FLOOR_TILE.get(), BlockRegistry.LIGHT_CYAN_FLOOR_TILE_WALL.get());
-        simpleBlock(BlockRegistry.ROSEWOOD_PLANKS.get());
-        slabAndStairs(BlockRegistry.ROSEWOOD_PLANKS.get(), BlockRegistry.ROSEWOOD_SLAB.get(), BlockRegistry.ROSEWOOD_STAIRS.get());
-        fence(BlockRegistry.ROSEWOOD_PLANKS.get(), BlockRegistry.ROSEWOOD_FENCE.get());
-        simpleBlock(BlockRegistry.BAMBOO_MAT.get());
-        slabAndStairs(BlockRegistry.BAMBOO_MAT.get(), BlockRegistry.BAMBOO_MAT_SLAB.get(), BlockRegistry.BAMBOO_MAT_STAIRS.get());
-        wall(BlockRegistry.POLISHED_WEATHERED_STONE.get(), BlockRegistry.POLISHED_WEATHERED_STONE_WALL.get());
         simpleBlock(BlockRegistry.CYAN_FLOOR_TILE.get());
         slabAndStairs(BlockRegistry.CYAN_FLOOR_TILE.get(), BlockRegistry.CYAN_FLOOR_TILE_SLAB.get(), BlockRegistry.CYAN_FLOOR_TILE_STAIRS.get());
         wall(BlockRegistry.CYAN_FLOOR_TILE.get(), BlockRegistry.CYAN_FLOOR_TILE_WALL.get());
-        simpleBlock(BlockRegistry.GREEN_GLAZED_TILES.get());
-        slabAndStairs(BlockRegistry.GREEN_GLAZED_TILES.get(), BlockRegistry.GREEN_GLAZED_TILE_SLAB.get(), BlockRegistry.GREEN_GLAZED_TILE_STAIRS.get());
-        simpleBlock(BlockRegistry.WHITE_AND_PINK_MIXED_BRICKS.get());
-        simpleBlock(BlockRegistry.WEATHERED_RED_STONE_TILE.get());
-        simpleBlock(BlockRegistry.BLUE_AND_BLACK_TILE.get());
-        simpleBlock(BlockRegistry.GREEN_WEATHERED_STONE.get());
-        simpleBlock(BlockRegistry.GREEN_WEATHERED_BRICKS.get());
         simpleBlock(BlockRegistry.DARK_CYAN_FLOOR_TILE.get());
         horizontalBlock(BlockRegistry.LAYERED_CYAN_FLOOR_TILES.get(), models().cubeAll(name(BlockRegistry.LAYERED_CYAN_FLOOR_TILES.get()), modBlockLoc(BlockRegistry.LAYERED_CYAN_FLOOR_TILES.get())));
         horizontalBlock(BlockRegistry.VERTICAL_CYAN_FLOOR_TILES.get(), models().cubeAll(name(BlockRegistry.VERTICAL_CYAN_FLOOR_TILES.get()), modBlockLoc(BlockRegistry.VERTICAL_CYAN_FLOOR_TILES.get())));
         horizontalBlock(BlockRegistry.MIXED_CYAN_FLOOR_TILES.get(), models().cubeAll(name(BlockRegistry.MIXED_CYAN_FLOOR_TILES.get()), modBlockLoc(BlockRegistry.MIXED_CYAN_FLOOR_TILES.get())));
         simpleBlock(BlockRegistry.CHISELED_CYAN_FLOOR_TILE.get());
         simpleBlock(BlockRegistry.CUT_CYAN_FLOOR_TILES.get());
-
-        simpleBlock(BlockRegistry.CARVED_RED_PILLAR.get());
-        sideBottomTop(BlockRegistry.CARVED_RED_PILLAR_BASE.get());
-        directionalSideEnd(BlockRegistry.CARVED_RED_PILLAR_HEAD.get(), sideLoc(BlockRegistry.CARVED_RED_PILLAR_HEAD.get()), modBlockLoc(BlockRegistry.CARVED_RED_PILLAR.get()));
-        chiralDirectionalBlock(BlockRegistry.CARVED_DARK_OAK_BEAM.get());
-        chiralDirectionalBlock(BlockRegistry.CARVED_DARK_OAK_BEAM_EDGE.get());
-        simpleBlock(BlockRegistry.GILDED_DARK_OAK.get());
-        simpleBlock(BlockRegistry.CHISELED_GILDED_DARK_OAK.get());
-        slabSideEnd(BlockRegistry.GILDED_DARK_OAK_SLAB.get(), BlockRegistry.GILDED_DARK_OAK.get(), sideLoc(BlockRegistry.GILDED_DARK_OAK_SLAB.get()), blockLoc(BlockRegistry.GILDED_DARK_OAK.get()));
-        straightStairs(BlockRegistry.GILDED_DARK_OAK_STAIRS.get());
-        horizontalBlockOffset(BlockRegistry.GILDED_DARK_OAK_BEAM_HEAD.get(), 180);
-        horizontalBlockNoOffset(BlockRegistry.GILDED_DARK_OAK_BRACKET.get());
-        railingBlock(BlockRegistry.WHITE_MARBLE_RAILING.get());
-        railingBlock(BlockRegistry.CARVED_WOODEN_RAILING.get());
-
-
-        woodenBracket(BlockRegistry.OAK_BRACKET.get(), mcLoc(BLOCK + "stripped_oak_log"));
-        woodenBracket(BlockRegistry.SPRUCE_BRACKET.get(), mcLoc(BLOCK + "stripped_spruce_log"));
-        woodenBracket(BlockRegistry.BIRCH_BRACKET.get(), mcLoc(BLOCK + "stripped_birch_log"));
-        woodenBracket(BlockRegistry.JUNGLE_BRACKET.get(), mcLoc(BLOCK + "stripped_jungle_log"));
-        woodenBracket(BlockRegistry.ACACIA_BRACKET.get(), mcLoc(BLOCK + "stripped_acacia_log"));
-        woodenBracket(BlockRegistry.DARK_OAK_BRACKET.get(), mcLoc(BLOCK + "stripped_dark_oak_log"));
-        woodenBracket(BlockRegistry.CRIMSON_BRACKET.get(), mcLoc(BLOCK + "stripped_crimson_stem"));
-        woodenBracket(BlockRegistry.WARPED_BRACKET.get(), mcLoc(BLOCK + "stripped_warped_stem"));
-        simpleBlock(BlockRegistry.RED_CARVED_WOOD.get());
-        carvedWoodenSlab(BlockRegistry.RED_CARVED_WOODEN_SLAB.get(), BlockRegistry.RED_CARVED_WOOD.get());
-        straightStairs(BlockRegistry.RED_CARVED_WOODEN_STAIRS.get());
-        simpleBlock(BlockRegistry.ORANGE_AND_BLUE_CARVED_WOOD.get());
-        simpleBlock(BlockRegistry.ORANGE_AND_GREEN_CARVED_WOOD.get());
-        simpleBlock(BlockRegistry.BLUE_CARVED_WOOD.get());
-        carvedWoodenSlab(BlockRegistry.BLUE_CARVED_WOODEN_SLAB.get(), BlockRegistry.BLUE_CARVED_WOOD.get());
-        straightStairs(BlockRegistry.BLUE_CARVED_WOODEN_STAIRS.get());
-        straightStairs(BlockRegistry.BLUE_CARVED_WOODEN_BRACKET_STAIRS.get());
-        horizontalBlockNoOffset(BlockRegistry.BLUE_CARVED_WOODEN_BRACKET.get());
-        simpleBlock(BlockRegistry.GREEN_AND_BLUE_CARVED_WOOD.get());
-        simpleBlock(BlockRegistry.GREEN_CARVED_WOOD.get());
-        carvedWoodenSlab(BlockRegistry.GREEN_CARVED_WOODEN_SLAB.get(), BlockRegistry.GREEN_CARVED_WOOD.get());
-        straightStairs(BlockRegistry.GREEN_CARVED_WOODEN_STAIRS.get());
-        horizontalBlockNoOffset(BlockRegistry.GREEN_CARVED_WOODEN_BRACKET.get());
-        simpleBlock(BlockRegistry.CYAN_CARVED_WOOD.get());
-        carvedWoodenSlab(BlockRegistry.CYAN_CARVED_WOODEN_SLAB.get(), BlockRegistry.CYAN_CARVED_WOOD.get());
-        straightStairs(BlockRegistry.CYAN_CARVED_WOODEN_STAIRS.get());
-        horizontalBlockNoOffset(BlockRegistry.CYAN_CARVED_WOODEN_BRACKET.get());
-        simpleBlock(BlockRegistry.DARK_GREEN_AND_DARK_BLUE_CARVED_WOOD.get());
-        simpleBlock(BlockRegistry.DARK_BLUE_AND_DARK_GREEN_CARVED_WOOD.get());
-        simpleBlock(BlockRegistry.BLACK_WHITE_GREEN_CARVED_WOOD.get());
-        simpleBlock(BlockRegistry.BLACK_WHITE_BLUE_CARVED_WOOD.get());
-        simpleBlock(BlockRegistry.RED_AND_GREEN_CARVED_WOOD.get());
-        simpleBlock(BlockRegistry.BLUE_AND_RED_CARVED_WOOD.get());
-        simpleBlock(BlockRegistry.BLUE_WHITE_RED_CARVED_WOOD.get());
-        simpleBlock(BlockRegistry.GREEN_WHITE_RED_CARVED_WOOD.get());
-        simpleBlock(BlockRegistry.RED_AND_CYAN_CARVED_ARCHITRAVE.get());
-        slabSideEndNoFull(BlockRegistry.RED_AND_CYAN_CARVED_ARCHITRAVE_SLAB.get(), sideLoc(BlockRegistry.RED_AND_CYAN_CARVED_ARCHITRAVE_SLAB.get()), endLoc(BlockRegistry.RED_AND_CYAN_CARVED_ARCHITRAVE_SLAB.get()));
-        simpleBlock(BlockRegistry.RED_AND_BLUE_CARVED_ARCHITRAVE.get());
-        slabSideEndNoFull(BlockRegistry.RED_AND_BLUE_CARVED_ARCHITRAVE_SLAB.get(), sideLoc(BlockRegistry.RED_AND_BLUE_CARVED_ARCHITRAVE_SLAB.get()), endLoc(BlockRegistry.RED_AND_BLUE_CARVED_ARCHITRAVE_SLAB.get()));
-        slabSideEndNoFull(BlockRegistry.EMPTY_TUANHUA_SLAB.get(), sideLoc(BlockRegistry.EMPTY_TUANHUA_SLAB.get()), endLoc(BlockRegistry.EMPTY_TUANHUA_SLAB.get()));
-        slabSideEndNoFull(BlockRegistry.FULL_TUANHUA_SLAB.get(), sideLoc(BlockRegistry.FULL_TUANHUA_SLAB.get()), endLoc(BlockRegistry.EMPTY_TUANHUA_SLAB.get()));
-        slabSideEndNoFull(BlockRegistry.RED_AND_CYAN_TUANHUA_SLAB.get(), sideLoc(BlockRegistry.RED_AND_CYAN_TUANHUA_SLAB.get()), endLoc(BlockRegistry.RED_AND_CYAN_TUANHUA_SLAB.get()));
-        slabSideEndNoFull(BlockRegistry.RED_CARVED_ARCHITRAVE.get(), sideLoc(BlockRegistry.RED_CARVED_ARCHITRAVE.get()), mcLoc(BLOCK + "red_concrete_powder"));
-        sideBottomTop(BlockRegistry.STRIPPED_DARK_OAK_PILLAR_BASE.get(), sideLoc(BlockRegistry.STRIPPED_DARK_OAK_PILLAR_BASE.get()), mcLoc(BLOCK + "smooth_stone"), mcLoc(BLOCK + "dark_oak_log_top"));
-        sideBottomTop(BlockRegistry.SPRUCE_PILLAR_BASE.get(), sideLoc(BlockRegistry.SPRUCE_PILLAR_BASE.get()), mcLoc(BLOCK + "smooth_stone"), mcLoc(BLOCK + "spruce_log_top"));
-        sideBottomTop(BlockRegistry.STONE_PILLAR_BASE.get(), sideLoc(BlockRegistry.STONE_PILLAR_BASE.get()), mcLoc(BLOCK + "chiseled_stone_bricks"), mcLoc(BLOCK + "chiseled_stone_bricks"));
-        simpleBlock(BlockRegistry.BLUE_AND_YELLOW_CARVED_WOOD_VARIANT_1.get());
-        simpleBlock(BlockRegistry.BLUE_AND_YELLOW_CARVED_WOOD_VARIANT_2.get());
-        simpleBlock(BlockRegistry.BLUE_AND_YELLOW_CARVED_WOOD_VARIANT_3.get());
-        simpleBlock(BlockRegistry.STONE_FLOWER_WINDOW.get());
-        directionalSideBottomTop(BlockRegistry.GILDED_DARK_OAK_PILLAR_HEAD_VARIANT_1.get(), sideLoc(BlockRegistry.GILDED_DARK_OAK_PILLAR_HEAD_VARIANT_1.get()),
-                bottomLoc(BlockRegistry.GILDED_DARK_OAK_PILLAR_HEAD_VARIANT_1.get()), mcLoc(BLOCK + "dark_oak_log_top"));
-        directionalSideEnd(BlockRegistry.GILDED_DARK_OAK_PILLAR_HEAD_VARIANT_2.get(), sideLoc(BlockRegistry.GILDED_DARK_OAK_PILLAR_HEAD_VARIANT_2.get()), endLoc(BlockRegistry.GILDED_DARK_OAK_PILLAR_HEAD_VARIANT_2.get()));
-        directionalSideEnd(BlockRegistry.GILDED_DARK_OAK_PILLAR_HEAD_VARIANT_3.get(), sideLoc(BlockRegistry.GILDED_DARK_OAK_PILLAR_HEAD_VARIANT_3.get()), mcLoc(BLOCK + "dark_oak_log_top"));
-        directionalSideEnd(BlockRegistry.GILDED_DARK_OAK_PILLAR_HEAD_VARIANT_4.get(), sideLoc(BlockRegistry.GILDED_DARK_OAK_PILLAR_HEAD_VARIANT_4.get()), endLoc(BlockRegistry.GILDED_DARK_OAK_PILLAR_HEAD_VARIANT_4.get()));
-        directionalSideBottomTop(BlockRegistry.GILDED_DARK_OAK_PILLAR_HEAD_VARIANT_5.get(), sideLoc(BlockRegistry.GILDED_DARK_OAK_PILLAR_HEAD_VARIANT_5.get()),
-                bottomLoc(BlockRegistry.GILDED_DARK_OAK_PILLAR_HEAD_VARIANT_5.get()), mcLoc(BLOCK + "dark_oak_log_top"));
-        directionalSideEnd(BlockRegistry.CYAN_AND_WHITE_PILLAR_BASE.get(), sideLoc(BlockRegistry.CYAN_AND_WHITE_PILLAR_BASE.get()), mcLoc(BLOCK + "red_terracotta"));
-        directionalSideEnd(BlockRegistry.CYAN_AND_WHITE_PILLAR_HEAD.get(), sideLoc(BlockRegistry.CYAN_AND_WHITE_PILLAR_HEAD.get()), mcLoc(BLOCK + "red_terracotta"));
-        simpleBlock(BlockRegistry.YELLOW_AND_GREEN_CARVED_WOOD.get());
+        simpleBlock(BlockRegistry.WEATHERED_RED_STONE_TILE.get());
+        simpleBlock(BlockRegistry.BLUE_AND_BLACK_TILE.get());
+        simpleBlock(BlockRegistry.GREEN_GLAZED_TILES.get());
+        slabAndStairs(BlockRegistry.GREEN_GLAZED_TILES.get(), BlockRegistry.GREEN_GLAZED_TILE_SLAB.get(), BlockRegistry.GREEN_GLAZED_TILE_STAIRS.get());
         simpleBlock(BlockRegistry.BLACK_FLOOR_TILES.get(), models().cubeAll(name(BlockRegistry.BLACK_FLOOR_TILES.get()), modBlockLoc(BlockRegistry.BLACK_FLOOR_TILES.get())));
         horizontalBlock(BlockRegistry.BLACK_FLOOR_TILES_LITTLE_MOSSY.get(), models().cube(name(BlockRegistry.BLACK_FLOOR_TILES_LITTLE_MOSSY.get()),
                 modLoc(BLOCK + "black_floor_tiles_little_moss_down"), modLoc(BLOCK + "black_floor_tiles_little_moss_down"),
@@ -194,8 +118,194 @@ public class ModBlockModelProvider extends BlockStateProvider {
                 modLoc(BLOCK + "black_floor_tiles_big_moss_top_right"), modLoc(BLOCK + "black_floor_tiles_big_moss_top_right"),
                 modLoc(BLOCK + "black_floor_tiles_big_moss_top_right"), modLoc(BLOCK + "black_floor_tiles_big_moss_top_left")
         ).texture("particle", modLoc(BLOCK + "black_floor_tiles")), 0);
-        slabSideEndNoFull(BlockRegistry.WHITE_AND_RED_SLAB.get(), sideLoc(BlockRegistry.WHITE_AND_RED_SLAB.get()), endLoc(BlockRegistry.WHITE_AND_RED_SLAB.get()));
+        // WOODEN
+        simpleBlock(BlockRegistry.ROSEWOOD_PLANKS.get());
+        slabAndStairs(BlockRegistry.ROSEWOOD_PLANKS.get(), BlockRegistry.ROSEWOOD_SLAB.get(), BlockRegistry.ROSEWOOD_STAIRS.get());
+        fence(BlockRegistry.ROSEWOOD_PLANKS.get(), BlockRegistry.ROSEWOOD_FENCE.get());
+        simpleBlock(BlockRegistry.BAMBOO_MAT.get());
+        slabAndStairs(BlockRegistry.BAMBOO_MAT.get(), BlockRegistry.BAMBOO_MAT_SLAB.get(), BlockRegistry.BAMBOO_MAT_STAIRS.get());
+        // ROOF TILES
+        BlockRegistry.BLOCKS.getEntries().stream().filter(blockRegistryObject -> blockRegistryObject.get() instanceof RoofTiles)
+                .forEach(tile -> roofTiles(tile.get()));
+        // ROOF RIDGE
+        roofRidgeSideBottomTop(BlockRegistry.BLACK_ROOF_RIDGE_UPPER.get(), sideLoc(BlockRegistry.BLACK_ROOF_RIDGE_UPPER.get()), bottomLoc(BlockRegistry.BLACK_ROOF_RIDGE_UPPER.get()), topLoc(BlockRegistry.BLACK_ROOF_RIDGE_UPPER.get()));
+        roofRidgeSideBottomTop(BlockRegistry.BLACK_ROOF_RIDGE_LOWER.get(), sideLoc(BlockRegistry.BLACK_ROOF_RIDGE_LOWER.get()), bottomLoc(BlockRegistry.BLACK_ROOF_RIDGE_UPPER.get()), bottomLoc(BlockRegistry.BLACK_ROOF_RIDGE_UPPER.get()));
+        roofRidgeFrontSideBottomTop(BlockRegistry.BLACK_ROOF_RIDGE_CONNECTION.get(), frontLoc(BlockRegistry.BLACK_ROOF_RIDGE_CONNECTION.get()), sideLoc(BlockRegistry.BLACK_ROOF_RIDGE_CONNECTION.get()),
+                bottomLoc(BlockRegistry.BLACK_ROOF_RIDGE_UPPER.get()), topLoc(BlockRegistry.BLACK_ROOF_RIDGE_UPPER.get()));
+        roofHorizontalRidgeFrontSideBottomTop(BlockRegistry.BLACK_MAIN_ROOF_RIDGE_CONNECTION.get(), frontLoc(BlockRegistry.BLACK_MAIN_ROOF_RIDGE_CONNECTION.get()), sideLoc(BlockRegistry.BLACK_ROOF_RIDGE_CONNECTION.get()),
+                frontLoc(BlockRegistry.BLACK_MAIN_ROOF_RIDGE_CONNECTION.get()), topLoc(BlockRegistry.BLACK_MAIN_ROOF_RIDGE_CONNECTION.get()));
+        slabSideBottomTopNoFull(BlockRegistry.BLACK_ROOF_RIDGE_UPPER_SLAB.get(), sideLoc(BlockRegistry.BLACK_ROOF_RIDGE_UPPER_SLAB.get()), bottomLoc(BlockRegistry.BLACK_ROOF_RIDGE_UPPER.get()), topLoc(BlockRegistry.BLACK_ROOF_RIDGE_UPPER.get()));
+        directionalSlabFrontSideBottomTopNoFull(BlockRegistry.BLACK_MAIN_ROOF_RIDGE_SLAB.get(), frontLoc(BlockRegistry.BLACK_MAIN_ROOF_RIDGE_SLAB.get()), sideLoc(BlockRegistry.BLACK_MAIN_ROOF_RIDGE_SLAB.get()),
+                bottomLoc(BlockRegistry.BLACK_MAIN_ROOF_RIDGE_SLAB.get()), topLoc(BlockRegistry.BLACK_MAIN_ROOF_RIDGE_SLAB.get()));
+        roofRidgePanel(BlockRegistry.BLACK_MAIN_ROOF_RIDGE_PANEL.get(), frontLoc(BlockRegistry.BLACK_MAIN_ROOF_RIDGE_SLAB.get()), sideLoc(BlockRegistry.BLACK_MAIN_ROOF_RIDGE_SLAB.get()),
+                bottomLoc(BlockRegistry.BLACK_MAIN_ROOF_RIDGE_SLAB.get()), topLoc(BlockRegistry.BLACK_MAIN_ROOF_RIDGE_SLAB.get()));
+        roofRidgePlate(BlockRegistry.BLACK_MAIN_ROOF_RIDGE_PLATE.get(), frontLoc(BlockRegistry.BLACK_MAIN_ROOF_RIDGE_SLAB.get()), sideLoc(BlockRegistry.BLACK_MAIN_ROOF_RIDGE_SLAB.get()),
+                bottomLoc(BlockRegistry.BLACK_MAIN_ROOF_RIDGE_SLAB.get()), topLoc(BlockRegistry.BLACK_MAIN_ROOF_RIDGE_SLAB.get()));
+        straightStairs(BlockRegistry.BLACK_MAIN_ROOF_RIDGE_STAIRS.get());
+        roofRidgeSideBottomTop(BlockRegistry.YELLOW_ROOF_RIDGE_UPPER.get(), sideLoc(BlockRegistry.YELLOW_ROOF_RIDGE_UPPER.get()), bottomLoc(BlockRegistry.YELLOW_ROOF_RIDGE_UPPER.get()), topLoc(BlockRegistry.YELLOW_ROOF_RIDGE_UPPER.get()));
+        roofRidgeSideBottomTop(BlockRegistry.YELLOW_ROOF_RIDGE_LOWER.get(), sideLoc(BlockRegistry.YELLOW_ROOF_RIDGE_LOWER.get()), bottomLoc(BlockRegistry.YELLOW_ROOF_RIDGE_UPPER.get()), bottomLoc(BlockRegistry.YELLOW_ROOF_RIDGE_UPPER.get()));
+        roofRidgeFrontSideBottomTop(BlockRegistry.YELLOW_ROOF_RIDGE_CONNECTION.get(), frontLoc(BlockRegistry.YELLOW_ROOF_RIDGE_CONNECTION.get()), sideLoc(BlockRegistry.YELLOW_ROOF_RIDGE_CONNECTION.get()),
+                bottomLoc(BlockRegistry.YELLOW_ROOF_RIDGE_UPPER.get()), topLoc(BlockRegistry.YELLOW_ROOF_RIDGE_UPPER.get()));
+        roofHorizontalRidgeFrontSideBottomTop(BlockRegistry.YELLOW_MAIN_ROOF_RIDGE_CONNECTION.get(), frontLoc(BlockRegistry.YELLOW_MAIN_ROOF_RIDGE_CONNECTION.get()), sideLoc(BlockRegistry.YELLOW_ROOF_RIDGE_CONNECTION.get()),
+                frontLoc(BlockRegistry.YELLOW_MAIN_ROOF_RIDGE_CONNECTION.get()), topLoc(BlockRegistry.YELLOW_MAIN_ROOF_RIDGE_CONNECTION.get()));
+        slabSideBottomTopNoFull(BlockRegistry.YELLOW_ROOF_RIDGE_UPPER_SLAB.get(), sideLoc(BlockRegistry.YELLOW_ROOF_RIDGE_UPPER_SLAB.get()), bottomLoc(BlockRegistry.YELLOW_ROOF_RIDGE_UPPER.get()), topLoc(BlockRegistry.YELLOW_ROOF_RIDGE_UPPER.get()));
+        directionalSlabFrontSideBottomTopNoFull(BlockRegistry.YELLOW_MAIN_ROOF_RIDGE_SLAB.get(), frontLoc(BlockRegistry.YELLOW_MAIN_ROOF_RIDGE_SLAB.get()), sideLoc(BlockRegistry.YELLOW_MAIN_ROOF_RIDGE_SLAB.get()),
+                bottomLoc(BlockRegistry.YELLOW_MAIN_ROOF_RIDGE_SLAB.get()), topLoc(BlockRegistry.YELLOW_MAIN_ROOF_RIDGE_SLAB.get()));
+        roofRidgePanel(BlockRegistry.YELLOW_MAIN_ROOF_RIDGE_PANEL.get(), frontLoc(BlockRegistry.YELLOW_MAIN_ROOF_RIDGE_SLAB.get()), sideLoc(BlockRegistry.YELLOW_MAIN_ROOF_RIDGE_SLAB.get()),
+                bottomLoc(BlockRegistry.YELLOW_MAIN_ROOF_RIDGE_SLAB.get()), topLoc(BlockRegistry.YELLOW_MAIN_ROOF_RIDGE_SLAB.get()));
+        roofRidgePlate(BlockRegistry.YELLOW_MAIN_ROOF_RIDGE_PLATE.get(), frontLoc(BlockRegistry.YELLOW_MAIN_ROOF_RIDGE_SLAB.get()), sideLoc(BlockRegistry.YELLOW_MAIN_ROOF_RIDGE_SLAB.get()),
+                bottomLoc(BlockRegistry.YELLOW_MAIN_ROOF_RIDGE_SLAB.get()), topLoc(BlockRegistry.YELLOW_MAIN_ROOF_RIDGE_SLAB.get()));
+        straightStairs(BlockRegistry.YELLOW_MAIN_ROOF_RIDGE_STAIRS.get());
+        // > DECORATIVE BLOCKS
+        // SIMPLE WOODEN
+        woodenBracket(BlockRegistry.OAK_BRACKET.get(), mcLoc(BLOCK + "stripped_oak_log"));
+        woodenBracket(BlockRegistry.SPRUCE_BRACKET.get(), mcLoc(BLOCK + "stripped_spruce_log"));
+        woodenBracket(BlockRegistry.BIRCH_BRACKET.get(), mcLoc(BLOCK + "stripped_birch_log"));
+        woodenBracket(BlockRegistry.JUNGLE_BRACKET.get(), mcLoc(BLOCK + "stripped_jungle_log"));
+        woodenBracket(BlockRegistry.ACACIA_BRACKET.get(), mcLoc(BLOCK + "stripped_acacia_log"));
+        woodenBracket(BlockRegistry.DARK_OAK_BRACKET.get(), mcLoc(BLOCK + "stripped_dark_oak_log"));
+        woodenBracket(BlockRegistry.CRIMSON_BRACKET.get(), mcLoc(BLOCK + "stripped_crimson_stem"));
+        woodenBracket(BlockRegistry.WARPED_BRACKET.get(), mcLoc(BLOCK + "stripped_warped_stem"));
+        // SIMPLE CARVED WOOD
+        simpleBlock(BlockRegistry.RED_CARVED_WOOD.get());
+        carvedWoodenSlab(BlockRegistry.RED_CARVED_WOODEN_SLAB.get(), BlockRegistry.RED_CARVED_WOOD.get());
+        straightStairs(BlockRegistry.RED_CARVED_WOODEN_STAIRS.get());
+        simpleBlock(BlockRegistry.BLUE_CARVED_WOOD.get());
+        carvedWoodenSlab(BlockRegistry.BLUE_CARVED_WOODEN_SLAB.get(), BlockRegistry.BLUE_CARVED_WOOD.get());
+        straightStairs(BlockRegistry.BLUE_CARVED_WOODEN_STAIRS.get());
+        straightStairs(BlockRegistry.BLUE_CARVED_WOODEN_BRACKET_STAIRS.get());
+        horizontalBlockNoOffset(BlockRegistry.BLUE_CARVED_WOODEN_BRACKET.get());
+        simpleBlock(BlockRegistry.CYAN_CARVED_WOOD.get());
+        carvedWoodenSlab(BlockRegistry.CYAN_CARVED_WOODEN_SLAB.get(), BlockRegistry.CYAN_CARVED_WOOD.get());
+        straightStairs(BlockRegistry.CYAN_CARVED_WOODEN_STAIRS.get());
+        horizontalBlockNoOffset(BlockRegistry.CYAN_CARVED_WOODEN_BRACKET.get());
+        simpleBlock(BlockRegistry.GREEN_CARVED_WOOD.get());
+        carvedWoodenSlab(BlockRegistry.GREEN_CARVED_WOODEN_SLAB.get(), BlockRegistry.GREEN_CARVED_WOOD.get());
+        straightStairs(BlockRegistry.GREEN_CARVED_WOODEN_STAIRS.get());
+        horizontalBlockNoOffset(BlockRegistry.GREEN_CARVED_WOODEN_BRACKET.get());
+        // MIXED CARVED WOOD
+        simpleBlock(BlockRegistry.ORANGE_AND_BLUE_CARVED_WOOD.get());
+        simpleBlock(BlockRegistry.ORANGE_AND_GREEN_CARVED_WOOD.get());
+        simpleBlock(BlockRegistry.GREEN_AND_BLUE_CARVED_WOOD.get());
+        simpleBlock(BlockRegistry.DARK_GREEN_AND_DARK_BLUE_CARVED_WOOD.get());
+        simpleBlock(BlockRegistry.DARK_BLUE_AND_DARK_GREEN_CARVED_WOOD.get());
+        simpleBlock(BlockRegistry.BLACK_WHITE_GREEN_CARVED_WOOD.get());
+        simpleBlock(BlockRegistry.BLACK_WHITE_BLUE_CARVED_WOOD.get());
+        simpleBlock(BlockRegistry.RED_AND_GREEN_CARVED_WOOD.get());
+        simpleBlock(BlockRegistry.BLUE_AND_RED_CARVED_WOOD.get());
+        simpleBlock(BlockRegistry.BLUE_WHITE_RED_CARVED_WOOD.get());
+        simpleBlock(BlockRegistry.GREEN_WHITE_RED_CARVED_WOOD.get());
+        simpleBlock(BlockRegistry.BLUE_AND_YELLOW_CARVED_WOOD_VARIANT_1.get());
+        simpleBlock(BlockRegistry.BLUE_AND_YELLOW_CARVED_WOOD_VARIANT_2.get());
+        simpleBlock(BlockRegistry.BLUE_AND_YELLOW_CARVED_WOOD_VARIANT_3.get());
+        simpleBlock(BlockRegistry.YELLOW_AND_GREEN_CARVED_WOOD.get());
         simpleBlock(BlockRegistry.YELLOW_GREEN_BLUE_CARVED_WOOD.get());
+        // DARK OAK
+        chiralDirectionalBlock(BlockRegistry.CARVED_DARK_OAK_BEAM.get());
+        chiralDirectionalBlock(BlockRegistry.CARVED_DARK_OAK_BEAM_EDGE.get());
+        simpleBlock(BlockRegistry.GILDED_DARK_OAK.get());
+        simpleBlock(BlockRegistry.CHISELED_GILDED_DARK_OAK.get());
+        slabSideEnd(BlockRegistry.GILDED_DARK_OAK_SLAB.get(), BlockRegistry.GILDED_DARK_OAK.get(), sideLoc(BlockRegistry.GILDED_DARK_OAK_SLAB.get()), blockLoc(BlockRegistry.GILDED_DARK_OAK.get()));
+        straightStairs(BlockRegistry.GILDED_DARK_OAK_STAIRS.get());
+        horizontalBlockNoOffset(BlockRegistry.GILDED_DARK_OAK_BRACKET.get());
+        // PILLARS
+        simpleBlock(BlockRegistry.CARVED_RED_PILLAR.get());
+        sideBottomTop(BlockRegistry.CARVED_RED_PILLAR_BASE.get());
+        directionalSideEnd(BlockRegistry.CARVED_RED_PILLAR_HEAD.get(), sideLoc(BlockRegistry.CARVED_RED_PILLAR_HEAD.get()), modBlockLoc(BlockRegistry.CARVED_RED_PILLAR.get()));
+        sideBottomTop(BlockRegistry.SPRUCE_PILLAR_BASE.get(), sideLoc(BlockRegistry.SPRUCE_PILLAR_BASE.get()), mcLoc(BLOCK + "smooth_stone"), mcLoc(BLOCK + "spruce_log_top"));
+        sideBottomTop(BlockRegistry.STRIPPED_DARK_OAK_PILLAR_BASE.get(), sideLoc(BlockRegistry.STRIPPED_DARK_OAK_PILLAR_BASE.get()), mcLoc(BLOCK + "smooth_stone"), mcLoc(BLOCK + "dark_oak_log_top"));
+        directionalSideBottomTop(BlockRegistry.GILDED_DARK_OAK_PILLAR_HEAD_VARIANT_1.get(), sideLoc(BlockRegistry.GILDED_DARK_OAK_PILLAR_HEAD_VARIANT_1.get()),
+                bottomLoc(BlockRegistry.GILDED_DARK_OAK_PILLAR_HEAD_VARIANT_1.get()), mcLoc(BLOCK + "dark_oak_log_top"));
+        directionalSideEnd(BlockRegistry.GILDED_DARK_OAK_PILLAR_HEAD_VARIANT_2.get(), sideLoc(BlockRegistry.GILDED_DARK_OAK_PILLAR_HEAD_VARIANT_2.get()), endLoc(BlockRegistry.GILDED_DARK_OAK_PILLAR_HEAD_VARIANT_2.get()));
+        directionalSideEnd(BlockRegistry.GILDED_DARK_OAK_PILLAR_HEAD_VARIANT_3.get(), sideLoc(BlockRegistry.GILDED_DARK_OAK_PILLAR_HEAD_VARIANT_3.get()), mcLoc(BLOCK + "dark_oak_log_top"));
+        directionalSideEnd(BlockRegistry.GILDED_DARK_OAK_PILLAR_HEAD_VARIANT_4.get(), sideLoc(BlockRegistry.GILDED_DARK_OAK_PILLAR_HEAD_VARIANT_4.get()), endLoc(BlockRegistry.GILDED_DARK_OAK_PILLAR_HEAD_VARIANT_4.get()));
+        directionalSideBottomTop(BlockRegistry.GILDED_DARK_OAK_PILLAR_HEAD_VARIANT_5.get(), sideLoc(BlockRegistry.GILDED_DARK_OAK_PILLAR_HEAD_VARIANT_5.get()),
+                bottomLoc(BlockRegistry.GILDED_DARK_OAK_PILLAR_HEAD_VARIANT_5.get()), mcLoc(BLOCK + "dark_oak_log_top"));
+        directionalSideEnd(BlockRegistry.CYAN_AND_WHITE_PILLAR_BASE.get(), sideLoc(BlockRegistry.CYAN_AND_WHITE_PILLAR_BASE.get()), mcLoc(BLOCK + "red_terracotta"));
+        directionalSideEnd(BlockRegistry.CYAN_AND_WHITE_DECORATED_PILLAR.get(), sideLoc(BlockRegistry.CYAN_AND_WHITE_DECORATED_PILLAR.get()), mcLoc(BLOCK + "red_terracotta"));
+        directionalSideEnd(BlockRegistry.CYAN_AND_WHITE_PILLAR_HEAD.get(), sideLoc(BlockRegistry.CYAN_AND_WHITE_PILLAR_HEAD.get()), mcLoc(BLOCK + "red_terracotta"));
+        sideBottomTop(BlockRegistry.STONE_PILLAR_BASE.get(), sideLoc(BlockRegistry.STONE_PILLAR_BASE.get()), mcLoc(BLOCK + "chiseled_stone_bricks"), mcLoc(BLOCK + "chiseled_stone_bricks"));
+        // FANGXIN
+        directionalSideEnd(BlockRegistry.GREEN_FANGXIN.get(), sideLoc(BlockRegistry.GREEN_FANGXIN.get()), endLoc(BlockRegistry.GREEN_FANGXIN.get()));
+        directionalSideEnd(BlockRegistry.GREEN_FANGXIN_EDGE.get(), sideLoc(BlockRegistry.GREEN_FANGXIN_EDGE.get()), endLoc(BlockRegistry.GREEN_FANGXIN.get()));
+        directionalSideEnd(BlockRegistry.BLUE_FANGXIN.get(), sideLoc(BlockRegistry.BLUE_FANGXIN.get()), mcLoc(BLOCK + "green_wool"));
+        chiralWSMirror(BlockRegistry.BLUE_FANGXIN_EDGE.get(), mcLoc(BLOCK + "blue_concrete_powder")); //north face gold left = left / gold top & bottom
+        axisSideEnd(BlockRegistry.CYAN_AND_BLUE_FANGXIN.get(), sideLoc(BlockRegistry.CYAN_AND_BLUE_FANGXIN.get()), endLoc(BlockRegistry.CYAN_AND_BLUE_FANGXIN_EDGE.get()));
+        directionalSideEnd(BlockRegistry.CYAN_AND_BLUE_FANGXIN_EDGE.get(), sideLoc(BlockRegistry.CYAN_AND_BLUE_FANGXIN_EDGE.get()), endLoc(BlockRegistry.CYAN_AND_BLUE_FANGXIN_EDGE.get()));
+        directionalSideEnd(BlockRegistry.CYAN_AND_BLUE_FANGXIN_EDGE_VARIANT.get(), sideLoc(BlockRegistry.CYAN_AND_BLUE_FANGXIN_EDGE_VARIANT.get()), endLoc(BlockRegistry.CYAN_AND_BLUE_FANGXIN_EDGE.get()));
+        axisSideEnd(BlockRegistry.CYAN_BLUE_WHITE_FANGXIN.get(), sideLoc(BlockRegistry.CYAN_BLUE_WHITE_FANGXIN.get()), endLoc(BlockRegistry.CYAN_AND_BLUE_FANGXIN_EDGE.get()));
+        directionalSideEnd(BlockRegistry.CYAN_BLUE_WHITE_FANGXIN_EDGE.get(), sideLoc(BlockRegistry.CYAN_BLUE_WHITE_FANGXIN_EDGE.get()), endLoc(BlockRegistry.CYAN_AND_BLUE_FANGXIN_EDGE.get()));
+        directionalSideEnd(BlockRegistry.BLUE_AND_GREEN_FANGXIN_EDGE.get(), sideLoc(BlockRegistry.BLUE_AND_GREEN_FANGXIN_EDGE.get()), endLoc(BlockRegistry.CYAN_AND_BLUE_FANGXIN_EDGE.get()));
+        directionalSideEnd(BlockRegistry.YELLOW_AND_GREEN_FANGXIN_EDGE.get(), sideLoc(BlockRegistry.YELLOW_AND_GREEN_FANGXIN_EDGE.get()), endLoc(BlockRegistry.CYAN_AND_BLUE_FANGXIN_EDGE.get()));
+        axisSideEnd(BlockRegistry.DARK_BLUE_FANGXIN.get(), sideLoc(BlockRegistry.DARK_BLUE_FANGXIN.get()), mcLoc(BLOCK + "blue_wool"));
+        directionalSideEnd(BlockRegistry.DARK_BLUE_FANGXIN_EDGE.get(), sideLoc(BlockRegistry.DARK_BLUE_FANGXIN_EDGE.get()), mcLoc(BLOCK + "blue_wool"));
+        axisSideEnd(BlockRegistry.BLUE_AND_WHITE_FANGXIN.get(), sideLoc(BlockRegistry.BLUE_AND_WHITE_FANGXIN.get()), endLoc(BlockRegistry.CYAN_AND_BLUE_FANGXIN_EDGE.get()));
+        axisSideEnd(BlockRegistry.GREEN_AND_DARK_BLUE_FANGXIN.get(), sideLoc(BlockRegistry.GREEN_AND_DARK_BLUE_FANGXIN.get()), endLoc(BlockRegistry.CYAN_AND_BLUE_FANGXIN_EDGE.get()));
+        axisSideEnd(BlockRegistry.WHITE_AND_CYAN_FANGXIN.get(), sideLoc(BlockRegistry.WHITE_AND_CYAN_FANGXIN.get()), mcLoc(BLOCK + "blue_concrete_powder"));
+        directionalSideEnd(BlockRegistry.WHITE_AND_CYAN_FANGXIN_EDGE.get(), sideLoc(BlockRegistry.WHITE_AND_CYAN_FANGXIN_EDGE.get()), mcLoc(BLOCK + "blue_concrete_powder"));
+        axisSideEnd(BlockRegistry.WHITE_AND_BLUE_FANGXIN.get(), sideLoc(BlockRegistry.WHITE_AND_BLUE_FANGXIN.get()), mcLoc(BLOCK + "blue_concrete_powder"));
+        directionalSideEnd(BlockRegistry.WHITE_AND_BLUE_FANGXIN_EDGE.get(), sideLoc(BlockRegistry.WHITE_AND_BLUE_FANGXIN_EDGE.get()), mcLoc(BLOCK + "blue_concrete_powder"));
+        chiralWSMirror(BlockRegistry.RED_CYAN_BLUE_FANGXIN.get(), mcLoc(BLOCK + "blue_concrete_powder"));
+        directionalSideEnd(BlockRegistry.RED_CYAN_BLUE_FANGXIN_EDGE.get(), sideLoc(BlockRegistry.RED_CYAN_BLUE_FANGXIN_EDGE.get()), mcLoc(BLOCK + "blue_concrete_powder"));
+        directionalSideEnd(BlockRegistry.BLUE_CYAN_BLUE_FANGXIN_EDGE.get(), sideLoc(BlockRegistry.BLUE_CYAN_BLUE_FANGXIN_EDGE.get()), mcLoc(BLOCK + "blue_concrete_powder"));
+        chiralWSMirror(BlockRegistry.BLUE_CYAN_RED_FANGXIN.get(), mcLoc(BLOCK + "blue_concrete_powder"));
+        directionalSideEnd(BlockRegistry.BLUE_CYAN_RED_FANGXIN_EDGE.get(), sideLoc(BlockRegistry.BLUE_CYAN_RED_FANGXIN_EDGE.get()), mcLoc(BLOCK + "blue_concrete_powder"));
+        chiralWSMirror(BlockRegistry.CYAN_BLUE_CYAN_FANGXIN.get(), mcLoc(BLOCK + "blue_concrete_powder"));
+        chiralWSMirror(BlockRegistry.RED_BLUE_RED_FANGXIN.get(), mcLoc(BLOCK + "blue_concrete_powder"));
+        directionalSideEnd(BlockRegistry.CYAN_AND_YELLOW_FANGXIN_EDGE.get(), sideLoc(BlockRegistry.CYAN_AND_YELLOW_FANGXIN_EDGE.get()), mcLoc(BLOCK + "blue_wool"));
+        // ZHAOTOU
+        directionalSideBottomTop(BlockRegistry.BLUE_ZHAOTOU_EDGE.get(), sideLoc(BlockRegistry.BLUE_ZHAOTOU_EDGE.get()), mcLoc(BLOCK + "green_wool"), mcLoc(BLOCK + "blue_wool"));
+        directionalSideBottomTop(BlockRegistry.GREEN_AND_BLUE_ZHAOTOU.get(), sideLoc(BlockRegistry.GREEN_AND_BLUE_ZHAOTOU.get()), mcLoc(BLOCK + "green_wool"), mcLoc(BLOCK + "blue_wool"));
+        directionalSideBottomTop(BlockRegistry.BLUE_AND_GREEN_ZHAOTOU.get(), sideLoc(BlockRegistry.BLUE_AND_GREEN_ZHAOTOU.get()), mcLoc(BLOCK + "blue_wool"), mcLoc(BLOCK + "green_wool"));
+        directionalSideEnd(BlockRegistry.BLUE_AND_GREEN_DOUBLE_LAYERED_ZHAOTOU.get(), sideLoc(BlockRegistry.BLUE_AND_GREEN_DOUBLE_LAYERED_ZHAOTOU.get()), endLoc(BlockRegistry.BLUE_AND_GREEN_DOUBLE_LAYERED_ZHAOTOU.get()));
+        directionalSideEnd(BlockRegistry.CYAN_AND_RED_ZHAOTOU.get(), sideLoc(BlockRegistry.CYAN_AND_RED_ZHAOTOU.get()), mcLoc(BLOCK + "blue_concrete_powder"));
+        directionalSideEnd(BlockRegistry.CYAN_AND_BLUE_ZHAOTOU.get(), sideLoc(BlockRegistry.CYAN_AND_BLUE_ZHAOTOU.get()), mcLoc(BLOCK + "blue_concrete_powder"));
+        directionalSideEnd(BlockRegistry.GRAY_BLACK_RED_ZHAOTOU.get(), sideLoc(BlockRegistry.GRAY_BLACK_RED_ZHAOTOU.get()), mcLoc(BLOCK + "blue_wool"));
+        directionalSideEnd(BlockRegistry.BLUE_GREEN_RED_ZHAOTOU.get(), sideLoc(BlockRegistry.BLUE_GREEN_RED_ZHAOTOU.get()), mcLoc(BLOCK + "blue_wool"));
+        directionalSideBottomTop(BlockRegistry.RED_AND_BLUE_ZHAOTOU.get(), sideLoc(BlockRegistry.RED_AND_BLUE_ZHAOTOU.get()), mcLoc(BLOCK + "red_wool"), mcLoc(BLOCK + "blue_wool"));
+        directionalSideEnd(BlockRegistry.GREEN_AND_YELLOW_ZHAOTOU.get(), sideLoc(BlockRegistry.GREEN_AND_YELLOW_ZHAOTOU.get()), endLoc(BlockRegistry.CYAN_AND_BLUE_FANGXIN_EDGE.get()));
+        directionalSideEnd(BlockRegistry.RED_GREEN_BLUE_ZHAOTOU.get(), sideLoc(BlockRegistry.RED_GREEN_BLUE_ZHAOTOU.get()), endLoc(BlockRegistry.CYAN_AND_BLUE_FANGXIN_EDGE.get()));
+        directionalSideEnd(BlockRegistry.WHITE_BLUE_GREEN_ZHAOTOU.get(), sideLoc(BlockRegistry.WHITE_BLUE_GREEN_ZHAOTOU.get()), endLoc(BlockRegistry.WHITE_BLUE_GREEN_ZHAOTOU.get()));
+        // GUTOU
+        directionalSideBottomTop(BlockRegistry.GREEN_BLUE_BLACK_GUTOU.get(), sideLoc(BlockRegistry.GREEN_BLUE_BLACK_GUTOU.get()), mcLoc(BLOCK + "black_wool"), mcLoc(BLOCK + "white_wool"));
+        directionalSideEnd(BlockRegistry.BLUE_GREEN_YELLOW_GUTOU.get(), sideLoc(BlockRegistry.BLUE_GREEN_YELLOW_GUTOU.get()), mcLoc(BLOCK + "green_wool"));
+        directionalSideEnd(BlockRegistry.BLUE_AND_YELLOW_GUTOU.get(), sideLoc(BlockRegistry.BLUE_AND_YELLOW_GUTOU.get()), mcLoc(BLOCK + "green_wool"));
+        // RAFTERS
+        BlockRegistry.BLOCKS.getEntries().stream().filter(blockRegistryObject -> blockRegistryObject.get() instanceof Rafter)
+                .forEach(rafter -> shiftedAxisBlock(rafter.get()));
+        BlockRegistry.BLOCKS.getEntries().stream().filter(blockRegistryObject -> blockRegistryObject.get() instanceof RafterEnd)
+                .forEach(rafterEnd -> shiftedDirectionalBlock(rafterEnd.get(), 180));
+        // BEAM HEAD
+        horizontalBlockOffset(BlockRegistry.GILDED_DARK_OAK_BEAM_HEAD.get(), 180);
+            // QING_GREEN_BEAM_HEAD -> WallSideBlock
+        // ARCHITRAVE
+        simpleBlock(BlockRegistry.RED_AND_CYAN_CARVED_ARCHITRAVE.get());
+        slabSideEndNoFull(BlockRegistry.RED_AND_CYAN_CARVED_ARCHITRAVE_SLAB.get(), sideLoc(BlockRegistry.RED_AND_CYAN_CARVED_ARCHITRAVE_SLAB.get()), endLoc(BlockRegistry.RED_AND_CYAN_CARVED_ARCHITRAVE_SLAB.get()));
+        simpleBlock(BlockRegistry.RED_AND_BLUE_CARVED_ARCHITRAVE.get());
+        slabSideEndNoFull(BlockRegistry.RED_AND_BLUE_CARVED_ARCHITRAVE_SLAB.get(), sideLoc(BlockRegistry.RED_AND_BLUE_CARVED_ARCHITRAVE_SLAB.get()), endLoc(BlockRegistry.RED_AND_BLUE_CARVED_ARCHITRAVE_SLAB.get()));
+        slabSideEndNoFull(BlockRegistry.EMPTY_TUANHUA_SLAB.get(), sideLoc(BlockRegistry.EMPTY_TUANHUA_SLAB.get()), endLoc(BlockRegistry.EMPTY_TUANHUA_SLAB.get()));
+        slabSideEndNoFull(BlockRegistry.FULL_TUANHUA_SLAB.get(), sideLoc(BlockRegistry.FULL_TUANHUA_SLAB.get()), endLoc(BlockRegistry.EMPTY_TUANHUA_SLAB.get()));
+        slabSideEndNoFull(BlockRegistry.RED_AND_CYAN_TUANHUA_SLAB.get(), sideLoc(BlockRegistry.RED_AND_CYAN_TUANHUA_SLAB.get()), endLoc(BlockRegistry.RED_AND_CYAN_TUANHUA_SLAB.get()));
+        slabSideEndNoFull(BlockRegistry.RED_CARVED_ARCHITRAVE.get(), sideLoc(BlockRegistry.RED_CARVED_ARCHITRAVE.get()), mcLoc(BLOCK + "red_concrete_powder"));
+        slabSideEndNoFull(BlockRegistry.WHITE_AND_RED_SLAB.get(), sideLoc(BlockRegistry.WHITE_AND_RED_SLAB.get()), endLoc(BlockRegistry.WHITE_AND_RED_SLAB.get()));
+        // QUETI -> WallSideBlock
+        // PATTERNS -> WallSideBlock / SixSideBlock
+        // CHUIHUA -> Decorative Block
+        // ROOF CHARM -> Decorative Block
+        // CEILING -> Decorative Block
+        // RAILING
+        railingBlock(BlockRegistry.WHITE_MARBLE_RAILING.get());
+            // WHITE_MARBLE_RAILING_SLANT -> SideAxial
+        railingBlock(BlockRegistry.CARVED_WOODEN_RAILING.get());
+            // Other Blocks -> CentralAxialBlock
+        // GUARDIAN LION -> Decorative Block
+        // MISC DECORATIONS
+        vegetableBasket((StackableHalfBlock) BlockRegistry.CABBAGE_BASKET.get());
+        vegetableBasket((StackableHalfBlock) BlockRegistry.CELERY_BASKET.get());
+        vegetableBasket((StackableHalfBlock) BlockRegistry.ORANGE_BASKET.get());
+        vegetableBasket((StackableHalfBlock) BlockRegistry.APPLE_BASKET.get());
+        vegetableBasket((StackableHalfBlock) BlockRegistry.EGGPLANT_BASKET.get());
+        vegetableBasket((StackableHalfBlock) BlockRegistry.PEAR_BASKET.get());
         horizontalBlock(BlockRegistry.BOOKSHELF.get(), models().cube(name(BlockRegistry.BOOKSHELF.get()),
                 modLoc(BLOCK + "bookshelf_side"), modLoc(BLOCK + "bookshelf_side"),
                 modLoc(BLOCK + "bookshelf_front"), modLoc(BLOCK + "bookshelf_back"),
@@ -206,114 +316,9 @@ public class ModBlockModelProvider extends BlockStateProvider {
                 modLoc(BLOCK + "bookshelf_variant_front"), modLoc(BLOCK + "bookshelf_variant_back"),
                 modLoc(BLOCK + "bookshelf_side"), modLoc(BLOCK + "bookshelf_side")
         ).texture("particle", modLoc(BLOCK + "bookshelf_side")), 0);
-
-
-        directionalSideEnd(BlockRegistry.GREEN_FANGXIN.get(), sideLoc(BlockRegistry.GREEN_FANGXIN.get()), endLoc(BlockRegistry.GREEN_FANGXIN.get()));
-        directionalSideEnd(BlockRegistry.GREEN_FANGXIN_EDGE.get(), sideLoc(BlockRegistry.GREEN_FANGXIN_EDGE.get()), endLoc(BlockRegistry.GREEN_FANGXIN.get()));
-        chiralWSMirror(BlockRegistry.BLUE_FANGXIN_EDGE.get(), mcLoc(BLOCK + "blue_concrete_powder")); //north face gold left = left / gold top & bottom
-        directionalSideEnd(BlockRegistry.CYAN_AND_BLUE_FANGXIN_EDGE.get(), sideLoc(BlockRegistry.CYAN_AND_BLUE_FANGXIN_EDGE.get()), endLoc(BlockRegistry.CYAN_AND_BLUE_FANGXIN_EDGE.get()));
-        directionalSideEnd(BlockRegistry.CYAN_AND_BLUE_FANGXIN_EDGE_VARIANT.get(), sideLoc(BlockRegistry.CYAN_AND_BLUE_FANGXIN_EDGE_VARIANT.get()), endLoc(BlockRegistry.CYAN_AND_BLUE_FANGXIN_EDGE.get()));
-        directionalSideEnd(BlockRegistry.CYAN_BLUE_WHITE_FANGXIN_EDGE.get(), sideLoc(BlockRegistry.CYAN_BLUE_WHITE_FANGXIN_EDGE.get()), endLoc(BlockRegistry.CYAN_AND_BLUE_FANGXIN_EDGE.get()));
-        directionalSideEnd(BlockRegistry.BLUE_AND_GREEN_FANGXIN_EDGE.get(), sideLoc(BlockRegistry.BLUE_AND_GREEN_FANGXIN_EDGE.get()), endLoc(BlockRegistry.CYAN_AND_BLUE_FANGXIN_EDGE.get()));
-        directionalSideEnd(BlockRegistry.YELLOW_AND_GREEN_FANGXIN_EDGE.get(), sideLoc(BlockRegistry.YELLOW_AND_GREEN_FANGXIN_EDGE.get()), endLoc(BlockRegistry.CYAN_AND_BLUE_FANGXIN_EDGE.get()));
-        directionalSideEnd(BlockRegistry.DARK_BLUE_FANGXIN_EDGE.get(), sideLoc(BlockRegistry.DARK_BLUE_FANGXIN_EDGE.get()), mcLoc(BLOCK + "blue_wool"));
-        directionalSideEnd(BlockRegistry.BLUE_FANGXIN.get(), sideLoc(BlockRegistry.BLUE_FANGXIN.get()), mcLoc(BLOCK + "green_wool"));
-        axisSideEnd(BlockRegistry.CYAN_AND_BLUE_FANGXIN.get(), sideLoc(BlockRegistry.CYAN_AND_BLUE_FANGXIN.get()), endLoc(BlockRegistry.CYAN_AND_BLUE_FANGXIN_EDGE.get()));
-        axisSideEnd(BlockRegistry.CYAN_BLUE_WHITE_FANGXIN.get(), sideLoc(BlockRegistry.CYAN_BLUE_WHITE_FANGXIN.get()), endLoc(BlockRegistry.CYAN_AND_BLUE_FANGXIN_EDGE.get()));
-        axisSideEnd(BlockRegistry.BLUE_AND_WHITE_FANGXIN.get(), sideLoc(BlockRegistry.BLUE_AND_WHITE_FANGXIN.get()), endLoc(BlockRegistry.CYAN_AND_BLUE_FANGXIN_EDGE.get()));
-        axisSideEnd(BlockRegistry.GREEN_AND_DARK_BLUE_FANGXIN.get(), sideLoc(BlockRegistry.GREEN_AND_DARK_BLUE_FANGXIN.get()), endLoc(BlockRegistry.CYAN_AND_BLUE_FANGXIN_EDGE.get()));
-        axisSideEnd(BlockRegistry.DARK_BLUE_FANGXIN.get(), sideLoc(BlockRegistry.DARK_BLUE_FANGXIN.get()), mcLoc(BLOCK + "blue_wool"));
-        directionalSideBottomTop(BlockRegistry.BLUE_ZHAOTOU_EDGE.get(), sideLoc(BlockRegistry.BLUE_ZHAOTOU_EDGE.get()), mcLoc(BLOCK + "green_wool"), mcLoc(BLOCK + "blue_wool"));
-        directionalSideBottomTop(BlockRegistry.GREEN_AND_BLUE_ZHAOTOU.get(), sideLoc(BlockRegistry.GREEN_AND_BLUE_ZHAOTOU.get()), mcLoc(BLOCK + "green_wool"), mcLoc(BLOCK + "blue_wool"));
-        directionalSideBottomTop(BlockRegistry.BLUE_AND_GREEN_ZHAOTOU.get(), sideLoc(BlockRegistry.BLUE_AND_GREEN_ZHAOTOU.get()), mcLoc(BLOCK + "blue_wool"), mcLoc(BLOCK + "green_wool"));
-        directionalSideEnd(BlockRegistry.BLUE_AND_GREEN_DOUBLE_LAYERED_ZHAOTOU.get(), sideLoc(BlockRegistry.BLUE_AND_GREEN_DOUBLE_LAYERED_ZHAOTOU.get()), endLoc(BlockRegistry.BLUE_AND_GREEN_DOUBLE_LAYERED_ZHAOTOU.get()));
-        axisSideEnd(BlockRegistry.WHITE_AND_CYAN_FANGXIN.get(), sideLoc(BlockRegistry.WHITE_AND_CYAN_FANGXIN.get()), mcLoc(BLOCK + "blue_concrete_powder"));
-        axisSideEnd(BlockRegistry.WHITE_AND_BLUE_FANGXIN.get(), sideLoc(BlockRegistry.WHITE_AND_BLUE_FANGXIN.get()), mcLoc(BLOCK + "blue_concrete_powder"));
-        directionalSideEnd(BlockRegistry.WHITE_AND_CYAN_FANGXIN_EDGE.get(), sideLoc(BlockRegistry.WHITE_AND_CYAN_FANGXIN_EDGE.get()), mcLoc(BLOCK + "blue_concrete_powder"));
-        directionalSideEnd(BlockRegistry.WHITE_AND_BLUE_FANGXIN_EDGE.get(), sideLoc(BlockRegistry.WHITE_AND_BLUE_FANGXIN_EDGE.get()), mcLoc(BLOCK + "blue_concrete_powder"));
-        directionalSideEnd(BlockRegistry.CYAN_AND_RED_ZHAOTOU.get(), sideLoc(BlockRegistry.CYAN_AND_RED_ZHAOTOU.get()), mcLoc(BLOCK + "blue_concrete_powder"));
-        directionalSideEnd(BlockRegistry.CYAN_AND_BLUE_ZHAOTOU.get(), sideLoc(BlockRegistry.CYAN_AND_BLUE_ZHAOTOU.get()), mcLoc(BLOCK + "blue_concrete_powder"));
-        directionalSideEnd(BlockRegistry.RED_CYAN_BLUE_FANGXIN_EDGE.get(), sideLoc(BlockRegistry.RED_CYAN_BLUE_FANGXIN_EDGE.get()), mcLoc(BLOCK + "blue_concrete_powder"));
-        directionalSideEnd(BlockRegistry.BLUE_CYAN_BLUE_FANGXIN_EDGE.get(), sideLoc(BlockRegistry.BLUE_CYAN_BLUE_FANGXIN_EDGE.get()), mcLoc(BLOCK + "blue_concrete_powder"));
-        directionalSideEnd(BlockRegistry.BLUE_CYAN_RED_FANGXIN_EDGE.get(), sideLoc(BlockRegistry.BLUE_CYAN_RED_FANGXIN_EDGE.get()), mcLoc(BLOCK + "blue_concrete_powder"));
-        chiralWSMirror(BlockRegistry.BLUE_CYAN_RED_FANGXIN.get(), mcLoc(BLOCK + "blue_concrete_powder"));
-        chiralWSMirror(BlockRegistry.RED_CYAN_BLUE_FANGXIN.get(), mcLoc(BLOCK + "blue_concrete_powder"));
-        chiralWSMirror(BlockRegistry.CYAN_BLUE_CYAN_FANGXIN.get(), mcLoc(BLOCK + "blue_concrete_powder"));
-        chiralWSMirror(BlockRegistry.RED_BLUE_RED_FANGXIN.get(), mcLoc(BLOCK + "blue_concrete_powder"));
-        directionalSideEnd(BlockRegistry.GRAY_BLACK_RED_ZHAOTOU.get(), sideLoc(BlockRegistry.GRAY_BLACK_RED_ZHAOTOU.get()), mcLoc(BLOCK + "blue_wool"));
-        directionalSideEnd(BlockRegistry.BLUE_GREEN_RED_ZHAOTOU.get(), sideLoc(BlockRegistry.BLUE_GREEN_RED_ZHAOTOU.get()), mcLoc(BLOCK + "blue_wool"));
-        directionalSideEnd(BlockRegistry.CYAN_AND_YELLOW_FANGXIN_EDGE.get(), sideLoc(BlockRegistry.CYAN_AND_YELLOW_FANGXIN_EDGE.get()), mcLoc(BLOCK + "blue_wool"));
-        directionalSideBottomTop(BlockRegistry.GREEN_BLUE_BLACK_GUTOU.get(), sideLoc(BlockRegistry.GREEN_BLUE_BLACK_GUTOU.get()), mcLoc(BLOCK + "black_wool"), mcLoc(BLOCK + "white_wool"));
-        directionalSideBottomTop(BlockRegistry.RED_AND_BLUE_ZHAOTOU.get(), sideLoc(BlockRegistry.RED_AND_BLUE_ZHAOTOU.get()), mcLoc(BLOCK + "red_wool"), mcLoc(BLOCK + "blue_wool"));
-        directionalSideEnd(BlockRegistry.GREEN_AND_YELLOW_ZHAOTOU.get(), sideLoc(BlockRegistry.GREEN_AND_YELLOW_ZHAOTOU.get()), endLoc(BlockRegistry.CYAN_AND_BLUE_FANGXIN_EDGE.get()));
-        directionalSideEnd(BlockRegistry.RED_GREEN_BLUE_ZHAOTOU.get(), sideLoc(BlockRegistry.RED_GREEN_BLUE_ZHAOTOU.get()), endLoc(BlockRegistry.CYAN_AND_BLUE_FANGXIN_EDGE.get()));
-        directionalSideEnd(BlockRegistry.BLUE_GREEN_YELLOW_GUTOU.get(), sideLoc(BlockRegistry.BLUE_GREEN_YELLOW_GUTOU.get()), mcLoc(BLOCK + "green_wool"));
-        directionalSideEnd(BlockRegistry.WHITE_BLUE_GREEN_ZHAOTOU.get(), sideLoc(BlockRegistry.WHITE_BLUE_GREEN_ZHAOTOU.get()), endLoc(BlockRegistry.WHITE_BLUE_GREEN_ZHAOTOU.get()));
-        directionalSideEnd(BlockRegistry.CYAN_AND_WHITE_DECORATED_PILLAR.get(), sideLoc(BlockRegistry.CYAN_AND_WHITE_DECORATED_PILLAR.get()), mcLoc(BLOCK + "red_terracotta"));
-        directionalSideEnd(BlockRegistry.BLUE_AND_YELLOW_GUTOU.get(), sideLoc(BlockRegistry.BLUE_AND_YELLOW_GUTOU.get()), mcLoc(BLOCK + "green_wool"));
-
-
-        BlockRegistry.BLOCKS.getEntries().stream().filter(blockRegistryObject -> blockRegistryObject.get() instanceof RoofTiles)
-                .forEach(tile -> roofTiles(tile.get()));
-
-
-        roofRidgeSideBottomTop(BlockRegistry.BLACK_ROOF_RIDGE_UPPER.get(), sideLoc(BlockRegistry.BLACK_ROOF_RIDGE_UPPER.get()), bottomLoc(BlockRegistry.BLACK_ROOF_RIDGE_UPPER.get()), topLoc(BlockRegistry.BLACK_ROOF_RIDGE_UPPER.get()));
-        roofRidgeSideBottomTop(BlockRegistry.BLACK_ROOF_RIDGE_LOWER.get(), sideLoc(BlockRegistry.BLACK_ROOF_RIDGE_LOWER.get()), bottomLoc(BlockRegistry.BLACK_ROOF_RIDGE_UPPER.get()), bottomLoc(BlockRegistry.BLACK_ROOF_RIDGE_UPPER.get()));
-        roofRidgeFrontSideBottomTop(BlockRegistry.BLACK_ROOF_RIDGE_CONNECTION.get(), frontLoc(BlockRegistry.BLACK_ROOF_RIDGE_CONNECTION.get()), sideLoc(BlockRegistry.BLACK_ROOF_RIDGE_CONNECTION.get()),
-                bottomLoc(BlockRegistry.BLACK_ROOF_RIDGE_UPPER.get()), topLoc(BlockRegistry.BLACK_ROOF_RIDGE_UPPER.get()));
-
-        roofHorizontalRidgeFrontSideBottomTop(BlockRegistry.BLACK_MAIN_ROOF_RIDGE_CONNECTION.get(), frontLoc(BlockRegistry.BLACK_MAIN_ROOF_RIDGE_CONNECTION.get()), sideLoc(BlockRegistry.BLACK_ROOF_RIDGE_CONNECTION.get()),
-                frontLoc(BlockRegistry.BLACK_MAIN_ROOF_RIDGE_CONNECTION.get()), topLoc(BlockRegistry.BLACK_MAIN_ROOF_RIDGE_CONNECTION.get()));
-
-        slabSideBottomTopNoFull(BlockRegistry.BLACK_ROOF_RIDGE_UPPER_SLAB.get(), sideLoc(BlockRegistry.BLACK_ROOF_RIDGE_UPPER_SLAB.get()), bottomLoc(BlockRegistry.BLACK_ROOF_RIDGE_UPPER.get()), topLoc(BlockRegistry.BLACK_ROOF_RIDGE_UPPER.get()));
-        directionalSlabFrontSideBottomTopNoFull(BlockRegistry.BLACK_MAIN_ROOF_RIDGE_SLAB.get(), frontLoc(BlockRegistry.BLACK_MAIN_ROOF_RIDGE_SLAB.get()), sideLoc(BlockRegistry.BLACK_MAIN_ROOF_RIDGE_SLAB.get()),
-                bottomLoc(BlockRegistry.BLACK_MAIN_ROOF_RIDGE_SLAB.get()), topLoc(BlockRegistry.BLACK_MAIN_ROOF_RIDGE_SLAB.get()));
-        roofRidgePanel(BlockRegistry.BLACK_MAIN_ROOF_RIDGE_PANEL.get(), frontLoc(BlockRegistry.BLACK_MAIN_ROOF_RIDGE_SLAB.get()), sideLoc(BlockRegistry.BLACK_MAIN_ROOF_RIDGE_SLAB.get()),
-                bottomLoc(BlockRegistry.BLACK_MAIN_ROOF_RIDGE_SLAB.get()), topLoc(BlockRegistry.BLACK_MAIN_ROOF_RIDGE_SLAB.get()));
-        roofRidgePlate(BlockRegistry.BLACK_MAIN_ROOF_RIDGE_PLATE.get(), frontLoc(BlockRegistry.BLACK_MAIN_ROOF_RIDGE_SLAB.get()), sideLoc(BlockRegistry.BLACK_MAIN_ROOF_RIDGE_SLAB.get()),
-                bottomLoc(BlockRegistry.BLACK_MAIN_ROOF_RIDGE_SLAB.get()), topLoc(BlockRegistry.BLACK_MAIN_ROOF_RIDGE_SLAB.get()));
-        straightStairs(BlockRegistry.BLACK_MAIN_ROOF_RIDGE_STAIRS.get());
-
-        roofRidgeSideBottomTop(BlockRegistry.YELLOW_ROOF_RIDGE_UPPER.get(), sideLoc(BlockRegistry.YELLOW_ROOF_RIDGE_UPPER.get()), bottomLoc(BlockRegistry.YELLOW_ROOF_RIDGE_UPPER.get()), topLoc(BlockRegistry.YELLOW_ROOF_RIDGE_UPPER.get()));
-        roofRidgeSideBottomTop(BlockRegistry.YELLOW_ROOF_RIDGE_LOWER.get(), sideLoc(BlockRegistry.YELLOW_ROOF_RIDGE_LOWER.get()), bottomLoc(BlockRegistry.YELLOW_ROOF_RIDGE_UPPER.get()), bottomLoc(BlockRegistry.YELLOW_ROOF_RIDGE_UPPER.get()));
-        roofRidgeFrontSideBottomTop(BlockRegistry.YELLOW_ROOF_RIDGE_CONNECTION.get(), frontLoc(BlockRegistry.YELLOW_ROOF_RIDGE_CONNECTION.get()), sideLoc(BlockRegistry.YELLOW_ROOF_RIDGE_CONNECTION.get()),
-                bottomLoc(BlockRegistry.YELLOW_ROOF_RIDGE_UPPER.get()), topLoc(BlockRegistry.YELLOW_ROOF_RIDGE_UPPER.get()));
-
-        roofHorizontalRidgeFrontSideBottomTop(BlockRegistry.YELLOW_MAIN_ROOF_RIDGE_CONNECTION.get(), frontLoc(BlockRegistry.YELLOW_MAIN_ROOF_RIDGE_CONNECTION.get()), sideLoc(BlockRegistry.YELLOW_ROOF_RIDGE_CONNECTION.get()),
-                frontLoc(BlockRegistry.YELLOW_MAIN_ROOF_RIDGE_CONNECTION.get()), topLoc(BlockRegistry.YELLOW_MAIN_ROOF_RIDGE_CONNECTION.get()));
-
-        slabSideBottomTopNoFull(BlockRegistry.YELLOW_ROOF_RIDGE_UPPER_SLAB.get(), sideLoc(BlockRegistry.YELLOW_ROOF_RIDGE_UPPER_SLAB.get()), bottomLoc(BlockRegistry.YELLOW_ROOF_RIDGE_UPPER.get()), topLoc(BlockRegistry.YELLOW_ROOF_RIDGE_UPPER.get()));
-        directionalSlabFrontSideBottomTopNoFull(BlockRegistry.YELLOW_MAIN_ROOF_RIDGE_SLAB.get(), frontLoc(BlockRegistry.YELLOW_MAIN_ROOF_RIDGE_SLAB.get()), sideLoc(BlockRegistry.YELLOW_MAIN_ROOF_RIDGE_SLAB.get()),
-                bottomLoc(BlockRegistry.YELLOW_MAIN_ROOF_RIDGE_SLAB.get()), topLoc(BlockRegistry.YELLOW_MAIN_ROOF_RIDGE_SLAB.get()));
-        roofRidgePanel(BlockRegistry.YELLOW_MAIN_ROOF_RIDGE_PANEL.get(), frontLoc(BlockRegistry.YELLOW_MAIN_ROOF_RIDGE_SLAB.get()), sideLoc(BlockRegistry.YELLOW_MAIN_ROOF_RIDGE_SLAB.get()),
-                bottomLoc(BlockRegistry.YELLOW_MAIN_ROOF_RIDGE_SLAB.get()), topLoc(BlockRegistry.YELLOW_MAIN_ROOF_RIDGE_SLAB.get()));
-        roofRidgePlate(BlockRegistry.YELLOW_MAIN_ROOF_RIDGE_PLATE.get(), frontLoc(BlockRegistry.YELLOW_MAIN_ROOF_RIDGE_SLAB.get()), sideLoc(BlockRegistry.YELLOW_MAIN_ROOF_RIDGE_SLAB.get()),
-                bottomLoc(BlockRegistry.YELLOW_MAIN_ROOF_RIDGE_SLAB.get()), topLoc(BlockRegistry.YELLOW_MAIN_ROOF_RIDGE_SLAB.get()));
-        straightStairs(BlockRegistry.YELLOW_MAIN_ROOF_RIDGE_STAIRS.get());
-
-        vegetableBasket((StackableHalfBlock) BlockRegistry.CABBAGE_BASKET.get());
-        vegetableBasket((StackableHalfBlock) BlockRegistry.CELERY_BASKET.get());
-        vegetableBasket((StackableHalfBlock) BlockRegistry.ORANGE_BASKET.get());
-        vegetableBasket((StackableHalfBlock) BlockRegistry.APPLE_BASKET.get());
-        vegetableBasket((StackableHalfBlock) BlockRegistry.EGGPLANT_BASKET.get());
-        vegetableBasket((StackableHalfBlock) BlockRegistry.PEAR_BASKET.get());
-
-        BlockRegistry.BLOCKS.getEntries().stream().filter(blockRegistryObject -> blockRegistryObject.get() instanceof SideAxialBlock)
-                .forEach(sideAxial -> {
-                    SideAxialBlock block = (SideAxialBlock) sideAxial.get();
-                    if (block instanceof RailingSlant) shiftedHorizontalBlockNoOffset(block);
-                    else horizontalBlockOffset(sideAxial.get(), 180);
-                });
-
-        BlockRegistry.BLOCKS.getEntries().stream().filter(blockRegistryObject -> blockRegistryObject.get() instanceof CentralAxialBlock)
-                .forEach(centralAxial -> axisBlock(centralAxial.get()));
-
-        BlockRegistry.BLOCKS.getEntries().stream().filter(blockRegistryObject -> blockRegistryObject.get() instanceof Rafter)
-                .forEach(rafter -> shiftedAxisBlock(rafter.get()));
-
-        BlockRegistry.BLOCKS.getEntries().stream().filter(blockRegistryObject -> blockRegistryObject.get() instanceof RafterEnd)
-                .forEach(rafterEnd -> shiftedDirectionalBlock(rafterEnd.get(), 180));
-
+        // > DOOR AND WINDOW EXTRA
+        simpleBlock(BlockRegistry.STONE_FLOWER_WINDOW.get());
+        // > DECO BLOCKS
         BlockRegistry.BLOCKS.getEntries().stream().filter(blockRegistryObject -> blockRegistryObject.get() instanceof DecorativeBlock)
                 .filter(block -> !SKIP_DECO.contains(block)).forEach(decorativeBlock -> {
                     DecorativeBlock block = (DecorativeBlock) decorativeBlock.get();
@@ -324,7 +329,7 @@ public class ModBlockModelProvider extends BlockStateProvider {
                     else if (block instanceof HangingLantern lantern) hangingLantern(lantern);
                     else decorativeBlock(block);
                 });
-
+        // > SIDE BLOCKS
         BlockRegistry.BLOCKS.getEntries().stream().filter(blockRegistryObject -> blockRegistryObject.get() instanceof SideBlock)
                 .forEach(sideBlock -> {
                     SideBlock block = (SideBlock) sideBlock.get();
@@ -341,7 +346,16 @@ public class ModBlockModelProvider extends BlockStateProvider {
                         else sixSideBlock(sixSideBlock);
                     }
                 });
-
+        // > AXIAL BLOCKS
+        BlockRegistry.BLOCKS.getEntries().stream().filter(blockRegistryObject -> blockRegistryObject.get() instanceof SideAxialBlock)
+                .forEach(sideAxial -> {
+                    SideAxialBlock block = (SideAxialBlock) sideAxial.get();
+                    if (block instanceof RailingSlant) shiftedHorizontalBlockNoOffset(block);
+                    else horizontalBlockOffset(sideAxial.get(), 180);
+                });
+        BlockRegistry.BLOCKS.getEntries().stream().filter(blockRegistryObject -> blockRegistryObject.get() instanceof CentralAxialBlock)
+                .forEach(centralAxial -> axisBlock(centralAxial.get()));
+        // > FUNCTIONAL BLOCKS
         horizontalBlock(BlockRegistry.WOODWORKING_WORKBENCH.get(), models().getExistingFile(blockLoc(BlockRegistry.WOODWORKING_WORKBENCH.get())));
         getVariantBuilder(BlockRegistry.BRICK_KILN.get()).forAllStates(blockState -> {
             var modelFile = ConfiguredModel.builder();
@@ -355,7 +369,7 @@ public class ModBlockModelProvider extends BlockStateProvider {
             String blockPath = resourceLocation.getPath();
             return getDecorativeBlockConfiguredModels((DecorativeBlock) BlockRegistry.CHISEL_TABLE.get(), blockState, blockPath, modelFile, 0);
         }); //todo add chisel table model
-
+        // > RESOURCE BLOCKS
         simpleBlock(BlockRegistry.JADE_ORE.get());
         simpleBlock(BlockRegistry.DEEPSLATE_JADE_ORE.get());
         simpleBlock(BlockRegistry.MAGNESITE_ORE.get());
