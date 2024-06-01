@@ -27,7 +27,8 @@ public class ModLootTableProvider extends BaseLootTableProvider {
     }
 
     private static final List<RegistryObject<Block>> NON_SIMPLE_BLOCKS = new ArrayList<>();
-    private static final List<Class<? extends Block>> NON_SIMPLE_BLOCK_CLASSES = List.of(OreBlock.class, SlabBlock.class, ConsumableDecorativeBlock.class, StackableHalfBlock.class);
+    private static final List<Class<? extends Block>> NON_SIMPLE_BLOCK_CLASSES = List.of(
+            OreBlock.class, SlabBlock.class, ConsumableDecorativeBlock.class, StackableHalfBlock.class);
     private static final Logger LOGGER = Ultramarine.getLogger();
 
     static {
