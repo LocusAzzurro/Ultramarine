@@ -44,6 +44,8 @@ public class ModLootTableProvider extends BaseLootTableProvider {
                     return false;
                 })
                 .forEach(NON_SIMPLE_BLOCKS::add);
+        NON_SIMPLE_BLOCKS.addAll(List.of(
+        ));
     }
     @Override
     protected void addTables() {
@@ -70,6 +72,10 @@ public class ModLootTableProvider extends BaseLootTableProvider {
         plateDrop(BlockRegistry.PLATED_MUNG_BEAN_CAKES);
         plateDrop(BlockRegistry.PLATED_HAM);
         plateDrop(BlockRegistry.PLATED_FISH);
+
+
+
+
         slab(BlockRegistry.CYAN_BRICK_SLAB, ItemRegistry.CYAN_BRICK_SLAB);
         slab(BlockRegistry.BLACK_BRICK_SLAB, ItemRegistry.BLACK_BRICK_SLAB);
         slab(BlockRegistry.BROWNISH_RED_STONE_BRICK_SLAB, ItemRegistry.BROWNISH_RED_STONE_BRICK_SLAB);

@@ -117,53 +117,77 @@ public class CommonEventHandler {
             ServerLevel world = (ServerLevel) event.world;
             ServerLevelData levelData = (ServerLevelData) world.getLevelData();
             if (world.getGameTime() % 600 == 0){
+                levelData.setWanderingTraderSpawnChance(0);
+                levelData.setWanderingTraderSpawnDelay(0);
+                /*
                 ServerPlayer player = world.getRandomPlayer();
                 if (player != null){
                     EntityType.WANDERING_TRADER.spawn(world, (CompoundTag)null, (Component)null, (Player)null, player.blockPosition(), MobSpawnType.EVENT, false, false);
                 }
+
+                 */
             }
         }
     }
 
     @SubscribeEvent
+    public static void travellingMerchantSpawnAttempt(TickEvent.WorldTickEvent event){
+        if (event.world.isClientSide() || event.phase != TickEvent.Phase.START) return;
+        ServerLevel world = (ServerLevel) event.world;
+        ServerLevelData levelData = (ServerLevelData) world.getLevelData();
+        if (!world.getGameRules().getBoolean(GameRules.RULE_DO_TRADER_SPAWNING) ||
+                !world.getGameRules().getBoolean(GameRules.RULE_DOMOBSPAWNING) ||
+                !world.getGameRules().getBoolean(GameRules.RULE_DAYLIGHT)) return;
+        int wanderingTraderSpawnDelay = levelData.getWanderingTraderSpawnDelay();
+        int wanderingTraderSpawnChance = levelData.getWanderingTraderSpawnChance();
+        if (world.getDayTime() % 24000 == 0 && wanderingTraderSpawnDelay <= 0 && world.random.nextInt(100) > wanderingTraderSpawnChance){
+            spawnTrader(world);
+        }
+    }
+
+    //@SubscribeEvent
     public static void travellingMerchantSpawn(LivingSpawnEvent.SpecialSpawn event) {
         if (event.getWorld().isClientSide()) return;
         ServerLevel world = ((ServerLevelAccessor) event.getWorld()).getLevel();
         if (event.getEntityLiving().getType().equals(EntityType.WANDERING_TRADER) && event.getSpawnReason() == MobSpawnType.EVENT) {
-            ServerPlayer player = world.getRandomPlayer();
-            if (player == null) return;
-            BlockPos blockpos = player.blockPosition();
-            world.getPoiManager().find(PoiTypeRegistry.TRADE_POI.get().getPredicate(), (pos1) -> true, blockpos, 16, PoiManager.Occupancy.ANY).ifPresent(pos -> {
-                BlockPos potentialSpawn = null;
-                for (int i = 0; i < 10; ++i) {
-                    int x = pos.getX() + world.random.nextInt(4 * 2) - 4;
-                    int z = pos.getZ() + world.random.nextInt(4 * 2) - 4;
-                    int y = ((LevelReader) world).getHeight(Heightmap.Types.WORLD_SURFACE, x, z);
-                    BlockPos rolledPos = new BlockPos(x, y, z);
-                    if (NaturalSpawner.isSpawnPositionOk(SpawnPlacements.Type.ON_GROUND, world, rolledPos, EntityType.WANDERING_TRADER)) {
-                        potentialSpawn = rolledPos;
-                        break;
-                    }
-                }
-                if (potentialSpawn == null) return;
-
-                boolean hasSpaceAtSpawn = true;
-                for (BlockPos blockPos : BlockPos.betweenClosed(potentialSpawn, potentialSpawn.offset(1, 2, 1))) {
-                    if (!((BlockGetter) world).getBlockState(blockPos).getCollisionShape(world, blockPos).isEmpty()) {
-                        hasSpaceAtSpawn = false; break;
-                    }
-                }
-
-                if (hasSpaceAtSpawn && !world.getBiome(pos).is(Biomes.THE_VOID)) {
-                    TravellingMerchant merchant = EntityTypeRegistry.TRAVELLING_MERCHANT.get().spawn(
-                            world, null, null, null, potentialSpawn, MobSpawnType.EVENT, false, false);
-                    if (merchant == null) return;
-                    merchant.setDespawnDelay(24000);
-                    merchant.setWanderTarget(potentialSpawn);
-                    merchant.restrictTo(potentialSpawn, 8);
-                    }
-            });
+            spawnTrader(world);
         }
+    }
+
+    private static void spawnTrader(ServerLevel world) {
+        ServerPlayer player = world.getRandomPlayer();
+        if (player == null) return;
+        BlockPos blockpos = player.blockPosition();
+        world.getPoiManager().find(PoiTypeRegistry.TRADE_POI.get().getPredicate(), (pos1) -> true, blockpos, 16, PoiManager.Occupancy.ANY).ifPresent(pos -> {
+            BlockPos potentialSpawn = null;
+            for (int i = 0; i < 10; ++i) {
+                int x = pos.getX() + world.random.nextInt(4 * 2) - 4;
+                int z = pos.getZ() + world.random.nextInt(4 * 2) - 4;
+                int y = ((LevelReader) world).getHeight(Heightmap.Types.WORLD_SURFACE, x, z);
+                BlockPos rolledPos = new BlockPos(x, y, z);
+                if (NaturalSpawner.isSpawnPositionOk(SpawnPlacements.Type.ON_GROUND, world, rolledPos, EntityType.WANDERING_TRADER)) {
+                    potentialSpawn = rolledPos;
+                    break;
+                }
+            }
+            if (potentialSpawn == null) return;
+
+            boolean hasSpaceAtSpawn = true;
+            for (BlockPos blockPos : BlockPos.betweenClosed(potentialSpawn, potentialSpawn.offset(1, 2, 1))) {
+                if (!((BlockGetter) world).getBlockState(blockPos).getCollisionShape(world, blockPos).isEmpty()) {
+                    hasSpaceAtSpawn = false; break;
+                }
+            }
+
+            if (hasSpaceAtSpawn && !world.getBiome(pos).is(Biomes.THE_VOID)) {
+                TravellingMerchant merchant = EntityTypeRegistry.TRAVELLING_MERCHANT.get().spawn(
+                        world, null, null, null, potentialSpawn, MobSpawnType.EVENT, false, false);
+                if (merchant == null) return;
+                merchant.setDespawnDelay(24000);
+                merchant.setWanderTarget(potentialSpawn);
+                merchant.restrictTo(potentialSpawn, 8);
+                }
+        });
     }
 
     @SubscribeEvent
