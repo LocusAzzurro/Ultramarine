@@ -27,7 +27,7 @@ import java.util.function.Consumer;
 @SuppressWarnings("unused")
 public class ModRecipeProvider extends RecipeProvider {
 
-    public ModRecipeProvider(DataGenerator pGenerator) {
+    ModRecipeProvider(DataGenerator pGenerator) {
         super(pGenerator);
     }
 
@@ -2139,7 +2139,7 @@ public class ModRecipeProvider extends RecipeProvider {
 
     }
 
-    public static void dyePowder(TagKey<Item> dye, ItemLike powder, Consumer<FinishedRecipe> pFinishedRecipeConsumer){
+    private static void dyePowder(TagKey<Item> dye, ItemLike powder, Consumer<FinishedRecipe> pFinishedRecipeConsumer){
         ShapelessRecipeBuilder.shapeless(powder, 4).requires(dye).unlockedBy("has_dye", InventoryChangeTrigger.TriggerInstance.hasItems(
                 new ItemPredicate(dye, ImmutableSet.of(),
                         MinMaxBounds.Ints.ANY, MinMaxBounds.Ints.ANY,
@@ -2147,88 +2147,88 @@ public class ModRecipeProvider extends RecipeProvider {
                 .save(pFinishedRecipeConsumer);
     }
 
-    public static SingleItemRecipeBuilder woodworking(Ingredient pIngredient, ItemLike pResult) {
+    private static SingleItemRecipeBuilder woodworking(Ingredient pIngredient, ItemLike pResult) {
         return new SingleItemRecipeBuilder(RecipeSerializerRegistry.WOODWORKING_SERIALIZER.get(), pIngredient, pResult, 1);
     }
 
-    public static SingleItemRecipeBuilder woodworking(Ingredient pIngredient, ItemLike pResult, int pCount) {
+    private static SingleItemRecipeBuilder woodworking(Ingredient pIngredient, ItemLike pResult, int pCount) {
         return new SingleItemRecipeBuilder(RecipeSerializerRegistry.WOODWORKING_SERIALIZER.get(), pIngredient, pResult, pCount);
     }
 
-    public static void woodworking(Item input, ItemLike pResult, int pCount, Consumer<FinishedRecipe> pFinishedRecipeConsumer) {
+    private static void woodworking(Item input, ItemLike pResult, int pCount, Consumer<FinishedRecipe> pFinishedRecipeConsumer) {
             var recipe = new SingleItemRecipeBuilder(RecipeSerializerRegistry.WOODWORKING_SERIALIZER.get(), Ingredient.of(input), pResult, pCount);
             recipe.unlockedBy(itemUnlockName(input), itemCriterion(input))
                 .save(pFinishedRecipeConsumer);
     }
 
-    public static void woodworking(Ingredient ingredient, ItemLike pResult, int pCount, Item unlockItem, Consumer<FinishedRecipe> pFinishedRecipeConsumer) {
+    private static void woodworking(Ingredient ingredient, ItemLike pResult, int pCount, Item unlockItem, Consumer<FinishedRecipe> pFinishedRecipeConsumer) {
         var recipe = new SingleItemRecipeBuilder(RecipeSerializerRegistry.WOODWORKING_SERIALIZER.get(), ingredient, pResult, pCount);
         recipe.unlockedBy(itemUnlockName(unlockItem), itemCriterion(unlockItem))
                 .save(pFinishedRecipeConsumer);
     }
 
-    public static void carvedWood(Item result, Ingredient[] dye, Consumer<FinishedRecipe> pFinishedRecipeConsumer){
+    private static void carvedWood(Item result, Ingredient[] dye, Consumer<FinishedRecipe> pFinishedRecipeConsumer){
         ChiselTableRecipeBuilder.chiselTableRecipe(Ingredient.of(ItemTags.LOGS), Ingredient.of(ItemRegistry.CARVED_WOOD_TEMPLATE.get()), dye, result)
                 .unlockedBy(itemUnlockName(ItemRegistry.CARVED_WOOD_TEMPLATE.get()), itemCriterion(ItemRegistry.CARVED_WOOD_TEMPLATE.get())).save(pFinishedRecipeConsumer);
     }
 
-    public static void fangxinWood(Item result, Ingredient[] dye, Consumer<FinishedRecipe> pFinishedRecipeConsumer){
+    private static void fangxinWood(Item result, Ingredient[] dye, Consumer<FinishedRecipe> pFinishedRecipeConsumer){
         ChiselTableRecipeBuilder.chiselTableRecipe(Ingredient.of(ItemTags.LOGS), Ingredient.of(ItemRegistry.FANGXIN_TEMPLATE.get()), dye, result)
                 .unlockedBy(itemUnlockName(ItemRegistry.FANGXIN_TEMPLATE.get()), itemCriterion(ItemRegistry.FANGXIN_TEMPLATE.get())).save(pFinishedRecipeConsumer);
     }
 
-    public static void fangxinEdgeWood(Item result, Ingredient[] dye, Consumer<FinishedRecipe> pFinishedRecipeConsumer){
+    private static void fangxinEdgeWood(Item result, Ingredient[] dye, Consumer<FinishedRecipe> pFinishedRecipeConsumer){
         ChiselTableRecipeBuilder.chiselTableRecipe(Ingredient.of(ItemTags.LOGS), Ingredient.of(ItemRegistry.FANGXIN_EDGE_TEMPLATE.get()), dye, result)
                 .unlockedBy(itemUnlockName(ItemRegistry.FANGXIN_EDGE_TEMPLATE.get()), itemCriterion(ItemRegistry.FANGXIN_EDGE_TEMPLATE.get())).save(pFinishedRecipeConsumer);
     }
 
-    public static void zhaotouWood(Item result, Ingredient[] dye, Consumer<FinishedRecipe> pFinishedRecipeConsumer){
+    private static void zhaotouWood(Item result, Ingredient[] dye, Consumer<FinishedRecipe> pFinishedRecipeConsumer){
         ChiselTableRecipeBuilder.chiselTableRecipe(Ingredient.of(ItemTags.LOGS), Ingredient.of(ItemRegistry.ZHAOTOU_TEMPLATE.get()), dye, result)
                 .unlockedBy(itemUnlockName(ItemRegistry.ZHAOTOU_TEMPLATE.get()), itemCriterion(ItemRegistry.ZHAOTOU_TEMPLATE.get())).save(pFinishedRecipeConsumer);
     }
 
-    public static void gutouWood(Item result, Ingredient[] dye, Consumer<FinishedRecipe> pFinishedRecipeConsumer){
+    private static void gutouWood(Item result, Ingredient[] dye, Consumer<FinishedRecipe> pFinishedRecipeConsumer){
         ChiselTableRecipeBuilder.chiselTableRecipe(Ingredient.of(ItemTags.LOGS), Ingredient.of(ItemRegistry.GUTOU_TEMPLATE.get()), dye, result)
                 .unlockedBy(itemUnlockName(ItemRegistry.GUTOU_TEMPLATE.get()), itemCriterion(ItemRegistry.GUTOU_TEMPLATE.get())).save(pFinishedRecipeConsumer);
     }
 
-    public static void rafter(Item result, Ingredient[] dye, Consumer<FinishedRecipe> pFinishedRecipeConsumer){
+    private static void rafter(Item result, Ingredient[] dye, Consumer<FinishedRecipe> pFinishedRecipeConsumer){
         ChiselTableRecipeBuilder.chiselTableRecipe(Ingredient.of(ItemTags.LOGS), Ingredient.of(ItemRegistry.RAFTER_TEMPLATE.get()), dye, result)
                 .unlockedBy(itemUnlockName(ItemRegistry.RAFTER_TEMPLATE.get()), itemCriterion(ItemRegistry.RAFTER_TEMPLATE.get())).save(pFinishedRecipeConsumer);
     }
 
-    public static void rafterEnd(Item result, Ingredient[] dye, Consumer<FinishedRecipe> pFinishedRecipeConsumer){
+    private static void rafterEnd(Item result, Ingredient[] dye, Consumer<FinishedRecipe> pFinishedRecipeConsumer){
         ChiselTableRecipeBuilder.chiselTableRecipe(Ingredient.of(ItemTags.LOGS), Ingredient.of(ItemRegistry.RAFTER_END_TEMPLATE.get()), dye, result)
                 .unlockedBy(itemUnlockName(ItemRegistry.RAFTER_END_TEMPLATE.get()), itemCriterion(ItemRegistry.RAFTER_END_TEMPLATE.get())).save(pFinishedRecipeConsumer);
     }
 
-    public static void architrave(Item result, Ingredient[] dye, Consumer<FinishedRecipe> pFinishedRecipeConsumer){
+    private static void architrave(Item result, Ingredient[] dye, Consumer<FinishedRecipe> pFinishedRecipeConsumer){
         ChiselTableRecipeBuilder.chiselTableRecipe(Ingredient.of(ItemTags.LOGS), Ingredient.of(ItemRegistry.ARCHITRAVE_TEMPLATE.get()), dye, result)
                 .unlockedBy(itemUnlockName(ItemRegistry.ARCHITRAVE_TEMPLATE.get()), itemCriterion(ItemRegistry.ARCHITRAVE_TEMPLATE.get())).save(pFinishedRecipeConsumer);
     }
 
-    public static void caihua(Item result, Ingredient[] dye, Consumer<FinishedRecipe> pFinishedRecipeConsumer){
+    private static void caihua(Item result, Ingredient[] dye, Consumer<FinishedRecipe> pFinishedRecipeConsumer){
         ChiselTableRecipeBuilder.chiselTableRecipe(Ingredient.of(ModItemTags.POLISHED_PLANKS), Ingredient.of(ItemRegistry.CAIHUA_TEMPLATE.get()), dye, result)
                 .unlockedBy(itemUnlockName(ItemRegistry.CAIHUA_TEMPLATE.get()), itemCriterion(ItemRegistry.CAIHUA_TEMPLATE.get())).save(pFinishedRecipeConsumer);
     }
 
-    public static void fangxinPattern(Item result, Ingredient[] dye, Consumer<FinishedRecipe> pFinishedRecipeConsumer){
+    private static void fangxinPattern(Item result, Ingredient[] dye, Consumer<FinishedRecipe> pFinishedRecipeConsumer){
         ChiselTableRecipeBuilder.chiselTableRecipe(Ingredient.of(ModItemTags.POLISHED_PLANKS), Ingredient.of(ItemRegistry.FANGXIN_TEMPLATE.get()), dye, result)
                 .unlockedBy(itemUnlockName(ItemRegistry.FANGXIN_TEMPLATE.get()), itemCriterion(ItemRegistry.FANGXIN_TEMPLATE.get())).save(pFinishedRecipeConsumer);
     }
 
-    public static void fangxinEdgePattern(Item result, Ingredient[] dye, Consumer<FinishedRecipe> pFinishedRecipeConsumer){
+    private static void fangxinEdgePattern(Item result, Ingredient[] dye, Consumer<FinishedRecipe> pFinishedRecipeConsumer){
         ChiselTableRecipeBuilder.chiselTableRecipe(Ingredient.of(ModItemTags.POLISHED_PLANKS), Ingredient.of(ItemRegistry.FANGXIN_EDGE_TEMPLATE.get()), dye, result)
                 .unlockedBy(itemUnlockName(ItemRegistry.FANGXIN_EDGE_TEMPLATE.get()), itemCriterion(ItemRegistry.FANGXIN_EDGE_TEMPLATE.get())).save(pFinishedRecipeConsumer);
     }
 
-    public static void zhaotouPattern(Item result, Ingredient[] dye, Consumer<FinishedRecipe> pFinishedRecipeConsumer){
+    private static void zhaotouPattern(Item result, Ingredient[] dye, Consumer<FinishedRecipe> pFinishedRecipeConsumer){
         ChiselTableRecipeBuilder.chiselTableRecipe(Ingredient.of(ModItemTags.POLISHED_PLANKS), Ingredient.of(ItemRegistry.ZHAOTOU_TEMPLATE.get()), dye, result)
                 .unlockedBy(itemUnlockName(ItemRegistry.ZHAOTOU_TEMPLATE.get()), itemCriterion(ItemRegistry.ZHAOTOU_TEMPLATE.get())).save(pFinishedRecipeConsumer);
     }
 
 
-    public static CriterionTriggerInstance tagUnlock(TagKey<Item> tag){
+    private static CriterionTriggerInstance tagUnlock(TagKey<Item> tag){
         return InventoryChangeTrigger.TriggerInstance.hasItems(new ItemPredicate(tag, ImmutableSet.of(),
                 MinMaxBounds.Ints.ANY, MinMaxBounds.Ints.ANY,
                 EnchantmentPredicate.NONE, EnchantmentPredicate.NONE, null, NbtPredicate.ANY));
