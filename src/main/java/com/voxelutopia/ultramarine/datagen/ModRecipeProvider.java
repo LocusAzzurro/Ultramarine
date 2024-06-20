@@ -1151,27 +1151,101 @@ public class ModRecipeProvider extends RecipeProvider {
         ShapedRecipeBuilder.shaped(ItemRegistry.SMALL_GREETING_PINE_BONSAI.get(), 1)
                 .define('P', Items.FLOWER_POT)
                 .define('S', Items.SPRUCE_SAPLING)
-                .define('D', ItemRegistry.BROWN_DYE_POWDER.get())
+                .define('D', Items.BROWN_DYE)
                 .pattern("S ")
                 .pattern("PD")
                 .unlockedBy(itemUnlockName(Items.FLOWER_POT), itemCriterion(Items.FLOWER_POT)).save(recipeConsumer);
         ShapedRecipeBuilder.shaped(ItemRegistry.MEDIUM_GREETING_PINE_BONSAI.get(), 1)
                 .define('P', Items.FLOWER_POT)
                 .define('S', Items.SPRUCE_SAPLING)
-                .define('D', ItemRegistry.BLACK_DYE_POWDER.get())
+                .define('D', Items.BLACK_DYE)
                 .pattern("SS")
                 .pattern("PD")
                 .unlockedBy(itemUnlockName(Items.FLOWER_POT), itemCriterion(Items.FLOWER_POT)).save(recipeConsumer);
         ShapedRecipeBuilder.shaped(ItemRegistry.LARGE_GREETING_PINE_BONSAI.get(), 1)
                 .define('P', Items.FLOWER_POT)
                 .define('S', Items.SPRUCE_SAPLING)
-                .define('D', ItemRegistry.CYAN_DYE_POWDER.get())
+                .define('D', Items.CYAN_DYE)
                 .define('F', ItemRegistry.WOODEN_FRAME.get())
                 .define('W', ModItemTags.POLISHED_PLANKS)
                 .pattern("SS")
                 .pattern("PD")
                 .pattern("FW")
                 .unlockedBy(itemUnlockName(Items.FLOWER_POT), itemCriterion(Items.FLOWER_POT)).save(recipeConsumer);
+        ShapedRecipeBuilder.shaped(ItemRegistry.SMALL_WHITE_PORCELAIN_VASE_BONSAI.get(), 1)
+                .define('V', ItemRegistry.SMALL_WHITE_PORCELAIN_VASE.get())
+                .define('S', ItemTags.SAPLINGS)
+                .pattern("S").pattern("V")
+                .unlockedBy(itemUnlockName(ItemRegistry.SMALL_WHITE_PORCELAIN_VASE.get()), itemCriterion(ItemRegistry.SMALL_WHITE_PORCELAIN_VASE.get())).save(recipeConsumer);
+        ShapedRecipeBuilder.shaped(ItemRegistry.MEDIUM_WHITE_PORCELAIN_VASE_BONSAI.get(), 1)
+                .define('V', ItemRegistry.MEDIUM_WHITE_PORCELAIN_VASE.get())
+                .define('S', ItemTags.SAPLINGS)
+                .pattern("S").pattern("V")
+                .unlockedBy(itemUnlockName(ItemRegistry.MEDIUM_WHITE_PORCELAIN_VASE.get()), itemCriterion(ItemRegistry.MEDIUM_WHITE_PORCELAIN_VASE.get())).save(recipeConsumer);
+        ShapedRecipeBuilder.shaped(ItemRegistry.LARGE_WHITE_PORCELAIN_VASE_BONSAI.get(), 1)
+                .define('V', ItemRegistry.LARGE_WHITE_PORCELAIN_VASE.get())
+                .define('S', ItemTags.SAPLINGS)
+                .pattern("S").pattern("V")
+                .unlockedBy(itemUnlockName(ItemRegistry.LARGE_WHITE_PORCELAIN_VASE.get()), itemCriterion(ItemRegistry.LARGE_WHITE_PORCELAIN_VASE.get())).save(recipeConsumer);
+        ShapedRecipeBuilder.shaped(ItemRegistry.SMALL_GREEN_PORCELAIN_VASE_BONSAI.get(), 1)
+                .define('V', ItemRegistry.SMALL_GREEN_PORCELAIN_VASE.get())
+                .define('S', ItemTags.SAPLINGS)
+                .pattern("S").pattern("V")
+                .unlockedBy(itemUnlockName(ItemRegistry.SMALL_GREEN_PORCELAIN_VASE.get()), itemCriterion(ItemRegistry.SMALL_GREEN_PORCELAIN_VASE.get())).save(recipeConsumer);
+        ShapedRecipeBuilder.shaped(ItemRegistry.GREEN_PORCELAIN_VASE_BONSAI.get(), 1)
+                .define('V', ItemRegistry.MEDIUM_GREEN_PORCELAIN_VASE.get())
+                .define('S', ItemTags.SAPLINGS)
+                .pattern("S").pattern("V")
+                .unlockedBy(itemUnlockName(ItemRegistry.MEDIUM_GREEN_PORCELAIN_VASE.get()), itemCriterion(ItemRegistry.MEDIUM_GREEN_PORCELAIN_VASE.get())).save(recipeConsumer);
+        ShapedRecipeBuilder.shaped(ItemRegistry.RED_CORAL_BONSAI.get(), 1)
+                .define('P', Items.FLOWER_POT)
+                .define('C', Items.FIRE_CORAL)
+                .define('D', Items.BLACK_DYE)
+                .pattern("C ")
+                .pattern("PD")
+                .unlockedBy(itemUnlockName(Items.FLOWER_POT), itemCriterion(Items.FLOWER_POT)).save(recipeConsumer);
+        ShapedRecipeBuilder.shaped(ItemRegistry.RED_PLUM_BONSAI.get(), 1)
+                .define('P', Items.FLOWER_POT)
+                .define('C', ItemTags.SAPLINGS)
+                .define('D', Items.CYAN_DYE)
+                .pattern("C ")
+                .pattern("PD")
+                .unlockedBy(itemUnlockName(Items.FLOWER_POT), itemCriterion(Items.FLOWER_POT)).save(recipeConsumer);
+        ShapedRecipeBuilder.shaped(ItemRegistry.BAMBOO_BONSAI.get(), 1)
+                .define('P', Items.FLOWER_POT)
+                .define('C', Items.BAMBOO)
+                .define('D', Items.CYAN_DYE)
+                .pattern("C ")
+                .pattern("PD")
+                .unlockedBy(itemUnlockName(Items.FLOWER_POT), itemCriterion(Items.FLOWER_POT)).save(recipeConsumer);
+        ShapedRecipeBuilder.shaped(ItemRegistry.TALL_BLUE_VASE_BONSAI.get(), 1)
+                .define('V', ItemRegistry.TALL_BLUE_PORCELAIN_VASE.get())
+                .define('S', ItemTags.SAPLINGS)
+                .pattern("S").pattern("V")
+                .unlockedBy(itemUnlockName(ItemRegistry.TALL_BLUE_PORCELAIN_VASE.get()), itemCriterion(ItemRegistry.TALL_BLUE_PORCELAIN_VASE.get())).save(recipeConsumer);
+        ShapedRecipeBuilder.shaped(ItemRegistry.TALL_BLUE_AND_WHITE_PORCELAIN_BONSAI.get(), 1)
+                .define('V', ItemRegistry.TALL_BLUE_AND_WHITE_PORCELAIN_VASE.get())
+                .define('S', ItemTags.SAPLINGS)
+                .pattern("S").pattern("V")
+                .unlockedBy(itemUnlockName(ItemRegistry.TALL_BLUE_AND_WHITE_PORCELAIN_VASE.get()), itemCriterion(ItemRegistry.TALL_BLUE_AND_WHITE_PORCELAIN_VASE.get())).save(recipeConsumer);
+        ShapedRecipeBuilder.shaped(ItemRegistry.MEDIUM_BONSAI.get(), 1)
+                .define('P', Items.FLOWER_POT)
+                .define('B', Items.BRICK)
+                .define('S', ItemTags.SAPLINGS)
+                .define('D', Items.CYAN_DYE)
+                .pattern(" S ")
+                .pattern("DPD")
+                .pattern(" B ")
+                .unlockedBy(itemUnlockName(Items.FLOWER_POT), itemCriterion(Items.FLOWER_POT)).save(recipeConsumer);
+        ShapedRecipeBuilder.shaped(ItemRegistry.LARGE_BONSAI.get(), 1)
+                .define('P', Items.FLOWER_POT)
+                .define('B', Items.BRICK)
+                .define('S', ItemTags.SAPLINGS)
+                .pattern(" S ")
+                .pattern("BPB")
+                .pattern(" B ")
+                .unlockedBy(itemUnlockName(Items.FLOWER_POT), itemCriterion(Items.FLOWER_POT)).save(recipeConsumer);
+
     }
 
     private static void categoryFurniture(@NotNull Consumer<FinishedRecipe> recipeConsumer){
@@ -1674,24 +1748,12 @@ public class ModRecipeProvider extends RecipeProvider {
                 .define('C', Items.CLAY_BALL).pattern("C ").pattern(" C")
                 .unlockedBy(itemUnlockName(Items.CLAY_BALL), itemCriterion(Items.CLAY_BALL))
                 .save(recipeConsumer);
-        CompositeSmeltingRecipeBuilder.compositeSmelting(Ingredient.of(ItemRegistry.UNFIRED_ROOF_TILE.get()), Ingredient.of(ItemRegistry.GRAY_DYE_POWDER.get()),
-                        ItemRegistry.GRAY_ROOF_TILE.get(), 0.05f, 20)
-                .unlockedBy(itemUnlockName(ItemRegistry.UNFIRED_ROOF_TILE.get()), itemCriterion(ItemRegistry.UNFIRED_ROOF_TILE.get())).save(recipeConsumer);
-        CompositeSmeltingRecipeBuilder.compositeSmelting(Ingredient.of(ItemRegistry.UNFIRED_ROOF_TILE.get()), Ingredient.of(ItemRegistry.YELLOW_DYE_POWDER.get()),
-                        ItemRegistry.YELLOW_ROOF_TILE.get(), 0.05f, 20)
-                .unlockedBy(itemUnlockName(ItemRegistry.UNFIRED_ROOF_TILE.get()), itemCriterion(ItemRegistry.UNFIRED_ROOF_TILE.get())).save(recipeConsumer);
-        CompositeSmeltingRecipeBuilder.compositeSmelting(Ingredient.of(ItemRegistry.UNFIRED_ROOF_TILE.get()), Ingredient.of(ItemRegistry.GREEN_DYE_POWDER.get()),
-                        ItemRegistry.GREEN_ROOF_TILE.get(), 0.05f, 20)
-                .unlockedBy(itemUnlockName(ItemRegistry.UNFIRED_ROOF_TILE.get()), itemCriterion(ItemRegistry.UNFIRED_ROOF_TILE.get())).save(recipeConsumer);
-        CompositeSmeltingRecipeBuilder.compositeSmelting(Ingredient.of(ItemRegistry.UNFIRED_ROOF_TILE.get()), Ingredient.of(ItemRegistry.BLUE_DYE_POWDER.get()),
-                        ItemRegistry.BLUE_ROOF_TILE.get(), 0.05f, 20)
-                .unlockedBy(itemUnlockName(ItemRegistry.UNFIRED_ROOF_TILE.get()), itemCriterion(ItemRegistry.UNFIRED_ROOF_TILE.get())).save(recipeConsumer);
-        CompositeSmeltingRecipeBuilder.compositeSmelting(Ingredient.of(ItemRegistry.UNFIRED_ROOF_TILE.get()), Ingredient.of(ItemRegistry.CYAN_DYE_POWDER.get()),
-                        ItemRegistry.CYAN_ROOF_TILE.get(), 0.05f, 20)
-                .unlockedBy(itemUnlockName(ItemRegistry.UNFIRED_ROOF_TILE.get()), itemCriterion(ItemRegistry.UNFIRED_ROOF_TILE.get())).save(recipeConsumer);
-        CompositeSmeltingRecipeBuilder.compositeSmelting(Ingredient.of(ItemRegistry.UNFIRED_ROOF_TILE.get()), Ingredient.of(ItemRegistry.BLACK_DYE_POWDER.get()),
-                        ItemRegistry.BLACK_ROOF_TILE.get(), 0.05f, 20)
-                .unlockedBy(itemUnlockName(ItemRegistry.UNFIRED_ROOF_TILE.get()), itemCriterion(ItemRegistry.UNFIRED_ROOF_TILE.get())).save(recipeConsumer);
+        compositeSmelting(ItemRegistry.GRAY_ROOF_TILE.get(), ItemRegistry.UNFIRED_ROOF_TILE.get(), ItemRegistry.GRAY_DYE_POWDER.get(), 0.05f, 20, recipeConsumer);
+        compositeSmelting(ItemRegistry.YELLOW_ROOF_TILE.get(), ItemRegistry.UNFIRED_ROOF_TILE.get(), ItemRegistry.YELLOW_DYE_POWDER.get(), 0.05f, 20, recipeConsumer);
+        compositeSmelting(ItemRegistry.GREEN_ROOF_TILE.get(), ItemRegistry.UNFIRED_ROOF_TILE.get(), ItemRegistry.GREEN_DYE_POWDER.get(), 0.05f, 20, recipeConsumer);
+        compositeSmelting(ItemRegistry.BLUE_ROOF_TILE.get(), ItemRegistry.UNFIRED_ROOF_TILE.get(), ItemRegistry.BLUE_DYE_POWDER.get(), 0.05f, 20, recipeConsumer);
+        compositeSmelting(ItemRegistry.CYAN_ROOF_TILE.get(), ItemRegistry.UNFIRED_ROOF_TILE.get(), ItemRegistry.CYAN_DYE_POWDER.get(), 0.05f, 20, recipeConsumer);
+        compositeSmelting(ItemRegistry.BLACK_ROOF_TILE.get(), ItemRegistry.UNFIRED_ROOF_TILE.get(), ItemRegistry.BLACK_DYE_POWDER.get(), 0.05f, 20, recipeConsumer);
 
         // POLISHED PLANK
 
@@ -1742,6 +1804,13 @@ public class ModRecipeProvider extends RecipeProvider {
                 .pattern("O")
                 .unlockedBy(itemUnlockName(Items.CLAY), itemCriterion(Items.CLAY))
                 .save(recipeConsumer);
+        compositeSmelting(ItemRegistry.SMALL_WHITE_PORCELAIN_VASE.get(), ItemRegistry.SMALL_CLAY_VASE.get(), Items.WHITE_DYE, 0.1f, 200, recipeConsumer);
+        compositeSmelting(ItemRegistry.MEDIUM_WHITE_PORCELAIN_VASE.get(), ItemRegistry.MEDIUM_CLAY_VASE.get(), Items.WHITE_DYE, 0.1f, 200, recipeConsumer);
+        compositeSmelting(ItemRegistry.LARGE_WHITE_PORCELAIN_VASE.get(), ItemRegistry.LARGE_CLAY_VASE.get(), Items.WHITE_DYE, 0.1f, 200, recipeConsumer);
+        compositeSmelting(ItemRegistry.SMALL_GREEN_PORCELAIN_VASE.get(), ItemRegistry.SMALL_CLAY_VASE.get(), Items.GREEN_DYE, 0.1f, 200, recipeConsumer);
+        compositeSmelting(ItemRegistry.MEDIUM_GREEN_PORCELAIN_VASE.get(), ItemRegistry.MEDIUM_CLAY_VASE.get(), Items.GREEN_DYE, 0.1f, 200, recipeConsumer);
+        compositeSmelting(ItemRegistry.TALL_BLUE_PORCELAIN_VASE.get(), ItemRegistry.TALL_CLAY_VASE.get(), Items.BLUE_DYE, 0.1f, 200, recipeConsumer);
+        compositeSmelting(ItemRegistry.TALL_BLUE_AND_WHITE_PORCELAIN_VASE.get(), ItemRegistry.TALL_CLAY_VASE.get(), ItemRegistry.BLUE_AND_WHITE_GLAZE_POWDER.get(), 0.1f, 200, recipeConsumer);
 
         // PORCELAIN dropped by porcelain blocks
 
@@ -2225,6 +2294,12 @@ public class ModRecipeProvider extends RecipeProvider {
     private static void zhaotouPattern(Item result, Ingredient[] dye, Consumer<FinishedRecipe> pFinishedRecipeConsumer){
         ChiselTableRecipeBuilder.chiselTableRecipe(Ingredient.of(ModItemTags.POLISHED_PLANKS), Ingredient.of(ItemRegistry.ZHAOTOU_TEMPLATE.get()), dye, result)
                 .unlockedBy(itemUnlockName(ItemRegistry.ZHAOTOU_TEMPLATE.get()), itemCriterion(ItemRegistry.ZHAOTOU_TEMPLATE.get())).save(pFinishedRecipeConsumer);
+    }
+
+    private static void compositeSmelting(Item result, Item primary, Item secondary, float exp, int time, Consumer<FinishedRecipe> pFinishedRecipeConsumer){
+        CompositeSmeltingRecipeBuilder.compositeSmelting(Ingredient.of(primary), Ingredient.of(secondary),
+                        result, exp, time)
+                .unlockedBy(itemUnlockName(primary), itemCriterion(primary)).save(pFinishedRecipeConsumer);
     }
 
 

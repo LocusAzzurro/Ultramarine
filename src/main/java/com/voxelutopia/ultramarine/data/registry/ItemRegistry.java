@@ -741,6 +741,13 @@ public class ItemRegistry {
     public static final RegistryObject<Item> MEDIUM_CLAY_VASE = simpleItem("medium_clay_vase", ModCreativeTab.MATERIALS);
     public static final RegistryObject<Item> LARGE_CLAY_VASE = simpleItem("large_clay_vase", ModCreativeTab.MATERIALS);
     public static final RegistryObject<Item> TALL_CLAY_VASE = simpleItem("tall_clay_vase", ModCreativeTab.MATERIALS);
+    public static final RegistryObject<Item> SMALL_WHITE_PORCELAIN_VASE = simpleItem("small_white_porcelain_vase", ModCreativeTab.MATERIALS);
+    public static final RegistryObject<Item> MEDIUM_WHITE_PORCELAIN_VASE = simpleItem("medium_white_porcelain_vase", ModCreativeTab.MATERIALS);
+    public static final RegistryObject<Item> LARGE_WHITE_PORCELAIN_VASE = simpleItem("large_white_porcelain_vase", ModCreativeTab.MATERIALS);
+    public static final RegistryObject<Item> SMALL_GREEN_PORCELAIN_VASE = simpleItem("small_green_porcelain_vase", ModCreativeTab.MATERIALS);
+    public static final RegistryObject<Item> MEDIUM_GREEN_PORCELAIN_VASE = simpleItem("medium_green_porcelain_vase", ModCreativeTab.MATERIALS);
+    public static final RegistryObject<Item> TALL_BLUE_PORCELAIN_VASE = simpleItem("tall_blue_porcelain_vase", ModCreativeTab.MATERIALS);
+    public static final RegistryObject<Item> TALL_BLUE_AND_WHITE_PORCELAIN_VASE = simpleItem("tall_blue_and_white_porcelain_vase", ModCreativeTab.MATERIALS);
 
     // PORCELAIN
 

@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "ultramarine:small_white_porcelain_vase"
+    ]
+  },
+  "criteria": {
+    "has_small_clay_vase": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "ultramarine:small_clay_vase"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "ultramarine:small_white_porcelain_vase"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_small_clay_vase",
+      "has_the_recipe"
+    ]
+  ]
+}

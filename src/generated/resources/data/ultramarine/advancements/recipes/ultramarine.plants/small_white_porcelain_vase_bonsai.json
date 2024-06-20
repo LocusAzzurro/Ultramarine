@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "ultramarine:small_white_porcelain_vase_bonsai"
+    ]
+  },
+  "criteria": {
+    "has_small_white_porcelain_vase": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "ultramarine:small_white_porcelain_vase"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "ultramarine:small_white_porcelain_vase_bonsai"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_small_white_porcelain_vase",
+      "has_the_recipe"
+    ]
+  ]
+}
