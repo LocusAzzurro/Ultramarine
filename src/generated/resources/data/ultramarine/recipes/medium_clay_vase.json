@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "o",
+    "O"
+  ],
+  "key": {
+    "O": {
+      "item": "minecraft:clay"
+    },
+    "o": {
+      "item": "minecraft:clay_ball"
+    }
+  },
+  "result": {
+    "item": "ultramarine:medium_clay_vase"
+  }
+}

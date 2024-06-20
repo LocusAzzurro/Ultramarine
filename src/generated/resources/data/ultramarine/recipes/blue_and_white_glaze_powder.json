@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "ultramarine:calcite_dust"
+    },
+    {
+      "item": "ultramarine:calcite_dust"
+    },
+    {
+      "item": "ultramarine:cobalt_dust"
+    }
+  ],
+  "result": {
+    "item": "ultramarine:blue_and_white_glaze_powder",
+    "count": 3
+  }
+}

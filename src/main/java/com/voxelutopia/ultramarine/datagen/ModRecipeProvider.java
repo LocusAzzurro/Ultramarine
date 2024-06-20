@@ -1660,13 +1660,13 @@ public class ModRecipeProvider extends RecipeProvider {
         smeltingAndBlasting(ItemRegistry.UNFIRED_CLAY_BRICK.get(), ItemRegistry.FIRED_BRICK.get(), recipeConsumer);
         ShapelessRecipeBuilder.shapeless(Items.BRICK, 1).requires(ItemRegistry.FIRED_BRICK.get())
                 .unlockedBy("has_" + ItemRegistry.FIRED_BRICK.get(), InventoryChangeTrigger.TriggerInstance.hasItems(ItemRegistry.FIRED_BRICK.get())).save(recipeConsumer);
+        dust(Items.PRISMARINE_SHARD, ItemRegistry.PRISMARINE_DUST.get(), recipeConsumer);
 
-        //DUST
+        //ORE PRODUCT
 
         dust(ItemRegistry.RAW_HEMATITE.get(), ItemRegistry.HEMATITE_DUST.get(), recipeConsumer);
         dust(ItemRegistry.MAGNESITE.get(), ItemRegistry.MAGNESITE_DUST.get(), recipeConsumer);
         dust(ItemRegistry.RAW_COBALT.get(), ItemRegistry.COBALT_DUST.get(), recipeConsumer);
-        dust(Items.PRISMARINE_SHARD, ItemRegistry.PRISMARINE_DUST.get(), recipeConsumer);
 
         //ROOF TILE
 
@@ -1706,6 +1706,42 @@ public class ModRecipeProvider extends RecipeProvider {
         polishedPlankRecipe(ItemRegistry.ROSEWOOD_PLANKS.get(), ItemRegistry.POLISHED_ROSEWOOD_PLANK.get(), recipeConsumer);
         //polishedPlankRecipe(ItemRegistry.EBONY_PLANKS.get(), ItemRegistry.POLISHED_EBONY_PLANK.get(), recipeConsumer);
         woodworking(Ingredient.of(ItemTags.PLANKS), ItemRegistry.WOODEN_FRAME.get(), 2, Items.OAK_PLANKS, recipeConsumer);
+
+        // PORCELAIN MATERIAL
+
+        dust(Items.CALCITE, ItemRegistry.CALCITE_DUST.get(), recipeConsumer);
+        ShapelessRecipeBuilder.shapeless(ItemRegistry.BLUE_AND_WHITE_GLAZE_POWDER.get(), 3)
+                .requires(ItemRegistry.CALCITE_DUST.get(), 2)
+                .requires(ItemRegistry.COBALT_DUST.get())
+                .unlockedBy(itemUnlockName(ItemRegistry.COBALT_DUST.get()), itemCriterion(ItemRegistry.COBALT_DUST.get()))
+                .save(recipeConsumer);
+        ShapedRecipeBuilder.shaped(ItemRegistry.SMALL_CLAY_VASE.get(), 1)
+                .define('o', Items.CLAY_BALL)
+                .pattern("o")
+                .pattern("o")
+                .unlockedBy(itemUnlockName(Items.CLAY), itemCriterion(Items.CLAY))
+                .save(recipeConsumer);
+        ShapedRecipeBuilder.shaped(ItemRegistry.MEDIUM_CLAY_VASE.get(), 1)
+                .define('O', Items.CLAY)
+                .define('o', Items.CLAY_BALL)
+                .pattern("o")
+                .pattern("O")
+                .unlockedBy(itemUnlockName(Items.CLAY), itemCriterion(Items.CLAY))
+                .save(recipeConsumer);
+        ShapedRecipeBuilder.shaped(ItemRegistry.LARGE_CLAY_VASE.get(), 1)
+                .define('O', Items.CLAY)
+                .pattern("O")
+                .pattern("O")
+                .unlockedBy(itemUnlockName(Items.CLAY), itemCriterion(Items.CLAY))
+                .save(recipeConsumer);
+        ShapedRecipeBuilder.shaped(ItemRegistry.TALL_CLAY_VASE.get(), 1)
+                .define('O', Items.CLAY)
+                .define('o', Items.CLAY_BALL)
+                .pattern("o")
+                .pattern("o")
+                .pattern("O")
+                .unlockedBy(itemUnlockName(Items.CLAY), itemCriterion(Items.CLAY))
+                .save(recipeConsumer);
 
         // PORCELAIN dropped by porcelain blocks
 

@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "ultramarine:blue_and_white_glaze_powder"
+    ]
+  },
+  "criteria": {
+    "has_cobalt_dust": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "ultramarine:cobalt_dust"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "ultramarine:blue_and_white_glaze_powder"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_cobalt_dust",
+      "has_the_recipe"
+    ]
+  ]
+}
