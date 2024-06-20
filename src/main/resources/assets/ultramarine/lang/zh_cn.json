@@ -487,7 +487,7 @@
   "item.ultramarine.polished_warped_plank": "诡异木板材",
   "item.ultramarine.polished_rosewood_plank": "红木板材",
   "item.ultramarine.polished_ebony_plank": "乌木板材",
-  "item.ultramarine.blue_and_white_porcelain_piece": "青花瓷碎块",
+  "item.ultramarine.blue_and_white_porcelain_piece": "青花瓷片",
   "item.ultramarine.blue_and_white_porcelain_shards": "青花瓷碎片",
   "item.ultramarine.tea_leaves": "茶叶",
   "item.ultramarine.wooden_box": "木盒子",
@@ -564,6 +564,7 @@
   "item.ultramarine.medium_green_porcelain_vase": "中绿瓷瓶",
   "item.ultramarine.tall_blue_porcelain_vase": "高蓝瓷瓶",
   "item.ultramarine.tall_blue_and_white_porcelain_vase": "高青花瓷瓶",
+  "item.ultramarine.porcelain_piece": "瓷片",
 
   "item.ultramarine.wooden_mallet": "木锤",
 
