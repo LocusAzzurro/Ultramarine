@@ -2026,7 +2026,7 @@ public class ModRecipeProvider extends RecipeProvider {
 
     private static void simpleStonecutting(Item input, Item output, Consumer<FinishedRecipe> pFinishedRecipeConsumer){
         SingleItemRecipeBuilder.stonecutting(Ingredient.of(input), output)
-                .unlockedBy(itemUnlockName(input), itemCriterion(output))
+                .unlockedBy(itemUnlockName(input), itemCriterion(input))
                 .save(pFinishedRecipeConsumer);
     }
 
