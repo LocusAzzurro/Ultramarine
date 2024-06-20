@@ -733,6 +733,15 @@ public class ItemRegistry {
     public static final RegistryObject<Item> POLISHED_EBONY_PLANK = simpleItem("polished_ebony_plank", ModCreativeTab.MATERIALS);
     public static final RegistryObject<Item> WOODEN_FRAME = simpleItem("wooden_frame", ModCreativeTab.MATERIALS);
 
+    // PORCELAIN MATERIAL
+
+    public static final RegistryObject<Item> CALCITE_DUST = simpleItem("calcite_dust", ModCreativeTab.MATERIALS);
+    public static final RegistryObject<Item> BLUE_AND_WHITE_GLAZE_POWDER = simpleItem("blue_and_white_glaze_powder", ModCreativeTab.MATERIALS);
+    public static final RegistryObject<Item> SMALL_CLAY_VASE = simpleItem("small_clay_vase", ModCreativeTab.MATERIALS);
+    public static final RegistryObject<Item> MEDIUM_CLAY_VASE = simpleItem("medium_clay_vase", ModCreativeTab.MATERIALS);
+    public static final RegistryObject<Item> LARGE_CLAY_VASE = simpleItem("large_clay_vase", ModCreativeTab.MATERIALS);
+    public static final RegistryObject<Item> TALL_CLAY_VASE = simpleItem("tall_clay_vase", ModCreativeTab.MATERIALS);
+
     // PORCELAIN
 
     public static final RegistryObject<Item> BLUE_AND_WHITE_PORCELAIN_PIECE = simpleItem("blue_and_white_porcelain_piece", ModCreativeTab.MATERIALS);

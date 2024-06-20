@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "ultramarine:item/blue_and_white_glaze_powder"
+  }
+}

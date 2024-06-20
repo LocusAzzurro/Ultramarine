@@ -2,6 +2,7 @@ package com.voxelutopia.ultramarine.world.entity;
 
 import com.google.common.collect.ImmutableList;
 import com.voxelutopia.ultramarine.data.registry.ItemRegistry;
+import com.voxelutopia.ultramarine.event.CommonEventHandler;
 import net.minecraft.network.protocol.Packet;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
@@ -13,12 +14,16 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.item.trading.MerchantOffer;
 import net.minecraft.world.item.trading.MerchantOffers;
 import net.minecraft.world.level.Level;
+import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.network.NetworkHooks;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+/**
+ *  {@link CommonEventHandler#travellingMerchantSpawnAttempt(TickEvent.WorldTickEvent)}
+ */
 public class TravellingMerchant extends WanderingTrader {
 
     private static final List<MerchantOffer> TRADE_OPTIONS = new ArrayList<>();

@@ -1146,7 +1146,32 @@ public class ModRecipeProvider extends RecipeProvider {
         woodworking(Ingredient.of(ItemTags.LEAVES), ItemRegistry.LARGE_LEAF_PILE.get(), 3)
                 .unlockedBy("has_leaves", tagUnlock(ItemTags.LEAVES)).save(recipeConsumer);
 
+        // BONSAI
 
+        ShapedRecipeBuilder.shaped(ItemRegistry.SMALL_GREETING_PINE_BONSAI.get(), 1)
+                .define('P', Items.FLOWER_POT)
+                .define('S', Items.SPRUCE_SAPLING)
+                .define('D', ItemRegistry.BROWN_DYE_POWDER.get())
+                .pattern("S ")
+                .pattern("PD")
+                .unlockedBy(itemUnlockName(Items.FLOWER_POT), itemCriterion(Items.FLOWER_POT)).save(recipeConsumer);
+        ShapedRecipeBuilder.shaped(ItemRegistry.MEDIUM_GREETING_PINE_BONSAI.get(), 1)
+                .define('P', Items.FLOWER_POT)
+                .define('S', Items.SPRUCE_SAPLING)
+                .define('D', ItemRegistry.BLACK_DYE_POWDER.get())
+                .pattern("SS")
+                .pattern("PD")
+                .unlockedBy(itemUnlockName(Items.FLOWER_POT), itemCriterion(Items.FLOWER_POT)).save(recipeConsumer);
+        ShapedRecipeBuilder.shaped(ItemRegistry.LARGE_GREETING_PINE_BONSAI.get(), 1)
+                .define('P', Items.FLOWER_POT)
+                .define('S', Items.SPRUCE_SAPLING)
+                .define('D', ItemRegistry.CYAN_DYE_POWDER.get())
+                .define('F', ItemRegistry.WOODEN_FRAME.get())
+                .define('W', ModItemTags.POLISHED_PLANKS)
+                .pattern("SS")
+                .pattern("PD")
+                .pattern("FW")
+                .unlockedBy(itemUnlockName(Items.FLOWER_POT), itemCriterion(Items.FLOWER_POT)).save(recipeConsumer);
     }
 
     private static void categoryFurniture(@NotNull Consumer<FinishedRecipe> recipeConsumer){
