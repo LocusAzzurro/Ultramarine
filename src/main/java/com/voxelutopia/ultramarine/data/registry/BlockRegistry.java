@@ -822,11 +822,11 @@ public class BlockRegistry {
     // BONSAI
 
     public static final RegistryObject<Block> SMALL_GREETING_PINE_BONSAI = BLOCKS.register("small_greeting_pine_bonsai",
-            () -> DecorativeBlock.with(BaseBlockProperty.PORCELAIN).shaped(ShapeFunction.cardinalRotations(new RawVoxelShape(3,0,4,13,3,12))).directional().build());
+            () -> DecorativeBlock.with(BaseBlockProperty.TERRACOTTA).shaped(ShapeFunction.cardinalRotations(new RawVoxelShape(3,0,4,13,3,12))).directional().build());
     public static final RegistryObject<Block> MEDIUM_GREETING_PINE_BONSAI = BLOCKS.register("medium_greeting_pine_bonsai",
-            () -> DecorativeBlock.with(BaseBlockProperty.PORCELAIN).shaped(ShapeFunction.centeredSquare(10, 4)).directional().noOcclusion().build());
+            () -> DecorativeBlock.with(BaseBlockProperty.TERRACOTTA).shaped(ShapeFunction.centeredSquare(10, 4)).directional().noOcclusion().build());
     public static final RegistryObject<Block> LARGE_GREETING_PINE_BONSAI = BLOCKS.register("large_greeting_pine_bonsai", //todo model z-fighting
-            () -> DecorativeBlock.with(BaseBlockProperty.PORCELAIN).shaped(ShapeFunction.cardinalRotations(new RawVoxelShape(4,-16,5,12,11,13))).directional().placeOffset(Direction.UP).noOcclusion().build());
+            () -> DecorativeBlock.with(BaseBlockProperty.TERRACOTTA).shaped(ShapeFunction.cardinalRotations(new RawVoxelShape(4,-16,5,12,11,13))).directional().placeOffset(Direction.UP).noOcclusion().build());
     public static final RegistryObject<Block> SMALL_WHITE_PORCELAIN_VASE_BONSAI = BLOCKS.register("small_white_porcelain_vase_bonsai",
             () -> DecorativeBlock.with(BaseBlockProperty.PORCELAIN).shaped(ShapeFunction.diagonalSquare(6, 5)).directional().diagonallyPlaceable().build());
     public static final RegistryObject<Block> MEDIUM_WHITE_PORCELAIN_VASE_BONSAI = BLOCKS.register("medium_white_porcelain_vase_bonsai",
@@ -838,11 +838,11 @@ public class BlockRegistry {
     public static final RegistryObject<Block> GREEN_PORCELAIN_VASE_BONSAI = BLOCKS.register("green_porcelain_vase_bonsai",
             () -> DecorativeBlock.with(BaseBlockProperty.PORCELAIN).shaped(ShapeFunction.or(ShapeFunction.diagonalSquare(7, 6), ShapeFunction.diagonalSquare(5, 8), ShapeFunction.diagonalSquare(3.5f, 12.5f))).directional().diagonallyPlaceable().build());
     public static final RegistryObject<Block> RED_CORAL_BONSAI = BLOCKS.register("red_coral_bonsai",
-            () -> DecorativeBlock.with(BaseBlockProperty.PORCELAIN).shaped(ShapeFunction.centeredSquare(10, 4)).directional().build());
+            () -> DecorativeBlock.with(BaseBlockProperty.TERRACOTTA).shaped(ShapeFunction.centeredSquare(10, 4)).directional().build());
     public static final RegistryObject<Block> RED_PLUM_BONSAI = BLOCKS.register("red_plum_bonsai",
-            () -> DecorativeBlock.with(BaseBlockProperty.PORCELAIN).shaped(ShapeFunction.cardinalRotations(new RawVoxelShape(3,0,4,13,2,12))).directional().build());
+            () -> DecorativeBlock.with(BaseBlockProperty.TERRACOTTA).shaped(ShapeFunction.cardinalRotations(new RawVoxelShape(3,0,4,13,2,12))).directional().build());
     public static final RegistryObject<Block> BAMBOO_BONSAI = BLOCKS.register("bamboo_bonsai",
-            () -> DecorativeBlock.with(BaseBlockProperty.PORCELAIN).shaped(ShapeFunction.cardinalRotations(new RawVoxelShape(2,0,4,14,3,12))).directional().noOcclusion().build()); //todo fix z-fighting
+            () -> DecorativeBlock.with(BaseBlockProperty.TERRACOTTA).shaped(ShapeFunction.cardinalRotations(new RawVoxelShape(2,0,4,14,3,12))).directional().noOcclusion().build()); //todo fix z-fighting
     public static final RegistryObject<Block> TALL_BLUE_VASE_BONSAI = BLOCKS.register("tall_blue_vase_bonsai",
             () -> DecorativeBlock.with(BaseBlockProperty.PORCELAIN).shaped(
                     ShapeFunction.or(ShapeFunction.diagonal(new RawVoxelShape(4,-16,4,12,-13,12)), ShapeFunction.diagonal(new RawVoxelShape(5.5,-16,5.5,10.5,5,10.5)),
