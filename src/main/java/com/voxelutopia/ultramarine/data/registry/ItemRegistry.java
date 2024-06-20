@@ -753,6 +753,7 @@ public class ItemRegistry {
 
     public static final RegistryObject<Item> BLUE_AND_WHITE_PORCELAIN_PIECE = simpleItem("blue_and_white_porcelain_piece", ModCreativeTab.MATERIALS);
     public static final RegistryObject<Item> BLUE_AND_WHITE_PORCELAIN_SHARDS = simpleItem("blue_and_white_porcelain_shards", ModCreativeTab.MATERIALS);
+    public static final RegistryObject<Item> PORCELAIN_PIECE = simpleItem("porcelain_piece", ModCreativeTab.MATERIALS);
 
     // PARTS
 

@@ -1812,7 +1812,14 @@ public class ModRecipeProvider extends RecipeProvider {
         compositeSmelting(ItemRegistry.TALL_BLUE_PORCELAIN_VASE.get(), ItemRegistry.TALL_CLAY_VASE.get(), Items.BLUE_DYE, 0.1f, 200, recipeConsumer);
         compositeSmelting(ItemRegistry.TALL_BLUE_AND_WHITE_PORCELAIN_VASE.get(), ItemRegistry.TALL_CLAY_VASE.get(), ItemRegistry.BLUE_AND_WHITE_GLAZE_POWDER.get(), 0.1f, 200, recipeConsumer);
 
-        // PORCELAIN dropped by porcelain blocks
+        // PORCELAIN
+
+        SingleItemRecipeBuilder.stonecutting(Ingredient.of(ItemRegistry.PORCELAIN_PIECE.get()), Items.CLAY_BALL)
+                .unlockedBy(itemUnlockName(ItemRegistry.PORCELAIN_PIECE.get()), itemCriterion(ItemRegistry.PORCELAIN_PIECE.get()))
+                .save(recipeConsumer, "porcelain_piece_grinding");
+        SingleItemRecipeBuilder.stonecutting(Ingredient.of(ItemRegistry.BLUE_AND_WHITE_PORCELAIN_PIECE.get()), Items.CLAY_BALL)
+                .unlockedBy(itemUnlockName(ItemRegistry.BLUE_AND_WHITE_PORCELAIN_PIECE.get()), itemCriterion(ItemRegistry.BLUE_AND_WHITE_PORCELAIN_PIECE.get()))
+                .save(recipeConsumer, "blue_and_white_porcelain_piece_grinding");
 
         // PARTS
 
@@ -1823,7 +1830,12 @@ public class ModRecipeProvider extends RecipeProvider {
         SingleItemRecipeBuilder.stonecutting(Ingredient.of(ItemRegistry.JADE.get()), ItemRegistry.JADE_PARTS.get(), 2)
                 .unlockedBy(itemUnlockName(ItemRegistry.JADE.get()), itemCriterion(ItemRegistry.JADE.get()))
                 .save(recipeConsumer);
-        simpleStonecutting(ItemRegistry.BLUE_AND_WHITE_PORCELAIN_PIECE.get(), ItemRegistry.PORCELAIN_PARTS.get(), recipeConsumer); //todo add porcelain variants
+        SingleItemRecipeBuilder.stonecutting(Ingredient.of(ItemRegistry.BLUE_AND_WHITE_PORCELAIN_PIECE.get()), ItemRegistry.PORCELAIN_PARTS.get())
+                .unlockedBy(itemUnlockName(ItemRegistry.BLUE_AND_WHITE_PORCELAIN_PIECE.get()), itemCriterion(ItemRegistry.BLUE_AND_WHITE_PORCELAIN_PIECE.get()))
+                .save(recipeConsumer, "porcelain_parts_from_blue_and_white_porcelain_piece");
+        SingleItemRecipeBuilder.stonecutting(Ingredient.of(ItemRegistry.PORCELAIN_PIECE.get()), ItemRegistry.PORCELAIN_PARTS.get())
+                .unlockedBy(itemUnlockName(ItemRegistry.PORCELAIN_PIECE.get()), itemCriterion(ItemRegistry.PORCELAIN_PIECE.get()))
+                .save(recipeConsumer, "porcelain_parts_from_porcelain_piece");
         SingleItemRecipeBuilder.stonecutting(Ingredient.of(ItemRegistry.BRONZE_INGOT.get()), ItemRegistry.BRONZE_PARTS.get(), 2)
                 .unlockedBy(itemUnlockName(ItemRegistry.BRONZE_INGOT.get()), itemCriterion(ItemRegistry.BRONZE_INGOT.get()))
                 .save(recipeConsumer);

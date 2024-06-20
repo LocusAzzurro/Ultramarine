@@ -2,17 +2,17 @@
   "parent": "minecraft:recipes/root",
   "rewards": {
     "recipes": [
-      "ultramarine:porcelain_parts"
+      "minecraft:porcelain_parts_from_porcelain_piece"
     ]
   },
   "criteria": {
-    "has_blue_and_white_porcelain_piece": {
+    "has_porcelain_piece": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
             "items": [
-              "ultramarine:porcelain_parts"
+              "ultramarine:porcelain_piece"
             ]
           }
         ]
@@ -21,13 +21,13 @@
     "has_the_recipe": {
       "trigger": "minecraft:recipe_unlocked",
       "conditions": {
-        "recipe": "ultramarine:porcelain_parts"
+        "recipe": "minecraft:porcelain_parts_from_porcelain_piece"
       }
     }
   },
   "requirements": [
     [
-      "has_blue_and_white_porcelain_piece",
+      "has_porcelain_piece",
       "has_the_recipe"
     ]
   ]
