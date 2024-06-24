@@ -239,7 +239,7 @@ public class CommonEventHandler {
         }
 
         if (profession == VillagerProfession.LIBRARIAN){
-            trades.get(5).add(($1, $2) -> new MerchantOffer(
+            trades.get(4).add(($1, $2) -> new MerchantOffer(
                     new ItemStack(Items.EMERALD, 20),
                     new ItemStack(ItemRegistry.XUAN_PAPER.get(), 4),
                     10, 20, 0.05f

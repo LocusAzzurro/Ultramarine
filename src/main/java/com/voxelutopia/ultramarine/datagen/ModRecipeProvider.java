@@ -883,7 +883,7 @@ public class ModRecipeProvider extends RecipeProvider {
                 ItemRegistry.ROYAL_CENSER.get(), 0.5f, 200)
                 .unlockedBy(itemUnlockName(ItemRegistry.BRONZE_CENSER.get()), itemCriterion(ItemRegistry.BRONZE_CENSER.get()))
                 .save(recipeConsumer);
-        //todo PORCELAIN_TEAPOT
+        // Porcelain Teapot sold by librarian
         ShapedRecipeBuilder.shaped(ItemRegistry.BOOTS.get())
                 .define('B', Items.LEATHER_BOOTS)
                 .define('S', ItemRegistry.SILK.get())
@@ -1026,6 +1026,11 @@ public class ModRecipeProvider extends RecipeProvider {
                 .pattern("FFF")
                 .unlockedBy("has_fence", tagUnlock(ItemTags.WOODEN_FENCES))
                 .save(recipeConsumer);
+
+        // WALL HANGING
+
+        SimpleCookingRecipeBuilder.smoking(Ingredient.of(ItemRegistry.HORIZONTAL_LANDSCAPE_PAINTING.get()), ItemRegistry.DAMAGED_LANDSCAPE_PAINTING.get(), 0.1f, 400)
+                .unlockedBy(itemUnlockName(ItemRegistry.HORIZONTAL_LANDSCAPE_PAINTING.get()), itemCriterion(ItemRegistry.HORIZONTAL_LANDSCAPE_PAINTING.get())).save(recipeConsumer);
 
         // FOOD
 

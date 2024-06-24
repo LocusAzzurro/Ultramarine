@@ -10,10 +10,14 @@ import com.voxelutopia.ultramarine.world.block.StackableHalfBlock;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.OreBlock;
 import net.minecraft.world.level.block.SlabBlock;
+import net.minecraft.world.level.storage.loot.LootPool;
 import net.minecraft.world.level.storage.loot.LootTable;
+import net.minecraft.world.level.storage.loot.entries.LootItem;
+import net.minecraft.world.level.storage.loot.providers.number.ConstantValue;
 import net.minecraftforge.registries.RegistryObject;
 import org.slf4j.Logger;
 
@@ -45,6 +49,7 @@ public class ModLootTableProvider extends BaseLootTableProvider {
                 })
                 .forEach(NON_SIMPLE_BLOCKS::add);
         NON_SIMPLE_BLOCKS.addAll(List.of(
+                BlockRegistry.PAINTING_SCROLL
         ));
     }
     @Override
@@ -67,8 +72,10 @@ public class ModLootTableProvider extends BaseLootTableProvider {
         porcelainWithShards(BlockRegistry.SHORT_BLUE_AND_WHITE_PORCELAIN_POT, ItemRegistry.BLUE_AND_WHITE_PORCELAIN_PIECE, ItemRegistry.BLUE_AND_WHITE_PORCELAIN_SHARDS);
         porcelainWithShards(BlockRegistry.TALL_BLUE_AND_WHITE_PORCELAIN_POT, ItemRegistry.BLUE_AND_WHITE_PORCELAIN_PIECE, ItemRegistry.BLUE_AND_WHITE_PORCELAIN_SHARDS);
         porcelainWithShards(BlockRegistry.BLUE_AND_WHITE_PORCELAIN_BOWL, ItemRegistry.BLUE_AND_WHITE_PORCELAIN_PIECE, ItemRegistry.BLUE_AND_WHITE_PORCELAIN_SHARDS);
+        porcelain(BlockRegistry.PORCELAIN_TEAPOT, ItemRegistry.PORCELAIN_PIECE);
         porcelainWithShards(BlockRegistry.WINE_POT, ItemRegistry.BLUE_AND_WHITE_PORCELAIN_PIECE, ItemRegistry.BLUE_AND_WHITE_PORCELAIN_SHARDS);
         porcelainPlate(BlockRegistry.PLATED_MOONCAKES, ItemRegistry.BLUE_AND_WHITE_PORCELAIN_PIECE, ItemRegistry.BLUE_AND_WHITE_PORCELAIN_SHARDS);
+
         plateDrop(BlockRegistry.PLATED_MUNG_BEAN_CAKES);
         plateDrop(BlockRegistry.PLATED_HAM);
         plateDrop(BlockRegistry.PLATED_FISH);
@@ -80,6 +87,21 @@ public class ModLootTableProvider extends BaseLootTableProvider {
         porcelain(BlockRegistry.GREEN_PORCELAIN_VASE_BONSAI, ItemRegistry.PORCELAIN_PIECE);
         porcelain(BlockRegistry.TALL_BLUE_VASE_BONSAI, ItemRegistry.PORCELAIN_PIECE);
         porcelainWithShards(BlockRegistry.TALL_BLUE_AND_WHITE_PORCELAIN_BONSAI, ItemRegistry.BLUE_AND_WHITE_PORCELAIN_PIECE, ItemRegistry.BLUE_AND_WHITE_PORCELAIN_SHARDS);
+
+        addLootTable(BlockRegistry.PAINTING_SCROLL.get(), LootTable.lootTable()
+                .withPool(LootPool.lootPool().name("painting_scroll").setRolls(ConstantValue.exactly(1.0F))
+                        .add(LootItem.lootTableItem(ItemRegistry.PAINTING_SCROLL.get()).when(HAS_SHEARS.invert())
+                                .otherwise(LootItem.lootTableItem(Items.DIAMOND)
+                                        .append(LootItem.lootTableItem(ItemRegistry.LONG_HANGING_PAINTING.get()))
+                                        .append(LootItem.lootTableItem(ItemRegistry.WHITE_LANDSCAPE_PAINTING.get()))
+                                        .append(LootItem.lootTableItem(ItemRegistry.HORIZONTAL_OLD_LANDSCAPE_PAINTING.get()))
+                                        .append(LootItem.lootTableItem(ItemRegistry.HORIZONTAL_CALLIGRAPHY.get()))
+                                        .append(LootItem.lootTableItem(ItemRegistry.HORIZONTAL_LANDSCAPE_PAINTING.get()))
+                                        .append(LootItem.lootTableItem(ItemRegistry.LONG_YELLOW_HANGING_PAINTING.get()))
+                                        .append(LootItem.lootTableItem(ItemRegistry.PORTRAIT.get()))
+                                        .append(LootItem.lootTableItem(ItemRegistry.HANGING_PAINTING_FAN.get()))
+                                        .append(LootItem.lootTableItem(ItemRegistry.SINCERE_CALLIGRAPHY.get()))
+                                ))));
 
         slab(BlockRegistry.CYAN_BRICK_SLAB, ItemRegistry.CYAN_BRICK_SLAB);
         slab(BlockRegistry.BLACK_BRICK_SLAB, ItemRegistry.BLACK_BRICK_SLAB);

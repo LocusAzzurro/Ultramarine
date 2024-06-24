@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "ultramarine:damaged_landscape_painting"
+    ]
+  },
+  "criteria": {
+    "has_horizontal_landscape_painting": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "ultramarine:horizontal_landscape_painting"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "ultramarine:damaged_landscape_painting"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_horizontal_landscape_painting",
+      "has_the_recipe"
+    ]
+  ]
+}
