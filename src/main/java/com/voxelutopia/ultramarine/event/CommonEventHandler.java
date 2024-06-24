@@ -244,6 +244,11 @@ public class CommonEventHandler {
                     new ItemStack(ItemRegistry.XUAN_PAPER.get(), 4),
                     10, 20, 0.05f
             ));
+            trades.get(5).add(($1, $2) -> new MerchantOffer(
+                    new ItemStack(Items.EMERALD, 30),
+                    new ItemStack(ItemRegistry.PORCELAIN_TEAPOT.get(), 1),
+                    2, 20, 0.05f
+            ));
         }
 
         if (profession == VillagerProfession.CLERIC){
