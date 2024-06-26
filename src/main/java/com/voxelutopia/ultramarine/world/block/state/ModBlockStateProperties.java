@@ -21,5 +21,4 @@ public class ModBlockStateProperties {
     public static final IntegerProperty LANTERNS = IntegerProperty.create("lanterns", 0, 3);
     public static final BooleanProperty LEFT = BooleanProperty.create("left");
     public static final BooleanProperty RIGHT = BooleanProperty.create("right");
-    public static final BooleanProperty NORTH_TO_SOUTH = BooleanProperty.create("north_to_south");
 }

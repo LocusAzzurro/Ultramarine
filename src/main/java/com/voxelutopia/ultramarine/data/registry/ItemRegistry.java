@@ -534,6 +534,7 @@ public class ItemRegistry {
     public static final RegistryObject<Item> SMALL_TABLE = fromBlock(BlockRegistry.SMALL_TABLE, ModCreativeTab.FURNITURE);
     public static final RegistryObject<Item> SMALL_EBONY_TABLE = fromBlock(BlockRegistry.SMALL_EBONY_TABLE, ModCreativeTab.FURNITURE);
     public static final RegistryObject<Item> LARGE_TABLE = fromBlock(BlockRegistry.LARGE_TABLE, ModCreativeTab.FURNITURE);
+    public static final RegistryObject<Item> LONG_TABLE = fromBlock(BlockRegistry.LONG_TABLE, ModCreativeTab.FURNITURE);
 
    // CHAIR
 

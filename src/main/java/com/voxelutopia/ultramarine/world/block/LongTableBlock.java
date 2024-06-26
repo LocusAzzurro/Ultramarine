@@ -2,18 +2,26 @@ package com.voxelutopia.ultramarine.world.block;
 
 import com.voxelutopia.ultramarine.world.block.state.ModBlockStateProperties;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
+import net.minecraft.world.level.block.state.properties.BooleanProperty;
+import net.minecraft.world.level.block.state.properties.EnumProperty;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.Objects;
 import java.util.Set;
 
 public class LongTableBlock extends Block implements BaseBlockPropertyHolder {
+
+    public static final EnumProperty<Direction.Axis> AXIS = EnumProperty.create("axis", Direction.Axis.class, Direction.Axis.X, Direction.Axis.Z);
+    public static final BooleanProperty LEFT = ModBlockStateProperties.LEFT;
+    public static final BooleanProperty RIGHT = ModBlockStateProperties.RIGHT;
 
     protected final BaseBlockProperty property;
 
@@ -22,26 +30,24 @@ public class LongTableBlock extends Block implements BaseBlockPropertyHolder {
         this.property = property;
 
         registerDefaultState(getStateDefinition().any()
-                .setValue(ModBlockStateProperties.NORTH_TO_SOUTH, false)
-                .setValue(ModBlockStateProperties.LEFT, false)
-                .setValue(ModBlockStateProperties.RIGHT, false));
+                .setValue(AXIS, Direction.Axis.X)
+                .setValue(LEFT, false)
+                .setValue(RIGHT, false));
     }
 
     @Override
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> pBuilder) {
         super.createBlockStateDefinition(pBuilder);
-        pBuilder.add(ModBlockStateProperties.NORTH_TO_SOUTH);
-        pBuilder.add(ModBlockStateProperties.LEFT);
-        pBuilder.add(ModBlockStateProperties.RIGHT);
+        pBuilder.add(AXIS, LEFT, RIGHT);
     }
 
     @Nullable
     @Override
     public BlockState getStateForPlacement(BlockPlaceContext pContext) {
-        return defaultBlockState()
-                .setValue(ModBlockStateProperties.NORTH_TO_SOUTH, false)
-                .setValue(ModBlockStateProperties.LEFT, false)
-                .setValue(ModBlockStateProperties.RIGHT, false);
+        return Objects.requireNonNull(super.getStateForPlacement(pContext))
+                .setValue(AXIS, Direction.Axis.X)
+                .setValue(LEFT, false)
+                .setValue(RIGHT, false);
     }
 
     @Override
@@ -81,27 +87,26 @@ public class LongTableBlock extends Block implements BaseBlockPropertyHolder {
 
         var state = level.getBlockState(pos);
 
-        var north = pos.north();
-        var south = pos.south();
-        var isTableAtNorth = isTableBlock(level, north);
-        var isTableAtSouth = isTableBlock(level, south);
+        var east = pos.east();
+        var west = pos.west();
+        var isTableAtEast = isTableBlock(level, east);
+        var isTableAtWest = isTableBlock(level, west);
 
-        if (isTableAtNorth || isTableAtSouth) {
-            state = state.setValue(ModBlockStateProperties.NORTH_TO_SOUTH, true);
-
-            state = state.setValue(ModBlockStateProperties.LEFT, isTableAtNorth);
-            state = state.setValue(ModBlockStateProperties.RIGHT, isTableAtSouth);
+        if (isTableAtEast || isTableAtWest) {
+            state = state.setValue(AXIS, Direction.Axis.X)
+                    .setValue(LEFT, isTableAtEast)
+                    .setValue(RIGHT, isTableAtWest);
         } else {
-            state = state.setValue(ModBlockStateProperties.NORTH_TO_SOUTH, false);
+            state = state.setValue(AXIS, Direction.Axis.Z);
 
-            var east = pos.north();
-            var west = pos.south();
-            var isTableAtEast = isTableBlock(level, east);
-            var isTableAtWest = isTableBlock(level, west);
+            var north = pos.north();
+            var south = pos.south();
+            var isTableAtNorth = isTableBlock(level, north);
+            var isTableAtSouth = isTableBlock(level, south);
 
-            if (isTableAtEast || isTableAtWest) {
-                state = state.setValue(ModBlockStateProperties.LEFT, isTableAtEast);
-                state = state.setValue(ModBlockStateProperties.RIGHT, isTableAtWest);
+            if (isTableAtNorth || isTableAtSouth) {
+                state = state.setValue(LEFT, isTableAtNorth)
+                        .setValue(RIGHT, isTableAtSouth);
             }
         }
 
