@@ -675,6 +675,8 @@ public class BlockRegistry {
             () -> DecorativeBlock.with(BaseBlockProperty.WOOD).shaped(ShapeFunction.centeredSquare(13, 16)).directional().build());
     public static final RegistryObject<Block> LARGE_TABLE = BLOCKS.register("large_table",
             () -> DecorativeBlock.with(BaseBlockProperty.WOOD).shaped(ShapeFunction.centeredSquare(48, 16)).directional().build());
+    public static final RegistryObject<Block> LONG_TABLE = BLOCKS.register("long_table",
+            () -> new LongTableBlock(BaseBlockProperty.WOOD));
 
     // CHAIR
 
