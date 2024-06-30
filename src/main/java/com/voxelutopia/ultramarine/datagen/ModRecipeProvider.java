@@ -1373,6 +1373,17 @@ public class ModRecipeProvider extends RecipeProvider {
                 .unlockedBy("has_plank", tagUnlock(ItemTags.PLANKS))
                 .save(recipeConsumer);
 
+        ShapedRecipeBuilder.shaped(ItemRegistry.LONG_TABLE.get())
+                .define('P', ItemRegistry.ROSEWOOD_PLANKS.get())
+                .define('W', ItemRegistry.POLISHED_ROSEWOOD_PLANK.get())
+                .define('F', ItemRegistry.WOODEN_FRAME.get())
+                .define('S', Items.STICK)
+                .pattern("WWW")
+                .pattern("PPP")
+                .pattern("SFS")
+                .unlockedBy(itemUnlockName(ItemRegistry.POLISHED_ROSEWOOD_PLANK.get()), itemCriterion(ItemRegistry.POLISHED_ROSEWOOD_PLANK.get()))
+                .save(recipeConsumer);
+
         // CHAIR
 
         ShapedRecipeBuilder.shaped(ItemRegistry.EBONY_CHAIR.get())

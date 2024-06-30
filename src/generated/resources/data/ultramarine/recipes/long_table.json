@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "WWW",
+    "PPP",
+    "SFS"
+  ],
+  "key": {
+    "P": {
+      "item": "ultramarine:rosewood_planks"
+    },
+    "W": {
+      "item": "ultramarine:polished_rosewood_plank"
+    },
+    "F": {
+      "item": "ultramarine:wooden_frame"
+    },
+    "S": {
+      "item": "minecraft:stick"
+    }
+  },
+  "result": {
+    "item": "ultramarine:long_table"
+  }
+}

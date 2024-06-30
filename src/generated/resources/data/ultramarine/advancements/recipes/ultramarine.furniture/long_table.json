@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "ultramarine:long_table"
+    ]
+  },
+  "criteria": {
+    "has_polished_rosewood_plank": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "ultramarine:polished_rosewood_plank"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "ultramarine:long_table"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_polished_rosewood_plank",
+      "has_the_recipe"
+    ]
+  ]
+}
