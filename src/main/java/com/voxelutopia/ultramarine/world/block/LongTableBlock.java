@@ -47,8 +47,9 @@ public class LongTableBlock extends Block implements BaseBlockPropertyHolder {
     @Nullable
     @Override
     public BlockState getStateForPlacement(BlockPlaceContext pContext) {
+        Direction.Axis axis = pContext.getHorizontalDirection().getClockWise().getAxis();
         return Objects.requireNonNull(super.getStateForPlacement(pContext))
-                .setValue(AXIS, Direction.Axis.X)
+                .setValue(AXIS, axis)
                 .setValue(LEFT, false)
                 .setValue(RIGHT, false);
     }
