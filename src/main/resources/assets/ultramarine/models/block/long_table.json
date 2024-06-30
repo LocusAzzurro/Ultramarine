@@ -4,7 +4,7 @@
 	"render_type": "cutout",
 	"textures": {
 		"1": "ultramarine:block/long_table_single",
-		"particle": "block/spruce_planks"
+		"particle": "ultramarine:block/rosewood_planks"
 	},
 	"elements": [
 		{
