@@ -316,6 +316,15 @@ public class ModBlockModelProvider extends BlockStateProvider {
                 modLoc(BLOCK + "bookshelf_variant_front"), modLoc(BLOCK + "bookshelf_variant_back"),
                 modLoc(BLOCK + "bookshelf_side"), modLoc(BLOCK + "bookshelf_side")
         ).texture("particle", modLoc(BLOCK + "bookshelf_side")), 0);
+        // FURNITURE
+        getVariantBuilder(BlockRegistry.LONG_TABLE.get()).forAllStates(state -> {
+            var axis = state.getValue(LongTableBlock.AXIS);
+            boolean left = state.getValue(LongTableBlock.LEFT);
+            boolean right = state.getValue(LongTableBlock.RIGHT);
+            String modelName = left ^ right ? left ? "long_table_right" : "long_table_left" : left ? "long_table_middle" : "long_table_single";
+            var model = ConfiguredModel.builder().modelFile(models().getExistingFile(modLoc(BLOCK + modelName)));
+            return axis == Direction.Axis.X ? model.build() : model.rotationY(-90).build();
+        });
         // > DOOR AND WINDOW EXTRA
         simpleBlock(BlockRegistry.STONE_FLOWER_WINDOW.get());
         // > DECO BLOCKS
@@ -378,67 +387,6 @@ public class ModBlockModelProvider extends BlockStateProvider {
         simpleBlock(BlockRegistry.DEEPSLATE_HEMATITE_ORE.get());
         simpleBlock(BlockRegistry.NETHER_COBALT_ORE.get());
 
-        getVariantBuilder(BlockRegistry.LONG_TABLE.get())
-                .partialState()
-                .with(LongTableBlock.AXIS, Direction.Axis.X)
-                .with(LongTableBlock.LEFT, false)
-                .with(LongTableBlock.RIGHT, false)
-                .modelForState()
-                .modelFile(models().getExistingFile(modLoc("block/long_table_single")))
-                .addModel()
-                .partialState()
-                .with(LongTableBlock.AXIS, Direction.Axis.X)
-                .with(LongTableBlock.LEFT, false)
-                .with(LongTableBlock.RIGHT, true)
-                .modelForState()
-                .modelFile(models().getExistingFile(modLoc("block/long_table_left")))
-                .addModel()
-                .partialState()
-                .with(LongTableBlock.AXIS, Direction.Axis.X)
-                .with(LongTableBlock.LEFT, true)
-                .with(LongTableBlock.RIGHT, false)
-                .modelForState()
-                .modelFile(models().getExistingFile(modLoc("block/long_table_right")))
-                .addModel()
-                .partialState()
-                .with(LongTableBlock.AXIS, Direction.Axis.X)
-                .with(LongTableBlock.LEFT, true)
-                .with(LongTableBlock.RIGHT, true)
-                .modelForState()
-                .modelFile(models().getExistingFile(modLoc("block/long_table_middle")))
-                .addModel()
-                .partialState()
-                .with(LongTableBlock.AXIS, Direction.Axis.Z)
-                .with(LongTableBlock.LEFT, false)
-                .with(LongTableBlock.RIGHT, false)
-                .modelForState()
-                .modelFile(models().getExistingFile(modLoc("block/long_table_single")))
-                .rotationY(-90)
-                .addModel()
-                .partialState()
-                .with(LongTableBlock.AXIS, Direction.Axis.Z)
-                .with(LongTableBlock.LEFT, false)
-                .with(LongTableBlock.RIGHT, true)
-                .modelForState()
-                .modelFile(models().getExistingFile(modLoc("block/long_table_left")))
-                .rotationY(-90)
-                .addModel()
-                .partialState()
-                .with(LongTableBlock.AXIS, Direction.Axis.Z)
-                .with(LongTableBlock.LEFT, true)
-                .with(LongTableBlock.RIGHT, false)
-                .modelForState()
-                .modelFile(models().getExistingFile(modLoc("block/long_table_right")))
-                .rotationY(-90)
-                .addModel()
-                .partialState()
-                .with(LongTableBlock.AXIS, Direction.Axis.Z)
-                .with(LongTableBlock.LEFT, true)
-                .with(LongTableBlock.RIGHT, true)
-                .modelForState()
-                .modelFile(models().getExistingFile(modLoc("block/long_table_middle")))
-                .rotationY(-90)
-                .addModel();
     }
 
     private ResourceLocation blockLoc(Block block){
