@@ -101,16 +101,16 @@ public class LongTableBlock extends Block implements BaseBlockPropertyHolder {
                     .setValue(LEFT, isTableAtEast)
                     .setValue(RIGHT, isTableAtWest);
         } else {
-            state = state.setValue(AXIS, Direction.Axis.Z);
-
             var north = pos.north();
             var south = pos.south();
             var isTableAtNorth = isTableBlock(level, north);
             var isTableAtSouth = isTableBlock(level, south);
 
+            state = state.setValue(LEFT, isTableAtNorth)
+                    .setValue(RIGHT, isTableAtSouth);
+
             if (isTableAtNorth || isTableAtSouth) {
-                state = state.setValue(LEFT, isTableAtNorth)
-                        .setValue(RIGHT, isTableAtSouth);
+                state = state.setValue(AXIS, Direction.Axis.Z);
             }
         }
 
