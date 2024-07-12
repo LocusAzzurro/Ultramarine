@@ -7,6 +7,7 @@ import com.voxelutopia.ultramarine.world.block.BaseWall;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.BlockItem;
+import net.minecraft.world.item.DiggerItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraftforge.client.model.generators.ItemModelBuilder;
@@ -31,6 +32,9 @@ public class ModItemModelProvider extends ItemModelProvider {
                         blockRegistryObject.get() instanceof BaseFence
                 ))
                 .forEach(NON_SIMPLE_BLOCKS::add);
+        ItemRegistry.ITEMS.getEntries().stream()
+                .filter(itemRegistryObject -> itemRegistryObject.get() instanceof DiggerItem)
+                .forEach(NON_SIMPLE_ITEMS::add);
     }
 
     public ModItemModelProvider(DataGenerator generator, ExistingFileHelper existingFileHelper) {
@@ -52,11 +56,19 @@ public class ModItemModelProvider extends ItemModelProvider {
                 .filter(blockRegistryObject -> !NON_SIMPLE_ITEMS.contains(blockRegistryObject))
                 .filter(blockRegistryObject -> !(blockRegistryObject.get() instanceof BlockItem))
                 .forEach(this::generatedItem);
+        handheldItem(ItemRegistry.BLUE_AND_WHITE_PORCELAIN_SWORD);
+        handheldItem(ItemRegistry.BLUE_AND_WHITE_PORCELAIN_SHOVEL);
+        handheldItem(ItemRegistry.BLUE_AND_WHITE_PORCELAIN_PICKAXE);
+        handheldItem(ItemRegistry.BLUE_AND_WHITE_PORCELAIN_AXE);
 
     }
 
     private ItemModelBuilder generatedItem(RegistryObject<Item> item){
         return singleTexture(item.get().getRegistryName().getPath(), mcLoc("item/generated"), "layer0", modLoc("item/" + item.get().getRegistryName().getPath()));
+    }
+
+    private ItemModelBuilder handheldItem(RegistryObject<Item> item){
+        return singleTexture(item.get().getRegistryName().getPath(), mcLoc("item/handheld"), "layer0", modLoc("item/" + item.get().getRegistryName().getPath()));
     }
 
     private ItemModelBuilder blockItem(RegistryObject<Block> block){

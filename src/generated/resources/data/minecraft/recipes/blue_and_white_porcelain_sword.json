@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:smithing",
+  "base": {
+    "item": "minecraft:golden_sword"
+  },
+  "addition": {
+    "item": "ultramarine:blue_and_white_porcelain_piece"
+  },
+  "result": {
+    "item": "ultramarine:blue_and_white_porcelain_sword"
+  }
+}

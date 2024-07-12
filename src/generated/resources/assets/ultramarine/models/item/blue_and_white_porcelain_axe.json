@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/handheld",
+  "textures": {
+    "layer0": "ultramarine:item/blue_and_white_porcelain_axe"
+  }
+}

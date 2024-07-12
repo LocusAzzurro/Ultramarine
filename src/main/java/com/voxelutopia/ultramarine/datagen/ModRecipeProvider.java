@@ -1987,6 +1987,10 @@ public class ModRecipeProvider extends RecipeProvider {
                 .pattern(" S ")
                 .unlockedBy("has_fence", tagUnlock(ItemTags.FENCES))
                 .save(recipeConsumer);
+        blueAndWhitePorcelainUpgrade(Items.GOLDEN_SWORD, ItemRegistry.BLUE_AND_WHITE_PORCELAIN_SWORD.get(), recipeConsumer);
+        blueAndWhitePorcelainUpgrade(Items.GOLDEN_SHOVEL, ItemRegistry.BLUE_AND_WHITE_PORCELAIN_SHOVEL.get(), recipeConsumer);
+        blueAndWhitePorcelainUpgrade(Items.GOLDEN_PICKAXE, ItemRegistry.BLUE_AND_WHITE_PORCELAIN_PICKAXE.get(), recipeConsumer);
+        blueAndWhitePorcelainUpgrade(Items.GOLDEN_AXE, ItemRegistry.BLUE_AND_WHITE_PORCELAIN_AXE.get(), recipeConsumer);
         ShapedRecipeBuilder.shaped(ItemRegistry.WOODWORKING_WORKBENCH.get(), 1)
                 .define('P', ItemTags.PLANKS)
                 .define('C', Items.CRAFTING_TABLE)
@@ -2412,6 +2416,11 @@ public class ModRecipeProvider extends RecipeProvider {
         CompositeSmeltingRecipeBuilder.compositeSmelting(Ingredient.of(primary), Ingredient.of(secondary),
                         result, exp, time)
                 .unlockedBy(itemUnlockName(primary), itemCriterion(primary)).save(pFinishedRecipeConsumer);
+    }
+
+    private static void blueAndWhitePorcelainUpgrade(Item from, Item to, Consumer<FinishedRecipe> pFinishedRecipeConsumer){
+        UpgradeRecipeBuilder.smithing(Ingredient.of(from), Ingredient.of(ItemRegistry.BLUE_AND_WHITE_PORCELAIN_PIECE.get()), to)
+                .unlocks(itemUnlockName(ItemRegistry.BLUE_AND_WHITE_PORCELAIN_PIECE.get()), itemCriterion(ItemRegistry.BLUE_AND_WHITE_PORCELAIN_PIECE.get())).save(pFinishedRecipeConsumer, name(to));
     }
 
 

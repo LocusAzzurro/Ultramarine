@@ -3,11 +3,10 @@ package com.voxelutopia.ultramarine.data.registry;
 import com.voxelutopia.ultramarine.Ultramarine;
 import com.voxelutopia.ultramarine.data.ModCreativeTab;
 import com.voxelutopia.ultramarine.data.ModFoods;
+import com.voxelutopia.ultramarine.data.ModTiers;
 import com.voxelutopia.ultramarine.world.item.*;
 import net.minecraft.world.food.FoodProperties;
-import net.minecraft.world.item.BlockItem;
-import net.minecraft.world.item.DyeColor;
-import net.minecraft.world.item.Item;
+import net.minecraft.world.item.*;
 import net.minecraft.world.level.block.Block;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -826,6 +825,14 @@ public class ItemRegistry {
      */
 
     public static final RegistryObject<Item> WOODEN_MALLET = ITEMS.register("wooden_mallet", WoodenMallet::new);
+    public static final RegistryObject<Item> BLUE_AND_WHITE_PORCELAIN_SWORD = ITEMS.register("blue_and_white_porcelain_sword",
+            () -> new SwordItem(ModTiers.BLUE_AND_WHITE_PORCELAIN, 3, -2.4F, new Item.Properties().tab(ModCreativeTab.TOOLS.getTab())));
+    public static final RegistryObject<Item> BLUE_AND_WHITE_PORCELAIN_SHOVEL = ITEMS.register("blue_and_white_porcelain_shovel",
+            () -> new ShovelItem(ModTiers.BLUE_AND_WHITE_PORCELAIN, 1.5F, -3.0F, new Item.Properties().tab(ModCreativeTab.TOOLS.getTab())));
+    public static final RegistryObject<Item> BLUE_AND_WHITE_PORCELAIN_PICKAXE = ITEMS.register("blue_and_white_porcelain_pickaxe",
+            () -> new PickaxeItem(ModTiers.BLUE_AND_WHITE_PORCELAIN, 1, -2.8F, new Item.Properties().tab(ModCreativeTab.TOOLS.getTab())));
+    public static final RegistryObject<Item> BLUE_AND_WHITE_PORCELAIN_AXE = ITEMS.register("blue_and_white_porcelain_axe",
+            () -> new AxeItem(ModTiers.BLUE_AND_WHITE_PORCELAIN, 6.0F, -3.0F, new Item.Properties().tab(ModCreativeTab.TOOLS.getTab())));
     public static final RegistryObject<Item> WOODWORKING_WORKBENCH = fromBlock(BlockRegistry.WOODWORKING_WORKBENCH, ModCreativeTab.TOOLS);
     public static final RegistryObject<Item> BRICK_KILN = fromBlock(BlockRegistry.BRICK_KILN, ModCreativeTab.TOOLS);
     public static final RegistryObject<Item> CHISEL_TABLE = fromBlock(BlockRegistry.CHISEL_TABLE, ModCreativeTab.TOOLS);
