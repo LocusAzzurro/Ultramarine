@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "ultramarine:blue_and_white_porcelain_bowl"
+    ]
+  },
+  "criteria": {
+    "has_clay_bowl": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "ultramarine:clay_bowl"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "ultramarine:blue_and_white_porcelain_bowl"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_clay_bowl",
+      "has_the_recipe"
+    ]
+  ]
+}

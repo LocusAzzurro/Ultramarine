@@ -846,13 +846,11 @@ public class ModRecipeProvider extends RecipeProvider {
                 .pattern("PP")
                 .unlockedBy("has_polished_plank", tagUnlock(ModItemTags.POLISHED_PLANKS))
                 .save(recipeConsumer);
-        /* todo
-            BLUE_AND_WHITE_PORCELAIN_VASE
-            LARGE_BLUE_AND_WHITE_PORCELAIN_VASE
-            SHORT_BLUE_AND_WHITE_PORCELAIN_POT
-            TALL_BLUE_AND_WHITE_PORCELAIN_POT
-            BLUE_AND_WHITE_PORCELAIN_BOWL
-         */
+        compositeSmelting(ItemRegistry.BLUE_AND_WHITE_PORCELAIN_VASE.get(), ItemRegistry.MEDIUM_CLAY_VASE.get(), ItemRegistry.BLUE_AND_WHITE_GLAZE_POWDER.get(), 0.1f, 200, recipeConsumer);
+        compositeSmelting(ItemRegistry.LARGE_BLUE_AND_WHITE_PORCELAIN_VASE.get(), ItemRegistry.LARGE_CLAY_VASE.get(), ItemRegistry.BLUE_AND_WHITE_GLAZE_POWDER.get(), 0.1f, 200, recipeConsumer);
+        compositeSmelting(ItemRegistry.SHORT_BLUE_AND_WHITE_PORCELAIN_POT.get(), ItemRegistry.CLAY_POT.get(), ItemRegistry.BLUE_AND_WHITE_GLAZE_POWDER.get(), 0.1f, 200, recipeConsumer);
+        compositeSmelting(ItemRegistry.TALL_BLUE_AND_WHITE_PORCELAIN_POT.get(), ItemRegistry.TALL_CLAY_POT.get(), ItemRegistry.BLUE_AND_WHITE_GLAZE_POWDER.get(), 0.1f, 200, recipeConsumer);
+        compositeSmelting(ItemRegistry.BLUE_AND_WHITE_PORCELAIN_BOWL.get(), ItemRegistry.CLAY_BOWL.get(), ItemRegistry.BLUE_AND_WHITE_GLAZE_POWDER.get(), 0.1f, 200, recipeConsumer);
         ShapedRecipeBuilder.shaped(ItemRegistry.BRONZE_MIRROR.get())
                 .define('I', ItemRegistry.BRONZE_INGOT.get())
                 .define('P', ItemRegistry.BRONZE_PARTS.get())
@@ -1820,6 +1818,33 @@ public class ModRecipeProvider extends RecipeProvider {
                 .pattern("O")
                 .unlockedBy(itemUnlockName(Items.CLAY), itemCriterion(Items.CLAY))
                 .save(recipeConsumer);
+        ShapedRecipeBuilder.shaped(ItemRegistry.CLAY_POT.get(), 1)
+                .define('O', Items.CLAY)
+                .define('o', Items.CLAY_BALL)
+                .pattern("o o")
+                .pattern(" O ")
+                .unlockedBy(itemUnlockName(Items.CLAY), itemCriterion(Items.CLAY))
+                .save(recipeConsumer);
+        ShapedRecipeBuilder.shaped(ItemRegistry.TALL_CLAY_POT.get(), 1)
+                .define('O', Items.CLAY)
+                .define('o', Items.CLAY_BALL)
+                .pattern("o o")
+                .pattern("o o")
+                .pattern(" O ")
+                .unlockedBy(itemUnlockName(Items.CLAY), itemCriterion(Items.CLAY))
+                .save(recipeConsumer);
+        ShapedRecipeBuilder.shaped(ItemRegistry.CLAY_PLATE.get(), 1)
+                .define('O', Items.CLAY)
+                .define('o', Items.CLAY_BALL)
+                .pattern("oOo")
+                .unlockedBy(itemUnlockName(Items.CLAY), itemCriterion(Items.CLAY))
+                .save(recipeConsumer);
+        ShapedRecipeBuilder.shaped(ItemRegistry.CLAY_BOWL.get(), 1)
+                .define('o', Items.CLAY_BALL)
+                .pattern("o o")
+                .pattern(" o ")
+                .unlockedBy(itemUnlockName(Items.CLAY), itemCriterion(Items.CLAY))
+                .save(recipeConsumer);
         compositeSmelting(ItemRegistry.SMALL_WHITE_PORCELAIN_VASE.get(), ItemRegistry.SMALL_CLAY_VASE.get(), Items.WHITE_DYE, 0.1f, 200, recipeConsumer);
         compositeSmelting(ItemRegistry.MEDIUM_WHITE_PORCELAIN_VASE.get(), ItemRegistry.MEDIUM_CLAY_VASE.get(), Items.WHITE_DYE, 0.1f, 200, recipeConsumer);
         compositeSmelting(ItemRegistry.LARGE_WHITE_PORCELAIN_VASE.get(), ItemRegistry.LARGE_CLAY_VASE.get(), Items.WHITE_DYE, 0.1f, 200, recipeConsumer);
@@ -1827,6 +1852,8 @@ public class ModRecipeProvider extends RecipeProvider {
         compositeSmelting(ItemRegistry.MEDIUM_GREEN_PORCELAIN_VASE.get(), ItemRegistry.MEDIUM_CLAY_VASE.get(), Items.GREEN_DYE, 0.1f, 200, recipeConsumer);
         compositeSmelting(ItemRegistry.TALL_BLUE_PORCELAIN_VASE.get(), ItemRegistry.TALL_CLAY_VASE.get(), Items.BLUE_DYE, 0.1f, 200, recipeConsumer);
         compositeSmelting(ItemRegistry.TALL_BLUE_AND_WHITE_PORCELAIN_VASE.get(), ItemRegistry.TALL_CLAY_VASE.get(), ItemRegistry.BLUE_AND_WHITE_GLAZE_POWDER.get(), 0.1f, 200, recipeConsumer);
+        compositeSmelting(ItemRegistry.BLACK_PORCELAIN_PLATE.get(), ItemRegistry.CLAY_PLATE.get(), Items.BLACK_DYE, 0.1f, 200, recipeConsumer);
+        compositeSmelting(ItemRegistry.BLUE_AND_WHITE_PORCELAIN_PLATE.get(), ItemRegistry.CLAY_PLATE.get(), ItemRegistry.BLUE_AND_WHITE_GLAZE_POWDER.get(), 0.1f, 200, recipeConsumer);
 
         // PORCELAIN
 

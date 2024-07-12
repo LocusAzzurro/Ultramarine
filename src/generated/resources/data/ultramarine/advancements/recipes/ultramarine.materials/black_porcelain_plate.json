@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "ultramarine:black_porcelain_plate"
+    ]
+  },
+  "criteria": {
+    "has_clay_plate": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "ultramarine:clay_plate"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "ultramarine:black_porcelain_plate"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_clay_plate",
+      "has_the_recipe"
+    ]
+  ]
+}
