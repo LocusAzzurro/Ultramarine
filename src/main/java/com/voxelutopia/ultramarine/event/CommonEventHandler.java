@@ -238,8 +238,8 @@ public class CommonEventHandler {
             ));
             trades.get(4).add(($1, $2) -> new MerchantOffer(
                     new ItemStack(Items.EMERALD, 20),
-                    new ItemStack(ItemRegistry.EMPTY_BAMBOO_TEA_BASKET.get(), 4),
-                    new ItemStack(ItemRegistry.BAMBOO_TEA_BASKET.get(), 8),
+                    new ItemStack(ItemRegistry.EMPTY_BAMBOO_TEA_BASKET.get(), 1),
+                    new ItemStack(ItemRegistry.BAMBOO_TEA_BASKET.get(), 1),
                     4, 10, 0.05f
             ));
         }
