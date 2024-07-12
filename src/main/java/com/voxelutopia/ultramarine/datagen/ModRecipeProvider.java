@@ -932,7 +932,24 @@ public class ModRecipeProvider extends RecipeProvider {
         // Bottle Gourd sold by Cook
 
         // FLOWER POTS
-        // todo flowerpot items
+
+        compositeSmelting(ItemRegistry.BLUE_AND_WHITE_PORCELAIN_FLOWERPOT.get(), Items.FLOWER_POT, ItemRegistry.BLUE_AND_WHITE_GLAZE_POWDER.get(), 0.1f, 200, recipeConsumer);
+        ShapedRecipeBuilder.shaped(ItemRegistry.TERRACOTTA_FLOWERPOT.get())
+                .define('P', Items.FLOWER_POT)
+                .define('T', Items.TERRACOTTA)
+                .pattern("T T")
+                .pattern("TPT")
+                .unlockedBy(itemUnlockName(Items.FLOWER_POT), itemCriterion(Items.FLOWER_POT))
+                .save(recipeConsumer);
+        ShapedRecipeBuilder.shaped(ItemRegistry.BLACK_IRON_FLOWERPOT.get())
+                .define('P', Items.FLOWER_POT)
+                .define('I', Items.IRON_INGOT)
+                .define('D', Items.BLACK_DYE)
+                .pattern("IDI")
+                .pattern("IPI")
+                .unlockedBy(itemUnlockName(Items.FLOWER_POT), itemCriterion(Items.FLOWER_POT))
+                .save(recipeConsumer);
+        compositeSmelting(ItemRegistry.BLUE_PORCELAIN_FLOWERPOT.get(), Items.FLOWER_POT, Items.BLUE_DYE, 0.1f, 200, recipeConsumer);
 
         // COURTYARD
 
