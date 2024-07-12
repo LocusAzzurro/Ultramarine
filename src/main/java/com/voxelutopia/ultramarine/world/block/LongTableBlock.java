@@ -1,6 +1,10 @@
 package com.voxelutopia.ultramarine.world.block;
 
+import com.voxelutopia.ultramarine.data.shape.BlockShapes;
+import com.voxelutopia.ultramarine.data.shape.RawVoxelShape;
+import com.voxelutopia.ultramarine.data.shape.ShapeFunction;
 import com.voxelutopia.ultramarine.world.block.state.ModBlockStateProperties;
+import net.minecraft.Util;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.item.context.BlockPlaceContext;
@@ -12,6 +16,7 @@ import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.level.block.state.properties.EnumProperty;
 import net.minecraft.world.phys.shapes.CollisionContext;
+import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import org.jetbrains.annotations.Nullable;
 
@@ -19,6 +24,7 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
+import java.util.function.Function;
 
 public class LongTableBlock extends Block implements BaseBlockPropertyHolder {
 
@@ -27,6 +33,27 @@ public class LongTableBlock extends Block implements BaseBlockPropertyHolder {
     public static final BooleanProperty RIGHT = ModBlockStateProperties.RIGHT;
 
     protected final BaseBlockProperty property;
+
+    private static final RawVoxelShape SURFACE = new RawVoxelShape(0,14,0,16,16,16);
+    private static final RawVoxelShape SURFACE_SINGLE_X = new RawVoxelShape(-4,14,0,20,16,16);
+    private static final RawVoxelShape LEGS_SINGLE_X_LEFT = new RawVoxelShape(17.5,0,0.5,19.5,16,15.5);
+    private static final RawVoxelShape LEGS_LONG_X_LEFT = new RawVoxelShape(13.5,0,0.5,15.5,16,15.5);
+
+    private static final Function<BlockState, VoxelShape> SHAPE_FUNCTION = Util.memoize(blockstate -> {
+        boolean left = blockstate.getValue(LEFT);
+        boolean right = blockstate.getValue(RIGHT);
+        boolean x = blockstate.getValue(AXIS) == Direction.Axis.X;
+        if (left && right) return SURFACE.copy().toVoxelShape();
+        else if (!(left || right)) return x ?
+                Shapes.or(SURFACE_SINGLE_X.copy().toVoxelShape(), LEGS_SINGLE_X_LEFT.copy().toVoxelShape(), LEGS_SINGLE_X_LEFT.copy().mirrorZ().toVoxelShape()) :
+                Shapes.or(SURFACE_SINGLE_X.copy().rotateY(90).toVoxelShape(), LEGS_SINGLE_X_LEFT.copy().rotateY(90).toVoxelShape(), LEGS_SINGLE_X_LEFT.copy().mirrorZ().rotateY(90).toVoxelShape());
+        else if (right) return x ?
+                Shapes.or(SURFACE.copy().toVoxelShape(), LEGS_LONG_X_LEFT.copy().toVoxelShape()) :
+                Shapes.or(SURFACE.copy().toVoxelShape(), LEGS_LONG_X_LEFT.copy().rotateY(90).toVoxelShape());
+        else return x ?
+                Shapes.or(SURFACE.copy().toVoxelShape(), LEGS_LONG_X_LEFT.copy().mirrorZ().toVoxelShape()) :
+                Shapes.or(SURFACE.copy().toVoxelShape(), LEGS_LONG_X_LEFT.copy().mirrorZ().rotateY(90).toVoxelShape());
+    });
 
     public LongTableBlock(BaseBlockProperty property) {
         super(property.properties);
@@ -132,7 +159,6 @@ public class LongTableBlock extends Block implements BaseBlockPropertyHolder {
 
     @Override
     public VoxelShape getShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
-        // Todo: voxel shape for long table.
-        return super.getShape(pState, pLevel, pPos, pContext);
+        return SHAPE_FUNCTION.apply(pState);
     }
 }
