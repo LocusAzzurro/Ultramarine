@@ -72,7 +72,6 @@ public abstract class BaseLootTableProvider extends LootTableProvider {
         return LootTable.lootTable().withPool(builder);
     }
 
-    //todo add fortune modifier
     protected LootTable.Builder createSingleItemTable(String name, Block block, Item drops) {
         LootPool.Builder builder = LootPool.lootPool()
                 .name(name)

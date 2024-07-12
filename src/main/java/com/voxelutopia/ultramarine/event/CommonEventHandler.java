@@ -414,7 +414,6 @@ public class CommonEventHandler {
                 new ItemStack(ItemRegistry.BLUE_AND_WHITE_PORCELAIN_VASE.get(), 1),
                 1, 30, 0.05f
         ));
-        //todo move some trades to special trader
 
     }
 
