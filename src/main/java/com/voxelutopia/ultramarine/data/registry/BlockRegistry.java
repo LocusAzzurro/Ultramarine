@@ -605,10 +605,10 @@ public class BlockRegistry {
 
     public static final RegistryObject<Block> FOOD_HAMPER = BLOCKS.register("food_hamper",
             () -> ContainerDecorativeBlock.with(BaseBlockProperty.WOOD).content(ContainerType.FOOD_LARGE).shaped(ShapeFunction.diagonalSquare(7, 15)).directional().diagonallyPlaceable().build());
-    public static final RegistryObject<Block> PLATED_MOONCAKES = BLOCKS.register("plated_mooncakes", //todo change stone slab plate to actual block
-            () -> ConsumableDecorativeBlock.with(BaseBlockProperty.PORCELAIN).bites(4).platedWith(Blocks.STONE_SLAB).food(ModFoods.MOONCAKE).shaped(BlockShapes.S16_H1).directional().build());
+    public static final RegistryObject<Block> PLATED_MOONCAKES = BLOCKS.register("plated_mooncakes",
+            () -> ConsumableDecorativeBlock.with(BaseBlockProperty.PORCELAIN).bites(4).platedWith(ItemRegistry.BLUE_AND_WHITE_PORCELAIN_PLATE).food(ModFoods.MOONCAKE).shaped(BlockShapes.S16_H1).directional().build());
     public static final RegistryObject<Block> PLATED_MUNG_BEAN_CAKES = BLOCKS.register("plated_mung_bean_cakes",
-            () -> ConsumableDecorativeBlock.with(BaseBlockProperty.GLAZED).bites(7).platedWith(Blocks.STONE_SLAB).food(ModFoods.MUNG_BEAN_CAKE)
+            () -> ConsumableDecorativeBlock.with(BaseBlockProperty.GLAZED).bites(7).platedWith(ItemRegistry.BLACK_PORCELAIN_PLATE).food(ModFoods.MUNG_BEAN_CAKE)
                     .shaped(ShapeFunction.cardinalRotations(new RawVoxelShape(0,0,2,16,1,14))).directional().noOcclusion().build());
     public static final RegistryObject<Block> PLATED_HAM = BLOCKS.register("plated_ham",
             () -> ConsumableDecorativeBlock.with(BaseBlockProperty.WOOD).bites(4).platedWith(ItemRegistry.POLISHED_OAK_PLANK).food(ModFoods.COOKED_MEAT).shaped(BlockShapes.S16_H1).directional().noOcclusion().build());
@@ -620,9 +620,9 @@ public class BlockRegistry {
                     .shaped(BlockShapes.S16_H4).directional().noOcclusion().build());
     public static final RegistryObject<Block> WINE_POT = BLOCKS.register("wine_pot",
             () -> DecorativeBlock.with(BaseBlockProperty.PORCELAIN).shaped(ShapeFunction.centeredSquare(6, 17)).directional().build());
-    public static final RegistryObject<Block> XIAOLONGBAO = BLOCKS.register("xiaolongbao", //TODO xiaolongbao 8 bites in one block, return 2 containers
-            () -> ConsumableDecorativeBlock.with(BaseBlockProperty.BAMBOO).bites(8).platedWith(ItemRegistry.POLISHED_OAK_PLANK).food(ModFoods.BAOZI)
-                    .whenFinished((pState, pLevel, pPos, pPlayer) -> {pLevel.setBlock(pPos, Blocks.AIR.defaultBlockState(), Block.UPDATE_ALL); pLevel.gameEvent(pPlayer, GameEvent.BLOCK_DESTROY, pPos);})
+    public static final RegistryObject<Block> XIAOLONGBAO = BLOCKS.register("xiaolongbao",
+            () -> ConsumableDecorativeBlock.with(BaseBlockProperty.BAMBOO).bites(8).platedWith(ItemRegistry.BAMBOO_MAT_SLAB).food(ModFoods.BAOZI)
+                    //.whenFinished((pState, pLevel, pPos, pPlayer) -> {pLevel.setBlock(pPos, Blocks.AIR.defaultBlockState(), Block.UPDATE_ALL); pLevel.gameEvent(pPlayer, GameEvent.BLOCK_DESTROY, pPos);})
                     .shaped(ShapeFunction.of(state -> state.getValue(ModBlockStateProperties.BITES) <= 4 ? Block.box(0,0,0,16,8,16) : BlockShapes.S16_H16.apply(state))).noOcclusion().directional().build());
 
     // ICE

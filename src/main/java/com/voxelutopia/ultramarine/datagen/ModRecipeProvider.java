@@ -1069,6 +1069,36 @@ public class ModRecipeProvider extends RecipeProvider {
                 .pattern("PCP")
                 .unlockedBy(itemUnlockName(Items.CHEST), itemCriterion(Items.CHEST))
                 .save(recipeConsumer);
+        ShapelessRecipeBuilder.shapeless(ItemRegistry.PLATED_MOON_CAKES.get())
+                .requires(ItemRegistry.BLUE_AND_WHITE_PORCELAIN_PLATE.get())
+                .requires(ItemRegistry.MOONCAKE.get(), 4)
+                .unlockedBy(itemUnlockName(ItemRegistry.MOONCAKE.get()), itemCriterion(ItemRegistry.MOONCAKE.get()))
+                .save(recipeConsumer);
+        ShapelessRecipeBuilder.shapeless(ItemRegistry.PLATED_MUNG_BEAN_CAKES.get())
+                .requires(ItemRegistry.BLACK_PORCELAIN_PLATE.get())
+                .requires(ItemRegistry.MUNG_BEAN_CAKE.get(), 7)
+                .unlockedBy(itemUnlockName(ItemRegistry.MUNG_BEAN_CAKE.get()), itemCriterion(ItemRegistry.MUNG_BEAN_CAKE.get()))
+                .save(recipeConsumer);
+        ShapelessRecipeBuilder.shapeless(ItemRegistry.PLATED_HAM.get())
+                .requires(ItemRegistry.POLISHED_OAK_PLANK.get())
+                .requires(ItemRegistry.COOKED_MEAT.get(), 4)
+                .unlockedBy(itemUnlockName(ItemRegistry.COOKED_MEAT.get()), itemCriterion(ItemRegistry.COOKED_MEAT.get()))
+                .save(recipeConsumer);
+        ShapelessRecipeBuilder.shapeless(ItemRegistry.PLATED_FISH.get())
+                .requires(ItemRegistry.POLISHED_OAK_PLANK.get())
+                .requires(Ingredient.of(ItemTags.FISHES), 3)
+                .unlockedBy("has_fish", tagUnlock(ItemTags.FISHES))
+                .save(recipeConsumer);
+        ShapelessRecipeBuilder.shapeless(ItemRegistry.SCATTERED_CARROTS.get())
+                .requires(ItemRegistry.POLISHED_OAK_PLANK.get())
+                .requires(Items.CARROT, 2)
+                .unlockedBy(itemUnlockName(Items.CARROT), itemCriterion(Items.CARROT))
+                .save(recipeConsumer);
+        ShapelessRecipeBuilder.shapeless(ItemRegistry.XIAOLONGBAO.get())
+                .requires(ItemRegistry.BAMBOO_MAT_SLAB.get())
+                .requires(ItemRegistry.BAOZI.get(), 8)
+                .unlockedBy(itemUnlockName(ItemRegistry.BAOZI.get()), itemCriterion(ItemRegistry.BAOZI.get()))
+                .save(recipeConsumer);
 
         // ICE
 

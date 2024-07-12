@@ -1,0 +1,33 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "ultramarine:plated_fish"
+    ]
+  },
+  "criteria": {
+    "has_fish": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [],
+            "tag": "minecraft:fishes"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "ultramarine:plated_fish"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_fish",
+      "has_the_recipe"
+    ]
+  ]
+}

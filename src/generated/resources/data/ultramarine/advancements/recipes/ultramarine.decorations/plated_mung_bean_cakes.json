@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "ultramarine:plated_mung_bean_cakes"
+    ]
+  },
+  "criteria": {
+    "has_mung_bean_cake": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "ultramarine:mung_bean_cake"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "ultramarine:plated_mung_bean_cakes"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_mung_bean_cake",
+      "has_the_recipe"
+    ]
+  ]
+}

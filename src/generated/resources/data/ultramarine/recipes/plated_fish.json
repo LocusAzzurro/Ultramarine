@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "ultramarine:polished_oak_plank"
+    },
+    {
+      "tag": "minecraft:fishes"
+    },
+    {
+      "tag": "minecraft:fishes"
+    },
+    {
+      "tag": "minecraft:fishes"
+    }
+  ],
+  "result": {
+    "item": "ultramarine:plated_fish"
+  }
+}

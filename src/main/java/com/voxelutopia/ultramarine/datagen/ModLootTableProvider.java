@@ -65,7 +65,6 @@ public class ModLootTableProvider extends BaseLootTableProvider {
         abundantOre(BlockRegistry.DEEPSLATE_MAGNESITE_ORE, ItemRegistry.MAGNESITE);
         ore(BlockRegistry.NETHER_COBALT_ORE, ItemRegistry.RAW_COBALT);
 
-        porcelainWithShards(BlockRegistry.BLUE_AND_WHITE_PORCELAIN_FLOWERPOT, ItemRegistry.BLUE_AND_WHITE_PORCELAIN_PIECE, ItemRegistry.BLUE_AND_WHITE_PORCELAIN_SHARDS);
         porcelainWithShards(BlockRegistry.BLUE_AND_WHITE_PORCELAIN_VASE, ItemRegistry.BLUE_AND_WHITE_PORCELAIN_PIECE, ItemRegistry.BLUE_AND_WHITE_PORCELAIN_SHARDS);
         porcelainWithShards(BlockRegistry.LARGE_BLUE_AND_WHITE_PORCELAIN_VASE, ItemRegistry.BLUE_AND_WHITE_PORCELAIN_PIECE, ItemRegistry.BLUE_AND_WHITE_PORCELAIN_SHARDS);
         porcelainWithShards(BlockRegistry.SHORT_BLUE_AND_WHITE_PORCELAIN_POT, ItemRegistry.BLUE_AND_WHITE_PORCELAIN_PIECE, ItemRegistry.BLUE_AND_WHITE_PORCELAIN_SHARDS);
@@ -79,6 +78,7 @@ public class ModLootTableProvider extends BaseLootTableProvider {
         porcelainPlate(BlockRegistry.PLATED_MUNG_BEAN_CAKES, ItemRegistry.PORCELAIN_PIECE);
         plateDrop(BlockRegistry.PLATED_HAM);
         plateDrop(BlockRegistry.PLATED_FISH);
+        plateDrop(BlockRegistry.XIAOLONGBAO);
 
         porcelain(BlockRegistry.SMALL_WHITE_PORCELAIN_VASE_BONSAI, ItemRegistry.PORCELAIN_PIECE);
         porcelain(BlockRegistry.MEDIUM_WHITE_PORCELAIN_VASE_BONSAI, ItemRegistry.PORCELAIN_PIECE);
@@ -137,13 +137,13 @@ public class ModLootTableProvider extends BaseLootTableProvider {
     }
 
     void porcelainPlate(RegistryObject<? extends Block> block, RegistryObject<? extends Item> piece) {
-        if (block.get() instanceof ConsumableDecorativeBlock consumable && consumable.getPlate().getItem() instanceof BlockItem)
+        if (block.get() instanceof ConsumableDecorativeBlock consumable)
             addLootTable(block.get(), createPorcelainDrop(block.getId().getPath(), consumable.getPlate().getItem(), piece.get()));
         else LOGGER.warn("Porcelain plate loot table was not added for block " + block.get().getDescriptionId());
     }
 
     void porcelainPlateWithShards(RegistryObject<? extends Block> block, RegistryObject<? extends Item> piece, RegistryObject<? extends Item> shards) {
-        if (block.get() instanceof ConsumableDecorativeBlock consumable && consumable.getPlate().getItem() instanceof BlockItem)
+        if (block.get() instanceof ConsumableDecorativeBlock consumable)
             addLootTable(block.get(), createPorcelainDropWithShard(block.getId().getPath(), consumable.getPlate().getItem(), piece.get(), shards.get()));
         else LOGGER.warn("Porcelain plate loot table was not added for block " + block.get().getDescriptionId());
     }

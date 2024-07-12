@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "ultramarine:polished_oak_plank"
+    },
+    {
+      "item": "ultramarine:cooked_meat"
+    },
+    {
+      "item": "ultramarine:cooked_meat"
+    },
+    {
+      "item": "ultramarine:cooked_meat"
+    },
+    {
+      "item": "ultramarine:cooked_meat"
+    }
+  ],
+  "result": {
+    "item": "ultramarine:plated_ham"
+  }
+}
