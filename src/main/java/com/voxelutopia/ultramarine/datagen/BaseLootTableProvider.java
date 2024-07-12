@@ -136,7 +136,7 @@ public abstract class BaseLootTableProvider extends LootTableProvider {
     }
 
 
-    protected static LootTable.Builder createPorcelainDropWithShard(String name, Block block, Item piece, Item shard) {
+    protected static LootTable.Builder createPorcelainDropWithShard(String name, ItemLike block, ItemLike piece, ItemLike shard) {
         return LootTable.lootTable()
                 .withPool(LootPool.lootPool().name(name)
                 .setRolls(ConstantValue.exactly(1.0F))
@@ -145,7 +145,7 @@ public abstract class BaseLootTableProvider extends LootTableProvider {
                 .otherwise(LootItem.lootTableItem(shard).apply(SetItemCountFunction.setCount(BinomialDistributionGenerator.binomial(3, 0.5F))))));
     }
 
-    protected static LootTable.Builder createPorcelainDrop(String name, Block block, Item piece) {
+    protected static LootTable.Builder createPorcelainDrop(String name, ItemLike block, ItemLike piece) {
         return LootTable.lootTable()
                 .withPool(LootPool.lootPool().name(name)
                 .setRolls(ConstantValue.exactly(1.0F))

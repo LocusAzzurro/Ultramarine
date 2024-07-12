@@ -66,17 +66,17 @@ public class ModLootTableProvider extends BaseLootTableProvider {
         ore(BlockRegistry.NETHER_COBALT_ORE, ItemRegistry.RAW_COBALT);
 
         porcelainWithShards(BlockRegistry.BLUE_AND_WHITE_PORCELAIN_FLOWERPOT, ItemRegistry.BLUE_AND_WHITE_PORCELAIN_PIECE, ItemRegistry.BLUE_AND_WHITE_PORCELAIN_SHARDS);
-        //todo blue porcelain flowerpot
         porcelainWithShards(BlockRegistry.BLUE_AND_WHITE_PORCELAIN_VASE, ItemRegistry.BLUE_AND_WHITE_PORCELAIN_PIECE, ItemRegistry.BLUE_AND_WHITE_PORCELAIN_SHARDS);
         porcelainWithShards(BlockRegistry.LARGE_BLUE_AND_WHITE_PORCELAIN_VASE, ItemRegistry.BLUE_AND_WHITE_PORCELAIN_PIECE, ItemRegistry.BLUE_AND_WHITE_PORCELAIN_SHARDS);
         porcelainWithShards(BlockRegistry.SHORT_BLUE_AND_WHITE_PORCELAIN_POT, ItemRegistry.BLUE_AND_WHITE_PORCELAIN_PIECE, ItemRegistry.BLUE_AND_WHITE_PORCELAIN_SHARDS);
         porcelainWithShards(BlockRegistry.TALL_BLUE_AND_WHITE_PORCELAIN_POT, ItemRegistry.BLUE_AND_WHITE_PORCELAIN_PIECE, ItemRegistry.BLUE_AND_WHITE_PORCELAIN_SHARDS);
         porcelainWithShards(BlockRegistry.BLUE_AND_WHITE_PORCELAIN_BOWL, ItemRegistry.BLUE_AND_WHITE_PORCELAIN_PIECE, ItemRegistry.BLUE_AND_WHITE_PORCELAIN_SHARDS);
         porcelain(BlockRegistry.PORCELAIN_TEAPOT, ItemRegistry.PORCELAIN_PIECE);
+        porcelainWithShards(BlockRegistry.BLUE_AND_WHITE_PORCELAIN_FLOWERPOT, ItemRegistry.BLUE_AND_WHITE_PORCELAIN_PIECE, ItemRegistry.BLUE_AND_WHITE_PORCELAIN_SHARDS);
+        porcelain(BlockRegistry.BLUE_PORCELAIN_FLOWERPOT, ItemRegistry.PORCELAIN_PIECE);
         porcelainWithShards(BlockRegistry.WINE_POT, ItemRegistry.BLUE_AND_WHITE_PORCELAIN_PIECE, ItemRegistry.BLUE_AND_WHITE_PORCELAIN_SHARDS);
-        porcelainPlate(BlockRegistry.PLATED_MOONCAKES, ItemRegistry.BLUE_AND_WHITE_PORCELAIN_PIECE, ItemRegistry.BLUE_AND_WHITE_PORCELAIN_SHARDS);
-
-        plateDrop(BlockRegistry.PLATED_MUNG_BEAN_CAKES);
+        porcelainPlateWithShards(BlockRegistry.PLATED_MOONCAKES, ItemRegistry.BLUE_AND_WHITE_PORCELAIN_PIECE, ItemRegistry.BLUE_AND_WHITE_PORCELAIN_SHARDS);
+        porcelainPlate(BlockRegistry.PLATED_MUNG_BEAN_CAKES, ItemRegistry.PORCELAIN_PIECE);
         plateDrop(BlockRegistry.PLATED_HAM);
         plateDrop(BlockRegistry.PLATED_FISH);
 
@@ -136,9 +136,15 @@ public class ModLootTableProvider extends BaseLootTableProvider {
         addLootTable(block.get(), createPorcelainDropWithShard(block.getId().getPath(), block.get(), piece.get(), shards.get()));
     }
 
-    void porcelainPlate(RegistryObject<? extends Block> block, RegistryObject<? extends Item> piece, RegistryObject<? extends Item> shards) {
-        if (block.get() instanceof ConsumableDecorativeBlock consumable && consumable.getPlate().getItem() instanceof BlockItem blockItem)
-            addLootTable(block.get(), createPorcelainDropWithShard(block.getId().getPath(), blockItem.getBlock(), piece.get(), shards.get()));
+    void porcelainPlate(RegistryObject<? extends Block> block, RegistryObject<? extends Item> piece) {
+        if (block.get() instanceof ConsumableDecorativeBlock consumable && consumable.getPlate().getItem() instanceof BlockItem)
+            addLootTable(block.get(), createPorcelainDrop(block.getId().getPath(), consumable.getPlate().getItem(), piece.get()));
+        else LOGGER.warn("Porcelain plate loot table was not added for block " + block.get().getDescriptionId());
+    }
+
+    void porcelainPlateWithShards(RegistryObject<? extends Block> block, RegistryObject<? extends Item> piece, RegistryObject<? extends Item> shards) {
+        if (block.get() instanceof ConsumableDecorativeBlock consumable && consumable.getPlate().getItem() instanceof BlockItem)
+            addLootTable(block.get(), createPorcelainDropWithShard(block.getId().getPath(), consumable.getPlate().getItem(), piece.get(), shards.get()));
         else LOGGER.warn("Porcelain plate loot table was not added for block " + block.get().getDescriptionId());
     }
 
