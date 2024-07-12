@@ -960,7 +960,17 @@ public class ModRecipeProvider extends RecipeProvider {
                 .pattern("SSS")
                 .unlockedBy(itemUnlockName(ItemRegistry.SILK.get()), itemCriterion(ItemRegistry.SILK.get()))
                 .save(recipeConsumer);
-        // tea basket todo tea item
+        ShapedRecipeBuilder.shaped(ItemRegistry.EMPTY_BAMBOO_TEA_BASKET.get())
+                .define('B', Items.BAMBOO)
+                .define('P', ItemTags.PLANKS)
+                .define('R', Items.RED_DYE)
+                .define('X', ItemRegistry.XUAN_PAPER.get())
+                .pattern("BRB")
+                .pattern("PXP")
+                .pattern("BPB")
+                .unlockedBy(itemUnlockName(Items.BAMBOO), itemCriterion(Items.BAMBOO))
+                .save(recipeConsumer);
+        // Full Tea Basket via Farmer trade
         ShapedRecipeBuilder.shaped(ItemRegistry.STRAW_HAT.get())
                 .define('W', Items.WHEAT)
                 .define('S', ItemRegistry.SILK.get())

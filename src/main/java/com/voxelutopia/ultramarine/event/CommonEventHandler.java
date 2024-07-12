@@ -236,6 +236,12 @@ public class CommonEventHandler {
                     new ItemStack(ItemRegistry.POLISHED_EBONY_PLANK.get(), 8),
                     12, 5, 0.05f
             ));
+            trades.get(4).add(($1, $2) -> new MerchantOffer(
+                    new ItemStack(Items.EMERALD, 20),
+                    new ItemStack(ItemRegistry.EMPTY_BAMBOO_TEA_BASKET.get(), 4),
+                    new ItemStack(ItemRegistry.BAMBOO_TEA_BASKET.get(), 8),
+                    4, 10, 0.05f
+            ));
         }
 
         if (profession == VillagerProfession.LIBRARIAN){

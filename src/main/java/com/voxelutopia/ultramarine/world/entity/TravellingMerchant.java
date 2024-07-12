@@ -62,6 +62,7 @@ public class TravellingMerchant extends WanderingTrader {
         TRADE_OPTIONS.addAll(List.of(
                 new MerchantOffer(new ItemStack(ItemRegistry.COPPER_CASH_COIN.get(), 10), new ItemStack(ItemRegistry.INCENSE.get()), 8, 5, 0.05f),
                 new MerchantOffer(new ItemStack(ItemRegistry.COPPER_CASH_COIN.get(), 4), new ItemStack(ItemRegistry.XUAN_PAPER.get()), 20, 5, 0.05f),
+                new MerchantOffer(new ItemStack(ItemRegistry.COPPER_CASH_COIN.get(), 6), new ItemStack(ItemRegistry.SILK.get()), 20, 5, 0.05f),
                 new MerchantOffer(new ItemStack(ItemRegistry.COPPER_CASH_COIN.get(), 8), new ItemStack(Items.LAPIS_LAZULI), 10, 5, 0.05f),
                 new MerchantOffer(new ItemStack(ItemRegistry.COPPER_CASH_COIN.get(), 8), new ItemStack(Items.PRISMARINE_SHARD), 10, 5, 0.05f),
                 new MerchantOffer(new ItemStack(ItemRegistry.COPPER_CASH_COIN.get(), 15), new ItemStack(ItemRegistry.RED_SILK_FABRIC_ROLL.get()), 5, 5, 0.05f),
