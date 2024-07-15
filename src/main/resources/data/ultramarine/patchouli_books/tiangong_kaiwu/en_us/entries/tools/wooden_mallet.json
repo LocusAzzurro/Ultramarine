@@ -1,0 +1,11 @@
+{
+    "name": "Wooden Mallet",
+    "icon": "ultramarine:wooden_mallet",
+    "category": "ultramarine:tools",
+    "pages": [
+        {
+            "type": "patchouli:text",
+            "text": "Wooden Mallet Intro 1"
+        }
+    ]
+}
