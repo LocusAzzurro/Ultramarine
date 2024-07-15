@@ -825,6 +825,7 @@ public class ItemRegistry {
      */
 
     public static final RegistryObject<Item> WOODEN_MALLET = ITEMS.register("wooden_mallet", WoodenMallet::new);
+    //public static final RegistryObject<Item> GUIDE_BOOK = simpleItem("guide_book", ModCreativeTab.TOOLS);
     public static final RegistryObject<Item> BLUE_AND_WHITE_PORCELAIN_SWORD = ITEMS.register("blue_and_white_porcelain_sword",
             () -> new SwordItem(ModTiers.BLUE_AND_WHITE_PORCELAIN, 3, -2.4F, new Item.Properties().tab(ModCreativeTab.TOOLS.getTab())));
     public static final RegistryObject<Item> BLUE_AND_WHITE_PORCELAIN_SHOVEL = ITEMS.register("blue_and_white_porcelain_shovel",
