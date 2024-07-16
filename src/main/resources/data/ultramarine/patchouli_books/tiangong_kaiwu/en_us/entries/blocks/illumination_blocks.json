@@ -5,7 +5,7 @@
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "text"
+      "text": "-- Candles $(br)-- Streetlight Poles"
     }
   ]
 }

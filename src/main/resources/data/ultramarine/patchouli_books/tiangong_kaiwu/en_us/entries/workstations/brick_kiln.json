@@ -5,7 +5,7 @@
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "text"
+      "text": "-- First Bricks $(br)-- Making Kiln$(br)-- Kiln Usage"
     }
   ]
 }
