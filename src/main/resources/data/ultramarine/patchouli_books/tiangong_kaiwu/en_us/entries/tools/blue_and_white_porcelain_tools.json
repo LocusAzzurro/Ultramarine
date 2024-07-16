@@ -5,7 +5,19 @@
     "pages": [
         {
             "type": "patchouli:text",
-            "text": "text"
+            "text": "$(thing)Blue and White Porcelain$() tools and weapons are made by combining $(bold)golden items$() with $(item)Blue and White Porcelain Piece$().$(br)$(thing)Blue and White Porcelain$() items have superior mining speed and damage, but are extremely brittle."
+        },
+        {
+            "type": "patchouli:spotlight",
+            "title": "Tools and Weapons",
+            "item": "ultramarine:blue_and_white_porcelain_sword,ultramarine:blue_and_white_porcelain_shovel,ultramarine:blue_and_white_porcelain_pickaxe,ultramarine:blue_and_white_porcelain_axe",
+            "text": "$(thing)Sword$(), $(thing)Shovel$(), $(thing)Pickaxe$() and $(thing)Axe$() can be made.",
+            "link_recipe": true
+        },
+        {
+            "type": "patchouli:relations",
+            "entries": ["ultramarine:blocks/porcelain"],
+            "text": "$(item)Blue and White Porcelain Piece$() can be acquired as a rare drop when breaking $(bold)Blue and White Porcelain$() blocks with a tool without $(thing)Silk Touch$()."
         }
     ]
 }

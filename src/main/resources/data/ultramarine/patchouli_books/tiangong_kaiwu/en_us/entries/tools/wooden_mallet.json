@@ -5,7 +5,35 @@
     "pages": [
         {
             "type": "patchouli:text",
-            "text": "Wooden Mallet Intro 1"
+            "text": "The $(item)Wooden Mallet$() is one of the key tools of Ultramarine. It can be used to toggle the different states on a number of blocks."
+        },
+        {
+            "type": "patchouli:crafting",
+            "recipe": "ultramarine:wooden_mallet"
+        },
+        {
+            "type": "patchouli:spotlight",
+            "title": "Roof Tiles",
+            "item": "ultramarine:blue_roof_tiles,ultramarine:yellow_roof_tile_edge,ultramarine:green_roof_tile_stairs",
+            "text": "$(item)Roof Tiles$() can be toggled into a shifted position, shifting down by half block."
+        },
+        {
+            "type": "patchouli:spotlight",
+            "title": "Rafters",
+            "item": "ultramarine:gilded_dark_oak_rafter,ultramarine:blue_carved_tiger_eye_rafter_end",
+            "text": "$(item)Rafters$() can be toggled into a shifted position, shifting up by half block."
+        },
+        {
+            "type": "patchouli:spotlight",
+            "title": "Marble Railing",
+            "item": "ultramarine:white_marble_railing",
+            "text": "$(item)White Marble Railing$() can be toggled into a shifted position, shifting down by half block. Using wooden mallet on the block while crouching will toggle the $(thing)\"locked\"$() state instead, locking and unlocking the central pillar."
+        },
+        {
+            "type": "patchouli:spotlight",
+            "title": "Chiral Blocks",
+            "item": "ultramarine:carved_dark_oak_beam_edge,ultramarine:red_cyan_blue_fangxin,ultramarine:blue_fangxin_edge",
+            "text": "For certain blocks that have complex rotation, the mallet can be used to change the additional rotation state."
         }
     ]
 }
