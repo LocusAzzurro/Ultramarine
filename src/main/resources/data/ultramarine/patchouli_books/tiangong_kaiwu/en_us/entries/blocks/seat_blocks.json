@@ -1,0 +1,11 @@
+{
+  "name": "Seat Blocks",
+  "icon": "ultramarine:ebony_chair",
+  "category": "ultramarine:blocks",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "text"
+    }
+  ]
+}

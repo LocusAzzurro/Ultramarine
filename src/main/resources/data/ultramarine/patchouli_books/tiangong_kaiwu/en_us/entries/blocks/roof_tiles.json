@@ -1,0 +1,11 @@
+{
+  "name": "Roof Tiles",
+  "icon": "ultramarine:yellow_roof_tile_edge",
+  "category": "ultramarine:blocks",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "text"
+    }
+  ]
+}

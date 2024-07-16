@@ -1,0 +1,11 @@
+{
+  "name": "Chisel Table",
+  "icon": "ultramarine:chisel_table",
+  "category": "ultramarine:workstations",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "text"
+    }
+  ]
+}

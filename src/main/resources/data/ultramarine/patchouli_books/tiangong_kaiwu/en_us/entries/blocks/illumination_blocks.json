@@ -1,0 +1,11 @@
+{
+  "name": "Illumination Blocks",
+  "icon": "ultramarine:red_candle",
+  "category": "ultramarine:blocks",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "text"
+    }
+  ]
+}

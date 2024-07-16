@@ -1,0 +1,11 @@
+{
+  "name": "Painting Scroll",
+  "icon": "ultramarine:painting_scroll",
+  "category": "ultramarine:blocks",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "text"
+    }
+  ]
+}

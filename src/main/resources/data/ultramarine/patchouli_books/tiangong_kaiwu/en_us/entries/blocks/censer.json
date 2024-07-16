@@ -1,0 +1,11 @@
+{
+  "name": "Censer",
+  "icon": "ultramarine:bronze_censer",
+  "category": "ultramarine:blocks",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "text"
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "name": "Brick Kiln",
+  "icon": "ultramarine:brick_kiln",
+  "category": "ultramarine:workstations",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "text"
+    }
+  ]
+}

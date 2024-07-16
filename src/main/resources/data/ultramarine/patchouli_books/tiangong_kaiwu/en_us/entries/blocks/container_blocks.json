@@ -1,0 +1,11 @@
+{
+  "name": "Container Blocks",
+  "icon": "ultramarine:oak_cabinet",
+  "category": "ultramarine:blocks",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "text"
+    }
+  ]
+}

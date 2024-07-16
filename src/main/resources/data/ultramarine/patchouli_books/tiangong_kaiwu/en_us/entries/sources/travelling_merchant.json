@@ -1,0 +1,11 @@
+{
+  "name": "Travelling Merchant",
+  "icon": "ultramarine:copper_cash_coin",
+  "category": "ultramarine:sources",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "text"
+    }
+  ]
+}

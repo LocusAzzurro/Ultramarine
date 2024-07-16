@@ -1,0 +1,11 @@
+{
+  "name": "Bottle Gourd",
+  "icon": "ultramarine:bottle_gourd",
+  "category": "ultramarine:blocks",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "text"
+    }
+  ]
+}

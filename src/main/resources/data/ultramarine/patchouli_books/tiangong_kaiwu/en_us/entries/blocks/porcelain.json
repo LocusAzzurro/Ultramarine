@@ -1,0 +1,11 @@
+{
+    "name": "Porcelain Blocks",
+    "icon": "ultramarine:large_blue_and_white_porcelain_vase",
+    "category": "ultramarine:blocks",
+    "pages": [
+        {
+            "type": "patchouli:text",
+            "text": "text"
+        }
+    ]
+}

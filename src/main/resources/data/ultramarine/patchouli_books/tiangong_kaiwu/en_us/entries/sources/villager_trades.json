@@ -1,0 +1,11 @@
+{
+  "name": "Additional Villager Trades",
+  "icon": "minecraft:emerald",
+  "category": "ultramarine:sources",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "text"
+    }
+  ]
+}

@@ -646,5 +646,10 @@
   "gui.jei.category.chisel_table": "Chisel Table",
   "gui.jei.category.travelling_merchant": "Travelling Merchant",
 
+  "__comment25__": "Patchouli Strings",
+  "guide.patchouli.tiangong_kaiwu.title": "Tiangong Kaiwu",
+  "guide.patchouli.tiangong_kaiwu.subtitle": "",
+  "guide.patchouli.tiangong_kaiwu.landing_text": "Welcome to Ultramarine Guide Book",
+
   "__EOF__": ""
 }

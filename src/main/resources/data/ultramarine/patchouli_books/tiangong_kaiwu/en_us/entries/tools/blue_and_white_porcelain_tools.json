@@ -1,0 +1,11 @@
+{
+    "name": "Blue and White Porcelain",
+    "icon": "ultramarine:blue_and_white_porcelain_pickaxe",
+    "category": "ultramarine:tools",
+    "pages": [
+        {
+            "type": "patchouli:text",
+            "text": "text"
+        }
+    ]
+}

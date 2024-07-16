@@ -1,0 +1,11 @@
+{
+  "name": "Teahouse Flag",
+  "icon": "ultramarine:teahouse_flag",
+  "category": "ultramarine:blocks",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "text"
+    }
+  ]
+}

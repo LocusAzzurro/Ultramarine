@@ -1,0 +1,11 @@
+{
+  "name": "Woodworking Workbench",
+  "icon": "ultramarine:woodworking_workbench",
+  "category": "ultramarine:workstations",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "text"
+    }
+  ]
+}

@@ -645,5 +645,10 @@
   "gui.jei.category.chisel_table": "雕刻桌",
   "gui.jei.category.travelling_merchant": "行商",
 
+  "__comment25__": "Patchouli Strings",
+  "guide.patchouli.tiangong_kaiwu.title": "天工开物",
+  "guide.patchouli.tiangong_kaiwu.subtitle": "",
+  "guide.patchouli.tiangong_kaiwu.landing_text": "欢迎阅读群青模组指南",
+
   "__EOF__": ""
 }

@@ -1,0 +1,11 @@
+{
+  "name": "Food Blocks",
+  "icon": "ultramarine:plated_mooncakes",
+  "category": "ultramarine:blocks",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "text"
+    }
+  ]
+}
