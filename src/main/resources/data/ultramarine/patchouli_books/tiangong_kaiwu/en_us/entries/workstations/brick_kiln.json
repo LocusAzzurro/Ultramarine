@@ -5,7 +5,24 @@
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "-- First Bricks $(br)-- Making Kiln$(br)-- Kiln Usage"
+      "text": "The $(item)Brick Kiln$() is used for $(thing)Composite Smelting$() recipes to produce items from two ingredients."
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "ultramarine:brick_kiln",
+      "text": "However, to get your first $(thing)Cyan Bricks$() to make the kiln, you have to use the traditional method."
+    },
+    {
+      "type": "patchouli:spotlight",
+      "title": "Making Cyan Brick",
+      "item": "ultramarine:unfired_clay_brick,ultramarine:fired_brick,ultramarine:cyan_brick",
+      "text": "To make $(item)Cyan Brick$(), smelt $(item)Unfired Clay Brick$() into $(item)Fired Brick$(), then drop it into water and wait for 5 minutes.",
+      "link_recipe": true
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Using Brick Kiln",
+      "text": "The $(item)Brick Kiln$() is similar to a furnace, but 2 input items are needed instead of one. Recipes can be looked up in JEI."
     }
   ]
 }
