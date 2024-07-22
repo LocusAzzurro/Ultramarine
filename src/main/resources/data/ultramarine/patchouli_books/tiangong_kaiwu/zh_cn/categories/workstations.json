@@ -1,0 +1,5 @@
+{
+	"name": "工作方块",
+	"description": "带有自定义合成机制的方块与它们的用法。",
+	"icon": "ultramarine:chisel_table"
+}
