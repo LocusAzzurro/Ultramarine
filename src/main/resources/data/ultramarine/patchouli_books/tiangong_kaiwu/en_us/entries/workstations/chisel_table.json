@@ -5,7 +5,45 @@
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "-- Templates$(br)-- Making Blocks"
+      "text": "The $(item)Chisel Table$() is used to make many decorative blocks, making such blocks require a $(thing)base material$() item, $(thing)dye$() items and a $(thing)Template$() item (not consumed in the crafting process).$(br2)The table itself is a multiblock structure requiring two blocks."
+    },
+    {
+      "type": "patchouli:multiblock",
+      "name": "Chisel Table Multiblock",
+      "multiblock": {
+        "pattern": [
+          ["B"],["0"]
+        ],
+        "mapping": {
+          "0": "ultramarine:porcelain_inlaid_table",
+          "B": "ultramarine:brush_and_inkstone"
+        }
+      },
+      "text": "Using the $(item)Brush and Inkstone$() opens the crafting GUI."
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "ultramarine:brush_and_inkstone",
+      "recipe2": "ultramarine:porcelain_inlaid_table"
+    },
+    {
+      "type": "patchouli:spotlight",
+      "title": "Templates",
+      "item": "ultramarine:carved_wood_template,ultramarine:fangxin_template,ultramarine:fangxin_edge_template,ultramarine:zhaotou_template,ultramarine:gutou_template,ultramarine:rafter_template,ultramarine:rafter_end_template,ultramarine:architrave_template,ultramarine:caihua_template",
+      "text": "Process $(item)Polished Blackstone$() with stonecutter to acquire $(thing)templates$().",
+      "link_recipe": true
+    },
+    {
+      "type": "patchouli:crafting",
+      "title": "Dye and Dye Powder",
+      "recipe": "ultramarine:blue_dye_powder",
+      "text": "$(item)Dye Powder$() is a smaller portion of dye, used in crafting."
+    },
+    {
+      "type": "patchouli:spotlight",
+      "title": "Some Examples",
+      "item": "ultramarine:red_carved_wood,ultramarine:yellow_and_green_carved_wood,ultramarine:white_blue_green_zhaotou,ultramarine:green_carved_wanzi_rafter_end,ultramarine:red_and_cyan_tuanhua_slab,ultramarine:light_blue_su_style_caihua",
+      "text": "Here are some block that can be crafted with $(item)Chisel Table$(). Recipes can be looked up in JEI."
     }
   ]
 }

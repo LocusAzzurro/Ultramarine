@@ -5,7 +5,12 @@
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "text"
+      "text": "The $(item)Woodworking Workbench$() is used for wood processing, similar to $(item)Stonecutter$()"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "ultramarine:woodworking_workbench",
+      "text": "Recipes using the $(item)Woodworking Workbench$() can be looked up in JEI."
     }
   ]
 }
