@@ -1,0 +1,49 @@
+{
+  "name": "雕刻桌",
+  "icon": "ultramarine:chisel_table",
+  "category": "ultramarine:workstations",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "用$(item)雕刻桌$()可制作诸多装饰方块，制作需要使用一个$(thing)基础材料$()物品, $(thing)染料$()以及$(thing)模板$()物品（不消耗）。$(br2)雕刻桌是一种多方块结构，由两个方块组成。"
+    },
+    {
+      "type": "patchouli:multiblock",
+      "name": "雕刻桌结构",
+      "multiblock": {
+        "pattern": [
+          ["B"],["0"]
+        ],
+        "mapping": {
+          "0": "ultramarine:porcelain_inlaid_table",
+          "B": "ultramarine:brush_and_inkstone"
+        }
+      },
+      "text": "使用$(item)笔砚$()可以打开界面。"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "ultramarine:brush_and_inkstone",
+      "recipe2": "ultramarine:porcelain_inlaid_table"
+    },
+    {
+      "type": "patchouli:spotlight",
+      "title": "模板",
+      "item": "ultramarine:carved_wood_template,ultramarine:fangxin_template,ultramarine:fangxin_edge_template,ultramarine:zhaotou_template,ultramarine:gutou_template,ultramarine:rafter_template,ultramarine:rafter_end_template,ultramarine:architrave_template,ultramarine:caihua_template",
+      "text": "使用切石机可以将$(item)磨制黑石$()加工成$(thing)模板$()。",
+      "link_recipe": true
+    },
+    {
+      "type": "patchouli:crafting",
+      "title": "染料与染料粉",
+      "recipe": "ultramarine:blue_dye_powder",
+      "text": "$(item)染料粉$()是小份的染料，用于合成。"
+    },
+    {
+      "type": "patchouli:spotlight",
+      "title": "例子",
+      "item": "ultramarine:red_carved_wood,ultramarine:yellow_and_green_carved_wood,ultramarine:white_blue_green_zhaotou,ultramarine:green_carved_wanzi_rafter_end,ultramarine:red_and_cyan_tuanhua_slab,ultramarine:light_blue_su_style_caihua",
+      "text": "这是一些用$(item)雕刻桌$()可以制作的方块。用JEI可查询配方。"
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+{
+    "name": "青花瓷",
+    "icon": "ultramarine:blue_and_white_porcelain_pickaxe",
+    "category": "ultramarine:tools",
+    "pages": [
+        {
+            "type": "patchouli:text",
+            "text": "通过结合$(bold)金质物品$()和$(item)青花瓷片$()可以制作$(thing)青花瓷$()工具和物品。这些物品的采集效率和伤害更高，但非常脆弱。"
+        },
+        {
+            "type": "patchouli:spotlight",
+            "title": "工具和物品",
+            "item": "ultramarine:blue_and_white_porcelain_sword,ultramarine:blue_and_white_porcelain_shovel,ultramarine:blue_and_white_porcelain_pickaxe,ultramarine:blue_and_white_porcelain_axe",
+            "text": "可以制作$(thing)剑$()、$(thing)锹$()、$(thing)镐$()和$(thing)斧$()。",
+            "link_recipe": true
+        },
+        {
+            "type": "patchouli:relations",
+            "entries": ["ultramarine:blocks/porcelain"],
+            "text": "使用未附魔$(thing)精准采集$()的工具破坏$(bold)青花瓷$()方块时，有小几率可以获得$(item)青花瓷片$()，此掉落受$(thing)时运$()效果影响。"
+        }
+    ]
+}

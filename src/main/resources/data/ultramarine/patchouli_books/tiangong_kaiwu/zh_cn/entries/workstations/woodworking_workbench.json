@@ -1,0 +1,16 @@
+{
+  "name": "木工桌",
+  "icon": "ultramarine:woodworking_workbench",
+  "category": "ultramarine:workstations",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "用$(item)木工桌$()可以加工木材, 用法与$(item)切石机$()相同。"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "ultramarine:woodworking_workbench",
+      "text": "在JEI中可以查询$(item)木工桌$()的配方。"
+    }
+  ]
+}

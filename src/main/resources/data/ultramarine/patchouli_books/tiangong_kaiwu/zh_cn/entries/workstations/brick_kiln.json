@@ -1,0 +1,28 @@
+{
+  "name": "砖窑",
+  "icon": "ultramarine:brick_kiln",
+  "category": "ultramarine:workstations",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "$(item)砖窑$()用于进行$(thing)复合烧炼$()，使用两种材料烧炼物品。"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "ultramarine:brick_kiln",
+      "text": "不过，要获得用于制作第一个$(item)砖窑$()的$(item)青砖$(), 要使用传统的方式。"
+    },
+    {
+      "type": "patchouli:spotlight",
+      "title": "制作青砖",
+      "item": "ultramarine:unfired_clay_brick,ultramarine:fired_brick,ultramarine:cyan_brick",
+      "text": "将$(item)砖坯$()烧炼成$(item)新砖$()，并将其浸入水中五分钟，即可获得$(item)青砖$()。",
+      "link_recipe": true
+    },
+    {
+      "type": "patchouli:text",
+      "title": "使用砖窑",
+      "text": "$(item)砖窑$()的使用方式与熔炉类似，但使用两种原材料。在JEI中可以查询配方。"
+    }
+  ]
+}
