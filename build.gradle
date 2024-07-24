@@ -143,6 +143,7 @@ dependencies {
     runtimeOnly fg.deobf("vazkii.patchouli:Patchouli:${patchouli_version}")
     runtimeOnly fg.deobf("curse.maven:just-enough-resources-jer-240630:${jer_version_id}")
     runtimeOnly fg.deobf("curse.maven:worldedit-225608:${worldedit_version_id}")
+    runtimeOnly fg.deobf("curse.maven:journeymap-32274:${journeymap_version_id}")
 
 }
 
@@ -163,7 +164,8 @@ def replaceProperties = [
         top_version_id: top_version_id,
         patchouli_version: patchouli_version,
         jer_version_id: jer_version_id,
-        worldedit_version_id: worldedit_version_id
+        worldedit_version_id: worldedit_version_id,
+        journeymap_version_id: journeymap_version_id
 ]
 processResources {
     inputs.properties replaceProperties
