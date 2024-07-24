@@ -1,15 +1,15 @@
 {
-  "name": "Chisel Table",
+  "name": "雕刻桌",
   "icon": "ultramarine:chisel_table",
   "category": "ultramarine:workstations",
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "The $(item)Chisel Table$() is used to make many decorative blocks, making such blocks require a $(thing)base material$() item, $(thing)dye$() items and a $(thing)Template$() item (not consumed in the crafting process).$(br2)The table itself is a multiblock structure requiring two blocks."
+      "text": "用$(item)雕刻桌$()可制作诸多装饰方块，制作需要使用一个$(thing)基础材料$()物品, $(thing)染料$()以及$(thing)模板$()物品（不消耗）。$(br2)雕刻桌是一种多方块结构，由两个方块组成。"
     },
     {
       "type": "patchouli:multiblock",
-      "name": "Chisel Table Multiblock",
+      "name": "雕刻桌结构",
       "multiblock": {
         "pattern": [
           ["B"],["0"]
@@ -19,7 +19,7 @@
           "B": "ultramarine:brush_and_inkstone"
         }
       },
-      "text": "Using the $(item)Brush and Inkstone$() opens the crafting GUI."
+      "text": "使用$(item)笔砚$()可以打开界面。"
     },
     {
       "type": "patchouli:crafting",
@@ -28,22 +28,22 @@
     },
     {
       "type": "patchouli:spotlight",
-      "title": "Templates",
+      "title": "模板",
       "item": "ultramarine:carved_wood_template,ultramarine:fangxin_template,ultramarine:fangxin_edge_template,ultramarine:zhaotou_template,ultramarine:gutou_template,ultramarine:rafter_template,ultramarine:rafter_end_template,ultramarine:architrave_template,ultramarine:caihua_template",
-      "text": "Process $(item)Polished Blackstone$() with stonecutter to acquire $(thing)templates$().",
+      "text": "使用切石机可以将$(item)磨制黑石$()加工成$(thing)模板$()。",
       "link_recipe": true
     },
     {
       "type": "patchouli:crafting",
-      "title": "Dye and Dye Powder",
+      "title": "染料与染料粉",
       "recipe": "ultramarine:blue_dye_powder",
-      "text": "$(item)Dye Powder$() is a smaller portion of dye, used in crafting."
+      "text": "$(item)染料粉$()是小份的染料，用于合成。"
     },
     {
       "type": "patchouli:spotlight",
-      "title": "Some Examples",
+      "title": "例子",
       "item": "ultramarine:red_carved_wood,ultramarine:yellow_and_green_carved_wood,ultramarine:white_blue_green_zhaotou,ultramarine:green_carved_wanzi_rafter_end,ultramarine:red_and_cyan_tuanhua_slab,ultramarine:light_blue_su_style_caihua",
-      "text": "Here are some block that can be crafted with $(item)Chisel Table$(). Recipes can be looked up in JEI."
+      "text": "这是一些用$(item)雕刻桌$()可以制作的方块。用JEI可查询配方。"
     }
   ]
 }

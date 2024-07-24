@@ -1,0 +1,39 @@
+{
+    "name": "木锤",
+    "icon": "ultramarine:wooden_mallet",
+    "category": "ultramarine:tools",
+    "pages": [
+        {
+            "type": "patchouli:text",
+            "text": "$(item)木锤$()是群青模组的重要工具之一。使用该工具可以切换诸多方块的各种状态。"
+        },
+        {
+            "type": "patchouli:crafting",
+            "recipe": "ultramarine:wooden_mallet"
+        },
+        {
+            "type": "patchouli:spotlight",
+            "title": "瓦当",
+            "item": "ultramarine:blue_roof_tiles,ultramarine:yellow_roof_tile_edge,ultramarine:green_roof_tile_stairs",
+            "text": "$(item)瓦当$()方块可以被调整到向下偏移半方块的位置。"
+        },
+        {
+            "type": "patchouli:spotlight",
+            "title": "椽子",
+            "item": "ultramarine:gilded_dark_oak_rafter,ultramarine:blue_carved_tiger_eye_rafter_end",
+            "text": "$(item)椽子$()方块可以被调整到向上偏移半方块的位置。"
+        },
+        {
+            "type": "patchouli:spotlight",
+            "title": "汉白玉栏杆",
+            "item": "ultramarine:white_marble_railing",
+            "text": "$(item)汉白玉栏杆$()可以被调整到向下偏移半方块的位置。在潜行时对该方块使用木锤则可以调整$(thing)“锁定”$()状态，固定中心的立柱。"
+        },
+        {
+            "type": "patchouli:spotlight",
+            "title": "手性方块",
+            "item": "ultramarine:carved_dark_oak_beam_edge,ultramarine:red_cyan_blue_fangxin,ultramarine:blue_fangxin_edge",
+            "text": "某些方块具有较复杂的旋转方式，使用木锤可以调整这些额外的旋转方向。"
+        }
+    ]
+}
