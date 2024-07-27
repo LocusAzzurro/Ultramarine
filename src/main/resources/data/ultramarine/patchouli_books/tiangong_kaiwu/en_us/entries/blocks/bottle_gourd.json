@@ -5,7 +5,13 @@
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "text"
+      "text": "The $(item)Bottle Gourd$() can store up 6 bottles of potion of same type. Use the potion on the block to store them, and use the bottle to consume potion."
+    },
+    {
+      "type": "patchouli:spotlight",
+      "item": "ultramarine:bottle_gourd",
+      "text": "This block is available as a trade from $(thing)Cook$() Villager.",
+      "link_recipe": true
     }
   ]
 }

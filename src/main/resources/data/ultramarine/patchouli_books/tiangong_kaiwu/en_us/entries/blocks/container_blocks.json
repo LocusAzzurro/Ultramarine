@@ -5,7 +5,13 @@
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "text"
+      "text": "Some blocks can be used to store certain type of items, and have various container sizes."
+    },
+    {
+      "type": "patchouli:spotlight",
+      "title": "Food & Item Holders",
+      "item": "ultramarine:fruit_box,ultramarine:oak_cabinet",
+      "text": "Some containers can only hold food items, while some can hold all types of items."
     }
   ]
 }

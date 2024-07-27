@@ -5,7 +5,18 @@
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "text"
+      "text": "The $(item)Censer$() is used to burn incense to provide AOE $(thing)regeneration$() effect."
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "ultramarine:bronze_censer",
+      "text": "Another type of censer is also available."
+    },
+    {
+      "type": "patchouli:spotlight",
+      "item": "ultramarine:incense",
+      "text": "$(item)Incense$() can be bought from $(thing)Travelling Merchant$().",
+      "link_recipe": true
     }
   ]
 }
