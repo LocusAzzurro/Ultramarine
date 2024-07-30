@@ -1813,6 +1813,10 @@ public class ModRecipeProvider extends RecipeProvider {
         dust(ItemRegistry.MAGNESITE.get(), ItemRegistry.MAGNESITE_DUST.get(), recipeConsumer);
         dust(ItemRegistry.RAW_COBALT.get(), ItemRegistry.COBALT_DUST.get(), recipeConsumer);
 
+        //ORE BLOCKS
+
+        nineBlockStorageRecipes(recipeConsumer, ItemRegistry.JADE.get(), ItemRegistry.JADE_BLOCK.get());
+
         //ROOF TILE
 
         ShapedRecipeBuilder.shaped(ItemRegistry.UNFIRED_ROOF_TILE.get(), 2)

@@ -683,6 +683,7 @@ public class ItemRegistry {
     public static final RegistryObject<Item> HEMATITE_ORE = fromBlock(BlockRegistry.HEMATITE_ORE, ModCreativeTab.MATERIALS);
     public static final RegistryObject<Item> DEEPSLATE_HEMATITE_ORE = fromBlock(BlockRegistry.DEEPSLATE_HEMATITE_ORE, ModCreativeTab.MATERIALS);
     public static final RegistryObject<Item> NETHER_COBALT_ORE = fromBlock(BlockRegistry.NETHER_COBALT_ORE, ModCreativeTab.MATERIALS);
+    public static final RegistryObject<Item> JADE_BLOCK = fromBlock(BlockRegistry.JADE_BLOCK, ModCreativeTab.MATERIALS);
 
     // ORE PRODUCT
 
