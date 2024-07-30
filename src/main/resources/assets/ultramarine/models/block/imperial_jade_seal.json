@@ -4,7 +4,7 @@
 	"render_type": "cutout",
 	"textures": {
 		"1": "ultramarine:block/imperial_jade_seal",
-		"particle": "ultramarine:item/jade"
+		"particle": "ultramarine:block/jade_block"
 	},
 	"elements": [
 		{

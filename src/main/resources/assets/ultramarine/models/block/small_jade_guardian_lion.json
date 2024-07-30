@@ -5,7 +5,7 @@
 	"ambientocclusion": false,
 	"textures": {
 		"1": "ultramarine:block/small_jade_guardian_lion",
-		"particle": "ultramarine:item/jade"
+		"particle": "ultramarine:block/jade_block"
 	},
 	"elements": [
 		{

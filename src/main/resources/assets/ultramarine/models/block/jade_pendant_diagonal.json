@@ -4,7 +4,7 @@
 	"render_type": "cutout",
 	"textures": {
 		"2": "ultramarine:block/jade_pendant",
-		"particle": "ultramarine:item/jade"
+		"particle": "ultramarine:block/jade_block"
 	},
 	"elements": [
 		{
