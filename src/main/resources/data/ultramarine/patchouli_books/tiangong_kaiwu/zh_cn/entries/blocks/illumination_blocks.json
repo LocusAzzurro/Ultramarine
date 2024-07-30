@@ -1,0 +1,29 @@
+{
+  "name": "光源方块",
+  "icon": "ultramarine:red_candle",
+  "category": "ultramarine:blocks",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "一些光源方块会发光，有一部分需要用$(item)打火石$()点亮。"
+    },
+    {
+      "type": "patchouli:spotlight",
+      "title": "灯",
+      "item": "ultramarine:octagonal_palace_lantern,ultramarine:red_sky_lantern,ultramarine:standing_lamp",
+      "text": "$(thing)灯$()类方块摆放后会发光。"
+    },
+    {
+      "type": "patchouli:spotlight",
+      "title": "蜡烛",
+      "item": "ultramarine:red_candle,ultramarine:tricolor_candlestick,ultramarine:jade_candlestick",
+      "text": "$(thing)蜡烛$()可以用$(item)打火石$()点亮并发光。"
+    },
+    {
+      "type": "patchouli:spotlight",
+      "title": "路灯",
+      "item": "ultramarine:red_lantern_streetlight,ultramarine:hanging_red_lantern_streetlight",
+      "text": "放置$(thing)路灯$()后，可以悬挂更多的$(item)小红灯笼$()。"
+    }
+  ]
+}

@@ -1,0 +1,30 @@
+{
+    "name": "陶瓷方块",
+    "icon": "ultramarine:large_blue_and_white_porcelain_vase",
+    "category": "ultramarine:blocks",
+    "pages": [
+        {
+            "type": "patchouli:text",
+            "text": "若使用不带有$(thing)精准采集$()的工具破坏$(thing)陶瓷$()方块，则只能获得瓷片。$(thing)瓷片$()是一种合成材料。"
+        },
+        {
+            "type": "patchouli:spotlight",
+            "title": "普通瓷片",
+            "item": "ultramarine:porcelain_piece",
+            "text": "大部分陶瓷方块掉落的是普通瓷片。",
+            "link_recipe": true
+        },
+        {
+            "type": "patchouli:spotlight",
+            "title": "Blue and White Porcelain",
+            "item": "ultramarine:blue_and_white_porcelain_piece,ultramarine:blue_and_white_porcelain_shards",
+            "text": "$(thing)青花瓷$()方块的掉落则更特殊。它们会掉落$(item)青花瓷碎片$()和$(item)青花瓷片$()，后者为稀有掉落。两种物品的掉落率都受$(thing)时运$()附魔影响。",
+            "link_recipe": true
+        },
+        {
+            "type": "patchouli:relations",
+            "entries": ["ultramarine:tools/blue_and_white_porcelain_tools"],
+            "text": "用$(item)青花瓷片$()可以制作独特的武器和工具。"
+        }
+    ]
+}

@@ -1,0 +1,17 @@
+{
+  "name": "葫芦",
+  "icon": "ultramarine:bottle_gourd",
+  "category": "ultramarine:blocks",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "$(item)葫芦$()中可以储存最多六瓶同一类型的药水。对葫芦使用药水可以储存，直接使用葫芦则可使用其中的药水。"
+    },
+    {
+      "type": "patchouli:spotlight",
+      "item": "ultramarine:bottle_gourd",
+      "text": "此方块可以通过$(thing)厨师$()村民交易获取。",
+      "link_recipe": true
+    }
+  ]
+}

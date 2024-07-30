@@ -1,0 +1,22 @@
+{
+  "name": "香炉",
+  "icon": "ultramarine:bronze_censer",
+  "category": "ultramarine:blocks",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "用$(item)香炉$()可以焚香，获得范围$(thing)生命回复$()效果。"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "ultramarine:bronze_censer",
+      "text": "目前共有两个种类的香炉。"
+    },
+    {
+      "type": "patchouli:spotlight",
+      "item": "ultramarine:incense",
+      "text": "在$(thing)行商$()处可购买$(item)熏香$()。",
+      "link_recipe": true
+    }
+  ]
+}

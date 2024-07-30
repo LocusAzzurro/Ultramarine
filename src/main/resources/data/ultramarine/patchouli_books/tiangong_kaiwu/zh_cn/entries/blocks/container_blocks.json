@@ -1,0 +1,17 @@
+{
+  "name": "储物方块",
+  "icon": "ultramarine:oak_cabinet",
+  "category": "ultramarine:blocks",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "某些方块可以用于储存物品，不同方块的储物空间不同。"
+    },
+    {
+      "type": "patchouli:spotlight",
+      "title": "食物或物品储存",
+      "item": "ultramarine:fruit_box,ultramarine:oak_cabinet",
+      "text": "某些储物方块只能存放食物，其他储物方块则可以存放所有物品。"
+    }
+  ]
+}

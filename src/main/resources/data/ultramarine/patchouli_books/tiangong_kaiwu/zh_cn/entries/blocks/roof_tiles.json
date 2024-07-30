@@ -1,0 +1,17 @@
+{
+  "name": "瓦片落雪",
+  "icon": "ultramarine:yellow_roof_tile_edge",
+  "category": "ultramarine:blocks",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "$(thing)降雪$()时，露天的$(thing)瓦片$()方块上会积累雪层。雪层数不同的瓦片外观不同。积雪时，雪层会优先向更低的位置积累。"
+    },
+    {
+      "type": "patchouli:spotlight",
+      "title": "调整雪层",
+      "item": "minecraft:iron_shovel,minecraft:snowball",
+      "text": "用$(item)锹$()可以移除$(thing)瓦片$()上的雪层，用$(item)雪球$()则可增加积雪量。"
+    }
+  ]
+}

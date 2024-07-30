@@ -1,0 +1,20 @@
+{
+  "name": "茶馆旗帜",
+  "icon": "ultramarine:teahouse_flag",
+  "category": "ultramarine:blocks",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "$(thing)行商$()会在$(item)茶馆旗帜$()附近生成。目前这是和行商$(thing)交易$()的唯一方式。"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "ultramarine:teahouse_flag"
+    },
+    {
+      "type": "patchouli:relations",
+      "entries": ["ultramarine:sources/travelling_merchant"],
+      "text": "只要放置旗帜并等待，$(thing)行商$()便会生成，生成时间与概率$(thing)流浪商人$()生成挂钩。"
+    }
+  ]
+}

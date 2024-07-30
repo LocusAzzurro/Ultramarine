@@ -1,0 +1,11 @@
+{
+  "name": "可坐方块",
+  "icon": "ultramarine:ebony_chair",
+  "category": "ultramarine:blocks",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "某些方块，例如椅子，可供玩家坐下。直接对方块按下使用键即可。"
+    }
+  ]
+}

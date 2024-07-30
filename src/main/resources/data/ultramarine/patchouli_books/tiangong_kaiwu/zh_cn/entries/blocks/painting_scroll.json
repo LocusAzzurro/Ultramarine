@@ -1,0 +1,23 @@
+{
+  "name": "画轴",
+  "icon": "ultramarine:painting_scroll",
+  "category": "ultramarine:blocks",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "$(item)画轴$()是各类$(thing)挂画$()方块的来源。"
+    },
+    {
+      "type": "patchouli:spotlight",
+      "item": "ultramarine:painting_scroll",
+      "text": "在$(thing)行商$()处可以购买$(item)画轴$()。用$(item)剪刀$()拆开$(item)画轴$()可以得到一个随机挂画方块。"
+    },
+    {
+      "type": "patchouli:spotlight",
+      "title": "挂画",
+      "item": "ultramarine:long_hanging_painting,ultramarine:white_landscape_painting,ultramarine:horizontal_old_landscape_painting,ultramarine:horizontal_calligraphy,ultramarine:horizontal_landscape_painting,ultramarine:long_yellow_hanging_painting,ultramarine:portrait,ultramarine:hanging_painting_fan,ultramarine:sincere_calligraphy",
+      "text": "大部分挂画方块都来自$(item)画轴$()。",
+      "link_recipe": true
+    }
+  ]
+}

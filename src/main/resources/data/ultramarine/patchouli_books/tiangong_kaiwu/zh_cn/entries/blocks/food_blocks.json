@@ -1,0 +1,17 @@
+{
+  "name": "食物方块",
+  "icon": "ultramarine:plated_mooncakes",
+  "category": "ultramarine:blocks",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "摆放的$(thing)装盘食物$()可以直接食用，食物消耗完后会返还容器（如果有）。食用盘装食物和直接食用食物物品效果相同。"
+    },
+    {
+      "type": "patchouli:spotlight",
+      "title": "各种食物",
+      "item": "ultramarine:plated_mooncakes,ultramarine:plated_ham,ultramarine:xiaolongbao",
+      "text": "不同的食物方块盛放的食物量不同，返还的容器也不同。"
+    }
+  ]
+}
