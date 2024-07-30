@@ -5,7 +5,19 @@
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "text"
+      "text": "$(item)Painting Scroll$() is the source of various $(thing)painting$() blocks."
+    },
+    {
+      "type": "patchouli:spotlight",
+      "item": "ultramarine:painting_scroll",
+      "text": "$(item)Painting Scroll$() can be bought from the $(thing)Travelling Merchant$(). Destroying the $(item)Painting Scroll$() with $(item)Shears$() to get one random painting block."
+    },
+    {
+      "type": "patchouli:spotlight",
+      "title": "Paintings",
+      "item": "ultramarine:long_hanging_painting,ultramarine:white_landscape_painting,ultramarine:horizontal_old_landscape_painting,ultramarine:horizontal_calligraphy,ultramarine:horizontal_landscape_painting,ultramarine:long_yellow_hanging_painting,ultramarine:portrait,ultramarine:hanging_painting_fan,ultramarine:sincere_calligraphy",
+      "text": "Almost all paintings are acquired from $(item)Painting Scroll$().",
+      "link_recipe": true
     }
   ]
 }

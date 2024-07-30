@@ -5,7 +5,16 @@
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "text"
+      "text": "The $(item)Teahouse Flag$() is where the $(thing)Travelling Merchant$() will spawn. Currently it's the only way to get $(thing)Travelling Merchant Trades$()."
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "ultramarine:teahouse_flag"
+    },
+    {
+      "type": "patchouli:relations",
+      "entries": ["ultramarine:sources/travelling_merchant"],
+      "text": "Placing the flag is enough for the $(thing)Travelling Merchant$() to spawn, their spawning time is linked to $(thing)Wandering Trader$() spawns."
     }
   ]
 }

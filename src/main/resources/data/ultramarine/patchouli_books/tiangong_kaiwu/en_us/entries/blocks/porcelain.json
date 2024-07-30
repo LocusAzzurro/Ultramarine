@@ -5,7 +5,26 @@
     "pages": [
         {
             "type": "patchouli:text",
-            "text": "text"
+            "text": "$(thing)Porcelain$() blocks will only drop porcelain pieces when destroyed with a tool without $(thing)Silk Touch$() enchantment. The $(thing)Porcelain Pieces$() can be used as crafting material."
+        },
+        {
+            "type": "patchouli:spotlight",
+            "title": "Porcelain Piece",
+            "item": "ultramarine:porcelain_piece",
+            "text": "$(item)Porcelain Pieces$() are dropped from most white and colored porcelain related blocks.",
+            "link_recipe": true
+        },
+        {
+            "type": "patchouli:spotlight",
+            "title": "Blue and White Porcelain",
+            "item": "ultramarine:blue_and_white_porcelain_piece,ultramarine:blue_and_white_porcelain_shards",
+            "text": "$(thing)Blue and White Porcelain$() blocks will instead drop special pieces and shards. The $(item)Blue and White Porcelain Shards$() is the common drop, while the $(item)Blue and White Porcelain Piece$() is a rare drop. The drop rates are affected by the $(thing)Fortune$() enchantment.",
+            "link_recipe": true
+        },
+        {
+            "type": "patchouli:relations",
+            "entries": ["ultramarine:tools/blue_and_white_porcelain_tools"],
+            "text": "$(item)Blue and White Porcelain Piece$() can used to make special tools and weapons."
         }
     ]
 }

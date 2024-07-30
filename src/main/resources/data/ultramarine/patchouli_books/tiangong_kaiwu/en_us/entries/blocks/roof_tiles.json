@@ -1,11 +1,17 @@
 {
-  "name": "Roof Tiles",
+  "name": "Snowy Roof Tiles",
   "icon": "ultramarine:yellow_roof_tile_edge",
   "category": "ultramarine:blocks",
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "text"
+      "text": "During $(thing)snowfall$(), snow can accumulate on exposed $(thing)Roof Tile$() blocks. Blocks with varying amount of snow are visually different. When the snow is accumulating, lower part of a roof will tend to get more snow."
+    },
+    {
+      "type": "patchouli:spotlight",
+      "title": "Managing Snow",
+      "item": "minecraft:iron_shovel,minecraft:snowball",
+      "text": "$(item)Shovels$() can be used to remove snow from $(thing)Roof Tiles$(), while $(item)Snowballs$() will add snow."
     }
   ]
 }

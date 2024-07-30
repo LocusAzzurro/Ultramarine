@@ -5,7 +5,25 @@
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "-- Candles $(br)-- Streetlight Poles"
+      "text": "Some blocks produce light when placed, and some can be lit with $(item)Flint and Steel$()."
+    },
+    {
+      "type": "patchouli:spotlight",
+      "title": "Lanterns & Lamps",
+      "item": "ultramarine:octagonal_palace_lantern,ultramarine:red_sky_lantern,ultramarine:standing_lamp",
+      "text": "$(thing)Lanterns$() and $(thing)Lamps$() produce light when placed."
+    },
+    {
+      "type": "patchouli:spotlight",
+      "title": "Candles",
+      "item": "ultramarine:red_candle,ultramarine:tricolor_candlestick,ultramarine:jade_candlestick",
+      "text": "$(thing)Candles$() can be lit with $(item)Flint and Steel$() and give off light."
+    },
+    {
+      "type": "patchouli:spotlight",
+      "title": "Streetlight",
+      "item": "ultramarine:red_lantern_streetlight,ultramarine:hanging_red_lantern_streetlight",
+      "text": "Additional $(item)Small Red Lanterns$() can be added to $(thing)Streetlights$()."
     }
   ]
 }

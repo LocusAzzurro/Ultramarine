@@ -5,7 +5,13 @@
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "text"
+      "text": "Placed $(thing)Food Blocks$() can be consumed, returning the container (if they have one) when all pieces are consumed. Eating from plated food has the same effect as eating the food directly."
+    },
+    {
+      "type": "patchouli:spotlight",
+      "title": "Various Food",
+      "item": "ultramarine:plated_mooncakes,ultramarine:plated_ham,ultramarine:xiaolongbao",
+      "text": "Different food blocks can have different amount of food, and return different container items when fully consumed."
     }
   ]
 }
