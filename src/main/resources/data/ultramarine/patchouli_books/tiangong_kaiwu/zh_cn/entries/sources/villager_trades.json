@@ -1,0 +1,11 @@
+{
+  "name": "额外村民交易项目",
+  "icon": "minecraft:emerald",
+  "category": "ultramarine:sources",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "许多不同$(thing)职业$()的村民都有了新的交易项目，作为一部分方块和物品的来源。$(br)使用JER可以查询村民交易项目。"
+    }
+  ]
+}

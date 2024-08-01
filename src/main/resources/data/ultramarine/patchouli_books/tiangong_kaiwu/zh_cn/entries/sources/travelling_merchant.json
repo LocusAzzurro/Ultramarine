@@ -1,0 +1,31 @@
+{
+  "name": "行商",
+  "icon": "ultramarine:copper_cash_coin",
+  "category": "ultramarine:sources",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "$(thing)行商$()每隔一段时间会出现，出售或购买物品，目前这是获得某些方块与物品的唯一方式。"
+    },
+    {
+      "type": "patchouli:entity",
+      "entity": "ultramarine:travelling_merchant",
+      "text": "目前行商的外观与$(thing)流浪商人$()相同。"
+    },
+    {
+      "type": "patchouli:spotlight",
+      "item": "ultramarine:teahouse_flag",
+      "text": "当有玩家在$(item)茶馆旗帜$()附近时，$(thing)行商$()便有可能在附近生成。他们一般会和$(thing)流浪商人$()同时出现，因为他们的生成与商人的生成挂钩。"
+    },
+    {
+      "type": "patchouli:relations",
+      "entries": ["ultramarine:blocks/teahouse_flag"],
+      "text": "合成并摆放$(item)茶馆旗帜$()便可让$(thing)行商$()出现。"
+    },
+    {
+      "type": "patchouli:spotlight",
+      "item": "ultramarine:copper_cash_coin",
+      "text": "$(thing)行商$()使用的货币是$(item)铜钱$()。通过向行商出售物品可获取铜钱，之后便可以用它们购买其他物品。$(br)行商的交易项目可在JEI中查看。"
+    }
+  ]
+}

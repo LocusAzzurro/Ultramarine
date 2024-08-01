@@ -1,0 +1,39 @@
+{
+  "name": "自然矿物生成",
+  "icon": "ultramarine:jade_ore",
+  "category": "ultramarine:sources",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "目前共有四种矿物，在模组合成系统中发挥不同作用。"
+    },
+    {
+      "type": "patchouli:spotlight",
+      "title": "玉",
+      "item": "ultramarine:jade_ore,ultramarine:deepslate_jade_ore,ultramarine:jade",
+      "text": "$(item)玉矿石$()在地下深处少量生成，与$(item)钻石矿$()相似。$(br)需要$(thing)铁质$()或更好工具采集。",
+      "link_recipe": true
+    },
+    {
+      "type": "patchouli:spotlight",
+      "title": "白松石",
+      "item": "ultramarine:magnesite_ore,ultramarine:deepslate_magnesite_ore,ultramarine:magnesite",
+      "text": "$(item)菱镁矿$()的生成方式和$(item)青金石矿$()相似。$(br)需要$(thing)石质$()或更好工具采集。",
+      "link_recipe": true
+    },
+    {
+      "type": "patchouli:spotlight",
+      "title": "赤铁",
+      "item": "ultramarine:hematite_ore,ultramarine:deepslate_hematite_ore,ultramarine:raw_hematite",
+      "text": "$(item)赤铁矿$()与$(item)铁矿$()在相同高度生成。$(br)需要$(thing)石质$()或更好工具采集。",
+      "link_recipe": true
+    },
+    {
+      "type": "patchouli:spotlight",
+      "title": "下界钴",
+      "item": "ultramarine:nether_cobalt_ore,ultramarine:raw_cobalt",
+      "text": "$(item)下界钴矿石$()会在$(thing)下界$()深处少量生成。$(br)需要$(thing)铁质$()或更好工具采集。",
+      "link_recipe": true
+    }
+  ]
+}

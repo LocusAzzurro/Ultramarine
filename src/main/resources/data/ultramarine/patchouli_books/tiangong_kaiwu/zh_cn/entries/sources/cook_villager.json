@@ -1,0 +1,21 @@
+{
+  "name": "厨师村民",
+  "icon": "ultramarine:food_hamper",
+  "category": "ultramarine:sources",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "$(thing)厨师$()村民会出售及购买食物相关的方块和物品。"
+    },
+    {
+      "type": "patchouli:entity",
+      "title": "厨师村民",
+      "entity": "minecraft:villager{VillagerData:{level:5,profession:\"ultramarine:cook\"}}"
+    },
+    {
+      "type": "patchouli:spotlight",
+      "item": "ultramarine:food_hamper",
+      "text": "$(thing)厨师$()村民的工作方块是$(item)食盒$()。"
+    }
+  ]
+}
