@@ -5,7 +5,17 @@
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "-- Profession Item$(br9-- Trades"
+      "text": "$(thing)Cook$() Villagers will sell and buy food related items and blocks."
+    },
+    {
+      "type": "patchouli:entity",
+      "title": "Cook Villager",
+      "entity": "minecraft:villager{VillagerData:{level:5,profession:\"ultramarine:cook\"}}"
+    },
+    {
+      "type": "patchouli:spotlight",
+      "item": "ultramarine:food_hamper",
+      "text": "The $(item)Food Hamper$() is the workstation block for $(thing)Cook$() Villagers."
     }
   ]
 }

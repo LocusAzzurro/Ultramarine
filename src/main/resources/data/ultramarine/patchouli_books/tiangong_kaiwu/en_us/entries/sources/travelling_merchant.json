@@ -5,7 +5,27 @@
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "-- Generation$(br)-- Trade Item"
+      "text": "The $(thing)Travelling Merchant$() will occasionally appear to sell and buy various items. Currently it's the only way to acquire certain blocks and items."
+    },
+    {
+      "type": "patchouli:entity",
+      "entity": "ultramarine:travelling_merchant",
+      "text": "Currently the appearance is the same as $(thing)Wandering Trader$()."
+    },
+    {
+      "type": "patchouli:spotlight",
+      "item": "ultramarine:teahouse_flag",
+      "text": "$(thing)Travelling Merchant$() will spawn by the $(item)Teahouse Flag$() when there are players in the vicinity of the flag. They will usually spawn along with $(thing)Wandering Traders$() as their spawning times are linked."
+    },
+    {
+      "type": "patchouli:relations",
+      "entries": ["ultramarine:blocks/teahouse_flag"],
+      "text": "$(item)Teahouse Flag$() can be crafted and placed to spawn the $(thing)Travelling Merchant$()."
+    },
+    {
+      "type": "patchouli:spotlight",
+      "item": "ultramarine:copper_cash_coin",
+      "text": "The currency of choice of the $(thing)Travelling Merchant$() is $(item)Copper Cash Coin$(). You can sell items to them to acquire them, and use them to buy other items. $(br)The trades can be consulted in JEI."
     }
   ]
 }

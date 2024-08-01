@@ -5,7 +5,7 @@
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "text"
+      "text": "New trade options are added to various $(thing)villager professions$(). Serving as the source to acquire some of the items and blocks."
     }
   ]
 }

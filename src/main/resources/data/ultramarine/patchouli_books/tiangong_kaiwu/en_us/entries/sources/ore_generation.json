@@ -5,7 +5,35 @@
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "-- Jade$(br)-- Hematite$(br)-- Magnesite"
+      "text": "There are currently four types of new ores added. Each serving different propuse in crafting."
+    },
+    {
+      "type": "patchouli:spotlight",
+      "title": "Jade",
+      "item": "ultramarine:jade_ore,ultramarine:deepslate_jade_ore,ultramarine:jade",
+      "text": "$(item)Jade Ore$() generate deep underground, in small clusters, similar to $(item)Diamond Ore$(). $(br)Requires $(thing)iron$() or better tools to mine.",
+      "link_recipe": true
+    },
+    {
+      "type": "patchouli:spotlight",
+      "title": "Magnesite",
+      "item": "ultramarine:magnesite_ore,ultramarine:deepslate_magnesite_ore,ultramarine:magnesite",
+      "text": "$(item)Magnesite Ore$() generate similarly to $(item)Lapis$(). $(br)Requires $(thing)stone$() or better tools to mine.",
+      "link_recipe": true
+    },
+    {
+      "type": "patchouli:spotlight",
+      "title": "Hematite",
+      "item": "ultramarine:hematite_ore,ultramarine:deepslate_hematite_ore,ultramarine:raw_hematite",
+      "text": "$(item)Hematite Ore$() generate at the same levels as $(item)Iron Ore$(). $(br)Requires $(thing)stone$() or better tools to mine.",
+      "link_recipe": true
+    },
+    {
+      "type": "patchouli:spotlight",
+      "title": "Nether Cobalt",
+      "item": "ultramarine:nether_cobalt_ore,ultramarine:raw_cobalt",
+      "text": "$(item)Nether Cobalt Ore$() generate in lower levels of $(thing)Nether$(), usually in small clusters. $(br)Requires $(thing)iron$() or better tools to mine.",
+      "link_recipe": true
     }
   ]
 }
