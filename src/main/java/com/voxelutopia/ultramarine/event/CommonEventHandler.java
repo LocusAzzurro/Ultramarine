@@ -112,25 +112,6 @@ public class CommonEventHandler {
         }
     }
 
-    //@SubscribeEvent
-    public static void accelerateTraderTick(TickEvent.WorldTickEvent event){
-        if (!event.world.isClientSide() && event.phase == TickEvent.Phase.START){
-            ServerLevel world = (ServerLevel) event.world;
-            ServerLevelData levelData = (ServerLevelData) world.getLevelData();
-            if (world.getGameTime() % 600 == 0){
-                levelData.setWanderingTraderSpawnChance(0);
-                levelData.setWanderingTraderSpawnDelay(0);
-                /*
-                ServerPlayer player = world.getRandomPlayer();
-                if (player != null){
-                    EntityType.WANDERING_TRADER.spawn(world, (CompoundTag)null, (Component)null, (Player)null, player.blockPosition(), MobSpawnType.EVENT, false, false);
-                }
-
-                 */
-            }
-        }
-    }
-
     @SubscribeEvent
     public static void travellingMerchantSpawnAttempt(TickEvent.WorldTickEvent event){
         if (event.world.isClientSide() || event.phase != TickEvent.Phase.START || event.world.dimension() != Level.OVERWORLD) return;
@@ -142,15 +123,6 @@ public class CommonEventHandler {
         int wanderingTraderSpawnDelay = levelData.getWanderingTraderSpawnDelay();
         int wanderingTraderSpawnChance = levelData.getWanderingTraderSpawnChance();
         if (world.getDayTime() % 24000 == 0 && wanderingTraderSpawnDelay <= 0 && world.random.nextInt(100) < wanderingTraderSpawnChance){
-            spawnTrader(world);
-        }
-    }
-
-    //@SubscribeEvent
-    public static void travellingMerchantSpawn(LivingSpawnEvent.SpecialSpawn event) {
-        if (event.getWorld().isClientSide()) return;
-        ServerLevel world = ((ServerLevelAccessor) event.getWorld()).getLevel();
-        if (event.getEntityLiving().getType().equals(EntityType.WANDERING_TRADER) && event.getSpawnReason() == MobSpawnType.EVENT) {
             spawnTrader(world);
         }
     }
