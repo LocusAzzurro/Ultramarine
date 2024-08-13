@@ -30,6 +30,7 @@ import net.minecraft.world.level.*;
 import net.minecraft.world.level.biome.Biomes;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.dimension.DimensionType;
 import net.minecraft.world.level.levelgen.GenerationStep;
 import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraft.world.level.levelgen.placement.PlacedFeature;
@@ -132,7 +133,7 @@ public class CommonEventHandler {
 
     @SubscribeEvent
     public static void travellingMerchantSpawnAttempt(TickEvent.WorldTickEvent event){
-        if (event.world.isClientSide() || event.phase != TickEvent.Phase.START) return;
+        if (event.world.isClientSide() || event.phase != TickEvent.Phase.START || event.world.dimension() != Level.OVERWORLD) return;
         ServerLevel world = (ServerLevel) event.world;
         ServerLevelData levelData = (ServerLevelData) world.getLevelData();
         if (!world.getGameRules().getBoolean(GameRules.RULE_DO_TRADER_SPAWNING) ||
@@ -140,7 +141,7 @@ public class CommonEventHandler {
                 !world.getGameRules().getBoolean(GameRules.RULE_DAYLIGHT)) return;
         int wanderingTraderSpawnDelay = levelData.getWanderingTraderSpawnDelay();
         int wanderingTraderSpawnChance = levelData.getWanderingTraderSpawnChance();
-        if (world.getDayTime() % 24000 == 0 && wanderingTraderSpawnDelay <= 0 && world.random.nextInt(100) > wanderingTraderSpawnChance){
+        if (world.getDayTime() % 24000 == 0 && wanderingTraderSpawnDelay <= 0 && world.random.nextInt(100) < wanderingTraderSpawnChance){
             spawnTrader(world);
         }
     }
