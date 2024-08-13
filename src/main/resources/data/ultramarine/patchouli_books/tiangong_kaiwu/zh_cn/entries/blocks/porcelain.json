@@ -16,7 +16,7 @@
         },
         {
             "type": "patchouli:spotlight",
-            "title": "Blue and White Porcelain",
+            "title": "青花瓷",
             "item": "ultramarine:blue_and_white_porcelain_piece,ultramarine:blue_and_white_porcelain_shards",
             "text": "$(thing)青花瓷$()方块的掉落则更特殊。它们会掉落$(item)青花瓷碎片$()和$(item)青花瓷片$()，后者为稀有掉落。两种物品的掉落率都受$(thing)时运$()附魔影响。",
             "link_recipe": true
