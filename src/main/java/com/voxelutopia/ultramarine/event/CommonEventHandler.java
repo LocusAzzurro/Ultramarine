@@ -265,7 +265,7 @@ public class CommonEventHandler {
                     12, 2, 0.05f
             ));
             trades.get(1).add(($1, $2) -> new MerchantOffer(
-                    new ItemStack(Items.EMERALD, 3),
+                    new ItemStack(Items.EMERALD, 8),
                     new ItemStack(ItemRegistry.COOKED_MEAT.get(), 4),
                     12, 2, 0.05f
             ));
