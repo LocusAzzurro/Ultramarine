@@ -1,6 +1,7 @@
 {
 	"credit": "Made with Blockbench",
 	"texture_size": [64, 64],
+	"ambientocclusion": false,
 	"textures": {
 		"6": "ultramarine:block/white_marble_railing_slant",
 		"particle": "block/quartz_block_bottom"
