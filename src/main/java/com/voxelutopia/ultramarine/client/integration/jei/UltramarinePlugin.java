@@ -2,6 +2,7 @@ package com.voxelutopia.ultramarine.client.integration.jei;
 
 import com.voxelutopia.ultramarine.Ultramarine;
 import com.voxelutopia.ultramarine.client.screen.BrickKilnScreen;
+import com.voxelutopia.ultramarine.client.screen.ChiselTableScreen;
 import com.voxelutopia.ultramarine.client.screen.WoodworkingWorkbenchScreen;
 import com.voxelutopia.ultramarine.data.recipe.ChiselTableRecipe;
 import com.voxelutopia.ultramarine.data.recipe.CompositeSmeltingRecipe;
@@ -43,6 +44,7 @@ public class UltramarinePlugin implements IModPlugin {
     @Override
     public void registerGuiHandlers(IGuiHandlerRegistration registration) {
         registration.addRecipeClickArea(BrickKilnScreen.class, 78, 32, 28, 23, CompositeSmeltingRecipeCategory.COMPOSITE_SMELTING_RECIPE_TYPE);
+        registration.addRecipeClickArea(ChiselTableScreen.class, 79, 24, 18, 30, ChiselTableRecipeCategory.CHISEL_TABLE_RECIPE_TYPE);
     }
 
     @Override
