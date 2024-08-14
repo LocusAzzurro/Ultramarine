@@ -10,6 +10,7 @@ import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.TextComponent;
 import net.minecraft.network.chat.TranslatableComponent;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.ContainerHelper;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.inventory.AbstractContainerMenu;
@@ -18,6 +19,7 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.RandomizableContainerBlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.items.ItemStackHandler;
+import net.minecraftforge.registries.ForgeRegistries;
 
 public class ContainerDecorativeBlockEntity extends RandomizableContainerBlockEntity {
 
@@ -47,7 +49,7 @@ public class ContainerDecorativeBlockEntity extends RandomizableContainerBlockEn
 
     @Override
     protected Component getDefaultName() {
-        return new TextComponent(new TranslatableComponent("container." +  Registry.BLOCK.getKey(block).getPath()).getString());
+        return new TranslatableComponent("container." +  ForgeRegistries.BLOCKS.getKey(block).getPath());
     }
 
     @Override
@@ -66,6 +68,8 @@ public class ContainerDecorativeBlockEntity extends RandomizableContainerBlockEn
     @Override
     protected void saveAdditional(CompoundTag nbt) {
         super.saveAdditional(nbt);
+        nbt.putString("Block", ForgeRegistries.BLOCKS.getKey(block).toString());
+        nbt.putByte("Rows", (byte) rows);
         if (!this.trySaveLootTable(nbt)) {
             ContainerHelper.saveAllItems(nbt, this.items);
         }
@@ -74,6 +78,8 @@ public class ContainerDecorativeBlockEntity extends RandomizableContainerBlockEn
     @Override
     public void load(CompoundTag nbt) {
         super.load(nbt);
+        this.block = ForgeRegistries.BLOCKS.getValue(ResourceLocation.tryParse(nbt.getString("Block")));
+        this.rows = nbt.getByte("Rows");
         this.items = NonNullList.withSize(this.getContainerSize(), ItemStack.EMPTY);
         if (!this.tryLoadLootTable(nbt)) {
             ContainerHelper.loadAllItems(nbt, this.items);
