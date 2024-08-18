@@ -120,9 +120,8 @@ public class CommonEventHandler {
         if (!world.getGameRules().getBoolean(GameRules.RULE_DO_TRADER_SPAWNING) ||
                 !world.getGameRules().getBoolean(GameRules.RULE_DOMOBSPAWNING) ||
                 !world.getGameRules().getBoolean(GameRules.RULE_DAYLIGHT)) return;
-        int wanderingTraderSpawnDelay = levelData.getWanderingTraderSpawnDelay();
         int wanderingTraderSpawnChance = levelData.getWanderingTraderSpawnChance();
-        if (world.getDayTime() % 24000 == 0 && wanderingTraderSpawnDelay <= 0 && world.random.nextInt(100) < wanderingTraderSpawnChance){
+        if (world.getDayTime() % 24000 == 0 && world.random.nextInt(100) < wanderingTraderSpawnChance){
             spawnTrader(world);
         }
     }
@@ -156,7 +155,7 @@ public class CommonEventHandler {
                 TravellingMerchant merchant = EntityTypeRegistry.TRAVELLING_MERCHANT.get().spawn(
                         world, null, null, null, potentialSpawn, MobSpawnType.EVENT, false, false);
                 if (merchant == null) return;
-                merchant.setDespawnDelay(24000);
+                merchant.setDespawnDelay(12000);
                 merchant.setWanderTarget(potentialSpawn);
                 merchant.restrictTo(potentialSpawn, 8);
                 }
