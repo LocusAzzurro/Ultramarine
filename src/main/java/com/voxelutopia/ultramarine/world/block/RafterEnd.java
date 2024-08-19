@@ -23,6 +23,7 @@ public class RafterEnd extends ShiftableBlock{
 
     public static final DirectionProperty FACING = BlockStateProperties.HORIZONTAL_FACING;
     public static final Function<BlockState, VoxelShape> RAFTER_SHAPE = ShapeFunction.cardinalRotations(new RawVoxelShape(5.0D, 10.0D, -4.0D, 11.0D, 16.0D, 16.0D));
+    public static final Function<BlockState, VoxelShape> RAFTER_SHAPE_SHIFTED = ShapeFunction.cardinalRotations(new RawVoxelShape(5.0D, 18.0D, -4.0D, 11.0D, 24.0D, 16.0D));
 
     public RafterEnd(BaseBlockProperty property) {
         super(property.copy().properties.noOcclusion());
@@ -44,7 +45,7 @@ public class RafterEnd extends ShiftableBlock{
 
     @Override
     public VoxelShape getShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
-        return RAFTER_SHAPE.apply(pState);
+        return pState.getValue(SHIFTED) ? RAFTER_SHAPE_SHIFTED.apply(pState) : RAFTER_SHAPE.apply(pState);
     }
 
     @Override
