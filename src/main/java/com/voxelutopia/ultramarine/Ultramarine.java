@@ -1,6 +1,5 @@
 package com.voxelutopia.ultramarine;
 
-import com.mojang.logging.LogUtils;
 import com.voxelutopia.ultramarine.data.registry.*;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -9,8 +8,6 @@ import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
-import java.util.logging.LogManager;
 
 @Mod(Ultramarine.MOD_ID)
 public class Ultramarine {

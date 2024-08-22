@@ -1,6 +1,5 @@
 package com.voxelutopia.ultramarine.world.item;
 
-import com.voxelutopia.ultramarine.data.ModCreativeTab;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.InteractionResultHolder;

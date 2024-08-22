@@ -1,9 +1,5 @@
 package com.voxelutopia.ultramarine.world.block;
 
-import com.voxelutopia.ultramarine.world.block.AxialBlock;
-import com.voxelutopia.ultramarine.world.block.BaseBlock;
-import com.voxelutopia.ultramarine.world.block.BaseBlockProperty;
-import com.voxelutopia.ultramarine.world.block.BaseBlockPropertyHolder;
 import net.minecraft.core.Direction;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.block.Block;

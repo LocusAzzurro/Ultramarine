@@ -1,7 +1,10 @@
 package com.voxelutopia.ultramarine.data.registry;
 
 import com.voxelutopia.ultramarine.Ultramarine;
-import com.voxelutopia.ultramarine.world.block.entity.*;
+import com.voxelutopia.ultramarine.world.block.entity.BottleGourdBlockEntity;
+import com.voxelutopia.ultramarine.world.block.entity.BrickKilnBlockEntity;
+import com.voxelutopia.ultramarine.world.block.entity.CenserBlockEntity;
+import com.voxelutopia.ultramarine.world.block.entity.ContainerDecorativeBlockEntity;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraftforge.registries.DeferredRegister;

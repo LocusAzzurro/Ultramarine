@@ -2,10 +2,10 @@ package com.voxelutopia.ultramarine.datagen;
 
 import com.google.common.collect.ImmutableSet;
 import com.voxelutopia.ultramarine.data.ModItemTags;
-import com.voxelutopia.ultramarine.datagen.recipe.ChiselTableRecipeBuilder;
-import com.voxelutopia.ultramarine.datagen.recipe.CompositeSmeltingRecipeBuilder;
 import com.voxelutopia.ultramarine.data.registry.ItemRegistry;
 import com.voxelutopia.ultramarine.data.registry.RecipeSerializerRegistry;
+import com.voxelutopia.ultramarine.datagen.recipe.ChiselTableRecipeBuilder;
+import com.voxelutopia.ultramarine.datagen.recipe.CompositeSmeltingRecipeBuilder;
 import net.minecraft.advancements.CriterionTriggerInstance;
 import net.minecraft.advancements.critereon.*;
 import net.minecraft.data.DataGenerator;

@@ -8,7 +8,6 @@ import com.voxelutopia.ultramarine.world.block.BaseBlockPropertyHolder;
 import com.voxelutopia.ultramarine.world.block.ConsumableDecorativeBlock;
 import com.voxelutopia.ultramarine.world.block.StackableHalfBlock;
 import net.minecraft.data.DataGenerator;
-import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Block;

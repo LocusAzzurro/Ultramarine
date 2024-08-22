@@ -22,8 +22,6 @@ import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import org.jetbrains.annotations.NotNull;
 
-import java.util.function.Function;
-
 public class HangingLantern extends DecorativeBlock {
 
     public static final IntegerProperty LANTERNS = ModBlockStateProperties.LANTERNS;

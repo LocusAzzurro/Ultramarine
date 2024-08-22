@@ -1,7 +1,7 @@
 package com.voxelutopia.ultramarine.world.block.menu;
 
-import com.voxelutopia.ultramarine.data.registry.MenuTypeRegistry;
 import com.voxelutopia.ultramarine.data.ContainerType;
+import com.voxelutopia.ultramarine.data.registry.MenuTypeRegistry;
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.world.Container;
 import net.minecraft.world.SimpleContainer;

@@ -1,6 +1,5 @@
 package com.voxelutopia.ultramarine.world.block.state;
 
-import com.voxelutopia.ultramarine.world.block.StackableHalfBlock;
 import net.minecraft.util.StringRepresentable;
 
 public enum StackableBlockType implements StringRepresentable {

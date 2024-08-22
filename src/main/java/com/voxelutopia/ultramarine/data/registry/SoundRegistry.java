@@ -9,8 +9,6 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 
-import java.util.function.Supplier;
-
 public class SoundRegistry {
     public static final DeferredRegister<SoundEvent> SOUND_EVENT =
             DeferredRegister.create(ForgeRegistries.SOUND_EVENTS, Ultramarine.MOD_ID);

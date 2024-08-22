@@ -3,7 +3,6 @@ package com.voxelutopia.ultramarine.client.integration.jei;
 import com.voxelutopia.ultramarine.Ultramarine;
 import com.voxelutopia.ultramarine.client.screen.BrickKilnScreen;
 import com.voxelutopia.ultramarine.client.screen.ChiselTableScreen;
-import com.voxelutopia.ultramarine.client.screen.WoodworkingWorkbenchScreen;
 import com.voxelutopia.ultramarine.data.recipe.ChiselTableRecipe;
 import com.voxelutopia.ultramarine.data.recipe.CompositeSmeltingRecipe;
 import com.voxelutopia.ultramarine.data.recipe.WoodworkingRecipe;
