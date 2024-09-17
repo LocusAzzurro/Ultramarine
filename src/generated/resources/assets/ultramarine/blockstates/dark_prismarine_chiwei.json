@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "ultramarine:block/dark_prismarine_chiwei",
+      "y": 90
+    },
+    "facing=south": {
+      "model": "ultramarine:block/dark_prismarine_chiwei",
+      "y": -90
+    },
+    "facing=west": {
+      "model": "ultramarine:block/dark_prismarine_chiwei"
+    },
+    "facing=east": {
+      "model": "ultramarine:block/dark_prismarine_chiwei",
+      "y": 180
+    }
+  }
+}

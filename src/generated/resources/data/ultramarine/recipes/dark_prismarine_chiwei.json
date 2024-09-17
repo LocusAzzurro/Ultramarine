@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "HS",
+    "SB",
+    "BB"
+  ],
+  "key": {
+    "B": {
+      "item": "minecraft:dark_prismarine"
+    },
+    "S": {
+      "item": "minecraft:dark_prismarine_stairs"
+    },
+    "H": {
+      "item": "minecraft:dark_prismarine_slab"
+    }
+  },
+  "result": {
+    "item": "ultramarine:dark_prismarine_chiwei"
+  }
+}

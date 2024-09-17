@@ -693,6 +693,15 @@ public class ModRecipeProvider extends RecipeProvider {
                 .pattern("RRG")
                 .unlockedBy(itemUnlockName(Items.GREEN_GLAZED_TERRACOTTA), itemCriterion(Items.GREEN_GLAZED_TERRACOTTA))
                 .save(recipeConsumer);
+        ShapedRecipeBuilder.shaped(ItemRegistry.DARK_PRISMARINE_CHIWEI.get())
+                .define('B', Items.DARK_PRISMARINE)
+                .define('S', Items.DARK_PRISMARINE_STAIRS)
+                .define('H', Items.DARK_PRISMARINE_SLAB)
+                .pattern("HS")
+                .pattern("SB")
+                .pattern("BB")
+                .unlockedBy(itemUnlockName(Items.GREEN_GLAZED_TERRACOTTA), itemCriterion(Items.GREEN_GLAZED_TERRACOTTA))
+                .save(recipeConsumer);
 
         // CEILING
 
@@ -1499,6 +1508,17 @@ public class ModRecipeProvider extends RecipeProvider {
                 .pattern("WWW")
                 .pattern("WFW")
                 .unlockedBy(itemUnlockName(ItemRegistry.POLISHED_OAK_PLANK.get()), itemCriterion(ItemRegistry.POLISHED_OAK_PLANK.get()))
+                .save(recipeConsumer);
+
+        ShapedRecipeBuilder.shaped(ItemRegistry.EBONY_BED.get())
+                .define('F', ItemRegistry.WOODEN_FRAME.get())
+                .define('W', ItemRegistry.POLISHED_OAK_PLANK.get())
+                .define('G', ItemRegistry.GILDED_DARK_OAK.get())
+                .define('S', ItemRegistry.SILK.get())
+                .pattern("FSF")
+                .pattern("GWG")
+                .pattern("WFW")
+                .unlockedBy(itemUnlockName(ItemRegistry.POLISHED_EBONY_PLANK.get()), itemCriterion(ItemRegistry.POLISHED_EBONY_PLANK.get()))
                 .save(recipeConsumer);
 
         // SCREEN

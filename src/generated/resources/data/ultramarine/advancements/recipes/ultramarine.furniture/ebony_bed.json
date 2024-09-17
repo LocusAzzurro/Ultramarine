@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "ultramarine:ebony_bed"
+    ]
+  },
+  "criteria": {
+    "has_polished_ebony_plank": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "ultramarine:polished_ebony_plank"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "ultramarine:ebony_bed"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_polished_ebony_plank",
+      "has_the_recipe"
+    ]
+  ]
+}

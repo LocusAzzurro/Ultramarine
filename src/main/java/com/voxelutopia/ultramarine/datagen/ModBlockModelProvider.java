@@ -48,7 +48,8 @@ public class ModBlockModelProvider extends BlockStateProvider {
             BlockRegistry.CARRIAGE, 90,
             BlockRegistry.WOODEN_POLES, 90,
             BlockRegistry.GOLDEN_GLAZED_ROOF_CHARM, -90,
-            BlockRegistry.GREEN_GLAZED_ROOF_CHARM, -90
+            BlockRegistry.GREEN_GLAZED_ROOF_CHARM, -90,
+            BlockRegistry.DARK_PRISMARINE_CHIWEI, -90
     );
     private final List<RegistryObject<Block>> SKIP_DECO = List.of(
             BlockRegistry.BRICK_KILN,

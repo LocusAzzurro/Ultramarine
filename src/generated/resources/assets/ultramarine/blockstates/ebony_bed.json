@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "ultramarine:block/ebony_bed",
+      "y": 180
+    },
+    "facing=south": {
+      "model": "ultramarine:block/ebony_bed"
+    },
+    "facing=west": {
+      "model": "ultramarine:block/ebony_bed",
+      "y": 90
+    },
+    "facing=east": {
+      "model": "ultramarine:block/ebony_bed",
+      "y": 270
+    }
+  }
+}

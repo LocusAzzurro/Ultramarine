@@ -370,6 +370,7 @@ public class ItemRegistry {
     public static final RegistryObject<Item> GOLDEN_GLAZED_ROOF_CHARM = fromBlock(BlockRegistry.GOLDEN_GLAZED_ROOF_CHARM, ModCreativeTab.DECORATIVE_BLOCKS);
     public static final RegistryObject<Item> GOLDEN_GLAZED_ROOF_CHARM_ACCESSORY = fromBlock(BlockRegistry.GOLDEN_GLAZED_ROOF_CHARM_ACCESSORY, ModCreativeTab.DECORATIVE_BLOCKS);
     public static final RegistryObject<Item> GREEN_GLAZED_ROOF_CHARM = fromBlock(BlockRegistry.GREEN_GLAZED_ROOF_CHARM, ModCreativeTab.DECORATIVE_BLOCKS);
+    public static final RegistryObject<Item> DARK_PRISMARINE_CHIWEI = fromBlock(BlockRegistry.DARK_PRISMARINE_CHIWEI, ModCreativeTab.DECORATIVE_BLOCKS);
 
     // CEILING
 
@@ -544,6 +545,7 @@ public class ItemRegistry {
     public static final RegistryObject<Item> PORCELAIN_INLAID_GRAND_CHAIR = fromBlock(BlockRegistry.PORCELAIN_INLAID_GRAND_CHAIR, ModCreativeTab.FURNITURE);
     public static final RegistryObject<Item> YELLOW_CUSHION = fromBlock(BlockRegistry.YELLOW_CUSHION, ModCreativeTab.FURNITURE);
     public static final RegistryObject<Item> OAK_BED = fromBlock(BlockRegistry.OAK_BED, ModCreativeTab.FURNITURE);
+    public static final RegistryObject<Item> EBONY_BED = fromBlock(BlockRegistry.EBONY_BED, ModCreativeTab.FURNITURE);
 
     // SCREEN
 

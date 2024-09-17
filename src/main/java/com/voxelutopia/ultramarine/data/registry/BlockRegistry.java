@@ -388,6 +388,8 @@ public class BlockRegistry {
                     ShapeFunction.or(ShapeFunction.cardinalRotations(new RawVoxelShape(0,-16,0,16,4,32)), ShapeFunction.cardinalRotations(new RawVoxelShape(0,0,0,16,16,16)),
                             ShapeFunction.cardinalRotations(new RawVoxelShape(0,16,0,16,22,20)), ShapeFunction.cardinalRotations(new RawVoxelShape(0,0,12,16,34,26))))
                     .directional().build());
+    public static final RegistryObject<Block> DARK_PRISMARINE_CHIWEI = BLOCKS.register("dark_prismarine_chiwei", () -> DecorativeBlock.with(BaseBlockProperty.STONE)
+            .shaped(ShapeFunction.cardinalRotations(new RawVoxelShape(0,-16,-16,16,30,15))).directional().noOcclusion().build());
 
     // CEILING
 
@@ -693,6 +695,8 @@ public class BlockRegistry {
             () -> SeatDecorativeBlock.with(BaseBlockProperty.SILK).seatOffset(new Vec3(0.0f, -0.5f, 0.0f)).shaped(ShapeFunction.eightRotations(new RawVoxelShape(2,0,1.5,14,4,13.5))).directional().diagonallyPlaceable().noOcclusion().build());
     public static final RegistryObject<Block> OAK_BED = BLOCKS.register("oak_bed",
             () -> SeatDecorativeBlock.with(BaseBlockProperty.WOOD).seatOffset(new Vec3(0.0f, -0.1f, 0.0f)).shaped(ShapeFunction.cardinalRotations(new RawVoxelShape(-8,0,0,24,8,16))).directional().build());
+    public static final RegistryObject<Block> EBONY_BED = BLOCKS.register("ebony_bed",
+            () -> SeatDecorativeBlock.with(BaseBlockProperty.WOOD).seatOffset(new Vec3(0.0f, 0.1f, 0.0f)).shaped(ShapeFunction.cardinalRotations(new RawVoxelShape(-15,0,-1,31,13,17))).directional().build());
 
     // SCREEN
 
