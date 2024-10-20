@@ -4,7 +4,7 @@
 	"render_type": "cutout",
 	"textures": {
 		"1": "ultramarine:block/bronze_censer",
-		"particle": "ultramarine:block/material_bronze"
+		"particle": "ultramarine:block/bronze_block"
 	},
 	"elements": [
 		{

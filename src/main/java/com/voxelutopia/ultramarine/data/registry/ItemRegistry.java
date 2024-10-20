@@ -685,7 +685,6 @@ public class ItemRegistry {
     public static final RegistryObject<Item> HEMATITE_ORE = fromBlock(BlockRegistry.HEMATITE_ORE, ModCreativeTab.MATERIALS);
     public static final RegistryObject<Item> DEEPSLATE_HEMATITE_ORE = fromBlock(BlockRegistry.DEEPSLATE_HEMATITE_ORE, ModCreativeTab.MATERIALS);
     public static final RegistryObject<Item> NETHER_COBALT_ORE = fromBlock(BlockRegistry.NETHER_COBALT_ORE, ModCreativeTab.MATERIALS);
-    public static final RegistryObject<Item> JADE_BLOCK = fromBlock(BlockRegistry.JADE_BLOCK, ModCreativeTab.MATERIALS);
 
     // ORE PRODUCT
 
@@ -814,6 +813,8 @@ public class ItemRegistry {
     public static final RegistryObject<Item> COPPER_CASH_COIN = simpleItem("copper_cash_coin", ModCreativeTab.MATERIALS);
     public static final RegistryObject<Item> BRONZE_INGOT = simpleItem("bronze_ingot", ModCreativeTab.MATERIALS);
     public static final RegistryObject<Item> BRONZE_DUST = simpleItem("bronze_dust", ModCreativeTab.MATERIALS);
+    public static final RegistryObject<Item> JADE_BLOCK = fromBlock(BlockRegistry.JADE_BLOCK, ModCreativeTab.MATERIALS);
+    public static final RegistryObject<Item> BRONZE_BLOCK = fromBlock(BlockRegistry.BRONZE_BLOCK, ModCreativeTab.MATERIALS);
 
     // FOOD
 

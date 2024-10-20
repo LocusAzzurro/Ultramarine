@@ -388,6 +388,7 @@ public class ModBlockModelProvider extends BlockStateProvider {
         simpleBlock(BlockRegistry.DEEPSLATE_HEMATITE_ORE.get());
         simpleBlock(BlockRegistry.NETHER_COBALT_ORE.get());
         simpleBlock(BlockRegistry.JADE_BLOCK.get());
+        simpleBlock(BlockRegistry.BRONZE_BLOCK.get());
 
     }
 
