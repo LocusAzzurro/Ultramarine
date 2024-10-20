@@ -4,7 +4,7 @@
 	"render_type": "cutout",
 	"textures": {
 		"1": "ultramarine:block/wine_pot",
-		"particle": "block/quartz_block_bottom"
+		"particle": "ultramarine:block/texture_blue_and_white_porcelain"
 	},
 	"elements": [
 		{
