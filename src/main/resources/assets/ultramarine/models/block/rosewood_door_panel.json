@@ -3,7 +3,7 @@
 	"texture_size": [64, 64],
 	"textures": {
 		"1": "ultramarine:block/rosewood_door_panel",
-		"particle": "ultramarine:block/rosewood_planks"
+		"particle": "ultramarine:block/texture_varnished_rosewood"
 	},
 	"elements": [
 		{

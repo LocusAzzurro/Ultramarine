@@ -3,7 +3,7 @@
 	"texture_size": [32, 32],
 	"textures": {
 		"2": "ultramarine:block/paper_strip_seal",
-		"particle": "item/paper"
+		"particle": "ultramarine:block/texture_xuan_paper"
 	},
 	"elements": [
 		{

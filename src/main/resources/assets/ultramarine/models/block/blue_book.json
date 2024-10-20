@@ -3,7 +3,7 @@
 	"texture_size": [64, 64],
 	"textures": {
 		"1": "ultramarine:block/blue_book",
-		"particle": "ultramarine:item/xuan_paper"
+		"particle": "ultramarine:block/texture_xuan_paper"
 	},
 	"elements": [
 		{
