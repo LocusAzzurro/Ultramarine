@@ -2,7 +2,7 @@
   "parent": "minecraft:block/cube_bottom_top",
   "textures": {
     "side": "ultramarine:block/blue_and_green_fangxin_edge_side",
-    "bottom": "ultramarine:block/cyan_and_blue_fangxin_edge_end",
-    "top": "ultramarine:block/cyan_and_blue_fangxin_edge_end"
+    "bottom": "ultramarine:block/green_carved_fangxin_end",
+    "top": "ultramarine:block/green_carved_fangxin_end"
   }
 }
