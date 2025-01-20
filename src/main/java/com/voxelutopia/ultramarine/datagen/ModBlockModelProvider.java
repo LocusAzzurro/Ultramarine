@@ -392,6 +392,7 @@ public class ModBlockModelProvider extends BlockStateProvider {
         simpleBlock(BlockRegistry.DEEPSLATE_HEMATITE_ORE.get());
         simpleBlock(BlockRegistry.NETHER_COBALT_ORE.get());
         simpleBlock(BlockRegistry.JADE_BLOCK.get());
+        simpleBlock(BlockRegistry.BRONZE_BLOCK.get());
 
     }
 
@@ -502,31 +503,32 @@ public class ModBlockModelProvider extends BlockStateProvider {
         if (!(block instanceof RoofTiles tile)) return;
         String color = tile.getColor().toString();
         RoofTiles.RoofTileType type = tile.getType();
+        ResourceLocation coloredParticle = modLoc(BLOCK + "texture_" + color + "_roof_tiles");
         models().withExistingParent(modLoc(BLOCK + color + "_" + type).getPath(), modLoc(BLOCK + type))
-                .texture("1", blockLoc(tile)).texture("particle", mcLoc(BLOCK + color + "_concrete"));
+                .texture("1", blockLoc(tile)).texture("particle", coloredParticle);
         models().withExistingParent(modLoc(BLOCK + color + "_" + type + "_shifted").getPath(), modLoc(BLOCK + type + "_shifted"))
-                .texture("1", blockLoc(tile)).texture("particle", mcLoc(BLOCK + color + "_concrete"));
+                .texture("1", blockLoc(tile)).texture("particle", coloredParticle);
         for (int i = 1; i <= 15; i++){
             int layerToStage = type.getSnowStages().get(i).getLeft();
             boolean usesSideSnow = type.getSnowStages().get(i).getRight();
 
             models().withExistingParent(modLoc(BLOCK + color + "_" + type + "_snow_layer_" + i).getPath(), modLoc(BLOCK + type))
-                    .texture("1", modLoc(BLOCK + name(tile) + "_snow_stage_" + layerToStage)).texture("particle", mcLoc(BLOCK + color + "_concrete"));
+                    .texture("1", modLoc(BLOCK + name(tile) + "_snow_stage_" + layerToStage)).texture("particle", coloredParticle);
             models().withExistingParent(modLoc(BLOCK + color + "_" + type + "_shifted" + "_snow_layer_" + i).getPath(), modLoc(BLOCK + type + "_shifted"))
-                    .texture("1", modLoc(BLOCK + name(tile) + "_snow_stage_" + layerToStage)).texture("particle", mcLoc(BLOCK + color + "_concrete"));
+                    .texture("1", modLoc(BLOCK + name(tile) + "_snow_stage_" + layerToStage)).texture("particle", coloredParticle);
             if (usesSideSnow) {
                 models().withExistingParent(modLoc(BLOCK + color + "_" + type + "_snow_layer_" + i + "_none").getPath(), modLoc(BLOCK + type))
-                        .texture("1", modLoc(BLOCK + name(tile) + "_snow_stage_" + layerToStage + "_none")).texture("particle", mcLoc(BLOCK + color + "_concrete"));
+                        .texture("1", modLoc(BLOCK + name(tile) + "_snow_stage_" + layerToStage + "_none")).texture("particle", coloredParticle);
                 models().withExistingParent(modLoc(BLOCK + color + "_" + type + "_shifted" + "_snow_layer_" + i + "_left").getPath(), modLoc(BLOCK + type + "_shifted"))
-                        .texture("1", modLoc(BLOCK + name(tile) + "_snow_stage_" + layerToStage + "_left")).texture("particle", mcLoc(BLOCK + color + "_concrete"));
+                        .texture("1", modLoc(BLOCK + name(tile) + "_snow_stage_" + layerToStage + "_left")).texture("particle", coloredParticle);
                 models().withExistingParent(modLoc(BLOCK + color + "_" + type + "_snow_layer_" + i + "_right").getPath(), modLoc(BLOCK + type))
-                        .texture("1", modLoc(BLOCK + name(tile) + "_snow_stage_" + layerToStage + "_right")).texture("particle", mcLoc(BLOCK + color + "_concrete"));
+                        .texture("1", modLoc(BLOCK + name(tile) + "_snow_stage_" + layerToStage + "_right")).texture("particle", coloredParticle);
                 models().withExistingParent(modLoc(BLOCK + color + "_" + type + "_shifted" + "_snow_layer_" + i + "_none").getPath(), modLoc(BLOCK + type + "_shifted"))
-                        .texture("1", modLoc(BLOCK + name(tile) + "_snow_stage_" + layerToStage + "_none")).texture("particle", mcLoc(BLOCK + color + "_concrete"));
+                        .texture("1", modLoc(BLOCK + name(tile) + "_snow_stage_" + layerToStage + "_none")).texture("particle", coloredParticle);
                 models().withExistingParent(modLoc(BLOCK + color + "_" + type + "_snow_layer_" + i + "_left").getPath(), modLoc(BLOCK + type))
-                        .texture("1", modLoc(BLOCK + name(tile) + "_snow_stage_" + layerToStage + "_left")).texture("particle", mcLoc(BLOCK + color + "_concrete"));
+                        .texture("1", modLoc(BLOCK + name(tile) + "_snow_stage_" + layerToStage + "_left")).texture("particle", coloredParticle);
                 models().withExistingParent(modLoc(BLOCK + color + "_" + type + "_shifted" + "_snow_layer_" + i + "_right").getPath(), modLoc(BLOCK + type + "_shifted"))
-                        .texture("1", modLoc(BLOCK + name(tile) + "_snow_stage_" + layerToStage + "_right")).texture("particle", mcLoc(BLOCK + color + "_concrete"));
+                        .texture("1", modLoc(BLOCK + name(tile) + "_snow_stage_" + layerToStage + "_right")).texture("particle", coloredParticle);
             }
 
         }

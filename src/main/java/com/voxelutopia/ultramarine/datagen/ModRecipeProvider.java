@@ -1836,6 +1836,7 @@ public class ModRecipeProvider extends RecipeProvider {
         //ORE BLOCKS
 
         nineBlockStorageRecipes(recipeConsumer, ItemRegistry.JADE.get(), ItemRegistry.JADE_BLOCK.get());
+        nineBlockStorageRecipes(recipeConsumer, ItemRegistry.BRONZE_INGOT.get(), ItemRegistry.BRONZE_BLOCK.get());
 
         //ROOF TILE
 

@@ -3,7 +3,7 @@
 	"texture_size": [128, 128],
 	"textures": {
 		"2": "ultramarine:block/horizontal_landscape_painting",
-		"particle": "ultramarine:item/xuan_paper"
+		"particle": "ultramarine:block/texture_old_xuan_paper"
 	},
 	"elements": [
 		{

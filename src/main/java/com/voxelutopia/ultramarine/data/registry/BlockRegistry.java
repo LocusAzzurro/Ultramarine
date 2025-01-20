@@ -933,6 +933,7 @@ public class BlockRegistry {
     public static final RegistryObject<Block> DEEPSLATE_HEMATITE_ORE = BLOCKS.register("deepslate_hematite_ore", () -> new BaseOreBlock(1, 3));
     public static final RegistryObject<Block> NETHER_COBALT_ORE = BLOCKS.register("nether_cobalt_ore", () -> new BaseOreBlock(2, 5));
     public static final RegistryObject<Block> JADE_BLOCK = BLOCKS.register("jade_block", BaseBlock::new);
+    public static final RegistryObject<Block> BRONZE_BLOCK = BLOCKS.register("bronze_block", BaseBlock::new);
 
     /**
      *  TOOLS

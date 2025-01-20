@@ -4,7 +4,7 @@
 	"render_type": "cutout",
 	"textures": {
 		"1": "ultramarine:block/damaged_landscape_painting",
-		"particle": "ultramarine:item/xuan_paper"
+		"particle": "ultramarine:block/texture_old_xuan_paper"
 	},
 	"elements": [
 		{

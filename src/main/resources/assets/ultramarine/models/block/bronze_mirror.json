@@ -3,7 +3,7 @@
 	"texture_size": [64, 64],
 	"textures": {
 		"3": "ultramarine:block/bronze_mirror",
-		"particle": "block/copper_block"
+		"particle": "ultramarine:block/bronze_block"
 	},
 	"elements": [
 		{

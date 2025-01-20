@@ -3,7 +3,7 @@
 	"texture_size": [64, 64],
 	"textures": {
 		"1": "ultramarine:block/sincere_calligraphy",
-		"particle": "ultramarine:item/xuan_paper"
+		"particle": "ultramarine:block/texture_old_xuan_paper"
 	},
 	"elements": [
 		{

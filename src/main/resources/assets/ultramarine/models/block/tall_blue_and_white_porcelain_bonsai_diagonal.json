@@ -5,7 +5,7 @@
 	"render_type": "cutout",
 	"textures": {
 		"2": "ultramarine:block/tall_blue_and_white_porcelain_bonsai",
-		"particle": "ultramarine:item/blue_and_white_porcelain_piece"
+		"particle": "ultramarine:block/texture_blue_and_white_porcelain"
 	},
 	"elements": [
 		{

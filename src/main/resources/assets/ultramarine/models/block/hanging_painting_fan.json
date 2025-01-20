@@ -4,7 +4,7 @@
 	"render_type": "cutout",
 	"textures": {
 		"2": "ultramarine:block/hanging_painting_fan",
-		"particle": "ultramarine:item/xuan_paper"
+		"particle": "ultramarine:block/texture_xuan_paper"
 	},
 	"elements": [
 		{

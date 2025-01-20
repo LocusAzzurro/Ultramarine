@@ -4,7 +4,7 @@
 	"ambientocclusion": false,
 	"textures": {
 		"1": "ultramarine:block/tall_royal_rosewood_window",
-		"particle": "ultramarine:block/rosewood_planks"
+		"particle": "ultramarine:block/texture_varnished_rosewood"
 	},
 	"elements": [
 		{

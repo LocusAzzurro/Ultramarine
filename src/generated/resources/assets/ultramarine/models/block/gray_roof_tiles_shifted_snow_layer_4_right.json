@@ -2,6 +2,6 @@
   "parent": "ultramarine:block/roof_tiles_shifted",
   "textures": {
     "1": "ultramarine:block/gray_roof_tiles_snow_stage_3_right",
-    "particle": "minecraft:block/gray_concrete"
+    "particle": "ultramarine:block/texture_gray_roof_tiles"
   }
 }
