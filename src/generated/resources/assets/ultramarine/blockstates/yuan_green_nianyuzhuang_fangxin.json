@@ -1,0 +1,30 @@
+{
+  "variants": {
+    "facing=down": {
+      "model": "ultramarine:block/yuan_green_nianyuzhuang_fangxin",
+      "x": 180
+    },
+    "facing=up": {
+      "model": "ultramarine:block/yuan_green_nianyuzhuang_fangxin"
+    },
+    "facing=north": {
+      "model": "ultramarine:block/yuan_green_nianyuzhuang_fangxin",
+      "x": 90
+    },
+    "facing=south": {
+      "model": "ultramarine:block/yuan_green_nianyuzhuang_fangxin",
+      "x": 90,
+      "y": 180
+    },
+    "facing=west": {
+      "model": "ultramarine:block/yuan_green_nianyuzhuang_fangxin",
+      "x": 90,
+      "y": 270
+    },
+    "facing=east": {
+      "model": "ultramarine:block/yuan_green_nianyuzhuang_fangxin",
+      "x": 90,
+      "y": 90
+    }
+  }
+}

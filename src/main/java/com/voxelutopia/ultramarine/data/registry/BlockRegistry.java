@@ -265,7 +265,16 @@ public class BlockRegistry {
             () -> new ChiralDirectionalBlock(BaseBlockProperty.WOOD));
     public static final RegistryObject<Block> QING_BLUE_PLAIN_JINZHUOMO_SHINIANYU_FANGXIN = BLOCKS.register("qing_blue_plain_jinzhuomo_shinianyu_fangxin",
             () -> new ChiralDirectionalBlock(BaseBlockProperty.WOOD));
-
+    public static final RegistryObject<Block> YUAN_NIANYUZHUANG_FANGXIN = BLOCKS.register("yuan_nianyuzhuang_fangxin", () -> new BaseDirectionalBlock(BaseBlockProperty.WOOD));
+    public static final RegistryObject<Block> YUAN_NIANYUZHUANG_FANGXIN_EDGE = BLOCKS.register("yuan_nianyuzhuang_fangxin_edge", () -> new BaseDirectionalBlock(BaseBlockProperty.WOOD));
+    public static final RegistryObject<Block> YUAN_PATTERNED_NIANYUZHUANG_FANGXIN = BLOCKS.register("yuan_patterned_nianyuzhuang_fangxin", () -> new BaseDirectionalBlock(BaseBlockProperty.WOOD));
+    public static final RegistryObject<Block> YUAN_PATTERNED_NIANYUZHUANG_FANGXIN_EDGE = BLOCKS.register("yuan_patterned_nianyuzhuang_fangxin_edge", () -> new BaseDirectionalBlock(BaseBlockProperty.WOOD));
+    public static final RegistryObject<Block> YUAN_GREEN_NIANYUZHUANG_FANGXIN = BLOCKS.register("yuan_green_nianyuzhuang_fangxin", () -> new BaseDirectionalBlock(BaseBlockProperty.WOOD));
+    public static final RegistryObject<Block> YUAN_GREEN_NIANYUZHUANG_FANGXIN_EDGE = BLOCKS.register("yuan_green_nianyuzhuang_fangxin_edge", () -> new BaseDirectionalBlock(BaseBlockProperty.WOOD));
+    public static final RegistryObject<Block> YUAN_PATTERNED_WUCHAIZHUANG_FANGXIN = BLOCKS.register("yuan_patterned_wuchaizhuang_fangxin", () -> new ChiralDirectionalBlock(BaseBlockProperty.WOOD));
+    public static final RegistryObject<Block> YUAN_PATTERNED_WUCHAIZHUANG_FANGXIN_EDGE = BLOCKS.register("yuan_patterned_wuchaizhuang_fangxin_edge", () -> new ChiralDirectionalBlock(BaseBlockProperty.WOOD));
+    public static final RegistryObject<Block> YUAN_GREEN_WUCHAIZHUANG_FANGXIN = BLOCKS.register("yuan_green_wuchaizhuang_fangxin", () -> new BaseDirectionalBlock(BaseBlockProperty.WOOD));
+    public static final RegistryObject<Block> YUAN_GREEN_WUCHAIZHUANG_FANGXIN_EDGE = BLOCKS.register("yuan_green_wuchaizhuang_fangxin_edge", () -> new BaseDirectionalBlock(BaseBlockProperty.WOOD));
 
     // ZHAOTOU
 
@@ -284,6 +293,8 @@ public class BlockRegistry {
 
     public static final RegistryObject<Block> MING_YANZHUOMO_SHINIANYU_OUTER_ZHAOTOU = BLOCKS.register("ming_yanzhuomo_shinianyu_outer_zhaotou", () -> new BaseDirectionalBlock(BaseBlockProperty.WOOD));
     public static final RegistryObject<Block> MING_YANZHUOMO_SHINIANYU_OUTER_ZHAOTOU_EDGE = BLOCKS.register("ming_yanzhuomo_shinianyu_outer_zhaotou_edge", () -> new BaseDirectionalBlock(BaseBlockProperty.WOOD));
+    public static final RegistryObject<Block> YUAN_NIANYUZHUANG_ZHAOTOU = BLOCKS.register("yuan_nianyuzhuang_zhaotou", () -> new BaseDirectionalBlock(BaseBlockProperty.WOOD));
+    public static final RegistryObject<Block> YUAN_NIANYUZHUANG_ZHAOTOU_CONNECTION = BLOCKS.register("yuan_nianyuzhuang_zhaotou_connection", () -> new BaseDirectionalBlock(BaseBlockProperty.WOOD));
 
     // GUTOU
 
@@ -292,6 +303,7 @@ public class BlockRegistry {
     public static final RegistryObject<Block> BLUE_AND_YELLOW_GUTOU = BLOCKS.register("blue_and_yellow_gutou", () -> new BaseDirectionalBlock(BaseBlockProperty.WOOD));
 
     public static final RegistryObject<Block> MING_YANZHUOMO_SHINIANYU_OUTER_GUTOU_EDGE = BLOCKS.register("ming_yanzhuomo_shinianyu_outer_gutou_edge", () -> new BaseDirectionalBlock(BaseBlockProperty.WOOD));
+    public static final RegistryObject<Block> YUAN_NIANYUZHUANG_GUTOU = BLOCKS.register("yuan_nianyuzhuang_gutou", () -> new ChiralDirectionalBlock(BaseBlockProperty.WOOD));
 
     // RAFTERS
 

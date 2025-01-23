@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "down": "minecraft:block/blue_wool",
+    "up": "minecraft:block/blue_wool",
+    "north": "ultramarine:block/yuan_patterned_wuchaizhuang_fangxin_edge_side",
+    "south": "ultramarine:block/yuan_patterned_wuchaizhuang_fangxin_edge_side_mirrored",
+    "east": "ultramarine:block/yuan_patterned_wuchaizhuang_fangxin_edge_side",
+    "west": "ultramarine:block/yuan_patterned_wuchaizhuang_fangxin_edge_side_mirrored",
+    "particle": "ultramarine:block/yuan_patterned_wuchaizhuang_fangxin_edge_side"
+  }
+}

@@ -265,6 +265,17 @@ public class ModBlockModelProvider extends BlockStateProvider {
         chiralWSMirror(BlockRegistry.MING_GREEN_GILDED_JINZHUOMO_SHINIANYU_XUANZI_FANGXIN.get(), GREEN_CARVED_FANGXIN_END);
         chiralWSMirror(BlockRegistry.MING_GREEN_GILDED_JINZHUOMO_SHINIANYU_XUANZI_FANGXIN_EDGE.get(), GREEN_CARVED_FANGXIN_END);
         directionalSideEnd(BlockRegistry.QING_BLUE_PLAIN_JINZHUOMO_SHINIANYU_FANGXIN.get(), sideLoc(BlockRegistry.QING_BLUE_PLAIN_JINZHUOMO_SHINIANYU_FANGXIN.get()), GREEN_CARVED_FANGXIN_END);
+        directionalSideEnd(BlockRegistry.YUAN_NIANYUZHUANG_FANGXIN.get(), sideLoc(BlockRegistry.YUAN_NIANYUZHUANG_FANGXIN.get()), BLUE_WOOL);
+        directionalSideEnd(BlockRegistry.YUAN_NIANYUZHUANG_FANGXIN_EDGE.get(), sideLoc(BlockRegistry.YUAN_NIANYUZHUANG_FANGXIN_EDGE.get()), BLUE_WOOL);
+
+        directionalSideEnd(BlockRegistry.YUAN_PATTERNED_NIANYUZHUANG_FANGXIN.get(), sideLoc(BlockRegistry.YUAN_PATTERNED_NIANYUZHUANG_FANGXIN.get()), BLUE_WOOL);
+        directionalSideEnd(BlockRegistry.YUAN_PATTERNED_NIANYUZHUANG_FANGXIN_EDGE.get(), sideLoc(BlockRegistry.YUAN_PATTERNED_NIANYUZHUANG_FANGXIN_EDGE.get()), BLUE_WOOL);
+        directionalSideEnd(BlockRegistry.YUAN_GREEN_NIANYUZHUANG_FANGXIN.get(), sideLoc(BlockRegistry.YUAN_GREEN_NIANYUZHUANG_FANGXIN.get()), BLUE_WOOL);
+        directionalSideEnd(BlockRegistry.YUAN_GREEN_NIANYUZHUANG_FANGXIN_EDGE.get(), sideLoc(BlockRegistry.YUAN_GREEN_NIANYUZHUANG_FANGXIN_EDGE.get()), BLUE_WOOL);
+        chiralWSMirror(BlockRegistry.YUAN_PATTERNED_WUCHAIZHUANG_FANGXIN.get(), BLUE_WOOL);
+        chiralWSMirror(BlockRegistry.YUAN_PATTERNED_WUCHAIZHUANG_FANGXIN_EDGE.get(), BLUE_WOOL);
+        directionalSideEnd(BlockRegistry.YUAN_GREEN_WUCHAIZHUANG_FANGXIN.get(), sideLoc(BlockRegistry.YUAN_GREEN_WUCHAIZHUANG_FANGXIN.get()), BLUE_WOOL);
+        directionalSideEnd(BlockRegistry.YUAN_GREEN_WUCHAIZHUANG_FANGXIN_EDGE.get(), sideLoc(BlockRegistry.YUAN_GREEN_WUCHAIZHUANG_FANGXIN_EDGE.get()), BLUE_WOOL);
 
         // ZHAOTOU
         directionalSideBottomTop(BlockRegistry.BLUE_ZHAOTOU_EDGE.get(), sideLoc(BlockRegistry.BLUE_ZHAOTOU_EDGE.get()), GREEN_WOOL, BLUE_WOOL);
@@ -282,6 +293,8 @@ public class ModBlockModelProvider extends BlockStateProvider {
 
         directionalSideEnd(BlockRegistry.MING_YANZHUOMO_SHINIANYU_OUTER_ZHAOTOU.get(), sideLoc(BlockRegistry.MING_YANZHUOMO_SHINIANYU_OUTER_ZHAOTOU.get()), GREEN_CARVED_FANGXIN_END);
         directionalSideEnd(BlockRegistry.MING_YANZHUOMO_SHINIANYU_OUTER_ZHAOTOU_EDGE.get(), sideLoc(BlockRegistry.MING_YANZHUOMO_SHINIANYU_OUTER_ZHAOTOU_EDGE.get()), GREEN_CARVED_FANGXIN_END);
+        directionalSideEnd(BlockRegistry.YUAN_NIANYUZHUANG_ZHAOTOU.get(), sideLoc(BlockRegistry.YUAN_NIANYUZHUANG_ZHAOTOU.get()), BLUE_WOOL);
+        directionalSideEnd(BlockRegistry.YUAN_NIANYUZHUANG_ZHAOTOU_CONNECTION.get(), sideLoc(BlockRegistry.YUAN_NIANYUZHUANG_ZHAOTOU_CONNECTION.get()), BLUE_WOOL);
 
         // GUTOU
         directionalSideBottomTop(BlockRegistry.GREEN_BLUE_BLACK_GUTOU.get(), sideLoc(BlockRegistry.GREEN_BLUE_BLACK_GUTOU.get()), mcLoc(BLOCK + "black_wool"), mcLoc(BLOCK + "white_wool"));
@@ -289,6 +302,7 @@ public class ModBlockModelProvider extends BlockStateProvider {
         directionalSideEnd(BlockRegistry.BLUE_AND_YELLOW_GUTOU.get(), sideLoc(BlockRegistry.BLUE_AND_YELLOW_GUTOU.get()), GREEN_WOOL);
 
         directionalSideEnd(BlockRegistry.MING_YANZHUOMO_SHINIANYU_OUTER_GUTOU_EDGE.get(), sideLoc(BlockRegistry.MING_YANZHUOMO_SHINIANYU_OUTER_GUTOU_EDGE.get()), GREEN_WOOL);
+        chiralWSMirror(BlockRegistry.YUAN_NIANYUZHUANG_GUTOU.get(), BLUE_WOOL);
         // RAFTERS
         BlockRegistry.BLOCKS.getEntries().stream().filter(blockRegistryObject -> blockRegistryObject.get() instanceof Rafter)
                 .forEach(rafter -> shiftedAxisBlock(rafter.get()));
@@ -499,6 +513,7 @@ public class ModBlockModelProvider extends BlockStateProvider {
     }
 
     //TODO use chiralWS
+    @Deprecated
     public void chiralDirectionalBlock(Block block) {
         directionalBlock(block, state -> {
             String path = Objects.requireNonNull(block.getRegistryName()).getPath();
