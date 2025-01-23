@@ -258,6 +258,14 @@ public class ModBlockModelProvider extends BlockStateProvider {
         chiralWSMirror(BlockRegistry.CYAN_BLUE_CYAN_FANGXIN.get(), BLUE_CONCRETE_POWDER);
         chiralWSMirror(BlockRegistry.RED_BLUE_RED_FANGXIN.get(), BLUE_CONCRETE_POWDER);
         directionalSideEnd(BlockRegistry.CYAN_AND_YELLOW_FANGXIN_EDGE.get(), sideLoc(BlockRegistry.CYAN_AND_YELLOW_FANGXIN_EDGE.get()), BLUE_WOOL);
+
+        directionalSideEnd(BlockRegistry.MING_BLUE_JINZHUOMO_SHINIANYU_XUANZI_FANGXIN_EDGE.get(), sideLoc(BlockRegistry.MING_BLUE_JINZHUOMO_SHINIANYU_XUANZI_FANGXIN_EDGE.get()), GREEN_CARVED_FANGXIN_END);
+        chiralWSMirror(BlockRegistry.MING_BLUE_GILDED_JINZHUOMO_SHINIANYU_XUANZI_FANGXIN.get(), GREEN_CARVED_FANGXIN_END);
+        chiralWSMirror(BlockRegistry.MING_BLUE_GILDED_JINZHUOMO_SHINIANYU_XUANZI_FANGXIN_EDGE.get(), GREEN_CARVED_FANGXIN_END);
+        chiralWSMirror(BlockRegistry.MING_GREEN_GILDED_JINZHUOMO_SHINIANYU_XUANZI_FANGXIN.get(), GREEN_CARVED_FANGXIN_END);
+        chiralWSMirror(BlockRegistry.MING_GREEN_GILDED_JINZHUOMO_SHINIANYU_XUANZI_FANGXIN_EDGE.get(), GREEN_CARVED_FANGXIN_END);
+        directionalSideEnd(BlockRegistry.QING_BLUE_PLAIN_JINZHUOMO_SHINIANYU_FANGXIN.get(), sideLoc(BlockRegistry.QING_BLUE_PLAIN_JINZHUOMO_SHINIANYU_FANGXIN.get()), GREEN_CARVED_FANGXIN_END);
+
         // ZHAOTOU
         directionalSideBottomTop(BlockRegistry.BLUE_ZHAOTOU_EDGE.get(), sideLoc(BlockRegistry.BLUE_ZHAOTOU_EDGE.get()), GREEN_WOOL, BLUE_WOOL);
         directionalSideBottomTop(BlockRegistry.GREEN_AND_BLUE_ZHAOTOU.get(), sideLoc(BlockRegistry.GREEN_AND_BLUE_ZHAOTOU.get()), GREEN_WOOL, BLUE_WOOL);
@@ -271,10 +279,16 @@ public class ModBlockModelProvider extends BlockStateProvider {
         directionalSideEnd(BlockRegistry.GREEN_AND_YELLOW_ZHAOTOU.get(), sideLoc(BlockRegistry.GREEN_AND_YELLOW_ZHAOTOU.get()), GREEN_CARVED_FANGXIN_END);
         directionalSideEnd(BlockRegistry.RED_GREEN_BLUE_ZHAOTOU.get(), sideLoc(BlockRegistry.RED_GREEN_BLUE_ZHAOTOU.get()), GREEN_CARVED_FANGXIN_END);
         directionalSideEnd(BlockRegistry.WHITE_BLUE_GREEN_ZHAOTOU.get(), sideLoc(BlockRegistry.WHITE_BLUE_GREEN_ZHAOTOU.get()), endLoc(BlockRegistry.WHITE_BLUE_GREEN_ZHAOTOU.get()));
+
+        directionalSideEnd(BlockRegistry.MING_YANZHUOMO_SHINIANYU_OUTER_ZHAOTOU.get(), sideLoc(BlockRegistry.MING_YANZHUOMO_SHINIANYU_OUTER_ZHAOTOU.get()), GREEN_CARVED_FANGXIN_END);
+        directionalSideEnd(BlockRegistry.MING_YANZHUOMO_SHINIANYU_OUTER_ZHAOTOU_EDGE.get(), sideLoc(BlockRegistry.MING_YANZHUOMO_SHINIANYU_OUTER_ZHAOTOU_EDGE.get()), GREEN_CARVED_FANGXIN_END);
+
         // GUTOU
         directionalSideBottomTop(BlockRegistry.GREEN_BLUE_BLACK_GUTOU.get(), sideLoc(BlockRegistry.GREEN_BLUE_BLACK_GUTOU.get()), mcLoc(BLOCK + "black_wool"), mcLoc(BLOCK + "white_wool"));
         directionalSideEnd(BlockRegistry.BLUE_GREEN_YELLOW_GUTOU.get(), sideLoc(BlockRegistry.BLUE_GREEN_YELLOW_GUTOU.get()), GREEN_WOOL);
         directionalSideEnd(BlockRegistry.BLUE_AND_YELLOW_GUTOU.get(), sideLoc(BlockRegistry.BLUE_AND_YELLOW_GUTOU.get()), GREEN_WOOL);
+
+        directionalSideEnd(BlockRegistry.MING_YANZHUOMO_SHINIANYU_OUTER_GUTOU_EDGE.get(), sideLoc(BlockRegistry.MING_YANZHUOMO_SHINIANYU_OUTER_GUTOU_EDGE.get()), GREEN_WOOL);
         // RAFTERS
         BlockRegistry.BLOCKS.getEntries().stream().filter(blockRegistryObject -> blockRegistryObject.get() instanceof Rafter)
                 .forEach(rafter -> shiftedAxisBlock(rafter.get()));

@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "down": "ultramarine:block/green_carved_fangxin_end",
+    "up": "ultramarine:block/green_carved_fangxin_end",
+    "north": "ultramarine:block/ming_blue_gilded_jinzhuomo_shinianyu_xuanzi_fangxin_edge_side_mirrored",
+    "south": "ultramarine:block/ming_blue_gilded_jinzhuomo_shinianyu_xuanzi_fangxin_edge_side",
+    "east": "ultramarine:block/ming_blue_gilded_jinzhuomo_shinianyu_xuanzi_fangxin_edge_side_mirrored",
+    "west": "ultramarine:block/ming_blue_gilded_jinzhuomo_shinianyu_xuanzi_fangxin_edge_side",
+    "particle": "ultramarine:block/ming_blue_gilded_jinzhuomo_shinianyu_xuanzi_fangxin_edge_side"
+  }
+}
