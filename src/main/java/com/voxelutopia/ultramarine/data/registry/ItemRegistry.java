@@ -254,7 +254,6 @@ public class ItemRegistry {
     public static final RegistryObject<Item> CYAN_BLUE_CYAN_FANGXIN = fromBlock(BlockRegistry.CYAN_BLUE_CYAN_FANGXIN, ModCreativeTab.DECORATIVE_BLOCKS);
     public static final RegistryObject<Item> RED_BLUE_RED_FANGXIN = fromBlock(BlockRegistry.RED_BLUE_RED_FANGXIN, ModCreativeTab.DECORATIVE_BLOCKS);
     public static final RegistryObject<Item> CYAN_AND_YELLOW_FANGXIN_EDGE = fromBlock(BlockRegistry.CYAN_AND_YELLOW_FANGXIN_EDGE, ModCreativeTab.DECORATIVE_BLOCKS);
-
     public static final RegistryObject<Item> MING_BLUE_JINZHUOMO_SHINIANYU_XUANZI_FANGXIN_EDGE = fromBlock(BlockRegistry.MING_BLUE_JINZHUOMO_SHINIANYU_XUANZI_FANGXIN_EDGE, ModCreativeTab.DECORATIVE_BLOCKS);
     public static final RegistryObject<Item> MING_BLUE_GILDED_JINZHUOMO_SHINIANYU_XUANZI_FANGXIN = fromBlock(BlockRegistry.MING_BLUE_GILDED_JINZHUOMO_SHINIANYU_XUANZI_FANGXIN, ModCreativeTab.DECORATIVE_BLOCKS);
     public static final RegistryObject<Item> MING_BLUE_GILDED_JINZHUOMO_SHINIANYU_XUANZI_FANGXIN_EDGE = fromBlock(BlockRegistry.MING_BLUE_GILDED_JINZHUOMO_SHINIANYU_XUANZI_FANGXIN_EDGE, ModCreativeTab.DECORATIVE_BLOCKS);
@@ -286,7 +285,6 @@ public class ItemRegistry {
     public static final RegistryObject<Item> GREEN_AND_YELLOW_ZHAOTOU = fromBlock(BlockRegistry.GREEN_AND_YELLOW_ZHAOTOU, ModCreativeTab.DECORATIVE_BLOCKS);
     public static final RegistryObject<Item> RED_GREEN_BLUE_ZHAOTOU = fromBlock(BlockRegistry.RED_GREEN_BLUE_ZHAOTOU, ModCreativeTab.DECORATIVE_BLOCKS);
     public static final RegistryObject<Item> WHITE_BLUE_GREEN_ZHAOTOU = fromBlock(BlockRegistry.WHITE_BLUE_GREEN_ZHAOTOU, ModCreativeTab.DECORATIVE_BLOCKS);
-
     public static final RegistryObject<Item> MING_YANZHUOMO_SHINIANYU_OUTER_ZHAOTOU = fromBlock(BlockRegistry.MING_YANZHUOMO_SHINIANYU_OUTER_ZHAOTOU, ModCreativeTab.DECORATIVE_BLOCKS);
     public static final RegistryObject<Item> MING_YANZHUOMO_SHINIANYU_OUTER_ZHAOTOU_EDGE = fromBlock(BlockRegistry.MING_YANZHUOMO_SHINIANYU_OUTER_ZHAOTOU_EDGE, ModCreativeTab.DECORATIVE_BLOCKS);
     public static final RegistryObject<Item> YUAN_NIANYUZHUANG_ZHAOTOU = fromBlock(BlockRegistry.YUAN_NIANYUZHUANG_ZHAOTOU, ModCreativeTab.DECORATIVE_BLOCKS);
@@ -297,7 +295,6 @@ public class ItemRegistry {
     public static final RegistryObject<Item> GREEN_BLUE_BLACK_GUTOU = fromBlock(BlockRegistry.GREEN_BLUE_BLACK_GUTOU, ModCreativeTab.DECORATIVE_BLOCKS);
     public static final RegistryObject<Item> BLUE_GREEN_YELLOW_GUTOU = fromBlock(BlockRegistry.BLUE_GREEN_YELLOW_GUTOU, ModCreativeTab.DECORATIVE_BLOCKS);
     public static final RegistryObject<Item> BLUE_AND_YELLOW_GUTOU = fromBlock(BlockRegistry.BLUE_AND_YELLOW_GUTOU, ModCreativeTab.DECORATIVE_BLOCKS);
-
     public static final RegistryObject<Item> MING_YANZHUOMO_SHINIANYU_OUTER_GUTOU_EDGE = fromBlock(BlockRegistry.MING_YANZHUOMO_SHINIANYU_OUTER_GUTOU_EDGE, ModCreativeTab.DECORATIVE_BLOCKS);
     public static final RegistryObject<Item> YUAN_NIANYUZHUANG_GUTOU = fromBlock(BlockRegistry.YUAN_NIANYUZHUANG_GUTOU, ModCreativeTab.DECORATIVE_BLOCKS);
 
