@@ -403,6 +403,59 @@ public class ModRecipeProvider extends RecipeProvider {
                 Ingredient.of(ModItemTags.FORGE_CYAN_DYE), Ingredient.of(ItemRegistry.YELLOW_DYE_POWDER.get()), Ingredient.of(ItemRegistry.GREEN_DYE_POWDER.get()), Ingredient.of(ItemRegistry.BLUE_DYE_POWDER.get())},
                 recipeConsumer);
 
+
+        fangxinEdgeWood(ItemRegistry.MING_BLUE_JINZHUOMO_SHINIANYU_XUANZI_FANGXIN_EDGE.get(), new Ingredient[]{
+                        Ingredient.of(ItemRegistry.YELLOW_DYE_POWDER.get()), Ingredient.of(ModItemTags.FORGE_GREEN_DYE), Ingredient.of(ModItemTags.FORGE_BLUE_DYE), Ingredient.of(ModItemTags.FORGE_BLUE_DYE)},
+                recipeConsumer);
+        fangxinWood(ItemRegistry.MING_BLUE_GILDED_JINZHUOMO_SHINIANYU_XUANZI_FANGXIN.get(), new Ingredient[]{
+                        Ingredient.of(ModItemTags.FORGE_BLUE_DYE), Ingredient.of(ModItemTags.FORGE_BLUE_DYE), Ingredient.of(ItemRegistry.GOLD_DYE_POWDER.get()), Ingredient.of(ItemRegistry.LIGHT_BLUE_DYE_POWDER.get())},
+                recipeConsumer);
+        fangxinEdgeWood(ItemRegistry.MING_BLUE_GILDED_JINZHUOMO_SHINIANYU_XUANZI_FANGXIN_EDGE.get(), new Ingredient[]{
+                        Ingredient.of(ItemRegistry.YELLOW_DYE_POWDER.get()), Ingredient.of(ModItemTags.FORGE_GREEN_DYE), Ingredient.of(ModItemTags.FORGE_BLUE_DYE), Ingredient.of(ItemRegistry.GOLD_DYE_POWDER.get())},
+                recipeConsumer);
+        fangxinWood(ItemRegistry.MING_GREEN_GILDED_JINZHUOMO_SHINIANYU_XUANZI_FANGXIN.get(), new Ingredient[]{
+                        Ingredient.of(ModItemTags.FORGE_BLUE_DYE), Ingredient.of(ModItemTags.FORGE_GREEN_DYE), Ingredient.of(ItemRegistry.GOLD_DYE_POWDER.get()), Ingredient.of(ItemRegistry.LIGHT_BLUE_DYE_POWDER.get())},
+                recipeConsumer);
+        fangxinEdgeWood(ItemRegistry.MING_GREEN_GILDED_JINZHUOMO_SHINIANYU_XUANZI_FANGXIN_EDGE.get(), new Ingredient[]{
+                        Ingredient.of(ItemRegistry.YELLOW_DYE_POWDER.get()), Ingredient.of(ModItemTags.FORGE_GREEN_DYE), Ingredient.of(ModItemTags.FORGE_GREEN_DYE), Ingredient.of(ItemRegistry.GOLD_DYE_POWDER.get())},
+                recipeConsumer);
+        fangxinWood(ItemRegistry.QING_BLUE_PLAIN_JINZHUOMO_SHINIANYU_FANGXIN.get(), new Ingredient[]{
+                        Ingredient.of(ItemRegistry.GREEN_DYE_POWDER.get()), Ingredient.of(ModItemTags.FORGE_LIGHT_BLUE_DYE), Ingredient.of(ModItemTags.FORGE_GREEN_DYE), Ingredient.of(ModItemTags.FORGE_YELLOW_DYE)},
+                recipeConsumer);
+
+        fangxinWood(ItemRegistry.YUAN_NIANYUZHUANG_FANGXIN.get(), new Ingredient[]{
+                        Ingredient.of(ItemRegistry.BLUE_DYE_POWDER.get()), Ingredient.of(ModItemTags.FORGE_BLUE_DYE), Ingredient.of(ModItemTags.FORGE_BLUE_DYE), Ingredient.of(ModItemTags.FORGE_BLUE_DYE)},
+                recipeConsumer);
+        fangxinEdgeWood(ItemRegistry.YUAN_NIANYUZHUANG_FANGXIN_EDGE.get(), new Ingredient[]{
+                        Ingredient.of(ModItemTags.FORGE_BLUE_DYE), Ingredient.of(ItemRegistry.CYAN_DYE_POWDER.get()), Ingredient.of(ModItemTags.FORGE_BLUE_DYE), Ingredient.of(ModItemTags.FORGE_BLUE_DYE)},
+                recipeConsumer);
+
+        fangxinWood(ItemRegistry.YUAN_PATTERNED_NIANYUZHUANG_FANGXIN.get(), new Ingredient[]{
+                        Ingredient.of(ItemRegistry.BLUE_DYE_POWDER.get()), Ingredient.of(ModItemTags.FORGE_BLUE_DYE), Ingredient.of(ModItemTags.FORGE_GREEN_DYE), Ingredient.of(ItemRegistry.RED_DYE_POWDER.get())},
+                recipeConsumer);
+        fangxinEdgeWood(ItemRegistry.YUAN_PATTERNED_NIANYUZHUANG_FANGXIN_EDGE.get(), new Ingredient[]{
+                        Ingredient.of(ModItemTags.FORGE_BLUE_DYE), Ingredient.of(ItemRegistry.CYAN_DYE_POWDER.get()), Ingredient.of(ModItemTags.FORGE_GREEN_DYE), Ingredient.of(ItemRegistry.RED_DYE_POWDER.get())},
+                recipeConsumer);
+        fangxinWood(ItemRegistry.YUAN_GREEN_NIANYUZHUANG_FANGXIN.get(), new Ingredient[]{
+                        Ingredient.of(ItemRegistry.BLUE_DYE_POWDER.get()), Ingredient.of(ModItemTags.FORGE_GREEN_DYE), Ingredient.of(ModItemTags.FORGE_GREEN_DYE), Ingredient.of(ModItemTags.FORGE_GREEN_DYE)},
+                recipeConsumer);
+        fangxinEdgeWood(ItemRegistry.YUAN_GREEN_NIANYUZHUANG_FANGXIN_EDGE.get(), new Ingredient[]{
+                        Ingredient.of(ModItemTags.FORGE_BLUE_DYE), Ingredient.of(ItemRegistry.CYAN_DYE_POWDER.get()), Ingredient.of(ModItemTags.FORGE_GREEN_DYE), Ingredient.of(ModItemTags.FORGE_GREEN_DYE)},
+                recipeConsumer);
+
+        fangxinWood(ItemRegistry.YUAN_PATTERNED_WUCHAIZHUANG_FANGXIN.get(), new Ingredient[]{
+                        Ingredient.of(ItemRegistry.GREEN_DYE_POWDER.get()), Ingredient.of(ModItemTags.FORGE_BLUE_DYE), Ingredient.of(ModItemTags.FORGE_CYAN_DYE), Ingredient.of(ItemRegistry.ORANGE_DYE_POWDER.get())},
+                recipeConsumer);
+        fangxinEdgeWood(ItemRegistry.YUAN_PATTERNED_WUCHAIZHUANG_FANGXIN_EDGE.get(), new Ingredient[]{
+                        Ingredient.of(ItemRegistry.RED_DYE_POWDER.get()), Ingredient.of(ModItemTags.FORGE_BLUE_DYE), Ingredient.of(ModItemTags.FORGE_GREEN_DYE), Ingredient.of(ItemRegistry.ORANGE_DYE_POWDER.get())},
+                recipeConsumer);
+        fangxinWood(ItemRegistry.YUAN_GREEN_WUCHAIZHUANG_FANGXIN.get(), new Ingredient[]{
+                        Ingredient.of(ItemRegistry.GREEN_DYE_POWDER.get()), Ingredient.of(ModItemTags.FORGE_GREEN_DYE), Ingredient.of(ModItemTags.FORGE_GREEN_DYE), Ingredient.of(ModItemTags.FORGE_GREEN_DYE)},
+                recipeConsumer);
+        fangxinEdgeWood(ItemRegistry.YUAN_GREEN_WUCHAIZHUANG_FANGXIN_EDGE.get(), new Ingredient[]{
+                        Ingredient.of(ItemRegistry.RED_DYE_POWDER.get()), Ingredient.of(ItemRegistry.GREEN_DYE_POWDER.get()), Ingredient.of(ModItemTags.FORGE_GREEN_DYE), Ingredient.of(ModItemTags.FORGE_GREEN_DYE)},
+                recipeConsumer);
+
         // ZHAOTOU
 
         zhaotouWood(ItemRegistry.BLUE_ZHAOTOU_EDGE.get(), new Ingredient[]{
@@ -442,6 +495,20 @@ public class ModRecipeProvider extends RecipeProvider {
                 Ingredient.of(ModItemTags.FORGE_WHITE_DYE), Ingredient.of(ModItemTags.FORGE_BLUE_DYE), Ingredient.of(ModItemTags.FORGE_GREEN_DYE)},
                 recipeConsumer);
 
+        zhaotouWood(ItemRegistry.MING_YANZHUOMO_SHINIANYU_OUTER_ZHAOTOU.get(), new Ingredient[]{
+                        Ingredient.of(ModItemTags.FORGE_BLUE_DYE), Ingredient.of(ModItemTags.FORGE_GREEN_DYE), Ingredient.of(ModItemTags.FORGE_BLUE_DYE), Ingredient.of(ItemRegistry.RED_DYE_POWDER.get())},
+                recipeConsumer);
+        zhaotouWood(ItemRegistry.MING_YANZHUOMO_SHINIANYU_OUTER_ZHAOTOU_EDGE.get(), new Ingredient[]{
+                        Ingredient.of(ModItemTags.FORGE_GREEN_DYE), Ingredient.of(ModItemTags.FORGE_BLUE_DYE), Ingredient.of(ItemRegistry.RED_DYE_POWDER.get()), Ingredient.of(ModItemTags.FORGE_BLUE_DYE)},
+                recipeConsumer);
+
+        zhaotouWood(ItemRegistry.YUAN_NIANYUZHUANG_ZHAOTOU.get(), new Ingredient[]{
+                        Ingredient.of(ModItemTags.FORGE_GREEN_DYE), Ingredient.of(ModItemTags.FORGE_BLUE_DYE) ,Ingredient.of(ModItemTags.FORGE_GREEN_DYE), Ingredient.of(ModItemTags.FORGE_BLUE_DYE)},
+                recipeConsumer);
+        zhaotouWood(ItemRegistry.YUAN_NIANYUZHUANG_ZHAOTOU_CONNECTION.get(), new Ingredient[]{
+                        Ingredient.of(ModItemTags.FORGE_GREEN_DYE), Ingredient.of(ModItemTags.FORGE_BLUE_DYE) ,Ingredient.of(ModItemTags.FORGE_BLUE_DYE), Ingredient.of(ModItemTags.FORGE_GREEN_DYE)},
+                recipeConsumer);
+
         // GUTOU
 
         gutouWood(ItemRegistry.GREEN_BLUE_BLACK_GUTOU.get(), new Ingredient[]{
@@ -452,6 +519,13 @@ public class ModRecipeProvider extends RecipeProvider {
                 recipeConsumer);
         gutouWood(ItemRegistry.BLUE_AND_YELLOW_GUTOU.get(), new Ingredient[]{
                 Ingredient.of(ModItemTags.FORGE_GREEN_DYE), Ingredient.of(ModItemTags.FORGE_BLUE_DYE), Ingredient.of(ModItemTags.FORGE_YELLOW_DYE)},
+                recipeConsumer);
+
+        gutouWood(ItemRegistry.MING_YANZHUOMO_SHINIANYU_OUTER_GUTOU_EDGE.get(), new Ingredient[]{
+                        Ingredient.of(ModItemTags.FORGE_BLUE_DYE), Ingredient.of(ModItemTags.FORGE_GREEN_DYE) ,Ingredient.of(ModItemTags.FORGE_BLUE_DYE), Ingredient.of(ModItemTags.FORGE_GREEN_DYE)},
+                recipeConsumer);
+        gutouWood(ItemRegistry.YUAN_NIANYUZHUANG_GUTOU.get(), new Ingredient[]{
+                        Ingredient.of(ModItemTags.FORGE_BLUE_DYE), Ingredient.of(ModItemTags.FORGE_GREEN_DYE) ,Ingredient.of(ModItemTags.FORGE_BROWN_DYE), Ingredient.of(ModItemTags.FORGE_BLUE_DYE)},
                 recipeConsumer);
 
         // RAFTERS
