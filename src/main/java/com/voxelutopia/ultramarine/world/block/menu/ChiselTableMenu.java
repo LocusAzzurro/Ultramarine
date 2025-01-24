@@ -98,13 +98,6 @@ public class ChiselTableMenu extends AbstractContainerMenu{
             ItemStack resultItemStack = recipe.assemble(ingredients);
             this.result.setStackInSlot(0, resultItemStack);
         }
-        /*
-        //List<UpgradeRecipe> list = this.access.getRecipeManager().getRecipesFor(RecipeType.SMITHING, this.inputSlots, this.level);
-        if (this.crafting.getStackInSlot(SLOT_COLOR_START).is(Items.BLUE_DYE))
-            this.result.setStackInSlot(0, Items.DIAMOND.getDefaultInstance());
-        //todo temp
-
-         */
     }
 
     protected void onTake(Player player, ItemStack itemStack, SlotItemHandler slot){
