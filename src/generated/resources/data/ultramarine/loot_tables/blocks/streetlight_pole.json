@@ -2,15 +2,15 @@
   "type": "minecraft:block",
   "pools": [
     {
-      "name": "streetlight_pole",
-      "rolls": 1.0,
       "bonus_rolls": 0.0,
       "entries": [
         {
           "type": "minecraft:item",
           "name": "ultramarine:streetlight_pole"
         }
-      ]
+      ],
+      "name": "streetlight_pole",
+      "rolls": 1.0
     }
   ]
 }

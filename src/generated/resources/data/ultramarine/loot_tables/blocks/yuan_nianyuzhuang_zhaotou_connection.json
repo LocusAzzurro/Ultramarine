@@ -2,15 +2,15 @@
   "type": "minecraft:block",
   "pools": [
     {
-      "name": "yuan_nianyuzhuang_zhaotou_connection",
-      "rolls": 1.0,
       "bonus_rolls": 0.0,
       "entries": [
         {
           "type": "minecraft:item",
           "name": "ultramarine:yuan_nianyuzhuang_zhaotou_connection"
         }
-      ]
+      ],
+      "name": "yuan_nianyuzhuang_zhaotou_connection",
+      "rolls": 1.0
     }
   ]
 }

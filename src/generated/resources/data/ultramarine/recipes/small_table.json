@@ -1,9 +1,5 @@
 {
   "type": "minecraft:crafting_shaped",
-  "pattern": [
-    " W ",
-    "SFS"
-  ],
   "key": {
     "F": {
       "item": "ultramarine:wooden_frame"
@@ -15,6 +11,10 @@
       "tag": "ultramarine:polished_planks"
     }
   },
+  "pattern": [
+    " W ",
+    "SFS"
+  ],
   "result": {
     "item": "ultramarine:small_table"
   }

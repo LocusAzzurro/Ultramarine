@@ -1,92 +1,55 @@
 {
   "variants": {
+    "facing=down,type=bottom": {
+      "model": "ultramarine:block/carved_dark_oak_beam_edge_mirrored",
+      "x": 180
+    },
     "facing=down,type=left": {
       "model": "ultramarine:block/carved_dark_oak_beam_edge",
       "x": 180
     },
-    "facing=up,type=left": {
-      "model": "ultramarine:block/carved_dark_oak_beam_edge"
+    "facing=down,type=right": {
+      "model": "ultramarine:block/carved_dark_oak_beam_edge_mirrored",
+      "x": 180
     },
-    "facing=north,type=left": {
+    "facing=down,type=top": {
       "model": "ultramarine:block/carved_dark_oak_beam_edge",
-      "x": 90
+      "x": 180
     },
-    "facing=south,type=left": {
-      "model": "ultramarine:block/carved_dark_oak_beam_edge",
+    "facing=east,type=bottom": {
+      "model": "ultramarine:block/carved_dark_oak_beam_edge_mirrored",
       "x": 90,
-      "y": 180
-    },
-    "facing=west,type=left": {
-      "model": "ultramarine:block/carved_dark_oak_beam_edge",
-      "x": 90,
-      "y": 270
+      "y": 90
     },
     "facing=east,type=left": {
       "model": "ultramarine:block/carved_dark_oak_beam_edge",
       "x": 90,
       "y": 90
     },
-    "facing=down,type=right": {
-      "model": "ultramarine:block/carved_dark_oak_beam_edge_mirrored",
-      "x": 180
-    },
-    "facing=up,type=right": {
-      "model": "ultramarine:block/carved_dark_oak_beam_edge_mirrored"
-    },
-    "facing=north,type=right": {
-      "model": "ultramarine:block/carved_dark_oak_beam_edge_mirrored",
-      "x": 90
-    },
-    "facing=south,type=right": {
-      "model": "ultramarine:block/carved_dark_oak_beam_edge_mirrored",
-      "x": 90,
-      "y": 180
-    },
-    "facing=west,type=right": {
-      "model": "ultramarine:block/carved_dark_oak_beam_edge_mirrored",
-      "x": 90,
-      "y": 270
-    },
     "facing=east,type=right": {
       "model": "ultramarine:block/carved_dark_oak_beam_edge_mirrored",
       "x": 90,
       "y": 90
-    },
-    "facing=down,type=top": {
-      "model": "ultramarine:block/carved_dark_oak_beam_edge",
-      "x": 180
-    },
-    "facing=up,type=top": {
-      "model": "ultramarine:block/carved_dark_oak_beam_edge"
-    },
-    "facing=north,type=top": {
-      "model": "ultramarine:block/carved_dark_oak_beam_edge",
-      "x": 90
-    },
-    "facing=south,type=top": {
-      "model": "ultramarine:block/carved_dark_oak_beam_edge",
-      "x": 90,
-      "y": 180
-    },
-    "facing=west,type=top": {
-      "model": "ultramarine:block/carved_dark_oak_beam_edge",
-      "x": 90,
-      "y": 270
     },
     "facing=east,type=top": {
       "model": "ultramarine:block/carved_dark_oak_beam_edge",
       "x": 90,
       "y": 90
     },
-    "facing=down,type=bottom": {
-      "model": "ultramarine:block/carved_dark_oak_beam_edge_mirrored",
-      "x": 180
-    },
-    "facing=up,type=bottom": {
-      "model": "ultramarine:block/carved_dark_oak_beam_edge_mirrored"
-    },
     "facing=north,type=bottom": {
       "model": "ultramarine:block/carved_dark_oak_beam_edge_mirrored",
+      "x": 90
+    },
+    "facing=north,type=left": {
+      "model": "ultramarine:block/carved_dark_oak_beam_edge",
+      "x": 90
+    },
+    "facing=north,type=right": {
+      "model": "ultramarine:block/carved_dark_oak_beam_edge_mirrored",
+      "x": 90
+    },
+    "facing=north,type=top": {
+      "model": "ultramarine:block/carved_dark_oak_beam_edge",
       "x": 90
     },
     "facing=south,type=bottom": {
@@ -94,15 +57,52 @@
       "x": 90,
       "y": 180
     },
+    "facing=south,type=left": {
+      "model": "ultramarine:block/carved_dark_oak_beam_edge",
+      "x": 90,
+      "y": 180
+    },
+    "facing=south,type=right": {
+      "model": "ultramarine:block/carved_dark_oak_beam_edge_mirrored",
+      "x": 90,
+      "y": 180
+    },
+    "facing=south,type=top": {
+      "model": "ultramarine:block/carved_dark_oak_beam_edge",
+      "x": 90,
+      "y": 180
+    },
+    "facing=up,type=bottom": {
+      "model": "ultramarine:block/carved_dark_oak_beam_edge_mirrored"
+    },
+    "facing=up,type=left": {
+      "model": "ultramarine:block/carved_dark_oak_beam_edge"
+    },
+    "facing=up,type=right": {
+      "model": "ultramarine:block/carved_dark_oak_beam_edge_mirrored"
+    },
+    "facing=up,type=top": {
+      "model": "ultramarine:block/carved_dark_oak_beam_edge"
+    },
     "facing=west,type=bottom": {
       "model": "ultramarine:block/carved_dark_oak_beam_edge_mirrored",
       "x": 90,
       "y": 270
     },
-    "facing=east,type=bottom": {
+    "facing=west,type=left": {
+      "model": "ultramarine:block/carved_dark_oak_beam_edge",
+      "x": 90,
+      "y": 270
+    },
+    "facing=west,type=right": {
       "model": "ultramarine:block/carved_dark_oak_beam_edge_mirrored",
       "x": 90,
-      "y": 90
+      "y": 270
+    },
+    "facing=west,type=top": {
+      "model": "ultramarine:block/carved_dark_oak_beam_edge",
+      "x": 90,
+      "y": 270
     }
   }
 }

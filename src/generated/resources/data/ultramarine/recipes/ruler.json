@@ -1,16 +1,16 @@
 {
   "type": "minecraft:crafting_shaped",
+  "key": {
+    "P": {
+      "item": "ultramarine:wooden_parts"
+    },
+    "S": {
+      "item": "minecraft:stick"
+    }
+  },
   "pattern": [
     "SPS"
   ],
-  "key": {
-    "S": {
-      "item": "minecraft:stick"
-    },
-    "P": {
-      "item": "ultramarine:wooden_parts"
-    }
-  },
   "result": {
     "item": "ultramarine:ruler"
   }

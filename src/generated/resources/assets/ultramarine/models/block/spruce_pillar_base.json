@@ -1,8 +1,8 @@
 {
   "parent": "minecraft:block/cube_bottom_top",
   "textures": {
-    "side": "ultramarine:block/spruce_pillar_base_side",
     "bottom": "minecraft:block/smooth_stone",
+    "side": "ultramarine:block/spruce_pillar_base_side",
     "top": "minecraft:block/spruce_log_top"
   }
 }

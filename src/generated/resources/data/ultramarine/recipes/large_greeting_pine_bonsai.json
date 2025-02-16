@@ -1,27 +1,27 @@
 {
   "type": "minecraft:crafting_shaped",
-  "pattern": [
-    "SS",
-    "PD",
-    "FW"
-  ],
   "key": {
-    "P": {
-      "item": "minecraft:flower_pot"
-    },
-    "S": {
-      "item": "minecraft:spruce_sapling"
-    },
     "D": {
       "item": "minecraft:cyan_dye"
     },
     "F": {
       "item": "ultramarine:wooden_frame"
     },
+    "P": {
+      "item": "minecraft:flower_pot"
+    },
+    "S": {
+      "item": "minecraft:spruce_sapling"
+    },
     "W": {
       "tag": "ultramarine:polished_planks"
     }
   },
+  "pattern": [
+    "SS",
+    "PD",
+    "FW"
+  ],
   "result": {
     "item": "ultramarine:large_greeting_pine_bonsai"
   }

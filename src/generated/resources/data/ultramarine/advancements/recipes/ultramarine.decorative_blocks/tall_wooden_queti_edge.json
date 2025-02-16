@@ -1,13 +1,7 @@
 {
   "parent": "minecraft:recipes/root",
-  "rewards": {
-    "recipes": [
-      "ultramarine:tall_wooden_queti_edge"
-    ]
-  },
   "criteria": {
     "has_plank": {
-      "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
@@ -15,13 +9,14 @@
             "tag": "minecraft:planks"
           }
         ]
-      }
+      },
+      "trigger": "minecraft:inventory_changed"
     },
     "has_the_recipe": {
-      "trigger": "minecraft:recipe_unlocked",
       "conditions": {
         "recipe": "ultramarine:tall_wooden_queti_edge"
-      }
+      },
+      "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
@@ -29,5 +24,10 @@
       "has_plank",
       "has_the_recipe"
     ]
-  ]
+  ],
+  "rewards": {
+    "recipes": [
+      "ultramarine:tall_wooden_queti_edge"
+    ]
+  }
 }

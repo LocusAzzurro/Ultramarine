@@ -2,15 +2,15 @@
   "type": "minecraft:block",
   "pools": [
     {
-      "name": "spruce_bracket",
-      "rolls": 1.0,
       "bonus_rolls": 0.0,
       "entries": [
         {
           "type": "minecraft:item",
           "name": "ultramarine:spruce_bracket"
         }
-      ]
+      ],
+      "name": "spruce_bracket",
+      "rolls": 1.0
     }
   ]
 }

@@ -2,15 +2,15 @@
   "type": "minecraft:block",
   "pools": [
     {
-      "name": "yuan_nianyuzhuang_fangxin",
-      "rolls": 1.0,
       "bonus_rolls": 0.0,
       "entries": [
         {
           "type": "minecraft:item",
           "name": "ultramarine:yuan_nianyuzhuang_fangxin"
         }
-      ]
+      ],
+      "name": "yuan_nianyuzhuang_fangxin",
+      "rolls": 1.0
     }
   ]
 }

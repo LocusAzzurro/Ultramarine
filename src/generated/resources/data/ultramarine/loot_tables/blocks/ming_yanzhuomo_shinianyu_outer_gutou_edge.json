@@ -2,15 +2,15 @@
   "type": "minecraft:block",
   "pools": [
     {
-      "name": "ming_yanzhuomo_shinianyu_outer_gutou_edge",
-      "rolls": 1.0,
       "bonus_rolls": 0.0,
       "entries": [
         {
           "type": "minecraft:item",
           "name": "ultramarine:ming_yanzhuomo_shinianyu_outer_gutou_edge"
         }
-      ]
+      ],
+      "name": "ming_yanzhuomo_shinianyu_outer_gutou_edge",
+      "rolls": 1.0
     }
   ]
 }

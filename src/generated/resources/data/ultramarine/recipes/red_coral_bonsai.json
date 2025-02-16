@@ -1,20 +1,20 @@
 {
   "type": "minecraft:crafting_shaped",
-  "pattern": [
-    "C ",
-    "PD"
-  ],
   "key": {
-    "P": {
-      "item": "minecraft:flower_pot"
-    },
     "C": {
       "item": "minecraft:fire_coral"
     },
     "D": {
       "item": "minecraft:black_dye"
+    },
+    "P": {
+      "item": "minecraft:flower_pot"
     }
   },
+  "pattern": [
+    "C ",
+    "PD"
+  ],
   "result": {
     "item": "ultramarine:red_coral_bonsai"
   }

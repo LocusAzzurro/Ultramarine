@@ -13,11 +13,13 @@ import net.minecraft.world.level.block.Block;
 import net.minecraftforge.client.model.generators.ItemModelBuilder;
 import net.minecraftforge.client.model.generators.ItemModelProvider;
 import net.minecraftforge.common.data.ExistingFileHelper;
+import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class ModItemModelProvider extends ItemModelProvider {
 
@@ -44,13 +46,13 @@ public class ModItemModelProvider extends ItemModelProvider {
         BlockRegistry.BLOCKS.getEntries().stream()
                 .filter(blockRegistryObject -> !NON_SIMPLE_BLOCKS.contains(blockRegistryObject))
                 .forEach(this::blockItem);
-        wallInventory(BlockRegistry.BLACK_BRICK_WALL.get().getRegistryName().getPath(), blockLoc(BlockRegistry.BLACK_BRICKS.get()));
-        wallInventory(BlockRegistry.CYAN_BRICK_WALL.get().getRegistryName().getPath(), blockLoc(BlockRegistry.CYAN_BRICKS.get()));
-        wallInventory(BlockRegistry.CYAN_FLOOR_TILE_WALL.get().getRegistryName().getPath(), blockLoc(BlockRegistry.CYAN_FLOOR_TILE.get()));
-        wallInventory(BlockRegistry.LIGHT_CYAN_FLOOR_TILE_WALL.get().getRegistryName().getPath(), blockLoc(BlockRegistry.LIGHT_CYAN_FLOOR_TILE.get()));
-        wallInventory(BlockRegistry.BROWNISH_RED_STONE_BRICK_WALL.get().getRegistryName().getPath(), blockLoc(BlockRegistry.BROWNISH_RED_STONE_BRICKS.get()));
-        wallInventory(BlockRegistry.POLISHED_WEATHERED_STONE_WALL.get().getRegistryName().getPath(), blockLoc(BlockRegistry.POLISHED_WEATHERED_STONE.get()));
-        fenceInventory(BlockRegistry.ROSEWOOD_FENCE.get().getRegistryName().getPath(), blockLoc(BlockRegistry.ROSEWOOD_PLANKS.get()));
+        wallInventory(name(BlockRegistry.BLACK_BRICK_WALL.get()), blockLoc(BlockRegistry.BLACK_BRICKS.get()));
+        wallInventory(name(BlockRegistry.CYAN_BRICK_WALL.get()), blockLoc(BlockRegistry.CYAN_BRICKS.get()));
+        wallInventory(name(BlockRegistry.CYAN_FLOOR_TILE_WALL.get()), blockLoc(BlockRegistry.CYAN_FLOOR_TILE.get()));
+        wallInventory(name(BlockRegistry.LIGHT_CYAN_FLOOR_TILE_WALL.get()), blockLoc(BlockRegistry.LIGHT_CYAN_FLOOR_TILE.get()));
+        wallInventory(name(BlockRegistry.BROWNISH_RED_STONE_BRICK_WALL.get()), blockLoc(BlockRegistry.BROWNISH_RED_STONE_BRICKS.get()));
+        wallInventory(name(BlockRegistry.POLISHED_WEATHERED_STONE_WALL.get()), blockLoc(BlockRegistry.POLISHED_WEATHERED_STONE.get()));
+        fenceInventory(name(BlockRegistry.ROSEWOOD_FENCE.get()), blockLoc(BlockRegistry.ROSEWOOD_PLANKS.get()));
         ItemRegistry.ITEMS.getEntries().stream()
                 .filter(blockRegistryObject -> !NON_SIMPLE_ITEMS.contains(blockRegistryObject))
                 .filter(blockRegistryObject -> !(blockRegistryObject.get() instanceof BlockItem))
@@ -63,25 +65,33 @@ public class ModItemModelProvider extends ItemModelProvider {
     }
 
     private ItemModelBuilder generatedItem(RegistryObject<Item> item){
-        return singleTexture(item.get().getRegistryName().getPath(), mcLoc("item/generated"), "layer0", modLoc("item/" + item.get().getRegistryName().getPath()));
+        return singleTexture(name(item.get()), mcLoc("item/generated"), "layer0", modLoc("item/" + name(item.get())));
     }
 
     private ItemModelBuilder handheldItem(RegistryObject<Item> item){
-        return singleTexture(item.get().getRegistryName().getPath(), mcLoc("item/handheld"), "layer0", modLoc("item/" + item.get().getRegistryName().getPath()));
+        return singleTexture(name(item.get()), mcLoc("item/handheld"), "layer0", modLoc("item/" + name(item.get())));
     }
 
     private ItemModelBuilder blockItem(RegistryObject<Block> block){
-        return withExistingParent(block.get().getRegistryName().getPath(), modLoc("block/" + block.get().getRegistryName().getPath()));
+        return withExistingParent(name(block.get()), modLoc("block/" + name(block.get())));
     }
 
     private ResourceLocation blockLoc(Block block){
-        return modLoc("block/" + block.getRegistryName().getPath());
+        return modLoc("block/" + name(block));
     }
 
     @NotNull
     @Override
     public String getName() {
         return DataGenerators.MOD_ID + " Item Models";
+    }
+
+    private static String name(Item item){
+        return Objects.requireNonNull(ForgeRegistries.ITEMS.getKey(item)).getPath();
+    }
+
+    private static String name(Block block){
+        return Objects.requireNonNull(ForgeRegistries.BLOCKS.getKey(block)).getPath();
     }
 
 }

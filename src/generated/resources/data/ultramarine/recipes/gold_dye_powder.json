@@ -1,8 +1,8 @@
 {
   "type": "minecraft:stonecutting",
+  "count": 1,
   "ingredient": {
     "item": "minecraft:gold_nugget"
   },
-  "result": "ultramarine:gold_dye_powder",
-  "count": 1
+  "result": "ultramarine:gold_dye_powder"
 }

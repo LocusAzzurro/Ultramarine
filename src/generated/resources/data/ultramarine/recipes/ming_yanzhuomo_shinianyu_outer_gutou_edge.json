@@ -1,11 +1,5 @@
 {
   "type": "ultramarine:chisel_table",
-  "material": {
-    "tag": "minecraft:logs"
-  },
-  "template": {
-    "item": "ultramarine:gutou_template"
-  },
   "colors": [
     {
       "tag": "forge:dyes/blue"
@@ -20,5 +14,11 @@
       "tag": "forge:dyes/green"
     }
   ],
-  "result": "ultramarine:ming_yanzhuomo_shinianyu_outer_gutou_edge"
+  "material": {
+    "tag": "minecraft:logs"
+  },
+  "result": "ultramarine:ming_yanzhuomo_shinianyu_outer_gutou_edge",
+  "template": {
+    "item": "ultramarine:gutou_template"
+  }
 }

@@ -1,10 +1,5 @@
 {
   "type": "minecraft:crafting_shaped",
-  "pattern": [
-    "BBB",
-    "BDB",
-    "BBB"
-  ],
   "key": {
     "B": {
       "item": "ultramarine:weathered_stone"
@@ -13,8 +8,13 @@
       "tag": "forge:dyes/green"
     }
   },
+  "pattern": [
+    "BBB",
+    "BDB",
+    "BBB"
+  ],
   "result": {
-    "item": "ultramarine:green_weathered_stone",
-    "count": 8
+    "count": 8,
+    "item": "ultramarine:green_weathered_stone"
   }
 }

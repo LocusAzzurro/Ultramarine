@@ -1,24 +1,24 @@
 {
   "type": "minecraft:crafting_shaped",
+  "key": {
+    "B": {
+      "item": "minecraft:brick"
+    },
+    "D": {
+      "item": "minecraft:cyan_dye"
+    },
+    "P": {
+      "item": "minecraft:flower_pot"
+    },
+    "S": {
+      "tag": "minecraft:saplings"
+    }
+  },
   "pattern": [
     " S ",
     "DPD",
     " B "
   ],
-  "key": {
-    "P": {
-      "item": "minecraft:flower_pot"
-    },
-    "B": {
-      "item": "minecraft:brick"
-    },
-    "S": {
-      "tag": "minecraft:saplings"
-    },
-    "D": {
-      "item": "minecraft:cyan_dye"
-    }
-  },
   "result": {
     "item": "ultramarine:medium_bonsai"
   }

@@ -1,21 +1,21 @@
 {
   "type": "minecraft:crafting_shaped",
-  "pattern": [
-    "C",
-    "B",
-    "P"
-  ],
   "key": {
-    "C": {
-      "item": "minecraft:chain"
-    },
     "B": {
       "item": "ultramarine:bronze_ingot"
+    },
+    "C": {
+      "item": "minecraft:chain"
     },
     "P": {
       "item": "ultramarine:bronze_parts"
     }
   },
+  "pattern": [
+    "C",
+    "B",
+    "P"
+  ],
   "result": {
     "item": "ultramarine:wind_chime"
   }

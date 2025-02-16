@@ -1,17 +1,17 @@
 {
   "type": "minecraft:crafting_shaped",
-  "pattern": [
-    "B  ",
-    "BB ",
-    "BBB"
-  ],
   "key": {
     "B": {
       "item": "ultramarine:red_carved_wood"
     }
   },
+  "pattern": [
+    "B  ",
+    "BB ",
+    "BBB"
+  ],
   "result": {
-    "item": "ultramarine:red_carved_wooden_stairs",
-    "count": 4
+    "count": 4,
+    "item": "ultramarine:red_carved_wooden_stairs"
   }
 }

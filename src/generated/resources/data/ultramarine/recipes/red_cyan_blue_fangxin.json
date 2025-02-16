@@ -1,11 +1,5 @@
 {
   "type": "ultramarine:chisel_table",
-  "material": {
-    "tag": "minecraft:logs"
-  },
-  "template": {
-    "item": "ultramarine:fangxin_template"
-  },
   "colors": [
     {
       "tag": "forge:dyes/red"
@@ -20,5 +14,11 @@
       "item": "ultramarine:red_dye_powder"
     }
   ],
-  "result": "ultramarine:red_cyan_blue_fangxin"
+  "material": {
+    "tag": "minecraft:logs"
+  },
+  "result": "ultramarine:red_cyan_blue_fangxin",
+  "template": {
+    "item": "ultramarine:fangxin_template"
+  }
 }

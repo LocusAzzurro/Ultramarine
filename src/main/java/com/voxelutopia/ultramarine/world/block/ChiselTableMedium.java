@@ -4,7 +4,6 @@ import com.voxelutopia.ultramarine.data.shape.BlockShapes;
 import com.voxelutopia.ultramarine.world.block.menu.ChiselTableMenu;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
-import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
@@ -19,7 +18,7 @@ import net.minecraftforge.network.NetworkHooks;
 
 public class ChiselTableMedium extends DecorativeBlock implements BaseBlockPropertyHolder {
 
-    private static final Component CONTAINER_TITLE = new TranslatableComponent("container.chisel_table");
+    private static final Component CONTAINER_TITLE = Component.translatable("container.chisel_table");
 
     public ChiselTableMedium() {
         super(DecorativeBlock.with(BaseBlockProperty.PAPER).shaped(BlockShapes.S16_H4).directional().noCollision().noOcclusion());
@@ -30,7 +29,7 @@ public class ChiselTableMedium extends DecorativeBlock implements BaseBlockPrope
         if (pLevel.isClientSide) {
             return InteractionResult.SUCCESS;
         } else {
-            NetworkHooks.openGui((ServerPlayer) pPlayer, this.getMenuProvider(pState, pLevel, pPos), pPos);
+            NetworkHooks.openScreen((ServerPlayer) pPlayer, this.getMenuProvider(pState, pLevel, pPos), pPos);
             return InteractionResult.CONSUME;
         }
     }

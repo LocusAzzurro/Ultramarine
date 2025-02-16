@@ -1,17 +1,17 @@
 {
   "type": "minecraft:crafting_shaped",
+  "key": {
+    "S": {
+      "tag": "minecraft:saplings"
+    },
+    "V": {
+      "item": "ultramarine:tall_blue_porcelain_vase"
+    }
+  },
   "pattern": [
     "S",
     "V"
   ],
-  "key": {
-    "V": {
-      "item": "ultramarine:tall_blue_porcelain_vase"
-    },
-    "S": {
-      "tag": "minecraft:saplings"
-    }
-  },
   "result": {
     "item": "ultramarine:tall_blue_vase_bonsai"
   }

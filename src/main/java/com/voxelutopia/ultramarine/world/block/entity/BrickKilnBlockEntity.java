@@ -13,7 +13,6 @@ import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.ListTag;
 import net.minecraft.network.chat.Component;
-import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
@@ -38,6 +37,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.Vec3;
 import net.minecraftforge.common.ForgeHooks;
 import net.minecraftforge.common.capabilities.Capability;
+import net.minecraftforge.common.capabilities.ForgeCapabilities;
 import net.minecraftforge.common.util.LazyOptional;
 import net.minecraftforge.items.ItemStackHandler;
 import net.minecraftforge.items.wrapper.CombinedInvWrapper;
@@ -66,7 +66,7 @@ public class BrickKilnBlockEntity extends BlockEntity implements MenuProvider, R
     public static final int BURN_TIME_STANDARD = 200;
     public static final int BURN_COOL_SPEED = 2;
 
-    private static final Component CONTAINER_TITLE = new TranslatableComponent("container.brick_kiln");
+    private static final Component CONTAINER_TITLE = Component.translatable("container.brick_kiln");
 
     int litTime;
     int litDuration;
@@ -377,7 +377,7 @@ public class BrickKilnBlockEntity extends BlockEntity implements MenuProvider, R
     @NotNull
     @Override
     public <T> LazyOptional<T> getCapability(Capability<T> capability, @Nullable Direction facing) {
-        if (!this.remove && facing != null && capability == net.minecraftforge.items.CapabilityItemHandler.ITEM_HANDLER_CAPABILITY) {
+        if (!this.remove && facing != null && capability == ForgeCapabilities.ITEM_HANDLER) {
             if (facing == Direction.UP){
                 return ingredientsLazyHandler.cast();
             }

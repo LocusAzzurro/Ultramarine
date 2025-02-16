@@ -1,8 +1,8 @@
 {
   "type": "minecraft:stonecutting",
+  "count": 1,
   "ingredient": {
     "item": "minecraft:stone"
   },
-  "result": "ultramarine:carved_stone_panel",
-  "count": 1
+  "result": "ultramarine:carved_stone_panel"
 }

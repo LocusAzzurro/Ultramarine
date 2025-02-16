@@ -1,12 +1,15 @@
 package com.voxelutopia.ultramarine.datagen;
 
+import com.google.common.hash.HashCode;
 import com.voxelutopia.ultramarine.Ultramarine;
 import com.voxelutopia.ultramarine.world.block.RoofTiles;
 import com.voxelutopia.ultramarine.world.block.SnowRoofRidge;
+import net.minecraft.data.CachedOutput;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.DataProvider;
 import net.minecraft.data.HashCache;
 import net.minecraftforge.common.data.ExistingFileHelper;
+import org.apache.commons.codec.digest.DigestUtils;
 import org.apache.commons.lang3.tuple.Pair;
 import org.slf4j.Logger;
 
@@ -19,6 +22,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.util.Arrays;
 import java.util.Map;
 import java.util.Objects;
 
@@ -34,14 +38,14 @@ public class MergedTextureProvider implements DataProvider {
     }
 
     @Override
-    public void run(HashCache pCache) throws IOException {
+    public void run(CachedOutput pCache) throws IOException {
 
         roofTilesTextureMerge(pCache);
         roofRidgeTextureMerge(pCache);
 
     }
 
-    private void roofRidgeTextureMerge(HashCache pCache) throws IOException {
+    private void roofRidgeTextureMerge(CachedOutput pCache) throws IOException {
         BufferedImage roofRidgeSideBase, snowLayer, combinedTexture;
         String[] roofRidgeColors = {"black", "yellow"};
         String[] roofRidgeSideTypes = {
@@ -71,7 +75,7 @@ public class MergedTextureProvider implements DataProvider {
         }
     }
 
-    private void roofTilesTextureMerge(HashCache pCache) throws IOException {
+    private void roofTilesTextureMerge(CachedOutput pCache) throws IOException {
         BufferedImage roofTileBase, snowLayer, snowSideUp, snowSideLeft, snowSideRight, combinedTexture;
         String[] roofTileColors = {"gray", "yellow", "green", "blue", "cyan", "black"};
         for (RoofTiles.RoofTileType type: RoofTiles.RoofTileType.values()){
@@ -138,23 +142,18 @@ public class MergedTextureProvider implements DataProvider {
         return "Ultramarine Texture Merger";
     }
 
-    static void save(HashCache pCache, BufferedImage texture, Path pPath) throws IOException {
+    static void save(CachedOutput pCache, BufferedImage texture, Path pPath) throws IOException {
         ByteArrayOutputStream imageByteArray = new ByteArrayOutputStream();
         ImageIO.write(texture, "png", imageByteArray);
-        String sha = SHA1.hashBytes(imageByteArray.toByteArray()).toString();
-        if (!Objects.equals(pCache.getHash(pPath), sha) || !Files.exists(pPath)) {
-            Files.createDirectories(pPath.getParent());
-            File file = new File(pPath.toUri());
-
-            try {
-                ImageIO.write(texture, "png", file);
-            } catch (IOException exception) {
-                LOGGER.warn("Cannot write " + texture);
-                exception.printStackTrace();
-            }
+        Files.createDirectories(pPath.getParent());
+        File file = new File(pPath.toUri());
+        try {
+            ImageIO.write(texture, "png", file);
+        } catch (IOException exception) {
+            LOGGER.warn("Cannot write {}", texture);
+            LOGGER.warn(Arrays.toString(exception.getStackTrace()));
         }
-
-        pCache.putNew(pPath, sha);
+        pCache.writeIfNeeded(pPath, imageByteArray.toByteArray(), HashCode.fromBytes(imageByteArray.toByteArray()));
     }
 
     private Path getOutputPath(String textureName) {

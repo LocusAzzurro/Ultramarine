@@ -2,15 +2,15 @@
   "type": "minecraft:block",
   "pools": [
     {
-      "name": "woodworking_workbench",
-      "rolls": 1.0,
       "bonus_rolls": 0.0,
       "entries": [
         {
           "type": "minecraft:item",
           "name": "ultramarine:woodworking_workbench"
         }
-      ]
+      ],
+      "name": "woodworking_workbench",
+      "rolls": 1.0
     }
   ]
 }

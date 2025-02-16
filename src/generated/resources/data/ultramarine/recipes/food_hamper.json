@@ -1,11 +1,9 @@
 {
   "type": "minecraft:crafting_shaped",
-  "pattern": [
-    "FBF",
-    "PCP",
-    "PCP"
-  ],
   "key": {
+    "B": {
+      "item": "minecraft:bread"
+    },
     "C": {
       "item": "minecraft:chest"
     },
@@ -14,11 +12,13 @@
     },
     "P": {
       "tag": "ultramarine:polished_planks"
-    },
-    "B": {
-      "item": "minecraft:bread"
     }
   },
+  "pattern": [
+    "FBF",
+    "PCP",
+    "PCP"
+  ],
   "result": {
     "item": "ultramarine:food_hamper"
   }

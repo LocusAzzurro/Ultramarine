@@ -1,17 +1,17 @@
 {
   "type": "minecraft:crafting_shaped",
-  "pattern": [
-    "B  ",
-    "BB ",
-    "BBB"
-  ],
   "key": {
     "B": {
       "item": "ultramarine:rosewood_planks"
     }
   },
+  "pattern": [
+    "B  ",
+    "BB ",
+    "BBB"
+  ],
   "result": {
-    "item": "ultramarine:rosewood_stairs",
-    "count": 4
+    "count": 4,
+    "item": "ultramarine:rosewood_stairs"
   }
 }

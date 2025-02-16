@@ -2,11 +2,11 @@
   "parent": "minecraft:block/cube",
   "textures": {
     "down": "ultramarine:block/green_carved_fangxin_end",
-    "up": "ultramarine:block/green_carved_fangxin_end",
-    "north": "ultramarine:block/ming_green_gilded_jinzhuomo_shinianyu_xuanzi_fangxin_edge_side",
-    "south": "ultramarine:block/ming_green_gilded_jinzhuomo_shinianyu_xuanzi_fangxin_edge_side_mirrored",
     "east": "ultramarine:block/ming_green_gilded_jinzhuomo_shinianyu_xuanzi_fangxin_edge_side",
-    "west": "ultramarine:block/ming_green_gilded_jinzhuomo_shinianyu_xuanzi_fangxin_edge_side_mirrored",
-    "particle": "ultramarine:block/ming_green_gilded_jinzhuomo_shinianyu_xuanzi_fangxin_edge_side"
+    "north": "ultramarine:block/ming_green_gilded_jinzhuomo_shinianyu_xuanzi_fangxin_edge_side",
+    "particle": "ultramarine:block/ming_green_gilded_jinzhuomo_shinianyu_xuanzi_fangxin_edge_side",
+    "south": "ultramarine:block/ming_green_gilded_jinzhuomo_shinianyu_xuanzi_fangxin_edge_side_mirrored",
+    "up": "ultramarine:block/green_carved_fangxin_end",
+    "west": "ultramarine:block/ming_green_gilded_jinzhuomo_shinianyu_xuanzi_fangxin_edge_side_mirrored"
   }
 }

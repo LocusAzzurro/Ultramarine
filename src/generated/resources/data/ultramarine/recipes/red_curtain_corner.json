@@ -1,14 +1,14 @@
 {
   "type": "minecraft:crafting_shaped",
-  "pattern": [
-    "C ",
-    " C"
-  ],
   "key": {
     "C": {
       "item": "ultramarine:red_curtain"
     }
   },
+  "pattern": [
+    "C ",
+    " C"
+  ],
   "result": {
     "item": "ultramarine:red_curtain_corner"
   }

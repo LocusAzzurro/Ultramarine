@@ -2,8 +2,6 @@
   "type": "minecraft:block",
   "pools": [
     {
-      "name": "plated_mung_bean_cakes",
-      "rolls": 1.0,
       "bonus_rolls": 0.0,
       "entries": [
         {
@@ -32,15 +30,15 @@
               "type": "minecraft:item",
               "conditions": [
                 {
-                  "condition": "minecraft:random_chance",
-                  "chance": 0.2
+                  "chance": 0.2,
+                  "condition": "minecraft:random_chance"
                 }
               ],
               "functions": [
                 {
-                  "function": "minecraft:apply_bonus",
                   "enchantment": "minecraft:fortune",
                   "formula": "minecraft:uniform_bonus_count",
+                  "function": "minecraft:apply_bonus",
                   "parameters": {
                     "bonusMultiplier": 2
                   }
@@ -50,7 +48,9 @@
             }
           ]
         }
-      ]
+      ],
+      "name": "plated_mung_bean_cakes",
+      "rolls": 1.0
     }
   ]
 }

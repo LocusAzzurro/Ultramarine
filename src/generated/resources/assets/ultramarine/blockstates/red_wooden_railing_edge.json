@@ -4,12 +4,12 @@
       "model": "ultramarine:block/red_wooden_railing_edge",
       "y": 90
     },
-    "axis=z,waterlogged=false": {
-      "model": "ultramarine:block/red_wooden_railing_edge"
-    },
     "axis=x,waterlogged=true": {
       "model": "ultramarine:block/red_wooden_railing_edge",
       "y": 90
+    },
+    "axis=z,waterlogged=false": {
+      "model": "ultramarine:block/red_wooden_railing_edge"
     },
     "axis=z,waterlogged=true": {
       "model": "ultramarine:block/red_wooden_railing_edge"

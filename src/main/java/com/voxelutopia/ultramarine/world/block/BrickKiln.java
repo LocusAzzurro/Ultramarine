@@ -68,7 +68,7 @@ public class BrickKiln extends DecorativeBlock implements EntityBlock, BaseBlock
         } else {
             BlockEntity blockentity = pLevel.getBlockEntity(pPos);
             if (blockentity instanceof BrickKilnBlockEntity furnaceBlockEntity) {
-                NetworkHooks.openGui((ServerPlayer) pPlayer, furnaceBlockEntity, pPos);
+                NetworkHooks.openScreen((ServerPlayer) pPlayer, furnaceBlockEntity, pPos);
                 return InteractionResult.CONSUME;
             }
         }

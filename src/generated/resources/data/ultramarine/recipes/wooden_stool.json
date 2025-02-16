@@ -1,8 +1,8 @@
 {
   "type": "ultramarine:woodworking",
+  "count": 1,
   "ingredient": {
     "tag": "minecraft:logs"
   },
-  "result": "ultramarine:wooden_stool",
-  "count": 1
+  "result": "ultramarine:wooden_stool"
 }

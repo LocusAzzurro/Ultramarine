@@ -1,10 +1,5 @@
 {
   "type": "minecraft:crafting_shaped",
-  "pattern": [
-    "GGG",
-    "GIG",
-    "GGG"
-  ],
   "key": {
     "G": {
       "item": "ultramarine:green_glazed_tiles"
@@ -13,6 +8,11 @@
       "item": "minecraft:iron_bars"
     }
   },
+  "pattern": [
+    "GGG",
+    "GIG",
+    "GGG"
+  ],
   "result": {
     "item": "ultramarine:glazed_tile_grid_window"
   }

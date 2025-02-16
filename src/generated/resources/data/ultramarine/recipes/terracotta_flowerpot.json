@@ -1,9 +1,5 @@
 {
   "type": "minecraft:crafting_shaped",
-  "pattern": [
-    "T T",
-    "TPT"
-  ],
   "key": {
     "P": {
       "item": "minecraft:flower_pot"
@@ -12,6 +8,10 @@
       "item": "minecraft:terracotta"
     }
   },
+  "pattern": [
+    "T T",
+    "TPT"
+  ],
   "result": {
     "item": "ultramarine:terracotta_flowerpot"
   }

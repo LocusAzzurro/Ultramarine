@@ -6,6 +6,24 @@
     "snow_layers=1": {
       "model": "ultramarine:block/yellow_roof_ridge_lower_snow_layer_1"
     },
+    "snow_layers=10": {
+      "model": "ultramarine:block/yellow_roof_ridge_lower_snow_layer_10"
+    },
+    "snow_layers=11": {
+      "model": "ultramarine:block/yellow_roof_ridge_lower_snow_layer_11"
+    },
+    "snow_layers=12": {
+      "model": "ultramarine:block/yellow_roof_ridge_lower_snow_layer_12"
+    },
+    "snow_layers=13": {
+      "model": "ultramarine:block/yellow_roof_ridge_lower_snow_layer_13"
+    },
+    "snow_layers=14": {
+      "model": "ultramarine:block/yellow_roof_ridge_lower_snow_layer_14"
+    },
+    "snow_layers=15": {
+      "model": "ultramarine:block/yellow_roof_ridge_lower_snow_layer_15"
+    },
     "snow_layers=2": {
       "model": "ultramarine:block/yellow_roof_ridge_lower_snow_layer_2"
     },
@@ -29,24 +47,6 @@
     },
     "snow_layers=9": {
       "model": "ultramarine:block/yellow_roof_ridge_lower_snow_layer_9"
-    },
-    "snow_layers=10": {
-      "model": "ultramarine:block/yellow_roof_ridge_lower_snow_layer_10"
-    },
-    "snow_layers=11": {
-      "model": "ultramarine:block/yellow_roof_ridge_lower_snow_layer_11"
-    },
-    "snow_layers=12": {
-      "model": "ultramarine:block/yellow_roof_ridge_lower_snow_layer_12"
-    },
-    "snow_layers=13": {
-      "model": "ultramarine:block/yellow_roof_ridge_lower_snow_layer_13"
-    },
-    "snow_layers=14": {
-      "model": "ultramarine:block/yellow_roof_ridge_lower_snow_layer_14"
-    },
-    "snow_layers=15": {
-      "model": "ultramarine:block/yellow_roof_ridge_lower_snow_layer_15"
     }
   }
 }

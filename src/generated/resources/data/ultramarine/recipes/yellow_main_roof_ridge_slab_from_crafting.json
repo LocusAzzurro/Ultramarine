@@ -1,15 +1,15 @@
 {
   "type": "minecraft:crafting_shaped",
-  "pattern": [
-    "BBB"
-  ],
   "key": {
     "B": {
       "item": "ultramarine:yellow_main_roof_ridge_connection"
     }
   },
+  "pattern": [
+    "BBB"
+  ],
   "result": {
-    "item": "ultramarine:yellow_main_roof_ridge_slab",
-    "count": 6
+    "count": 6,
+    "item": "ultramarine:yellow_main_roof_ridge_slab"
   }
 }

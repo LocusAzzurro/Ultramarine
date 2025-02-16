@@ -1,10 +1,5 @@
 {
   "type": "minecraft:crafting_shaped",
-  "pattern": [
-    "HHH",
-    "SCS",
-    "BBB"
-  ],
   "key": {
     "B": {
       "item": "ultramarine:stone_pillar_base"
@@ -12,13 +7,18 @@
     "C": {
       "item": "minecraft:chiseled_stone_bricks"
     },
-    "S": {
-      "item": "minecraft:stone"
-    },
     "H": {
       "item": "minecraft:stone_slab"
+    },
+    "S": {
+      "item": "minecraft:stone"
     }
   },
+  "pattern": [
+    "HHH",
+    "SCS",
+    "BBB"
+  ],
   "result": {
     "item": "ultramarine:xumi_stone_monolith"
   }

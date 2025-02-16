@@ -1,9 +1,5 @@
 {
   "type": "minecraft:crafting_shaped",
-  "pattern": [
-    "P",
-    "S"
-  ],
   "key": {
     "P": {
       "item": "ultramarine:carved_red_pillar"
@@ -12,6 +8,10 @@
       "item": "minecraft:smooth_stone_slab"
     }
   },
+  "pattern": [
+    "P",
+    "S"
+  ],
   "result": {
     "item": "ultramarine:carved_red_pillar_base"
   }

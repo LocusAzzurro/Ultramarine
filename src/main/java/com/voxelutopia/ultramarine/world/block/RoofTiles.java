@@ -4,6 +4,7 @@ import com.voxelutopia.ultramarine.data.shape.RawVoxelShape;
 import com.voxelutopia.ultramarine.world.block.state.ModBlockStateProperties;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.util.RandomSource;
 import net.minecraft.util.StringRepresentable;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
@@ -79,7 +80,7 @@ public class RoofTiles extends ShiftableBlock{
     }
 
     private void tryPushSnow(BlockState pState, Level pLevel, BlockPos pPos) {
-        Random random = pLevel.getRandom();
+        RandomSource random = pLevel.getRandom();
         SlopeAngle forwardAngle = checkForwardSlopeAngle(pLevel, pState, pPos);
         if (forwardAngle == SlopeAngle.HIGHER) {
             handleSnow(pState, pLevel, pPos);

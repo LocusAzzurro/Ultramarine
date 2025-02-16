@@ -1,8 +1,8 @@
 {
   "type": "minecraft:stonecutting",
+  "count": 1,
   "ingredient": {
     "item": "ultramarine:green_glazed_tiles"
   },
-  "result": "ultramarine:green_glazed_tile_stairs",
-  "count": 1
+  "result": "ultramarine:green_glazed_tile_stairs"
 }

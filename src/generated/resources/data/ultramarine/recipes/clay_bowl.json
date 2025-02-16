@@ -1,14 +1,14 @@
 {
   "type": "minecraft:crafting_shaped",
-  "pattern": [
-    "o o",
-    " o "
-  ],
   "key": {
     "o": {
       "item": "minecraft:clay_ball"
     }
   },
+  "pattern": [
+    "o o",
+    " o "
+  ],
   "result": {
     "item": "ultramarine:clay_bowl"
   }

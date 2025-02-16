@@ -1,17 +1,17 @@
 {
   "type": "minecraft:crafting_shaped",
+  "key": {
+    "H": {
+      "item": "minecraft:hay_block"
+    },
+    "S": {
+      "item": "minecraft:stick"
+    }
+  },
   "pattern": [
     "S",
     "H"
   ],
-  "key": {
-    "S": {
-      "item": "minecraft:stick"
-    },
-    "H": {
-      "item": "minecraft:hay_block"
-    }
-  },
   "result": {
     "item": "ultramarine:broom"
   }

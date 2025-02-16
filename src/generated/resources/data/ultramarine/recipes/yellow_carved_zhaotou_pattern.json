@@ -1,11 +1,5 @@
 {
   "type": "ultramarine:chisel_table",
-  "material": {
-    "tag": "ultramarine:polished_planks"
-  },
-  "template": {
-    "item": "ultramarine:zhaotou_template"
-  },
   "colors": [
     {
       "tag": "forge:dyes/yellow"
@@ -14,5 +8,11 @@
       "tag": "forge:dyes/yellow"
     }
   ],
-  "result": "ultramarine:yellow_carved_zhaotou_pattern"
+  "material": {
+    "tag": "ultramarine:polished_planks"
+  },
+  "result": "ultramarine:yellow_carved_zhaotou_pattern",
+  "template": {
+    "item": "ultramarine:zhaotou_template"
+  }
 }

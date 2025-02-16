@@ -75,8 +75,6 @@ public class WoodworkingRecipe extends SingleItemRecipe {
     public static class Serializer implements RecipeSerializer<WoodworkingRecipe> {
 
         public static final Serializer INSTANCE = new Serializer();
-        public static final ResourceLocation ID =
-                new ResourceLocation(Ultramarine.MOD_ID,"woodworking");
         protected Serializer() {}
 
         public WoodworkingRecipe fromJson(ResourceLocation pRecipeId, JsonObject pJson) {
@@ -105,27 +103,6 @@ public class WoodworkingRecipe extends SingleItemRecipe {
             pBuffer.writeUtf(pRecipe.group);
             pRecipe.ingredient.toNetwork(pBuffer);
             pBuffer.writeItem(pRecipe.result);
-        }
-
-        @Override
-        public RecipeSerializer<?> setRegistryName(ResourceLocation name) {
-            return INSTANCE;
-        }
-
-        @Nullable
-        @Override
-        public ResourceLocation getRegistryName() {
-            return ID;
-        }
-
-        @Override
-        public Class<RecipeSerializer<?>> getRegistryType() {
-            return Serializer.castClass(RecipeSerializer.class);
-        }
-
-        @SuppressWarnings("unchecked")
-        private static <G> Class<G> castClass(Class<?> cls) {
-            return (Class<G>)cls;
         }
 
     }

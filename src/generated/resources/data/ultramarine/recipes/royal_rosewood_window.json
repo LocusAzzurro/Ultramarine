@@ -1,8 +1,8 @@
 {
   "type": "ultramarine:woodworking",
+  "count": 1,
   "ingredient": {
     "item": "ultramarine:rosewood_planks"
   },
-  "result": "ultramarine:royal_rosewood_window",
-  "count": 1
+  "result": "ultramarine:royal_rosewood_window"
 }

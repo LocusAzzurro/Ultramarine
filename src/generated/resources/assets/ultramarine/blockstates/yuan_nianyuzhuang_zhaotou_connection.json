@@ -4,8 +4,10 @@
       "model": "ultramarine:block/yuan_nianyuzhuang_zhaotou_connection",
       "x": 180
     },
-    "facing=up": {
-      "model": "ultramarine:block/yuan_nianyuzhuang_zhaotou_connection"
+    "facing=east": {
+      "model": "ultramarine:block/yuan_nianyuzhuang_zhaotou_connection",
+      "x": 90,
+      "y": 90
     },
     "facing=north": {
       "model": "ultramarine:block/yuan_nianyuzhuang_zhaotou_connection",
@@ -16,15 +18,13 @@
       "x": 90,
       "y": 180
     },
+    "facing=up": {
+      "model": "ultramarine:block/yuan_nianyuzhuang_zhaotou_connection"
+    },
     "facing=west": {
       "model": "ultramarine:block/yuan_nianyuzhuang_zhaotou_connection",
       "x": 90,
       "y": 270
-    },
-    "facing=east": {
-      "model": "ultramarine:block/yuan_nianyuzhuang_zhaotou_connection",
-      "x": 90,
-      "y": 90
     }
   }
 }

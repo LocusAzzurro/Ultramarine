@@ -1,10 +1,5 @@
 {
   "type": "minecraft:crafting_shaped",
-  "pattern": [
-    "BBB",
-    "BDB",
-    "BBB"
-  ],
   "key": {
     "B": {
       "item": "minecraft:vine"
@@ -13,8 +8,13 @@
       "tag": "forge:dyes/red"
     }
   },
+  "pattern": [
+    "BBB",
+    "BDB",
+    "BBB"
+  ],
   "result": {
-    "item": "ultramarine:small_red_ivy",
-    "count": 8
+    "count": 8,
+    "item": "ultramarine:small_red_ivy"
   }
 }

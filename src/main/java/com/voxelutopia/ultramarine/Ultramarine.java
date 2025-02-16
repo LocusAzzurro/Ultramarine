@@ -22,6 +22,7 @@ public class Ultramarine {
         ItemRegistry.ITEMS.register(bus);
         BlockEntityRegistry.BLOCK_ENTITIES.register(bus);
         EntityTypeRegistry.ENTITIES.register(bus);
+        ConfiguredFeatureRegistry.CONFIGURED_FEATURES.register(bus);
         VillagerProfessionRegistry.PROFESSIONS.register(bus);
         PoiTypeRegistry.POI_TYPES.register(bus);
         MenuTypeRegistry.MENU_TYPES.register(bus);

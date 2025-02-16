@@ -1,9 +1,5 @@
 {
   "type": "minecraft:crafting_shaped",
-  "pattern": [
-    "PPP",
-    " R "
-  ],
   "key": {
     "P": {
       "tag": "minecraft:planks"
@@ -12,6 +8,10 @@
       "item": "ultramarine:small_red_lantern"
     }
   },
+  "pattern": [
+    "PPP",
+    " R "
+  ],
   "result": {
     "item": "ultramarine:hanging_red_lantern_streetlight"
   }

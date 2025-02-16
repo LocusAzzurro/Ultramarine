@@ -1,8 +1,8 @@
 {
   "type": "ultramarine:woodworking",
+  "count": 2,
   "ingredient": {
     "tag": "minecraft:planks"
   },
-  "result": "ultramarine:wooden_frame",
-  "count": 2
+  "result": "ultramarine:wooden_frame"
 }

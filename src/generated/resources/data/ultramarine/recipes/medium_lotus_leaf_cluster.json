@@ -1,16 +1,16 @@
 {
   "type": "minecraft:crafting_shaped",
-  "pattern": [
-    "L ",
-    " L"
-  ],
   "key": {
     "L": {
       "item": "ultramarine:medium_lotus_leaf"
     }
   },
+  "pattern": [
+    "L ",
+    " L"
+  ],
   "result": {
-    "item": "ultramarine:medium_lotus_leaf_cluster",
-    "count": 2
+    "count": 2,
+    "item": "ultramarine:medium_lotus_leaf_cluster"
   }
 }

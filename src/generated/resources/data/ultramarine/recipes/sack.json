@@ -1,17 +1,17 @@
 {
   "type": "minecraft:crafting_shaped",
+  "key": {
+    "S": {
+      "item": "ultramarine:silk"
+    },
+    "T": {
+      "item": "minecraft:string"
+    }
+  },
   "pattern": [
     " T ",
     "SSS"
   ],
-  "key": {
-    "T": {
-      "item": "minecraft:string"
-    },
-    "S": {
-      "item": "ultramarine:silk"
-    }
-  },
   "result": {
     "item": "ultramarine:sack"
   }

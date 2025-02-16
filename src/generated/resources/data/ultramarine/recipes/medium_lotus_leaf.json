@@ -1,13 +1,13 @@
 {
   "type": "minecraft:crafting_shaped",
-  "pattern": [
-    "LL"
-  ],
   "key": {
     "L": {
       "item": "ultramarine:small_lotus_leaf"
     }
   },
+  "pattern": [
+    "LL"
+  ],
   "result": {
     "item": "ultramarine:medium_lotus_leaf"
   }

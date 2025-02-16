@@ -1,11 +1,5 @@
 {
   "type": "ultramarine:chisel_table",
-  "material": {
-    "tag": "minecraft:logs"
-  },
-  "template": {
-    "item": "ultramarine:gutou_template"
-  },
   "colors": [
     {
       "tag": "forge:dyes/blue"
@@ -20,5 +14,11 @@
       "tag": "forge:dyes/blue"
     }
   ],
-  "result": "ultramarine:yuan_nianyuzhuang_gutou"
+  "material": {
+    "tag": "minecraft:logs"
+  },
+  "result": "ultramarine:yuan_nianyuzhuang_gutou",
+  "template": {
+    "item": "ultramarine:gutou_template"
+  }
 }

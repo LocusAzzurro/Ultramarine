@@ -19,6 +19,7 @@ import net.minecraftforge.client.model.generators.BlockStateProvider;
 import net.minecraftforge.client.model.generators.ConfiguredModel;
 import net.minecraftforge.client.model.generators.ModelFile;
 import net.minecraftforge.common.data.ExistingFileHelper;
+import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import org.apache.commons.lang3.tuple.Pair;
 import org.jetbrains.annotations.NotNull;
@@ -401,13 +402,13 @@ public class ModBlockModelProvider extends BlockStateProvider {
         horizontalBlock(BlockRegistry.WOODWORKING_WORKBENCH.get(), models().getExistingFile(blockLoc(BlockRegistry.WOODWORKING_WORKBENCH.get())));
         getVariantBuilder(BlockRegistry.BRICK_KILN.get()).forAllStates(blockState -> {
             var modelFile = ConfiguredModel.builder();
-            ResourceLocation resourceLocation = Objects.requireNonNull(BlockRegistry.BRICK_KILN.get().getRegistryName());
+            ResourceLocation resourceLocation = resourceLocation(BlockRegistry.BRICK_KILN.get());
             String blockPath = blockState.getValue(LIT) ? resourceLocation.getPath() + "_on" : resourceLocation.getPath();
             return getDecorativeBlockConfiguredModels((DecorativeBlock) BlockRegistry.BRICK_KILN.get(), blockState, blockPath, modelFile, 180);
         });
         getVariantBuilder(BlockRegistry.CHISEL_TABLE.get()).forAllStates(blockState -> {
             var modelFile = ConfiguredModel.builder();
-            ResourceLocation resourceLocation = Objects.requireNonNull(BlockRegistry.CHISEL_TABLE.get().getRegistryName());
+            ResourceLocation resourceLocation = resourceLocation(BlockRegistry.CHISEL_TABLE.get());
             String blockPath = resourceLocation.getPath();
             return getDecorativeBlockConfiguredModels((DecorativeBlock) BlockRegistry.CHISEL_TABLE.get(), blockState, blockPath, modelFile, 0);
         }); //todo add chisel table model
@@ -433,16 +434,16 @@ public class ModBlockModelProvider extends BlockStateProvider {
     }
 
     private void slabAndStairs(Block baseBlock, Block slabBlock, Block stairBlock){
-        slabBlock((SlabBlock) slabBlock, baseBlock.getRegistryName(), blockLoc(baseBlock));
+        slabBlock((SlabBlock) slabBlock, resourceLocation(baseBlock), blockLoc(baseBlock));
         stairsBlock((StairBlock) stairBlock, blockLoc(baseBlock));
     }
 
     private void wall(Block baseBlock, Block wallBlock){
-        wallBlock((WallBlock)wallBlock, wallBlock.getRegistryName().getPath(), blockLoc(baseBlock));
+        wallBlock((WallBlock)wallBlock, name(wallBlock), blockLoc(baseBlock));
     }
 
     private void fence(Block baseBlock, Block fenceBlock){
-        fenceBlock((FenceBlock)fenceBlock, fenceBlock.getRegistryName().getPath(), blockLoc(baseBlock));
+        fenceBlock((FenceBlock)fenceBlock, name(fenceBlock), blockLoc(baseBlock));
     }
 
     private void wallSideBlock(Block block){
@@ -516,7 +517,7 @@ public class ModBlockModelProvider extends BlockStateProvider {
     @Deprecated
     public void chiralDirectionalBlock(Block block) {
         directionalBlock(block, state -> {
-            String path = Objects.requireNonNull(block.getRegistryName()).getPath();
+            String path = name(block);
             if (state.hasProperty(ModBlockStateProperties.CHIRAL_BLOCK_TYPE)){
                 ChiralBlockType chiralBlockType = state.getValue(ModBlockStateProperties.CHIRAL_BLOCK_TYPE);
                 if (chiralBlockType == ChiralBlockType.LEFT || chiralBlockType == ChiralBlockType.TOP){
@@ -701,10 +702,10 @@ public class ModBlockModelProvider extends BlockStateProvider {
     private void shiftedDirectionalBlock(Block block, int rotation) {
         getVariantBuilder(block).forAllStates(blockState -> {
             if (!blockState.getValue(ModBlockStateProperties.SHIFTED))
-                return ConfiguredModel.builder().modelFile(models().getExistingFile(modLoc(BLOCK + block.getRegistryName().getPath())))
+                return ConfiguredModel.builder().modelFile(models().getExistingFile(modLoc(BLOCK + name(block))))
                         .rotationY(rotation + (int) blockState.getValue(HORIZONTAL_FACING).toYRot()).build();
             else
-                return ConfiguredModel.builder().modelFile(models().getExistingFile(modLoc(BLOCK + block.getRegistryName().getPath() + "_shifted")))
+                return ConfiguredModel.builder().modelFile(models().getExistingFile(modLoc(BLOCK + name(block) + "_shifted")))
                         .rotationY(rotation + (int) blockState.getValue(HORIZONTAL_FACING).toYRot()).build();
         });
     }
@@ -716,7 +717,7 @@ public class ModBlockModelProvider extends BlockStateProvider {
     private void axisBlock(Block block) {
         getVariantBuilder(block).forAllStates(blockState -> {
             ConfiguredModel.Builder<?> builder;
-            builder = ConfiguredModel.builder().modelFile(models().getExistingFile(modLoc(BLOCK + block.getRegistryName().getPath())));
+            builder = ConfiguredModel.builder().modelFile(models().getExistingFile(modLoc(BLOCK + name(block))));
             if (blockState.getValue(HORIZONTAL_AXIS) == Direction.Axis.X)
                 builder.rotationY(90);
             return builder.build();
@@ -727,10 +728,10 @@ public class ModBlockModelProvider extends BlockStateProvider {
         getVariantBuilder(block).forAllStates(blockState -> {
             ConfiguredModel.Builder<?> builder;
             if (!blockState.getValue(ModBlockStateProperties.SHIFTED)) {
-                builder = ConfiguredModel.builder().modelFile(models().getExistingFile(modLoc(BLOCK + block.getRegistryName().getPath())));
+                builder = ConfiguredModel.builder().modelFile(models().getExistingFile(modLoc(BLOCK + name(block))));
             }
             else {
-                builder = ConfiguredModel.builder().modelFile(models().getExistingFile(modLoc(BLOCK + block.getRegistryName().getPath() + "_shifted")));
+                builder = ConfiguredModel.builder().modelFile(models().getExistingFile(modLoc(BLOCK + name(block) + "_shifted")));
             }
             if (blockState.getValue(HORIZONTAL_AXIS) == Direction.Axis.X)
                 builder.rotationY(90);
@@ -745,7 +746,7 @@ public class ModBlockModelProvider extends BlockStateProvider {
     private void decorativeBlock(DecorativeBlock block, int rotation){
         getVariantBuilder(block).forAllStates(blockState -> {
             var modelFile = ConfiguredModel.builder();
-            String blockPath = Objects.requireNonNull(block.getRegistryName()).getPath();
+            String blockPath = name(block);
             return getDecorativeBlockConfiguredModels(block, blockState, blockPath, modelFile, rotation);
         });
     }
@@ -759,7 +760,7 @@ public class ModBlockModelProvider extends BlockStateProvider {
             var modelFile = ConfiguredModel.builder();
             int bites = blockState.getValue(ModBlockStateProperties.BITES);
             bites = Math.min(bites, block.getMaxBites());
-            ResourceLocation resourceLocation = Objects.requireNonNull(block.getRegistryName());
+            ResourceLocation resourceLocation = resourceLocation(block);
             String blockPath = resourceLocation.getPath() + "_" + bites;
             return getDecorativeBlockConfiguredModels(block, blockState, blockPath, modelFile, rotation);
         });
@@ -768,7 +769,7 @@ public class ModBlockModelProvider extends BlockStateProvider {
     private void censer(Censer block, int rotation){
         getVariantBuilder(block).forAllStates(blockState -> {
             var modelFile = ConfiguredModel.builder();
-            ResourceLocation resourceLocation = Objects.requireNonNull(block.getRegistryName());
+            ResourceLocation resourceLocation = resourceLocation(block);
             String blockPath = blockState.getValue(LIT) ? "lit_" + resourceLocation.getPath() : resourceLocation.getPath();
             return getDecorativeBlockConfiguredModels(block, blockState, blockPath, modelFile, rotation);
         });
@@ -800,7 +801,7 @@ public class ModBlockModelProvider extends BlockStateProvider {
     }
 
     private void vegetableBasket(StackableHalfBlock block){
-        String blockName = Objects.requireNonNull(block.getRegistryName()).getPath();
+        String blockName = name(block);
         getVariantBuilder(block).forAllStates(blockState -> {
             StackableBlockType type = blockState.getValue(ModBlockStateProperties.STACKABLE_BLOCK_TYPE);
             switch (type){
@@ -818,12 +819,12 @@ public class ModBlockModelProvider extends BlockStateProvider {
     }
 
     private void sideBottomTop(Block block){
-        String blockName = Objects.requireNonNull(block.getRegistryName()).getPath();
+        String blockName = name(block);
         sideBottomTop(block, modLoc(BLOCK + blockName + "_side"), modLoc(BLOCK + blockName + "_bottom"), modLoc(BLOCK + blockName + "_top"));
     }
 
     private void sideBottomTop(Block block, ResourceLocation side, ResourceLocation bottom, ResourceLocation top){
-        String blockName = Objects.requireNonNull(block.getRegistryName()).getPath();
+        String blockName = name(block);
         var model = models().cubeBottomTop(blockName, side, bottom, top);
         simpleBlock(block, model);
     }
@@ -886,7 +887,7 @@ public class ModBlockModelProvider extends BlockStateProvider {
     }
 
     private void directionalSideBottomTop(Block block, ResourceLocation side, ResourceLocation bottom, ResourceLocation top){
-        String blockName = Objects.requireNonNull(block.getRegistryName()).getPath();
+        String blockName = name(block);
         var model = models().cubeBottomTop(blockName, side, bottom, top);
         directionalBlock(block, model);
     }
@@ -908,7 +909,7 @@ public class ModBlockModelProvider extends BlockStateProvider {
     }
 
     private void slabSideEnd(Block block, Block full, ResourceLocation side, ResourceLocation end){
-        slabBlock((SlabBlock) block, full.getRegistryName(), side, end, end);
+        slabBlock((SlabBlock) block, resourceLocation(full), side, end, end);
     }
 
     private void slabSideEndNoFull(Block block, ResourceLocation side, ResourceLocation end){
@@ -965,7 +966,7 @@ public class ModBlockModelProvider extends BlockStateProvider {
     }
 
     private void carvedWoodenSlab(Block slab, Block full){
-        slabBlock((SlabBlock) slab, full.getRegistryName(), sideLoc(slab), blockLoc(full), blockLoc(full));
+        slabBlock((SlabBlock) slab, resourceLocation(full), sideLoc(slab), blockLoc(full), blockLoc(full));
     }
 
     private ResourceLocation modBlockLoc(Block block){
@@ -1154,8 +1155,12 @@ public class ModBlockModelProvider extends BlockStateProvider {
                 .modelFile(models().getExistingFile(modLoc(BLOCK + name(block) + "_diagonal"))).addModel();
     }
 
-    private String name(Block block) {
-        return Objects.requireNonNull(block.getRegistryName()).getPath();
+    private static String name(Block block) {
+        return resourceLocation(block).getPath();
+    }
+
+    private static ResourceLocation resourceLocation(Block block) {
+        return Objects.requireNonNull(ForgeRegistries.BLOCKS.getKey(block));
     }
 
     @NotNull

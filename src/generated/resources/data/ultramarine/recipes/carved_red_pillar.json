@@ -1,11 +1,5 @@
 {
   "type": "ultramarine:chisel_table",
-  "material": {
-    "tag": "minecraft:logs"
-  },
-  "template": {
-    "item": "ultramarine:carved_wood_template"
-  },
   "colors": [
     {
       "item": "ultramarine:gold_dye_powder"
@@ -17,5 +11,11 @@
       "tag": "forge:dyes/red"
     }
   ],
-  "result": "ultramarine:carved_red_pillar"
+  "material": {
+    "tag": "minecraft:logs"
+  },
+  "result": "ultramarine:carved_red_pillar",
+  "template": {
+    "item": "ultramarine:carved_wood_template"
+  }
 }

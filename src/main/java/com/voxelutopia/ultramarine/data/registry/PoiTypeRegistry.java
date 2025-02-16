@@ -1,5 +1,6 @@
 package com.voxelutopia.ultramarine.data.registry;
 
+import com.google.common.collect.ImmutableSet;
 import com.voxelutopia.ultramarine.Ultramarine;
 import net.minecraft.world.entity.ai.village.poi.PoiType;
 import net.minecraftforge.fml.util.ObfuscationReflectionHelper;
@@ -13,10 +14,12 @@ public class PoiTypeRegistry {
 
     public static final DeferredRegister<PoiType> POI_TYPES = DeferredRegister.create(ForgeRegistries.POI_TYPES, Ultramarine.MOD_ID);
 
+
+
     public static final RegistryObject<PoiType> COOKING_POI = POI_TYPES.register("cooking_poi",
-            () -> new PoiType("cooking_poi", PoiType.getBlockStates(BlockRegistry.FOOD_HAMPER.get()), 1, 1));
+            () -> new PoiType(ImmutableSet.copyOf(BlockRegistry.FOOD_HAMPER.get().getStateDefinition().getPossibleStates()), 1, 1));
     public static final RegistryObject<PoiType> TRADE_POI = POI_TYPES.register("trade_poi",
-            () -> new PoiType("trade_poi", PoiType.getBlockStates(BlockRegistry.TEAHOUSE_FLAG.get()), 1, 5));
+            () -> new PoiType(ImmutableSet.copyOf(BlockRegistry.TEAHOUSE_FLAG.get().getStateDefinition().getPossibleStates()), 1, 5));
 
     public static void registerPOI (){
         try {

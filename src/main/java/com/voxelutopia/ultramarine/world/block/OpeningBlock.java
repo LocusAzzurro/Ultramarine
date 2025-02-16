@@ -50,7 +50,7 @@ public class OpeningBlock extends DecorativeBlock{
         if (!this.defaultBlockState().is(pBlock) && signal != pState.getValue(POWERED)) {
             if (signal != pState.getValue(OPEN)) {
                 //this.playSound(pLevel, pPos, signal); //todo add sound
-                pLevel.gameEvent(signal ? GameEvent.BLOCK_OPEN : GameEvent.BLOCK_CLOSE, pPos);
+                pLevel.gameEvent(signal ? GameEvent.BLOCK_OPEN : GameEvent.BLOCK_CLOSE, pPos, GameEvent.Context.of(pState));
             }
             pLevel.setBlock(pPos, pState.setValue(POWERED, signal).setValue(OPEN, signal), 2);
         }

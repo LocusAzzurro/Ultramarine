@@ -1,9 +1,5 @@
 {
   "type": "minecraft:crafting_shaped",
-  "pattern": [
-    "TTT",
-    "RRR"
-  ],
   "key": {
     "R": {
       "item": "ultramarine:black_roof_ridge_connection"
@@ -12,8 +8,12 @@
       "item": "ultramarine:black_roof_tile"
     }
   },
+  "pattern": [
+    "TTT",
+    "RRR"
+  ],
   "result": {
-    "item": "ultramarine:black_main_roof_ridge_connection",
-    "count": 3
+    "count": 3,
+    "item": "ultramarine:black_main_roof_ridge_connection"
   }
 }

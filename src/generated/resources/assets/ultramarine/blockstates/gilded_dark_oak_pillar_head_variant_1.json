@@ -4,8 +4,10 @@
       "model": "ultramarine:block/gilded_dark_oak_pillar_head_variant_1",
       "x": 180
     },
-    "facing=up": {
-      "model": "ultramarine:block/gilded_dark_oak_pillar_head_variant_1"
+    "facing=east": {
+      "model": "ultramarine:block/gilded_dark_oak_pillar_head_variant_1",
+      "x": 90,
+      "y": 90
     },
     "facing=north": {
       "model": "ultramarine:block/gilded_dark_oak_pillar_head_variant_1",
@@ -16,15 +18,13 @@
       "x": 90,
       "y": 180
     },
+    "facing=up": {
+      "model": "ultramarine:block/gilded_dark_oak_pillar_head_variant_1"
+    },
     "facing=west": {
       "model": "ultramarine:block/gilded_dark_oak_pillar_head_variant_1",
       "x": 90,
       "y": 270
-    },
-    "facing=east": {
-      "model": "ultramarine:block/gilded_dark_oak_pillar_head_variant_1",
-      "x": 90,
-      "y": 90
     }
   }
 }

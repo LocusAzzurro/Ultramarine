@@ -2,15 +2,15 @@
   "type": "minecraft:block",
   "pools": [
     {
-      "name": "warped_cabinet",
-      "rolls": 1.0,
       "bonus_rolls": 0.0,
       "entries": [
         {
           "type": "minecraft:item",
           "name": "ultramarine:warped_cabinet"
         }
-      ]
+      ],
+      "name": "warped_cabinet",
+      "rolls": 1.0
     }
   ]
 }

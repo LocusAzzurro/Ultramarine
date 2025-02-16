@@ -1,5 +1,9 @@
 {
   "variants": {
+    "facing=east": {
+      "model": "ultramarine:block/tilted_lotus_leaf",
+      "y": 270
+    },
     "facing=north": {
       "model": "ultramarine:block/tilted_lotus_leaf",
       "y": 180
@@ -10,10 +14,6 @@
     "facing=west": {
       "model": "ultramarine:block/tilted_lotus_leaf",
       "y": 90
-    },
-    "facing=east": {
-      "model": "ultramarine:block/tilted_lotus_leaf",
-      "y": 270
     }
   }
 }

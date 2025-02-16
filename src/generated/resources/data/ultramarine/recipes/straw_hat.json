@@ -1,20 +1,20 @@
 {
   "type": "minecraft:crafting_shaped",
-  "pattern": [
-    "RSR",
-    "WWW"
-  ],
   "key": {
-    "W": {
-      "item": "minecraft:wheat"
+    "R": {
+      "item": "ultramarine:red_dye_powder"
     },
     "S": {
       "item": "ultramarine:silk"
     },
-    "R": {
-      "item": "ultramarine:red_dye_powder"
+    "W": {
+      "item": "minecraft:wheat"
     }
   },
+  "pattern": [
+    "RSR",
+    "WWW"
+  ],
   "result": {
     "item": "ultramarine:straw_hat"
   }

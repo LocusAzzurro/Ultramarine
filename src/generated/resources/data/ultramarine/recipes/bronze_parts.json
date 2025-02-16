@@ -1,8 +1,8 @@
 {
   "type": "minecraft:stonecutting",
+  "count": 2,
   "ingredient": {
     "item": "ultramarine:bronze_ingot"
   },
-  "result": "ultramarine:bronze_parts",
-  "count": 2
+  "result": "ultramarine:bronze_parts"
 }

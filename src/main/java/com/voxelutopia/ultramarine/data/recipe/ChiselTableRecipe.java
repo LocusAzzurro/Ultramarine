@@ -112,8 +112,6 @@ public class ChiselTableRecipe implements Recipe<Container> {
     public static class Serializer implements RecipeSerializer<ChiselTableRecipe>{
 
         public static final Serializer INSTANCE = new Serializer();
-        public static final ResourceLocation ID =
-                new ResourceLocation(Ultramarine.MOD_ID,"chisel_table");
 
         protected Serializer() {}
 
@@ -177,26 +175,6 @@ public class ChiselTableRecipe implements Recipe<Container> {
             return Ingredient.fromJson(ingredientRaw);
         }
 
-        @Override
-        public RecipeSerializer<?> setRegistryName(ResourceLocation name) {
-            return INSTANCE;
-        }
-
-        @Nullable
-        @Override
-        public ResourceLocation getRegistryName() {
-            return ID;
-        }
-
-        @Override
-        public Class<RecipeSerializer<?>> getRegistryType() {
-            return ChiselTableRecipe.Serializer.castClass(RecipeSerializer.class);
-        }
-
-        @SuppressWarnings("unchecked")
-        private static <G> Class<G> castClass(Class<?> cls) {
-            return (Class<G>)cls;
-        }
     }
 
 }

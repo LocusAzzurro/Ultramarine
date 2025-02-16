@@ -23,11 +23,11 @@ public class ModClientRenderEventHandler {
 
     @SubscribeEvent
     public static void onClientSetup(FMLClientSetupEvent e){
-        setRenderLayers(e);
         registerMenuScreens(e);
         registerEntityRenderers(e);
     }
 
+    /*
     private static void setRenderLayers(FMLClientSetupEvent e) {
         e.enqueueWork(() -> {
             ItemBlockRenderTypes.setRenderLayer(BlockRegistry.ABACUS.get(), RenderType.cutout());
@@ -174,6 +174,8 @@ public class ModClientRenderEventHandler {
             ItemBlockRenderTypes.setRenderLayer(BlockRegistry.WOODWORKING_WORKBENCH.get(), RenderType.cutout());
         });
     }
+
+     */
 
     private static void registerMenuScreens(FMLClientSetupEvent e) {
         e.enqueueWork(() -> {

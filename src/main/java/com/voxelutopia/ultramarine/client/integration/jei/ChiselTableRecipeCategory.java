@@ -4,6 +4,7 @@ import com.mojang.blaze3d.vertex.PoseStack;
 import com.voxelutopia.ultramarine.Ultramarine;
 import com.voxelutopia.ultramarine.data.recipe.ChiselTableRecipe;
 import com.voxelutopia.ultramarine.data.registry.BlockRegistry;
+import com.voxelutopia.ultramarine.data.registry.RecipeTypeRegistry;
 import mezz.jei.api.constants.VanillaTypes;
 import mezz.jei.api.gui.builder.IRecipeLayoutBuilder;
 import mezz.jei.api.gui.drawable.IDrawable;
@@ -13,7 +14,6 @@ import mezz.jei.api.recipe.IFocusGroup;
 import mezz.jei.api.recipe.RecipeType;
 import mezz.jei.api.recipe.category.IRecipeCategory;
 import net.minecraft.network.chat.Component;
-import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Ingredient;
@@ -39,7 +39,7 @@ public class ChiselTableRecipeCategory implements IRecipeCategory<ChiselTableRec
     public ChiselTableRecipeCategory(IGuiHelper guiHelper){
         this.background = guiHelper.createDrawable(TEXTURE_GUI, 25, 24, 126, 45);
         this.icon = guiHelper.createDrawableIngredient(VanillaTypes.ITEM_STACK, new ItemStack(BlockRegistry.CHISEL_TABLE.get()));
-        this.localizedName = new TranslatableComponent("gui.jei.category.chisel_table");
+        this.localizedName = Component.translatable("gui.jei.category.chisel_table");
     }
 
     @Override
@@ -66,6 +66,11 @@ public class ChiselTableRecipeCategory implements IRecipeCategory<ChiselTableRec
     }
 
     @Override
+    public RecipeType<ChiselTableRecipe> getRecipeType() {
+        return CHISEL_TABLE_RECIPE_TYPE;
+    }
+
+    @Override
     public Component getTitle() {
         return localizedName;
     }
@@ -80,15 +85,4 @@ public class ChiselTableRecipeCategory implements IRecipeCategory<ChiselTableRec
         return icon;
     }
 
-    @SuppressWarnings("removal")
-    @Override
-    public ResourceLocation getUid() {
-        return UID;
-    }
-
-    @SuppressWarnings("removal")
-    @Override
-    public Class<? extends ChiselTableRecipe> getRecipeClass() {
-        return ChiselTableRecipe.class;
-    }
 }

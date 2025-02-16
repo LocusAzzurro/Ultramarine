@@ -1,14 +1,14 @@
 {
   "type": "minecraft:crafting_shaped",
-  "pattern": [
-    "E",
-    "E"
-  ],
   "key": {
     "E": {
       "item": "ultramarine:carved_stone_panel_edge"
     }
   },
+  "pattern": [
+    "E",
+    "E"
+  ],
   "result": {
     "item": "ultramarine:carved_stone_queti"
   }

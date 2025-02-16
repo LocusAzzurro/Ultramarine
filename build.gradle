@@ -136,15 +136,15 @@ dependencies {
 
     annotationProcessor "org.spongepowered:mixin:${mixin_version}:processor"
 
-    compileOnly fg.deobf("mezz.jei:jei-${jei_version}:api")
-    implementation fg.deobf("mezz.jei:jei-${jei_version}")
-    implementation fg.deobf("curse.maven:the-one-probe-245211:${top_version_id}")
-    compileOnly fg.deobf("vazkii.patchouli:Patchouli:${patchouli_version}:api")
-    runtimeOnly fg.deobf("vazkii.patchouli:Patchouli:${patchouli_version}")
-    runtimeOnly fg.deobf("curse.maven:just-enough-resources-jer-240630:${jer_version_id}")
-    runtimeOnly fg.deobf("curse.maven:worldedit-225608:${worldedit_version_id}")
-    //runtimeOnly fg.deobf("curse.maven:journeymap-32274:${journeymap_version_id}")
-    //runtimeOnly fg.deobf("curse.maven:xaero-minimap-263420:${xearo_minimap_version_id}")
+    compileOnly fg.deobf("mezz.jei:jei-${minecraft_version}-common-api:${jei_version}")
+    compileOnly fg.deobf("mezz.jei:jei-${minecraft_version}-forge-api:${jei_version}")
+    implementation fg.deobf("mezz.jei:jei-${minecraft_version}-forge:${jei_version}")
+    //implementation fg.deobf("curse.maven:the-one-probe-245211:${top_version_id}")
+    //compileOnly fg.deobf("vazkii.patchouli:Patchouli:${patchouli_version}:api")
+    //runtimeOnly fg.deobf("vazkii.patchouli:Patchouli:${patchouli_version}")
+
+    //runtimeOnly fg.deobf("curse.maven:just-enough-resources-jer-240630:${jer_version_id}")
+    //runtimeOnly fg.deobf("curse.maven:worldedit-225608:${worldedit_version_id}")
 
 }
 
@@ -166,8 +166,8 @@ def replaceProperties = [
         patchouli_version: patchouli_version,
         jer_version_id: jer_version_id,
         worldedit_version_id: worldedit_version_id,
-        journeymap_version_id: journeymap_version_id,
-        xearo_minimap_version_id: xearo_minimap_version_id
+        //journeymap_version_id: journeymap_version_id,
+        //xearo_minimap_version_id: xearo_minimap_version_id
 ]
 processResources {
     inputs.properties replaceProperties

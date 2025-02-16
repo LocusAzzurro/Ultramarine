@@ -2,15 +2,15 @@
   "type": "minecraft:block",
   "pools": [
     {
-      "name": "dark_blue_fangxin",
-      "rolls": 1.0,
       "bonus_rolls": 0.0,
       "entries": [
         {
           "type": "minecraft:item",
           "name": "ultramarine:dark_blue_fangxin"
         }
-      ]
+      ],
+      "name": "dark_blue_fangxin",
+      "rolls": 1.0
     }
   ]
 }

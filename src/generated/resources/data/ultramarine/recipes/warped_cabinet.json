@@ -1,24 +1,24 @@
 {
   "type": "minecraft:crafting_shaped",
+  "key": {
+    "C": {
+      "item": "minecraft:chest"
+    },
+    "F": {
+      "item": "ultramarine:wooden_frame"
+    },
+    "P": {
+      "item": "minecraft:warped_planks"
+    },
+    "W": {
+      "item": "ultramarine:polished_warped_plank"
+    }
+  },
   "pattern": [
     "WWW",
     "WCW",
     "PFP"
   ],
-  "key": {
-    "F": {
-      "item": "ultramarine:wooden_frame"
-    },
-    "W": {
-      "item": "ultramarine:polished_warped_plank"
-    },
-    "P": {
-      "item": "minecraft:warped_planks"
-    },
-    "C": {
-      "item": "minecraft:chest"
-    }
-  },
   "result": {
     "item": "ultramarine:warped_cabinet"
   }

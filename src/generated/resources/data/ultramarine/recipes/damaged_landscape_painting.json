@@ -1,9 +1,9 @@
 {
   "type": "minecraft:smoking",
+  "cookingtime": 400,
+  "experience": 0.1,
   "ingredient": {
     "item": "ultramarine:horizontal_landscape_painting"
   },
-  "result": "ultramarine:damaged_landscape_painting",
-  "experience": 0.1,
-  "cookingtime": 400
+  "result": "ultramarine:damaged_landscape_painting"
 }

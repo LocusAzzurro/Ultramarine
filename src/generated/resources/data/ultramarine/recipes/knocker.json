@@ -1,8 +1,5 @@
 {
   "type": "minecraft:crafting_shaped",
-  "pattern": [
-    "IP"
-  ],
   "key": {
     "I": {
       "item": "ultramarine:bronze_ingot"
@@ -11,6 +8,9 @@
       "item": "ultramarine:bronze_parts"
     }
   },
+  "pattern": [
+    "IP"
+  ],
   "result": {
     "item": "ultramarine:knocker"
   }

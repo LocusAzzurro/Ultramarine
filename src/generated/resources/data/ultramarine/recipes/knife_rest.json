@@ -1,10 +1,5 @@
 {
   "type": "minecraft:crafting_shaped",
-  "pattern": [
-    "FFF",
-    "PPP",
-    "FFF"
-  ],
   "key": {
     "F": {
       "tag": "minecraft:wooden_fences"
@@ -13,6 +8,11 @@
       "tag": "minecraft:planks"
     }
   },
+  "pattern": [
+    "FFF",
+    "PPP",
+    "FFF"
+  ],
   "result": {
     "item": "ultramarine:knife_rest"
   }

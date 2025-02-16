@@ -2,15 +2,15 @@
   "type": "minecraft:block",
   "pools": [
     {
-      "name": "gray_roof_tile_stairs",
-      "rolls": 1.0,
       "bonus_rolls": 0.0,
       "entries": [
         {
           "type": "minecraft:item",
           "name": "ultramarine:gray_roof_tile_stairs"
         }
-      ]
+      ],
+      "name": "gray_roof_tile_stairs",
+      "rolls": 1.0
     }
   ]
 }

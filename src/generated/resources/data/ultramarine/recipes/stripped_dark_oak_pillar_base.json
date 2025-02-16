@@ -1,9 +1,5 @@
 {
   "type": "minecraft:crafting_shaped",
-  "pattern": [
-    "P",
-    "S"
-  ],
   "key": {
     "P": {
       "item": "minecraft:stripped_dark_oak_log"
@@ -12,6 +8,10 @@
       "item": "minecraft:smooth_stone_slab"
     }
   },
+  "pattern": [
+    "P",
+    "S"
+  ],
   "result": {
     "item": "ultramarine:stripped_dark_oak_pillar_base"
   }

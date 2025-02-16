@@ -4,7 +4,6 @@ import com.voxelutopia.ultramarine.world.block.menu.WoodworkingWorkbenchMenu;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.network.chat.Component;
-import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.MenuProvider;
@@ -25,7 +24,7 @@ import javax.annotation.Nullable;
 
 public class WoodworkingWorkBench extends Block {
 
-    private static final Component CONTAINER_TITLE = new TranslatableComponent("container.woodworking_workbench");
+    private static final Component CONTAINER_TITLE = Component.translatable("container.woodworking_workbench");
     public static final DirectionProperty FACING = HorizontalDirectionalBlock.FACING;
 
     public WoodworkingWorkBench() {

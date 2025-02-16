@@ -2,15 +2,15 @@
   "type": "minecraft:block",
   "pools": [
     {
-      "name": "yellow_green_blue_carved_wood",
-      "rolls": 1.0,
       "bonus_rolls": 0.0,
       "entries": [
         {
           "type": "minecraft:item",
           "name": "ultramarine:yellow_green_blue_carved_wood"
         }
-      ]
+      ],
+      "name": "yellow_green_blue_carved_wood",
+      "rolls": 1.0
     }
   ]
 }

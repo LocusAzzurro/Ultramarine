@@ -1,10 +1,5 @@
 {
   "type": "minecraft:crafting_shaped",
-  "pattern": [
-    "P",
-    "L",
-    "L"
-  ],
   "key": {
     "L": {
       "tag": "minecraft:logs"
@@ -13,6 +8,11 @@
       "tag": "minecraft:planks"
     }
   },
+  "pattern": [
+    "P",
+    "L",
+    "L"
+  ],
   "result": {
     "item": "ultramarine:streetlight_pole"
   }

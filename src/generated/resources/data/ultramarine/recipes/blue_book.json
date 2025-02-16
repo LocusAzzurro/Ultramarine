@@ -1,8 +1,5 @@
 {
   "type": "minecraft:crafting_shaped",
-  "pattern": [
-    "BD"
-  ],
   "key": {
     "B": {
       "item": "minecraft:book"
@@ -11,6 +8,9 @@
       "item": "ultramarine:blue_dye_powder"
     }
   },
+  "pattern": [
+    "BD"
+  ],
   "result": {
     "item": "ultramarine:blue_book"
   }

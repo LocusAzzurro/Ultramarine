@@ -3,26 +3,26 @@
     "axis=x,left=false,right=false": {
       "model": "ultramarine:block/long_table_single"
     },
-    "axis=z,left=false,right=false": {
-      "model": "ultramarine:block/long_table_single",
-      "y": -90
+    "axis=x,left=false,right=true": {
+      "model": "ultramarine:block/long_table_left"
     },
     "axis=x,left=true,right=false": {
       "model": "ultramarine:block/long_table_right"
     },
-    "axis=z,left=true,right=false": {
-      "model": "ultramarine:block/long_table_right",
-      "y": -90
+    "axis=x,left=true,right=true": {
+      "model": "ultramarine:block/long_table_middle"
     },
-    "axis=x,left=false,right=true": {
-      "model": "ultramarine:block/long_table_left"
+    "axis=z,left=false,right=false": {
+      "model": "ultramarine:block/long_table_single",
+      "y": -90
     },
     "axis=z,left=false,right=true": {
       "model": "ultramarine:block/long_table_left",
       "y": -90
     },
-    "axis=x,left=true,right=true": {
-      "model": "ultramarine:block/long_table_middle"
+    "axis=z,left=true,right=false": {
+      "model": "ultramarine:block/long_table_right",
+      "y": -90
     },
     "axis=z,left=true,right=true": {
       "model": "ultramarine:block/long_table_middle",

@@ -1,14 +1,6 @@
 {
   "type": "minecraft:crafting_shaped",
-  "pattern": [
-    " S ",
-    "PCP",
-    "DPD"
-  ],
   "key": {
-    "S": {
-      "item": "minecraft:stick"
-    },
     "C": {
       "tag": "minecraft:candles"
     },
@@ -17,8 +9,16 @@
     },
     "P": {
       "item": "minecraft:paper"
+    },
+    "S": {
+      "item": "minecraft:stick"
     }
   },
+  "pattern": [
+    " S ",
+    "PCP",
+    "DPD"
+  ],
   "result": {
     "item": "ultramarine:small_red_lantern"
   }

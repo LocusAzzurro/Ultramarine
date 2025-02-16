@@ -1,10 +1,5 @@
 {
   "type": "minecraft:crafting_shaped",
-  "pattern": [
-    "PPP",
-    "PFP",
-    "PPP"
-  ],
   "key": {
     "F": {
       "item": "ultramarine:wooden_frame"
@@ -13,6 +8,11 @@
       "tag": "ultramarine:polished_planks"
     }
   },
+  "pattern": [
+    "PPP",
+    "PFP",
+    "PPP"
+  ],
   "result": {
     "item": "ultramarine:wooden_crate"
   }

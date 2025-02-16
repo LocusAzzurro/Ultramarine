@@ -1,153 +1,153 @@
 {
   "multipart": [
     {
+      "apply": {
+        "model": "ultramarine:block/carved_wooden_railing_pole"
+      },
       "when": {
         "shifted": "false",
         "up": "true"
-      },
-      "apply": {
-        "model": "ultramarine:block/carved_wooden_railing_pole"
       }
     },
     {
-      "when": {
-        "shifted": "false",
-        "up": "true",
-        "north": "true"
-      },
       "apply": {
         "model": "ultramarine:block/carved_wooden_railing_side"
+      },
+      "when": {
+        "north": "true",
+        "shifted": "false",
+        "up": "true"
       }
     },
     {
-      "when": {
-        "shifted": "false",
-        "up": "true",
-        "east": "true"
-      },
       "apply": {
         "model": "ultramarine:block/carved_wooden_railing_side",
         "y": 90
+      },
+      "when": {
+        "east": "true",
+        "shifted": "false",
+        "up": "true"
       }
     },
     {
-      "when": {
-        "shifted": "false",
-        "up": "true",
-        "south": "true"
-      },
       "apply": {
         "model": "ultramarine:block/carved_wooden_railing_side",
         "y": 180
+      },
+      "when": {
+        "shifted": "false",
+        "south": "true",
+        "up": "true"
       }
     },
     {
+      "apply": {
+        "model": "ultramarine:block/carved_wooden_railing_side",
+        "y": 270
+      },
       "when": {
         "shifted": "false",
         "up": "true",
         "west": "true"
-      },
-      "apply": {
-        "model": "ultramarine:block/carved_wooden_railing_side",
-        "y": 270
       }
     },
     {
-      "when": {
-        "shifted": "false",
-        "up": "false",
-        "west": "true",
-        "east": "true"
-      },
       "apply": {
         "model": "ultramarine:block/carved_wooden_railing_panel"
+      },
+      "when": {
+        "east": "true",
+        "shifted": "false",
+        "up": "false",
+        "west": "true"
       }
     },
     {
-      "when": {
-        "shifted": "false",
-        "up": "false",
-        "north": "true",
-        "south": "true"
-      },
       "apply": {
         "model": "ultramarine:block/carved_wooden_railing_panel",
         "y": 90
+      },
+      "when": {
+        "north": "true",
+        "shifted": "false",
+        "south": "true",
+        "up": "false"
       }
     },
     {
+      "apply": {
+        "model": "ultramarine:block/carved_wooden_railing_pole_shifted"
+      },
       "when": {
         "shifted": "true",
         "up": "true"
-      },
-      "apply": {
-        "model": "ultramarine:block/carved_wooden_railing_pole_shifted"
       }
     },
     {
-      "when": {
-        "shifted": "true",
-        "up": "true",
-        "north": "true"
-      },
       "apply": {
         "model": "ultramarine:block/carved_wooden_railing_side_shifted"
+      },
+      "when": {
+        "north": "true",
+        "shifted": "true",
+        "up": "true"
       }
     },
     {
-      "when": {
-        "shifted": "true",
-        "up": "true",
-        "east": "true"
-      },
       "apply": {
         "model": "ultramarine:block/carved_wooden_railing_side_shifted",
         "y": 90
+      },
+      "when": {
+        "east": "true",
+        "shifted": "true",
+        "up": "true"
       }
     },
     {
-      "when": {
-        "shifted": "true",
-        "up": "true",
-        "south": "true"
-      },
       "apply": {
         "model": "ultramarine:block/carved_wooden_railing_side_shifted",
         "y": 180
+      },
+      "when": {
+        "shifted": "true",
+        "south": "true",
+        "up": "true"
       }
     },
     {
+      "apply": {
+        "model": "ultramarine:block/carved_wooden_railing_side_shifted",
+        "y": 270
+      },
       "when": {
         "shifted": "true",
         "up": "true",
         "west": "true"
-      },
-      "apply": {
-        "model": "ultramarine:block/carved_wooden_railing_side_shifted",
-        "y": 270
       }
     },
     {
-      "when": {
-        "shifted": "true",
-        "up": "false",
-        "west": "true",
-        "east": "true"
-      },
       "apply": {
         "model": "ultramarine:block/carved_wooden_railing_panel_shifted"
+      },
+      "when": {
+        "east": "true",
+        "shifted": "true",
+        "up": "false",
+        "west": "true"
       }
     },
     {
-      "when": {
-        "shifted": "true",
-        "up": "false",
-        "north": "true",
-        "south": "true"
-      },
       "apply": {
         "model": "ultramarine:block/carved_wooden_railing_panel_shifted",
         "y": 90
+      },
+      "when": {
+        "north": "true",
+        "shifted": "true",
+        "south": "true",
+        "up": "false"
       }
     }
   ]

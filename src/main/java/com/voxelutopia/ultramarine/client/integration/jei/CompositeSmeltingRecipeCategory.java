@@ -20,7 +20,6 @@ import mezz.jei.api.recipe.category.IRecipeCategory;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.Font;
 import net.minecraft.network.chat.Component;
-import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
 
@@ -48,7 +47,7 @@ public class CompositeSmeltingRecipeCategory implements IRecipeCategory<Composit
         this.background = guiHelper.createDrawable(TEXTURE_GUI, 45, 16, 92, 54);
         this.regularCookTime = 200;
         this.icon = guiHelper.createDrawableIngredient(VanillaTypes.ITEM_STACK, new ItemStack(BlockRegistry.BRICK_KILN.get()));
-        this.localizedName = new TranslatableComponent("gui.jei.category.composite_smelting");
+        this.localizedName = Component.translatable("gui.jei.category.composite_smelting");
         this.cachedArrows = CacheBuilder.newBuilder()
                 .maximumSize(25)
                 .build(new CacheLoader<>() {
@@ -94,7 +93,7 @@ public class CompositeSmeltingRecipeCategory implements IRecipeCategory<Composit
     protected void drawExperience(CompositeSmeltingRecipe recipe, PoseStack poseStack, int y) {
         float experience = recipe.getExp();
         if (experience > 0) {
-            TranslatableComponent experienceString = new TranslatableComponent("gui.jei.category.smelting.experience", experience);
+            var experienceString = Component.translatable("gui.jei.category.smelting.experience", experience);
             Minecraft minecraft = Minecraft.getInstance();
             Font fontRenderer = minecraft.font;
             int stringWidth = fontRenderer.width(experienceString);
@@ -106,7 +105,7 @@ public class CompositeSmeltingRecipeCategory implements IRecipeCategory<Composit
         int cookTime = recipe.getCookingTime();
         if (cookTime > 0) {
             int cookTimeSeconds = cookTime / 20;
-            TranslatableComponent timeString = new TranslatableComponent("gui.jei.category.smelting.time.seconds", cookTimeSeconds);
+            var timeString = Component.translatable("gui.jei.category.smelting.time.seconds", cookTimeSeconds);
             Minecraft minecraft = Minecraft.getInstance();
             Font fontRenderer = minecraft.font;
             int stringWidth = fontRenderer.width(timeString);
@@ -131,15 +130,8 @@ public class CompositeSmeltingRecipeCategory implements IRecipeCategory<Composit
                 .addItemStack(recipe.getResultItem());
     }
 
-    @SuppressWarnings("removal")
     @Override
-    public ResourceLocation getUid() {
-        return UID;
-    }
-
-    @SuppressWarnings("removal")
-    @Override
-    public Class<? extends CompositeSmeltingRecipe> getRecipeClass() {
-        return CompositeSmeltingRecipe.class;
+    public RecipeType<CompositeSmeltingRecipe> getRecipeType() {
+        return COMPOSITE_SMELTING_RECIPE_TYPE;
     }
 }

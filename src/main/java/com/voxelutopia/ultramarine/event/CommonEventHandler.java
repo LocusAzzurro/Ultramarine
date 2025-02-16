@@ -6,9 +6,7 @@ import com.voxelutopia.ultramarine.data.registry.*;
 import com.voxelutopia.ultramarine.world.block.DecorativeBlock;
 import com.voxelutopia.ultramarine.world.block.SnowRoofRidge;
 import com.voxelutopia.ultramarine.world.entity.TravellingMerchant;
-import com.voxelutopia.ultramarine.world.feature.ModPlacedFeatures;
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.Holder;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvents;
@@ -28,9 +26,7 @@ import net.minecraft.world.level.*;
 import net.minecraft.world.level.biome.Biomes;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.levelgen.GenerationStep;
 import net.minecraft.world.level.levelgen.Heightmap;
-import net.minecraft.world.level.levelgen.placement.PlacedFeature;
 import net.minecraft.world.level.storage.ServerLevelData;
 import net.minecraftforge.common.Tags;
 import net.minecraftforge.event.TickEvent;
@@ -38,8 +34,7 @@ import net.minecraftforge.event.entity.item.ItemExpireEvent;
 import net.minecraftforge.event.entity.player.PlayerEvent;
 import net.minecraftforge.event.village.VillagerTradesEvent;
 import net.minecraftforge.event.village.WandererTradesEvent;
-import net.minecraftforge.event.world.BiomeLoadingEvent;
-import net.minecraftforge.event.world.BlockEvent;
+import net.minecraftforge.event.level.BlockEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import org.slf4j.Logger;
@@ -54,7 +49,7 @@ public class CommonEventHandler {
     @SubscribeEvent
     public static void breakSpeed(PlayerEvent.BreakSpeed event){
         BlockState state = event.getState();
-        Player player = event.getPlayer();
+        Player player = event.getEntity();
         if (state.is(ModBlockTags.MINEABLE_WITH_SHEARS) &&
                 player.getItemInHand(player.getUsedItemHand()).is(Tags.Items.SHEARS)){
             event.setNewSpeed(event.getOriginalSpeed() * 4);
@@ -79,17 +74,17 @@ public class CommonEventHandler {
             BlockState placedBlock = placeEvent.getPlacedBlock();
             if (!placedBlock.is(BlockRegistry.BRUSH_AND_INKSTONE.get())) return;
             BlockPos pos = placeEvent.getPos();
-            BlockState blockBelow = placeEvent.getWorld().getBlockState(pos.below());
+            BlockState blockBelow = placeEvent.getLevel().getBlockState(pos.below());
             if (blockBelow.is(BlockRegistry.PORCELAIN_INLAID_TABLE.get())) {
-                placeEvent.getWorld().setBlock(pos,
+                placeEvent.getLevel().setBlock(pos,
                         BlockRegistry.CHISEL_TABLE.get().defaultBlockState().setValue(DecorativeBlock.FACING, placedBlock.getValue(DecorativeBlock.FACING)), 3);
             }
         }
         if (event instanceof BlockEvent.BreakEvent breakEvent){
             BlockState block = breakEvent.getState();
             BlockPos pos = breakEvent.getPos();
-            if (block.is(BlockRegistry.PORCELAIN_INLAID_TABLE.get()) && breakEvent.getWorld().getBlockState(pos.above()).is(BlockRegistry.CHISEL_TABLE.get())){
-                breakEvent.getWorld().setBlock(pos.above(),
+            if (block.is(BlockRegistry.PORCELAIN_INLAID_TABLE.get()) && breakEvent.getLevel().getBlockState(pos.above()).is(BlockRegistry.CHISEL_TABLE.get())){
+                breakEvent.getLevel().setBlock(pos.above(),
                         BlockRegistry.BRUSH_AND_INKSTONE.get().defaultBlockState().setValue(DecorativeBlock.FACING, block.getValue(DecorativeBlock.FACING)), 3);
             }
         }
@@ -98,19 +93,19 @@ public class CommonEventHandler {
     @SubscribeEvent
     public static void roofSnowFall(BlockEvent.NeighborNotifyEvent event){
         if (event.getState().is(Blocks.SNOW)){
-            BlockState blockBelow = event.getWorld().getBlockState(event.getPos().below());
+            BlockState blockBelow = event.getLevel().getBlockState(event.getPos().below());
             if (blockBelow.getBlock() instanceof SnowRoofRidge ridge && blockBelow.getValue(SnowRoofRidge.SNOW_LAYERS) < 15){
-                ridge.handleSnow(blockBelow, event.getWorld(), event.getPos().below());
-                event.getWorld().setBlock(event.getPos(), Blocks.AIR.defaultBlockState(), 3);
+                ridge.handleSnow(blockBelow, event.getLevel(), event.getPos().below());
+                event.getLevel().setBlock(event.getPos(), Blocks.AIR.defaultBlockState(), 3);
                 event.setCanceled(true);
             }
         }
     }
 
     @SubscribeEvent
-    public static void travellingMerchantSpawnAttempt(TickEvent.WorldTickEvent event){
-        if (event.world.isClientSide() || event.phase != TickEvent.Phase.START || event.world.dimension() != Level.OVERWORLD) return;
-        ServerLevel world = (ServerLevel) event.world;
+    public static void travellingMerchantSpawnAttempt(TickEvent.LevelTickEvent event){
+        if (event.level.isClientSide() || event.phase != TickEvent.Phase.START || event.level.dimension() != Level.OVERWORLD) return;
+        ServerLevel world = (ServerLevel) event.level;
         ServerLevelData levelData = (ServerLevelData) world.getLevelData();
         if (!world.getGameRules().getBoolean(GameRules.RULE_DO_TRADER_SPAWNING) ||
                 !world.getGameRules().getBoolean(GameRules.RULE_DOMOBSPAWNING) ||
@@ -121,11 +116,12 @@ public class CommonEventHandler {
         }
     }
 
+    @SuppressWarnings("ConstantConditions")
     private static void spawnTrader(ServerLevel world) {
         ServerPlayer player = world.getRandomPlayer();
         if (player == null) return;
         BlockPos blockpos = player.blockPosition();
-        world.getPoiManager().find(PoiTypeRegistry.TRADE_POI.get().getPredicate(), (pos1) -> true, blockpos, 16, PoiManager.Occupancy.ANY).ifPresent(pos -> {
+        world.getPoiManager().find((poi) -> poi.is(PoiTypeRegistry.TRADE_POI.getKey()), (pos1) -> true, blockpos, 16, PoiManager.Occupancy.ANY).ifPresent(pos -> {
             BlockPos potentialSpawn = null;
             for (int i = 0; i < 10; ++i) {
                 int x = pos.getX() + world.random.nextInt(4 * 2) - 4;
@@ -391,18 +387,6 @@ public class CommonEventHandler {
                 new ItemStack(ItemRegistry.BLUE_AND_WHITE_PORCELAIN_VASE.get(), 1),
                 1, 30, 0.05f
         ));
-
-    }
-
-    @SubscribeEvent
-    public static void oreGeneration(BiomeLoadingEvent event) {
-
-        List<Holder<PlacedFeature>> undergroundOres = event.getGeneration().getFeatures(GenerationStep.Decoration.UNDERGROUND_ORES);
-
-        undergroundOres.add(ModPlacedFeatures.JADE_ORE_PLACED_FEATURE);
-        undergroundOres.add(ModPlacedFeatures.MAGNESITE_ORE_PLACED_FEATURE);
-        undergroundOres.add(ModPlacedFeatures.HEMATITE_ORE_PLACED_FEATURE);
-        undergroundOres.add(ModPlacedFeatures.COBALT_ORE_PLACED_FEATURE);
 
     }
 }

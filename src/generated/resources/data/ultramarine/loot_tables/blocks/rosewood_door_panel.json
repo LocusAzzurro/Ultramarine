@@ -2,15 +2,15 @@
   "type": "minecraft:block",
   "pools": [
     {
-      "name": "rosewood_door_panel",
-      "rolls": 1.0,
       "bonus_rolls": 0.0,
       "entries": [
         {
           "type": "minecraft:item",
           "name": "ultramarine:rosewood_door_panel"
         }
-      ]
+      ],
+      "name": "rosewood_door_panel",
+      "rolls": 1.0
     }
   ]
 }

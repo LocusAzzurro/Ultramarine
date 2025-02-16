@@ -2,15 +2,15 @@
   "type": "minecraft:block",
   "pools": [
     {
-      "name": "long_pillow",
-      "rolls": 1.0,
       "bonus_rolls": 0.0,
       "entries": [
         {
           "type": "minecraft:item",
           "name": "ultramarine:long_pillow"
         }
-      ]
+      ],
+      "name": "long_pillow",
+      "rolls": 1.0
     }
   ]
 }

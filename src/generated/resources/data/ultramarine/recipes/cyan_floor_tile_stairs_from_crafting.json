@@ -1,17 +1,17 @@
 {
   "type": "minecraft:crafting_shaped",
-  "pattern": [
-    "B  ",
-    "BB ",
-    "BBB"
-  ],
   "key": {
     "B": {
       "item": "ultramarine:cyan_floor_tile"
     }
   },
+  "pattern": [
+    "B  ",
+    "BB ",
+    "BBB"
+  ],
   "result": {
-    "item": "ultramarine:cyan_floor_tile_stairs",
-    "count": 4
+    "count": 4,
+    "item": "ultramarine:cyan_floor_tile_stairs"
   }
 }

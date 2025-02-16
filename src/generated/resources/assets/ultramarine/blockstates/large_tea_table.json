@@ -1,5 +1,9 @@
 {
   "variants": {
+    "facing=east": {
+      "model": "ultramarine:block/large_tea_table",
+      "y": 270
+    },
     "facing=north": {
       "model": "ultramarine:block/large_tea_table",
       "y": 180
@@ -10,10 +14,6 @@
     "facing=west": {
       "model": "ultramarine:block/large_tea_table",
       "y": 90
-    },
-    "facing=east": {
-      "model": "ultramarine:block/large_tea_table",
-      "y": 270
     }
   }
 }

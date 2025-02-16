@@ -1,20 +1,20 @@
 {
   "type": "minecraft:crafting_shaped",
-  "pattern": [
-    "PPP",
-    "RIR"
-  ],
   "key": {
+    "I": {
+      "item": "minecraft:ink_sac"
+    },
     "P": {
       "item": "ultramarine:xuan_paper"
     },
     "R": {
       "item": "ultramarine:red_dye_powder"
-    },
-    "I": {
-      "item": "minecraft:ink_sac"
     }
   },
+  "pattern": [
+    "PPP",
+    "RIR"
+  ],
   "result": {
     "item": "ultramarine:couplet_top"
   }

@@ -1,13 +1,15 @@
 package com.voxelutopia.ultramarine.world.block;
 
 import net.minecraft.core.BlockPos;
+import net.minecraft.util.RandomSource;
 import net.minecraft.util.valueproviders.UniformInt;
-import net.minecraft.world.level.block.OreBlock;
+import net.minecraft.world.level.LevelReader;
+import net.minecraft.world.level.block.DropExperienceBlock;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.material.Material;
 
-public class BaseOreBlock extends OreBlock {
+public class BaseOreBlock extends DropExperienceBlock {
 
     private final UniformInt xpRange;
     public static final BlockBehaviour.Properties PROPERTIES = BlockBehaviour.Properties.of(Material.STONE)
@@ -25,8 +27,4 @@ public class BaseOreBlock extends OreBlock {
         this(UniformInt.of(minXp, maxXp));
     }
 
-    @Override
-    public int getExpDrop(BlockState state, net.minecraft.world.level.LevelReader reader, BlockPos pos, int fortune, int silktouch) {
-        return silktouch == 0 ? this.xpRange.sample(RANDOM) : 0;
-    }
 }

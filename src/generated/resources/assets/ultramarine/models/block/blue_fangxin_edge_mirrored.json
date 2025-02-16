@@ -2,11 +2,11 @@
   "parent": "minecraft:block/cube",
   "textures": {
     "down": "minecraft:block/blue_concrete_powder",
-    "up": "minecraft:block/blue_concrete_powder",
-    "north": "ultramarine:block/blue_fangxin_edge_side_mirrored",
-    "south": "ultramarine:block/blue_fangxin_edge_side",
     "east": "ultramarine:block/blue_fangxin_edge_side_mirrored",
-    "west": "ultramarine:block/blue_fangxin_edge_side",
-    "particle": "ultramarine:block/blue_fangxin_edge_side"
+    "north": "ultramarine:block/blue_fangxin_edge_side_mirrored",
+    "particle": "ultramarine:block/blue_fangxin_edge_side",
+    "south": "ultramarine:block/blue_fangxin_edge_side",
+    "up": "minecraft:block/blue_concrete_powder",
+    "west": "ultramarine:block/blue_fangxin_edge_side"
   }
 }

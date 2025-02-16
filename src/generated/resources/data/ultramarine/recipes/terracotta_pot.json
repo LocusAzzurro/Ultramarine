@@ -1,14 +1,14 @@
 {
   "type": "minecraft:crafting_shaped",
-  "pattern": [
-    "T T",
-    "TTT"
-  ],
   "key": {
     "T": {
       "item": "minecraft:cyan_terracotta"
     }
   },
+  "pattern": [
+    "T T",
+    "TTT"
+  ],
   "result": {
     "item": "ultramarine:terracotta_pot"
   }

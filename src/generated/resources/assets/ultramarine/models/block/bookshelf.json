@@ -2,11 +2,11 @@
   "parent": "minecraft:block/cube",
   "textures": {
     "down": "ultramarine:block/bookshelf_side",
-    "up": "ultramarine:block/bookshelf_side",
-    "north": "ultramarine:block/bookshelf_front",
-    "south": "ultramarine:block/bookshelf_back",
     "east": "ultramarine:block/bookshelf_side",
-    "west": "ultramarine:block/bookshelf_side",
-    "particle": "ultramarine:block/bookshelf_side"
+    "north": "ultramarine:block/bookshelf_front",
+    "particle": "ultramarine:block/bookshelf_side",
+    "south": "ultramarine:block/bookshelf_back",
+    "up": "ultramarine:block/bookshelf_side",
+    "west": "ultramarine:block/bookshelf_side"
   }
 }

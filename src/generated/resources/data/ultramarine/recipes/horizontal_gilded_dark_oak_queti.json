@@ -1,8 +1,8 @@
 {
   "type": "ultramarine:woodworking",
+  "count": 1,
   "ingredient": {
     "item": "ultramarine:gilded_dark_oak"
   },
-  "result": "ultramarine:horizontal_gilded_dark_oak_queti",
-  "count": 1
+  "result": "ultramarine:horizontal_gilded_dark_oak_queti"
 }

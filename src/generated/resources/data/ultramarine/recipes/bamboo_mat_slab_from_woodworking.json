@@ -1,8 +1,8 @@
 {
   "type": "ultramarine:woodworking",
+  "count": 2,
   "ingredient": {
     "item": "ultramarine:bamboo_mat"
   },
-  "result": "ultramarine:bamboo_mat_slab",
-  "count": 2
+  "result": "ultramarine:bamboo_mat_slab"
 }

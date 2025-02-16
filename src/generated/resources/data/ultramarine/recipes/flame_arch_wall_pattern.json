@@ -1,11 +1,5 @@
 {
   "type": "ultramarine:chisel_table",
-  "material": {
-    "tag": "ultramarine:polished_planks"
-  },
-  "template": {
-    "item": "ultramarine:caihua_template"
-  },
   "colors": [
     {
       "tag": "forge:dyes/orange"
@@ -20,5 +14,11 @@
       "item": "ultramarine:green_dye_powder"
     }
   ],
-  "result": "ultramarine:flame_arch_wall_pattern"
+  "material": {
+    "tag": "ultramarine:polished_planks"
+  },
+  "result": "ultramarine:flame_arch_wall_pattern",
+  "template": {
+    "item": "ultramarine:caihua_template"
+  }
 }

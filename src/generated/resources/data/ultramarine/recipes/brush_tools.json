@@ -1,10 +1,5 @@
 {
   "type": "minecraft:crafting_shaped",
-  "pattern": [
-    "SSS",
-    "S S",
-    "PFP"
-  ],
   "key": {
     "F": {
       "item": "ultramarine:wooden_frame"
@@ -16,6 +11,11 @@
       "item": "minecraft:stick"
     }
   },
+  "pattern": [
+    "SSS",
+    "S S",
+    "PFP"
+  ],
   "result": {
     "item": "ultramarine:brush_tools"
   }
