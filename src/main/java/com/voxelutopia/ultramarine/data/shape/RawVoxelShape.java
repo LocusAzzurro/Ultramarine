@@ -1,6 +1,6 @@
 package com.voxelutopia.ultramarine.data.shape;
 
-import com.mojang.math.Vector3f;
+import org.joml.Vector3f;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
@@ -27,10 +27,10 @@ public class RawVoxelShape {
         maxP.add(-8f, -8f, -8f);
         XZcorner1.add(-8f, -8f, -8f);
         XZcorner2.add(-8f, -8f, -8f);
-        minP.transform(Vector3f.YP.rotationDegrees(degrees));
-        maxP.transform(Vector3f.YP.rotationDegrees(degrees));
-        XZcorner1.transform(Vector3f.YP.rotationDegrees(degrees));
-        XZcorner2.transform(Vector3f.YP.rotationDegrees(degrees));
+        minP.rotateY(degrees);
+        maxP.rotateY(degrees);
+        XZcorner1.rotateY(degrees);
+        XZcorner2.rotateY(degrees);
         minP.add(8f, 8f, 8f);
         maxP.add(8f, 8f, 8f);
         XZcorner1.add(8f, 8f, 8f);
@@ -43,10 +43,10 @@ public class RawVoxelShape {
         maxP.add(-8f, -8f, -8f);
         XZcorner1.add(-8f, -8f, -8f);
         XZcorner2.add(-8f, -8f, -8f);
-        minP.transform(Vector3f.ZP.rotationDegrees(degrees));
-        maxP.transform(Vector3f.ZP.rotationDegrees(degrees));
-        XZcorner1.transform(Vector3f.ZP.rotationDegrees(degrees));
-        XZcorner2.transform(Vector3f.ZP.rotationDegrees(degrees));
+        minP.rotateZ(degrees);
+        maxP.rotateZ(degrees);
+        XZcorner1.rotateZ(degrees);
+        XZcorner2.rotateZ(degrees);
         minP.add(8f, 8f, 8f);
         maxP.add(8f, 8f, 8f);
         XZcorner1.add(8f, 8f, 8f);
