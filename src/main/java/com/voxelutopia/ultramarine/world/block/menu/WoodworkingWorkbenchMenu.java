@@ -146,7 +146,7 @@ public class WoodworkingWorkbenchMenu extends AbstractContainerMenu {
         if (!this.recipes.isEmpty() && this.isValidRecipeIndex(this.selectedRecipeIndex.get())) {
             WoodworkingRecipe woodworkingRecipe = this.recipes.get(this.selectedRecipeIndex.get());
             this.resultContainer.setRecipeUsed(woodworkingRecipe);
-            this.resultSlot.set(woodworkingRecipe.assemble(this.container));
+            this.resultSlot.set(woodworkingRecipe.assemble(this.container, level.registryAccess()));
         } else {
             this.resultSlot.set(ItemStack.EMPTY);
         }

@@ -1,7 +1,7 @@
 package com.voxelutopia.ultramarine.data.registry;
 
 import com.voxelutopia.ultramarine.Ultramarine;
-import net.minecraft.core.Registry;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.world.level.levelgen.VerticalAnchor;
 import net.minecraft.world.level.levelgen.placement.*;
 import net.minecraftforge.registries.DeferredRegister;
@@ -12,7 +12,7 @@ import java.util.List;
 public class PlacedFeatureRegistry {
 
     public static final DeferredRegister<PlacedFeature> PLACED_FEATURES =
-            DeferredRegister.create(Registry.PLACED_FEATURE_REGISTRY, Ultramarine.MOD_ID);
+            DeferredRegister.create(Registries.PLACED_FEATURE, Ultramarine.MOD_ID);
 
     public static final RegistryObject<PlacedFeature> OVERWORLD_JADE_ORE_PLACED_FEATURE = PLACED_FEATURES.register("overworld_jade_ore",
             () -> new PlacedFeature(ConfiguredFeatureRegistry.OVERWORLD_JADE_ORE.getHolder().get(),

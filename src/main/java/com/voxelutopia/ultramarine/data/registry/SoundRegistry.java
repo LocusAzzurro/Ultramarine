@@ -12,8 +12,9 @@ import net.minecraftforge.registries.RegistryObject;
 public class SoundRegistry {
     public static final DeferredRegister<SoundEvent> SOUND_EVENT =
             DeferredRegister.create(ForgeRegistries.SOUND_EVENTS, Ultramarine.MOD_ID);
+
     private static RegistryObject<SoundEvent> register(String name){
-        return SOUND_EVENT.register(name,()->new SoundEvent(new ResourceLocation(Ultramarine.MOD_ID,name)));
+        return SOUND_EVENT.register(name, ()-> SoundEvent.createVariableRangeEvent(new ResourceLocation(Ultramarine.MOD_ID, name)));
     }
     public static RegistryObject<SoundEvent> BAMBOO_WOOD_HIT = register("bamboo_wood_hit");
     public static RegistryObject<SoundEvent> BAMBOO_WOOD_FALL = register("bamboo_wood_fall");

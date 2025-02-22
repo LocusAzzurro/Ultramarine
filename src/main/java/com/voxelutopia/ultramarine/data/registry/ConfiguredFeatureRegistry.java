@@ -3,6 +3,7 @@ package com.voxelutopia.ultramarine.data.registry;
 import com.google.common.base.Suppliers;
 import com.voxelutopia.ultramarine.Ultramarine;
 import net.minecraft.core.Registry;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.features.OreFeatures;
 import net.minecraft.tags.BlockTags;

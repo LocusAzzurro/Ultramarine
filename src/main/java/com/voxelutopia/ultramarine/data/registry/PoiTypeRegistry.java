@@ -14,21 +14,22 @@ public class PoiTypeRegistry {
 
     public static final DeferredRegister<PoiType> POI_TYPES = DeferredRegister.create(ForgeRegistries.POI_TYPES, Ultramarine.MOD_ID);
 
-
-
     public static final RegistryObject<PoiType> COOKING_POI = POI_TYPES.register("cooking_poi",
             () -> new PoiType(ImmutableSet.copyOf(BlockRegistry.FOOD_HAMPER.get().getStateDefinition().getPossibleStates()), 1, 1));
     public static final RegistryObject<PoiType> TRADE_POI = POI_TYPES.register("trade_poi",
             () -> new PoiType(ImmutableSet.copyOf(BlockRegistry.TEAHOUSE_FLAG.get().getStateDefinition().getPossibleStates()), 1, 5));
 
+    /* //todo check registry
     public static void registerPOI (){
         try {
-            ObfuscationReflectionHelper.findMethod(PoiType.class, "registerBlockStates", PoiType.class).invoke(null, COOKING_POI.get());
-            ObfuscationReflectionHelper.findMethod(PoiType.class, "registerBlockStates", PoiType.class).invoke(null, TRADE_POI.get());
+            ObfuscationReflectionHelper.findMethod(PoiType.class, "matchingStates", PoiType.class).invoke(null, COOKING_POI.get());
+            ObfuscationReflectionHelper.findMethod(PoiType.class, "matchingStates", PoiType.class).invoke(null, TRADE_POI.get());
         } catch (InvocationTargetException | IllegalAccessException e) {
             e.printStackTrace();
         }
     }
+
+     */
 
 
 

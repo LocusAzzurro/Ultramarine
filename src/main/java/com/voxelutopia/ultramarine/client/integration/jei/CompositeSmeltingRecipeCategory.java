@@ -17,6 +17,7 @@ import mezz.jei.api.helpers.IGuiHelper;
 import mezz.jei.api.recipe.IFocusGroup;
 import mezz.jei.api.recipe.RecipeType;
 import mezz.jei.api.recipe.category.IRecipeCategory;
+import mezz.jei.library.util.RecipeUtil;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.Font;
 import net.minecraft.network.chat.Component;
@@ -127,7 +128,7 @@ public class CompositeSmeltingRecipeCategory implements IRecipeCategory<Composit
                 .addIngredients(recipe.getSecondaryIngredient());
 
         builder.addSlot(OUTPUT, 71, 19)
-                .addItemStack(recipe.getResultItem());
+                .addItemStack(RecipeUtil.getResultItem(recipe));
     }
 
     @Override

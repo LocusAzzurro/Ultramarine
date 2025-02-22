@@ -12,6 +12,8 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 
+import java.util.function.Supplier;
+
 @SuppressWarnings("unused")
 public class ItemRegistry {
 
@@ -815,15 +817,15 @@ public class ItemRegistry {
 
     // TEMPLATES
 
-    public static final RegistryObject<Item> CARVED_WOOD_TEMPLATE = ITEMS.register("carved_wood_template", ChiselTemplate::new);
-    public static final RegistryObject<Item> FANGXIN_TEMPLATE = ITEMS.register("fangxin_template", ChiselTemplate::new);
-    public static final RegistryObject<Item> FANGXIN_EDGE_TEMPLATE = ITEMS.register("fangxin_edge_template", ChiselTemplate::new);
-    public static final RegistryObject<Item> ZHAOTOU_TEMPLATE = ITEMS.register("zhaotou_template", ChiselTemplate::new);
-    public static final RegistryObject<Item> GUTOU_TEMPLATE = ITEMS.register("gutou_template", ChiselTemplate::new);
-    public static final RegistryObject<Item> RAFTER_TEMPLATE = ITEMS.register("rafter_template", ChiselTemplate::new);
-    public static final RegistryObject<Item> RAFTER_END_TEMPLATE = ITEMS.register("rafter_end_template", ChiselTemplate::new);
-    public static final RegistryObject<Item> ARCHITRAVE_TEMPLATE = ITEMS.register("architrave_template", ChiselTemplate::new);
-    public static final RegistryObject<Item> CAIHUA_TEMPLATE = ITEMS.register("caihua_template", ChiselTemplate::new);
+    public static final RegistryObject<Item> CARVED_WOOD_TEMPLATE = chiselTemplateItem("carved_wood_template");
+    public static final RegistryObject<Item> FANGXIN_TEMPLATE = chiselTemplateItem("fangxin_template");
+    public static final RegistryObject<Item> FANGXIN_EDGE_TEMPLATE = chiselTemplateItem("fangxin_edge_template");
+    public static final RegistryObject<Item> ZHAOTOU_TEMPLATE = chiselTemplateItem("zhaotou_template");
+    public static final RegistryObject<Item> GUTOU_TEMPLATE = chiselTemplateItem("gutou_template");
+    public static final RegistryObject<Item> RAFTER_TEMPLATE = chiselTemplateItem("rafter_template");
+    public static final RegistryObject<Item> RAFTER_END_TEMPLATE = chiselTemplateItem("rafter_end_template");
+    public static final RegistryObject<Item> ARCHITRAVE_TEMPLATE = chiselTemplateItem("architrave_template");
+    public static final RegistryObject<Item> CAIHUA_TEMPLATE = chiselTemplateItem("caihua_template");
 
     // MATERIALS
 
@@ -850,27 +852,33 @@ public class ItemRegistry {
      *  TOOLS
      */
 
-    public static final RegistryObject<Item> WOODEN_MALLET = ITEMS.register("wooden_mallet", WoodenMallet::new);
-    public static final RegistryObject<Item> BLUE_AND_WHITE_PORCELAIN_SWORD = ITEMS.register("blue_and_white_porcelain_sword",
-            () -> new SwordItem(ModTiers.BLUE_AND_WHITE_PORCELAIN, 3, -2.4F, new Item.Properties().tab(ModCreativeTab.TOOLS.getTab())));
-    public static final RegistryObject<Item> BLUE_AND_WHITE_PORCELAIN_SHOVEL = ITEMS.register("blue_and_white_porcelain_shovel",
-            () -> new ShovelItem(ModTiers.BLUE_AND_WHITE_PORCELAIN, 1.5F, -3.0F, new Item.Properties().tab(ModCreativeTab.TOOLS.getTab())));
-    public static final RegistryObject<Item> BLUE_AND_WHITE_PORCELAIN_PICKAXE = ITEMS.register("blue_and_white_porcelain_pickaxe",
-            () -> new PickaxeItem(ModTiers.BLUE_AND_WHITE_PORCELAIN, 1, -2.8F, new Item.Properties().tab(ModCreativeTab.TOOLS.getTab())));
-    public static final RegistryObject<Item> BLUE_AND_WHITE_PORCELAIN_AXE = ITEMS.register("blue_and_white_porcelain_axe",
-            () -> new AxeItem(ModTiers.BLUE_AND_WHITE_PORCELAIN, 6.0F, -3.0F, new Item.Properties().tab(ModCreativeTab.TOOLS.getTab())));
+    public static final RegistryObject<Item> WOODEN_MALLET = register("wooden_mallet", WoodenMallet::new, ModCreativeTab.TOOLS);
+    public static final RegistryObject<Item> BLUE_AND_WHITE_PORCELAIN_SWORD = toolItem("blue_and_white_porcelain_sword",
+            () -> new SwordItem(ModTiers.BLUE_AND_WHITE_PORCELAIN, 3, -2.4F, new Item.Properties()));
+    public static final RegistryObject<Item> BLUE_AND_WHITE_PORCELAIN_SHOVEL = toolItem("blue_and_white_porcelain_shovel",
+            () -> new ShovelItem(ModTiers.BLUE_AND_WHITE_PORCELAIN, 1.5F, -3.0F, new Item.Properties()));
+    public static final RegistryObject<Item> BLUE_AND_WHITE_PORCELAIN_PICKAXE = toolItem("blue_and_white_porcelain_pickaxe",
+            () -> new PickaxeItem(ModTiers.BLUE_AND_WHITE_PORCELAIN, 1, -2.8F, new Item.Properties()));
+    public static final RegistryObject<Item> BLUE_AND_WHITE_PORCELAIN_AXE = toolItem("blue_and_white_porcelain_axe",
+            () -> new AxeItem(ModTiers.BLUE_AND_WHITE_PORCELAIN, 6.0F, -3.0F, new Item.Properties()));
     public static final RegistryObject<Item> WOODWORKING_WORKBENCH = fromBlock(BlockRegistry.WOODWORKING_WORKBENCH, ModCreativeTab.TOOLS);
     public static final RegistryObject<Item> BRICK_KILN = fromBlock(BlockRegistry.BRICK_KILN, ModCreativeTab.TOOLS);
     public static final RegistryObject<Item> CHISEL_TABLE = fromBlock(BlockRegistry.CHISEL_TABLE, ModCreativeTab.TOOLS);
 
+    private static RegistryObject<Item> register(String name, Supplier<Item> itemSupplier, ModCreativeTab tab){
+        RegistryObject<Item> registryObject = ITEMS.register(name, itemSupplier);
+        ModCreativeTab.putItemInSet(registryObject, tab);
+        return registryObject;
+    }
+
     private static <B extends Block> RegistryObject<Item> fromBlock(RegistryObject<B> block, ModCreativeTab tabDef) {
-        RegistryObject<Item> registryObject = ITEMS.register(block.getId().getPath(), () -> new BlockItem(block.get(), new Item.Properties().tab(tabDef.getTab())));
+        RegistryObject<Item> registryObject = ITEMS.register(block.getId().getPath(), () -> new BlockItem(block.get(), new Item.Properties()));
         ModCreativeTab.putItemInSet(registryObject, tabDef);
         return registryObject;
     }
 
     private static <B extends Block> RegistryObject<Item> aquaticPlantItem(RegistryObject<B> block, ModCreativeTab tabDef) {
-        RegistryObject<Item> registryObject = ITEMS.register(block.getId().getPath(), () -> new AquaticPlantBlockItem(block.get(), new Item.Properties().tab(tabDef.getTab())));
+        RegistryObject<Item> registryObject = ITEMS.register(block.getId().getPath(), () -> new AquaticPlantBlockItem(block.get(), new Item.Properties()));
         ModCreativeTab.putItemInSet(registryObject, tabDef);
         return registryObject;
     }
@@ -882,7 +890,7 @@ public class ItemRegistry {
     }
 
     private static RegistryObject<Item> simpleItem(String name, ModCreativeTab tabDef) {
-        RegistryObject<Item> registryObject = ITEMS.register(name, () -> new Item(new Item.Properties().tab(tabDef.getTab())));
+        RegistryObject<Item> registryObject = ITEMS.register(name, () -> new Item(new Item.Properties()));
         ModCreativeTab.putItemInSet(registryObject, tabDef);
         return registryObject;
     }
@@ -893,8 +901,20 @@ public class ItemRegistry {
         return registryObject;
     }
 
+    private static RegistryObject<Item> toolItem(String name, Supplier<Item> toolItemSupplier){
+        RegistryObject<Item> registryObject = ITEMS.register(name, toolItemSupplier);
+        ModCreativeTab.putItemInSet(registryObject, ModCreativeTab.TOOLS);
+        return registryObject;
+    }
+
     private static RegistryObject<Item> dyePowderItem(String name, DyeColor color){
         RegistryObject<Item> registryObject = ITEMS.register(name, () -> new DyePowder(color));
+        ModCreativeTab.putItemInSet(registryObject, ModCreativeTab.MATERIALS);
+        return registryObject;
+    }
+
+    private static RegistryObject<Item> chiselTemplateItem(String name){
+        RegistryObject<Item> registryObject = ITEMS.register(name, ChiselTemplate::new);
         ModCreativeTab.putItemInSet(registryObject, ModCreativeTab.MATERIALS);
         return registryObject;
     }

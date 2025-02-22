@@ -13,6 +13,7 @@ import mezz.jei.api.helpers.IGuiHelper;
 import mezz.jei.api.recipe.IFocusGroup;
 import mezz.jei.api.recipe.RecipeType;
 import mezz.jei.api.recipe.category.IRecipeCategory;
+import mezz.jei.library.util.RecipeUtil;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
@@ -57,7 +58,7 @@ public class ChiselTableRecipeCategory implements IRecipeCategory<ChiselTableRec
         }
 
         builder.addSlot(OUTPUT, 105, 10)
-                .addItemStack(recipe.getResultItem());
+                .addItemStack(RecipeUtil.getResultItem(recipe));
     }
 
     @Override

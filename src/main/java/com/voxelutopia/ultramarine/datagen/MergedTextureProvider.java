@@ -4,10 +4,7 @@ import com.google.common.hash.HashCode;
 import com.voxelutopia.ultramarine.Ultramarine;
 import com.voxelutopia.ultramarine.world.block.RoofTiles;
 import com.voxelutopia.ultramarine.world.block.SnowRoofRidge;
-import net.minecraft.data.CachedOutput;
-import net.minecraft.data.DataGenerator;
-import net.minecraft.data.DataProvider;
-import net.minecraft.data.HashCache;
+import net.minecraft.data.*;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import org.apache.commons.codec.digest.DigestUtils;
 import org.apache.commons.lang3.tuple.Pair;
@@ -25,24 +22,29 @@ import java.nio.file.Path;
 import java.util.Arrays;
 import java.util.Map;
 import java.util.Objects;
+import java.util.concurrent.CompletableFuture;
 
 public class MergedTextureProvider implements DataProvider {
 
     private static final Logger LOGGER = Ultramarine.getLogger();
-    private final DataGenerator generator;
+    private final PackOutput output;
     protected ExistingFileHelper fileHelper;
 
-    public MergedTextureProvider(DataGenerator generator, ExistingFileHelper fileHelper){
-        this.generator = generator;
+    public MergedTextureProvider(PackOutput output, ExistingFileHelper fileHelper){
+        this.output = output;
         this.fileHelper = fileHelper;
     }
 
     @Override
-    public void run(CachedOutput pCache) throws IOException {
+    public CompletableFuture<?> run(CachedOutput pCache) {
+        try {
+            roofTilesTextureMerge(pCache);
+            roofRidgeTextureMerge(pCache);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
 
-        roofTilesTextureMerge(pCache);
-        roofRidgeTextureMerge(pCache);
-
+        return null; //todo
     }
 
     private void roofRidgeTextureMerge(CachedOutput pCache) throws IOException {
@@ -157,7 +159,7 @@ public class MergedTextureProvider implements DataProvider {
     }
 
     private Path getOutputPath(String textureName) {
-        return generator.getOutputFolder().resolve("assets/" + DataGenerators.MOD_ID + "/textures/block/" + textureName + ".png");
+        return output.getOutputFolder().resolve("assets/" + DataGenerators.MOD_ID + "/textures/block/" + textureName + ".png");
     }
 
     private InputStream getInputTexture(String name){

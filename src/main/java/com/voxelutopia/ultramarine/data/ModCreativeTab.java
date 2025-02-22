@@ -1,46 +1,42 @@
 package com.voxelutopia.ultramarine.data;
 
+import com.google.common.collect.ImmutableList;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
 import net.minecraftforge.registries.RegistryObject;
 
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
+import java.util.stream.Collectors;
 
 public enum ModCreativeTab {
-    MATERIALS(CreativeTabDefinitions.MATERIALS),
-    TOOLS(CreativeTabDefinitions.TOOLS),
-    BUILDING_BLOCKS(CreativeTabDefinitions.BUILDING_BLOCKS),
-    DECORATIVE_BLOCKS(CreativeTabDefinitions.DECORATIVE_BLOCKS),
-    DECORATIONS(CreativeTabDefinitions.DECORATIONS),
-    FURNITURE(CreativeTabDefinitions.FURNITURE),
-    WINDOWS_AND_DOORS(CreativeTabDefinitions.WINDOWS_AND_DOORS),
-    PLANTS(CreativeTabDefinitions.PLANTS),
-    LAMPS(CreativeTabDefinitions.LAMPS);
+    MATERIALS,
+    TOOLS,
+    BUILDING_BLOCKS,
+    DECORATIVE_BLOCKS,
+    DECORATIONS,
+    FURNITURE,
+    WINDOWS_AND_DOORS,
+    PLANTS,
+    LAMPS;
 
-    final CreativeModeTab tab;
-
-    static final Map<ModCreativeTab, Set<RegistryObject<Item>>> itemSets = Map.of(
-            MATERIALS, new HashSet<>(),
-            TOOLS, new HashSet<>(),
-            BUILDING_BLOCKS, new HashSet<>(),
-            DECORATIVE_BLOCKS, new HashSet<>(),
-            DECORATIONS, new HashSet<>(),
-            FURNITURE, new HashSet<>(),
-            WINDOWS_AND_DOORS, new HashSet<>(),
-            PLANTS, new HashSet<>(),
-            LAMPS, new HashSet<>()
+    static final Map<ModCreativeTab, LinkedHashSet<RegistryObject<Item>>> itemSets = Map.of(
+            MATERIALS, new LinkedHashSet<>(),
+            TOOLS, new LinkedHashSet<>(),
+            BUILDING_BLOCKS, new LinkedHashSet<>(),
+            DECORATIVE_BLOCKS, new LinkedHashSet<>(),
+            DECORATIONS, new LinkedHashSet<>(),
+            FURNITURE, new LinkedHashSet<>(),
+            WINDOWS_AND_DOORS, new LinkedHashSet<>(),
+            PLANTS, new LinkedHashSet<>(),
+            LAMPS, new LinkedHashSet<>()
     );
-    ModCreativeTab(CreativeModeTab tab){
-        this.tab = tab;
-    }
-
-    public CreativeModeTab getTab() {
-        return tab;
-    }
 
     public static void putItemInSet(RegistryObject<Item> item, ModCreativeTab tab){
         itemSets.get(tab).add(item);
     }
+
+    public static List<RegistryObject<Item>> getItemsFromSet(ModCreativeTab tab){
+        return ImmutableList.copyOf(itemSets.get(tab));
+    }
+
 }

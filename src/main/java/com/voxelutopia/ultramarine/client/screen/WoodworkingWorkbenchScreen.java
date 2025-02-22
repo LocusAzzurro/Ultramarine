@@ -57,7 +57,7 @@ public class WoodworkingWorkbenchScreen extends AbstractContainerScreen<Woodwork
         int i1 = this.topPos + 14;
         int j1 = this.startIndex + 12;
         this.renderButtons(pPoseStack, pX, pY, l, i1, j1);
-        this.renderRecipes(l, i1, j1);
+        this.renderRecipes(pPoseStack, l, i1, j1);
     }
 
     protected void renderTooltip(PoseStack pPoseStack, int pX, int pY) {
@@ -73,7 +73,7 @@ public class WoodworkingWorkbenchScreen extends AbstractContainerScreen<Woodwork
                 int j1 = i + i1 % 4 * 16;
                 int k1 = j + i1 / 4 * 18 + 2;
                 if (pX >= j1 && pX < j1 + 16 && pY >= k1 && pY < k1 + 18) {
-                    this.renderTooltip(pPoseStack, list.get(l).getResultItem(), pX, pY);
+                    this.renderTooltip(pPoseStack, list.get(l).getResultItem(this.minecraft.level.registryAccess()), pX, pY);
                 }
             }
         }
@@ -98,7 +98,7 @@ public class WoodworkingWorkbenchScreen extends AbstractContainerScreen<Woodwork
 
     }
 
-    private void renderRecipes(int pLeft, int pTop, int pRecipeIndexOffsetMax) {
+    private void renderRecipes(PoseStack poseStack, int pLeft, int pTop, int pRecipeIndexOffsetMax) {
         List<WoodworkingRecipe> list = this.menu.getRecipes();
 
         for(int i = this.startIndex; i < pRecipeIndexOffsetMax && i < this.menu.getNumRecipes(); ++i) {
@@ -106,7 +106,7 @@ public class WoodworkingWorkbenchScreen extends AbstractContainerScreen<Woodwork
             int k = pLeft + j % 4 * 16;
             int l = j / 4;
             int i1 = pTop + l * 18 + 2;
-            this.minecraft.getItemRenderer().renderAndDecorateItem(list.get(i).getResultItem(), k, i1);
+            this.minecraft.getItemRenderer().renderAndDecorateItem(poseStack, list.get(i).getResultItem(minecraft.level.registryAccess()), k, i1);
         }
 
     }

@@ -11,7 +11,7 @@ public class DyePowder extends Item {
     private final DyeColor color;
 
     public DyePowder(DyeColor color) {
-        super(new Properties().tab(ModCreativeTab.MATERIALS.getTab()));
+        super(new Properties());
         this.color = color;
     }
 

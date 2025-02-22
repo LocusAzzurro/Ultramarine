@@ -143,8 +143,7 @@ public class CommonEventHandler {
             }
 
             if (hasSpaceAtSpawn && !world.getBiome(pos).is(Biomes.THE_VOID)) {
-                TravellingMerchant merchant = EntityTypeRegistry.TRAVELLING_MERCHANT.get().spawn(
-                        world, null, null, null, potentialSpawn, MobSpawnType.EVENT, false, false);
+                TravellingMerchant merchant = EntityTypeRegistry.TRAVELLING_MERCHANT.get().spawn(world, potentialSpawn, MobSpawnType.EVENT);
                 if (merchant == null) return;
                 merchant.setDespawnDelay(12000);
                 merchant.setWanderTarget(potentialSpawn);

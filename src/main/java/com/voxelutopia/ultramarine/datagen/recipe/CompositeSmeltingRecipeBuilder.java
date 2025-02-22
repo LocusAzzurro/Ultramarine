@@ -16,6 +16,7 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraft.world.level.ItemLike;
+import net.minecraftforge.registries.ForgeRegistries;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.function.Consumer;
@@ -66,7 +67,7 @@ public class CompositeSmeltingRecipeBuilder implements RecipeBuilder {
                 .addCriterion("has_the_recipe", RecipeUnlockedTrigger.unlocked(pRecipeId)).rewards(AdvancementRewards.Builder.recipe(pRecipeId)).requirements(RequirementsStrategy.OR);
         pFinishedRecipeConsumer.accept(new Result(pRecipeId, this.group == null ? "" : this.group,
                 this.primaryIngredient, this.secondaryIngredient, this.result, this.experience, this.cookingTime, this.advancementBuilder,
-                new ResourceLocation(pRecipeId.getNamespace(), "recipes/" + this.result.getItemCategory().getRecipeFolderName() + "/" + pRecipeId.getPath())));
+                new ResourceLocation(pRecipeId.getNamespace(), "recipes/" + pRecipeId.getPath())));
     }
 
     private static class Result implements FinishedRecipe{
@@ -100,7 +101,7 @@ public class CompositeSmeltingRecipeBuilder implements RecipeBuilder {
             }
             pJson.add("primary_ingredient", this.primaryIngredient.toJson());
             pJson.add("secondary_ingredient", this.secondaryIngredient.toJson());
-            pJson.addProperty("result", Registry.ITEM.getKey(this.result).toString());
+            pJson.addProperty("result", ForgeRegistries.ITEMS.getKey(this.result).toString());
             pJson.addProperty("experience", this.experience);
             pJson.addProperty("cookingtime", this.cookingTime);
         }

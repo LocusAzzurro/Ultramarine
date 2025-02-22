@@ -95,7 +95,7 @@ public class ChiselTableMenu extends AbstractContainerMenu{
             this.result.setStackInSlot(0, ItemStack.EMPTY);
         } else {
             ChiselTableRecipe recipe = list.get(0);
-            ItemStack resultItemStack = recipe.assemble(ingredients);
+            ItemStack resultItemStack = recipe.assemble(ingredients, level.registryAccess());
             this.result.setStackInSlot(0, resultItemStack);
         }
     }

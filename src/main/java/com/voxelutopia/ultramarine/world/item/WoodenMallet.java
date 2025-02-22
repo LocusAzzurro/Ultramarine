@@ -1,6 +1,5 @@
 package com.voxelutopia.ultramarine.world.item;
 
-import com.voxelutopia.ultramarine.data.CreativeTabDefinitions;
 import com.voxelutopia.ultramarine.data.registry.SoundRegistry;
 import com.voxelutopia.ultramarine.world.block.RailingBlock;
 import com.voxelutopia.ultramarine.world.block.state.ModBlockStateProperties;
@@ -21,7 +20,7 @@ import java.util.Optional;
 public class WoodenMallet extends Item {
 
     public WoodenMallet() {
-        super(new Item.Properties().tab(CreativeTabDefinitions.TOOLS).durability(100));
+        super(new Item.Properties().durability(100));
     }
 
     @NotNull

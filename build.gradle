@@ -112,7 +112,7 @@ repositories {
         url "https://maven.k-4u.nl"
     }
 
-    maven { // Patchouli
+    maven {
         url 'https://maven.blamejared.com'
     }
 
@@ -136,9 +136,9 @@ dependencies {
 
     annotationProcessor "org.spongepowered:mixin:${mixin_version}:processor"
 
-    compileOnly fg.deobf("mezz.jei:jei-${dependency_minecraft_version}-common-api:${jei_version}")
-    compileOnly fg.deobf("mezz.jei:jei-${dependency_minecraft_version}-forge-api:${jei_version}")
-    implementation fg.deobf("mezz.jei:jei-${dependency_minecraft_version}-forge:${jei_version}")
+    compileOnly fg.deobf("mezz.jei:jei-${minecraft_version}-common-api:${jei_version}")
+    compileOnly fg.deobf("mezz.jei:jei-${minecraft_version}-forge-api:${jei_version}")
+    implementation fg.deobf("mezz.jei:jei-${minecraft_version}-forge:${jei_version}")
     //implementation fg.deobf("curse.maven:the-one-probe-245211:${top_version_id}")
     //compileOnly fg.deobf("vazkii.patchouli:Patchouli:${patchouli_version}:api")
     //runtimeOnly fg.deobf("vazkii.patchouli:Patchouli:${patchouli_version}")
@@ -161,7 +161,6 @@ def replaceProperties = [
         minecraft_version_range: minecraft_version_range,
         forge_version_range: forge_version_range,
         loader_version_range: loader_version_range,
-        dependency_minecraft_version: dependency_minecraft_version,
         jei_version: jei_version,
         top_version_id: top_version_id,
         patchouli_version: patchouli_version,

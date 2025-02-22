@@ -17,12 +17,14 @@ public class Ultramarine {
 
     public Ultramarine() {
 
+        @SuppressWarnings("removal")
         IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
         BlockRegistry.BLOCKS.register(bus);
         ItemRegistry.ITEMS.register(bus);
         BlockEntityRegistry.BLOCK_ENTITIES.register(bus);
         EntityTypeRegistry.ENTITIES.register(bus);
-        ConfiguredFeatureRegistry.CONFIGURED_FEATURES.register(bus);
+        //ConfiguredFeatureRegistry.CONFIGURED_FEATURES.register(bus);
+        //PlacedFeatureRegistry.PLACED_FEATURES.register(bus);
         VillagerProfessionRegistry.PROFESSIONS.register(bus);
         PoiTypeRegistry.POI_TYPES.register(bus);
         MenuTypeRegistry.MENU_TYPES.register(bus);
@@ -30,7 +32,7 @@ public class Ultramarine {
         RecipeSerializerRegistry.RECIPE_SERIALIZERS.register(bus);
         SoundRegistry.SOUND_EVENT.register(bus);
 
-        FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setup);
+        bus.addListener(this::setup);
         MinecraftForge.EVENT_BUS.register(this);
     }
 
