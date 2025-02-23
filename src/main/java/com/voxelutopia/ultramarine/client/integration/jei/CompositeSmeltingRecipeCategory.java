@@ -13,6 +13,10 @@ import mezz.jei.api.gui.drawable.IDrawable;
 import mezz.jei.api.gui.drawable.IDrawableAnimated;
 import mezz.jei.api.gui.drawable.IDrawableStatic;
 import mezz.jei.api.gui.ingredient.IRecipeSlotsView;
+import mezz.jei.api.gui.placement.HorizontalAlignment;
+import mezz.jei.api.gui.placement.VerticalAlignment;
+import mezz.jei.api.gui.widgets.IRecipeExtrasBuilder;
+import mezz.jei.api.gui.widgets.ITextWidget;
 import mezz.jei.api.helpers.IGuiHelper;
 import mezz.jei.api.recipe.IFocusGroup;
 import mezz.jei.api.recipe.RecipeType;
@@ -20,6 +24,7 @@ import mezz.jei.api.recipe.category.IRecipeCategory;
 import mezz.jei.library.util.RecipeUtil;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.Font;
+import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
@@ -29,48 +34,27 @@ import static mezz.jei.api.recipe.RecipeIngredientRole.OUTPUT;
 
 public class CompositeSmeltingRecipeCategory implements IRecipeCategory<CompositeSmeltingRecipe> {
 
-    public static final ResourceLocation UID = new ResourceLocation(Ultramarine.MOD_ID, "composite_smelting");
+    public static final ResourceLocation UID = ResourceLocation.fromNamespaceAndPath(Ultramarine.MOD_ID, "composite_smelting");
 
     public static final RecipeType<CompositeSmeltingRecipe> COMPOSITE_SMELTING_RECIPE_TYPE =
             new RecipeType<>(UID, CompositeSmeltingRecipe.class);
 
-    public static final ResourceLocation TEXTURE_GUI = new ResourceLocation(Ultramarine.MOD_ID, "textures/gui/brick_kiln.png");
+    public static final ResourceLocation TEXTURE_GUI = ResourceLocation.fromNamespaceAndPath(Ultramarine.MOD_ID, "textures/gui/brick_kiln.png");
 
     private final IDrawable background;
     private final int regularCookTime;
     private final IDrawable icon;
     private final Component localizedName;
-    private final LoadingCache<Integer, IDrawableAnimated> cachedArrows;
-    protected final IDrawableStatic staticFlame;
-    protected final IDrawableAnimated animatedFlame;
 
     public CompositeSmeltingRecipeCategory(IGuiHelper guiHelper) {
         this.background = guiHelper.createDrawable(TEXTURE_GUI, 45, 16, 92, 54);
         this.regularCookTime = 200;
         this.icon = guiHelper.createDrawableIngredient(VanillaTypes.ITEM_STACK, new ItemStack(BlockRegistry.BRICK_KILN.get()));
         this.localizedName = Component.translatable("gui.jei.category.composite_smelting");
-        this.cachedArrows = CacheBuilder.newBuilder()
-                .maximumSize(25)
-                .build(new CacheLoader<>() {
-                    @Override
-                    public IDrawableAnimated load(Integer cookTime) {
-                        return guiHelper.drawableBuilder(UltramarinePlugin.JEI_GUI_VANILLA, 82, 128, 24, 17)
-                                .buildAnimated(cookTime, IDrawableAnimated.StartDirection.LEFT, false);
-                    }
-                });
-        this.staticFlame = guiHelper.createDrawable(UltramarinePlugin.JEI_GUI_VANILLA, 82, 114, 14, 14);
-        this.animatedFlame = guiHelper.createAnimatedDrawable(staticFlame, 300, IDrawableAnimated.StartDirection.TOP, true);
-    }
-
-    protected IDrawableAnimated getArrow(CompositeSmeltingRecipe recipe) {
-        int cookTime = recipe.getCookingTime();
-        if (cookTime <= 0) {
-            cookTime = regularCookTime;
-        }
-        return this.cachedArrows.getUnchecked(cookTime);
     }
 
     @Override
+    @SuppressWarnings("removal")
     public IDrawable getBackground() {
         return background;
     }
@@ -80,38 +64,41 @@ public class CompositeSmeltingRecipeCategory implements IRecipeCategory<Composit
         return icon;
     }
 
+
     @Override
-    public void draw(CompositeSmeltingRecipe recipe, IRecipeSlotsView recipeSlotsView, PoseStack poseStack, double mouseX, double mouseY) {
-        animatedFlame.draw(poseStack, 11, 20);
-
-        IDrawableAnimated arrow = getArrow(recipe);
-        arrow.draw(poseStack, 34, 18);
-
-        drawExperience(recipe, poseStack, 0);
-        drawCookTime(recipe, poseStack, 45);
-    }
-
-    protected void drawExperience(CompositeSmeltingRecipe recipe, PoseStack poseStack, int y) {
-        float experience = recipe.getExp();
-        if (experience > 0) {
-            var experienceString = Component.translatable("gui.jei.category.smelting.experience", experience);
-            Minecraft minecraft = Minecraft.getInstance();
-            Font fontRenderer = minecraft.font;
-            int stringWidth = fontRenderer.width(experienceString);
-            fontRenderer.draw(poseStack, experienceString, background.getWidth() - stringWidth, y, 0xFF808080);
-        }
-    }
-
-    protected void drawCookTime(CompositeSmeltingRecipe recipe, PoseStack poseStack, int y) {
+    public void createRecipeExtras(IRecipeExtrasBuilder builder, CompositeSmeltingRecipe recipe, IFocusGroup focuses) {
         int cookTime = recipe.getCookingTime();
+        if (cookTime <= 0) {
+            cookTime = this.regularCookTime;
+        }
+
+        builder.addAnimatedRecipeArrow(cookTime).setPosition(34, 17);
+        builder.addAnimatedRecipeFlame(300).setPosition(11, 20);
+        this.addExperience(builder, recipe);
+        this.addCookTime(builder, recipe);
+    }
+
+    protected void addExperience(IRecipeExtrasBuilder builder, CompositeSmeltingRecipe recipe) {
+        float experience = recipe.getExp();
+        if (experience > 0.0F) {
+            Component experienceString = Component.translatable("gui.jei.category.smelting.experience", experience);
+            builder.addText(experienceString, this.getWidth() - 20, 10).setPosition(0, 0, this.getWidth(), this.getHeight(), HorizontalAlignment.RIGHT, VerticalAlignment.TOP).setTextAlignment(HorizontalAlignment.RIGHT).setColor(-8355712);
+        }
+
+    }
+
+    protected void addCookTime(IRecipeExtrasBuilder builder, CompositeSmeltingRecipe recipe) {
+        int cookTime = recipe.getCookingTime();
+        if (cookTime <= 0) {
+            cookTime = this.regularCookTime;
+        }
+
         if (cookTime > 0) {
             int cookTimeSeconds = cookTime / 20;
-            var timeString = Component.translatable("gui.jei.category.smelting.time.seconds", cookTimeSeconds);
-            Minecraft minecraft = Minecraft.getInstance();
-            Font fontRenderer = minecraft.font;
-            int stringWidth = fontRenderer.width(timeString);
-            fontRenderer.draw(poseStack, timeString, background.getWidth() - stringWidth, y, 0xFF808080);
+            Component timeString = Component.translatable("gui.jei.category.smelting.time.seconds", cookTimeSeconds);
+            builder.addText(timeString, this.getWidth() - 20, 10).setPosition(0, 0, this.getWidth(), this.getHeight(), HorizontalAlignment.RIGHT, VerticalAlignment.BOTTOM).setTextAlignment(HorizontalAlignment.RIGHT).setTextAlignment(VerticalAlignment.BOTTOM).setColor(-8355712);
         }
+
     }
 
     @Override

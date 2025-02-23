@@ -89,7 +89,7 @@ public class WoodworkingRecipe extends SingleItemRecipe {
 
             String s1 = GsonHelper.getAsString(pJson, "result");
             int i = GsonHelper.getAsInt(pJson, "count");
-            ItemStack itemstack = new ItemStack(ForgeRegistries.ITEMS.getValue(new ResourceLocation(s1)), i);
+            ItemStack itemstack = new ItemStack(ForgeRegistries.ITEMS.getValue(ResourceLocation.tryParse(s1)), i);
             return new WoodworkingRecipe(pRecipeId, s, ingredient, itemstack);
         }
 

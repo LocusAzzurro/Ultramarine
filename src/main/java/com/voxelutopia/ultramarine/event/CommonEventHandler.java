@@ -62,7 +62,7 @@ public class CommonEventHandler {
         ItemStack item = itemEntity.getItem();
         if (itemEntity.isInWater() && item.is(ItemRegistry.FIRED_BRICK.get())){
             itemEntity.setItem(new ItemStack(ItemRegistry.CYAN_BRICK.get(), item.getCount()));
-            itemEntity.level.playSound(null, itemEntity, SoundEvents.LAVA_EXTINGUISH, SoundSource.NEUTRAL, 0.5f, 1.0f);
+            itemEntity.level().playSound(null, itemEntity, SoundEvents.LAVA_EXTINGUISH, SoundSource.NEUTRAL, 0.5f, 1.0f);
             event.setExtraLife(6000);
             event.setCanceled(true);
         }

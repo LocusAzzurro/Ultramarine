@@ -65,11 +65,11 @@ public class ChiselTableRecipeBuilder implements RecipeBuilder {
 
     @Override
     public void save(Consumer<FinishedRecipe> pFinishedRecipeConsumer, ResourceLocation pRecipeId) {
-        this.advancementBuilder.parent(new ResourceLocation("recipes/root"))
+        this.advancementBuilder.parent(ResourceLocation.withDefaultNamespace("recipes/root"))
                 .addCriterion("has_the_recipe", RecipeUnlockedTrigger.unlocked(pRecipeId)).rewards(AdvancementRewards.Builder.recipe(pRecipeId)).requirements(RequirementsStrategy.OR);
         pFinishedRecipeConsumer.accept(new Result(pRecipeId, this.group == null ? "" : this.group,
                 this.material, this.template, this.colors, this.result, this.advancementBuilder,
-                new ResourceLocation(pRecipeId.getNamespace(), "recipes/" + pRecipeId.getPath())));
+                ResourceLocation.fromNamespaceAndPath(pRecipeId.getNamespace(), "recipes/" + pRecipeId.getPath())));
     }
 
     private static class Result implements FinishedRecipe{

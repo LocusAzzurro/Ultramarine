@@ -14,6 +14,7 @@ import mezz.jei.api.recipe.IFocusGroup;
 import mezz.jei.api.recipe.RecipeType;
 import mezz.jei.api.recipe.category.IRecipeCategory;
 import mezz.jei.library.util.RecipeUtil;
+import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
@@ -26,12 +27,12 @@ import static mezz.jei.api.recipe.RecipeIngredientRole.OUTPUT;
 
 public class ChiselTableRecipeCategory implements IRecipeCategory<ChiselTableRecipe> {
 
-    public static final ResourceLocation UID = new ResourceLocation(Ultramarine.MOD_ID, "chisel_table");
+    public static final ResourceLocation UID = ResourceLocation.fromNamespaceAndPath(Ultramarine.MOD_ID, "chisel_table");
 
     public static final RecipeType<ChiselTableRecipe> CHISEL_TABLE_RECIPE_TYPE =
             new RecipeType<>(UID, ChiselTableRecipe.class);
 
-    public static final ResourceLocation TEXTURE_GUI = new ResourceLocation(Ultramarine.MOD_ID, "textures/gui/chisel_table.png");
+    public static final ResourceLocation TEXTURE_GUI = ResourceLocation.fromNamespaceAndPath(Ultramarine.MOD_ID, "textures/gui/chisel_table.png");
 
     private final IDrawable background;
     private final IDrawable icon;
@@ -62,8 +63,8 @@ public class ChiselTableRecipeCategory implements IRecipeCategory<ChiselTableRec
     }
 
     @Override
-    public void draw(ChiselTableRecipe recipe, IRecipeSlotsView recipeSlotsView, PoseStack stack, double mouseX, double mouseY) {
-        IRecipeCategory.super.draw(recipe, recipeSlotsView, stack, mouseX, mouseY);
+    public void draw(ChiselTableRecipe recipe, IRecipeSlotsView recipeSlotsView, GuiGraphics guiGraphics, double mouseX, double mouseY) {
+        IRecipeCategory.super.draw(recipe, recipeSlotsView, guiGraphics, mouseX, mouseY);
     }
 
     @Override
@@ -77,6 +78,7 @@ public class ChiselTableRecipeCategory implements IRecipeCategory<ChiselTableRec
     }
 
     @Override
+    @SuppressWarnings("removal")
     public IDrawable getBackground() {
         return background;
     }

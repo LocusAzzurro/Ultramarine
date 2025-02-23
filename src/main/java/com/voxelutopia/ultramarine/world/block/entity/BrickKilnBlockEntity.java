@@ -208,7 +208,7 @@ public class BrickKilnBlockEntity extends BlockEntity implements MenuProvider, R
             } else {
                 if (resultPrev.isEmpty()) {
                     return true;
-                } else if (!resultPrev.sameItem(result)) {
+                } else if (!ItemStack.isSameItem(resultPrev, result)) {
                     return false;
                 } else if (resultPrev.getCount() + result.getCount() <= maxStackSize && resultPrev.getCount() + result.getCount() <= resultPrev.getMaxStackSize()) { // Forge fix: make furnace respect stack sizes in furnace recipes
                     return true;
@@ -262,9 +262,11 @@ public class BrickKilnBlockEntity extends BlockEntity implements MenuProvider, R
     }
 
     public void awardUsedRecipesAndPopExperience(ServerPlayer pPlayer) {
-        List<Recipe<?>> list = this.getRecipesToAwardAndPopExperience(pPlayer.getLevel(), pPlayer.position());
-        pPlayer.awardRecipes(list);
-        this.recipesUsed.clear();
+        if (!pPlayer.level().isClientSide()) {
+            List<Recipe<?>> list = this.getRecipesToAwardAndPopExperience((ServerLevel) pPlayer.level(), pPlayer.position());
+            pPlayer.awardRecipes(list);
+            this.recipesUsed.clear();
+        }
     }
 
     public List<Recipe<?>> getRecipesToAwardAndPopExperience(ServerLevel pLevel, Vec3 pos) {
@@ -337,7 +339,7 @@ public class BrickKilnBlockEntity extends BlockEntity implements MenuProvider, R
         CompoundTag recipesTag = pTag.getCompound("RecipesUsed");
 
         for(String s : recipesTag.getAllKeys()) {
-            this.recipesUsed.put(new ResourceLocation(s), recipesTag.getInt(s));
+            this.recipesUsed.put(ResourceLocation.withDefaultNamespace(s), recipesTag.getInt(s));
         }
 
     }

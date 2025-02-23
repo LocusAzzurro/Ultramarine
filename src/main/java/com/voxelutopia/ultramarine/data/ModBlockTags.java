@@ -11,6 +11,6 @@ public class ModBlockTags {
     public static final TagKey<Block> MINEABLE_WITH_SHEARS = modTag("mineable_with_shears");
 
     private static TagKey<Block> modTag(String path) {
-        return BlockTags.create(new ResourceLocation(Ultramarine.MOD_ID, path));
+        return BlockTags.create(ResourceLocation.fromNamespaceAndPath(Ultramarine.MOD_ID, path));
     }
 }

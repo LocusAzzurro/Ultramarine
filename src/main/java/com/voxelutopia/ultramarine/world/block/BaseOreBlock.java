@@ -7,12 +7,11 @@ import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.DropExperienceBlock;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.material.Material;
 
 public class BaseOreBlock extends DropExperienceBlock {
 
     private final UniformInt xpRange;
-    public static final BlockBehaviour.Properties PROPERTIES = BlockBehaviour.Properties.of(Material.STONE)
+    public static final BlockBehaviour.Properties PROPERTIES = BlockBehaviour.Properties.of()
             .requiresCorrectToolForDrops().strength(3.0F, 3.0F);
     public BaseOreBlock(UniformInt xpRange) {
         super(PROPERTIES);

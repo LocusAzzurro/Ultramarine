@@ -33,9 +33,9 @@ public class ModItemTags {
     public static final TagKey<Item> FORGE_DYES = forgeTag("dyes");
 
     private static TagKey<Item> forgeTag(String path){
-        return ItemTags.create(new ResourceLocation("forge", path));
+        return ItemTags.create(ResourceLocation.fromNamespaceAndPath("forge", path));
     }
     private static TagKey<Item> modTag(String path){
-        return ItemTags.create(new ResourceLocation(Ultramarine.MOD_ID, path));
+        return ItemTags.create(ResourceLocation.fromNamespaceAndPath(Ultramarine.MOD_ID, path));
     }
 }

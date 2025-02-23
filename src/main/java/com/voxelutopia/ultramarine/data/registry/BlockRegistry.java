@@ -15,7 +15,6 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.gameevent.GameEvent;
-import net.minecraft.world.level.material.Material;
 import net.minecraft.world.phys.Vec3;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -970,7 +969,7 @@ public class BlockRegistry {
     public static final RegistryObject<Block> BRICK_KILN = BLOCKS.register("brick_kiln", BrickKiln::new);
     public static final RegistryObject<Block> CHISEL_TABLE = BLOCKS.register("chisel_table", ChiselTableMedium::new);
 
-    private static RegistryObject<Block> simpleBlock(String name, Material material) {
-        return BLOCKS.register(name, () -> new Block(BlockBehaviour.Properties.of(material)));
+    private static RegistryObject<Block> simpleBlock(String name) {
+        return BLOCKS.register(name, () -> new Block(BlockBehaviour.Properties.of()));
     }
 }

@@ -43,10 +43,6 @@ public class SeatEntity extends Entity {
         }
     }
 
-    private Level level() {
-        return this.level;
-    }
-
     @Override
     public double getPassengersRidingOffset() {
         return 0.0;

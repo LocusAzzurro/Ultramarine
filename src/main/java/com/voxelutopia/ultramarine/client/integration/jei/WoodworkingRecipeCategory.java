@@ -4,24 +4,31 @@ import com.mojang.blaze3d.vertex.PoseStack;
 import com.voxelutopia.ultramarine.Ultramarine;
 import com.voxelutopia.ultramarine.data.recipe.WoodworkingRecipe;
 import com.voxelutopia.ultramarine.data.registry.BlockRegistry;
+import mezz.jei.api.constants.RecipeTypes;
 import mezz.jei.api.constants.VanillaTypes;
 import mezz.jei.api.gui.builder.IRecipeLayoutBuilder;
 import mezz.jei.api.gui.drawable.IDrawable;
 import mezz.jei.api.gui.ingredient.IRecipeSlotsView;
+import mezz.jei.api.gui.widgets.IRecipeExtrasBuilder;
 import mezz.jei.api.helpers.IGuiHelper;
 import mezz.jei.api.recipe.IFocusGroup;
 import mezz.jei.api.recipe.RecipeIngredientRole;
 import mezz.jei.api.recipe.RecipeType;
+import mezz.jei.api.recipe.category.AbstractRecipeCategory;
 import mezz.jei.api.recipe.category.IRecipeCategory;
 import mezz.jei.library.util.RecipeUtil;
+import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.crafting.Ingredient;
+import net.minecraft.world.item.crafting.StonecutterRecipe;
+import net.minecraft.world.level.block.Blocks;
 
-public class WoodworkingRecipeCategory implements IRecipeCategory<WoodworkingRecipe> {
+public class WoodworkingRecipeCategory extends AbstractRecipeCategory<WoodworkingRecipe> implements IRecipeCategory<WoodworkingRecipe>{
 
 
-    public static final ResourceLocation UID = new ResourceLocation(Ultramarine.MOD_ID, "woodworking");
+    public static final ResourceLocation UID = ResourceLocation.fromNamespaceAndPath(Ultramarine.MOD_ID, "woodworking");
 
     public static final RecipeType<WoodworkingRecipe> WOODWORKING_RECIPE_TYPE =
             new RecipeType<>(UID, WoodworkingRecipe.class);
@@ -29,46 +36,23 @@ public class WoodworkingRecipeCategory implements IRecipeCategory<WoodworkingRec
     public static final int WIDTH = 82;
     public static final int HEIGHT = 34;
 
-    private final IDrawable background;
-    private final IDrawable icon;
-    private final Component localizedName;
-
     public WoodworkingRecipeCategory(IGuiHelper guiHelper) {
-        background = guiHelper.createDrawable(UltramarinePlugin.JEI_GUI_VANILLA, 0, 220, WIDTH, HEIGHT);
-        icon = guiHelper.createDrawableIngredient(VanillaTypes.ITEM_STACK, new ItemStack(BlockRegistry.WOODWORKING_WORKBENCH.get()));
-        localizedName = Component.translatable("gui.jei.category.woodworking");
-    }
-
-    @Override
-    public Component getTitle() {
-        return localizedName;
-    }
-
-    @Override
-    public IDrawable getBackground() {
-        return background;
-    }
-
-    @Override
-    public IDrawable getIcon() {
-        return icon;
-    }
-
-    @Override
-    public RecipeType<WoodworkingRecipe> getRecipeType() {
-        return WOODWORKING_RECIPE_TYPE;
+        super(WOODWORKING_RECIPE_TYPE, Component.translatable("gui.jei.category.woodworking"), guiHelper.createDrawableItemLike(BlockRegistry.WOODWORKING_WORKBENCH.get()), WIDTH, HEIGHT);
     }
 
     @Override
     public void setRecipe(IRecipeLayoutBuilder builder, WoodworkingRecipe recipe, IFocusGroup focuses) {
-        builder.addSlot(RecipeIngredientRole.INPUT, 1, 9)
-                .addIngredients(recipe.getIngredients().get(0));
-        builder.addSlot(RecipeIngredientRole.OUTPUT, 61,  9)
-                .addItemStack(RecipeUtil.getResultItem(recipe));
+        builder.addInputSlot(1, 9).setStandardSlotBackground().addIngredients(recipe.getIngredients().get(0));
+        builder.addOutputSlot(61, 9).setOutputSlotBackground().addItemStack(RecipeUtil.getResultItem(recipe));
     }
 
     @Override
-    public void draw(WoodworkingRecipe recipe, IRecipeSlotsView recipeSlotsView, PoseStack stack, double mouseX, double mouseY) {
-        IRecipeCategory.super.draw(recipe, recipeSlotsView, stack, mouseX, mouseY);
+    public void createRecipeExtras(IRecipeExtrasBuilder builder, WoodworkingRecipe recipe, IFocusGroup focuses) {
+        builder.addRecipeArrow().setPosition(26, 9);
+    }
+
+    @Override
+    public void draw(WoodworkingRecipe recipe, IRecipeSlotsView recipeSlotsView, GuiGraphics stack, double mouseX, double mouseY) {
+        super.draw(recipe, recipeSlotsView, stack, mouseX, mouseY);
     }
 }

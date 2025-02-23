@@ -52,7 +52,7 @@ public class WoodworkingWorkbenchMenu extends AbstractContainerMenu {
     public WoodworkingWorkbenchMenu(int id, Inventory inventory, final ContainerLevelAccess levelAccess) {
         super(MenuTypeRegistry.WOODWORKING_WORKBENCH.get(), id);
         this.access = levelAccess;
-        this.level = inventory.player.level;
+        this.level = inventory.player.level();
         this.inputSlot = this.addSlot(new Slot(this.container, INPUT_SLOT, 20, 33));
         this.resultSlot = this.addSlot(new Slot(this.resultContainer, RESULT_SLOT, 143, 33) {
             public boolean mayPlace(ItemStack itemStack) {
@@ -60,8 +60,8 @@ public class WoodworkingWorkbenchMenu extends AbstractContainerMenu {
             }
 
             public void onTake(Player player, ItemStack itemStack) {
-                itemStack.onCraftedBy(player.level, player, itemStack.getCount());
-                WoodworkingWorkbenchMenu.this.resultContainer.awardUsedRecipes(player);
+                itemStack.onCraftedBy(player.level(), player, itemStack.getCount());
+                WoodworkingWorkbenchMenu.this.resultContainer.awardUsedRecipes(player, List.of(itemStack));
                 ItemStack itemstack = WoodworkingWorkbenchMenu.this.inputSlot.remove(1);
                 if (!itemstack.isEmpty()) {
                     WoodworkingWorkbenchMenu.this.setupResultSlot();
@@ -174,7 +174,7 @@ public class WoodworkingWorkbenchMenu extends AbstractContainerMenu {
             Item item = slotItem.getItem();
             itemstack = slotItem.copy();
             if (pIndex == 1) {
-                item.onCraftedBy(slotItem, pPlayer.level, pPlayer);
+                item.onCraftedBy(slotItem, pPlayer.level(), pPlayer);
                 if (!this.moveItemStackTo(slotItem, 2, 38, true)) {
                     return ItemStack.EMPTY;
                 }

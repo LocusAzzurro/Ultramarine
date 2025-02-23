@@ -24,7 +24,7 @@ public class RecipeTypeRegistry {
         return RECIPE_TYPES.register(name, () -> new RecipeType<>() {
             @Override
             public String toString() {
-                return new ResourceLocation(Ultramarine.MOD_ID, name).toString();
+                return ResourceLocation.fromNamespaceAndPath(Ultramarine.MOD_ID, name).toString();
             }
         });
     }

@@ -134,7 +134,7 @@ public class ChiselTableRecipe implements Recipe<Container> {
             if (pJson.get("result").isJsonObject()) result = ShapedRecipe.itemStackFromJson(GsonHelper.getAsJsonObject(pJson, "result"));
             else {
                 String s1 = GsonHelper.getAsString(pJson, "result");
-                ResourceLocation resourcelocation = new ResourceLocation(s1);
+                ResourceLocation resourcelocation = ResourceLocation.tryParse(s1);
                 result = new ItemStack(ForgeRegistries.ITEMS.getHolder(resourcelocation).orElseThrow(() -> new IllegalStateException("Item: " + s1 + " does not exist")));
             }
 

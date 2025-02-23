@@ -16,7 +16,7 @@ import net.minecraft.world.item.ItemStack;
 
 public class TravellingMerchantCategory implements IRecipeCategory<TravellingMerchantWrapper> {
 
-    public static final ResourceLocation UID = new ResourceLocation(Ultramarine.MOD_ID, "custom_wandering_trader");
+    public static final ResourceLocation UID = ResourceLocation.fromNamespaceAndPath(Ultramarine.MOD_ID, "custom_wandering_trader");
 
     public static final RecipeType<TravellingMerchantWrapper> CUSTOM_WANDERING_TRADER_WRAPPER_RECIPE_TYPE =
             new RecipeType<>(UID, TravellingMerchantWrapper.class);
@@ -40,6 +40,7 @@ public class TravellingMerchantCategory implements IRecipeCategory<TravellingMer
     }
 
     @Override
+    @SuppressWarnings("removal")
     public IDrawable getBackground() {
         return background;
     }

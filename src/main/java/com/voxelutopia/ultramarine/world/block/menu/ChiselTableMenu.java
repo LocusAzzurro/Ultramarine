@@ -84,7 +84,7 @@ public class ChiselTableMenu extends AbstractContainerMenu{
     }
 
     public void createResult() {
-        Level level = player.level;
+        Level level = player.level();
         Container ingredients = this.wrapIngredients();
         List<ChiselTableRecipe> list = level.getRecipeManager().getRecipesFor(RecipeTypeRegistry.CHISEL_TABLE.get(), ingredients, level);
         if (list.size() > 1){
@@ -119,7 +119,7 @@ public class ChiselTableMenu extends AbstractContainerMenu{
             ItemStack slotItem = slot.getItem();
             itemstack = slotItem.copy();
             if (pIndex == SLOT_RESULT) {
-                slotItem.getItem().onCraftedBy(slotItem, pPlayer.level, pPlayer);
+                slotItem.getItem().onCraftedBy(slotItem, pPlayer.level(), pPlayer);
                 if (!this.moveItemStackTo(slotItem, INV_SLOT_START, USE_ROW_SLOT_END, true)) {
                     return ItemStack.EMPTY;
                 }
