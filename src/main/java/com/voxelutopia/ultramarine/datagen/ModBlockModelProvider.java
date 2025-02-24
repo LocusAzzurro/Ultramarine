@@ -7,8 +7,6 @@ import com.voxelutopia.ultramarine.world.block.state.ModBlockStateProperties;
 import com.voxelutopia.ultramarine.world.block.state.OrientableBlockType;
 import com.voxelutopia.ultramarine.world.block.state.StackableBlockType;
 import net.minecraft.core.Direction;
-import net.minecraft.data.CachedOutput;
-import net.minecraft.data.DataGenerator;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.DyeColor;

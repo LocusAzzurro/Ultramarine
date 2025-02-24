@@ -1,18 +1,13 @@
 package com.voxelutopia.ultramarine.client.integration.jei;
 
-import com.mojang.blaze3d.vertex.PoseStack;
 import com.voxelutopia.ultramarine.Ultramarine;
 import com.voxelutopia.ultramarine.data.recipe.WoodworkingRecipe;
 import com.voxelutopia.ultramarine.data.registry.BlockRegistry;
-import mezz.jei.api.constants.RecipeTypes;
-import mezz.jei.api.constants.VanillaTypes;
 import mezz.jei.api.gui.builder.IRecipeLayoutBuilder;
-import mezz.jei.api.gui.drawable.IDrawable;
 import mezz.jei.api.gui.ingredient.IRecipeSlotsView;
 import mezz.jei.api.gui.widgets.IRecipeExtrasBuilder;
 import mezz.jei.api.helpers.IGuiHelper;
 import mezz.jei.api.recipe.IFocusGroup;
-import mezz.jei.api.recipe.RecipeIngredientRole;
 import mezz.jei.api.recipe.RecipeType;
 import mezz.jei.api.recipe.category.AbstractRecipeCategory;
 import mezz.jei.api.recipe.category.IRecipeCategory;
@@ -20,10 +15,6 @@ import mezz.jei.library.util.RecipeUtil;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.crafting.Ingredient;
-import net.minecraft.world.item.crafting.StonecutterRecipe;
-import net.minecraft.world.level.block.Blocks;
 
 public class WoodworkingRecipeCategory extends AbstractRecipeCategory<WoodworkingRecipe> implements IRecipeCategory<WoodworkingRecipe>{
 

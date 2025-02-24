@@ -4,8 +4,6 @@ import com.voxelutopia.ultramarine.Ultramarine;
 import com.voxelutopia.ultramarine.data.registry.ItemRegistry;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Items;
 import net.minecraft.world.phys.Vec2;
 import snownee.jade.api.BlockAccessor;
 import snownee.jade.api.IBlockComponentProvider;

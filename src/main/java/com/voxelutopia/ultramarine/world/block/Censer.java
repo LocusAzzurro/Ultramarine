@@ -24,8 +24,6 @@ import net.minecraft.world.phys.Vec3;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
-import java.util.Random;
-
 public class Censer extends DecorativeBlock implements EntityBlock {
 
     private final Vec3 smokeOffset;

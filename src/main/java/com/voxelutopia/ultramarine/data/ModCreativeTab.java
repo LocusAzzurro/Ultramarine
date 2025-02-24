@@ -1,12 +1,12 @@
 package com.voxelutopia.ultramarine.data;
 
 import com.google.common.collect.ImmutableList;
-import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
 import net.minecraftforge.registries.RegistryObject;
 
-import java.util.*;
-import java.util.stream.Collectors;
+import java.util.LinkedHashSet;
+import java.util.List;
+import java.util.Map;
 
 public enum ModCreativeTab {
     MATERIALS,

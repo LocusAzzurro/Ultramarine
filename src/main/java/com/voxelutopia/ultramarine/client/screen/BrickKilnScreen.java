@@ -1,7 +1,6 @@
 package com.voxelutopia.ultramarine.client.screen;
 
 import com.mojang.blaze3d.systems.RenderSystem;
-import com.mojang.blaze3d.vertex.PoseStack;
 import com.voxelutopia.ultramarine.Ultramarine;
 import com.voxelutopia.ultramarine.world.block.menu.BrickKilnMenu;
 import net.minecraft.client.gui.GuiGraphics;

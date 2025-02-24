@@ -1,10 +1,8 @@
 package com.voxelutopia.ultramarine.client.integration.jei;
 
-import com.mojang.blaze3d.vertex.PoseStack;
 import com.voxelutopia.ultramarine.Ultramarine;
 import com.voxelutopia.ultramarine.data.recipe.ChiselTableRecipe;
 import com.voxelutopia.ultramarine.data.registry.BlockRegistry;
-import com.voxelutopia.ultramarine.data.registry.RecipeTypeRegistry;
 import mezz.jei.api.constants.VanillaTypes;
 import mezz.jei.api.gui.builder.IRecipeLayoutBuilder;
 import mezz.jei.api.gui.drawable.IDrawable;

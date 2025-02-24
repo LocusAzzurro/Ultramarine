@@ -1,12 +1,8 @@
 package com.voxelutopia.ultramarine.world.block;
 
-import net.minecraft.core.BlockPos;
-import net.minecraft.util.RandomSource;
 import net.minecraft.util.valueproviders.UniformInt;
-import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.DropExperienceBlock;
 import net.minecraft.world.level.block.state.BlockBehaviour;
-import net.minecraft.world.level.block.state.BlockState;
 
 public class BaseOreBlock extends DropExperienceBlock {
 

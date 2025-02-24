@@ -3,7 +3,6 @@ package com.voxelutopia.ultramarine.client.integration.jade;
 import com.voxelutopia.ultramarine.world.block.ChiralDirectionalBlock;
 import com.voxelutopia.ultramarine.world.block.RailingBlock;
 import com.voxelutopia.ultramarine.world.block.ShiftableBlock;
-import net.minecraft.resources.ResourceLocation;
 import snownee.jade.api.IWailaClientRegistration;
 import snownee.jade.api.IWailaCommonRegistration;
 import snownee.jade.api.IWailaPlugin;

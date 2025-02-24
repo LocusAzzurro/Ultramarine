@@ -1,8 +1,8 @@
 package com.voxelutopia.ultramarine.data.shape;
 
-import org.joml.Vector3f;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.phys.shapes.VoxelShape;
+import org.joml.Vector3f;
 
 public class RawVoxelShape {
 

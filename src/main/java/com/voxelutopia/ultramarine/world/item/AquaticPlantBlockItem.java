@@ -12,8 +12,6 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.phys.BlockHitResult;
 
-import net.minecraft.world.item.Item.Properties;
-
 public class AquaticPlantBlockItem extends BlockItem {
 
     public AquaticPlantBlockItem(Block pBlock, Properties properties) {

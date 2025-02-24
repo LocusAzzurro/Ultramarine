@@ -15,8 +15,6 @@ import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.level.material.FluidState;
 import net.minecraft.world.level.material.Fluids;
 
-import net.minecraft.world.level.block.state.BlockBehaviour.Properties;
-
 public abstract class ShiftableBlock extends Block implements SimpleWaterloggedBlock {
 
     public static final BooleanProperty SHIFTED = ModBlockStateProperties.SHIFTED;

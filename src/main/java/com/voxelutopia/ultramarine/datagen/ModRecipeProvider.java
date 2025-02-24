@@ -8,7 +8,6 @@ import com.voxelutopia.ultramarine.datagen.recipe.ChiselTableRecipeBuilder;
 import com.voxelutopia.ultramarine.datagen.recipe.CompositeSmeltingRecipeBuilder;
 import net.minecraft.advancements.CriterionTriggerInstance;
 import net.minecraft.advancements.critereon.*;
-import net.minecraft.data.DataGenerator;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.*;
 import net.minecraft.resources.ResourceLocation;
@@ -22,7 +21,7 @@ import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.IForgeRegistry;
 import org.jetbrains.annotations.NotNull;
 
-import java.util.*;
+import java.util.Objects;
 import java.util.function.Consumer;
 
 @SuppressWarnings("unused")

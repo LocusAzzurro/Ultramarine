@@ -9,8 +9,6 @@ import net.minecraft.sounds.SoundSource;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.block.state.BlockState;
 
-import java.util.Random;
-
 public class WindChime extends DecorativeBlock{
 
     public WindChime() {

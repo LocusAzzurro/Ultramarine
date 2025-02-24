@@ -1,7 +1,6 @@
 package com.voxelutopia.ultramarine.data.recipe;
 
 import com.google.gson.JsonObject;
-import com.voxelutopia.ultramarine.Ultramarine;
 import com.voxelutopia.ultramarine.data.registry.RecipeSerializerRegistry;
 import com.voxelutopia.ultramarine.data.registry.RecipeTypeRegistry;
 import net.minecraft.core.RegistryAccess;
@@ -16,8 +15,6 @@ import net.minecraft.world.item.crafting.RecipeType;
 import net.minecraft.world.item.crafting.SingleItemRecipe;
 import net.minecraft.world.level.Level;
 import net.minecraftforge.registries.ForgeRegistries;
-
-import javax.annotation.Nullable;
 
 public class WoodworkingRecipe extends SingleItemRecipe {
 
