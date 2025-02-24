@@ -26,12 +26,12 @@ import java.util.List;
 import java.util.Objects;
 
 @JeiPlugin
-public class UltramarinePlugin implements IModPlugin {
+public class UltramarineJEIPlugin implements IModPlugin {
 
     public static final ResourceLocation JEI_GUI_VANILLA = ResourceLocation.fromNamespaceAndPath("jei", "textures/gui/gui_vanilla.png");
     private static final Logger LOGGER = Ultramarine.getLogger();
 
-    public UltramarinePlugin(){
+    public UltramarineJEIPlugin(){
         LOGGER.info("JEI Integration Loaded");
     }
 

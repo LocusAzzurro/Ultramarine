@@ -677,5 +677,9 @@
   "guide.patchouli.tiangong_kaiwu.subtitle": "",
   "guide.patchouli.tiangong_kaiwu.landing_text": "Welcome to Ultramarine Guide Book",
 
+  "__comment26__": "Jade Config",
+  "config.jade.plugin_ultramarine.mallet_toggleable": "Mallet Toggleable Block",
+  "gui.jade.plugin_ultramarine.mallet_toggleable": "Toggleable",
+
   "__EOF__": ""
 }

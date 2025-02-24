@@ -676,5 +676,9 @@
   "guide.patchouli.tiangong_kaiwu.subtitle": "",
   "guide.patchouli.tiangong_kaiwu.landing_text": "欢迎阅读群青模组指南",
 
+  "__comment26__": "Jade Config",
+  "config.jade.plugin_ultramarine.mallet_toggleable": "可木锤调整方块",
+  "gui.jade.plugin_ultramarine.mallet_toggleable": "可调整",
+
   "__EOF__": ""
 }
