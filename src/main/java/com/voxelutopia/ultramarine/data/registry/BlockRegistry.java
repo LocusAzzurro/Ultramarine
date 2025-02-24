@@ -743,7 +743,7 @@ public class BlockRegistry {
 
     // DOOR
 
-    public static final RegistryObject<Block> CARVED_WOODEN_DOOR = BLOCKS.register("carved_wooden_door", //todo model not centered
+    public static final RegistryObject<Block> CARVED_WOODEN_DOOR = BLOCKS.register("carved_wooden_door",
             () -> new OpeningBlock(DecorativeBlock.with(BaseBlockProperty.WOOD).shaped(ShapeFunction.cardinalRotations(new RawVoxelShape(0,-16,7,16,32,9))).directional().noOcclusion()));
     public static final RegistryObject<Block> SONG_WOODEN_DOOR = BLOCKS.register("song_wooden_door",
             () -> new OpeningBlock(DecorativeBlock.with(BaseBlockProperty.WOOD).shaped(ShapeFunction.cardinalRotations(new RawVoxelShape(0,-16,7,16,32,9))).directional().noOcclusion()));

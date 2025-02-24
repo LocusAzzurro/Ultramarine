@@ -205,8 +205,8 @@ public class ModBlockModelProvider extends BlockStateProvider {
         simpleBlock(BlockRegistry.YELLOW_AND_GREEN_CARVED_WOOD.get());
         simpleBlock(BlockRegistry.YELLOW_GREEN_BLUE_CARVED_WOOD.get());
         // DARK OAK
-        chiralDirectionalBlock(BlockRegistry.CARVED_DARK_OAK_BEAM.get());
-        chiralDirectionalBlock(BlockRegistry.CARVED_DARK_OAK_BEAM_EDGE.get());
+        chiralWSMirror(BlockRegistry.CARVED_DARK_OAK_BEAM.get(), mcLoc(BLOCK + "dark_oak_log_top"));
+        chiralWSMirror(BlockRegistry.CARVED_DARK_OAK_BEAM_EDGE.get(), mcLoc(BLOCK + "dark_oak_log_top"));
         simpleBlock(BlockRegistry.GILDED_DARK_OAK.get());
         simpleBlock(BlockRegistry.CHISELED_GILDED_DARK_OAK.get());
         slabSideEnd(BlockRegistry.GILDED_DARK_OAK_SLAB.get(), BlockRegistry.GILDED_DARK_OAK.get(), sideLoc(BlockRegistry.GILDED_DARK_OAK_SLAB.get()), blockLoc(BlockRegistry.GILDED_DARK_OAK.get()));
@@ -413,7 +413,7 @@ public class ModBlockModelProvider extends BlockStateProvider {
             ResourceLocation resourceLocation = resourceLocation(BlockRegistry.CHISEL_TABLE.get());
             String blockPath = resourceLocation.getPath();
             return getDecorativeBlockConfiguredModels((DecorativeBlock) BlockRegistry.CHISEL_TABLE.get(), blockState, blockPath, modelFile, 0);
-        }); //todo add chisel table model
+        });
         // > RESOURCE BLOCKS
         simpleBlock(BlockRegistry.JADE_ORE.get());
         simpleBlock(BlockRegistry.DEEPSLATE_JADE_ORE.get());
@@ -512,22 +512,6 @@ public class ModBlockModelProvider extends BlockStateProvider {
                 modelBuilder.rotationY((int) faceDir.toYRot());
             }
             return modelBuilder.build();
-        });
-    }
-
-    //TODO use chiralWS
-    @Deprecated
-    public void chiralDirectionalBlock(Block block) {
-        directionalBlock(block, state -> {
-            String path = name(block);
-            if (state.hasProperty(ModBlockStateProperties.CHIRAL_BLOCK_TYPE)){
-                ChiralBlockType chiralBlockType = state.getValue(ModBlockStateProperties.CHIRAL_BLOCK_TYPE);
-                if (chiralBlockType == ChiralBlockType.LEFT || chiralBlockType == ChiralBlockType.TOP){
-                    return models().getExistingFile(modLoc(BLOCK + path));
-                }
-                else return models().getExistingFile(modLoc(BLOCK + path + "_mirrored"));
-            }
-            return models().getExistingFile(modLoc(BLOCK + path));
         });
     }
 

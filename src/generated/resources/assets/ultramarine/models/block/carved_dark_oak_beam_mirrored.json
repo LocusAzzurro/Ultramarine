@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "down": "minecraft:block/dark_oak_log_top",
+    "east": "ultramarine:block/carved_dark_oak_beam_side_mirrored",
+    "north": "ultramarine:block/carved_dark_oak_beam_side_mirrored",
+    "particle": "ultramarine:block/carved_dark_oak_beam_side",
+    "south": "ultramarine:block/carved_dark_oak_beam_side",
+    "up": "minecraft:block/dark_oak_log_top",
+    "west": "ultramarine:block/carved_dark_oak_beam_side"
+  }
+}

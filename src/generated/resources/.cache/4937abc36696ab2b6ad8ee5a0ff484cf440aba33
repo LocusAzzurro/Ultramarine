@@ -1,4 +1,4 @@
-// 1.20.1	2025-02-24T03:59:27.3421504	ultramarine Block Models
+// 1.20.1	2025-02-24T04:19:48.173624	ultramarine Block Models
 42835c84372a6edfb1d99e259bc13b4473a679ce assets/ultramarine/blockstates/abacus.json
 abcd01abd2c562c46d3e7646b6ee21f55fe4ad8e assets/ultramarine/blockstates/acacia_bracket.json
 453bd44ed6bf60a9b8823a1be9a78ac0ae807d0b assets/ultramarine/blockstates/apple_basket.json
@@ -1150,6 +1150,10 @@ b2cace8ee9c94f02b7ffeb547af6a2608f47e9a3 assets/ultramarine/models/block/brownis
 1b9ed4629847b6dca227df9a9d853e3b019709c5 assets/ultramarine/models/block/brownish_red_stone_brick_wall_wall_side_tall.json
 5ff45d6db9b7f8a738b78061fd2ed15254c4c506 assets/ultramarine/models/block/cabbage_basket.json
 d1c8c49b2fb75b14e29f6741ff70a81f0ecd9617 assets/ultramarine/models/block/cabbage_basket_double.json
+b8e2c2c6c4941a7e83c90b0b233c5c0b5cf2f8b2 assets/ultramarine/models/block/carved_dark_oak_beam.json
+ff31dcb99f2540f7ca0be3f2bb911282e474f245 assets/ultramarine/models/block/carved_dark_oak_beam_edge.json
+20cfe97d25fa2bf6a1a2b6babe36dd646bfdd4e7 assets/ultramarine/models/block/carved_dark_oak_beam_edge_mirrored.json
+f7cf8f446e40e9e8ccada20ec1ddedb1ec4cd5ee assets/ultramarine/models/block/carved_dark_oak_beam_mirrored.json
 9ed2932b2916f797eec1c062df73c4af29db9fbc assets/ultramarine/models/block/carved_red_pillar.json
 e2aa9bf31d9e4e186b2f0d9da1ab0d1cdd5ba7a4 assets/ultramarine/models/block/carved_red_pillar_base.json
 9c30404d243d05294decbaf2b20ce4664d9e9514 assets/ultramarine/models/block/carved_red_pillar_head.json
