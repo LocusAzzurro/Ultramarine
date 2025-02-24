@@ -681,6 +681,7 @@
   "config.jade.plugin_ultramarine.mallet_toggleable": "Mallet Toggleable Block",
   "config.jade.plugin_ultramarine.censer_burn_time": "Censer Burn Time",
   "config.jade.plugin_ultramarine.brick_kiln": "Brick Kiln",
+  "config.jade.plugin_ultramarine.bottle_gourd": "Bottle Gourd",
   "gui.jade.plugin_ultramarine.mallet_toggleable": "Toggleable",
   "gui.jade.plugin_ultramarine.censer_burn_time": "Incense: %d s",
 

@@ -680,6 +680,7 @@
   "config.jade.plugin_ultramarine.mallet_toggleable": "可木锤调整方块",
   "config.jade.plugin_ultramarine.censer_burn_time": "熏香剩余时间",
   "config.jade.plugin_ultramarine.brick_kiln": "砖窑",
+  "config.jade.plugin_ultramarine.bottle_gourd": "葫芦",
   "gui.jade.plugin_ultramarine.mallet_toggleable": "可调整",
   "gui.jade.plugin_ultramarine.censer_burn_time": "熏香：%d秒",
 

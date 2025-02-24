@@ -20,7 +20,7 @@ public enum MalletToggleableComponentProvider implements IBlockComponentProvider
     @Override
     public void appendTooltip(ITooltip tooltip, BlockAccessor blockAccessor, IPluginConfig iPluginConfig) {
         IElementHelper elements = tooltip.getElementHelper();
-        IElement icon = elements.item(ItemRegistry.WOODEN_MALLET.get().getDefaultInstance(), 0.5f).size(new Vec2(10, 10)).translate(new Vec2(0, -1));;
+        IElement icon = elements.item(ItemRegistry.WOODEN_MALLET.get().getDefaultInstance(), 0.5f).size(new Vec2(10, 10)).translate(new Vec2(0, -1));
         tooltip.add(icon);
         tooltip.append(Component.translatable("gui.jade.plugin_ultramarine.mallet_toggleable"));
     }
