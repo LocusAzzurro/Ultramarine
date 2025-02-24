@@ -1,5 +1,6 @@
 {
   "type": "minecraft:crafting_shaped",
+  "category": "misc",
   "key": {
     "L": {
       "tag": "minecraft:logs"
@@ -18,5 +19,6 @@
   ],
   "result": {
     "item": "ultramarine:red_lantern_streetlight"
-  }
+  },
+  "show_notification": true
 }

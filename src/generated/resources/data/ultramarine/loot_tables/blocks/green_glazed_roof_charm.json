@@ -12,5 +12,6 @@
       "name": "green_glazed_roof_charm",
       "rolls": 1.0
     }
-  ]
+  ],
+  "random_sequence": "ultramarine:blocks/green_glazed_roof_charm"
 }

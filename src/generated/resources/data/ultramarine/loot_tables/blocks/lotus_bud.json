@@ -12,5 +12,6 @@
       "name": "lotus_bud",
       "rolls": 1.0
     }
-  ]
+  ],
+  "random_sequence": "ultramarine:blocks/lotus_bud"
 }

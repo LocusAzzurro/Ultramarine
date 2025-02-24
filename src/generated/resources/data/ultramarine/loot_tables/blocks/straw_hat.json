@@ -12,5 +12,6 @@
       "name": "straw_hat",
       "rolls": 1.0
     }
-  ]
+  ],
+  "random_sequence": "ultramarine:blocks/straw_hat"
 }

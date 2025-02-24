@@ -12,5 +12,6 @@
       "name": "chiseled_gilded_dark_oak",
       "rolls": 1.0
     }
-  ]
+  ],
+  "random_sequence": "ultramarine:blocks/chiseled_gilded_dark_oak"
 }

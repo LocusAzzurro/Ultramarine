@@ -54,5 +54,6 @@
       "name": "weathered_stone_slab",
       "rolls": 1.0
     }
-  ]
+  ],
+  "random_sequence": "ultramarine:blocks/weathered_stone_slab"
 }

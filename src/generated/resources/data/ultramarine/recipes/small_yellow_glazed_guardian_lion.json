@@ -1,5 +1,6 @@
 {
   "type": "minecraft:crafting_shaped",
+  "category": "misc",
   "key": {
     "D": {
       "item": "ultramarine:gold_dye_powder"
@@ -21,5 +22,6 @@
   ],
   "result": {
     "item": "ultramarine:small_yellow_glazed_guardian_lion"
-  }
+  },
+  "show_notification": true
 }

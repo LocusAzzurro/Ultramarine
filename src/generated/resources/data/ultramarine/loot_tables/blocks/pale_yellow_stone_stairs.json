@@ -12,5 +12,6 @@
       "name": "pale_yellow_stone_stairs",
       "rolls": 1.0
     }
-  ]
+  ],
+  "random_sequence": "ultramarine:blocks/pale_yellow_stone_stairs"
 }

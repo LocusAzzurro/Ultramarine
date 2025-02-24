@@ -41,5 +41,6 @@
       "name": "cabbage_basket",
       "rolls": 1.0
     }
-  ]
+  ],
+  "random_sequence": "ultramarine:blocks/cabbage_basket"
 }

@@ -12,5 +12,6 @@
       "name": "long_table",
       "rolls": 1.0
     }
-  ]
+  ],
+  "random_sequence": "ultramarine:blocks/long_table"
 }

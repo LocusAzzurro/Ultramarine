@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_fangxin_edge_template": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "ultramarine:fangxin_edge_template"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "ultramarine:cyan_and_blue_fangxin_edge"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_fangxin_edge_template",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "ultramarine:cyan_and_blue_fangxin_edge"
+    ]
+  },
+  "sends_telemetry_event": true
+}

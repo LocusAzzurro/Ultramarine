@@ -1,5 +1,6 @@
 {
   "type": "minecraft:crafting_shaped",
+  "category": "misc",
   "key": {
     "A": {
       "item": "ultramarine:wooden_parts"
@@ -18,5 +19,6 @@
   ],
   "result": {
     "item": "ultramarine:oak_bed"
-  }
+  },
+  "show_notification": true
 }

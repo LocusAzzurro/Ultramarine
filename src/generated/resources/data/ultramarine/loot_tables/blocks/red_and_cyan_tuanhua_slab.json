@@ -1,0 +1,59 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "bonus_rolls": 0.0,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "conditions": [
+            {
+              "block": "ultramarine:red_and_cyan_tuanhua_slab",
+              "condition": "minecraft:block_state_property",
+              "properties": {
+                "type": "top"
+              }
+            }
+          ],
+          "name": "ultramarine:red_and_cyan_tuanhua_slab"
+        },
+        {
+          "type": "minecraft:item",
+          "conditions": [
+            {
+              "block": "ultramarine:red_and_cyan_tuanhua_slab",
+              "condition": "minecraft:block_state_property",
+              "properties": {
+                "type": "bottom"
+              }
+            }
+          ],
+          "name": "ultramarine:red_and_cyan_tuanhua_slab"
+        },
+        {
+          "type": "minecraft:item",
+          "conditions": [
+            {
+              "block": "ultramarine:red_and_cyan_tuanhua_slab",
+              "condition": "minecraft:block_state_property",
+              "properties": {
+                "type": "double"
+              }
+            }
+          ],
+          "functions": [
+            {
+              "add": false,
+              "count": 2.0,
+              "function": "minecraft:set_count"
+            }
+          ],
+          "name": "ultramarine:red_and_cyan_tuanhua_slab"
+        }
+      ],
+      "name": "red_and_cyan_tuanhua_slab",
+      "rolls": 1.0
+    }
+  ],
+  "random_sequence": "ultramarine:blocks/red_and_cyan_tuanhua_slab"
+}

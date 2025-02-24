@@ -12,5 +12,6 @@
       "name": "memorial_tablet",
       "rolls": 1.0
     }
-  ]
+  ],
+  "random_sequence": "ultramarine:blocks/memorial_tablet"
 }

@@ -1,5 +1,6 @@
 {
   "type": "minecraft:crafting_shaped",
+  "category": "misc",
   "key": {
     "O": {
       "item": "minecraft:clay"
@@ -14,5 +15,6 @@
   ],
   "result": {
     "item": "ultramarine:medium_clay_vase"
-  }
+  },
+  "show_notification": true
 }

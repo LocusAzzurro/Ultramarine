@@ -12,5 +12,6 @@
       "name": "medium_lotus",
       "rolls": 1.0
     }
-  ]
+  ],
+  "random_sequence": "ultramarine:blocks/medium_lotus"
 }

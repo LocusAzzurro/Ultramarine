@@ -54,5 +54,6 @@
       "name": "variegated_rock_slab",
       "rolls": 1.0
     }
-  ]
+  ],
+  "random_sequence": "ultramarine:blocks/variegated_rock_slab"
 }

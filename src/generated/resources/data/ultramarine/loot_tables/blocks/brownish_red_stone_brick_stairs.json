@@ -12,5 +12,6 @@
       "name": "brownish_red_stone_brick_stairs",
       "rolls": 1.0
     }
-  ]
+  ],
+  "random_sequence": "ultramarine:blocks/brownish_red_stone_brick_stairs"
 }

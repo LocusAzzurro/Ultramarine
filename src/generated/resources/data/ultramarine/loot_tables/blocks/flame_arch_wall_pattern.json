@@ -12,5 +12,6 @@
       "name": "flame_arch_wall_pattern",
       "rolls": 1.0
     }
-  ]
+  ],
+  "random_sequence": "ultramarine:blocks/flame_arch_wall_pattern"
 }

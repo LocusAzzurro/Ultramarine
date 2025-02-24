@@ -55,5 +55,6 @@
       "name": "magnesite_ore",
       "rolls": 1.0
     }
-  ]
+  ],
+  "random_sequence": "ultramarine:blocks/magnesite_ore"
 }

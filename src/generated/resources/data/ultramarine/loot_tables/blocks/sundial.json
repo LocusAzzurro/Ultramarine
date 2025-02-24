@@ -12,5 +12,6 @@
       "name": "sundial",
       "rolls": 1.0
     }
-  ]
+  ],
+  "random_sequence": "ultramarine:blocks/sundial"
 }

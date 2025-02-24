@@ -12,5 +12,6 @@
       "name": "clay_doll_male",
       "rolls": 1.0
     }
-  ]
+  ],
+  "random_sequence": "ultramarine:blocks/clay_doll_male"
 }

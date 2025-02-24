@@ -12,5 +12,6 @@
       "name": "royal_censer",
       "rolls": 1.0
     }
-  ]
+  ],
+  "random_sequence": "ultramarine:blocks/royal_censer"
 }

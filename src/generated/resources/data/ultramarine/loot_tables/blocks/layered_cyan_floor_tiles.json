@@ -12,5 +12,6 @@
       "name": "layered_cyan_floor_tiles",
       "rolls": 1.0
     }
-  ]
+  ],
+  "random_sequence": "ultramarine:blocks/layered_cyan_floor_tiles"
 }

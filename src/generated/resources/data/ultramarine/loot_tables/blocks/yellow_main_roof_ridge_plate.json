@@ -12,5 +12,6 @@
       "name": "yellow_main_roof_ridge_plate",
       "rolls": 1.0
     }
-  ]
+  ],
+  "random_sequence": "ultramarine:blocks/yellow_main_roof_ridge_plate"
 }

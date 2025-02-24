@@ -12,5 +12,6 @@
       "name": "green_weathered_bricks",
       "rolls": 1.0
     }
-  ]
+  ],
+  "random_sequence": "ultramarine:blocks/green_weathered_bricks"
 }

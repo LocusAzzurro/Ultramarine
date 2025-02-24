@@ -1,5 +1,6 @@
 {
   "type": "minecraft:crafting_shaped",
+  "category": "building",
   "key": {
     "B": {
       "item": "ultramarine:blue_carved_wooden_stairs"
@@ -15,5 +16,6 @@
   "result": {
     "count": 2,
     "item": "ultramarine:blue_carved_wooden_bracket"
-  }
+  },
+  "show_notification": true
 }

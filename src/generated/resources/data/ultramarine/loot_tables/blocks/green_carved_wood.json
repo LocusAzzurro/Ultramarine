@@ -12,5 +12,6 @@
       "name": "green_carved_wood",
       "rolls": 1.0
     }
-  ]
+  ],
+  "random_sequence": "ultramarine:blocks/green_carved_wood"
 }

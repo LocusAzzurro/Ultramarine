@@ -1,5 +1,6 @@
 {
   "type": "minecraft:crafting_shaped",
+  "category": "misc",
   "key": {
     "C": {
       "tag": "minecraft:saplings"
@@ -17,5 +18,6 @@
   ],
   "result": {
     "item": "ultramarine:red_plum_bonsai"
-  }
+  },
+  "show_notification": true
 }

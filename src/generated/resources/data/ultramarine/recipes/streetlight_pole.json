@@ -1,5 +1,6 @@
 {
   "type": "minecraft:crafting_shaped",
+  "category": "misc",
   "key": {
     "L": {
       "tag": "minecraft:logs"
@@ -15,5 +16,6 @@
   ],
   "result": {
     "item": "ultramarine:streetlight_pole"
-  }
+  },
+  "show_notification": true
 }

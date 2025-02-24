@@ -12,5 +12,6 @@
       "name": "painted_chair",
       "rolls": 1.0
     }
-  ]
+  ],
+  "random_sequence": "ultramarine:blocks/painted_chair"
 }

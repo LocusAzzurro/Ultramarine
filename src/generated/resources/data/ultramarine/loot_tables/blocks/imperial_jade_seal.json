@@ -12,5 +12,6 @@
       "name": "imperial_jade_seal",
       "rolls": 1.0
     }
-  ]
+  ],
+  "random_sequence": "ultramarine:blocks/imperial_jade_seal"
 }

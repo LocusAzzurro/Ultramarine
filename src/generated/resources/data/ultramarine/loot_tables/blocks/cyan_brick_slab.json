@@ -54,5 +54,6 @@
       "name": "cyan_brick_slab",
       "rolls": 1.0
     }
-  ]
+  ],
+  "random_sequence": "ultramarine:blocks/cyan_brick_slab"
 }

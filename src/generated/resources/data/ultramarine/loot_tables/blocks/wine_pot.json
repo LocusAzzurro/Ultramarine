@@ -67,5 +67,6 @@
       "name": "wine_pot",
       "rolls": 1.0
     }
-  ]
+  ],
+  "random_sequence": "ultramarine:blocks/wine_pot"
 }

@@ -1,5 +1,6 @@
 {
   "type": "minecraft:crafting_shaped",
+  "category": "misc",
   "key": {
     "B": {
       "item": "ultramarine:bronze_parts"
@@ -14,5 +15,6 @@
   ],
   "result": {
     "item": "ultramarine:knife"
-  }
+  },
+  "show_notification": true
 }

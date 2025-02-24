@@ -1,5 +1,6 @@
 {
   "type": "minecraft:crafting_shaped",
+  "category": "misc",
   "key": {
     "B": {
       "item": "minecraft:polished_blackstone"
@@ -17,5 +18,6 @@
   ],
   "result": {
     "item": "ultramarine:chessboard"
-  }
+  },
+  "show_notification": true
 }

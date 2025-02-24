@@ -12,5 +12,6 @@
       "name": "stone_flower_window",
       "rolls": 1.0
     }
-  ]
+  ],
+  "random_sequence": "ultramarine:blocks/stone_flower_window"
 }

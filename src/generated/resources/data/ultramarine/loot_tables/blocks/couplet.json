@@ -12,5 +12,6 @@
       "name": "couplet",
       "rolls": 1.0
     }
-  ]
+  ],
+  "random_sequence": "ultramarine:blocks/couplet"
 }

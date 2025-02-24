@@ -12,5 +12,6 @@
       "name": "variegated_rock_stairs",
       "rolls": 1.0
     }
-  ]
+  ],
+  "random_sequence": "ultramarine:blocks/variegated_rock_stairs"
 }

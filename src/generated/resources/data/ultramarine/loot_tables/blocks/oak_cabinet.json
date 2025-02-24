@@ -12,5 +12,6 @@
       "name": "oak_cabinet",
       "rolls": 1.0
     }
-  ]
+  ],
+  "random_sequence": "ultramarine:blocks/oak_cabinet"
 }

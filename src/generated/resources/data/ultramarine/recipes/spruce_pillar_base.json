@@ -1,5 +1,6 @@
 {
   "type": "minecraft:crafting_shaped",
+  "category": "building",
   "key": {
     "P": {
       "item": "minecraft:spruce_log"
@@ -14,5 +15,6 @@
   ],
   "result": {
     "item": "ultramarine:spruce_pillar_base"
-  }
+  },
+  "show_notification": true
 }

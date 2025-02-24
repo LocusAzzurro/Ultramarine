@@ -1,5 +1,6 @@
 {
   "type": "minecraft:crafting_shaped",
+  "category": "misc",
   "key": {
     "B": {
       "item": "ultramarine:bronze_ingot"
@@ -18,5 +19,6 @@
   ],
   "result": {
     "item": "ultramarine:wind_chime"
-  }
+  },
+  "show_notification": true
 }

@@ -12,5 +12,6 @@
       "name": "food_hamper",
       "rolls": 1.0
     }
-  ]
+  ],
+  "random_sequence": "ultramarine:blocks/food_hamper"
 }

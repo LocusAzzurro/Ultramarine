@@ -67,5 +67,6 @@
       "name": "plated_mooncakes",
       "rolls": 1.0
     }
-  ]
+  ],
+  "random_sequence": "ultramarine:blocks/plated_mooncakes"
 }

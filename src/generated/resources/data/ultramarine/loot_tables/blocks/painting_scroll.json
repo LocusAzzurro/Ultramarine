@@ -75,5 +75,6 @@
       "name": "painting_scroll",
       "rolls": 1.0
     }
-  ]
+  ],
+  "random_sequence": "ultramarine:blocks/painting_scroll"
 }

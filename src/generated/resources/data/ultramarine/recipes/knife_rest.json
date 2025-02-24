@@ -1,5 +1,6 @@
 {
   "type": "minecraft:crafting_shaped",
+  "category": "misc",
   "key": {
     "F": {
       "tag": "minecraft:wooden_fences"
@@ -15,5 +16,6 @@
   ],
   "result": {
     "item": "ultramarine:knife_rest"
-  }
+  },
+  "show_notification": true
 }

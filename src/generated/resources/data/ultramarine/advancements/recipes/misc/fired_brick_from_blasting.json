@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "ultramarine:fired_brick_from_blasting"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_unfired_clay_brick": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "ultramarine:unfired_clay_brick"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_unfired_clay_brick",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "ultramarine:fired_brick_from_blasting"
+    ]
+  },
+  "sends_telemetry_event": false
+}

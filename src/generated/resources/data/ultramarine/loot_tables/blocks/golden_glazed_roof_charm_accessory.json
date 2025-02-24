@@ -12,5 +12,6 @@
       "name": "golden_glazed_roof_charm_accessory",
       "rolls": 1.0
     }
-  ]
+  ],
+  "random_sequence": "ultramarine:blocks/golden_glazed_roof_charm_accessory"
 }

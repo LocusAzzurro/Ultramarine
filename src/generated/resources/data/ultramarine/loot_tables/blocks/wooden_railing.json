@@ -12,5 +12,6 @@
       "name": "wooden_railing",
       "rolls": 1.0
     }
-  ]
+  ],
+  "random_sequence": "ultramarine:blocks/wooden_railing"
 }

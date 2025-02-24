@@ -12,5 +12,6 @@
       "name": "acacia_bracket",
       "rolls": 1.0
     }
-  ]
+  ],
+  "random_sequence": "ultramarine:blocks/acacia_bracket"
 }

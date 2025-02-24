@@ -1,5 +1,6 @@
 {
   "type": "minecraft:crafting_shaped",
+  "category": "misc",
   "key": {
     "C": {
       "item": "ultramarine:carved_stone_panel_center"
@@ -13,5 +14,6 @@
   ],
   "result": {
     "item": "ultramarine:carved_stone_queti_part"
-  }
+  },
+  "show_notification": true
 }

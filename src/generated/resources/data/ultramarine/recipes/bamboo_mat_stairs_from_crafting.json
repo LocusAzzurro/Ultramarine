@@ -1,5 +1,6 @@
 {
   "type": "minecraft:crafting_shaped",
+  "category": "building",
   "key": {
     "B": {
       "item": "ultramarine:bamboo_mat"
@@ -13,5 +14,6 @@
   "result": {
     "count": 4,
     "item": "ultramarine:bamboo_mat_stairs"
-  }
+  },
+  "show_notification": true
 }

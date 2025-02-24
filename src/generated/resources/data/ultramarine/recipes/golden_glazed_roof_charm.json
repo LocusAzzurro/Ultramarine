@@ -1,5 +1,6 @@
 {
   "type": "minecraft:crafting_shaped",
+  "category": "misc",
   "key": {
     "D": {
       "item": "ultramarine:gold_dye_powder"
@@ -24,5 +25,6 @@
   ],
   "result": {
     "item": "ultramarine:golden_glazed_roof_charm"
-  }
+  },
+  "show_notification": true
 }

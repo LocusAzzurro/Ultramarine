@@ -12,5 +12,6 @@
       "name": "tricolor_candlestick",
       "rolls": 1.0
     }
-  ]
+  ],
+  "random_sequence": "ultramarine:blocks/tricolor_candlestick"
 }

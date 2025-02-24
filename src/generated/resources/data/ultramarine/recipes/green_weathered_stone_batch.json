@@ -1,5 +1,6 @@
 {
   "type": "minecraft:crafting_shaped",
+  "category": "building",
   "key": {
     "B": {
       "item": "ultramarine:weathered_stone"
@@ -16,5 +17,6 @@
   "result": {
     "count": 8,
     "item": "ultramarine:green_weathered_stone"
-  }
+  },
+  "show_notification": true
 }

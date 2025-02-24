@@ -54,5 +54,6 @@
       "name": "bamboo_mat_slab",
       "rolls": 1.0
     }
-  ]
+  ],
+  "random_sequence": "ultramarine:blocks/bamboo_mat_slab"
 }

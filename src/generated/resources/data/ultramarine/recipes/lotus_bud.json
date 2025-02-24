@@ -1,5 +1,6 @@
 {
   "type": "minecraft:crafting_shaped",
+  "category": "misc",
   "key": {
     "F": {
       "item": "minecraft:spore_blossom"
@@ -14,5 +15,6 @@
   ],
   "result": {
     "item": "ultramarine:lotus_bud"
-  }
+  },
+  "show_notification": true
 }

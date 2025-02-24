@@ -1,5 +1,6 @@
 {
   "type": "minecraft:crafting_shaped",
+  "category": "misc",
   "key": {
     "F": {
       "item": "ultramarine:wooden_frame"
@@ -18,5 +19,6 @@
   ],
   "result": {
     "item": "ultramarine:brush_tools"
-  }
+  },
+  "show_notification": true
 }

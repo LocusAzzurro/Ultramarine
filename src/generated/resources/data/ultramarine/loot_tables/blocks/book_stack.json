@@ -12,5 +12,6 @@
       "name": "book_stack",
       "rolls": 1.0
     }
-  ]
+  ],
+  "random_sequence": "ultramarine:blocks/book_stack"
 }

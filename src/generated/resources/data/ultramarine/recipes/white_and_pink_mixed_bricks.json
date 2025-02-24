@@ -1,5 +1,6 @@
 {
   "type": "minecraft:crafting_shaped",
+  "category": "building",
   "key": {
     "V": {
       "item": "ultramarine:variegated_rocks"
@@ -15,5 +16,6 @@
   "result": {
     "count": 4,
     "item": "ultramarine:white_and_pink_mixed_bricks"
-  }
+  },
+  "show_notification": true
 }

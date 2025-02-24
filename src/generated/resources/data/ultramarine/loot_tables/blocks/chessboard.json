@@ -12,5 +12,6 @@
       "name": "chessboard",
       "rolls": 1.0
     }
-  ]
+  ],
+  "random_sequence": "ultramarine:blocks/chessboard"
 }

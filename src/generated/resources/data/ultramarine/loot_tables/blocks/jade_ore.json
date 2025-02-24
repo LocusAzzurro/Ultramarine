@@ -46,5 +46,6 @@
       "name": "jade_ore",
       "rolls": 1.0
     }
-  ]
+  ],
+  "random_sequence": "ultramarine:blocks/jade_ore"
 }

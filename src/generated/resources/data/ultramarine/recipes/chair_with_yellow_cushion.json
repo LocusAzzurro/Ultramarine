@@ -1,5 +1,6 @@
 {
   "type": "minecraft:crafting_shaped",
+  "category": "misc",
   "key": {
     "C": {
       "item": "ultramarine:yellow_cushion"
@@ -17,5 +18,6 @@
   ],
   "result": {
     "item": "ultramarine:chair_with_yellow_cushion"
-  }
+  },
+  "show_notification": true
 }

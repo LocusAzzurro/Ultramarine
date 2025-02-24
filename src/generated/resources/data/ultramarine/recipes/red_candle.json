@@ -1,5 +1,6 @@
 {
   "type": "minecraft:crafting_shaped",
+  "category": "misc",
   "key": {
     "C": {
       "item": "minecraft:red_candle"
@@ -14,5 +15,6 @@
   ],
   "result": {
     "item": "ultramarine:red_candle"
-  }
+  },
+  "show_notification": true
 }

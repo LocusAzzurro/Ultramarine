@@ -12,5 +12,6 @@
       "name": "song_wooden_window",
       "rolls": 1.0
     }
-  ]
+  ],
+  "random_sequence": "ultramarine:blocks/song_wooden_window"
 }

@@ -1,5 +1,6 @@
 {
   "type": "minecraft:crafting_shaped",
+  "category": "building",
   "key": {
     "A": {
       "item": "ultramarine:black_brick"
@@ -11,5 +12,6 @@
   ],
   "result": {
     "item": "ultramarine:black_bricks"
-  }
+  },
+  "show_notification": true
 }

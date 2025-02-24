@@ -1,5 +1,6 @@
 {
   "type": "minecraft:crafting_shaped",
+  "category": "misc",
   "key": {
     "D": {
       "item": "minecraft:brown_dye"
@@ -17,5 +18,6 @@
   ],
   "result": {
     "item": "ultramarine:small_greeting_pine_bonsai"
-  }
+  },
+  "show_notification": true
 }

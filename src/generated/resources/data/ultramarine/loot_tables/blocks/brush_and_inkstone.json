@@ -12,5 +12,6 @@
       "name": "brush_and_inkstone",
       "rolls": 1.0
     }
-  ]
+  ],
+  "random_sequence": "ultramarine:blocks/brush_and_inkstone"
 }

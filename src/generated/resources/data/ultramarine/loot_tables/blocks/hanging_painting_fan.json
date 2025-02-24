@@ -12,5 +12,6 @@
       "name": "hanging_painting_fan",
       "rolls": 1.0
     }
-  ]
+  ],
+  "random_sequence": "ultramarine:blocks/hanging_painting_fan"
 }

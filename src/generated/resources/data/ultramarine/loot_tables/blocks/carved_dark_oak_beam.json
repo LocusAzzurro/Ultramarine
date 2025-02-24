@@ -12,5 +12,6 @@
       "name": "carved_dark_oak_beam",
       "rolls": 1.0
     }
-  ]
+  ],
+  "random_sequence": "ultramarine:blocks/carved_dark_oak_beam"
 }

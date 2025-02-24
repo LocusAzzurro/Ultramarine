@@ -1,5 +1,6 @@
 {
   "type": "minecraft:crafting_shaped",
+  "category": "misc",
   "key": {
     "J": {
       "item": "ultramarine:jade"
@@ -18,5 +19,6 @@
   ],
   "result": {
     "item": "ultramarine:small_jade_guardian_lion"
-  }
+  },
+  "show_notification": true
 }

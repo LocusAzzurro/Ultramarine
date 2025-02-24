@@ -12,5 +12,6 @@
       "name": "cut_cyan_floor_tiles",
       "rolls": 1.0
     }
-  ]
+  ],
+  "random_sequence": "ultramarine:blocks/cut_cyan_floor_tiles"
 }

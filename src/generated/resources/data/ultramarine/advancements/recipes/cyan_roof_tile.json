@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "ultramarine:cyan_roof_tile"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_unfired_roof_tile": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "ultramarine:unfired_roof_tile"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_unfired_roof_tile",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "ultramarine:cyan_roof_tile"
+    ]
+  },
+  "sends_telemetry_event": true
+}

@@ -12,5 +12,6 @@
       "name": "black_roof_ridge_upper",
       "rolls": 1.0
     }
-  ]
+  ],
+  "random_sequence": "ultramarine:blocks/black_roof_ridge_upper"
 }

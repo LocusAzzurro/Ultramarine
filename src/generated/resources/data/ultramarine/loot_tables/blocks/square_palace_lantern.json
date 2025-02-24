@@ -12,5 +12,6 @@
       "name": "square_palace_lantern",
       "rolls": 1.0
     }
-  ]
+  ],
+  "random_sequence": "ultramarine:blocks/square_palace_lantern"
 }

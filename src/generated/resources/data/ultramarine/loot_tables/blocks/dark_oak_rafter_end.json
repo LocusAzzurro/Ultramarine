@@ -12,5 +12,6 @@
       "name": "dark_oak_rafter_end",
       "rolls": 1.0
     }
-  ]
+  ],
+  "random_sequence": "ultramarine:blocks/dark_oak_rafter_end"
 }

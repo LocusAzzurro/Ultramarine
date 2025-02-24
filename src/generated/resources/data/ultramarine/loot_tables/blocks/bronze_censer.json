@@ -12,5 +12,6 @@
       "name": "bronze_censer",
       "rolls": 1.0
     }
-  ]
+  ],
+  "random_sequence": "ultramarine:blocks/bronze_censer"
 }

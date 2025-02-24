@@ -12,5 +12,6 @@
       "name": "stone_pedestal",
       "rolls": 1.0
     }
-  ]
+  ],
+  "random_sequence": "ultramarine:blocks/stone_pedestal"
 }

@@ -12,5 +12,6 @@
       "name": "xumi_stone_monolith",
       "rolls": 1.0
     }
-  ]
+  ],
+  "random_sequence": "ultramarine:blocks/xumi_stone_monolith"
 }

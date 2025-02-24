@@ -12,5 +12,6 @@
       "name": "chess_table",
       "rolls": 1.0
     }
-  ]
+  ],
+  "random_sequence": "ultramarine:blocks/chess_table"
 }

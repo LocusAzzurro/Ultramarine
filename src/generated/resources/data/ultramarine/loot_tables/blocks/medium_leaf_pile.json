@@ -12,5 +12,6 @@
       "name": "medium_leaf_pile",
       "rolls": 1.0
     }
-  ]
+  ],
+  "random_sequence": "ultramarine:blocks/medium_leaf_pile"
 }

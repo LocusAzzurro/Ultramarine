@@ -12,5 +12,6 @@
       "name": "terracotta_pot",
       "rolls": 1.0
     }
-  ]
+  ],
+  "random_sequence": "ultramarine:blocks/terracotta_pot"
 }

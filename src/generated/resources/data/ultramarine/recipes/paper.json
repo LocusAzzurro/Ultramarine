@@ -1,5 +1,6 @@
 {
   "type": "minecraft:crafting_shaped",
+  "category": "misc",
   "key": {
     "P": {
       "item": "ultramarine:xuan_paper"
@@ -11,5 +12,6 @@
   "result": {
     "count": 2,
     "item": "ultramarine:paper"
-  }
+  },
+  "show_notification": true
 }

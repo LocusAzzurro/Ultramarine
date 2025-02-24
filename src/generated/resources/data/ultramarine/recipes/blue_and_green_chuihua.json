@@ -1,5 +1,6 @@
 {
   "type": "minecraft:crafting_shaped",
+  "category": "misc",
   "key": {
     "B": {
       "item": "ultramarine:blue_carved_wooden_slab"
@@ -18,5 +19,6 @@
   ],
   "result": {
     "item": "ultramarine:blue_and_green_chuihua"
-  }
+  },
+  "show_notification": true
 }

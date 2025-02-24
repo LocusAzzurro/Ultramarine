@@ -12,5 +12,6 @@
       "name": "red_silk_fabric_roll",
       "rolls": 1.0
     }
-  ]
+  ],
+  "random_sequence": "ultramarine:blocks/red_silk_fabric_roll"
 }

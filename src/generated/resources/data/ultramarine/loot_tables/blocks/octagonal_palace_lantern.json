@@ -12,5 +12,6 @@
       "name": "octagonal_palace_lantern",
       "rolls": 1.0
     }
-  ]
+  ],
+  "random_sequence": "ultramarine:blocks/octagonal_palace_lantern"
 }

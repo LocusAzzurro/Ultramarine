@@ -12,5 +12,6 @@
       "name": "teahouse_flag",
       "rolls": 1.0
     }
-  ]
+  ],
+  "random_sequence": "ultramarine:blocks/teahouse_flag"
 }

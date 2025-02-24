@@ -12,5 +12,6 @@
       "name": "large_bonsai",
       "rolls": 1.0
     }
-  ]
+  ],
+  "random_sequence": "ultramarine:blocks/large_bonsai"
 }

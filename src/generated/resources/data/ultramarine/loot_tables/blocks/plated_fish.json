@@ -12,5 +12,6 @@
       "name": "plated_fish",
       "rolls": 1.0
     }
-  ]
+  ],
+  "random_sequence": "ultramarine:blocks/plated_fish"
 }

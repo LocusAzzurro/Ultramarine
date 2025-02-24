@@ -1,5 +1,6 @@
 {
   "type": "minecraft:crafting_shaped",
+  "category": "misc",
   "key": {
     "F": {
       "tag": "minecraft:wooden_fences"
@@ -12,5 +13,6 @@
   ],
   "result": {
     "item": "ultramarine:wooden_poles"
-  }
+  },
+  "show_notification": true
 }

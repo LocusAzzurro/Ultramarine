@@ -12,5 +12,6 @@
       "name": "gray_roof_tile_edge",
       "rolls": 1.0
     }
-  ]
+  ],
+  "random_sequence": "ultramarine:blocks/gray_roof_tile_edge"
 }

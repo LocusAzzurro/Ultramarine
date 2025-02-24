@@ -4,10 +4,7 @@ import com.google.common.collect.ImmutableSet;
 import com.voxelutopia.ultramarine.Ultramarine;
 import com.voxelutopia.ultramarine.data.registry.BlockRegistry;
 import com.voxelutopia.ultramarine.data.registry.ItemRegistry;
-import com.voxelutopia.ultramarine.world.block.BaseBlockProperty;
-import com.voxelutopia.ultramarine.world.block.BaseBlockPropertyHolder;
-import com.voxelutopia.ultramarine.world.block.ConsumableDecorativeBlock;
-import com.voxelutopia.ultramarine.world.block.StackableHalfBlock;
+import com.voxelutopia.ultramarine.world.block.*;
 import com.voxelutopia.ultramarine.world.block.state.ModBlockStateProperties;
 import com.voxelutopia.ultramarine.world.block.state.StackableBlockType;
 import net.minecraft.advancements.critereon.EnchantmentPredicate;
@@ -41,6 +38,7 @@ import net.minecraft.world.level.storage.loot.predicates.MatchTool;
 import net.minecraft.world.level.storage.loot.providers.number.BinomialDistributionGenerator;
 import net.minecraft.world.level.storage.loot.providers.number.ConstantValue;
 import net.minecraft.world.level.storage.loot.providers.number.UniformGenerator;
+import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import org.slf4j.Logger;
 
@@ -82,50 +80,17 @@ public class ModBlockLootProvider extends BlockLootSubProvider {
         ));
     }
 
-    protected LootTable.Builder createAbundantOreDrop(String name, Block block, Item drop, float min, float max) {
-        return createSilkTouchDispatchTable(block, name, applyExplosionDecay(block, LootItem.lootTableItem(drop)
-                .apply(SetItemCountFunction.setCount(UniformGenerator.between(min, max)))
-                .apply(ApplyBonusCount.addOreBonusCount(Enchantments.BLOCK_FORTUNE))));
-    }
-
-    protected LootTable.Builder createOreDrop(String name, Block block, Item drop) {
-        return createSilkTouchDispatchTable(block, name, applyExplosionDecay(block, LootItem.lootTableItem(drop).apply(ApplyBonusCount.addOreBonusCount(Enchantments.BLOCK_FORTUNE))));
-    }
-
-    protected static LootTable.Builder createPorcelainDropWithShard(String name, ItemLike block, ItemLike piece, ItemLike shard) {
-        return LootTable.lootTable()
-                .withPool(LootPool.lootPool().name(name)
-                .setRolls(ConstantValue.exactly(1.0F))
-                .add(LootItem.lootTableItem(block).when(HAS_SILK_TOUCH)
-                .otherwise(LootItem.lootTableItem(piece).when(LootItemRandomChanceCondition.randomChance(0.01F)).apply(ApplyBonusCount.addUniformBonusCount(Enchantments.BLOCK_FORTUNE, 2)))
-                .otherwise(LootItem.lootTableItem(shard).apply(SetItemCountFunction.setCount(BinomialDistributionGenerator.binomial(3, 0.5F))))));
-    }
-
-    protected static LootTable.Builder createPorcelainDrop(String name, ItemLike block, ItemLike piece) {
-        return LootTable.lootTable()
-                .withPool(LootPool.lootPool().name(name)
-                .setRolls(ConstantValue.exactly(1.0F))
-                .add(LootItem.lootTableItem(block).when(HAS_SILK_TOUCH)
-                .otherwise(LootItem.lootTableItem(piece).when(LootItemRandomChanceCondition.randomChance(0.2F)).apply(ApplyBonusCount.addUniformBonusCount(Enchantments.BLOCK_FORTUNE, 2)))));
-    }
-
-    protected static LootTable.Builder createSelfDropDispatchTable(Block pBlock, String name, LootItemCondition.Builder pConditionBuilder, LootPoolEntryContainer.Builder<?> pAlternativeEntryBuilder) {
-        return LootTable.lootTable()
-                .withPool(LootPool.lootPool().name(name)
-                .setRolls(ConstantValue.exactly(1.0F))
-                .add(LootItem.lootTableItem(pBlock).when(pConditionBuilder)
-                .otherwise(pAlternativeEntryBuilder)));
-    }
-
-    protected static LootTable.Builder createSilkTouchDispatchTable(Block pBlock, String name, LootPoolEntryContainer.Builder<?> pAlternativeEntryBuilder) {
-        return createSelfDropDispatchTable(pBlock, name, HAS_SILK_TOUCH, pAlternativeEntryBuilder);
-    }
-
     @Override
     protected void generate() {
         BlockRegistry.BLOCKS.getEntries().stream()
                 .filter(blockRegistryObject -> !NON_SIMPLE_BLOCKS.contains(blockRegistryObject))
                 .forEach(this::simple);
+        BlockRegistry.BLOCKS.getEntries().stream()
+                .filter(blockRegistryObject -> blockRegistryObject.get() instanceof BaseSlab)
+                .forEach(blockRegistryObject -> slab(blockRegistryObject.get(), blockRegistryObject.get().asItem()));
+        BlockRegistry.BLOCKS.getEntries().stream()
+                .filter(blockRegistryObject -> blockRegistryObject.get() instanceof StackableHalfBlock)
+                .forEach(blockRegistryObject -> stackableHalf(blockRegistryObject.get(), blockRegistryObject.get().asItem()));
         ore(BlockRegistry.JADE_ORE, ItemRegistry.JADE);
         ore(BlockRegistry.DEEPSLATE_JADE_ORE, ItemRegistry.JADE);
         ore(BlockRegistry.HEMATITE_ORE, ItemRegistry.RAW_HEMATITE);
@@ -147,6 +112,7 @@ public class ModBlockLootProvider extends BlockLootSubProvider {
         porcelainPlate(BlockRegistry.PLATED_MUNG_BEAN_CAKES, ItemRegistry.PORCELAIN_PIECE);
         plateDrop(BlockRegistry.PLATED_HAM);
         plateDrop(BlockRegistry.PLATED_FISH);
+        plateDrop(BlockRegistry.SCATTERED_CARROTS);
         plateDrop(BlockRegistry.XIAOLONGBAO);
 
         porcelain(BlockRegistry.SMALL_WHITE_PORCELAIN_VASE_BONSAI, ItemRegistry.PORCELAIN_PIECE);
@@ -171,18 +137,6 @@ public class ModBlockLootProvider extends BlockLootSubProvider {
                                         .append(LootItem.lootTableItem(ItemRegistry.HANGING_PAINTING_FAN.get()))
                                         .append(LootItem.lootTableItem(ItemRegistry.SINCERE_CALLIGRAPHY.get()))
                                 ))));
-
-        slab(BlockRegistry.CYAN_BRICK_SLAB, ItemRegistry.CYAN_BRICK_SLAB);
-        slab(BlockRegistry.BLACK_BRICK_SLAB, ItemRegistry.BLACK_BRICK_SLAB);
-        slab(BlockRegistry.BROWNISH_RED_STONE_BRICK_SLAB, ItemRegistry.BROWNISH_RED_STONE_BRICK_SLAB);
-        slab(BlockRegistry.PALE_YELLOW_STONE_SLAB, ItemRegistry.PALE_YELLOW_STONE_SLAB);
-        slab(BlockRegistry.VARIEGATED_ROCK_SLAB, ItemRegistry.VARIEGATED_ROCK_SLAB);
-        slab(BlockRegistry.WEATHERED_STONE_SLAB, ItemRegistry.WEATHERED_STONE_SLAB);
-        slab(BlockRegistry.POLISHED_WEATHERED_STONE_SLAB, ItemRegistry.POLISHED_WEATHERED_STONE_SLAB);
-        slab(BlockRegistry.LIGHT_CYAN_FLOOR_TILE_SLAB, ItemRegistry.LIGHT_CYAN_FLOOR_TILE_SLAB);
-        slab(BlockRegistry.CYAN_FLOOR_TILE_SLAB, ItemRegistry.CYAN_FLOOR_TILE_SLAB);
-        slab(BlockRegistry.BAMBOO_MAT_SLAB, ItemRegistry.BAMBOO_MAT_SLAB);
-        stackableHalf(BlockRegistry.CABBAGE_BASKET, ItemRegistry.CABBAGE_BASKET);
     }
 
     void simple(RegistryObject<? extends Block> block) {
@@ -217,17 +171,16 @@ public class ModBlockLootProvider extends BlockLootSubProvider {
         else LOGGER.warn("Porcelain plate loot table was not added for block " + block.get().getDescriptionId());
     }
 
-
-    void slab(RegistryObject<? extends Block> block, RegistryObject<? extends Item> item) {
-        if (block.get() instanceof SlabBlock slab)
-            addLootTable(block.get(), createSlabDrop(block.getId().getPath(), slab, item.get()));
-        else LOGGER.warn("Slab loot table was not added for block " + block.get().getDescriptionId());
+    void slab(Block block, Item item) {
+        if (block instanceof SlabBlock slab)
+            addLootTable(block, createSlabDrop(name(block), slab, item));
+        else LOGGER.warn("Slab loot table was not added for block " + block.getDescriptionId());
     }
 
-    void stackableHalf(RegistryObject<? extends Block> block, RegistryObject<? extends Item> item) {
-        if (block.get() instanceof StackableHalfBlock stackable)
-            addLootTable(block.get(), createStackableHalfDrop(block.getId().getPath(), stackable, item.get()));
-        else LOGGER.warn("Stackable loot table was not added for block " + block.get().getDescriptionId());
+    void stackableHalf(Block block, Item item) {
+        if (block instanceof StackableHalfBlock stackable)
+            addLootTable(block, createStackableHalfDrop(name(block), stackable, item));
+        else LOGGER.warn("Stackable loot table was not added for block " + block.getDescriptionId());
     }
 
     void plateDrop(RegistryObject<? extends Block> block) {
@@ -296,6 +249,45 @@ public class ModBlockLootProvider extends BlockLootSubProvider {
         return LootTable.lootTable().withPool(builder);
     }
 
+    protected LootTable.Builder createAbundantOreDrop(String name, Block block, Item drop, float min, float max) {
+        return createSilkTouchDispatchTable(block, name, applyExplosionDecay(block, LootItem.lootTableItem(drop)
+                .apply(SetItemCountFunction.setCount(UniformGenerator.between(min, max)))
+                .apply(ApplyBonusCount.addOreBonusCount(Enchantments.BLOCK_FORTUNE))));
+    }
+
+    protected LootTable.Builder createOreDrop(String name, Block block, Item drop) {
+        return createSilkTouchDispatchTable(block, name, applyExplosionDecay(block, LootItem.lootTableItem(drop).apply(ApplyBonusCount.addOreBonusCount(Enchantments.BLOCK_FORTUNE))));
+    }
+
+    protected static LootTable.Builder createPorcelainDropWithShard(String name, ItemLike block, ItemLike piece, ItemLike shard) {
+        return LootTable.lootTable()
+                .withPool(LootPool.lootPool().name(name)
+                        .setRolls(ConstantValue.exactly(1.0F))
+                        .add(LootItem.lootTableItem(block).when(HAS_SILK_TOUCH)
+                                .otherwise(LootItem.lootTableItem(piece).when(LootItemRandomChanceCondition.randomChance(0.01F)).apply(ApplyBonusCount.addUniformBonusCount(Enchantments.BLOCK_FORTUNE, 2)))
+                                .otherwise(LootItem.lootTableItem(shard).apply(SetItemCountFunction.setCount(BinomialDistributionGenerator.binomial(3, 0.5F))))));
+    }
+
+    protected static LootTable.Builder createPorcelainDrop(String name, ItemLike block, ItemLike piece) {
+        return LootTable.lootTable()
+                .withPool(LootPool.lootPool().name(name)
+                        .setRolls(ConstantValue.exactly(1.0F))
+                        .add(LootItem.lootTableItem(block).when(HAS_SILK_TOUCH)
+                                .otherwise(LootItem.lootTableItem(piece).when(LootItemRandomChanceCondition.randomChance(0.2F)).apply(ApplyBonusCount.addUniformBonusCount(Enchantments.BLOCK_FORTUNE, 2)))));
+    }
+
+    protected static LootTable.Builder createSelfDropDispatchTable(Block pBlock, String name, LootItemCondition.Builder pConditionBuilder, LootPoolEntryContainer.Builder<?> pAlternativeEntryBuilder) {
+        return LootTable.lootTable()
+                .withPool(LootPool.lootPool().name(name)
+                        .setRolls(ConstantValue.exactly(1.0F))
+                        .add(LootItem.lootTableItem(pBlock).when(pConditionBuilder)
+                                .otherwise(pAlternativeEntryBuilder)));
+    }
+
+    protected static LootTable.Builder createSilkTouchDispatchTable(Block pBlock, String name, LootPoolEntryContainer.Builder<?> pAlternativeEntryBuilder) {
+        return createSelfDropDispatchTable(pBlock, name, HAS_SILK_TOUCH, pAlternativeEntryBuilder);
+    }
+
     /**
      * Substitute for adding loot tables to the put(Block, LootTable.Builder) call.
      * Adds check for duplicates, prefer calling this method for adding loot tables.
@@ -307,6 +299,15 @@ public class ModBlockLootProvider extends BlockLootSubProvider {
             LOGGER.warn("Added duplicate loot table for block " + block.getDescriptionId());
         }
         lootTables.put(block, builder);
+        add(block, builder);
     }
 
+    private static String name(Block block){
+        return Objects.requireNonNull(ForgeRegistries.BLOCKS.getKey(block)).getPath();
+    }
+
+    @Override
+    protected Iterable<Block> getKnownBlocks() {
+        return BlockRegistry.BLOCKS.getEntries().stream().map(RegistryObject::get)::iterator;
+    }
 }

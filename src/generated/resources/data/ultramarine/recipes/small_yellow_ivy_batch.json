@@ -1,5 +1,6 @@
 {
   "type": "minecraft:crafting_shaped",
+  "category": "misc",
   "key": {
     "B": {
       "item": "minecraft:vine"
@@ -16,5 +17,6 @@
   "result": {
     "count": 8,
     "item": "ultramarine:small_yellow_ivy"
-  }
+  },
+  "show_notification": true
 }

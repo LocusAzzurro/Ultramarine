@@ -12,5 +12,6 @@
       "name": "light_cyan_floor_tile_stairs",
       "rolls": 1.0
     }
-  ]
+  ],
+  "random_sequence": "ultramarine:blocks/light_cyan_floor_tile_stairs"
 }

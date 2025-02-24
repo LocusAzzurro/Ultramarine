@@ -1,5 +1,6 @@
 {
   "type": "minecraft:crafting_shaped",
+  "category": "misc",
   "key": {
     "E": {
       "item": "ultramarine:wooden_parts"
@@ -24,5 +25,6 @@
   ],
   "result": {
     "item": "ultramarine:memorial_tablet"
-  }
+  },
+  "show_notification": true
 }

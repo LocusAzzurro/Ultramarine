@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_cyan_carved_wooden_slab": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "ultramarine:cyan_carved_wooden_slab"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "ultramarine:cyan_carved_wooden_bracket"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_cyan_carved_wooden_slab",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "ultramarine:cyan_carved_wooden_bracket"
+    ]
+  },
+  "sends_telemetry_event": false
+}

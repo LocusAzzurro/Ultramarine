@@ -1,5 +1,6 @@
 {
   "type": "minecraft:crafting_shaped",
+  "category": "misc",
   "key": {
     "P": {
       "item": "ultramarine:wooden_parts"
@@ -13,5 +14,6 @@
   ],
   "result": {
     "item": "ultramarine:ruler"
-  }
+  },
+  "show_notification": true
 }

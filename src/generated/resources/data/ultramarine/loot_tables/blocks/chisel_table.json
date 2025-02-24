@@ -12,5 +12,6 @@
       "name": "chisel_table",
       "rolls": 1.0
     }
-  ]
+  ],
+  "random_sequence": "ultramarine:blocks/chisel_table"
 }

@@ -1,5 +1,6 @@
 {
   "type": "minecraft:crafting_shaped",
+  "category": "misc",
   "key": {
     "B": {
       "item": "ultramarine:chessboard"
@@ -21,5 +22,6 @@
   ],
   "result": {
     "item": "ultramarine:chess_table"
-  }
+  },
+  "show_notification": true
 }

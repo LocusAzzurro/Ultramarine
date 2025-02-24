@@ -1,5 +1,6 @@
 {
   "type": "minecraft:crafting_shaped",
+  "category": "misc",
   "key": {
     "G": {
       "item": "minecraft:enchanted_golden_apple"
@@ -18,5 +19,6 @@
   ],
   "result": {
     "item": "ultramarine:imperial_jade_seal"
-  }
+  },
+  "show_notification": true
 }

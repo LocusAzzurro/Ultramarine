@@ -12,5 +12,6 @@
       "name": "large_yellow_carved_pattern",
       "rolls": 1.0
     }
-  ]
+  ],
+  "random_sequence": "ultramarine:blocks/large_yellow_carved_pattern"
 }

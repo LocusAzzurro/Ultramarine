@@ -1,5 +1,6 @@
 {
   "type": "minecraft:crafting_shaped",
+  "category": "building",
   "key": {
     "P": {
       "item": "ultramarine:carved_red_pillar"
@@ -14,5 +15,6 @@
   ],
   "result": {
     "item": "ultramarine:carved_red_pillar_base"
-  }
+  },
+  "show_notification": true
 }

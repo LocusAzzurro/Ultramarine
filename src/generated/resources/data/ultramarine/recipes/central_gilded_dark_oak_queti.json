@@ -1,5 +1,6 @@
 {
   "type": "minecraft:crafting_shaped",
+  "category": "misc",
   "key": {
     "C": {
       "item": "ultramarine:horizontal_gilded_dark_oak_queti"
@@ -10,5 +11,6 @@
   ],
   "result": {
     "item": "ultramarine:central_gilded_dark_oak_queti"
-  }
+  },
+  "show_notification": true
 }

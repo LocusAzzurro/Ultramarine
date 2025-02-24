@@ -12,5 +12,6 @@
       "name": "gunny_sack",
       "rolls": 1.0
     }
-  ]
+  ],
+  "random_sequence": "ultramarine:blocks/gunny_sack"
 }

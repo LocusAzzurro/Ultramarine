@@ -54,5 +54,6 @@
       "name": "cyan_floor_tile_slab",
       "rolls": 1.0
     }
-  ]
+  ],
+  "random_sequence": "ultramarine:blocks/cyan_floor_tile_slab"
 }

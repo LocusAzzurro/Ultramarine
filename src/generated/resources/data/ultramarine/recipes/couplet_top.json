@@ -1,5 +1,6 @@
 {
   "type": "minecraft:crafting_shaped",
+  "category": "misc",
   "key": {
     "I": {
       "item": "minecraft:ink_sac"
@@ -17,5 +18,6 @@
   ],
   "result": {
     "item": "ultramarine:couplet_top"
-  }
+  },
+  "show_notification": true
 }

@@ -1,5 +1,6 @@
 {
   "type": "minecraft:crafting_shaped",
+  "category": "misc",
   "key": {
     "D": {
       "item": "minecraft:cyan_dye"
@@ -24,5 +25,6 @@
   ],
   "result": {
     "item": "ultramarine:large_greeting_pine_bonsai"
-  }
+  },
+  "show_notification": true
 }

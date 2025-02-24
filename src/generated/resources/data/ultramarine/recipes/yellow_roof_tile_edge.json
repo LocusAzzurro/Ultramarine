@@ -1,5 +1,6 @@
 {
   "type": "minecraft:crafting_shaped",
+  "category": "building",
   "key": {
     "T": {
       "item": "ultramarine:yellow_roof_tile"
@@ -11,5 +12,6 @@
   ],
   "result": {
     "item": "ultramarine:yellow_roof_tile_edge"
-  }
+  },
+  "show_notification": true
 }

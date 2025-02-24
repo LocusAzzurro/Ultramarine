@@ -12,5 +12,6 @@
       "name": "carved_stone_queti",
       "rolls": 1.0
     }
-  ]
+  ],
+  "random_sequence": "ultramarine:blocks/carved_stone_queti"
 }

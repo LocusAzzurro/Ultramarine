@@ -12,5 +12,6 @@
       "name": "black_bricks",
       "rolls": 1.0
     }
-  ]
+  ],
+  "random_sequence": "ultramarine:blocks/black_bricks"
 }

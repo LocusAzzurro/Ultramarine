@@ -1,0 +1,59 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "bonus_rolls": 0.0,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "conditions": [
+            {
+              "block": "ultramarine:yellow_roof_ridge_upper_slab",
+              "condition": "minecraft:block_state_property",
+              "properties": {
+                "type": "top"
+              }
+            }
+          ],
+          "name": "ultramarine:yellow_roof_ridge_upper_slab"
+        },
+        {
+          "type": "minecraft:item",
+          "conditions": [
+            {
+              "block": "ultramarine:yellow_roof_ridge_upper_slab",
+              "condition": "minecraft:block_state_property",
+              "properties": {
+                "type": "bottom"
+              }
+            }
+          ],
+          "name": "ultramarine:yellow_roof_ridge_upper_slab"
+        },
+        {
+          "type": "minecraft:item",
+          "conditions": [
+            {
+              "block": "ultramarine:yellow_roof_ridge_upper_slab",
+              "condition": "minecraft:block_state_property",
+              "properties": {
+                "type": "double"
+              }
+            }
+          ],
+          "functions": [
+            {
+              "add": false,
+              "count": 2.0,
+              "function": "minecraft:set_count"
+            }
+          ],
+          "name": "ultramarine:yellow_roof_ridge_upper_slab"
+        }
+      ],
+      "name": "yellow_roof_ridge_upper_slab",
+      "rolls": 1.0
+    }
+  ],
+  "random_sequence": "ultramarine:blocks/yellow_roof_ridge_upper_slab"
+}

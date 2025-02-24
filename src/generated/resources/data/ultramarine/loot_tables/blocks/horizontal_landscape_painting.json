@@ -12,5 +12,6 @@
       "name": "horizontal_landscape_painting",
       "rolls": 1.0
     }
-  ]
+  ],
+  "random_sequence": "ultramarine:blocks/horizontal_landscape_painting"
 }

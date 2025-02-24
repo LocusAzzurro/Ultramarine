@@ -12,5 +12,6 @@
       "name": "back_cushion",
       "rolls": 1.0
     }
-  ]
+  ],
+  "random_sequence": "ultramarine:blocks/back_cushion"
 }

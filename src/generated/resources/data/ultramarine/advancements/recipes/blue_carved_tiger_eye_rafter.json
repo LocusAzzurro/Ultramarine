@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_rafter_template": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "ultramarine:rafter_template"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "ultramarine:blue_carved_tiger_eye_rafter"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_rafter_template",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "ultramarine:blue_carved_tiger_eye_rafter"
+    ]
+  },
+  "sends_telemetry_event": true
+}

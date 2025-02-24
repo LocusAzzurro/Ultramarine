@@ -30,5 +30,6 @@
     "recipes": [
       "minecraft:porcelain_piece_grinding"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

@@ -12,5 +12,6 @@
       "name": "damaged_landscape_painting",
       "rolls": 1.0
     }
-  ]
+  ],
+  "random_sequence": "ultramarine:blocks/damaged_landscape_painting"
 }

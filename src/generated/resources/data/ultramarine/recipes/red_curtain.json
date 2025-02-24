@@ -1,5 +1,6 @@
 {
   "type": "minecraft:crafting_shaped",
+  "category": "misc",
   "key": {
     "D": {
       "item": "ultramarine:red_dye_powder"
@@ -18,5 +19,6 @@
   ],
   "result": {
     "item": "ultramarine:red_curtain"
-  }
+  },
+  "show_notification": true
 }

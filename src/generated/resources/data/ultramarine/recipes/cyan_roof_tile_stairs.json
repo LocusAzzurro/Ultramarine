@@ -1,5 +1,6 @@
 {
   "type": "minecraft:crafting_shaped",
+  "category": "building",
   "key": {
     "T": {
       "item": "ultramarine:cyan_roof_tile"
@@ -12,5 +13,6 @@
   ],
   "result": {
     "item": "ultramarine:cyan_roof_tile_stairs"
-  }
+  },
+  "show_notification": true
 }

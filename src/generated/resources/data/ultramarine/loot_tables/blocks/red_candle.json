@@ -12,5 +12,6 @@
       "name": "red_candle",
       "rolls": 1.0
     }
-  ]
+  ],
+  "random_sequence": "ultramarine:blocks/red_candle"
 }

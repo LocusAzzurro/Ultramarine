@@ -1,5 +1,6 @@
 {
   "type": "minecraft:crafting_shaped",
+  "category": "misc",
   "key": {
     "I": {
       "item": "minecraft:ink_sac"
@@ -16,5 +17,6 @@
   "result": {
     "count": 2,
     "item": "ultramarine:paper_strip_seal"
-  }
+  },
+  "show_notification": true
 }

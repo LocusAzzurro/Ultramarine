@@ -1,5 +1,6 @@
 {
   "type": "minecraft:crafting_shaped",
+  "category": "misc",
   "key": {
     "P": {
       "tag": "minecraft:planks"
@@ -14,5 +15,6 @@
   ],
   "result": {
     "item": "ultramarine:hanging_red_lantern_streetlight"
-  }
+  },
+  "show_notification": true
 }

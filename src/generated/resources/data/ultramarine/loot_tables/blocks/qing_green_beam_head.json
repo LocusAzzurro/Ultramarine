@@ -12,5 +12,6 @@
       "name": "qing_green_beam_head",
       "rolls": 1.0
     }
-  ]
+  ],
+  "random_sequence": "ultramarine:blocks/qing_green_beam_head"
 }

@@ -12,5 +12,6 @@
       "name": "fu_mark",
       "rolls": 1.0
     }
-  ]
+  ],
+  "random_sequence": "ultramarine:blocks/fu_mark"
 }

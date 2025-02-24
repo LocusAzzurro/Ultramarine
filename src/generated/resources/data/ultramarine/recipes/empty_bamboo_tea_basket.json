@@ -1,5 +1,6 @@
 {
   "type": "minecraft:crafting_shaped",
+  "category": "misc",
   "key": {
     "B": {
       "item": "minecraft:bamboo"
@@ -21,5 +22,6 @@
   ],
   "result": {
     "item": "ultramarine:empty_bamboo_tea_basket"
-  }
+  },
+  "show_notification": true
 }

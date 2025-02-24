@@ -1,5 +1,6 @@
 {
   "type": "minecraft:crafting_shaped",
+  "category": "building",
   "key": {
     "B": {
       "item": "ultramarine:black_floor_tiles_moderate_mossy"
@@ -16,5 +17,6 @@
   "result": {
     "count": 8,
     "item": "ultramarine:black_floor_tiles_very_mossy"
-  }
+  },
+  "show_notification": true
 }

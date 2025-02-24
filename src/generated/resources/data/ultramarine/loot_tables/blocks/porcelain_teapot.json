@@ -52,5 +52,6 @@
       "name": "porcelain_teapot",
       "rolls": 1.0
     }
-  ]
+  ],
+  "random_sequence": "ultramarine:blocks/porcelain_teapot"
 }

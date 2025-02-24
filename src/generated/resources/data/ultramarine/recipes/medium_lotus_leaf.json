@@ -1,5 +1,6 @@
 {
   "type": "minecraft:crafting_shaped",
+  "category": "misc",
   "key": {
     "L": {
       "item": "ultramarine:small_lotus_leaf"
@@ -10,5 +11,6 @@
   ],
   "result": {
     "item": "ultramarine:medium_lotus_leaf"
-  }
+  },
+  "show_notification": true
 }

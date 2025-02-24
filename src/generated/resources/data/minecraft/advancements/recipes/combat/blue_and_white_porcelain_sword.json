@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_blue_and_white_porcelain_piece": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "ultramarine:blue_and_white_porcelain_piece"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "minecraft:blue_and_white_porcelain_sword"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_blue_and_white_porcelain_piece",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "minecraft:blue_and_white_porcelain_sword"
+    ]
+  },
+  "sends_telemetry_event": false
+}

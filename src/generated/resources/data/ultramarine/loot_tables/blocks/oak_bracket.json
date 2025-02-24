@@ -12,5 +12,6 @@
       "name": "oak_bracket",
       "rolls": 1.0
     }
-  ]
+  ],
+  "random_sequence": "ultramarine:blocks/oak_bracket"
 }

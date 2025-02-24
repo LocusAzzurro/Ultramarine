@@ -55,5 +55,6 @@
       "name": "deepslate_magnesite_ore",
       "rolls": 1.0
     }
-  ]
+  ],
+  "random_sequence": "ultramarine:blocks/deepslate_magnesite_ore"
 }

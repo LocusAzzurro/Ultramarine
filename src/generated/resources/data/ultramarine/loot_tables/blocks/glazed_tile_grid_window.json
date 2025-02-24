@@ -12,5 +12,6 @@
       "name": "glazed_tile_grid_window",
       "rolls": 1.0
     }
-  ]
+  ],
+  "random_sequence": "ultramarine:blocks/glazed_tile_grid_window"
 }

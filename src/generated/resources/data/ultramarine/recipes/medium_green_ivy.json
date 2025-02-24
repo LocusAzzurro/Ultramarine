@@ -1,5 +1,6 @@
 {
   "type": "minecraft:crafting_shaped",
+  "category": "misc",
   "key": {
     "I": {
       "item": "ultramarine:small_green_ivy"
@@ -11,5 +12,6 @@
   ],
   "result": {
     "item": "ultramarine:medium_green_ivy"
-  }
+  },
+  "show_notification": true
 }

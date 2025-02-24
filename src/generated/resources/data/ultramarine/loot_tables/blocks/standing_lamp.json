@@ -12,5 +12,6 @@
       "name": "standing_lamp",
       "rolls": 1.0
     }
-  ]
+  ],
+  "random_sequence": "ultramarine:blocks/standing_lamp"
 }

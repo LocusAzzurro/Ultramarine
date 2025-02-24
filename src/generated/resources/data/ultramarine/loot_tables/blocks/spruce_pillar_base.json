@@ -12,5 +12,6 @@
       "name": "spruce_pillar_base",
       "rolls": 1.0
     }
-  ]
+  ],
+  "random_sequence": "ultramarine:blocks/spruce_pillar_base"
 }

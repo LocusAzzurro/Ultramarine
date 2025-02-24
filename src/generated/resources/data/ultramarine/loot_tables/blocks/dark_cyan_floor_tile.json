@@ -12,5 +12,6 @@
       "name": "dark_cyan_floor_tile",
       "rolls": 1.0
     }
-  ]
+  ],
+  "random_sequence": "ultramarine:blocks/dark_cyan_floor_tile"
 }

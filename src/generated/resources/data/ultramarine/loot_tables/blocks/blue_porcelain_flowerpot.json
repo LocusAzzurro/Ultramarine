@@ -52,5 +52,6 @@
       "name": "blue_porcelain_flowerpot",
       "rolls": 1.0
     }
-  ]
+  ],
+  "random_sequence": "ultramarine:blocks/blue_porcelain_flowerpot"
 }

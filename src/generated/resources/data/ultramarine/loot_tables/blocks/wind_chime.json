@@ -12,5 +12,6 @@
       "name": "wind_chime",
       "rolls": 1.0
     }
-  ]
+  ],
+  "random_sequence": "ultramarine:blocks/wind_chime"
 }

@@ -1,5 +1,6 @@
 {
   "type": "minecraft:crafting_shaped",
+  "category": "misc",
   "key": {
     "C": {
       "item": "minecraft:clay_ball"
@@ -11,5 +12,6 @@
   "result": {
     "count": 3,
     "item": "ultramarine:unfired_clay_brick"
-  }
+  },
+  "show_notification": true
 }

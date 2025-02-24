@@ -1,5 +1,6 @@
 {
   "type": "minecraft:crafting_shaped",
+  "category": "building",
   "key": {
     "B": {
       "item": "ultramarine:dark_cyan_floor_tile"
@@ -16,5 +17,6 @@
   "result": {
     "count": 8,
     "item": "ultramarine:blue_and_black_tile"
-  }
+  },
+  "show_notification": true
 }

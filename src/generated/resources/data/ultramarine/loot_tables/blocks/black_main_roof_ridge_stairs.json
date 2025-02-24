@@ -12,5 +12,6 @@
       "name": "black_main_roof_ridge_stairs",
       "rolls": 1.0
     }
-  ]
+  ],
+  "random_sequence": "ultramarine:blocks/black_main_roof_ridge_stairs"
 }

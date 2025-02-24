@@ -12,5 +12,6 @@
       "name": "knife",
       "rolls": 1.0
     }
-  ]
+  ],
+  "random_sequence": "ultramarine:blocks/knife"
 }

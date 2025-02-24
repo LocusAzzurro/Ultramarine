@@ -12,5 +12,6 @@
       "name": "polished_weathered_stone",
       "rolls": 1.0
     }
-  ]
+  ],
+  "random_sequence": "ultramarine:blocks/polished_weathered_stone"
 }

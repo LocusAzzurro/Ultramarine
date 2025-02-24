@@ -1,5 +1,6 @@
 {
   "type": "minecraft:crafting_shaped",
+  "category": "misc",
   "key": {
     "P": {
       "item": "minecraft:flower_pot"
@@ -14,5 +15,6 @@
   ],
   "result": {
     "item": "ultramarine:terracotta_flowerpot"
-  }
+  },
+  "show_notification": true
 }

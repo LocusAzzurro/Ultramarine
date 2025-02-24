@@ -12,5 +12,6 @@
       "name": "plated_ham",
       "rolls": 1.0
     }
-  ]
+  ],
+  "random_sequence": "ultramarine:blocks/plated_ham"
 }

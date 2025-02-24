@@ -12,5 +12,6 @@
       "name": "small_wooden_guardian_lion",
       "rolls": 1.0
     }
-  ]
+  ],
+  "random_sequence": "ultramarine:blocks/small_wooden_guardian_lion"
 }

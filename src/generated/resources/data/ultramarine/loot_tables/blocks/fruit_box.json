@@ -12,5 +12,6 @@
       "name": "fruit_box",
       "rolls": 1.0
     }
-  ]
+  ],
+  "random_sequence": "ultramarine:blocks/fruit_box"
 }

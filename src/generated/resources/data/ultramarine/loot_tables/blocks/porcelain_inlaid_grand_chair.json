@@ -12,5 +12,6 @@
       "name": "porcelain_inlaid_grand_chair",
       "rolls": 1.0
     }
-  ]
+  ],
+  "random_sequence": "ultramarine:blocks/porcelain_inlaid_grand_chair"
 }

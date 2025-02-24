@@ -12,5 +12,6 @@
       "name": "jade_pendant",
       "rolls": 1.0
     }
-  ]
+  ],
+  "random_sequence": "ultramarine:blocks/jade_pendant"
 }

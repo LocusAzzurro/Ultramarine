@@ -12,5 +12,6 @@
       "name": "small_red_lantern",
       "rolls": 1.0
     }
-  ]
+  ],
+  "random_sequence": "ultramarine:blocks/small_red_lantern"
 }

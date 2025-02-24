@@ -12,5 +12,6 @@
       "name": "yellow_sky_lantern",
       "rolls": 1.0
     }
-  ]
+  ],
+  "random_sequence": "ultramarine:blocks/yellow_sky_lantern"
 }

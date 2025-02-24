@@ -1,5 +1,6 @@
 {
   "type": "minecraft:crafting_shaped",
+  "category": "building",
   "key": {
     "P": {
       "item": "minecraft:stripped_dark_oak_log"
@@ -14,5 +15,6 @@
   ],
   "result": {
     "item": "ultramarine:stripped_dark_oak_pillar_base"
-  }
+  },
+  "show_notification": true
 }

@@ -1,5 +1,6 @@
 {
   "type": "minecraft:crafting_shaped",
+  "category": "building",
   "key": {
     "G": {
       "item": "ultramarine:gold_parts"
@@ -15,5 +16,6 @@
   ],
   "result": {
     "item": "ultramarine:gilded_dark_oak"
-  }
+  },
+  "show_notification": true
 }

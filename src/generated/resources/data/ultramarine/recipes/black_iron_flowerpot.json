@@ -1,5 +1,6 @@
 {
   "type": "minecraft:crafting_shaped",
+  "category": "misc",
   "key": {
     "D": {
       "item": "minecraft:black_dye"
@@ -17,5 +18,6 @@
   ],
   "result": {
     "item": "ultramarine:black_iron_flowerpot"
-  }
+  },
+  "show_notification": true
 }

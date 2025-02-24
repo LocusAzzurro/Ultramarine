@@ -12,5 +12,6 @@
       "name": "hanging_red_lantern_streetlight",
       "rolls": 1.0
     }
-  ]
+  ],
+  "random_sequence": "ultramarine:blocks/hanging_red_lantern_streetlight"
 }

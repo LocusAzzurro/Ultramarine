@@ -12,5 +12,6 @@
       "name": "rosewood_fence",
       "rolls": 1.0
     }
-  ]
+  ],
+  "random_sequence": "ultramarine:blocks/rosewood_fence"
 }

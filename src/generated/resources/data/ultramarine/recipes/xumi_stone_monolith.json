@@ -1,5 +1,6 @@
 {
   "type": "minecraft:crafting_shaped",
+  "category": "misc",
   "key": {
     "B": {
       "item": "ultramarine:stone_pillar_base"
@@ -21,5 +22,6 @@
   ],
   "result": {
     "item": "ultramarine:xumi_stone_monolith"
-  }
+  },
+  "show_notification": true
 }

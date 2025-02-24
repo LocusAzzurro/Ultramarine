@@ -12,5 +12,6 @@
       "name": "brick_kiln",
       "rolls": 1.0
     }
-  ]
+  ],
+  "random_sequence": "ultramarine:blocks/brick_kiln"
 }

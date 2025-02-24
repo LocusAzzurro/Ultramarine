@@ -12,5 +12,6 @@
       "name": "jade_block",
       "rolls": 1.0
     }
-  ]
+  ],
+  "random_sequence": "ultramarine:blocks/jade_block"
 }

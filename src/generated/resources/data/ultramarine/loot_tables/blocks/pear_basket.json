@@ -1,0 +1,46 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "bonus_rolls": 0.0,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "conditions": [
+            {
+              "block": "ultramarine:pear_basket",
+              "condition": "minecraft:block_state_property",
+              "properties": {
+                "type": "single"
+              }
+            }
+          ],
+          "name": "ultramarine:pear_basket"
+        },
+        {
+          "type": "minecraft:item",
+          "conditions": [
+            {
+              "block": "ultramarine:pear_basket",
+              "condition": "minecraft:block_state_property",
+              "properties": {
+                "type": "double"
+              }
+            }
+          ],
+          "functions": [
+            {
+              "add": false,
+              "count": 2.0,
+              "function": "minecraft:set_count"
+            }
+          ],
+          "name": "ultramarine:pear_basket"
+        }
+      ],
+      "name": "pear_basket",
+      "rolls": 1.0
+    }
+  ],
+  "random_sequence": "ultramarine:blocks/pear_basket"
+}

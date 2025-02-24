@@ -12,5 +12,6 @@
       "name": "bamboo_mat_stairs",
       "rolls": 1.0
     }
-  ]
+  ],
+  "random_sequence": "ultramarine:blocks/bamboo_mat_stairs"
 }

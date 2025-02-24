@@ -1,5 +1,6 @@
 {
   "type": "minecraft:crafting_shaped",
+  "category": "misc",
   "key": {
     "I": {
       "item": "ultramarine:bronze_ingot"
@@ -14,5 +15,6 @@
   ],
   "result": {
     "item": "ultramarine:bronze_censer"
-  }
+  },
+  "show_notification": true
 }

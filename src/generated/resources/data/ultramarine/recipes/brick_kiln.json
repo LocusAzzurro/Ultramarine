@@ -1,5 +1,6 @@
 {
   "type": "minecraft:crafting_shaped",
+  "category": "equipment",
   "key": {
     "B": {
       "item": "ultramarine:cyan_brick"
@@ -15,5 +16,6 @@
   ],
   "result": {
     "item": "ultramarine:brick_kiln"
-  }
+  },
+  "show_notification": true
 }

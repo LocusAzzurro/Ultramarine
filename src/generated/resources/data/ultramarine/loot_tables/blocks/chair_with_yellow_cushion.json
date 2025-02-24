@@ -12,5 +12,6 @@
       "name": "chair_with_yellow_cushion",
       "rolls": 1.0
     }
-  ]
+  ],
+  "random_sequence": "ultramarine:blocks/chair_with_yellow_cushion"
 }

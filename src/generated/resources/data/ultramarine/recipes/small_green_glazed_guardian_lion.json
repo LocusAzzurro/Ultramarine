@@ -1,5 +1,6 @@
 {
   "type": "minecraft:crafting_shaped",
+  "category": "misc",
   "key": {
     "G": {
       "item": "ultramarine:green_glazed_tiles"
@@ -18,5 +19,6 @@
   ],
   "result": {
     "item": "ultramarine:small_green_glazed_guardian_lion"
-  }
+  },
+  "show_notification": true
 }
