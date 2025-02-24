@@ -23,58 +23,38 @@ public class RawVoxelShape {
     }
 
     public RawVoxelShape rotateY(float degrees){
-        minP.add(-8f, -8f, -8f);
-        maxP.add(-8f, -8f, -8f);
-        XZcorner1.add(-8f, -8f, -8f);
-        XZcorner2.add(-8f, -8f, -8f);
-        minP.rotateY(degrees);
-        maxP.rotateY(degrees);
-        XZcorner1.rotateY(degrees);
-        XZcorner2.rotateY(degrees);
-        minP.add(8f, 8f, 8f);
-        maxP.add(8f, 8f, 8f);
-        XZcorner1.add(8f, 8f, 8f);
-        XZcorner2.add(8f, 8f, 8f);
+        float radians = (float) Math.toRadians(degrees);
+        Vector3f t = new Vector3f(8f);
+        minP.sub(t).rotateY(radians).add(t);
+        maxP.sub(t).rotateY(radians).add(t);
+        XZcorner1.sub(t).rotateY(radians).add(t);
+        XZcorner2.sub(t).rotateY(radians).add(t);
         return this;
     }
 
     public RawVoxelShape rotateZ(float degrees){
-        minP.add(-8f, -8f, -8f);
-        maxP.add(-8f, -8f, -8f);
-        XZcorner1.add(-8f, -8f, -8f);
-        XZcorner2.add(-8f, -8f, -8f);
-        minP.rotateZ(degrees);
-        maxP.rotateZ(degrees);
-        XZcorner1.rotateZ(degrees);
-        XZcorner2.rotateZ(degrees);
-        minP.add(8f, 8f, 8f);
-        maxP.add(8f, 8f, 8f);
-        XZcorner1.add(8f, 8f, 8f);
-        XZcorner2.add(8f, 8f, 8f);
+        float radians = (float) Math.toRadians(degrees);
+        Vector3f t = new Vector3f(8f);
+        minP.sub(t).rotateZ(radians).add(t);
+        maxP.sub(t).rotateZ(radians).add(t);
+        XZcorner1.sub(t).rotateZ(radians).add(t);
+        XZcorner2.sub(t).rotateZ(radians).add(t);
         return this;
     }
 
     public RawVoxelShape mirrorZ(){
-        minP.mul(-1, 1, 1);
-        minP.add(16, 0, 0);
-        maxP.mul(-1, 1, 1);
-        maxP.add(16, 0, 0);
-        XZcorner1.mul(-1, 1, 1);
-        XZcorner1.add(16, 0, 0);
-        XZcorner2.mul(-1, 1, 1);
-        XZcorner2.add(16, 0, 0);
+        minP.mul(-1, 1, 1).add(16, 0, 0);
+        maxP.mul(-1, 1, 1).add(16, 0, 0);
+        XZcorner1.mul(-1, 1, 1).add(16, 0, 0);
+        XZcorner2.mul(-1, 1, 1).add(16, 0, 0);
         return this;
     }
 
     public RawVoxelShape mirrorY(){
-        minP.mul(1, -1, 1);
-        minP.add(0, 16, 0);
-        maxP.mul(1, -1, 1);
-        maxP.add(0, 16, 0);
-        XZcorner1.mul(1, -1, 1);
-        XZcorner1.add(0, 16, 0);
-        XZcorner2.mul(1, -1, 1);
-        XZcorner2.add(0, 16, 0);
+        minP.mul(1, -1, 1).add(0, 16, 0);
+        maxP.mul(1, -1, 1).add(0, 16, 0);
+        XZcorner1.mul(1, -1, 1).add(0, 16, 0);
+        XZcorner2.mul(1, -1, 1).add(0, 16, 0);
         return this;
     }
 
