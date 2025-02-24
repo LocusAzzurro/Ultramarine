@@ -37,6 +37,8 @@ minecraft {
             property 'forge.logging.markers', 'REGISTRIES'
             property 'forge.logging.console.level', 'info'
             property 'forge.enabledGameTestNamespaces', mod_id
+            property 'mixin.env.remapRefMap', 'true'
+            property 'mixin.env.refMapRemappingFile', "${projectDir}/build/createSrgToMcp/output.srg"
 
             if (project.hasProperty('mc_uuid')) {
                 args '--uuid', project.getProperty('mc_uuid')
@@ -116,8 +118,11 @@ repositories {
         url 'https://maven.blamejared.com'
     }
 
-    maven { // Curse
-        url "https://cursemaven.com"
+    maven {
+        url "https://www.cursemaven.com"
+        content {
+            includeGroup "curse.maven"
+        }
     }
 
     maven{
@@ -139,7 +144,7 @@ dependencies {
     compileOnly fg.deobf("mezz.jei:jei-${minecraft_version}-common-api:${jei_version}")
     compileOnly fg.deobf("mezz.jei:jei-${minecraft_version}-forge-api:${jei_version}")
     implementation fg.deobf("mezz.jei:jei-${minecraft_version}-forge:${jei_version}")
-    //implementation fg.deobf("curse.maven:the-one-probe-245211:${top_version_id}")
+    implementation fg.deobf("curse.maven:jade-324717:${jade_version_id}")
     //compileOnly fg.deobf("vazkii.patchouli:Patchouli:${patchouli_version}:api")
     //runtimeOnly fg.deobf("vazkii.patchouli:Patchouli:${patchouli_version}")
 
@@ -162,7 +167,7 @@ def replaceProperties = [
         forge_version_range: forge_version_range,
         loader_version_range: loader_version_range,
         jei_version: jei_version,
-        top_version_id: top_version_id,
+        jade_version_id: jade_version_id,
         patchouli_version: patchouli_version,
         jer_version_id: jer_version_id,
         worldedit_version_id: worldedit_version_id,
