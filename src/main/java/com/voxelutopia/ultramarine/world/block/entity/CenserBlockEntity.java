@@ -25,8 +25,7 @@ public class CenserBlockEntity extends BlockEntity{
 
     public static void tick(Level pLevel, BlockPos pPos, BlockState pState, CenserBlockEntity pBlockEntity) {
         if (pBlockEntity.remainingTime <= 0){
-            if (pBlockEntity.lit)
-                pBlockEntity.finishIncense(pLevel, pPos, pState);
+            pBlockEntity.finishIncense(pLevel, pPos, pState);
         }
         else {
             pBlockEntity.remainingTime--;
