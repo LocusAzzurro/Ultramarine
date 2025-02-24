@@ -678,7 +678,9 @@
 
   "__comment26__": "Jade Config",
   "config.jade.plugin_ultramarine.mallet_toggleable": "可木锤调整方块",
+  "config.jade.plugin_ultramarine.censer_burn_time": "熏香剩余时间",
   "gui.jade.plugin_ultramarine.mallet_toggleable": "可调整",
+  "gui.jade.plugin_ultramarine.censer_burn_time": "熏香：%d秒",
 
   "__EOF__": ""
 }

@@ -50,6 +50,11 @@ public class CenserBlockEntity extends BlockEntity{
         pLevel.setBlock(pPos, pState.setValue(LIT, false), Block.UPDATE_ALL);
         this.setChanged();
     }
+
+    public int getRemainingTime(){
+        return this.remainingTime;
+    }
+
     @Override
     public void load(CompoundTag pTag) {
         super.load(pTag);
