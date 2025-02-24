@@ -3,26 +3,21 @@ package com.voxelutopia.ultramarine.datagen;
 import com.voxelutopia.ultramarine.data.registry.BlockRegistry;
 import com.voxelutopia.ultramarine.world.block.*;
 import net.minecraft.core.HolderLookup;
-import net.minecraft.data.DataGenerator;
 import net.minecraft.data.PackOutput;
-import net.minecraft.data.tags.IntrinsicHolderTagsProvider;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.world.level.block.Block;
+import net.minecraftforge.common.data.BlockTagsProvider;
 import net.minecraftforge.common.data.ExistingFileHelper;
-import net.minecraftforge.registries.ForgeRegistries;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.concurrent.CompletableFuture;
 
 import static com.voxelutopia.ultramarine.datagen.DataGenerators.MOD_ID;
 
-public class ModBlockTagProvider extends IntrinsicHolderTagsProvider<Block> {
+public class ModBlockTagsProvider extends BlockTagsProvider {
 
-    public ModBlockTagProvider(PackOutput output, CompletableFuture<HolderLookup.Provider> registries, ExistingFileHelper fileHelper) {
-        super(output, ForgeRegistries.Keys.BLOCKS, registries,
-                attribute -> ForgeRegistries.BLOCKS.getResourceKey(attribute).get(),
-                MOD_ID, fileHelper
-        );
+    public ModBlockTagsProvider(PackOutput output, CompletableFuture<HolderLookup.Provider> lookupProvider, @Nullable ExistingFileHelper existingFileHelper) {
+        super(output, lookupProvider, MOD_ID, existingFileHelper);
     }
 
     @Override
