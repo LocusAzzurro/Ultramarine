@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/slab_top",
+  "textures": {
+    "bottom": "ultramarine:block/white_and_pink_mixed_bricks",
+    "side": "ultramarine:block/white_and_pink_mixed_bricks",
+    "top": "ultramarine:block/white_and_pink_mixed_bricks"
+  }
+}

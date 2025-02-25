@@ -35,16 +35,26 @@ public class BlockRegistry {
     public static final RegistryObject<Block> CYAN_BRICK_SLAB = BLOCKS.register("cyan_brick_slab", () -> new BaseSlab((BaseBlock) CYAN_BRICKS.get()));
     public static final RegistryObject<Block> CYAN_BRICK_STAIRS = BLOCKS.register("cyan_brick_stairs", () -> new BaseStairs((BaseBlock) CYAN_BRICKS.get()));
     public static final RegistryObject<Block> CYAN_BRICK_WALL = BLOCKS.register("cyan_brick_wall", () -> new BaseWall((BaseBlock) CYAN_BRICKS.get()));
+
     public static final RegistryObject<Block> BLACK_BRICKS = BLOCKS.register("black_bricks", BaseBlock::new);
     public static final RegistryObject<Block> BLACK_BRICK_SLAB = BLOCKS.register("black_brick_slab", () -> new BaseSlab((BaseBlock) BLACK_BRICKS.get()));
     public static final RegistryObject<Block> BLACK_BRICK_STAIRS = BLOCKS.register("black_brick_stairs", () -> new BaseStairs((BaseBlock) BLACK_BRICKS.get()));
     public static final RegistryObject<Block> BLACK_BRICK_WALL = BLOCKS.register("black_brick_wall", () -> new BaseWall((BaseBlock) BLACK_BRICKS.get()));
+
     public static final RegistryObject<Block> BROWNISH_RED_STONE_BRICKS = BLOCKS.register("brownish_red_stone_bricks", BaseBlock::new);
     public static final RegistryObject<Block> BROWNISH_RED_STONE_BRICK_SLAB = BLOCKS.register("brownish_red_stone_brick_slab", () -> new BaseSlab((BaseBlock) BROWNISH_RED_STONE_BRICKS.get()));
     public static final RegistryObject<Block> BROWNISH_RED_STONE_BRICK_STAIRS = BLOCKS.register("brownish_red_stone_brick_stairs", () -> new BaseStairs((BaseBlock) BROWNISH_RED_STONE_BRICKS.get()));
     public static final RegistryObject<Block> BROWNISH_RED_STONE_BRICK_WALL = BLOCKS.register("brownish_red_stone_brick_wall", () -> new BaseWall((BaseBlock) BROWNISH_RED_STONE_BRICKS.get()));
+
     public static final RegistryObject<Block> WHITE_AND_PINK_MIXED_BRICKS = BLOCKS.register("white_and_pink_mixed_bricks", () -> new BaseBlock(BaseBlockProperty.STONE));
+    public static final RegistryObject<Block> WHITE_AND_PINK_MIXED_BRICK_SLAB = BLOCKS.register("white_and_pink_mixed_brick_slab", () -> new BaseSlab((BaseBlock) WHITE_AND_PINK_MIXED_BRICKS.get()));
+    public static final RegistryObject<Block> WHITE_AND_PINK_MIXED_BRICK_STAIRS = BLOCKS.register("white_and_pink_mixed_brick_stairs", () -> new BaseStairs((BaseBlock) WHITE_AND_PINK_MIXED_BRICKS.get()));
+    public static final RegistryObject<Block> WHITE_AND_PINK_MIXED_BRICK_WALL = BLOCKS.register("white_and_pink_mixed_brick_wall", () -> new BaseWall((BaseBlock) WHITE_AND_PINK_MIXED_BRICKS.get()));
+
     public static final RegistryObject<Block> GREEN_WEATHERED_BRICKS = BLOCKS.register("green_weathered_bricks", () -> new BaseBlock(BaseBlockProperty.STONE));
+    public static final RegistryObject<Block> GREEN_WEATHERED_BRICK_SLAB = BLOCKS.register("green_weathered_brick_slab", () -> new BaseSlab((BaseBlock) GREEN_WEATHERED_BRICKS.get()));
+    public static final RegistryObject<Block> GREEN_WEATHERED_BRICK_STAIRS = BLOCKS.register("green_weathered_brick_stairs", () -> new BaseStairs((BaseBlock) GREEN_WEATHERED_BRICKS.get()));
+    public static final RegistryObject<Block> GREEN_WEATHERED_BRICK_WALL = BLOCKS.register("green_weathered_brick_wall", () -> new BaseWall((BaseBlock) GREEN_WEATHERED_BRICKS.get()));
 
     // STONES
 

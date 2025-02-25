@@ -75,7 +75,11 @@ public class ModBlockModelProvider extends BlockStateProvider {
         slabAndStairs(BlockRegistry.BROWNISH_RED_STONE_BRICKS.get(), BlockRegistry.BROWNISH_RED_STONE_BRICK_SLAB.get(), BlockRegistry.BROWNISH_RED_STONE_BRICK_STAIRS.get());
         wall(BlockRegistry.BROWNISH_RED_STONE_BRICKS.get(), BlockRegistry.BROWNISH_RED_STONE_BRICK_WALL.get());
         simpleBlock(BlockRegistry.WHITE_AND_PINK_MIXED_BRICKS.get());
+        slabAndStairs(BlockRegistry.WHITE_AND_PINK_MIXED_BRICKS.get(), BlockRegistry.WHITE_AND_PINK_MIXED_BRICK_SLAB.get(), BlockRegistry.WHITE_AND_PINK_MIXED_BRICK_STAIRS.get());
+        wall(BlockRegistry.WHITE_AND_PINK_MIXED_BRICKS.get(), BlockRegistry.WHITE_AND_PINK_MIXED_BRICK_WALL.get());
         simpleBlock(BlockRegistry.GREEN_WEATHERED_BRICKS.get());
+        slabAndStairs(BlockRegistry.GREEN_WEATHERED_BRICKS.get(), BlockRegistry.GREEN_WEATHERED_BRICK_SLAB.get(), BlockRegistry.GREEN_WEATHERED_BRICK_STAIRS.get());
+        wall(BlockRegistry.GREEN_WEATHERED_BRICKS.get(), BlockRegistry.GREEN_WEATHERED_BRICK_WALL.get());
         // STONES
         simpleBlock(BlockRegistry.PALE_YELLOW_STONE.get());
         slabAndStairs(BlockRegistry.PALE_YELLOW_STONE.get(), BlockRegistry.PALE_YELLOW_STONE_SLAB.get(), BlockRegistry.PALE_YELLOW_STONE_STAIRS.get());

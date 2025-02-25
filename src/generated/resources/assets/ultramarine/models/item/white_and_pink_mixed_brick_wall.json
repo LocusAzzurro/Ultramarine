@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/wall_inventory",
+  "textures": {
+    "wall": "ultramarine:block/white_and_pink_mixed_bricks"
+  }
+}

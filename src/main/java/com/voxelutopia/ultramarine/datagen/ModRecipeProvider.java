@@ -70,12 +70,16 @@ public class ModRecipeProvider extends RecipeProvider {
                 .pattern("VY").pattern("YV")
                 .unlockedBy("has_" + ItemRegistry.VARIEGATED_ROCKS.get(), InventoryChangeTrigger.TriggerInstance.hasItems(ItemRegistry.VARIEGATED_ROCKS.get()))
                 .save(recipeConsumer);
+        stoneSlabAndStairsRecipe(ItemRegistry.WHITE_AND_PINK_MIXED_BRICKS.get(), ItemRegistry.WHITE_AND_PINK_MIXED_BRICK_SLAB.get(), ItemRegistry.WHITE_AND_PINK_MIXED_BRICK_STAIRS.get(), recipeConsumer);
+        wallRecipe(ItemRegistry.WHITE_AND_PINK_MIXED_BRICKS.get(), ItemRegistry.WHITE_AND_PINK_MIXED_BRICK_WALL.get(), recipeConsumer);
 
         ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, ItemRegistry.GREEN_WEATHERED_BRICKS.get(), 4)
                 .define('S', ItemRegistry.GREEN_WEATHERED_STONE.get())
                 .pattern("SS").pattern("SS")
                 .unlockedBy("has_" + ItemRegistry.GREEN_WEATHERED_STONE.get(), InventoryChangeTrigger.TriggerInstance.hasItems(ItemRegistry.GREEN_WEATHERED_STONE.get()))
                 .save(recipeConsumer);
+        stoneSlabAndStairsRecipe(ItemRegistry.GREEN_WEATHERED_BRICKS.get(), ItemRegistry.GREEN_WEATHERED_BRICK_SLAB.get(), ItemRegistry.GREEN_WEATHERED_BRICK_STAIRS.get(), recipeConsumer);
+        wallRecipe(ItemRegistry.GREEN_WEATHERED_BRICKS.get(), ItemRegistry.GREEN_WEATHERED_BRICK_WALL.get(), recipeConsumer);
 
         //STONES
         ShapelessRecipeBuilder.shapeless(RecipeCategory.BUILDING_BLOCKS, ItemRegistry.PALE_YELLOW_STONE.get(), 2).requires(Items.STONE).requires(Items.SAND)

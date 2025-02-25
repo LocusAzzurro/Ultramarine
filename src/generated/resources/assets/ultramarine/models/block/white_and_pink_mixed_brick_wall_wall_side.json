@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/template_wall_side",
+  "textures": {
+    "wall": "ultramarine:block/white_and_pink_mixed_bricks"
+  }
+}

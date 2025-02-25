@@ -52,6 +52,8 @@ public class ModItemModelProvider extends ItemModelProvider {
         wallInventory(name(BlockRegistry.LIGHT_CYAN_FLOOR_TILE_WALL.get()), blockLoc(BlockRegistry.LIGHT_CYAN_FLOOR_TILE.get()));
         wallInventory(name(BlockRegistry.BROWNISH_RED_STONE_BRICK_WALL.get()), blockLoc(BlockRegistry.BROWNISH_RED_STONE_BRICKS.get()));
         wallInventory(name(BlockRegistry.POLISHED_WEATHERED_STONE_WALL.get()), blockLoc(BlockRegistry.POLISHED_WEATHERED_STONE.get()));
+        wallInventory(name(BlockRegistry.WHITE_AND_PINK_MIXED_BRICK_WALL.get()), blockLoc(BlockRegistry.WHITE_AND_PINK_MIXED_BRICKS.get()));
+        wallInventory(name(BlockRegistry.GREEN_WEATHERED_BRICK_WALL.get()), blockLoc(BlockRegistry.GREEN_WEATHERED_BRICKS.get()));
         fenceInventory(name(BlockRegistry.ROSEWOOD_FENCE.get()), blockLoc(BlockRegistry.ROSEWOOD_PLANKS.get()));
         ItemRegistry.ITEMS.getEntries().stream()
                 .filter(blockRegistryObject -> !NON_SIMPLE_ITEMS.contains(blockRegistryObject))

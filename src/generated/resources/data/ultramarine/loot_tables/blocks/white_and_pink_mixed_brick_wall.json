@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "bonus_rolls": 0.0,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "ultramarine:white_and_pink_mixed_brick_wall"
+        }
+      ],
+      "name": "white_and_pink_mixed_brick_wall",
+      "rolls": 1.0
+    }
+  ],
+  "random_sequence": "ultramarine:blocks/white_and_pink_mixed_brick_wall"
+}
