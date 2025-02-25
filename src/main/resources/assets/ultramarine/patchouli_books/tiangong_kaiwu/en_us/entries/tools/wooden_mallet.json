@@ -5,7 +5,7 @@
     "pages": [
         {
             "type": "patchouli:text",
-            "text": "The $(item)Wooden Mallet$() is one of the key tools of Ultramarine. It can be used to toggle the different states on a number of blocks."
+            "text": "The $(item)Wooden Mallet$() is one of the key tools of Ultramarine. It can be used to toggle the different states on a number of blocks.$(br2)If using Jade mod, a tooltip will be shown for mallet toggleable blocks."
         },
         {
             "type": "patchouli:crafting",
