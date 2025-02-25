@@ -2082,6 +2082,16 @@ public class ModRecipeProvider extends RecipeProvider {
         blueAndWhitePorcelainUpgrade(Items.GOLDEN_SHOVEL, ItemRegistry.BLUE_AND_WHITE_PORCELAIN_SHOVEL.get(), RecipeCategory.TOOLS, recipeConsumer);
         blueAndWhitePorcelainUpgrade(Items.GOLDEN_PICKAXE, ItemRegistry.BLUE_AND_WHITE_PORCELAIN_PICKAXE.get(), RecipeCategory.TOOLS, recipeConsumer);
         blueAndWhitePorcelainUpgrade(Items.GOLDEN_AXE, ItemRegistry.BLUE_AND_WHITE_PORCELAIN_AXE.get(), RecipeCategory.TOOLS, recipeConsumer);
+        ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, ItemRegistry.BLUE_AND_WHITE_PORCELAIN_UPGRADE_SMITHING_TEMPLATE.get(), 1)
+                .define('W', ItemRegistry.PORCELAIN_PIECE.get())
+                .define('P', ItemRegistry.PORCELAIN_PARTS.get())
+                .define('D', ItemRegistry.BLUE_AND_WHITE_GLAZE_POWDER.get())
+                .define('S', ItemRegistry.BLUE_AND_WHITE_PORCELAIN_SHARDS.get())
+                .pattern("PSP")
+                .pattern("PDP")
+                .pattern("WWW")
+                .unlockedBy("has_shards", itemCriterion(ItemRegistry.BLUE_AND_WHITE_PORCELAIN_SHARDS.get()))
+                .save(recipeConsumer);
         ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, ItemRegistry.WOODWORKING_WORKBENCH.get(), 1)
                 .define('P', ItemTags.PLANKS)
                 .define('C', Items.CRAFTING_TABLE)
@@ -2508,11 +2518,9 @@ public class ModRecipeProvider extends RecipeProvider {
     }
 
     private static void blueAndWhitePorcelainUpgrade(Item from, Item to, RecipeCategory category, Consumer<FinishedRecipe> pFinishedRecipeConsumer){
-        //todo add template
-        SmithingTransformRecipeBuilder.smithing(Ingredient.of(Items.LAPIS_BLOCK), Ingredient.of(from), Ingredient.of(ItemRegistry.BLUE_AND_WHITE_PORCELAIN_PIECE.get()), category, to)
+        SmithingTransformRecipeBuilder.smithing(Ingredient.of(ItemRegistry.BLUE_AND_WHITE_PORCELAIN_UPGRADE_SMITHING_TEMPLATE.get()), Ingredient.of(from), Ingredient.of(ItemRegistry.BLUE_AND_WHITE_PORCELAIN_PIECE.get()), category, to)
                 .unlocks(itemUnlockName(ItemRegistry.BLUE_AND_WHITE_PORCELAIN_PIECE.get()), itemCriterion(ItemRegistry.BLUE_AND_WHITE_PORCELAIN_PIECE.get())).save(pFinishedRecipeConsumer, name(to));
     }
-
 
     private static CriterionTriggerInstance tagUnlock(TagKey<Item> tag){
         return InventoryChangeTrigger.TriggerInstance.hasItems(new ItemPredicate(tag, ImmutableSet.of(),

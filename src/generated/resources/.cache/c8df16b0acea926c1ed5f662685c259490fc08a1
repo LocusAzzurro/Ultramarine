@@ -1,4 +1,4 @@
-// 1.20.1	2025-02-24T03:59:27.3601543	ultramarine Item Models
+// 1.20.1	2025-02-25T02:21:21.051828	ultramarine Item Models
 bd8025c7490152d7283b10eb7d031330e76c4d1c assets/ultramarine/models/item/abacus.json
 3e75a17cbdc797f3d7b8b70ea58b21ca6e9a679f assets/ultramarine/models/item/acacia_bracket.json
 920eb3c4e9dc59324aef9f6859ab7af5b9e24d34 assets/ultramarine/models/item/apple_basket.json
@@ -57,6 +57,7 @@ b23875dd5a16aa1c68f9c1188851b489a410c1eb assets/ultramarine/models/item/blue_and
 f2e4221d73b3b10fda35c91c46b9920744b18c19 assets/ultramarine/models/item/blue_and_white_porcelain_shards.json
 4784deb56b2a25da215674e3644028efb9e5aab6 assets/ultramarine/models/item/blue_and_white_porcelain_shovel.json
 5b1ed4d4dc59875cc7c6745207f8ead562fbd002 assets/ultramarine/models/item/blue_and_white_porcelain_sword.json
+0b8d069ae64637b21159d28b18d7446264d4a9e3 assets/ultramarine/models/item/blue_and_white_porcelain_upgrade_smithing_template.json
 48b0aea8c8e5ab6a83e9a533c1a14bb7a1daea77 assets/ultramarine/models/item/blue_and_white_porcelain_vase.json
 4a21d525c6876f52dcd2cd7198e143c79b322051 assets/ultramarine/models/item/blue_and_yellow_carved_wood_variant_1.json
 927a023b37054d094015e23ce3efa3196492953d assets/ultramarine/models/item/blue_and_yellow_carved_wood_variant_2.json

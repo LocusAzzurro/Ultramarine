@@ -861,6 +861,8 @@ public class ItemRegistry {
             () -> new PickaxeItem(ModTiers.BLUE_AND_WHITE_PORCELAIN, 1, -2.8F, new Item.Properties()));
     public static final RegistryObject<Item> BLUE_AND_WHITE_PORCELAIN_AXE = toolItem("blue_and_white_porcelain_axe",
             () -> new AxeItem(ModTiers.BLUE_AND_WHITE_PORCELAIN, 6.0F, -3.0F, new Item.Properties()));
+    public static final RegistryObject<Item> BLUE_AND_WHITE_PORCELAIN_UPGRADE_SMITHING_TEMPLATE = register("blue_and_white_porcelain_upgrade_smithing_template",
+            BlueAndWhitePorcelainUpgradeSmithingTemplate::new, ModCreativeTab.TOOLS);
     public static final RegistryObject<Item> WOODWORKING_WORKBENCH = fromBlock(BlockRegistry.WOODWORKING_WORKBENCH, ModCreativeTab.TOOLS);
     public static final RegistryObject<Item> BRICK_KILN = fromBlock(BlockRegistry.BRICK_KILN, ModCreativeTab.TOOLS);
     public static final RegistryObject<Item> CHISEL_TABLE = fromBlock(BlockRegistry.CHISEL_TABLE, ModCreativeTab.TOOLS);

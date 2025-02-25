@@ -605,6 +605,11 @@
   "item.ultramarine.blue_and_white_porcelain_shovel": "Blue and White Porcelain Shovel",
   "item.ultramarine.blue_and_white_porcelain_pickaxe": "Blue and White Porcelain Pickaxe",
   "item.ultramarine.blue_and_white_porcelain_axe": "Blue and White Porcelain Axe",
+  "upgrade.ultramarine.blue_and_white_porcelain_upgrade": "Blue and White Porcelain Upgrade",
+  "item.ultramarine.smithing_template.blue_and_white_porcelain_upgrade.additions_slot_description": "Add Blue and White Porcelain Piece",
+  "item.ultramarine.smithing_template.blue_and_white_porcelain_upgrade.applies_to": "Gold Weapons & Tools",
+  "item.ultramarine.smithing_template.blue_and_white_porcelain_upgrade.base_slot_description": "Add gold weapon or tool",
+  "item.ultramarine.smithing_template.blue_and_white_porcelain_upgrade.ingredients": "Blue and White Porcelain Piece",
 
   "__comment12__": "Plants",
   "block.ultramarine.lotus_bud": "Lotus Bud",
