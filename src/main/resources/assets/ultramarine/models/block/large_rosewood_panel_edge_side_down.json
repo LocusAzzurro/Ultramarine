@@ -3,7 +3,7 @@
 	"texture_size": [64, 64],
 	"textures": {
 		"1": "ultramarine:block/large_rosewood_panel_edge",
-		"particle": "ultramarine:block/texture_varnished_rosewood"
+		"particle": "ultramarine:block/varnished_rosewood"
 	},
 	"elements": [
 		{
