@@ -1,12 +1,12 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_crimson_planks": {
+    "has_mangrove_planks": {
       "conditions": {
         "items": [
           {
             "items": [
-              "minecraft:crimson_planks"
+              "minecraft:mangrove_planks"
             ]
           }
         ]
@@ -22,7 +22,7 @@
   },
   "requirements": [
     [
-      "has_crimson_planks",
+      "has_mangrove_planks",
       "has_the_recipe"
     ]
   ],

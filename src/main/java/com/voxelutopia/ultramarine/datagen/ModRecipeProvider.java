@@ -130,15 +130,11 @@ public class ModRecipeProvider extends RecipeProvider {
 
         //WOODEN
 
-        smeltingAndBlasting(Items.CRIMSON_PLANKS, ItemRegistry.ROSEWOOD_PLANKS.get(), recipeConsumer);
+        smeltingAndBlasting(Items.MANGROVE_PLANKS, ItemRegistry.ROSEWOOD_PLANKS.get(), recipeConsumer);
         woodSlabAndStairsRecipe(ItemRegistry.ROSEWOOD_PLANKS.get(), ItemRegistry.ROSEWOOD_SLAB.get(), ItemRegistry.ROSEWOOD_STAIRS.get(), recipeConsumer);
         fenceRecipe(ItemRegistry.ROSEWOOD_PLANKS.get(), ItemRegistry.ROSEWOOD_FENCE.get(), recipeConsumer);
 
-        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, ItemRegistry.BAMBOO_MAT.get(), 4)
-                .define('B', Items.BAMBOO).define('S', Items.STRING)
-                .pattern("BSB").pattern("BSB").pattern("BSB")
-                .unlockedBy("has_" + Items.BAMBOO, InventoryChangeTrigger.TriggerInstance.hasItems(Items.BAMBOO))
-                .save(recipeConsumer);
+        woodworking(RecipeCategory.BUILDING_BLOCKS, Items.BAMBOO_MOSAIC, ItemRegistry.BAMBOO_MAT.get(), 1, recipeConsumer);
         woodSlabAndStairsRecipe(ItemRegistry.BAMBOO_MAT.get(), ItemRegistry.BAMBOO_MAT_SLAB.get(), ItemRegistry.BAMBOO_MAT_STAIRS.get(), recipeConsumer);
 
         // ROOF TILES

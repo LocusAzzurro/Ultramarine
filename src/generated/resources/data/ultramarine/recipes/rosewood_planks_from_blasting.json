@@ -4,7 +4,7 @@
   "cookingtime": 100,
   "experience": 0.05,
   "ingredient": {
-    "item": "minecraft:crimson_planks"
+    "item": "minecraft:mangrove_planks"
   },
   "result": "ultramarine:rosewood_planks"
 }
