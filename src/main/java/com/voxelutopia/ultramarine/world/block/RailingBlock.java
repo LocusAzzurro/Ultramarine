@@ -88,6 +88,7 @@ public class RailingBlock extends Block implements BaseBlockPropertyHolder, Simp
         LevelReader levelreader = pContext.getLevel();
         BlockPos blockpos = pContext.getClickedPos();
         FluidState fluidstate = pContext.getLevel().getFluidState(pContext.getClickedPos());
+
         BlockPos northSide = blockpos.north();
         BlockPos eastSide = blockpos.east();
         BlockPos southSide = blockpos.south();
@@ -96,10 +97,10 @@ public class RailingBlock extends Block implements BaseBlockPropertyHolder, Simp
         BlockState eastState = levelreader.getBlockState(eastSide);
         BlockState southState = levelreader.getBlockState(southSide);
         BlockState westState = levelreader.getBlockState(westSide);
-        boolean north = this.connectsTo(northState, northState.isFaceSturdy(levelreader, northSide, Direction.SOUTH));
-        boolean east = this.connectsTo(eastState, eastState.isFaceSturdy(levelreader, eastSide, Direction.WEST));
-        boolean south = this.connectsTo(southState, southState.isFaceSturdy(levelreader, southSide, Direction.NORTH));
-        boolean west = this.connectsTo(westState, westState.isFaceSturdy(levelreader, westSide, Direction.EAST));
+        boolean north = this.connectsTo(Direction.NORTH, false, northSide, northState, levelreader);
+        boolean east = this.connectsTo(Direction.EAST, false, eastSide, eastState, levelreader);
+        boolean south = this.connectsTo(Direction.SOUTH, false, southSide, southState, levelreader);
+        boolean west = this.connectsTo(Direction.WEST, false, westSide, westState, levelreader);
         boolean up = !((east && west && !north && !south) || (!east && !west && north && south));
         BlockState waterState = this.defaultBlockState().setValue(WATERLOGGED, fluidstate.getType() == Fluids.WATER);
         return waterState.setValue(NORTH, north).setValue(SOUTH, south).setValue(EAST, east).setValue(WEST, west).setValue(UP, up);
@@ -112,6 +113,7 @@ public class RailingBlock extends Block implements BaseBlockPropertyHolder, Simp
         boolean south = pState.getValue(SOUTH);
         boolean east = pState.getValue(EAST);
         boolean west = pState.getValue(WEST);
+        boolean shifted = pState.getValue(SHIFTED);
         if (pState.getValue(WATERLOGGED)) {
             pLevel.scheduleTick(pCurrentPos, Fluids.WATER, Fluids.WATER.getTickDelay(pLevel));
         }
@@ -119,16 +121,16 @@ public class RailingBlock extends Block implements BaseBlockPropertyHolder, Simp
             return super.updateShape(pState, pFacing, pFacingState, pLevel, pCurrentPos, pFacingPos);
         }
         if (pFacing == Direction.NORTH) {
-            north = connectsTo(pFacingState, pFacingState.isFaceSturdy(pLevel, pFacingPos, Direction.SOUTH));
+            north = connectsTo(Direction.NORTH, shifted, pFacingPos, pFacingState, pLevel);
         }
         if (pFacing == Direction.SOUTH) {
-            south = connectsTo(pFacingState, pFacingState.isFaceSturdy(pLevel, pFacingPos, Direction.NORTH));
+            south = connectsTo(Direction.SOUTH, shifted, pFacingPos, pFacingState, pLevel);
         }
         if (pFacing == Direction.EAST) {
-            east = connectsTo(pFacingState, pFacingState.isFaceSturdy(pLevel, pFacingPos, Direction.WEST));
+            east = connectsTo(Direction.EAST, shifted, pFacingPos, pFacingState, pLevel);
         }
         if (pFacing == Direction.WEST) {
-            west = connectsTo(pFacingState, pFacingState.isFaceSturdy(pLevel, pFacingPos, Direction.EAST));
+            west = connectsTo(Direction.WEST, shifted, pFacingPos, pFacingState, pLevel);
         }
         boolean up = pState.getValue(POLE_LOCKED) || !((east && west && !north && !south) || (!east && !west && north && south));
         return pState.setValue(NORTH, north).setValue(SOUTH, south).setValue(EAST, east).setValue(WEST, west).setValue(UP, up);
@@ -143,8 +145,32 @@ public class RailingBlock extends Block implements BaseBlockPropertyHolder, Simp
         return state.setValue(UP, up);
     }
 
-    private boolean connectsTo(BlockState pState, boolean pSideSolid) {
-        return pState.is(this) || pState.getBlock() instanceof RailingSlant || !isExceptionForConnection(pState) && pSideSolid;
+
+    /*
+    for north side connection (not shifted)
+    north + shifted
+    south + not shifted
+
+    for north side connection (shifted)
+    south + shifted (1 block down)
+
+    todo mallet update checks
+     */
+    private boolean connectsTo(Direction connectsToDirection, Boolean isSelfShifted, BlockPos connectsToPos, BlockState connectsToState, BlockGetter level) {
+        boolean canConnectToSlant = false;
+        if (!isSelfShifted && connectsToState.getBlock() instanceof RailingSlant){
+            Direction facing = connectsToState.getValue(BaseHorizontalDirectionalBlock.FACING);
+            Boolean shifted = connectsToState.getValue(RailingSlant.SHIFTED);
+            canConnectToSlant = (!shifted && (connectsToDirection == facing.getOpposite())) || (shifted && (connectsToDirection == facing));
+        }
+        else if (isSelfShifted && level.getBlockState(connectsToPos.below()).getBlock() instanceof RailingSlant){
+            BlockState blockBelow = level.getBlockState(connectsToPos.below());
+            Direction facing = blockBelow.getValue(BaseHorizontalDirectionalBlock.FACING);
+            Boolean shifted = blockBelow.getValue(RailingSlant.SHIFTED);
+            canConnectToSlant = shifted && (connectsToDirection == facing.getOpposite());
+        }
+        boolean pSideSolid = connectsToState.isFaceSturdy(level, connectsToPos, connectsToDirection.getOpposite());
+        return connectsToState.getBlock() instanceof RailingBlock || canConnectToSlant || !isExceptionForConnection(connectsToState) && pSideSolid;
     }
 
     @Override
