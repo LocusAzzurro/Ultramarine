@@ -1,5 +1,6 @@
 package com.voxelutopia.ultramarine;
 
+import com.voxelutopia.ultramarine.data.loot.ModLootModifiers;
 import com.voxelutopia.ultramarine.data.registry.*;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -29,6 +30,7 @@ public class Ultramarine {
         MenuTypeRegistry.MENU_TYPES.register(bus);
         RecipeTypeRegistry.RECIPE_TYPES.register(bus);
         RecipeSerializerRegistry.RECIPE_SERIALIZERS.register(bus);
+        ModLootModifiers.LOOT_MODIFIER_SERIALIZERS.register(bus);
         SoundRegistry.SOUND_EVENT.register(bus);
 
         bus.addListener(this::setup);

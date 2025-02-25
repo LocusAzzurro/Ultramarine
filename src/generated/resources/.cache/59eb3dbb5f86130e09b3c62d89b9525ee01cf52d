@@ -1,4 +1,6 @@
-// 1.20.1	2025-02-24T03:59:27.3521526	Loot Tables
+// 1.20.1	2025-02-25T18:58:04.9087221	Loot Tables
+9eadd5899723d914d9b1c148d14cab3616f98c1a data/ultramarine/loot_tables/archaeology/trail_ruins_common.json
+9d38d2c37bec8ff70af9290218808f26e6a2eb46 data/ultramarine/loot_tables/archaeology/trail_ruins_rare.json
 8fb49c1c00cef7a33ef08dbe6a6ff3ae38aba848 data/ultramarine/loot_tables/blocks/abacus.json
 46819f8e098fe87b06c4d17fbb7d67f4387ec6c4 data/ultramarine/loot_tables/blocks/acacia_bracket.json
 a1d25cd4186831f6dd37bf023d351b66ceb201bc data/ultramarine/loot_tables/blocks/apple_basket.json

@@ -1,0 +1,14 @@
+{
+  "type": "ultramarine:replace_to_single_item",
+  "conditions": [
+    {
+      "condition": "forge:loot_table_id",
+      "loot_table_id": "minecraft:archaeology/trail_ruins_common"
+    },
+    {
+      "chance": 0.2,
+      "condition": "minecraft:random_chance"
+    }
+  ],
+  "loot_table": "ultramarine:archaeology/trail_ruins_common"
+}
