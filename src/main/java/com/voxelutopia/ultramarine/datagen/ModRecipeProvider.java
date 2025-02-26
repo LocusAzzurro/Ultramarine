@@ -110,6 +110,9 @@ public class ModRecipeProvider extends RecipeProvider {
         wallRecipe(ItemRegistry.LIGHT_CYAN_FLOOR_TILE.get(), ItemRegistry.LIGHT_CYAN_FLOOR_TILE_WALL.get(), recipeConsumer);
 
         blockTransform(ItemRegistry.CYAN_FLOOR_TILE.get(), Items.BLACK_DYE, ItemRegistry.DARK_CYAN_FLOOR_TILE.get(), RecipeCategory.BUILDING_BLOCKS, recipeConsumer);
+        stoneSlabAndStairsRecipe(ItemRegistry.DARK_CYAN_FLOOR_TILE.get(), ItemRegistry.DARK_CYAN_FLOOR_TILE_SLAB.get(), ItemRegistry.DARK_CYAN_FLOOR_TILE_STAIRS.get(), recipeConsumer);
+        wallRecipe(ItemRegistry.DARK_CYAN_FLOOR_TILE.get(), ItemRegistry.DARK_CYAN_FLOOR_TILE_WALL.get(), recipeConsumer);
+
         simpleStonecutting(ItemRegistry.CYAN_FLOOR_TILE.get(), ItemRegistry.LAYERED_CYAN_FLOOR_TILES.get(), RecipeCategory.BUILDING_BLOCKS, recipeConsumer);
         simpleStonecutting(ItemRegistry.CYAN_FLOOR_TILE.get(), ItemRegistry.VERTICAL_CYAN_FLOOR_TILES.get(), RecipeCategory.BUILDING_BLOCKS, recipeConsumer);
         simpleStonecutting(ItemRegistry.CYAN_FLOOR_TILE.get(), ItemRegistry.MIXED_CYAN_FLOOR_TILES.get(), RecipeCategory.BUILDING_BLOCKS, recipeConsumer);
@@ -117,7 +120,12 @@ public class ModRecipeProvider extends RecipeProvider {
         simpleStonecutting(ItemRegistry.CYAN_FLOOR_TILE.get(), ItemRegistry.CUT_CYAN_FLOOR_TILES.get(), RecipeCategory.BUILDING_BLOCKS, recipeConsumer);
 
         blockTransform(ItemRegistry.POLISHED_WEATHERED_STONE.get(), ModItemTags.FORGE_RED_DYE, ItemRegistry.WEATHERED_RED_STONE_TILE.get(), RecipeCategory.BUILDING_BLOCKS, recipeConsumer);
+        stoneSlabAndStairsRecipe(ItemRegistry.WEATHERED_RED_STONE_TILE.get(), ItemRegistry.WEATHERED_RED_STONE_TILE_SLAB.get(), ItemRegistry.WEATHERED_RED_STONE_TILE_STAIRS.get(), recipeConsumer);
+        wallRecipe(ItemRegistry.WEATHERED_RED_STONE_TILE.get(), ItemRegistry.WEATHERED_RED_STONE_TILE_WALL.get(), recipeConsumer);
+
         blockTransform(ItemRegistry.DARK_CYAN_FLOOR_TILE.get(), ModItemTags.FORGE_BLUE_DYE, ItemRegistry.BLUE_AND_BLACK_TILE.get(), RecipeCategory.BUILDING_BLOCKS, recipeConsumer);
+        stoneSlabAndStairsRecipe(ItemRegistry.BLUE_AND_BLACK_TILE.get(), ItemRegistry.BLUE_AND_BLACK_TILE_SLAB.get(), ItemRegistry.BLUE_AND_BLACK_TILE_STAIRS.get(), recipeConsumer);
+        wallRecipe(ItemRegistry.BLUE_AND_BLACK_TILE.get(), ItemRegistry.BLUE_AND_BLACK_TILE_WALL.get(), recipeConsumer);
 
         ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, ItemRegistry.GREEN_GLAZED_TILES.get(), 2)
                 .define('B', Items.GREEN_GLAZED_TERRACOTTA).define('T', ItemRegistry.GREEN_ROOF_TILE.get())

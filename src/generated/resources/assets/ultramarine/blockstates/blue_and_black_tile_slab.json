@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "ultramarine:block/blue_and_black_tile_slab"
+    },
+    "type=double": {
+      "model": "ultramarine:block/blue_and_black_tile"
+    },
+    "type=top": {
+      "model": "ultramarine:block/blue_and_black_tile_slab_top"
+    }
+  }
+}
