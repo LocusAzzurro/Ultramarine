@@ -766,6 +766,8 @@ public class ItemRegistry {
     public static final RegistryObject<Item> POLISHED_DARK_OAK_PLANK = simpleItem("polished_dark_oak_plank", ModCreativeTab.MATERIALS);
     public static final RegistryObject<Item> POLISHED_WARPED_PLANK = simpleItem("polished_warped_plank", ModCreativeTab.MATERIALS);
     public static final RegistryObject<Item> POLISHED_CRIMSON_PLANK = simpleItem("polished_crimson_plank", ModCreativeTab.MATERIALS);
+    public static final RegistryObject<Item> POLISHED_MANGROVE_PLANK = simpleItem("polished_mangrove_plank", ModCreativeTab.MATERIALS);
+    public static final RegistryObject<Item> POLISHED_CHERRY_PLANK = simpleItem("polished_cherry_plank", ModCreativeTab.MATERIALS);
     public static final RegistryObject<Item> POLISHED_ROSEWOOD_PLANK = simpleItem("polished_rosewood_plank", ModCreativeTab.MATERIALS);
     public static final RegistryObject<Item> POLISHED_EBONY_PLANK = simpleItem("polished_ebony_plank", ModCreativeTab.MATERIALS);
     public static final RegistryObject<Item> WOODEN_FRAME = simpleItem("wooden_frame", ModCreativeTab.MATERIALS);

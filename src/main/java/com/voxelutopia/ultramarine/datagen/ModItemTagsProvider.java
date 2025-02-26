@@ -39,6 +39,8 @@ public class ModItemTagsProvider extends ItemTagsProvider {
                 .add(ItemRegistry.POLISHED_DARK_OAK_PLANK.get())
                 .add(ItemRegistry.POLISHED_CRIMSON_PLANK.get())
                 .add(ItemRegistry.POLISHED_WARPED_PLANK.get())
+                .add(ItemRegistry.POLISHED_MANGROVE_PLANK.get())
+                .add(ItemRegistry.POLISHED_CHERRY_PLANK.get())
                 .add(ItemRegistry.POLISHED_ROSEWOOD_PLANK.get())
                 .add(ItemRegistry.POLISHED_EBONY_PLANK.get());
         tag(ModItemTags.DYE_POWDER).add(ItemRegistry.ITEMS.getEntries().stream().filter(reg -> reg.get() instanceof DyePowder)

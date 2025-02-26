@@ -1,4 +1,4 @@
-// 1.20.1	2025-02-26T04:59:30.2415339	ultramarine Item Models
+// 1.20.1	2025-02-26T22:53:21.9396448	ultramarine Item Models
 bd8025c7490152d7283b10eb7d031330e76c4d1c assets/ultramarine/models/item/abacus.json
 3e75a17cbdc797f3d7b8b70ea58b21ca6e9a679f assets/ultramarine/models/item/acacia_bracket.json
 920eb3c4e9dc59324aef9f6859ab7af5b9e24d34 assets/ultramarine/models/item/apple_basket.json
@@ -403,10 +403,12 @@ d844afd77e49d963220e48f5437dcb28f5ab71a7 assets/ultramarine/models/item/pear_bas
 02501e1e4d4a6f8fdeddbaaa0746cc008d7b0e73 assets/ultramarine/models/item/plated_mung_bean_cakes.json
 e071ffcfcc500ba595d889d63392e58fab09deab assets/ultramarine/models/item/polished_acacia_plank.json
 ff0b8881d72eb1fea4c165a81c8103064a54f28a assets/ultramarine/models/item/polished_birch_plank.json
+0d77ec9f144e458c2ef0f49b7c8d30c6e1931d0a assets/ultramarine/models/item/polished_cherry_plank.json
 f96ea3f36f10b10d2d5a56afa17ad7fdb2478bfc assets/ultramarine/models/item/polished_crimson_plank.json
 19a23b2667711684db1108b2cba8f861e87b4e06 assets/ultramarine/models/item/polished_dark_oak_plank.json
 2d450da66a8d582b9815bc3e8d4043f4ddbc2103 assets/ultramarine/models/item/polished_ebony_plank.json
 af05eef2574b2f84249288922b9e39d95af9a84e assets/ultramarine/models/item/polished_jungle_plank.json
+fa9f2524f39e091440808970d66d0924b1b1a298 assets/ultramarine/models/item/polished_mangrove_plank.json
 437c51019194743fb2fa5f988090bb90d9430192 assets/ultramarine/models/item/polished_oak_plank.json
 eab85ff095c589ada9017baa4378cc75ae6106bf assets/ultramarine/models/item/polished_rosewood_plank.json
 771db929a4f1d9891a61666335a8c7e3e4adbc90 assets/ultramarine/models/item/polished_spruce_plank.json

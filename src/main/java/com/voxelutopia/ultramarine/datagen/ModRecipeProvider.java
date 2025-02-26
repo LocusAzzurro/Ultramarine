@@ -1940,6 +1940,8 @@ public class ModRecipeProvider extends RecipeProvider {
         polishedPlankRecipe(Items.DARK_OAK_PLANKS, ItemRegistry.POLISHED_DARK_OAK_PLANK.get(), recipeConsumer);
         polishedPlankRecipe(Items.CRIMSON_PLANKS, ItemRegistry.POLISHED_CRIMSON_PLANK.get(), recipeConsumer);
         polishedPlankRecipe(Items.WARPED_PLANKS, ItemRegistry.POLISHED_WARPED_PLANK.get(), recipeConsumer);
+        polishedPlankRecipe(Items.MANGROVE_PLANKS, ItemRegistry.POLISHED_MANGROVE_PLANK.get(), recipeConsumer);
+        polishedPlankRecipe(Items.CHERRY_PLANKS, ItemRegistry.POLISHED_CHERRY_PLANK.get(), recipeConsumer);
         polishedPlankRecipe(ItemRegistry.ROSEWOOD_PLANKS.get(), ItemRegistry.POLISHED_ROSEWOOD_PLANK.get(), recipeConsumer);
         //polishedPlankRecipe(ItemRegistry.EBONY_PLANKS.get(), ItemRegistry.POLISHED_EBONY_PLANK.get(), recipeConsumer);
         woodworking(RecipeCategory.MISC, Ingredient.of(ItemTags.PLANKS), ItemRegistry.WOODEN_FRAME.get(), 2, Items.OAK_PLANKS, recipeConsumer);

@@ -1,0 +1,8 @@
+{
+  "type": "ultramarine:woodworking",
+  "count": 2,
+  "ingredient": {
+    "item": "minecraft:cherry_planks"
+  },
+  "result": "ultramarine:polished_cherry_plank"
+}
