@@ -15,9 +15,4 @@ public class ModCommonEventHandler {
         e.put(EntityTypeRegistry.TRAVELLING_MERCHANT.get(), TravellingMerchant.setCustomAttributes().build());
     }
 
-    @SubscribeEvent
-    public static void commonSetup(FMLCommonSetupEvent e){
-        //e.enqueueWork(PoiTypeRegistry::registerPOI); //todo check registry
-    }
-
 }
