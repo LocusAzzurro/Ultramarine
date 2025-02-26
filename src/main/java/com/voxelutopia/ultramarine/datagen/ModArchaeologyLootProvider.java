@@ -72,5 +72,5 @@ public class ModArchaeologyLootProvider implements LootTableSubProvider {
                         .add(LootItem.lootTableItem(ItemRegistry.IMPERIAL_JADE_SEAL.get()).setWeight(1))
                         .add(LootItem.lootTableItem(ItemRegistry.BRONZE_DING.get()).setWeight(1))
         ));
-    } //todo add page in guide book about archeology
+    }
 }

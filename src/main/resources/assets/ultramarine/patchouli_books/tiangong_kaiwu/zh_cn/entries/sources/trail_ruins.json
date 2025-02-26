@@ -1,0 +1,16 @@
+{
+  "name": "古迹废墟",
+  "icon": "minecraft:brush",
+  "category": "ultramarine:sources",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "$(thing)古迹废墟$()中生成的$(thing)可疑的沙砾$()的内容物有几率会被替换为本模组的物品。"
+    },
+    {
+      "type": "patchouli:spotlight",
+      "item": "minecraft:suspicious_gravel",
+      "text": "与原版一样，被替换的$(thing)可疑的沙砾$()有两种, 带有普通物品的与带有稀有物品的。"
+    }
+  ]
+}

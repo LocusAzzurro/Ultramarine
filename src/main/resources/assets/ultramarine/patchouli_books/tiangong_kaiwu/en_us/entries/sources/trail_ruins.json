@@ -1,0 +1,16 @@
+{
+  "name": "Trail Ruins",
+  "icon": "minecraft:brush",
+  "category": "ultramarine:sources",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "Sometimes, the $(thing)Suspicious Sand$() generated in $(thing)Trail Ruins$() will be transformed to contain items from this mod."
+    },
+    {
+      "type": "patchouli:spotlight",
+      "item": "minecraft:suspicious_gravel",
+      "text": "Like in vanilla, there are two types of $(thing)Suspicious Sand$(), those with common items and those with rare items."
+    }
+  ]
+}
