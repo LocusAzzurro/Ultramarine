@@ -1,4 +1,4 @@
-// 1.20.1	2025-02-25T20:15:17.5903921	ultramarine Item Models
+// 1.20.1	2025-02-26T04:59:30.2415339	ultramarine Item Models
 bd8025c7490152d7283b10eb7d031330e76c4d1c assets/ultramarine/models/item/abacus.json
 3e75a17cbdc797f3d7b8b70ea58b21ca6e9a679f assets/ultramarine/models/item/acacia_bracket.json
 920eb3c4e9dc59324aef9f6859ab7af5b9e24d34 assets/ultramarine/models/item/apple_basket.json
@@ -136,6 +136,7 @@ b8a6539375a5b51eae8b8c3e87469fc327ce53b1 assets/ultramarine/models/item/carved_w
 2df35d4515ca0e719ad8af73680e1fddc942f6f7 assets/ultramarine/models/item/censer_table.json
 11a54b43e837e0bf1605eb24182b617efe8c8505 assets/ultramarine/models/item/central_gilded_dark_oak_queti.json
 fcca6c57e80f622674fc6cd9e1e54da0ded24f9d assets/ultramarine/models/item/chair_with_yellow_cushion.json
+dd28a4a71848019f6fec21af033298fb3d9dedf0 assets/ultramarine/models/item/cherry_bracket.json
 e1a7e5f69fd3667a5d26ed29fd0dc0a3047f3212 assets/ultramarine/models/item/chessboard.json
 60eaa1da877f80ab30fb307bc3b5fc08cb393275 assets/ultramarine/models/item/chess_table.json
 22127f8bd09d752b68bcb106530d87d15f012cdf assets/ultramarine/models/item/chinese_herbs_bag.json
@@ -347,6 +348,7 @@ dd8da99fbbf29262b726d8636280d7932bfff4ff assets/ultramarine/models/item/lotus_bu
 01ced3573de188f67a62b37eaed567f0e07b54ed assets/ultramarine/models/item/magnesite.json
 50b86e4456b28a5b27f39865ff776171c8782a47 assets/ultramarine/models/item/magnesite_dust.json
 ae89051dbdcf6fc89cf746572058089d0a0e2955 assets/ultramarine/models/item/magnesite_ore.json
+2a5db45e0bc66b9482284b3dcbe3c6e87468cb81 assets/ultramarine/models/item/mangrove_bracket.json
 a3b740b81c4969fc101548bda50decf029bfea3c assets/ultramarine/models/item/medium_blue_curtain.json
 ded3b9ebee2e1d75484ed85fd7f2ef30262eb17d assets/ultramarine/models/item/medium_bonsai.json
 eb29f5c695a6b775879d97b53179dc531d060172 assets/ultramarine/models/item/medium_clay_vase.json
@@ -532,6 +534,8 @@ a7e5d28cd13132cda35d1e63c58cac657f7c15cf assets/ultramarine/models/item/unfired_
 508e15372365f5bd1d0402bd7ed11a22206633d1 assets/ultramarine/models/item/variegated_rocks.json
 066d1942cefff426a82098c53717de18543217b9 assets/ultramarine/models/item/variegated_rock_slab.json
 33c4cdcd903ef475f2a2c93239e8c9386d372b6e assets/ultramarine/models/item/variegated_rock_stairs.json
+c404022c16d6c35c8459afa7efd72afa80935816 assets/ultramarine/models/item/varnished_rosewood.json
+e5fc3b8662723d09e11e4fd130848699017cbce9 assets/ultramarine/models/item/varnished_rosewood_bracket.json
 bc14014be32e4ef11acd077868b459eb7fc051bb assets/ultramarine/models/item/vertical_cyan_floor_tiles.json
 b09bae1838b94035a666aca883270035c0ff919b assets/ultramarine/models/item/vertical_gilded_dark_oak_queti.json
 459cade2bc97d848e947d71d935590b6c537322a assets/ultramarine/models/item/warped_bracket.json

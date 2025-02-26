@@ -108,6 +108,7 @@ public class ItemRegistry {
     public static final RegistryObject<Item> ROSEWOOD_SLAB = fromBlock(BlockRegistry.ROSEWOOD_SLAB, ModCreativeTab.BUILDING_BLOCKS);
     public static final RegistryObject<Item> ROSEWOOD_STAIRS = fromBlock(BlockRegistry.ROSEWOOD_STAIRS, ModCreativeTab.BUILDING_BLOCKS);
     public static final RegistryObject<Item> ROSEWOOD_FENCE = fromBlock(BlockRegistry.ROSEWOOD_FENCE, ModCreativeTab.BUILDING_BLOCKS);
+    public static final RegistryObject<Item> VARNISHED_ROSEWOOD = fromBlock(BlockRegistry.VARNISHED_ROSEWOOD, ModCreativeTab.BUILDING_BLOCKS);
     public static final RegistryObject<Item> BAMBOO_MAT = fromBlock(BlockRegistry.BAMBOO_MAT, ModCreativeTab.BUILDING_BLOCKS);
     public static final RegistryObject<Item> BAMBOO_MAT_SLAB = fromBlock(BlockRegistry.BAMBOO_MAT_SLAB, ModCreativeTab.BUILDING_BLOCKS);
     public static final RegistryObject<Item> BAMBOO_MAT_STAIRS = fromBlock(BlockRegistry.BAMBOO_MAT_STAIRS, ModCreativeTab.BUILDING_BLOCKS);
@@ -168,6 +169,9 @@ public class ItemRegistry {
     public static final RegistryObject<Item> DARK_OAK_BRACKET = fromBlock(BlockRegistry.DARK_OAK_BRACKET, ModCreativeTab.DECORATIVE_BLOCKS);
     public static final RegistryObject<Item> CRIMSON_BRACKET = fromBlock(BlockRegistry.CRIMSON_BRACKET, ModCreativeTab.DECORATIVE_BLOCKS);
     public static final RegistryObject<Item> WARPED_BRACKET = fromBlock(BlockRegistry.WARPED_BRACKET, ModCreativeTab.DECORATIVE_BLOCKS);
+    public static final RegistryObject<Item> MANGROVE_BRACKET = fromBlock(BlockRegistry.MANGROVE_BRACKET, ModCreativeTab.DECORATIVE_BLOCKS);
+    public static final RegistryObject<Item> CHERRY_BRACKET = fromBlock(BlockRegistry.CHERRY_BRACKET, ModCreativeTab.DECORATIVE_BLOCKS);
+    public static final RegistryObject<Item> VARNISHED_ROSEWOOD_BRACKET = fromBlock(BlockRegistry.VARNISHED_ROSEWOOD_BRACKET, ModCreativeTab.DECORATIVE_BLOCKS);
 
     // SIMPLE CARVED WOOD
 

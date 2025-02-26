@@ -3,17 +3,16 @@
   "criteria": {
     "has_the_recipe": {
       "conditions": {
-        "recipe": "ultramarine:rosewood_panel"
+        "recipe": "ultramarine:mangrove_bracket"
       },
       "trigger": "minecraft:recipe_unlocked"
     },
-    "has_varnished_rosewood": {
+    "has_wood": {
       "conditions": {
         "items": [
           {
-            "items": [
-              "ultramarine:varnished_rosewood"
-            ]
+            "items": [],
+            "tag": "minecraft:mangrove_logs"
           }
         ]
       },
@@ -22,13 +21,13 @@
   },
   "requirements": [
     [
-      "has_varnished_rosewood",
+      "has_wood",
       "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
-      "ultramarine:rosewood_panel"
+      "ultramarine:mangrove_bracket"
     ]
   },
   "sends_telemetry_event": false

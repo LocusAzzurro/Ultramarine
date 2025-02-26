@@ -105,6 +105,7 @@ public class BlockRegistry {
     public static final RegistryObject<Block> ROSEWOOD_SLAB = BLOCKS.register("rosewood_slab", () -> new BaseSlab((BaseBlock) ROSEWOOD_PLANKS.get()));
     public static final RegistryObject<Block> ROSEWOOD_STAIRS = BLOCKS.register("rosewood_stairs", () -> new BaseStairs((BaseBlock) ROSEWOOD_PLANKS.get()));
     public static final RegistryObject<Block> ROSEWOOD_FENCE = BLOCKS.register("rosewood_fence", () -> new BaseFence((BaseBlock) ROSEWOOD_PLANKS.get()));
+    public static final RegistryObject<Block> VARNISHED_ROSEWOOD = BLOCKS.register("varnished_rosewood", () -> new BaseBlock(BaseBlockProperty.WOOD));
     public static final RegistryObject<Block> BAMBOO_MAT = BLOCKS.register("bamboo_mat", () -> new BaseBlock(BaseBlockProperty.BAMBOO_WOOD));
     public static final RegistryObject<Block> BAMBOO_MAT_SLAB = BLOCKS.register("bamboo_mat_slab", () -> new BaseSlab((BaseBlock) BAMBOO_MAT.get()));
     public static final RegistryObject<Block> BAMBOO_MAT_STAIRS = BLOCKS.register("bamboo_mat_stairs", () -> new BaseStairs((BaseBlock) BAMBOO_MAT.get()));
@@ -166,6 +167,9 @@ public class BlockRegistry {
     public static final RegistryObject<Block> DARK_OAK_BRACKET = BLOCKS.register("dark_oak_bracket", () -> new Bracket(BaseBlockProperty.WOOD));
     public static final RegistryObject<Block> CRIMSON_BRACKET = BLOCKS.register("crimson_bracket", () -> new Bracket(BaseBlockProperty.WOOD));
     public static final RegistryObject<Block> WARPED_BRACKET = BLOCKS.register("warped_bracket", () -> new Bracket(BaseBlockProperty.WOOD));
+    public static final RegistryObject<Block> MANGROVE_BRACKET = BLOCKS.register("mangrove_bracket", () -> new Bracket(BaseBlockProperty.WOOD));
+    public static final RegistryObject<Block> CHERRY_BRACKET = BLOCKS.register("cherry_bracket", () -> new Bracket(BaseBlockProperty.WOOD));
+    public static final RegistryObject<Block> VARNISHED_ROSEWOOD_BRACKET = BLOCKS.register("varnished_rosewood_bracket", () -> new Bracket(BaseBlockProperty.WOOD));
 
     // SIMPLE CARVED WOOD
 

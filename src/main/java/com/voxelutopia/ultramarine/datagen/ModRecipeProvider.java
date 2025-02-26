@@ -137,6 +137,16 @@ public class ModRecipeProvider extends RecipeProvider {
         smeltingAndBlasting(Items.MANGROVE_PLANKS, ItemRegistry.ROSEWOOD_PLANKS.get(), recipeConsumer);
         woodSlabAndStairsRecipe(ItemRegistry.ROSEWOOD_PLANKS.get(), ItemRegistry.ROSEWOOD_SLAB.get(), ItemRegistry.ROSEWOOD_STAIRS.get(), recipeConsumer);
         fenceRecipe(ItemRegistry.ROSEWOOD_PLANKS.get(), ItemRegistry.ROSEWOOD_FENCE.get(), recipeConsumer);
+        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, ItemRegistry.VARNISHED_ROSEWOOD.get())
+                .define('B', ItemRegistry.ROSEWOOD_PLANKS.get())
+                .define('P', ItemRegistry.POLISHED_ROSEWOOD_PLANK.get())
+                .define('D', ModItemTags.FORGE_RED_DYE)
+                .pattern("DPD")
+                .pattern("PBP")
+                .pattern("DPD")
+                .unlockedBy(itemUnlockName(ItemRegistry.ROSEWOOD_PLANKS.get()), itemCriterion(ItemRegistry.ROSEWOOD_PLANKS.get()))
+                .save(recipeConsumer);
+
 
         woodworking(RecipeCategory.BUILDING_BLOCKS, Items.BAMBOO_MOSAIC, ItemRegistry.BAMBOO_MAT.get(), 1, recipeConsumer);
         woodSlabAndStairsRecipe(ItemRegistry.BAMBOO_MAT.get(), ItemRegistry.BAMBOO_MAT_SLAB.get(), ItemRegistry.BAMBOO_MAT_STAIRS.get(), recipeConsumer);
@@ -168,6 +178,9 @@ public class ModRecipeProvider extends RecipeProvider {
         woodworking(RecipeCategory.BUILDING_BLOCKS, Ingredient.of(ItemTags.DARK_OAK_LOGS), ItemRegistry.DARK_OAK_BRACKET.get()).unlockedBy("has_wood", tagUnlock(ItemTags.DARK_OAK_LOGS)).save(recipeConsumer);
         woodworking(RecipeCategory.BUILDING_BLOCKS, Ingredient.of(ItemTags.CRIMSON_STEMS), ItemRegistry.CRIMSON_BRACKET.get()).unlockedBy("has_wood", tagUnlock(ItemTags.CRIMSON_STEMS)).save(recipeConsumer);
         woodworking(RecipeCategory.BUILDING_BLOCKS, Ingredient.of(ItemTags.WARPED_STEMS), ItemRegistry.WARPED_BRACKET.get()).unlockedBy("has_wood", tagUnlock(ItemTags.WARPED_STEMS)).save(recipeConsumer);
+        woodworking(RecipeCategory.BUILDING_BLOCKS, Ingredient.of(ItemTags.MANGROVE_LOGS), ItemRegistry.MANGROVE_BRACKET.get()).unlockedBy("has_wood", tagUnlock(ItemTags.MANGROVE_LOGS)).save(recipeConsumer);
+        woodworking(RecipeCategory.BUILDING_BLOCKS, Ingredient.of(ItemTags.CHERRY_LOGS), ItemRegistry.CHERRY_BRACKET.get()).unlockedBy("has_wood", tagUnlock(ItemTags.CHERRY_LOGS)).save(recipeConsumer);
+        woodworking(RecipeCategory.BUILDING_BLOCKS, Ingredient.of(ItemRegistry.VARNISHED_ROSEWOOD.get()), ItemRegistry.VARNISHED_ROSEWOOD_BRACKET.get()).unlockedBy("has_wood", itemCriterion(ItemRegistry.VARNISHED_ROSEWOOD.get())).save(recipeConsumer);
 
         // SIMPLE CARVED WOOD
 
@@ -1772,8 +1785,8 @@ public class ModRecipeProvider extends RecipeProvider {
         // WINDOW
 
         woodworking(RecipeCategory.DECORATIONS, Ingredient.of(ItemTags.PLANKS), ItemRegistry.SONG_WOODEN_WINDOW.get(), 1).unlockedBy("has_plank", tagUnlock(ItemTags.PLANKS)).save(recipeConsumer);
-        woodworking(RecipeCategory.DECORATIONS, Ingredient.of(ItemRegistry.ROSEWOOD_PLANKS.get()), ItemRegistry.ROYAL_ROSEWOOD_WINDOW.get(), 1)
-                .unlockedBy(itemUnlockName(ItemRegistry.ROSEWOOD_PLANKS.get()), itemCriterion(ItemRegistry.ROSEWOOD_PLANKS.get())).save(recipeConsumer);
+        woodworking(RecipeCategory.DECORATIONS, Ingredient.of(ItemRegistry.VARNISHED_ROSEWOOD.get()), ItemRegistry.ROYAL_ROSEWOOD_WINDOW.get(), 2)
+                .unlockedBy(itemUnlockName(ItemRegistry.VARNISHED_ROSEWOOD.get()), itemCriterion(ItemRegistry.VARNISHED_ROSEWOOD.get())).save(recipeConsumer);
         ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ItemRegistry.TALL_ROYAL_ROSEWOOD_WINDOW.get(), 1)
                 .define('W', ItemRegistry.ROYAL_ROSEWOOD_WINDOW.get())
                 .pattern("W").pattern("W")
@@ -1797,14 +1810,14 @@ public class ModRecipeProvider extends RecipeProvider {
                 .pattern("IP")
                 .unlockedBy(itemUnlockName(ItemRegistry.BRONZE_INGOT.get()), itemCriterion(ItemRegistry.BRONZE_INGOT.get()))
                 .save(recipeConsumer);
-        woodworking(RecipeCategory.DECORATIONS, Ingredient.of(ItemRegistry.ROSEWOOD_PLANKS.get()), ItemRegistry.ROSEWOOD_PANEL.get(), 1)
-                .unlockedBy(itemUnlockName(ItemRegistry.ROSEWOOD_PLANKS.get()), itemCriterion(ItemRegistry.ROSEWOOD_PLANKS.get())).save(recipeConsumer);
-        woodworking(RecipeCategory.DECORATIONS, Ingredient.of(ItemRegistry.ROSEWOOD_PLANKS.get()), ItemRegistry.ROSEWOOD_DOOR_PANEL.get(), 1)
-                .unlockedBy(itemUnlockName(ItemRegistry.ROSEWOOD_PLANKS.get()), itemCriterion(ItemRegistry.ROSEWOOD_PLANKS.get())).save(recipeConsumer);
-        woodworking(RecipeCategory.DECORATIONS, Ingredient.of(ItemRegistry.ROSEWOOD_PLANKS.get()), ItemRegistry.LARGE_ROSEWOOD_PANEL.get(), 1)
-                .unlockedBy(itemUnlockName(ItemRegistry.ROSEWOOD_PLANKS.get()), itemCriterion(ItemRegistry.ROSEWOOD_PLANKS.get())).save(recipeConsumer);
-        woodworking(RecipeCategory.DECORATIONS, Ingredient.of(ItemRegistry.ROSEWOOD_PLANKS.get()), ItemRegistry.LARGE_ROSEWOOD_PANEL_EDGE.get(), 1)
-                .unlockedBy(itemUnlockName(ItemRegistry.ROSEWOOD_PLANKS.get()), itemCriterion(ItemRegistry.ROSEWOOD_PLANKS.get())).save(recipeConsumer);
+        woodworking(RecipeCategory.DECORATIONS, Ingredient.of(ItemRegistry.VARNISHED_ROSEWOOD.get()), ItemRegistry.ROSEWOOD_PANEL.get(), 2)
+                .unlockedBy(itemUnlockName(ItemRegistry.VARNISHED_ROSEWOOD.get()), itemCriterion(ItemRegistry.VARNISHED_ROSEWOOD.get())).save(recipeConsumer);
+        woodworking(RecipeCategory.DECORATIONS, Ingredient.of(ItemRegistry.VARNISHED_ROSEWOOD.get()), ItemRegistry.ROSEWOOD_DOOR_PANEL.get(), 2)
+                .unlockedBy(itemUnlockName(ItemRegistry.VARNISHED_ROSEWOOD.get()), itemCriterion(ItemRegistry.VARNISHED_ROSEWOOD.get())).save(recipeConsumer);
+        woodworking(RecipeCategory.DECORATIONS, Ingredient.of(ItemRegistry.VARNISHED_ROSEWOOD.get()), ItemRegistry.LARGE_ROSEWOOD_PANEL.get(), 2)
+                .unlockedBy(itemUnlockName(ItemRegistry.VARNISHED_ROSEWOOD.get()), itemCriterion(ItemRegistry.VARNISHED_ROSEWOOD.get())).save(recipeConsumer);
+        woodworking(RecipeCategory.DECORATIONS, Ingredient.of(ItemRegistry.VARNISHED_ROSEWOOD.get()), ItemRegistry.LARGE_ROSEWOOD_PANEL_EDGE.get(), 2)
+                .unlockedBy(itemUnlockName(ItemRegistry.VARNISHED_ROSEWOOD.get()), itemCriterion(ItemRegistry.VARNISHED_ROSEWOOD.get())).save(recipeConsumer);
         woodworking(RecipeCategory.DECORATIONS, Ingredient.of(ItemTags.PLANKS), ItemRegistry.CARVED_WOODEN_DOOR_PANEL.get(), 1).unlockedBy("has_plank", tagUnlock(ItemTags.PLANKS)).save(recipeConsumer);
         ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ItemRegistry.PLAQUE.get())
                 .define('P', ItemRegistry.XUAN_PAPER.get())

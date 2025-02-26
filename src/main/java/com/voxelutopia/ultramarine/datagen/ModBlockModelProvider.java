@@ -128,6 +128,7 @@ public class ModBlockModelProvider extends BlockStateProvider {
         simpleBlock(BlockRegistry.ROSEWOOD_PLANKS.get());
         slabAndStairs(BlockRegistry.ROSEWOOD_PLANKS.get(), BlockRegistry.ROSEWOOD_SLAB.get(), BlockRegistry.ROSEWOOD_STAIRS.get());
         fence(BlockRegistry.ROSEWOOD_PLANKS.get(), BlockRegistry.ROSEWOOD_FENCE.get());
+        simpleBlock(BlockRegistry.VARNISHED_ROSEWOOD.get());
         simpleBlock(BlockRegistry.BAMBOO_MAT.get());
         slabAndStairs(BlockRegistry.BAMBOO_MAT.get(), BlockRegistry.BAMBOO_MAT_SLAB.get(), BlockRegistry.BAMBOO_MAT_STAIRS.get());
         // ROOF TILES
@@ -172,6 +173,9 @@ public class ModBlockModelProvider extends BlockStateProvider {
         woodenBracket(BlockRegistry.DARK_OAK_BRACKET.get(), mcLoc(BLOCK + "stripped_dark_oak_log"));
         woodenBracket(BlockRegistry.CRIMSON_BRACKET.get(), mcLoc(BLOCK + "stripped_crimson_stem"));
         woodenBracket(BlockRegistry.WARPED_BRACKET.get(), mcLoc(BLOCK + "stripped_warped_stem"));
+        woodenBracket(BlockRegistry.MANGROVE_BRACKET.get(), mcLoc(BLOCK + "stripped_mangrove_log"));
+        woodenBracket(BlockRegistry.CHERRY_BRACKET.get(), mcLoc(BLOCK + "stripped_cherry_log"));
+        woodenBracket(BlockRegistry.VARNISHED_ROSEWOOD_BRACKET.get(), modLoc(BLOCK + "varnished_rosewood"));
         // SIMPLE CARVED WOOD
         simpleBlock(BlockRegistry.RED_CARVED_WOOD.get());
         carvedWoodenSlab(BlockRegistry.RED_CARVED_WOODEN_SLAB.get(), BlockRegistry.RED_CARVED_WOOD.get());

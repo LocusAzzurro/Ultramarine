@@ -1,34 +1,34 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_the_recipe": {
-      "conditions": {
-        "recipe": "ultramarine:rosewood_panel"
-      },
-      "trigger": "minecraft:recipe_unlocked"
-    },
-    "has_varnished_rosewood": {
+    "has_rosewood_planks": {
       "conditions": {
         "items": [
           {
             "items": [
-              "ultramarine:varnished_rosewood"
+              "ultramarine:rosewood_planks"
             ]
           }
         ]
       },
       "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "ultramarine:varnished_rosewood"
+      },
+      "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "has_varnished_rosewood",
+      "has_rosewood_planks",
       "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
-      "ultramarine:rosewood_panel"
+      "ultramarine:varnished_rosewood"
     ]
   },
   "sends_telemetry_event": false

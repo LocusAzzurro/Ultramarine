@@ -3,11 +3,11 @@
   "criteria": {
     "has_the_recipe": {
       "conditions": {
-        "recipe": "ultramarine:rosewood_panel"
+        "recipe": "ultramarine:varnished_rosewood_bracket"
       },
       "trigger": "minecraft:recipe_unlocked"
     },
-    "has_varnished_rosewood": {
+    "has_wood": {
       "conditions": {
         "items": [
           {
@@ -22,13 +22,13 @@
   },
   "requirements": [
     [
-      "has_varnished_rosewood",
+      "has_wood",
       "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
-      "ultramarine:rosewood_panel"
+      "ultramarine:varnished_rosewood_bracket"
     ]
   },
   "sends_telemetry_event": false
