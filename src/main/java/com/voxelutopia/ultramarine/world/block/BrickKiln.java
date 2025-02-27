@@ -10,6 +10,7 @@ import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.Containers;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
@@ -93,7 +94,8 @@ public class BrickKiln extends DecorativeBlock implements EntityBlock, BaseBlock
         }
     }
 
-    public void animateTick(BlockState pState, Level pLevel, BlockPos pPos, Random pRand) {
+    @Override
+    public void animateTick(BlockState pState, Level pLevel, BlockPos pPos, RandomSource pRand) {
         if (pState.getValue(LIT)) {
             double d0 = (double)pPos.getX() + 0.5D;
             double d1 = pPos.getY();
