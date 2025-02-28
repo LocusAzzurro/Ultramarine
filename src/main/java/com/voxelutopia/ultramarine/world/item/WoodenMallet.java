@@ -34,8 +34,9 @@ public class WoodenMallet extends Item {
         BlockState blockstate = level.getBlockState(blockpos);
         boolean success = false;
         if (blockstate.hasProperty(ModBlockStateProperties.SHIFTED)){
-            level.setBlock(blockpos, blockstate.setValue(ModBlockStateProperties.SHIFTED,
-                    !blockstate.getValue(ModBlockStateProperties.SHIFTED)), Block.UPDATE_ALL);
+            BlockState pNewState = blockstate.setValue(ModBlockStateProperties.SHIFTED,
+                    !blockstate.getValue(ModBlockStateProperties.SHIFTED));
+            level.setBlock(blockpos, pNewState, Block.UPDATE_ALL);
             success = true;
         }
         if (blockstate.hasProperty(ModBlockStateProperties.CHIRAL_BLOCK_TYPE)){

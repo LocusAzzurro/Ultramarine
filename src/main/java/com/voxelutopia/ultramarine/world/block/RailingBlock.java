@@ -163,6 +163,11 @@ public class RailingBlock extends Block implements BaseBlockPropertyHolder, Simp
             Boolean shifted = connectsToState.getValue(RailingSlant.SHIFTED);
             canConnectToSlant = (!shifted && (connectsToDirection == facing.getOpposite())) || (shifted && (connectsToDirection == facing));
         }
+        else if (isSelfShifted && connectsToState.getBlock() instanceof RailingSlant){
+            Direction facing = connectsToState.getValue(BaseHorizontalDirectionalBlock.FACING);
+            Boolean shifted = connectsToState.getValue(RailingSlant.SHIFTED);
+            canConnectToSlant = !shifted && (connectsToDirection == facing);
+        }
         else if (isSelfShifted && level.getBlockState(connectsToPos.below()).getBlock() instanceof RailingSlant){
             BlockState blockBelow = level.getBlockState(connectsToPos.below());
             Direction facing = blockBelow.getValue(BaseHorizontalDirectionalBlock.FACING);
