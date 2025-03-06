@@ -16,10 +16,9 @@ public class Ultramarine {
     public static final String MOD_ID = "ultramarine";
     private static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
 
-    public Ultramarine() {
+    public Ultramarine(FMLJavaModLoadingContext modLoadingContext) {
 
-        @SuppressWarnings("removal")
-        IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
+        IEventBus bus = modLoadingContext.getModEventBus();
         BlockRegistry.BLOCKS.register(bus);
         ItemRegistry.ITEMS.register(bus);
         CreativeTabRegistry.CREATIVE_TABS.register(bus);
