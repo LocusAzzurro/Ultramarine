@@ -6,6 +6,8 @@ import net.minecraft.core.Direction;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Mirror;
+import net.minecraft.world.level.block.Rotation;
 import net.minecraft.world.level.block.SimpleWaterloggedBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
@@ -76,6 +78,26 @@ public class SixSideBlock extends Block implements BaseBlockPropertyHolder, Simp
     @Override
     public VoxelShape getCollisionShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
         return hasCollision ? this.getShape(pState, pLevel, pPos, pContext) : Shapes.empty();
+    }
+
+    @Override
+    public BlockState rotate(BlockState pState, Rotation pRot) {
+        BlockState newState = pState;
+        Direction facing = pState.getValue(FACING);
+        if (facing.getAxis().isHorizontal()){
+            newState = newState.setValue(FACING, pRot.rotate(facing));
+        }
+        return newState;
+    }
+
+    @Override
+    public BlockState mirror(BlockState pState, Mirror pMirror) {
+        BlockState newState = pState;
+        Direction facing = pState.getValue(FACING);
+        if (facing.getAxis().isHorizontal()){
+            newState = newState.rotate(pMirror.getRotation(facing));
+        }
+        return newState;
     }
 
     @Override

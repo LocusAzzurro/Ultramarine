@@ -1,5 +1,6 @@
 package com.voxelutopia.ultramarine.world.block;
 
+import com.mojang.math.OctahedralGroup;
 import com.voxelutopia.ultramarine.data.shape.RawVoxelShape;
 import com.voxelutopia.ultramarine.data.shape.ShapeFunction;
 import com.voxelutopia.ultramarine.world.block.state.ModBlockStateProperties;
@@ -9,6 +10,8 @@ import net.minecraft.core.Direction;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Mirror;
+import net.minecraft.world.level.block.Rotation;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.EnumProperty;
@@ -69,5 +72,19 @@ public class OrientableWallSideBlock extends WallSideBlock implements SideBlock{
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> pBuilder) {
         super.createBlockStateDefinition(pBuilder);
         pBuilder.add(TYPE);
+    }
+
+    @Override
+    public BlockState rotate(BlockState pState, Rotation pRot) {
+        return pState.setValue(FACING, pRot.rotate(pState.getValue(FACING)));
+    }
+
+    @Override
+    public BlockState mirror(BlockState pState, Mirror pMirror) {
+        BlockState newState = pState;
+        if (pMirror != Mirror.NONE)
+            newState = newState.setValue(TYPE, pState.getValue(TYPE).getOpposite());
+        newState = newState.setValue(FACING, pMirror.rotation().rotate(pState.getValue(FACING)));
+        return newState;
     }
 }

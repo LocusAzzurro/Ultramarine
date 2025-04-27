@@ -13,6 +13,8 @@ import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.HorizontalDirectionalBlock;
+import net.minecraft.world.level.block.Mirror;
+import net.minecraft.world.level.block.Rotation;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.*;
@@ -129,6 +131,16 @@ public class OpeningBlock extends DecorativeBlock{
         } else {
             return DoorHingeSide.RIGHT;
         }
+    }
+
+    @Override
+    public BlockState rotate(BlockState pState, Rotation pRotation){
+        return pState.setValue(FACING, pRotation.rotate(pState.getValue(FACING)));
+    }
+
+    @Override
+    public BlockState mirror(BlockState pState, Mirror pMirror){
+        return pMirror == Mirror.NONE ? pState : pState.rotate(pMirror.getRotation(pState.getValue(FACING))).cycle(HINGE);
     }
 
     @Override

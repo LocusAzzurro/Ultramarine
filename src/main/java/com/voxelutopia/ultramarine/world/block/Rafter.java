@@ -8,6 +8,7 @@ import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.RenderShape;
+import net.minecraft.world.level.block.Rotation;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
@@ -39,6 +40,19 @@ public class Rafter extends ShiftableBlock {
 
     public BlockState getStateForPlacement(BlockPlaceContext pContext) {
         return super.getStateForPlacement(pContext).setValue(AXIS, pContext.getHorizontalDirection().getAxis());
+    }
+
+    @Override
+    public BlockState rotate(BlockState pState, Rotation pRot) {
+        BlockState newState = pState;
+        if (pRot == Rotation.CLOCKWISE_90 || pRot == Rotation.COUNTERCLOCKWISE_90){
+            newState = switch (pState.getValue(AXIS)){
+                case X -> pState.setValue(AXIS, Direction.Axis.Z);
+                case Z -> pState.setValue(AXIS, Direction.Axis.X);
+                default -> newState;
+            };
+        }
+        return newState;
     }
 
     @Override
