@@ -9,6 +9,8 @@ import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Mirror;
+import net.minecraft.world.level.block.Rotation;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
@@ -148,6 +150,27 @@ public class LongTableBlock extends Block implements BaseBlockPropertyHolder {
         }
 
         return level.getBlockState(pos).getBlock() == this;
+    }
+
+    @Override
+    public BlockState rotate(BlockState pState, Rotation pRot) {
+        BlockState newState = pState;
+        if (pRot == Rotation.CLOCKWISE_90 || pRot == Rotation.COUNTERCLOCKWISE_90){
+            newState = switch (pState.getValue(AXIS)){
+                case X -> pState.setValue(AXIS, Direction.Axis.Z);
+                case Z -> pState.setValue(AXIS, Direction.Axis.X);
+                default -> newState;
+            };
+        }
+        else if (pRot == Rotation.CLOCKWISE_180){
+            newState = pState.setValue(LEFT, !pState.getValue(LEFT)).setValue(RIGHT, !pState.getValue(RIGHT));
+        }
+        return newState;
+    }
+
+    @Override
+    public BlockState mirror(BlockState pState, Mirror pMirror) {
+        return pState.setValue(LEFT, !pState.getValue(LEFT)).setValue(RIGHT, !pState.getValue(RIGHT));
     }
 
     @Override
