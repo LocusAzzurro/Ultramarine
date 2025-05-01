@@ -16,9 +16,12 @@ public class Ultramarine {
     public static final String MOD_ID = "ultramarine";
     private static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
 
-    public Ultramarine(FMLJavaModLoadingContext modLoadingContext) {
+    public Ultramarine() {
+        setupMod();
+    }
+    private void setupMod() {
+        IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
 
-        IEventBus bus = modLoadingContext.getModEventBus();
         BlockRegistry.BLOCKS.register(bus);
         ItemRegistry.ITEMS.register(bus);
         CreativeTabRegistry.CREATIVE_TABS.register(bus);
@@ -36,10 +39,11 @@ public class Ultramarine {
         MinecraftForge.EVENT_BUS.register(this);
     }
 
-    public static Logger getLogger() {return LOGGER;}
-
     private void setup(final FMLCommonSetupEvent event) {
         LOGGER.info("Ultramarine Mod Loading...");
     }
 
+    public static Logger getLogger() {
+        return LOGGER;
+    }
 }

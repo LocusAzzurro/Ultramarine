@@ -19,7 +19,7 @@ import snownee.jade.impl.ui.ProgressArrowElement;
 public enum BrickKilnComponent implements IBlockComponentProvider, IServerDataProvider<BlockAccessor> {
     INSTANCE;
 
-    public static final ResourceLocation BRICK_KILN = ResourceLocation.fromNamespaceAndPath(Ultramarine.MOD_ID, "brick_kiln");
+    public static final ResourceLocation BRICK_KILN = new ResourceLocation(Ultramarine.MOD_ID, "brick_kiln");
 
     @Override
     public void appendTooltip(ITooltip tooltip, BlockAccessor blockAccessor, IPluginConfig iPluginConfig) {

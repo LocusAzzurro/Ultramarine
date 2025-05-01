@@ -44,7 +44,7 @@ public class ModPlacedFeatures {
     }
 
     public static ResourceKey<PlacedFeature> key(String name){
-        return ResourceKey.create(Registries.PLACED_FEATURE, ResourceLocation.fromNamespaceAndPath(Ultramarine.MOD_ID, name));
+        return ResourceKey.create(Registries.PLACED_FEATURE, new ResourceLocation(Ultramarine.MOD_ID, name));
     }
 
     private static void register

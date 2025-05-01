@@ -254,22 +254,22 @@ public class ModRecipeProvider extends RecipeProvider {
                 Ingredient.of(ItemRegistry.GREEN_DYE_POWDER.get()), Ingredient.of(ModItemTags.FORGE_YELLOW_DYE)}, recipeConsumer);
         woodworking(RecipeCategory.BUILDING_BLOCKS, Ingredient.of(ItemRegistry.BLUE_AND_YELLOW_CARVED_WOOD_VARIANT_1.get()), ItemRegistry.BLUE_AND_YELLOW_CARVED_WOOD_VARIANT_2.get())
                 .unlockedBy(itemUnlockName(ItemRegistry.BLUE_AND_YELLOW_CARVED_WOOD_VARIANT_1.get()), itemCriterion(ItemRegistry.BLUE_AND_YELLOW_CARVED_WOOD_VARIANT_1.get()))
-                .save(recipeConsumer, ResourceLocation.fromNamespaceAndPath(DataGenerators.MOD_ID, "blue_and_yellow_carved_wood_1_to_2"));
+                .save(recipeConsumer, new ResourceLocation(DataGenerators.MOD_ID, "blue_and_yellow_carved_wood_1_to_2"));
         woodworking(RecipeCategory.BUILDING_BLOCKS, Ingredient.of(ItemRegistry.BLUE_AND_YELLOW_CARVED_WOOD_VARIANT_1.get()), ItemRegistry.BLUE_AND_YELLOW_CARVED_WOOD_VARIANT_3.get())
                 .unlockedBy(itemUnlockName(ItemRegistry.BLUE_AND_YELLOW_CARVED_WOOD_VARIANT_1.get()), itemCriterion(ItemRegistry.BLUE_AND_YELLOW_CARVED_WOOD_VARIANT_1.get()))
-                .save(recipeConsumer, ResourceLocation.fromNamespaceAndPath(DataGenerators.MOD_ID, "blue_and_yellow_carved_wood_1_to_3"));
+                .save(recipeConsumer, new ResourceLocation(DataGenerators.MOD_ID, "blue_and_yellow_carved_wood_1_to_3"));
         woodworking(RecipeCategory.BUILDING_BLOCKS, Ingredient.of(ItemRegistry.BLUE_AND_YELLOW_CARVED_WOOD_VARIANT_2.get()), ItemRegistry.BLUE_AND_YELLOW_CARVED_WOOD_VARIANT_1.get())
                 .unlockedBy(itemUnlockName(ItemRegistry.BLUE_AND_YELLOW_CARVED_WOOD_VARIANT_2.get()), itemCriterion(ItemRegistry.BLUE_AND_YELLOW_CARVED_WOOD_VARIANT_2.get()))
-                .save(recipeConsumer, ResourceLocation.fromNamespaceAndPath(DataGenerators.MOD_ID, "blue_and_yellow_carved_wood_2_to_1"));
+                .save(recipeConsumer, new ResourceLocation(DataGenerators.MOD_ID, "blue_and_yellow_carved_wood_2_to_1"));
         woodworking(RecipeCategory.BUILDING_BLOCKS, Ingredient.of(ItemRegistry.BLUE_AND_YELLOW_CARVED_WOOD_VARIANT_2.get()), ItemRegistry.BLUE_AND_YELLOW_CARVED_WOOD_VARIANT_3.get())
                 .unlockedBy(itemUnlockName(ItemRegistry.BLUE_AND_YELLOW_CARVED_WOOD_VARIANT_2.get()), itemCriterion(ItemRegistry.BLUE_AND_YELLOW_CARVED_WOOD_VARIANT_2.get()))
-                .save(recipeConsumer, ResourceLocation.fromNamespaceAndPath(DataGenerators.MOD_ID, "blue_and_yellow_carved_wood_2_to_3"));
+                .save(recipeConsumer, new ResourceLocation(DataGenerators.MOD_ID, "blue_and_yellow_carved_wood_2_to_3"));
         woodworking(RecipeCategory.BUILDING_BLOCKS, Ingredient.of(ItemRegistry.BLUE_AND_YELLOW_CARVED_WOOD_VARIANT_3.get()), ItemRegistry.BLUE_AND_YELLOW_CARVED_WOOD_VARIANT_1.get())
                 .unlockedBy(itemUnlockName(ItemRegistry.BLUE_AND_YELLOW_CARVED_WOOD_VARIANT_3.get()), itemCriterion(ItemRegistry.BLUE_AND_YELLOW_CARVED_WOOD_VARIANT_3.get()))
-                .save(recipeConsumer, ResourceLocation.fromNamespaceAndPath(DataGenerators.MOD_ID, "blue_and_yellow_carved_wood_3_to_1"));
+                .save(recipeConsumer, new ResourceLocation(DataGenerators.MOD_ID, "blue_and_yellow_carved_wood_3_to_1"));
         woodworking(RecipeCategory.BUILDING_BLOCKS, Ingredient.of(ItemRegistry.BLUE_AND_YELLOW_CARVED_WOOD_VARIANT_3.get()), ItemRegistry.BLUE_AND_YELLOW_CARVED_WOOD_VARIANT_2.get())
                 .unlockedBy(itemUnlockName(ItemRegistry.BLUE_AND_YELLOW_CARVED_WOOD_VARIANT_3.get()), itemCriterion(ItemRegistry.BLUE_AND_YELLOW_CARVED_WOOD_VARIANT_3.get()))
-                .save(recipeConsumer, ResourceLocation.fromNamespaceAndPath(DataGenerators.MOD_ID, "blue_and_yellow_carved_wood_3_to_2"));
+                .save(recipeConsumer, new ResourceLocation(DataGenerators.MOD_ID, "blue_and_yellow_carved_wood_3_to_2"));
         carvedWood(ItemRegistry.YELLOW_AND_GREEN_CARVED_WOOD.get(), new Ingredient[]{
                 Ingredient.of(ItemRegistry.YELLOW_DYE_POWDER.get()), Ingredient.of(ModItemTags.FORGE_GREEN_DYE), Ingredient.of(ModItemTags.FORGE_GREEN_DYE)}, recipeConsumer);
         carvedWood(ItemRegistry.YELLOW_GREEN_BLUE_CARVED_WOOD.get(), new Ingredient[]{
@@ -2166,11 +2166,11 @@ public class ModRecipeProvider extends RecipeProvider {
                 .pattern("AA")
                 .pattern("AA")
                 .unlockedBy("has_" + rawPath, InventoryChangeTrigger.TriggerInstance.hasItems(raw))
-                .save(pFinishedRecipeConsumer, ResourceLocation.fromNamespaceAndPath(DataGenerators.MOD_ID, polishedPath + "_from_crafting"));
+                .save(pFinishedRecipeConsumer, new ResourceLocation(DataGenerators.MOD_ID, polishedPath + "_from_crafting"));
         SingleItemRecipeBuilder.stonecutting(Ingredient.of(raw), RecipeCategory.BUILDING_BLOCKS, polished)
                 .unlockedBy("has_" + rawPath, InventoryChangeTrigger.TriggerInstance.hasItems(raw))
                 .save(pFinishedRecipeConsumer,
-                        ResourceLocation.fromNamespaceAndPath(DataGenerators.MOD_ID, polishedPath + "_from_stonecutting"));
+                        new ResourceLocation(DataGenerators.MOD_ID, polishedPath + "_from_stonecutting"));
     }
 
     private static void blockTransform(Item block, TagKey<Item> dye, Item output, RecipeCategory category, Consumer<FinishedRecipe> pFinishedRecipeConsumer){
@@ -2178,7 +2178,7 @@ public class ModRecipeProvider extends RecipeProvider {
         String outputPath = name(output);
         ShapelessRecipeBuilder.shapeless(category, output).requires(block).requires(dye)
                 .unlockedBy("has_" + blockPath, InventoryChangeTrigger.TriggerInstance.hasItems(block))
-                .save(pFinishedRecipeConsumer, ResourceLocation.fromNamespaceAndPath(DataGenerators.MOD_ID, outputPath));
+                .save(pFinishedRecipeConsumer, new ResourceLocation(DataGenerators.MOD_ID, outputPath));
         ShapedRecipeBuilder.shaped(category, output, 8)
                 .define('B', block)
                 .define('D', dye)
@@ -2186,7 +2186,7 @@ public class ModRecipeProvider extends RecipeProvider {
                 .pattern("BDB")
                 .pattern("BBB")
                 .unlockedBy("has_" + blockPath, InventoryChangeTrigger.TriggerInstance.hasItems(block))
-                .save(pFinishedRecipeConsumer, ResourceLocation.fromNamespaceAndPath(DataGenerators.MOD_ID, outputPath + "_batch"));
+                .save(pFinishedRecipeConsumer, new ResourceLocation(DataGenerators.MOD_ID, outputPath + "_batch"));
     }
 
     private static void blockTransform(Item block, ItemLike dye, Item output, RecipeCategory category, Consumer<FinishedRecipe> pFinishedRecipeConsumer){
@@ -2194,7 +2194,7 @@ public class ModRecipeProvider extends RecipeProvider {
         String outputPath = name(output);
         ShapelessRecipeBuilder.shapeless(category, output).requires(block).requires(dye)
                 .unlockedBy("has_" + blockPath, InventoryChangeTrigger.TriggerInstance.hasItems(block))
-                .save(pFinishedRecipeConsumer, ResourceLocation.fromNamespaceAndPath(DataGenerators.MOD_ID, outputPath));
+                .save(pFinishedRecipeConsumer, new ResourceLocation(DataGenerators.MOD_ID, outputPath));
         ShapedRecipeBuilder.shaped(category, output, 8)
                 .define('B', block)
                 .define('D', dye)
@@ -2202,13 +2202,13 @@ public class ModRecipeProvider extends RecipeProvider {
                 .pattern("BDB")
                 .pattern("BBB")
                 .unlockedBy("has_" + blockPath, InventoryChangeTrigger.TriggerInstance.hasItems(block))
-                .save(pFinishedRecipeConsumer, ResourceLocation.fromNamespaceAndPath(DataGenerators.MOD_ID, outputPath + "_batch"));
+                .save(pFinishedRecipeConsumer, new ResourceLocation(DataGenerators.MOD_ID, outputPath + "_batch"));
     }
 
     private static void dust(Item input, Item output, Consumer<FinishedRecipe> pFinishedRecipeConsumer){
         SingleItemRecipeBuilder.stonecutting(Ingredient.of(input), RecipeCategory.MISC, output)
                 .unlockedBy("has_" + name(input), InventoryChangeTrigger.TriggerInstance.hasItems(input))
-                .save(pFinishedRecipeConsumer, ResourceLocation.fromNamespaceAndPath(DataGenerators.MOD_ID, name(output)));
+                .save(pFinishedRecipeConsumer, new ResourceLocation(DataGenerators.MOD_ID, name(output)));
     }
 
     private static void brickMixture(Item brick, int brickAmount, Item additive, Item output, Consumer<FinishedRecipe> pFinishedRecipeConsumer){
@@ -2217,7 +2217,7 @@ public class ModRecipeProvider extends RecipeProvider {
         String outputPath = name(output);
         ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, output, brickAmount).requires(brick, brickAmount).requires(additive)
                 .unlockedBy("has_" + brickPath, InventoryChangeTrigger.TriggerInstance.hasItems(brick))
-                .save(pFinishedRecipeConsumer, ResourceLocation.fromNamespaceAndPath(DataGenerators.MOD_ID, outputPath));
+                .save(pFinishedRecipeConsumer, new ResourceLocation(DataGenerators.MOD_ID, outputPath));
     }
 
     private static void smeltingAndBlasting(Item input, Item output, Consumer<FinishedRecipe> pFinishedRecipeConsumer){
@@ -2226,9 +2226,9 @@ public class ModRecipeProvider extends RecipeProvider {
 
     private static void smeltingAndBlasting(Item input, Item output, float exp, Consumer<FinishedRecipe> pFinishedRecipeConsumer){
         SimpleCookingRecipeBuilder.smelting(Ingredient.of(input), RecipeCategory.MISC, output, exp, 200)
-                .unlockedBy(itemUnlockName(input), itemCriterion(input)).save(pFinishedRecipeConsumer, ResourceLocation.fromNamespaceAndPath(DataGenerators.MOD_ID, name(output) + "_from_smelting"));
+                .unlockedBy(itemUnlockName(input), itemCriterion(input)).save(pFinishedRecipeConsumer, new ResourceLocation(DataGenerators.MOD_ID, name(output) + "_from_smelting"));
         SimpleCookingRecipeBuilder.blasting(Ingredient.of(input), RecipeCategory.MISC, output, exp/2, 100)
-                .unlockedBy(itemUnlockName(input), itemCriterion(input)).save(pFinishedRecipeConsumer, ResourceLocation.fromNamespaceAndPath(DataGenerators.MOD_ID, name(output) + "_from_blasting"));
+                .unlockedBy(itemUnlockName(input), itemCriterion(input)).save(pFinishedRecipeConsumer, new ResourceLocation(DataGenerators.MOD_ID, name(output) + "_from_blasting"));
     }
 
     private static void stoneSlabAndStairsRecipe(Item baseBlock, Item slabBlock, Item stairBlock, Consumer<FinishedRecipe> pFinishedRecipeConsumer){
@@ -2245,21 +2245,21 @@ public class ModRecipeProvider extends RecipeProvider {
                 .pattern("BBB")
                 .unlockedBy(baseBlockAdvancement, trigger)
                 .save(pFinishedRecipeConsumer,
-                        ResourceLocation.fromNamespaceAndPath(DataGenerators.MOD_ID, stairsBlockPath + "_from_crafting"));
+                        new ResourceLocation(DataGenerators.MOD_ID, stairsBlockPath + "_from_crafting"));
         ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, slabBlock, 6)
                 .define('B', baseBlock)
                 .pattern("BBB")
                 .unlockedBy(baseBlockAdvancement, trigger)
                 .save(pFinishedRecipeConsumer,
-                        ResourceLocation.fromNamespaceAndPath(DataGenerators.MOD_ID, slabBlockPath + "_from_crafting"));
+                        new ResourceLocation(DataGenerators.MOD_ID, slabBlockPath + "_from_crafting"));
         SingleItemRecipeBuilder.stonecutting(Ingredient.of(baseBlock), RecipeCategory.BUILDING_BLOCKS, stairBlock)
                 .unlockedBy(baseBlockAdvancement, trigger)
                 .save(pFinishedRecipeConsumer,
-                        ResourceLocation.fromNamespaceAndPath(DataGenerators.MOD_ID, stairsBlockPath + "_from_stonecutting"));
+                        new ResourceLocation(DataGenerators.MOD_ID, stairsBlockPath + "_from_stonecutting"));
         SingleItemRecipeBuilder.stonecutting(Ingredient.of(baseBlock), RecipeCategory.BUILDING_BLOCKS, slabBlock, 2)
                 .unlockedBy(baseBlockAdvancement, trigger)
                 .save(pFinishedRecipeConsumer,
-                        ResourceLocation.fromNamespaceAndPath(DataGenerators.MOD_ID, slabBlockPath + "_from_stonecutting"));
+                        new ResourceLocation(DataGenerators.MOD_ID, slabBlockPath + "_from_stonecutting"));
     }
 
     private static void simpleStonecutting(Item input, Item output, RecipeCategory category, Consumer<FinishedRecipe> pFinishedRecipeConsumer){
@@ -2282,21 +2282,21 @@ public class ModRecipeProvider extends RecipeProvider {
                 .pattern("BBB")
                 .unlockedBy(baseBlockAdvancement, trigger)
                 .save(pFinishedRecipeConsumer,
-                        ResourceLocation.fromNamespaceAndPath(DataGenerators.MOD_ID, stairsBlockPath + "_from_crafting"));
+                        new ResourceLocation(DataGenerators.MOD_ID, stairsBlockPath + "_from_crafting"));
         ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, slabBlock, 6)
                 .define('B', baseBlock)
                 .pattern("BBB")
                 .unlockedBy(baseBlockAdvancement, trigger)
                 .save(pFinishedRecipeConsumer,
-                        ResourceLocation.fromNamespaceAndPath(DataGenerators.MOD_ID, slabBlockPath + "_from_crafting"));
+                        new ResourceLocation(DataGenerators.MOD_ID, slabBlockPath + "_from_crafting"));
         woodworking(RecipeCategory.BUILDING_BLOCKS, Ingredient.of(baseBlock), stairBlock)
                 .unlockedBy(baseBlockAdvancement, trigger)
                 .save(pFinishedRecipeConsumer,
-                        ResourceLocation.fromNamespaceAndPath(DataGenerators.MOD_ID, stairsBlockPath + "_from_woodworking"));
+                        new ResourceLocation(DataGenerators.MOD_ID, stairsBlockPath + "_from_woodworking"));
         woodworking(RecipeCategory.BUILDING_BLOCKS, Ingredient.of(baseBlock), slabBlock, 2)
                 .unlockedBy(baseBlockAdvancement, trigger)
                 .save(pFinishedRecipeConsumer,
-                        ResourceLocation.fromNamespaceAndPath(DataGenerators.MOD_ID, slabBlockPath + "_from_woodworking"));
+                        new ResourceLocation(DataGenerators.MOD_ID, slabBlockPath + "_from_woodworking"));
     }
 
 
@@ -2311,11 +2311,11 @@ public class ModRecipeProvider extends RecipeProvider {
                 .pattern("BBB")
                 .unlockedBy(baseBlockAdvancement, trigger)
                 .save(pFinishedRecipeConsumer,
-                        ResourceLocation.fromNamespaceAndPath(DataGenerators.MOD_ID, wallBlockPath + "_from_crafting"));
+                        new ResourceLocation(DataGenerators.MOD_ID, wallBlockPath + "_from_crafting"));
         SingleItemRecipeBuilder.stonecutting(Ingredient.of(baseBlock), RecipeCategory.DECORATIONS, wallBlock)
                 .unlockedBy(baseBlockAdvancement, trigger)
                 .save(pFinishedRecipeConsumer,
-                        ResourceLocation.fromNamespaceAndPath(DataGenerators.MOD_ID, wallBlockPath + "_from_stonecutting"));
+                        new ResourceLocation(DataGenerators.MOD_ID, wallBlockPath + "_from_stonecutting"));
     }
 
     private static void fenceRecipe(Item baseBlock, Item fenceBlock, Consumer<FinishedRecipe> pFinishedRecipeConsumer){
@@ -2330,11 +2330,11 @@ public class ModRecipeProvider extends RecipeProvider {
                 .pattern("BSB")
                 .unlockedBy(baseBlockAdvancement, trigger)
                 .save(pFinishedRecipeConsumer,
-                        ResourceLocation.fromNamespaceAndPath(DataGenerators.MOD_ID, fenceBlockPath + "_from_crafting"));
+                        new ResourceLocation(DataGenerators.MOD_ID, fenceBlockPath + "_from_crafting"));
         woodworking(RecipeCategory.DECORATIONS, Ingredient.of(baseBlock), fenceBlock)
                 .unlockedBy(baseBlockAdvancement, trigger)
                 .save(pFinishedRecipeConsumer,
-                        ResourceLocation.fromNamespaceAndPath(DataGenerators.MOD_ID, fenceBlockPath + "_from_woodworking"));
+                        new ResourceLocation(DataGenerators.MOD_ID, fenceBlockPath + "_from_woodworking"));
     }
 
     private static void polishedPlankRecipe(Item planks, Item polishedPlank, Consumer<FinishedRecipe> pFinishedRecipeConsumer){
@@ -2346,10 +2346,10 @@ public class ModRecipeProvider extends RecipeProvider {
     private static void roofTileBlocksRecipe(String color, Consumer<FinishedRecipe> pFinishedRecipeConsumer){
         IForgeRegistry<Item> ITEMS = ForgeRegistries.ITEMS;
         Item tileBlock, tileItem;
-        tileItem = ITEMS.getValue(ResourceLocation.fromNamespaceAndPath(DataGenerators.MOD_ID, color + "_roof_tile"));
+        tileItem = ITEMS.getValue(new ResourceLocation(DataGenerators.MOD_ID, color + "_roof_tile"));
         assert (tileItem != null);
 
-        tileBlock = ITEMS.getValue(ResourceLocation.fromNamespaceAndPath(DataGenerators.MOD_ID, color + "_roof_tiles"));
+        tileBlock = ITEMS.getValue(new ResourceLocation(DataGenerators.MOD_ID, color + "_roof_tiles"));
         assert (tileBlock != null);
         ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, tileBlock, 1)
                 .define('T', tileItem)
@@ -2357,7 +2357,7 @@ public class ModRecipeProvider extends RecipeProvider {
                 .unlockedBy("has_" + color + "_roof_tile", InventoryChangeTrigger.TriggerInstance.hasItems(tileItem))
                 .save(pFinishedRecipeConsumer);
 
-        tileBlock = ITEMS.getValue(ResourceLocation.fromNamespaceAndPath(DataGenerators.MOD_ID, color + "_roof_tile_stairs"));
+        tileBlock = ITEMS.getValue(new ResourceLocation(DataGenerators.MOD_ID, color + "_roof_tile_stairs"));
         assert (tileBlock != null);
         ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, tileBlock, 1)
                 .define('T', tileItem)
@@ -2367,7 +2367,7 @@ public class ModRecipeProvider extends RecipeProvider {
                 .unlockedBy("has_" + color + "_roof_tile", InventoryChangeTrigger.TriggerInstance.hasItems(tileItem))
                 .save(pFinishedRecipeConsumer);
 
-        tileBlock = ITEMS.getValue(ResourceLocation.fromNamespaceAndPath(DataGenerators.MOD_ID, color + "_roof_tile_edge"));
+        tileBlock = ITEMS.getValue(new ResourceLocation(DataGenerators.MOD_ID, color + "_roof_tile_edge"));
         assert (tileBlock != null);
         ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, tileBlock, 1)
                 .define('T', tileItem)
@@ -2380,10 +2380,10 @@ public class ModRecipeProvider extends RecipeProvider {
     private static void roofTileRidgesRecipe(String color, Consumer<FinishedRecipe> pFinishedRecipeConsumer){
         IForgeRegistry<Item> ITEMS = ForgeRegistries.ITEMS;
         Item ridgeBlock, tileItem;
-        tileItem = ITEMS.getValue(ResourceLocation.fromNamespaceAndPath(DataGenerators.MOD_ID, color + "_roof_tile"));
+        tileItem = ITEMS.getValue(new ResourceLocation(DataGenerators.MOD_ID, color + "_roof_tile"));
         assert (tileItem != null);
 
-        ridgeBlock = ITEMS.getValue(ResourceLocation.fromNamespaceAndPath(DataGenerators.MOD_ID, color + "_roof_ridge_upper"));
+        ridgeBlock = ITEMS.getValue(new ResourceLocation(DataGenerators.MOD_ID, color + "_roof_ridge_upper"));
         assert (ridgeBlock != null);
         ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, ridgeBlock, 1)
                 .define('T', tileItem)
@@ -2392,13 +2392,13 @@ public class ModRecipeProvider extends RecipeProvider {
                 .unlockedBy("has_" + color + "_roof_tile", InventoryChangeTrigger.TriggerInstance.hasItems(tileItem))
                 .save(pFinishedRecipeConsumer);
 
-        Item ridgeSlabBlock = ITEMS.getValue(ResourceLocation.fromNamespaceAndPath(DataGenerators.MOD_ID, color + "_roof_ridge_upper_slab"));
+        Item ridgeSlabBlock = ITEMS.getValue(new ResourceLocation(DataGenerators.MOD_ID, color + "_roof_ridge_upper_slab"));
         assert (ridgeSlabBlock != null);
         SingleItemRecipeBuilder.stonecutting(Ingredient.of(ridgeBlock), RecipeCategory.BUILDING_BLOCKS, ridgeSlabBlock, 2)
                 .unlockedBy(itemUnlockName(ridgeBlock), itemCriterion(ridgeBlock))
                 .save(pFinishedRecipeConsumer);
 
-        ridgeBlock = ITEMS.getValue(ResourceLocation.fromNamespaceAndPath(DataGenerators.MOD_ID, color + "_roof_ridge_lower"));
+        ridgeBlock = ITEMS.getValue(new ResourceLocation(DataGenerators.MOD_ID, color + "_roof_ridge_lower"));
         assert (ridgeBlock != null);
         ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, ridgeBlock, 1)
                 .define('T', tileItem)
@@ -2407,7 +2407,7 @@ public class ModRecipeProvider extends RecipeProvider {
                 .unlockedBy("has_" + color + "_roof_tile", InventoryChangeTrigger.TriggerInstance.hasItems(tileItem))
                 .save(pFinishedRecipeConsumer);
 
-        ridgeBlock = ITEMS.getValue(ResourceLocation.fromNamespaceAndPath(DataGenerators.MOD_ID, color + "_roof_ridge_connection"));
+        ridgeBlock = ITEMS.getValue(new ResourceLocation(DataGenerators.MOD_ID, color + "_roof_ridge_connection"));
         assert (ridgeBlock != null);
         ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, ridgeBlock, 1)
                 .define('T', tileItem)
@@ -2416,7 +2416,7 @@ public class ModRecipeProvider extends RecipeProvider {
                 .unlockedBy("has_" + color + "_roof_tile", InventoryChangeTrigger.TriggerInstance.hasItems(tileItem))
                 .save(pFinishedRecipeConsumer);
 
-        Item ridgeMainBlock = ITEMS.getValue(ResourceLocation.fromNamespaceAndPath(DataGenerators.MOD_ID, color + "_main_roof_ridge_connection"));
+        Item ridgeMainBlock = ITEMS.getValue(new ResourceLocation(DataGenerators.MOD_ID, color + "_main_roof_ridge_connection"));
         assert (ridgeMainBlock != null);
         ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, ridgeMainBlock, 3)
                 .define('R', ridgeBlock)
@@ -2426,19 +2426,19 @@ public class ModRecipeProvider extends RecipeProvider {
                 .unlockedBy(itemUnlockName(ridgeBlock), InventoryChangeTrigger.TriggerInstance.hasItems(ridgeBlock))
                 .save(pFinishedRecipeConsumer);
 
-        Item ridgeMainSlabBlock = ITEMS.getValue(ResourceLocation.fromNamespaceAndPath(DataGenerators.MOD_ID, color + "_main_roof_ridge_slab"));
+        Item ridgeMainSlabBlock = ITEMS.getValue(new ResourceLocation(DataGenerators.MOD_ID, color + "_main_roof_ridge_slab"));
         assert (ridgeMainSlabBlock != null);
-        Item ridgeMainStairBlock = ITEMS.getValue(ResourceLocation.fromNamespaceAndPath(DataGenerators.MOD_ID, color + "_main_roof_ridge_stairs"));
+        Item ridgeMainStairBlock = ITEMS.getValue(new ResourceLocation(DataGenerators.MOD_ID, color + "_main_roof_ridge_stairs"));
         assert (ridgeMainStairBlock != null);
         stoneSlabAndStairsRecipe(ridgeMainBlock, ridgeMainSlabBlock, ridgeMainStairBlock, pFinishedRecipeConsumer);
 
-        Item ridgeMainPanelBlock = ITEMS.getValue(ResourceLocation.fromNamespaceAndPath(DataGenerators.MOD_ID, color + "_main_roof_ridge_panel"));
+        Item ridgeMainPanelBlock = ITEMS.getValue(new ResourceLocation(DataGenerators.MOD_ID, color + "_main_roof_ridge_panel"));
         assert (ridgeMainPanelBlock != null);
         SingleItemRecipeBuilder.stonecutting(Ingredient.of(ridgeMainSlabBlock), RecipeCategory.BUILDING_BLOCKS, ridgeMainPanelBlock, 2)
                 .unlockedBy(itemUnlockName(ridgeMainSlabBlock), itemCriterion(ridgeMainSlabBlock))
                 .save(pFinishedRecipeConsumer);
 
-        Item ridgeMainPlateBlock = ITEMS.getValue(ResourceLocation.fromNamespaceAndPath(DataGenerators.MOD_ID, color + "_main_roof_ridge_plate"));
+        Item ridgeMainPlateBlock = ITEMS.getValue(new ResourceLocation(DataGenerators.MOD_ID, color + "_main_roof_ridge_plate"));
         assert (ridgeMainPlateBlock != null);
         SingleItemRecipeBuilder.stonecutting(Ingredient.of(ridgeMainPanelBlock), RecipeCategory.BUILDING_BLOCKS, ridgeMainPlateBlock, 2)
                 .unlockedBy(itemUnlockName(ridgeMainPanelBlock), itemCriterion(ridgeMainPanelBlock))

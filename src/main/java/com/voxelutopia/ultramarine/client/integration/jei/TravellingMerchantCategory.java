@@ -17,7 +17,7 @@ import net.minecraft.resources.ResourceLocation;
 
 public class TravellingMerchantCategory extends AbstractRecipeCategory<TravellingMerchantWrapper>  implements IRecipeCategory<TravellingMerchantWrapper> {
 
-    public static final ResourceLocation UID = ResourceLocation.fromNamespaceAndPath(Ultramarine.MOD_ID, "custom_wandering_trader");
+    public static final ResourceLocation UID = new ResourceLocation(Ultramarine.MOD_ID, "custom_wandering_trader");
 
     public static final RecipeType<TravellingMerchantWrapper> CUSTOM_WANDERING_TRADER_WRAPPER_RECIPE_TYPE =
             new RecipeType<>(UID, TravellingMerchantWrapper.class);

@@ -25,12 +25,12 @@ import static mezz.jei.api.recipe.RecipeIngredientRole.OUTPUT;
 
 public class ChiselTableRecipeCategory implements IRecipeCategory<ChiselTableRecipe> {
 
-    public static final ResourceLocation UID = ResourceLocation.fromNamespaceAndPath(Ultramarine.MOD_ID, "chisel_table");
+    public static final ResourceLocation UID = new ResourceLocation(Ultramarine.MOD_ID, "chisel_table");
 
     public static final RecipeType<ChiselTableRecipe> CHISEL_TABLE_RECIPE_TYPE =
             new RecipeType<>(UID, ChiselTableRecipe.class);
 
-    public static final ResourceLocation TEXTURE_GUI = ResourceLocation.fromNamespaceAndPath(Ultramarine.MOD_ID, "textures/gui/chisel_table.png");
+    public static final ResourceLocation TEXTURE_GUI = new ResourceLocation(Ultramarine.MOD_ID, "textures/gui/chisel_table.png");
 
     private final IDrawable background;
     private final IDrawable icon;

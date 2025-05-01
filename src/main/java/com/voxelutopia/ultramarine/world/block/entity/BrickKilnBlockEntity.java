@@ -339,7 +339,7 @@ public class BrickKilnBlockEntity extends BlockEntity implements MenuProvider, R
         CompoundTag recipesTag = pTag.getCompound("RecipesUsed");
 
         for(String s : recipesTag.getAllKeys()) {
-            this.recipesUsed.put(ResourceLocation.withDefaultNamespace(s), recipesTag.getInt(s));
+            this.recipesUsed.put(new ResourceLocation(ResourceLocation.DEFAULT_NAMESPACE, s), recipesTag.getInt(s));
         }
 
     }

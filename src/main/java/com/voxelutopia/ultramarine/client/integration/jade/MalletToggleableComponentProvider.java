@@ -15,7 +15,7 @@ import snownee.jade.api.ui.IElementHelper;
 public enum MalletToggleableComponentProvider implements IBlockComponentProvider {
     INSTANCE;
 
-    public static final ResourceLocation MALLET_TOGGLEABLE = ResourceLocation.fromNamespaceAndPath(Ultramarine.MOD_ID, "mallet_toggleable");
+    public static final ResourceLocation MALLET_TOGGLEABLE = new ResourceLocation(Ultramarine.MOD_ID, "mallet_toggleable");
 
     @Override
     public void appendTooltip(ITooltip tooltip, BlockAccessor blockAccessor, IPluginConfig iPluginConfig) {
