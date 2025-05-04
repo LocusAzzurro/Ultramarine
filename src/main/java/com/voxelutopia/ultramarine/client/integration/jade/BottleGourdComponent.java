@@ -20,7 +20,7 @@ import snownee.jade.api.ui.IElementHelper;
 public enum BottleGourdComponent implements IBlockComponentProvider, IServerDataProvider<BlockAccessor> {
     INSTANCE;
 
-    public static final ResourceLocation BOTTLE_GOURD = ResourceLocation.fromNamespaceAndPath(Ultramarine.MOD_ID, "bottle_gourd");
+    public static final ResourceLocation BOTTLE_GOURD = new ResourceLocation(Ultramarine.MOD_ID, "bottle_gourd");
 
     @Override
     public void appendTooltip(ITooltip tooltip, BlockAccessor blockAccessor, IPluginConfig iPluginConfig) {

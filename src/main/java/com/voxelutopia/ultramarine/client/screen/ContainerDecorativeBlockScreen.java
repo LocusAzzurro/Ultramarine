@@ -12,7 +12,7 @@ import net.minecraft.world.entity.player.Inventory;
 
 public class ContainerDecorativeBlockScreen extends AbstractContainerScreen<ContainerDecorativeBlockMenu> implements MenuAccess<ContainerDecorativeBlockMenu> {
 
-    private static final ResourceLocation CONTAINER_BACKGROUND = ResourceLocation.withDefaultNamespace("textures/gui/container/generic_54.png");
+    private static final ResourceLocation CONTAINER_BACKGROUND = new ResourceLocation(ResourceLocation.DEFAULT_NAMESPACE, "textures/gui/container/generic_54.png");
     private final int containerRows;
 
     public ContainerDecorativeBlockScreen(ContainerDecorativeBlockMenu pMenu, Inventory pPlayerInventory, Component pTitle) {

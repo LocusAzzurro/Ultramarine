@@ -37,6 +37,6 @@ public class ModBiomeModifiers {
     }
 
     public static ResourceKey<BiomeModifier> key(String name){
-        return ResourceKey.create(ForgeRegistries.Keys.BIOME_MODIFIERS, ResourceLocation.fromNamespaceAndPath(Ultramarine.MOD_ID, name));
+        return ResourceKey.create(ForgeRegistries.Keys.BIOME_MODIFIERS, new ResourceLocation(Ultramarine.MOD_ID, name));
     }
 }

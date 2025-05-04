@@ -14,8 +14,8 @@ import static com.voxelutopia.ultramarine.datagen.DataGenerators.MOD_ID;
 
 public class ModArchaeologyLootProvider implements LootTableSubProvider {
 
-    public static final ResourceLocation TRAIL_RUINS_COMMON = ResourceLocation.fromNamespaceAndPath(MOD_ID, "archaeology/trail_ruins_common");
-    public static final ResourceLocation TRAIL_RUINS_RARE = ResourceLocation.fromNamespaceAndPath(MOD_ID, "archaeology/trail_ruins_rare");
+    public static final ResourceLocation TRAIL_RUINS_COMMON = new ResourceLocation(MOD_ID, "archaeology/trail_ruins_common");
+    public static final ResourceLocation TRAIL_RUINS_RARE = new ResourceLocation(MOD_ID, "archaeology/trail_ruins_rare");
 
     @Override
     public void generate(BiConsumer<ResourceLocation, LootTable.Builder> output) {

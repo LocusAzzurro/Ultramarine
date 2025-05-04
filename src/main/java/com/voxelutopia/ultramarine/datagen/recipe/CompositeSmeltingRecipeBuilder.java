@@ -62,11 +62,11 @@ public class CompositeSmeltingRecipeBuilder implements RecipeBuilder {
 
     @Override
     public void save(Consumer<FinishedRecipe> pFinishedRecipeConsumer, ResourceLocation pRecipeId) {
-        this.advancementBuilder.parent(ResourceLocation.withDefaultNamespace("recipes/root"))
+        this.advancementBuilder.parent(new ResourceLocation(ResourceLocation.DEFAULT_NAMESPACE, "recipes/root"))
                 .addCriterion("has_the_recipe", RecipeUnlockedTrigger.unlocked(pRecipeId)).rewards(AdvancementRewards.Builder.recipe(pRecipeId)).requirements(RequirementsStrategy.OR);
         pFinishedRecipeConsumer.accept(new Result(pRecipeId, this.group == null ? "" : this.group,
                 this.primaryIngredient, this.secondaryIngredient, this.result, this.experience, this.cookingTime, this.advancementBuilder,
-                ResourceLocation.fromNamespaceAndPath(pRecipeId.getNamespace(), "recipes/" + pRecipeId.getPath())));
+                new ResourceLocation(pRecipeId.getNamespace(), "recipes/" + pRecipeId.getPath())));
     }
 
     private static class Result implements FinishedRecipe{

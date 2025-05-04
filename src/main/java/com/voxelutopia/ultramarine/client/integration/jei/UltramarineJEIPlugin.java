@@ -28,7 +28,7 @@ import java.util.Objects;
 @JeiPlugin
 public class UltramarineJEIPlugin implements IModPlugin {
 
-    public static final ResourceLocation JEI_GUI_VANILLA = ResourceLocation.fromNamespaceAndPath("jei", "textures/gui/gui_vanilla.png");
+    public static final ResourceLocation JEI_GUI_VANILLA = new ResourceLocation("jei", "textures/gui/gui_vanilla.png");
     private static final Logger LOGGER = Ultramarine.getLogger();
 
     public UltramarineJEIPlugin(){
@@ -37,7 +37,7 @@ public class UltramarineJEIPlugin implements IModPlugin {
 
     @Override
     public ResourceLocation getPluginUid() {
-        return ResourceLocation.fromNamespaceAndPath(Ultramarine.MOD_ID, "jei_plugin");
+        return new ResourceLocation(Ultramarine.MOD_ID, "jei_plugin");
     }
 
     @Override
