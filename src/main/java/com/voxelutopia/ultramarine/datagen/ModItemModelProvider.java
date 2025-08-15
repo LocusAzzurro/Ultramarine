@@ -4,17 +4,17 @@ import com.voxelutopia.ultramarine.data.registry.BlockRegistry;
 import com.voxelutopia.ultramarine.data.registry.ItemRegistry;
 import com.voxelutopia.ultramarine.world.block.BaseFence;
 import com.voxelutopia.ultramarine.world.block.BaseWall;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.DiggerItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
-import net.minecraftforge.client.model.generators.ItemModelBuilder;
-import net.minecraftforge.client.model.generators.ItemModelProvider;
-import net.minecraftforge.common.data.ExistingFileHelper;
-import net.minecraftforge.registries.ForgeRegistries;
-import net.minecraftforge.registries.RegistryObject;
+import net.neoforged.neoforge.client.model.generators.ItemModelBuilder;
+import net.neoforged.neoforge.client.model.generators.ItemModelProvider;
+import net.neoforged.neoforge.common.data.ExistingFileHelper;
+import net.neoforged.neoforge.registries.DeferredHolder;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
@@ -23,14 +23,14 @@ import java.util.Objects;
 
 public class ModItemModelProvider extends ItemModelProvider {
 
-    private final static List<RegistryObject<Block>> NON_SIMPLE_BLOCKS = new ArrayList<>();
-    private final static List<RegistryObject<Item>> NON_SIMPLE_ITEMS = new ArrayList<>();
+    private final static List<DeferredHolder<Block, ? extends Block>> NON_SIMPLE_BLOCKS = new ArrayList<>();
+    private final static List<DeferredHolder<Item, ? extends Item>> NON_SIMPLE_ITEMS = new ArrayList<>();
 
     static {
         BlockRegistry.BLOCKS.getEntries().stream()
                 .filter(blockRegistryObject -> (
                         blockRegistryObject.get() instanceof BaseWall ||
-                        blockRegistryObject.get() instanceof BaseFence
+                                blockRegistryObject.get() instanceof BaseFence
                 ))
                 .forEach(NON_SIMPLE_BLOCKS::add);
         ItemRegistry.ITEMS.getEntries().stream()
@@ -41,6 +41,7 @@ public class ModItemModelProvider extends ItemModelProvider {
     public ModItemModelProvider(PackOutput output, ExistingFileHelper existingFileHelper) {
         super(output, DataGenerators.MOD_ID, existingFileHelper);
     }
+
     @Override
     protected void registerModels() {
         BlockRegistry.BLOCKS.getEntries().stream()
@@ -69,19 +70,19 @@ public class ModItemModelProvider extends ItemModelProvider {
 
     }
 
-    private ItemModelBuilder generatedItem(RegistryObject<Item> item){
+    private ItemModelBuilder generatedItem(DeferredHolder<Item, ? extends Item> item) {
         return singleTexture(name(item.get()), mcLoc("item/generated"), "layer0", modLoc("item/" + name(item.get())));
     }
 
-    private ItemModelBuilder handheldItem(RegistryObject<Item> item){
+    private ItemModelBuilder handheldItem(DeferredHolder<Item, ? extends Item> item) {
         return singleTexture(name(item.get()), mcLoc("item/handheld"), "layer0", modLoc("item/" + name(item.get())));
     }
 
-    private ItemModelBuilder blockItem(RegistryObject<Block> block){
+    private ItemModelBuilder blockItem(DeferredHolder<Block, ? extends Block> block) {
         return withExistingParent(name(block.get()), modLoc("block/" + name(block.get())));
     }
 
-    private ResourceLocation blockLoc(Block block){
+    private ResourceLocation blockLoc(Block block) {
         return modLoc("block/" + name(block));
     }
 
@@ -91,12 +92,12 @@ public class ModItemModelProvider extends ItemModelProvider {
         return DataGenerators.MOD_ID + " Item Models";
     }
 
-    private static String name(Item item){
-        return Objects.requireNonNull(ForgeRegistries.ITEMS.getKey(item)).getPath();
+    private static String name(Item item) {
+        return Objects.requireNonNull(BuiltInRegistries.ITEM.getKey(item)).getPath();
     }
 
-    private static String name(Block block){
-        return Objects.requireNonNull(ForgeRegistries.BLOCKS.getKey(block)).getPath();
+    private static String name(Block block) {
+        return Objects.requireNonNull(BuiltInRegistries.BLOCK.getKey(block)).getPath();
     }
 
 }

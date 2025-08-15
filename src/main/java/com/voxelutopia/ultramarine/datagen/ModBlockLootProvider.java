@@ -11,6 +11,7 @@ import net.minecraft.advancements.critereon.EnchantmentPredicate;
 import net.minecraft.advancements.critereon.ItemPredicate;
 import net.minecraft.advancements.critereon.MinMaxBounds;
 import net.minecraft.advancements.critereon.StatePropertiesPredicate;
+import net.minecraft.core.HolderLookup;
 import net.minecraft.data.loot.BlockLootSubProvider;
 import net.minecraft.world.flag.FeatureFlags;
 import net.minecraft.world.item.Item;
@@ -37,6 +38,7 @@ import net.minecraft.world.level.storage.loot.providers.number.ConstantValue;
 import net.minecraft.world.level.storage.loot.providers.number.UniformGenerator;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
+import net.neoforged.neoforge.registries.DeferredHolder;
 import org.slf4j.Logger;
 
 import java.util.*;
@@ -51,11 +53,11 @@ public class ModBlockLootProvider extends BlockLootSubProvider {
 
     protected final Map<Block, LootTable.Builder> lootTables = new HashMap<>();
 
-    public ModBlockLootProvider() {
-        super(Set.of(), FeatureFlags.REGISTRY.allFlags());
+    public ModBlockLootProvider(HolderLookup.Provider provider) {
+        super(Set.of(), FeatureFlags.REGISTRY.allFlags(), provider);
     }
 
-    private static final List<RegistryObject<Block>> NON_SIMPLE_BLOCKS = new ArrayList<>();
+    private static final List<DeferredHolder<Block, Block>> NON_SIMPLE_BLOCKS = new ArrayList<>();
     private static final List<Class<? extends Block>> NON_SIMPLE_BLOCK_CLASSES = List.of(
             DropExperienceBlock.class, SlabBlock.class, ConsumableDecorativeBlock.class, StackableHalfBlock.class);
 
@@ -63,10 +65,10 @@ public class ModBlockLootProvider extends BlockLootSubProvider {
         BlockRegistry.BLOCKS.getEntries().stream()
                 .filter(blockRegistryObject -> {
                     var block = blockRegistryObject.get();
-                    for (var clazz : NON_SIMPLE_BLOCK_CLASSES){
+                    for (var clazz : NON_SIMPLE_BLOCK_CLASSES) {
                         if (clazz.isInstance(block)) return true;
                     }
-                    if (block instanceof BaseBlockPropertyHolder baseBlock){
+                    if (block instanceof BaseBlockPropertyHolder baseBlock) {
                         return baseBlock.getProperty().getMaterial() == BaseBlockProperty.BlockMaterial.PORCELAIN;
                     }
                     return false;
@@ -140,19 +142,19 @@ public class ModBlockLootProvider extends BlockLootSubProvider {
         addLootTable(block.get(), createSimpleTable(block.getId().getPath(), block.get()));
     }
 
-    void ore(RegistryObject<? extends Block> block, RegistryObject<? extends Item> item){
+    void ore(RegistryObject<? extends Block> block, RegistryObject<? extends Item> item) {
         addLootTable(block.get(), createOreDrop(block.getId().getPath(), block.get(), item.get()));
     }
 
-    void abundantOre(RegistryObject<? extends Block> block, RegistryObject<? extends Item> item){
+    void abundantOre(RegistryObject<? extends Block> block, RegistryObject<? extends Item> item) {
         addLootTable(block.get(), createAbundantOreDrop(block.getId().getPath(), block.get(), item.get(), 1, 3));
     }
 
-    void porcelain(RegistryObject<? extends Block> block, RegistryObject<? extends Item> piece){
+    void porcelain(RegistryObject<? extends Block> block, RegistryObject<? extends Item> piece) {
         addLootTable(block.get(), createPorcelainDrop(block.getId().getPath(), block.get(), piece.get()));
     }
 
-    void porcelainWithShards(RegistryObject<? extends Block> block, RegistryObject<? extends Item> piece, RegistryObject<? extends Item> shards){
+    void porcelainWithShards(RegistryObject<? extends Block> block, RegistryObject<? extends Item> piece, RegistryObject<? extends Item> shards) {
         addLootTable(block.get(), createPorcelainDropWithShard(block.getId().getPath(), block.get(), piece.get(), shards.get()));
     }
 
@@ -288,18 +290,19 @@ public class ModBlockLootProvider extends BlockLootSubProvider {
     /**
      * Substitute for adding loot tables to the put(Block, LootTable.Builder) call.
      * Adds check for duplicates, prefer calling this method for adding loot tables.
-     * @param block same usage as #put
+     *
+     * @param block   same usage as #put
      * @param builder same usage as #put
      */
-    void addLootTable(Block block, LootTable.Builder builder){
-        if (lootTables.containsKey(block)){
+    void addLootTable(Block block, LootTable.Builder builder) {
+        if (lootTables.containsKey(block)) {
             LOGGER.warn("Added duplicate loot table for block " + block.getDescriptionId());
         }
         lootTables.put(block, builder);
         add(block, builder);
     }
 
-    private static String name(Block block){
+    private static String name(Block block) {
         return Objects.requireNonNull(ForgeRegistries.BLOCKS.getKey(block)).getPath();
     }
 

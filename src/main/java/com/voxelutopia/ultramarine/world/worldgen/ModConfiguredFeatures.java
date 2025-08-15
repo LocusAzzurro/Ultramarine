@@ -4,7 +4,7 @@ import com.google.common.base.Suppliers;
 import com.voxelutopia.ultramarine.Ultramarine;
 import com.voxelutopia.ultramarine.data.registry.BlockRegistry;
 import net.minecraft.core.registries.Registries;
-import net.minecraft.data.worldgen.BootstapContext;
+import net.minecraft.data.worldgen.BootstrapContext;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.BlockTags;
@@ -43,19 +43,18 @@ public class ModConfiguredFeatures {
     private static final Supplier<List<OreConfiguration.TargetBlockState>> NETHER_COBALT_ORE_PLACEMENT = Suppliers.memoize(() -> List.of(
             OreConfiguration.target(NETHERRACK, BlockRegistry.NETHER_COBALT_ORE.get().defaultBlockState())));
 
-    public static void bootstrap(BootstapContext<ConfiguredFeature<?, ?>> context) {
+    public static void bootstrap(BootstrapContext<ConfiguredFeature<?, ?>> context) {
         register(context, OVERWORLD_JADE_ORE_KEY, Feature.ORE, new OreConfiguration(OVERWORLD_JADE_ORE_PLACEMENT.get(), 4));
         register(context, OVERWORLD_MAGNESITE_ORE_KEY, Feature.ORE, new OreConfiguration(OVERWORLD_MAGNESITE_ORE_PLACEMENT.get(), 7));
         register(context, OVERWORLD_HEMATITE_ORE_KEY, Feature.ORE, new OreConfiguration(OVERWORLD_HEMATITE_ORE_PLACEMENT.get(), 9));
         register(context, NETHER_COBALT_ORE_KEY, Feature.ORE, new OreConfiguration(NETHER_COBALT_ORE_PLACEMENT.get(), 6));
     }
 
-    public static ResourceKey<ConfiguredFeature<?, ?>> key(String name){
+    public static ResourceKey<ConfiguredFeature<?, ?>> key(String name) {
         return ResourceKey.create(Registries.CONFIGURED_FEATURE, ResourceLocation.fromNamespaceAndPath(Ultramarine.MOD_ID, name));
     }
 
-    private static <FC extends FeatureConfiguration, F extends Feature<FC>> void register
-            (BootstapContext<ConfiguredFeature<?, ?>> context, ResourceKey<ConfiguredFeature<?, ?>> key, F feature, FC featureConfiguration){
+    private static <FC extends FeatureConfiguration, F extends Feature<FC>> void register(BootstrapContext<ConfiguredFeature<?, ?>> context, ResourceKey<ConfiguredFeature<?, ?>> key, F feature, FC featureConfiguration) {
         context.register(key, new ConfiguredFeature<>(feature, featureConfiguration));
     }
 

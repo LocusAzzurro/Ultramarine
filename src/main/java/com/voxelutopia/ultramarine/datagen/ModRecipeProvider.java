@@ -1,13 +1,15 @@
 package com.voxelutopia.ultramarine.datagen;
 
-import com.google.common.collect.ImmutableSet;
 import com.voxelutopia.ultramarine.data.ModItemTags;
 import com.voxelutopia.ultramarine.data.registry.ItemRegistry;
 import com.voxelutopia.ultramarine.data.registry.RecipeSerializerRegistry;
 import com.voxelutopia.ultramarine.datagen.recipe.ChiselTableRecipeBuilder;
 import com.voxelutopia.ultramarine.datagen.recipe.CompositeSmeltingRecipeBuilder;
-import net.minecraft.advancements.CriterionTriggerInstance;
-import net.minecraft.advancements.critereon.*;
+import net.minecraft.advancements.Criterion;
+import net.minecraft.advancements.critereon.InventoryChangeTrigger;
+import net.minecraft.advancements.critereon.ItemPredicate;
+import net.minecraft.core.HolderLookup;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.*;
 import net.minecraft.resources.ResourceLocation;
@@ -17,22 +19,20 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.ItemLike;
-import net.minecraftforge.registries.ForgeRegistries;
-import net.minecraftforge.registries.IForgeRegistry;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.Objects;
-import java.util.function.Consumer;
+import java.util.concurrent.CompletableFuture;
 
 @SuppressWarnings("unused")
 public class ModRecipeProvider extends RecipeProvider {
 
-    ModRecipeProvider(PackOutput output) {
-        super(output);
+    ModRecipeProvider(PackOutput output, CompletableFuture<HolderLookup.Provider> lookupProvider) {
+        super(output, lookupProvider);
     }
 
     @Override
-    protected void buildRecipes(@NotNull Consumer<FinishedRecipe> recipeConsumer) {
+    protected void buildRecipes(@NotNull RecipeOutput recipeConsumer) {
 
         categoryBuildingBlocks(recipeConsumer);
         categoryDecorativeBlocks(recipeConsumer);
@@ -49,7 +49,7 @@ public class ModRecipeProvider extends RecipeProvider {
                 .unlockedBy(itemUnlockName(ItemRegistry.UNFIRED_CLAY_BRICK.get()), itemCriterion(ItemRegistry.UNFIRED_CLAY_BRICK.get())).save(recipeConsumer);
     }
 
-    private static void categoryBuildingBlocks(@NotNull Consumer<FinishedRecipe> recipeConsumer) {
+    private static void categoryBuildingBlocks(@NotNull RecipeOutput recipeConsumer) {
 
         //BRICKS
         quadComposeRecipe(ItemRegistry.CYAN_BRICK.get(), ItemRegistry.CYAN_BRICKS.get(), RecipeCategory.BUILDING_BLOCKS, recipeConsumer);
@@ -174,7 +174,7 @@ public class ModRecipeProvider extends RecipeProvider {
         roofTileRidgesRecipe("black", recipeConsumer);
     }
 
-    private static void categoryDecorativeBlocks(@NotNull Consumer<FinishedRecipe> recipeConsumer) {
+    private static void categoryDecorativeBlocks(@NotNull RecipeOutput recipeConsumer) {
 
         // SIMPLE WOODEN
 
@@ -304,7 +304,7 @@ public class ModRecipeProvider extends RecipeProvider {
                 .unlockedBy(itemUnlockName(ItemRegistry.CARVED_RED_PILLAR.get()), itemCriterion(ItemRegistry.CARVED_RED_PILLAR.get()))
                 .save(recipeConsumer);
         zhaotouWood(ItemRegistry.CARVED_RED_PILLAR_HEAD.get(), new Ingredient[]{
-                Ingredient.of(ItemRegistry.GOLD_DYE_POWDER.get()), Ingredient.of(ModItemTags.FORGE_RED_DYE), Ingredient.of(ModItemTags.FORGE_WHITE_DYE), Ingredient.of(ModItemTags.FORGE_BLUE_DYE)},
+                        Ingredient.of(ItemRegistry.GOLD_DYE_POWDER.get()), Ingredient.of(ModItemTags.FORGE_RED_DYE), Ingredient.of(ModItemTags.FORGE_WHITE_DYE), Ingredient.of(ModItemTags.FORGE_BLUE_DYE)},
                 recipeConsumer);
         ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, ItemRegistry.SPRUCE_PILLAR_BASE.get(), 1)
                 .define('P', Items.SPRUCE_LOG)
@@ -330,98 +330,98 @@ public class ModRecipeProvider extends RecipeProvider {
                 .unlockedBy(itemUnlockName(ItemRegistry.GILDED_DARK_OAK.get()), itemCriterion(ItemRegistry.GILDED_DARK_OAK.get())).save(recipeConsumer);
 
         zhaotouWood(ItemRegistry.CYAN_AND_WHITE_PILLAR_BASE.get(), new Ingredient[]{
-                Ingredient.of(ModItemTags.FORGE_RED_DYE), Ingredient.of(ModItemTags.FORGE_GREEN_DYE), Ingredient.of(ModItemTags.FORGE_WHITE_DYE), Ingredient.of(ItemRegistry.BLACK_DYE_POWDER.get())},
+                        Ingredient.of(ModItemTags.FORGE_RED_DYE), Ingredient.of(ModItemTags.FORGE_GREEN_DYE), Ingredient.of(ModItemTags.FORGE_WHITE_DYE), Ingredient.of(ItemRegistry.BLACK_DYE_POWDER.get())},
                 recipeConsumer);
         zhaotouWood(ItemRegistry.CYAN_AND_WHITE_DECORATED_PILLAR.get(), new Ingredient[]{
-                Ingredient.of(ModItemTags.FORGE_RED_DYE), Ingredient.of(ModItemTags.FORGE_GREEN_DYE), Ingredient.of(ModItemTags.FORGE_WHITE_DYE), Ingredient.of(ModItemTags.FORGE_BLACK_DYE)},
+                        Ingredient.of(ModItemTags.FORGE_RED_DYE), Ingredient.of(ModItemTags.FORGE_GREEN_DYE), Ingredient.of(ModItemTags.FORGE_WHITE_DYE), Ingredient.of(ModItemTags.FORGE_BLACK_DYE)},
                 recipeConsumer);
         zhaotouWood(ItemRegistry.CYAN_AND_WHITE_PILLAR_HEAD.get(), new Ingredient[]{
-                Ingredient.of(ModItemTags.FORGE_RED_DYE), Ingredient.of(ModItemTags.FORGE_BLACK_DYE), Ingredient.of(ModItemTags.FORGE_WHITE_DYE), Ingredient.of(ModItemTags.FORGE_GREEN_DYE)},
+                        Ingredient.of(ModItemTags.FORGE_RED_DYE), Ingredient.of(ModItemTags.FORGE_BLACK_DYE), Ingredient.of(ModItemTags.FORGE_WHITE_DYE), Ingredient.of(ModItemTags.FORGE_GREEN_DYE)},
                 recipeConsumer);
         simpleStonecutting(Items.CHISELED_STONE_BRICKS, ItemRegistry.STONE_PILLAR_BASE.get(), RecipeCategory.DECORATIONS, recipeConsumer);
 
         // FANGXIN
 
         fangxinWood(ItemRegistry.GREEN_FANGXIN.get(), new Ingredient[]{
-                Ingredient.of(ModItemTags.FORGE_GREEN_DYE), Ingredient.of(ModItemTags.FORGE_GREEN_DYE)},
+                        Ingredient.of(ModItemTags.FORGE_GREEN_DYE), Ingredient.of(ModItemTags.FORGE_GREEN_DYE)},
                 recipeConsumer);
         fangxinEdgeWood(ItemRegistry.GREEN_FANGXIN_EDGE.get(), new Ingredient[]{
-                Ingredient.of(ModItemTags.FORGE_GREEN_DYE), Ingredient.of(ItemRegistry.WHITE_DYE_POWDER.get()), Ingredient.of(ItemRegistry.BLUE_DYE_POWDER.get())},
+                        Ingredient.of(ModItemTags.FORGE_GREEN_DYE), Ingredient.of(ItemRegistry.WHITE_DYE_POWDER.get()), Ingredient.of(ItemRegistry.BLUE_DYE_POWDER.get())},
                 recipeConsumer);
         fangxinWood(ItemRegistry.BLUE_FANGXIN.get(), new Ingredient[]{
-                Ingredient.of(ModItemTags.FORGE_BLUE_DYE), Ingredient.of(ModItemTags.FORGE_GREEN_DYE), Ingredient.of(ItemRegistry.GOLD_DYE_POWDER.get())},
+                        Ingredient.of(ModItemTags.FORGE_BLUE_DYE), Ingredient.of(ModItemTags.FORGE_GREEN_DYE), Ingredient.of(ItemRegistry.GOLD_DYE_POWDER.get())},
                 recipeConsumer);
         fangxinEdgeWood(ItemRegistry.BLUE_FANGXIN_EDGE.get(), new Ingredient[]{
-                Ingredient.of(ItemRegistry.YELLOW_DYE_POWDER.get()), Ingredient.of(ModItemTags.FORGE_BLUE_DYE), Ingredient.of(ModItemTags.FORGE_GREEN_DYE), Ingredient.of(ItemRegistry.GOLD_DYE_POWDER.get())},
+                        Ingredient.of(ItemRegistry.YELLOW_DYE_POWDER.get()), Ingredient.of(ModItemTags.FORGE_BLUE_DYE), Ingredient.of(ModItemTags.FORGE_GREEN_DYE), Ingredient.of(ItemRegistry.GOLD_DYE_POWDER.get())},
                 recipeConsumer);
         fangxinWood(ItemRegistry.CYAN_AND_BLUE_FANGXIN.get(), new Ingredient[]{
-                Ingredient.of(ModItemTags.FORGE_CYAN_DYE), Ingredient.of(ModItemTags.FORGE_BLUE_DYE), Ingredient.of(ItemRegistry.GREEN_DYE_POWDER.get()), Ingredient.of(ItemRegistry.YELLOW_DYE_POWDER.get())},
+                        Ingredient.of(ModItemTags.FORGE_CYAN_DYE), Ingredient.of(ModItemTags.FORGE_BLUE_DYE), Ingredient.of(ItemRegistry.GREEN_DYE_POWDER.get()), Ingredient.of(ItemRegistry.YELLOW_DYE_POWDER.get())},
                 recipeConsumer);
         fangxinEdgeWood(ItemRegistry.CYAN_AND_BLUE_FANGXIN_EDGE.get(), new Ingredient[]{
-                Ingredient.of(ModItemTags.FORGE_GREEN_DYE), Ingredient.of(ModItemTags.FORGE_CYAN_DYE), Ingredient.of(ModItemTags.FORGE_BLUE_DYE), Ingredient.of(ItemRegistry.YELLOW_DYE_POWDER.get())},
+                        Ingredient.of(ModItemTags.FORGE_GREEN_DYE), Ingredient.of(ModItemTags.FORGE_CYAN_DYE), Ingredient.of(ModItemTags.FORGE_BLUE_DYE), Ingredient.of(ItemRegistry.YELLOW_DYE_POWDER.get())},
                 recipeConsumer);
         fangxinEdgeWood(ItemRegistry.CYAN_AND_BLUE_FANGXIN_EDGE_VARIANT.get(), new Ingredient[]{
-                Ingredient.of(ModItemTags.FORGE_GREEN_DYE), Ingredient.of(ModItemTags.FORGE_CYAN_DYE), Ingredient.of(ModItemTags.FORGE_BLUE_DYE), Ingredient.of(ModItemTags.FORGE_BLUE_DYE)},
+                        Ingredient.of(ModItemTags.FORGE_GREEN_DYE), Ingredient.of(ModItemTags.FORGE_CYAN_DYE), Ingredient.of(ModItemTags.FORGE_BLUE_DYE), Ingredient.of(ModItemTags.FORGE_BLUE_DYE)},
                 recipeConsumer);
         fangxinWood(ItemRegistry.CYAN_BLUE_WHITE_FANGXIN.get(), new Ingredient[]{
-                Ingredient.of(ModItemTags.FORGE_CYAN_DYE), Ingredient.of(ItemRegistry.BLUE_DYE_POWDER.get()), Ingredient.of(ItemRegistry.WHITE_DYE_POWDER.get()), Ingredient.of(ModItemTags.FORGE_GREEN_DYE)},
+                        Ingredient.of(ModItemTags.FORGE_CYAN_DYE), Ingredient.of(ItemRegistry.BLUE_DYE_POWDER.get()), Ingredient.of(ItemRegistry.WHITE_DYE_POWDER.get()), Ingredient.of(ModItemTags.FORGE_GREEN_DYE)},
                 recipeConsumer);
         fangxinEdgeWood(ItemRegistry.CYAN_BLUE_WHITE_FANGXIN_EDGE.get(), new Ingredient[]{
-                Ingredient.of(ModItemTags.FORGE_CYAN_DYE), Ingredient.of(ItemRegistry.BLUE_DYE_POWDER.get()), Ingredient.of(ItemRegistry.WHITE_DYE_POWDER.get()), Ingredient.of(ModItemTags.FORGE_GREEN_DYE)},
+                        Ingredient.of(ModItemTags.FORGE_CYAN_DYE), Ingredient.of(ItemRegistry.BLUE_DYE_POWDER.get()), Ingredient.of(ItemRegistry.WHITE_DYE_POWDER.get()), Ingredient.of(ModItemTags.FORGE_GREEN_DYE)},
                 recipeConsumer);
         fangxinEdgeWood(ItemRegistry.BLUE_AND_GREEN_FANGXIN_EDGE.get(), new Ingredient[]{
-                Ingredient.of(ModItemTags.FORGE_BLUE_DYE), Ingredient.of(ModItemTags.FORGE_GREEN_DYE), Ingredient.of(ModItemTags.FORGE_GREEN_DYE)},
+                        Ingredient.of(ModItemTags.FORGE_BLUE_DYE), Ingredient.of(ModItemTags.FORGE_GREEN_DYE), Ingredient.of(ModItemTags.FORGE_GREEN_DYE)},
                 recipeConsumer);
         fangxinEdgeWood(ItemRegistry.YELLOW_AND_GREEN_FANGXIN_EDGE.get(), new Ingredient[]{
-                Ingredient.of(ModItemTags.FORGE_YELLOW_DYE), Ingredient.of(ModItemTags.FORGE_GREEN_DYE), Ingredient.of(ModItemTags.FORGE_BLUE_DYE)},
+                        Ingredient.of(ModItemTags.FORGE_YELLOW_DYE), Ingredient.of(ModItemTags.FORGE_GREEN_DYE), Ingredient.of(ModItemTags.FORGE_BLUE_DYE)},
                 recipeConsumer);
         fangxinWood(ItemRegistry.DARK_BLUE_FANGXIN.get(), new Ingredient[]{
-                Ingredient.of(ModItemTags.FORGE_BLUE_DYE), Ingredient.of(ModItemTags.FORGE_BLUE_DYE), Ingredient.of(ModItemTags.FORGE_BLUE_DYE)},
+                        Ingredient.of(ModItemTags.FORGE_BLUE_DYE), Ingredient.of(ModItemTags.FORGE_BLUE_DYE), Ingredient.of(ModItemTags.FORGE_BLUE_DYE)},
                 recipeConsumer);
         fangxinEdgeWood(ItemRegistry.DARK_BLUE_FANGXIN_EDGE.get(), new Ingredient[]{
-                Ingredient.of(ModItemTags.FORGE_BLUE_DYE), Ingredient.of(ModItemTags.FORGE_BLUE_DYE), Ingredient.of(ModItemTags.FORGE_BLUE_DYE)},
+                        Ingredient.of(ModItemTags.FORGE_BLUE_DYE), Ingredient.of(ModItemTags.FORGE_BLUE_DYE), Ingredient.of(ModItemTags.FORGE_BLUE_DYE)},
                 recipeConsumer);
         fangxinWood(ItemRegistry.BLUE_AND_WHITE_FANGXIN.get(), new Ingredient[]{
-                Ingredient.of(ModItemTags.FORGE_BLUE_DYE), Ingredient.of(ModItemTags.FORGE_BLUE_DYE), Ingredient.of(ItemRegistry.WHITE_DYE_POWDER.get())},
+                        Ingredient.of(ModItemTags.FORGE_BLUE_DYE), Ingredient.of(ModItemTags.FORGE_BLUE_DYE), Ingredient.of(ItemRegistry.WHITE_DYE_POWDER.get())},
                 recipeConsumer);
         fangxinWood(ItemRegistry.GREEN_AND_DARK_BLUE_FANGXIN.get(), new Ingredient[]{
-                Ingredient.of(ModItemTags.FORGE_GREEN_DYE), Ingredient.of(ModItemTags.FORGE_GREEN_DYE), Ingredient.of(ItemRegistry.BLUE_DYE_POWDER.get())},
+                        Ingredient.of(ModItemTags.FORGE_GREEN_DYE), Ingredient.of(ModItemTags.FORGE_GREEN_DYE), Ingredient.of(ItemRegistry.BLUE_DYE_POWDER.get())},
                 recipeConsumer);
         fangxinWood(ItemRegistry.WHITE_AND_CYAN_FANGXIN.get(), new Ingredient[]{
-                Ingredient.of(ModItemTags.FORGE_WHITE_DYE), Ingredient.of(ModItemTags.FORGE_CYAN_DYE), Ingredient.of(ItemRegistry.BLUE_DYE_POWDER.get())},
+                        Ingredient.of(ModItemTags.FORGE_WHITE_DYE), Ingredient.of(ModItemTags.FORGE_CYAN_DYE), Ingredient.of(ItemRegistry.BLUE_DYE_POWDER.get())},
                 recipeConsumer);
         fangxinEdgeWood(ItemRegistry.WHITE_AND_CYAN_FANGXIN_EDGE.get(), new Ingredient[]{
-                Ingredient.of(ItemRegistry.BLUE_DYE_POWDER.get()), Ingredient.of(ModItemTags.FORGE_WHITE_DYE), Ingredient.of(ModItemTags.FORGE_CYAN_DYE), Ingredient.of(ItemRegistry.BLUE_DYE_POWDER.get())},
+                        Ingredient.of(ItemRegistry.BLUE_DYE_POWDER.get()), Ingredient.of(ModItemTags.FORGE_WHITE_DYE), Ingredient.of(ModItemTags.FORGE_CYAN_DYE), Ingredient.of(ItemRegistry.BLUE_DYE_POWDER.get())},
                 recipeConsumer);
         fangxinWood(ItemRegistry.WHITE_AND_BLUE_FANGXIN.get(), new Ingredient[]{
-                Ingredient.of(ModItemTags.FORGE_WHITE_DYE), Ingredient.of(ModItemTags.FORGE_BLUE_DYE), Ingredient.of(ModItemTags.FORGE_BLUE_DYE)},
+                        Ingredient.of(ModItemTags.FORGE_WHITE_DYE), Ingredient.of(ModItemTags.FORGE_BLUE_DYE), Ingredient.of(ModItemTags.FORGE_BLUE_DYE)},
                 recipeConsumer);
         fangxinEdgeWood(ItemRegistry.WHITE_AND_BLUE_FANGXIN_EDGE.get(), new Ingredient[]{
-                Ingredient.of(ItemRegistry.CYAN_DYE_POWDER.get()), Ingredient.of(ModItemTags.FORGE_WHITE_DYE), Ingredient.of(ModItemTags.FORGE_BLUE_DYE), Ingredient.of(ModItemTags.FORGE_BLUE_DYE)},
+                        Ingredient.of(ItemRegistry.CYAN_DYE_POWDER.get()), Ingredient.of(ModItemTags.FORGE_WHITE_DYE), Ingredient.of(ModItemTags.FORGE_BLUE_DYE), Ingredient.of(ModItemTags.FORGE_BLUE_DYE)},
                 recipeConsumer);
         fangxinWood(ItemRegistry.RED_CYAN_BLUE_FANGXIN.get(), new Ingredient[]{
-                Ingredient.of(ModItemTags.FORGE_RED_DYE), Ingredient.of(ModItemTags.FORGE_CYAN_DYE), Ingredient.of(ModItemTags.FORGE_BLUE_DYE), Ingredient.of(ItemRegistry.RED_DYE_POWDER.get())},
+                        Ingredient.of(ModItemTags.FORGE_RED_DYE), Ingredient.of(ModItemTags.FORGE_CYAN_DYE), Ingredient.of(ModItemTags.FORGE_BLUE_DYE), Ingredient.of(ItemRegistry.RED_DYE_POWDER.get())},
                 recipeConsumer);
         fangxinEdgeWood(ItemRegistry.RED_CYAN_BLUE_FANGXIN_EDGE.get(), new Ingredient[]{
-                Ingredient.of(ModItemTags.FORGE_RED_DYE), Ingredient.of(ModItemTags.FORGE_CYAN_DYE), Ingredient.of(ModItemTags.FORGE_BLUE_DYE), Ingredient.of(ItemRegistry.BLUE_DYE_POWDER.get())},
+                        Ingredient.of(ModItemTags.FORGE_RED_DYE), Ingredient.of(ModItemTags.FORGE_CYAN_DYE), Ingredient.of(ModItemTags.FORGE_BLUE_DYE), Ingredient.of(ItemRegistry.BLUE_DYE_POWDER.get())},
                 recipeConsumer);
         fangxinEdgeWood(ItemRegistry.BLUE_CYAN_BLUE_FANGXIN_EDGE.get(), new Ingredient[]{
-                Ingredient.of(ModItemTags.FORGE_BLUE_DYE), Ingredient.of(ModItemTags.FORGE_CYAN_DYE), Ingredient.of(ModItemTags.FORGE_BLUE_DYE), Ingredient.of(ItemRegistry.BLUE_DYE_POWDER.get())},
+                        Ingredient.of(ModItemTags.FORGE_BLUE_DYE), Ingredient.of(ModItemTags.FORGE_CYAN_DYE), Ingredient.of(ModItemTags.FORGE_BLUE_DYE), Ingredient.of(ItemRegistry.BLUE_DYE_POWDER.get())},
                 recipeConsumer);
         fangxinWood(ItemRegistry.BLUE_CYAN_RED_FANGXIN.get(), new Ingredient[]{
-                Ingredient.of(ModItemTags.FORGE_BLUE_DYE), Ingredient.of(ModItemTags.FORGE_CYAN_DYE), Ingredient.of(ModItemTags.FORGE_RED_DYE), Ingredient.of(ItemRegistry.BLUE_DYE_POWDER.get())},
+                        Ingredient.of(ModItemTags.FORGE_BLUE_DYE), Ingredient.of(ModItemTags.FORGE_CYAN_DYE), Ingredient.of(ModItemTags.FORGE_RED_DYE), Ingredient.of(ItemRegistry.BLUE_DYE_POWDER.get())},
                 recipeConsumer);
         fangxinEdgeWood(ItemRegistry.BLUE_CYAN_RED_FANGXIN_EDGE.get(), new Ingredient[]{
-                Ingredient.of(ModItemTags.FORGE_BLUE_DYE), Ingredient.of(ModItemTags.FORGE_CYAN_DYE), Ingredient.of(ModItemTags.FORGE_RED_DYE), Ingredient.of(ItemRegistry.RED_DYE_POWDER.get())},
+                        Ingredient.of(ModItemTags.FORGE_BLUE_DYE), Ingredient.of(ModItemTags.FORGE_CYAN_DYE), Ingredient.of(ModItemTags.FORGE_RED_DYE), Ingredient.of(ItemRegistry.RED_DYE_POWDER.get())},
                 recipeConsumer);
         fangxinWood(ItemRegistry.CYAN_BLUE_CYAN_FANGXIN.get(), new Ingredient[]{
-                Ingredient.of(ModItemTags.FORGE_CYAN_DYE), Ingredient.of(ModItemTags.FORGE_BLUE_DYE), Ingredient.of(ModItemTags.FORGE_CYAN_DYE)},
+                        Ingredient.of(ModItemTags.FORGE_CYAN_DYE), Ingredient.of(ModItemTags.FORGE_BLUE_DYE), Ingredient.of(ModItemTags.FORGE_CYAN_DYE)},
                 recipeConsumer);
         fangxinWood(ItemRegistry.RED_BLUE_RED_FANGXIN.get(), new Ingredient[]{
-                Ingredient.of(ModItemTags.FORGE_RED_DYE), Ingredient.of(ModItemTags.FORGE_BLUE_DYE), Ingredient.of(ModItemTags.FORGE_RED_DYE)},
+                        Ingredient.of(ModItemTags.FORGE_RED_DYE), Ingredient.of(ModItemTags.FORGE_BLUE_DYE), Ingredient.of(ModItemTags.FORGE_RED_DYE)},
                 recipeConsumer);
         fangxinEdgeWood(ItemRegistry.CYAN_AND_YELLOW_FANGXIN_EDGE.get(), new Ingredient[]{
-                Ingredient.of(ModItemTags.FORGE_CYAN_DYE), Ingredient.of(ItemRegistry.YELLOW_DYE_POWDER.get()), Ingredient.of(ItemRegistry.GREEN_DYE_POWDER.get()), Ingredient.of(ItemRegistry.BLUE_DYE_POWDER.get())},
+                        Ingredient.of(ModItemTags.FORGE_CYAN_DYE), Ingredient.of(ItemRegistry.YELLOW_DYE_POWDER.get()), Ingredient.of(ItemRegistry.GREEN_DYE_POWDER.get()), Ingredient.of(ItemRegistry.BLUE_DYE_POWDER.get())},
                 recipeConsumer);
         fangxinEdgeWood(ItemRegistry.MING_BLUE_JINZHUOMO_SHINIANYU_XUANZI_FANGXIN_EDGE.get(), new Ingredient[]{
                         Ingredient.of(ItemRegistry.YELLOW_DYE_POWDER.get()), Ingredient.of(ModItemTags.FORGE_GREEN_DYE), Ingredient.of(ModItemTags.FORGE_BLUE_DYE), Ingredient.of(ModItemTags.FORGE_BLUE_DYE)},
@@ -475,40 +475,40 @@ public class ModRecipeProvider extends RecipeProvider {
         // ZHAOTOU
 
         zhaotouWood(ItemRegistry.BLUE_ZHAOTOU_EDGE.get(), new Ingredient[]{
-                Ingredient.of(ModItemTags.FORGE_GREEN_DYE), Ingredient.of(ItemRegistry.RED_DYE_POWDER.get()), Ingredient.of(ModItemTags.FORGE_BLUE_DYE)},
+                        Ingredient.of(ModItemTags.FORGE_GREEN_DYE), Ingredient.of(ItemRegistry.RED_DYE_POWDER.get()), Ingredient.of(ModItemTags.FORGE_BLUE_DYE)},
                 recipeConsumer);
         zhaotouWood(ItemRegistry.GREEN_AND_BLUE_ZHAOTOU.get(), new Ingredient[]{
-                Ingredient.of(ModItemTags.FORGE_GREEN_DYE), Ingredient.of(ModItemTags.FORGE_BLUE_DYE), Ingredient.of(ItemRegistry.BLUE_DYE_POWDER.get())},
+                        Ingredient.of(ModItemTags.FORGE_GREEN_DYE), Ingredient.of(ModItemTags.FORGE_BLUE_DYE), Ingredient.of(ItemRegistry.BLUE_DYE_POWDER.get())},
                 recipeConsumer);
         zhaotouWood(ItemRegistry.BLUE_AND_GREEN_ZHAOTOU.get(), new Ingredient[]{
-                Ingredient.of(ModItemTags.FORGE_BLUE_DYE), Ingredient.of(ModItemTags.FORGE_GREEN_DYE), Ingredient.of(ItemRegistry.GREEN_DYE_POWDER.get())},
+                        Ingredient.of(ModItemTags.FORGE_BLUE_DYE), Ingredient.of(ModItemTags.FORGE_GREEN_DYE), Ingredient.of(ItemRegistry.GREEN_DYE_POWDER.get())},
                 recipeConsumer);
         zhaotouWood(ItemRegistry.BLUE_AND_GREEN_DOUBLE_LAYERED_ZHAOTOU.get(), new Ingredient[]{
-                Ingredient.of(ModItemTags.FORGE_BLUE_DYE), Ingredient.of(ItemRegistry.WHITE_DYE_POWDER.get()), Ingredient.of(ModItemTags.FORGE_GREEN_DYE), Ingredient.of(ItemRegistry.LIGHT_BLUE_DYE_POWDER.get())},
+                        Ingredient.of(ModItemTags.FORGE_BLUE_DYE), Ingredient.of(ItemRegistry.WHITE_DYE_POWDER.get()), Ingredient.of(ModItemTags.FORGE_GREEN_DYE), Ingredient.of(ItemRegistry.LIGHT_BLUE_DYE_POWDER.get())},
                 recipeConsumer);
         zhaotouWood(ItemRegistry.CYAN_AND_RED_ZHAOTOU.get(), new Ingredient[]{
-                Ingredient.of(ModItemTags.FORGE_CYAN_DYE), Ingredient.of(ModItemTags.FORGE_RED_DYE), Ingredient.of(ModItemTags.FORGE_CYAN_DYE)},
+                        Ingredient.of(ModItemTags.FORGE_CYAN_DYE), Ingredient.of(ModItemTags.FORGE_RED_DYE), Ingredient.of(ModItemTags.FORGE_CYAN_DYE)},
                 recipeConsumer);
         zhaotouWood(ItemRegistry.CYAN_AND_BLUE_ZHAOTOU.get(), new Ingredient[]{
-                Ingredient.of(ModItemTags.FORGE_CYAN_DYE), Ingredient.of(ModItemTags.FORGE_BLUE_DYE), Ingredient.of(ModItemTags.FORGE_CYAN_DYE)},
+                        Ingredient.of(ModItemTags.FORGE_CYAN_DYE), Ingredient.of(ModItemTags.FORGE_BLUE_DYE), Ingredient.of(ModItemTags.FORGE_CYAN_DYE)},
                 recipeConsumer);
         zhaotouWood(ItemRegistry.GRAY_BLACK_RED_ZHAOTOU.get(), new Ingredient[]{
-                Ingredient.of(ModItemTags.FORGE_GRAY_DYE), Ingredient.of(ItemRegistry.BLACK_DYE_POWDER.get()), Ingredient.of(ItemRegistry.GREEN_DYE_POWDER.get()), Ingredient.of(ModItemTags.FORGE_RED_DYE)},
+                        Ingredient.of(ModItemTags.FORGE_GRAY_DYE), Ingredient.of(ItemRegistry.BLACK_DYE_POWDER.get()), Ingredient.of(ItemRegistry.GREEN_DYE_POWDER.get()), Ingredient.of(ModItemTags.FORGE_RED_DYE)},
                 recipeConsumer);
         zhaotouWood(ItemRegistry.BLUE_GREEN_RED_ZHAOTOU.get(), new Ingredient[]{
-                Ingredient.of(ModItemTags.FORGE_BLUE_DYE), Ingredient.of(ModItemTags.FORGE_GREEN_DYE), Ingredient.of(ModItemTags.FORGE_RED_DYE), Ingredient.of(ItemRegistry.CYAN_DYE_POWDER.get())},
+                        Ingredient.of(ModItemTags.FORGE_BLUE_DYE), Ingredient.of(ModItemTags.FORGE_GREEN_DYE), Ingredient.of(ModItemTags.FORGE_RED_DYE), Ingredient.of(ItemRegistry.CYAN_DYE_POWDER.get())},
                 recipeConsumer);
         zhaotouWood(ItemRegistry.RED_AND_BLUE_ZHAOTOU.get(), new Ingredient[]{
-                Ingredient.of(ModItemTags.FORGE_RED_DYE), Ingredient.of(ItemRegistry.WHITE_DYE_POWDER.get()), Ingredient.of(ModItemTags.FORGE_BLUE_DYE)},
+                        Ingredient.of(ModItemTags.FORGE_RED_DYE), Ingredient.of(ItemRegistry.WHITE_DYE_POWDER.get()), Ingredient.of(ModItemTags.FORGE_BLUE_DYE)},
                 recipeConsumer);
         zhaotouWood(ItemRegistry.GREEN_AND_YELLOW_ZHAOTOU.get(), new Ingredient[]{
-                Ingredient.of(ModItemTags.FORGE_GREEN_DYE), Ingredient.of(ItemRegistry.BLUE_DYE_POWDER.get()), Ingredient.of(ModItemTags.FORGE_YELLOW_DYE)},
+                        Ingredient.of(ModItemTags.FORGE_GREEN_DYE), Ingredient.of(ItemRegistry.BLUE_DYE_POWDER.get()), Ingredient.of(ModItemTags.FORGE_YELLOW_DYE)},
                 recipeConsumer);
         zhaotouWood(ItemRegistry.RED_GREEN_BLUE_ZHAOTOU.get(), new Ingredient[]{
-                Ingredient.of(ModItemTags.FORGE_GREEN_DYE), Ingredient.of(ModItemTags.FORGE_BLUE_DYE), Ingredient.of(ModItemTags.FORGE_YELLOW_DYE), Ingredient.of(ItemRegistry.RED_DYE_POWDER.get())},
+                        Ingredient.of(ModItemTags.FORGE_GREEN_DYE), Ingredient.of(ModItemTags.FORGE_BLUE_DYE), Ingredient.of(ModItemTags.FORGE_YELLOW_DYE), Ingredient.of(ItemRegistry.RED_DYE_POWDER.get())},
                 recipeConsumer);
         zhaotouWood(ItemRegistry.WHITE_BLUE_GREEN_ZHAOTOU.get(), new Ingredient[]{
-                Ingredient.of(ModItemTags.FORGE_WHITE_DYE), Ingredient.of(ModItemTags.FORGE_BLUE_DYE), Ingredient.of(ModItemTags.FORGE_GREEN_DYE)},
+                        Ingredient.of(ModItemTags.FORGE_WHITE_DYE), Ingredient.of(ModItemTags.FORGE_BLUE_DYE), Ingredient.of(ModItemTags.FORGE_GREEN_DYE)},
                 recipeConsumer);
         zhaotouWood(ItemRegistry.MING_YANZHUOMO_SHINIANYU_OUTER_ZHAOTOU.get(), new Ingredient[]{
                         Ingredient.of(ModItemTags.FORGE_BLUE_DYE), Ingredient.of(ModItemTags.FORGE_GREEN_DYE), Ingredient.of(ModItemTags.FORGE_BLUE_DYE), Ingredient.of(ItemRegistry.RED_DYE_POWDER.get())},
@@ -517,28 +517,28 @@ public class ModRecipeProvider extends RecipeProvider {
                         Ingredient.of(ModItemTags.FORGE_GREEN_DYE), Ingredient.of(ModItemTags.FORGE_BLUE_DYE), Ingredient.of(ItemRegistry.RED_DYE_POWDER.get()), Ingredient.of(ModItemTags.FORGE_BLUE_DYE)},
                 recipeConsumer);
         zhaotouWood(ItemRegistry.YUAN_NIANYUZHUANG_ZHAOTOU.get(), new Ingredient[]{
-                        Ingredient.of(ModItemTags.FORGE_GREEN_DYE), Ingredient.of(ModItemTags.FORGE_BLUE_DYE) ,Ingredient.of(ModItemTags.FORGE_GREEN_DYE), Ingredient.of(ModItemTags.FORGE_BLUE_DYE)},
+                        Ingredient.of(ModItemTags.FORGE_GREEN_DYE), Ingredient.of(ModItemTags.FORGE_BLUE_DYE), Ingredient.of(ModItemTags.FORGE_GREEN_DYE), Ingredient.of(ModItemTags.FORGE_BLUE_DYE)},
                 recipeConsumer);
         zhaotouWood(ItemRegistry.YUAN_NIANYUZHUANG_ZHAOTOU_CONNECTION.get(), new Ingredient[]{
-                        Ingredient.of(ModItemTags.FORGE_GREEN_DYE), Ingredient.of(ModItemTags.FORGE_BLUE_DYE) ,Ingredient.of(ModItemTags.FORGE_BLUE_DYE), Ingredient.of(ModItemTags.FORGE_GREEN_DYE)},
+                        Ingredient.of(ModItemTags.FORGE_GREEN_DYE), Ingredient.of(ModItemTags.FORGE_BLUE_DYE), Ingredient.of(ModItemTags.FORGE_BLUE_DYE), Ingredient.of(ModItemTags.FORGE_GREEN_DYE)},
                 recipeConsumer);
 
         // GUTOU
 
         gutouWood(ItemRegistry.GREEN_BLUE_BLACK_GUTOU.get(), new Ingredient[]{
-                Ingredient.of(ModItemTags.FORGE_GREEN_DYE), Ingredient.of(ItemRegistry.YELLOW_DYE_POWDER.get()), Ingredient.of(ItemRegistry.LIGHT_BLUE_DYE_POWDER.get()), Ingredient.of(ItemRegistry.BLACK_DYE_POWDER.get())},
+                        Ingredient.of(ModItemTags.FORGE_GREEN_DYE), Ingredient.of(ItemRegistry.YELLOW_DYE_POWDER.get()), Ingredient.of(ItemRegistry.LIGHT_BLUE_DYE_POWDER.get()), Ingredient.of(ItemRegistry.BLACK_DYE_POWDER.get())},
                 recipeConsumer);
         gutouWood(ItemRegistry.BLUE_GREEN_YELLOW_GUTOU.get(), new Ingredient[]{
-                Ingredient.of(ModItemTags.FORGE_BLUE_DYE), Ingredient.of(ModItemTags.FORGE_GREEN_DYE), Ingredient.of(ModItemTags.FORGE_YELLOW_DYE)},
+                        Ingredient.of(ModItemTags.FORGE_BLUE_DYE), Ingredient.of(ModItemTags.FORGE_GREEN_DYE), Ingredient.of(ModItemTags.FORGE_YELLOW_DYE)},
                 recipeConsumer);
         gutouWood(ItemRegistry.BLUE_AND_YELLOW_GUTOU.get(), new Ingredient[]{
-                Ingredient.of(ModItemTags.FORGE_GREEN_DYE), Ingredient.of(ModItemTags.FORGE_BLUE_DYE), Ingredient.of(ModItemTags.FORGE_YELLOW_DYE)},
+                        Ingredient.of(ModItemTags.FORGE_GREEN_DYE), Ingredient.of(ModItemTags.FORGE_BLUE_DYE), Ingredient.of(ModItemTags.FORGE_YELLOW_DYE)},
                 recipeConsumer);
         gutouWood(ItemRegistry.MING_YANZHUOMO_SHINIANYU_OUTER_GUTOU_EDGE.get(), new Ingredient[]{
-                        Ingredient.of(ModItemTags.FORGE_BLUE_DYE), Ingredient.of(ModItemTags.FORGE_GREEN_DYE) ,Ingredient.of(ModItemTags.FORGE_BLUE_DYE), Ingredient.of(ModItemTags.FORGE_GREEN_DYE)},
+                        Ingredient.of(ModItemTags.FORGE_BLUE_DYE), Ingredient.of(ModItemTags.FORGE_GREEN_DYE), Ingredient.of(ModItemTags.FORGE_BLUE_DYE), Ingredient.of(ModItemTags.FORGE_GREEN_DYE)},
                 recipeConsumer);
         gutouWood(ItemRegistry.YUAN_NIANYUZHUANG_GUTOU.get(), new Ingredient[]{
-                        Ingredient.of(ModItemTags.FORGE_BLUE_DYE), Ingredient.of(ModItemTags.FORGE_GREEN_DYE) ,Ingredient.of(ModItemTags.FORGE_BROWN_DYE), Ingredient.of(ModItemTags.FORGE_BLUE_DYE)},
+                        Ingredient.of(ModItemTags.FORGE_BLUE_DYE), Ingredient.of(ModItemTags.FORGE_GREEN_DYE), Ingredient.of(ModItemTags.FORGE_BROWN_DYE), Ingredient.of(ModItemTags.FORGE_BLUE_DYE)},
                 recipeConsumer);
 
         // RAFTERS
@@ -862,7 +862,7 @@ public class ModRecipeProvider extends RecipeProvider {
 
     }
 
-    private static void categoryDecorations(@NotNull Consumer<FinishedRecipe> recipeConsumer){
+    private static void categoryDecorations(@NotNull RecipeOutput recipeConsumer) {
 
         // STUDY
 
@@ -974,7 +974,7 @@ public class ModRecipeProvider extends RecipeProvider {
                 .unlockedBy(itemUnlockName(ItemRegistry.BRONZE_INGOT.get()), itemCriterion(ItemRegistry.BRONZE_INGOT.get()))
                 .save(recipeConsumer);
         CompositeSmeltingRecipeBuilder.compositeSmelting(Ingredient.of(ItemRegistry.BRONZE_CENSER.get()), Ingredient.of(ModItemTags.FORGE_CYAN_DYE),
-                ItemRegistry.ROYAL_CENSER.get(), 0.5f, 200)
+                        ItemRegistry.ROYAL_CENSER.get(), 0.5f, 200)
                 .unlockedBy(itemUnlockName(ItemRegistry.BRONZE_CENSER.get()), itemCriterion(ItemRegistry.BRONZE_CENSER.get()))
                 .save(recipeConsumer);
         // Porcelain Teapot sold by librarian
@@ -1233,7 +1233,7 @@ public class ModRecipeProvider extends RecipeProvider {
 
     }
 
-    private static void categoryPlants(@NotNull Consumer<FinishedRecipe> recipeConsumer){
+    private static void categoryPlants(@NotNull RecipeOutput recipeConsumer) {
 
         // LOTUS
 
@@ -1404,7 +1404,7 @@ public class ModRecipeProvider extends RecipeProvider {
 
     }
 
-    private static void categoryFurniture(@NotNull Consumer<FinishedRecipe> recipeConsumer){
+    private static void categoryFurniture(@NotNull RecipeOutput recipeConsumer) {
 
         // CABINET
 
@@ -1637,7 +1637,7 @@ public class ModRecipeProvider extends RecipeProvider {
 
     }
 
-    private static void categoryLamps(@NotNull Consumer<FinishedRecipe> recipeConsumer) {
+    private static void categoryLamps(@NotNull RecipeOutput recipeConsumer) {
 
         ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, Items.WHITE_CANDLE, 1)
                 .define('S', Items.STRING)
@@ -1783,7 +1783,7 @@ public class ModRecipeProvider extends RecipeProvider {
 
     }
 
-    private static void categoryWindowsDoors(@NotNull Consumer<FinishedRecipe> recipeConsumer){
+    private static void categoryWindowsDoors(@NotNull RecipeOutput recipeConsumer) {
 
         // DOOR
 
@@ -1892,7 +1892,7 @@ public class ModRecipeProvider extends RecipeProvider {
 
     }
 
-    private static void categoryMaterials(@NotNull Consumer<FinishedRecipe> recipeConsumer) {
+    private static void categoryMaterials(@NotNull RecipeOutput recipeConsumer) {
 
         //BRICK
 
@@ -2092,7 +2092,7 @@ public class ModRecipeProvider extends RecipeProvider {
 
     }
 
-    private static void categoryTools(@NotNull Consumer<FinishedRecipe> recipeConsumer) {
+    private static void categoryTools(@NotNull RecipeOutput recipeConsumer) {
         ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, ItemRegistry.WOODEN_MALLET.get(), 1)
                 .define('S', ItemTags.WOODEN_FENCES)
                 .define('W', ItemTags.PLANKS)
@@ -2138,12 +2138,12 @@ public class ModRecipeProvider extends RecipeProvider {
     }
 
     @NotNull
-    private static InventoryChangeTrigger.TriggerInstance itemCriterion(ItemLike... item) {
+    private static Criterion<InventoryChangeTrigger.TriggerInstance> itemCriterion(ItemLike... item) {
         return InventoryChangeTrigger.TriggerInstance.hasItems(item);
     }
 
     @SuppressWarnings("null")
-    private static void quadComposeRecipe(Item part, Item combined, RecipeCategory category, Consumer<FinishedRecipe> pFinishedRecipeConsumer){
+    private static void quadComposeRecipe(Item part, Item combined, RecipeCategory category, RecipeOutput pFinishedRecipeConsumer) {
         ShapedRecipeBuilder.shaped(category, combined, 1)
                 .define('A', part)
                 .pattern("AA")
@@ -2152,13 +2152,13 @@ public class ModRecipeProvider extends RecipeProvider {
                 .save(pFinishedRecipeConsumer);
     }
 
-    private static void quadDecomposeRecipe(Item part, Item combined, RecipeCategory category, Consumer<FinishedRecipe> pFinishedRecipeConsumer){
+    private static void quadDecomposeRecipe(Item part, Item combined, RecipeCategory category, RecipeOutput pFinishedRecipeConsumer) {
         ShapelessRecipeBuilder.shapeless(category, part, 4).requires(combined)
                 .unlockedBy("has_" + name(combined), InventoryChangeTrigger.TriggerInstance.hasItems(combined))
                 .save(pFinishedRecipeConsumer);
     }
 
-    private static void stonePolishing(Item raw, Item polished, Consumer<FinishedRecipe> pFinishedRecipeConsumer){
+    private static void stonePolishing(Item raw, Item polished, RecipeOutput pFinishedRecipeConsumer) {
         String rawPath = name(raw);
         String polishedPath = name(polished);
         ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, polished, 4)
@@ -2173,7 +2173,7 @@ public class ModRecipeProvider extends RecipeProvider {
                         ResourceLocation.fromNamespaceAndPath(DataGenerators.MOD_ID, polishedPath + "_from_stonecutting"));
     }
 
-    private static void blockTransform(Item block, TagKey<Item> dye, Item output, RecipeCategory category, Consumer<FinishedRecipe> pFinishedRecipeConsumer){
+    private static void blockTransform(Item block, TagKey<Item> dye, Item output, RecipeCategory category, RecipeOutput pFinishedRecipeConsumer) {
         String blockPath = name(block);
         String outputPath = name(output);
         ShapelessRecipeBuilder.shapeless(category, output).requires(block).requires(dye)
@@ -2189,7 +2189,7 @@ public class ModRecipeProvider extends RecipeProvider {
                 .save(pFinishedRecipeConsumer, ResourceLocation.fromNamespaceAndPath(DataGenerators.MOD_ID, outputPath + "_batch"));
     }
 
-    private static void blockTransform(Item block, ItemLike dye, Item output, RecipeCategory category, Consumer<FinishedRecipe> pFinishedRecipeConsumer){
+    private static void blockTransform(Item block, ItemLike dye, Item output, RecipeCategory category, RecipeOutput pFinishedRecipeConsumer) {
         String blockPath = name(block);
         String outputPath = name(output);
         ShapelessRecipeBuilder.shapeless(category, output).requires(block).requires(dye)
@@ -2205,13 +2205,13 @@ public class ModRecipeProvider extends RecipeProvider {
                 .save(pFinishedRecipeConsumer, ResourceLocation.fromNamespaceAndPath(DataGenerators.MOD_ID, outputPath + "_batch"));
     }
 
-    private static void dust(Item input, Item output, Consumer<FinishedRecipe> pFinishedRecipeConsumer){
+    private static void dust(Item input, Item output, RecipeOutput pFinishedRecipeConsumer) {
         SingleItemRecipeBuilder.stonecutting(Ingredient.of(input), RecipeCategory.MISC, output)
                 .unlockedBy("has_" + name(input), InventoryChangeTrigger.TriggerInstance.hasItems(input))
                 .save(pFinishedRecipeConsumer, ResourceLocation.fromNamespaceAndPath(DataGenerators.MOD_ID, name(output)));
     }
 
-    private static void brickMixture(Item brick, int brickAmount, Item additive, Item output, Consumer<FinishedRecipe> pFinishedRecipeConsumer){
+    private static void brickMixture(Item brick, int brickAmount, Item additive, Item output, RecipeOutput pFinishedRecipeConsumer) {
         String brickPath = name(brick);
         String additivePath = name(additive);
         String outputPath = name(output);
@@ -2220,18 +2220,18 @@ public class ModRecipeProvider extends RecipeProvider {
                 .save(pFinishedRecipeConsumer, ResourceLocation.fromNamespaceAndPath(DataGenerators.MOD_ID, outputPath));
     }
 
-    private static void smeltingAndBlasting(Item input, Item output, Consumer<FinishedRecipe> pFinishedRecipeConsumer){
+    private static void smeltingAndBlasting(Item input, Item output, RecipeOutput pFinishedRecipeConsumer) {
         smeltingAndBlasting(input, output, 0.1f, pFinishedRecipeConsumer);
     }
 
-    private static void smeltingAndBlasting(Item input, Item output, float exp, Consumer<FinishedRecipe> pFinishedRecipeConsumer){
+    private static void smeltingAndBlasting(Item input, Item output, float exp, RecipeOutput pFinishedRecipeConsumer) {
         SimpleCookingRecipeBuilder.smelting(Ingredient.of(input), RecipeCategory.MISC, output, exp, 200)
                 .unlockedBy(itemUnlockName(input), itemCriterion(input)).save(pFinishedRecipeConsumer, ResourceLocation.fromNamespaceAndPath(DataGenerators.MOD_ID, name(output) + "_from_smelting"));
-        SimpleCookingRecipeBuilder.blasting(Ingredient.of(input), RecipeCategory.MISC, output, exp/2, 100)
+        SimpleCookingRecipeBuilder.blasting(Ingredient.of(input), RecipeCategory.MISC, output, exp / 2, 100)
                 .unlockedBy(itemUnlockName(input), itemCriterion(input)).save(pFinishedRecipeConsumer, ResourceLocation.fromNamespaceAndPath(DataGenerators.MOD_ID, name(output) + "_from_blasting"));
     }
 
-    private static void stoneSlabAndStairsRecipe(Item baseBlock, Item slabBlock, Item stairBlock, Consumer<FinishedRecipe> pFinishedRecipeConsumer){
+    private static void stoneSlabAndStairsRecipe(Item baseBlock, Item slabBlock, Item stairBlock, RecipeOutput pFinishedRecipeConsumer) {
         String baseBlockPath = name(baseBlock);
         String stairsBlockPath = name(stairBlock);
         String slabBlockPath = name(slabBlock);
@@ -2262,13 +2262,13 @@ public class ModRecipeProvider extends RecipeProvider {
                         ResourceLocation.fromNamespaceAndPath(DataGenerators.MOD_ID, slabBlockPath + "_from_stonecutting"));
     }
 
-    private static void simpleStonecutting(Item input, Item output, RecipeCategory category, Consumer<FinishedRecipe> pFinishedRecipeConsumer){
+    private static void simpleStonecutting(Item input, Item output, RecipeCategory category, RecipeOutput pFinishedRecipeConsumer) {
         SingleItemRecipeBuilder.stonecutting(Ingredient.of(input), category, output)
                 .unlockedBy(itemUnlockName(input), itemCriterion(input))
                 .save(pFinishedRecipeConsumer);
     }
 
-    private static void woodSlabAndStairsRecipe(Item baseBlock, Item slabBlock, Item stairBlock, Consumer<FinishedRecipe> pFinishedRecipeConsumer){
+    private static void woodSlabAndStairsRecipe(Item baseBlock, Item slabBlock, Item stairBlock, RecipeOutput pFinishedRecipeConsumer) {
         String baseBlockPath = name(baseBlock);
         String stairsBlockPath = name(stairBlock);
         String slabBlockPath = name(slabBlock);
@@ -2300,7 +2300,7 @@ public class ModRecipeProvider extends RecipeProvider {
     }
 
 
-    private static void wallRecipe(Item baseBlock, Item wallBlock, Consumer<FinishedRecipe> pFinishedRecipeConsumer){
+    private static void wallRecipe(Item baseBlock, Item wallBlock, RecipeOutput pFinishedRecipeConsumer) {
         String baseBlockPath = name(baseBlock);
         String wallBlockPath = name(wallBlock);
         String baseBlockAdvancement = "has_" + baseBlockPath;
@@ -2318,7 +2318,7 @@ public class ModRecipeProvider extends RecipeProvider {
                         ResourceLocation.fromNamespaceAndPath(DataGenerators.MOD_ID, wallBlockPath + "_from_stonecutting"));
     }
 
-    private static void fenceRecipe(Item baseBlock, Item fenceBlock, Consumer<FinishedRecipe> pFinishedRecipeConsumer){
+    private static void fenceRecipe(Item baseBlock, Item fenceBlock, RecipeOutput pFinishedRecipeConsumer) {
         String baseBlockPath = name(baseBlock);
         String fenceBlockPath = name(fenceBlock);
         String baseBlockAdvancement = "has_" + baseBlockPath;
@@ -2337,13 +2337,13 @@ public class ModRecipeProvider extends RecipeProvider {
                         ResourceLocation.fromNamespaceAndPath(DataGenerators.MOD_ID, fenceBlockPath + "_from_woodworking"));
     }
 
-    private static void polishedPlankRecipe(Item planks, Item polishedPlank, Consumer<FinishedRecipe> pFinishedRecipeConsumer){
+    private static void polishedPlankRecipe(Item planks, Item polishedPlank, RecipeOutput pFinishedRecipeConsumer) {
         woodworking(RecipeCategory.MISC, Ingredient.of(planks), polishedPlank, 2)
                 .unlockedBy(itemUnlockName(planks), InventoryChangeTrigger.TriggerInstance.hasItems(planks))
                 .save(pFinishedRecipeConsumer);
     }
 
-    private static void roofTileBlocksRecipe(String color, Consumer<FinishedRecipe> pFinishedRecipeConsumer){
+    private static void roofTileBlocksRecipe(String color, RecipeOutput pFinishedRecipeConsumer) {
         IForgeRegistry<Item> ITEMS = ForgeRegistries.ITEMS;
         Item tileBlock, tileItem;
         tileItem = ITEMS.getValue(ResourceLocation.fromNamespaceAndPath(DataGenerators.MOD_ID, color + "_roof_tile"));
@@ -2377,7 +2377,7 @@ public class ModRecipeProvider extends RecipeProvider {
                 .save(pFinishedRecipeConsumer);
     }
 
-    private static void roofTileRidgesRecipe(String color, Consumer<FinishedRecipe> pFinishedRecipeConsumer){
+    private static void roofTileRidgesRecipe(String color, RecipeOutput pFinishedRecipeConsumer) {
         IForgeRegistry<Item> ITEMS = ForgeRegistries.ITEMS;
         Item ridgeBlock, tileItem;
         tileItem = ITEMS.getValue(ResourceLocation.fromNamespaceAndPath(DataGenerators.MOD_ID, color + "_roof_tile"));
@@ -2446,11 +2446,9 @@ public class ModRecipeProvider extends RecipeProvider {
 
     }
 
-    private static void dyePowder(TagKey<Item> dye, ItemLike powder, Consumer<FinishedRecipe> pFinishedRecipeConsumer){
+    private static void dyePowder(TagKey<Item> dye, ItemLike powder, RecipeOutput pFinishedRecipeConsumer) {
         ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, powder, 4).requires(dye).unlockedBy("has_dye", InventoryChangeTrigger.TriggerInstance.hasItems(
-                new ItemPredicate(dye, ImmutableSet.of(),
-                        MinMaxBounds.Ints.ANY, MinMaxBounds.Ints.ANY,
-                        EnchantmentPredicate.NONE, EnchantmentPredicate.NONE, null, NbtPredicate.ANY)))
+                        ItemPredicate.Builder.item().of(dye)))
                 .save(pFinishedRecipeConsumer);
     }
 
@@ -2462,97 +2460,95 @@ public class ModRecipeProvider extends RecipeProvider {
         return new SingleItemRecipeBuilder(category, RecipeSerializerRegistry.WOODWORKING_SERIALIZER.get(), pIngredient, pResult, pCount);
     }
 
-    private static void woodworking(RecipeCategory category, Item input, ItemLike pResult, int pCount, Consumer<FinishedRecipe> pFinishedRecipeConsumer) {
-            var recipe = new SingleItemRecipeBuilder(category,RecipeSerializerRegistry.WOODWORKING_SERIALIZER.get(), Ingredient.of(input), pResult, pCount);
-            recipe.unlockedBy(itemUnlockName(input), itemCriterion(input))
+    private static void woodworking(RecipeCategory category, Item input, ItemLike pResult, int pCount, RecipeOutput pFinishedRecipeConsumer) {
+        var recipe = new SingleItemRecipeBuilder(category, RecipeSerializerRegistry.WOODWORKING_SERIALIZER.get(), Ingredient.of(input), pResult, pCount);
+        recipe.unlockedBy(itemUnlockName(input), itemCriterion(input))
                 .save(pFinishedRecipeConsumer);
     }
 
-    private static void woodworking(RecipeCategory category, Ingredient ingredient, ItemLike pResult, int pCount, Item unlockItem, Consumer<FinishedRecipe> pFinishedRecipeConsumer) {
+    private static void woodworking(RecipeCategory category, Ingredient ingredient, ItemLike pResult, int pCount, Item unlockItem, RecipeOutput pFinishedRecipeConsumer) {
         var recipe = new SingleItemRecipeBuilder(category, RecipeSerializerRegistry.WOODWORKING_SERIALIZER.get(), ingredient, pResult, pCount);
         recipe.unlockedBy(itemUnlockName(unlockItem), itemCriterion(unlockItem))
                 .save(pFinishedRecipeConsumer);
     }
 
-    private static void carvedWood(Item result, Ingredient[] dye, Consumer<FinishedRecipe> pFinishedRecipeConsumer){
+    private static void carvedWood(Item result, Ingredient[] dye, RecipeOutput pFinishedRecipeConsumer) {
         ChiselTableRecipeBuilder.chiselTableRecipe(Ingredient.of(ItemTags.LOGS), Ingredient.of(ItemRegistry.CARVED_WOOD_TEMPLATE.get()), dye, result)
                 .unlockedBy(itemUnlockName(ItemRegistry.CARVED_WOOD_TEMPLATE.get()), itemCriterion(ItemRegistry.CARVED_WOOD_TEMPLATE.get())).save(pFinishedRecipeConsumer);
     }
 
-    private static void fangxinWood(Item result, Ingredient[] dye, Consumer<FinishedRecipe> pFinishedRecipeConsumer){
+    private static void fangxinWood(Item result, Ingredient[] dye, RecipeOutput pFinishedRecipeConsumer) {
         ChiselTableRecipeBuilder.chiselTableRecipe(Ingredient.of(ItemTags.LOGS), Ingredient.of(ItemRegistry.FANGXIN_TEMPLATE.get()), dye, result)
                 .unlockedBy(itemUnlockName(ItemRegistry.FANGXIN_TEMPLATE.get()), itemCriterion(ItemRegistry.FANGXIN_TEMPLATE.get())).save(pFinishedRecipeConsumer);
     }
 
-    private static void fangxinEdgeWood(Item result, Ingredient[] dye, Consumer<FinishedRecipe> pFinishedRecipeConsumer){
+    private static void fangxinEdgeWood(Item result, Ingredient[] dye, RecipeOutput pFinishedRecipeConsumer) {
         ChiselTableRecipeBuilder.chiselTableRecipe(Ingredient.of(ItemTags.LOGS), Ingredient.of(ItemRegistry.FANGXIN_EDGE_TEMPLATE.get()), dye, result)
                 .unlockedBy(itemUnlockName(ItemRegistry.FANGXIN_EDGE_TEMPLATE.get()), itemCriterion(ItemRegistry.FANGXIN_EDGE_TEMPLATE.get())).save(pFinishedRecipeConsumer);
     }
 
-    private static void zhaotouWood(Item result, Ingredient[] dye, Consumer<FinishedRecipe> pFinishedRecipeConsumer){
+    private static void zhaotouWood(Item result, Ingredient[] dye, RecipeOutput pFinishedRecipeConsumer) {
         ChiselTableRecipeBuilder.chiselTableRecipe(Ingredient.of(ItemTags.LOGS), Ingredient.of(ItemRegistry.ZHAOTOU_TEMPLATE.get()), dye, result)
                 .unlockedBy(itemUnlockName(ItemRegistry.ZHAOTOU_TEMPLATE.get()), itemCriterion(ItemRegistry.ZHAOTOU_TEMPLATE.get())).save(pFinishedRecipeConsumer);
     }
 
-    private static void gutouWood(Item result, Ingredient[] dye, Consumer<FinishedRecipe> pFinishedRecipeConsumer){
+    private static void gutouWood(Item result, Ingredient[] dye, RecipeOutput pFinishedRecipeConsumer) {
         ChiselTableRecipeBuilder.chiselTableRecipe(Ingredient.of(ItemTags.LOGS), Ingredient.of(ItemRegistry.GUTOU_TEMPLATE.get()), dye, result)
                 .unlockedBy(itemUnlockName(ItemRegistry.GUTOU_TEMPLATE.get()), itemCriterion(ItemRegistry.GUTOU_TEMPLATE.get())).save(pFinishedRecipeConsumer);
     }
 
-    private static void rafter(Item result, Ingredient[] dye, Consumer<FinishedRecipe> pFinishedRecipeConsumer){
+    private static void rafter(Item result, Ingredient[] dye, RecipeOutput pFinishedRecipeConsumer) {
         ChiselTableRecipeBuilder.chiselTableRecipe(Ingredient.of(ItemTags.LOGS), Ingredient.of(ItemRegistry.RAFTER_TEMPLATE.get()), dye, result)
                 .unlockedBy(itemUnlockName(ItemRegistry.RAFTER_TEMPLATE.get()), itemCriterion(ItemRegistry.RAFTER_TEMPLATE.get())).save(pFinishedRecipeConsumer);
     }
 
-    private static void rafterEnd(Item result, Ingredient[] dye, Consumer<FinishedRecipe> pFinishedRecipeConsumer){
+    private static void rafterEnd(Item result, Ingredient[] dye, RecipeOutput pFinishedRecipeConsumer) {
         ChiselTableRecipeBuilder.chiselTableRecipe(Ingredient.of(ItemTags.LOGS), Ingredient.of(ItemRegistry.RAFTER_END_TEMPLATE.get()), dye, result)
                 .unlockedBy(itemUnlockName(ItemRegistry.RAFTER_END_TEMPLATE.get()), itemCriterion(ItemRegistry.RAFTER_END_TEMPLATE.get())).save(pFinishedRecipeConsumer);
     }
 
-    private static void architrave(Item result, Ingredient[] dye, Consumer<FinishedRecipe> pFinishedRecipeConsumer){
+    private static void architrave(Item result, Ingredient[] dye, RecipeOutput pFinishedRecipeConsumer) {
         ChiselTableRecipeBuilder.chiselTableRecipe(Ingredient.of(ItemTags.LOGS), Ingredient.of(ItemRegistry.ARCHITRAVE_TEMPLATE.get()), dye, result)
                 .unlockedBy(itemUnlockName(ItemRegistry.ARCHITRAVE_TEMPLATE.get()), itemCriterion(ItemRegistry.ARCHITRAVE_TEMPLATE.get())).save(pFinishedRecipeConsumer);
     }
 
-    private static void caihua(Item result, Ingredient[] dye, Consumer<FinishedRecipe> pFinishedRecipeConsumer){
+    private static void caihua(Item result, Ingredient[] dye, RecipeOutput pFinishedRecipeConsumer) {
         ChiselTableRecipeBuilder.chiselTableRecipe(Ingredient.of(ModItemTags.POLISHED_PLANKS), Ingredient.of(ItemRegistry.CAIHUA_TEMPLATE.get()), dye, result)
                 .unlockedBy(itemUnlockName(ItemRegistry.CAIHUA_TEMPLATE.get()), itemCriterion(ItemRegistry.CAIHUA_TEMPLATE.get())).save(pFinishedRecipeConsumer);
     }
 
-    private static void fangxinPattern(Item result, Ingredient[] dye, Consumer<FinishedRecipe> pFinishedRecipeConsumer){
+    private static void fangxinPattern(Item result, Ingredient[] dye, RecipeOutput pFinishedRecipeConsumer) {
         ChiselTableRecipeBuilder.chiselTableRecipe(Ingredient.of(ModItemTags.POLISHED_PLANKS), Ingredient.of(ItemRegistry.FANGXIN_TEMPLATE.get()), dye, result)
                 .unlockedBy(itemUnlockName(ItemRegistry.FANGXIN_TEMPLATE.get()), itemCriterion(ItemRegistry.FANGXIN_TEMPLATE.get())).save(pFinishedRecipeConsumer);
     }
 
-    private static void fangxinEdgePattern(Item result, Ingredient[] dye, Consumer<FinishedRecipe> pFinishedRecipeConsumer){
+    private static void fangxinEdgePattern(Item result, Ingredient[] dye, RecipeOutput pFinishedRecipeConsumer) {
         ChiselTableRecipeBuilder.chiselTableRecipe(Ingredient.of(ModItemTags.POLISHED_PLANKS), Ingredient.of(ItemRegistry.FANGXIN_EDGE_TEMPLATE.get()), dye, result)
                 .unlockedBy(itemUnlockName(ItemRegistry.FANGXIN_EDGE_TEMPLATE.get()), itemCriterion(ItemRegistry.FANGXIN_EDGE_TEMPLATE.get())).save(pFinishedRecipeConsumer);
     }
 
-    private static void zhaotouPattern(Item result, Ingredient[] dye, Consumer<FinishedRecipe> pFinishedRecipeConsumer){
+    private static void zhaotouPattern(Item result, Ingredient[] dye, RecipeOutput pFinishedRecipeConsumer) {
         ChiselTableRecipeBuilder.chiselTableRecipe(Ingredient.of(ModItemTags.POLISHED_PLANKS), Ingredient.of(ItemRegistry.ZHAOTOU_TEMPLATE.get()), dye, result)
                 .unlockedBy(itemUnlockName(ItemRegistry.ZHAOTOU_TEMPLATE.get()), itemCriterion(ItemRegistry.ZHAOTOU_TEMPLATE.get())).save(pFinishedRecipeConsumer);
     }
 
-    private static void compositeSmelting(Item result, Item primary, Item secondary, float exp, int time, Consumer<FinishedRecipe> pFinishedRecipeConsumer){
+    private static void compositeSmelting(Item result, Item primary, Item secondary, float exp, int time, RecipeOutput pFinishedRecipeConsumer) {
         CompositeSmeltingRecipeBuilder.compositeSmelting(Ingredient.of(primary), Ingredient.of(secondary),
                         result, exp, time)
                 .unlockedBy(itemUnlockName(primary), itemCriterion(primary)).save(pFinishedRecipeConsumer);
     }
 
-    private static void blueAndWhitePorcelainUpgrade(Item from, Item to, RecipeCategory category, Consumer<FinishedRecipe> pFinishedRecipeConsumer){
+    private static void blueAndWhitePorcelainUpgrade(Item from, Item to, RecipeCategory category, RecipeOutput pFinishedRecipeConsumer) {
         SmithingTransformRecipeBuilder.smithing(Ingredient.of(ItemRegistry.BLUE_AND_WHITE_PORCELAIN_UPGRADE_SMITHING_TEMPLATE.get()), Ingredient.of(from), Ingredient.of(ItemRegistry.BLUE_AND_WHITE_PORCELAIN_PIECE.get()), category, to)
                 .unlocks(itemUnlockName(ItemRegistry.BLUE_AND_WHITE_PORCELAIN_PIECE.get()), itemCriterion(ItemRegistry.BLUE_AND_WHITE_PORCELAIN_PIECE.get())).save(pFinishedRecipeConsumer, name(to));
     }
 
-    private static CriterionTriggerInstance tagUnlock(TagKey<Item> tag){
-        return InventoryChangeTrigger.TriggerInstance.hasItems(new ItemPredicate(tag, ImmutableSet.of(),
-                MinMaxBounds.Ints.ANY, MinMaxBounds.Ints.ANY,
-                EnchantmentPredicate.NONE, EnchantmentPredicate.NONE, null, NbtPredicate.ANY));
+    private static Criterion<InventoryChangeTrigger.TriggerInstance> tagUnlock(TagKey<Item> tag) {
+        return InventoryChangeTrigger.TriggerInstance.hasItems(ItemPredicate.Builder.item().of(tag));
     }
 
-    private static String name(Item item){
-        return Objects.requireNonNull(ForgeRegistries.ITEMS.getKey(item)).getPath();
+    private static String name(Item item) {
+        return Objects.requireNonNull(BuiltInRegistries.ITEM.getKey(item)).getPath();
     }
 
 

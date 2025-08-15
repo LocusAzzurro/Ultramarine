@@ -7,14 +7,14 @@ import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.ListTag;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
-import net.minecraftforge.items.wrapper.CombinedInvWrapper;
+import net.neoforged.neoforge.items.wrapper.CombinedInvWrapper;
+import snownee.jade.addon.vanilla.FurnaceProvider;
 import snownee.jade.api.BlockAccessor;
 import snownee.jade.api.IBlockComponentProvider;
 import snownee.jade.api.IServerDataProvider;
 import snownee.jade.api.ITooltip;
 import snownee.jade.api.config.IPluginConfig;
 import snownee.jade.api.ui.IElementHelper;
-import snownee.jade.impl.ui.ProgressArrowElement;
 
 public enum BrickKilnComponent implements IBlockComponentProvider, IServerDataProvider<BlockAccessor> {
     INSTANCE;
@@ -28,7 +28,7 @@ public enum BrickKilnComponent implements IBlockComponentProvider, IServerDataPr
             int progress = data.getInt("CookTime");
             ListTag items = data.getList("Items", 10);
             NonNullList<ItemStack> inventory = NonNullList.withSize(4, ItemStack.EMPTY);
-            for(int i = 0; i < items.size(); ++i) {
+            for (int i = 0; i < items.size(); ++i) {
                 inventory.set(i, ItemStack.of(items.getCompound(i)));
             }
             IElementHelper helper = IElementHelper.get();
@@ -36,7 +36,7 @@ public enum BrickKilnComponent implements IBlockComponentProvider, IServerDataPr
             tooltip.add(helper.item(inventory.get(0)));
             tooltip.append(helper.item(inventory.get(1)));
             tooltip.append(helper.item(inventory.get(2)));
-            tooltip.append(new ProgressArrowElement((float)progress / (float)total));
+            tooltip.append(helper.progress((float) progress / (float) total));
             tooltip.append(helper.item(inventory.get(3)));
         }
     }

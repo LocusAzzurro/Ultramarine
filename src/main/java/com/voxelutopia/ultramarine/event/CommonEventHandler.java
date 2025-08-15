@@ -28,20 +28,20 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraft.world.level.storage.ServerLevelData;
-import net.minecraftforge.common.Tags;
-import net.minecraftforge.event.TickEvent;
-import net.minecraftforge.event.entity.item.ItemExpireEvent;
-import net.minecraftforge.event.entity.player.PlayerEvent;
-import net.minecraftforge.event.level.BlockEvent;
-import net.minecraftforge.event.village.VillagerTradesEvent;
-import net.minecraftforge.event.village.WandererTradesEvent;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.common.Mod;
+import net.neoforged.bus.api.SubscribeEvent;
+import net.neoforged.fml.common.EventBusSubscriber;
+import net.neoforged.neoforge.common.Tags;
+import net.neoforged.neoforge.event.entity.item.ItemExpireEvent;
+import net.neoforged.neoforge.event.entity.player.PlayerEvent;
+import net.neoforged.neoforge.event.level.BlockEvent;
+import net.neoforged.neoforge.event.tick.LevelTickEvent;
+import net.neoforged.neoforge.event.village.VillagerTradesEvent;
+import net.neoforged.neoforge.event.village.WandererTradesEvent;
 import org.slf4j.Logger;
 
 import java.util.List;
 
-@Mod.EventBusSubscriber
+@EventBusSubscriber
 public class CommonEventHandler {
 
     private static final Logger LOGGER = Ultramarine.getLogger();
@@ -51,14 +51,14 @@ public class CommonEventHandler {
         BlockState state = event.getState();
         Player player = event.getEntity();
         if (state.is(ModBlockTags.MINEABLE_WITH_SHEARS) &&
-                player.getItemInHand(player.getUsedItemHand()).is(Tags.Items.SHEARS)){
+                player.getItemInHand(player.getUsedItemHand()).is(Tags.Items.TOOLS_SHEAR)){
             event.setNewSpeed(event.getOriginalSpeed() * 4);
         }
     }
 
     @SubscribeEvent
     public static void itemConversion(ItemExpireEvent event){
-        ItemEntity itemEntity = (ItemEntity) event.getEntity();
+        ItemEntity itemEntity = event.getEntity();
         ItemStack item = itemEntity.getItem();
         if (itemEntity.isInWater() && item.is(ItemRegistry.FIRED_BRICK.get())){
             itemEntity.setItem(new ItemStack(ItemRegistry.CYAN_BRICK.get(), item.getCount()));
@@ -103,9 +103,9 @@ public class CommonEventHandler {
     }
 
     @SubscribeEvent
-    public static void travellingMerchantSpawnAttempt(TickEvent.LevelTickEvent event){
-        if (event.level.isClientSide() || event.phase != TickEvent.Phase.START || event.level.dimension() != Level.OVERWORLD) return;
-        ServerLevel world = (ServerLevel) event.level;
+    public static void travellingMerchantSpawnAttempt(LevelTickEvent.Pre event){
+        if (event.getLevel().isClientSide() || event.getLevel().dimension() != Level.OVERWORLD) return;
+        ServerLevel world = (ServerLevel) event.getLevel();
         ServerLevelData levelData = (ServerLevelData) world.getLevelData();
         if (!world.getGameRules().getBoolean(GameRules.RULE_DO_TRADER_SPAWNING) ||
                 !world.getGameRules().getBoolean(GameRules.RULE_DOMOBSPAWNING) ||
@@ -126,7 +126,7 @@ public class CommonEventHandler {
             for (int i = 0; i < 10; ++i) {
                 int x = pos.getX() + world.random.nextInt(4 * 2) - 4;
                 int z = pos.getZ() + world.random.nextInt(4 * 2) - 4;
-                int y = ((LevelReader) world).getHeight(Heightmap.Types.WORLD_SURFACE, x, z);
+                int y = world.getHeight(Heightmap.Types.WORLD_SURFACE, x, z);
                 BlockPos rolledPos = new BlockPos(x, y, z);
                 if (NaturalSpawner.isSpawnPositionOk(SpawnPlacements.Type.ON_GROUND, world, rolledPos, EntityType.WANDERING_TRADER)) {
                     potentialSpawn = rolledPos;
@@ -137,7 +137,7 @@ public class CommonEventHandler {
 
             boolean hasSpaceAtSpawn = true;
             for (BlockPos blockPos : BlockPos.betweenClosed(potentialSpawn, potentialSpawn.offset(1, 2, 1))) {
-                if (!((BlockGetter) world).getBlockState(blockPos).getCollisionShape(world, blockPos).isEmpty()) {
+                if (!world.getBlockState(blockPos).getCollisionShape(world, blockPos).isEmpty()) {
                     hasSpaceAtSpawn = false; break;
                 }
             }

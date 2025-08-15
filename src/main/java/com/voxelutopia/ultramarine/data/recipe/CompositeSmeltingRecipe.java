@@ -1,25 +1,20 @@
 package com.voxelutopia.ultramarine.data.recipe;
 
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonSyntaxException;
+import com.mojang.serialization.Codec;
+import com.mojang.serialization.MapCodec;
+import com.mojang.serialization.codecs.RecordCodecBuilder;
 import com.voxelutopia.ultramarine.data.registry.RecipeSerializerRegistry;
 import com.voxelutopia.ultramarine.data.registry.RecipeTypeRegistry;
 import com.voxelutopia.ultramarine.world.block.entity.BrickKilnBlockEntity;
-import net.minecraft.core.RegistryAccess;
-import net.minecraft.network.FriendlyByteBuf;
-import net.minecraft.resources.ResourceLocation;
-import net.minecraft.util.GsonHelper;
-import net.minecraft.world.Container;
+import net.minecraft.core.HolderLookup;
+import net.minecraft.network.RegistryFriendlyByteBuf;
+import net.minecraft.network.codec.ByteBufCodecs;
+import net.minecraft.network.codec.StreamCodec;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.*;
 import net.minecraft.world.level.Level;
-import net.minecraftforge.registries.ForgeRegistries;
-import org.jetbrains.annotations.Nullable;
 
-public class CompositeSmeltingRecipe implements Recipe<Container> {
-
-    protected final ResourceLocation id;
+public class CompositeSmeltingRecipe implements Recipe<RecipeInput> {
     protected final String group;
     protected final Ingredient primaryIngredient;
     protected final Ingredient secondaryIngredient;
@@ -27,8 +22,7 @@ public class CompositeSmeltingRecipe implements Recipe<Container> {
     protected final float experience;
     protected final int cookingTime;
 
-    public CompositeSmeltingRecipe(ResourceLocation pId, String pGroup, Ingredient primaryIngredient, Ingredient secondaryIngredient, ItemStack pResult, float pExperience, int pCookingTime) {
-        this.id = pId;
+    public CompositeSmeltingRecipe(String pGroup, Ingredient primaryIngredient, Ingredient secondaryIngredient, ItemStack pResult, float pExperience, int pCookingTime) {
         this.group = pGroup;
         this.primaryIngredient = primaryIngredient;
         this.secondaryIngredient = secondaryIngredient;
@@ -38,17 +32,17 @@ public class CompositeSmeltingRecipe implements Recipe<Container> {
     }
 
     @Override
-    public boolean matches(Container pContainer, Level pLevel) {
+    public boolean matches(RecipeInput pContainer, Level pLevel) {
         return this.primaryIngredient.test(pContainer.getItem(BrickKilnBlockEntity.SLOT_INPUT_PRIMARY)) &&
                 this.secondaryIngredient.test(pContainer.getItem(BrickKilnBlockEntity.SLOT_INPUT_SECONDARY));
     }
 
-    public boolean partialMatch(Container pContainer, Level pLevel) {
+    public boolean partialMatch(RecipeInput pContainer) {
         return primaryIngredient.or(secondaryIngredient).test(pContainer.getItem(0));
     }
 
     @Override
-    public ItemStack assemble(Container pContainer, RegistryAccess registryAccess) {
+    public ItemStack assemble(RecipeInput pContainer, HolderLookup.Provider provider) {
         return this.result.copy();
     }
 
@@ -65,14 +59,13 @@ public class CompositeSmeltingRecipe implements Recipe<Container> {
         return secondaryIngredient;
     }
 
-    @Override
-    public ItemStack getResultItem(RegistryAccess registryAccess) {
-        return result.copy();
+    public ItemStack getResult() {
+        return result;
     }
 
     @Override
-    public ResourceLocation getId() {
-        return id;
+    public ItemStack getResultItem(HolderLookup.Provider provider) {
+        return result.copy();
     }
 
     @Override
@@ -89,66 +82,39 @@ public class CompositeSmeltingRecipe implements Recipe<Container> {
         return cookingTime;
     }
 
-    public float getExp(){
+    public float getExp() {
         return experience;
     }
 
-    public static class Serializer implements RecipeSerializer<CompositeSmeltingRecipe> {
-
-        public static final Serializer INSTANCE = new Serializer();
-        private static final int defaultCookingTime = 200;
-
-        protected Serializer() {}
-
+    public enum Serializer implements RecipeSerializer<CompositeSmeltingRecipe> {
+        INSTANCE;
+        public static final MapCodec<CompositeSmeltingRecipe> CODEC = RecordCodecBuilder.mapCodec(i -> i.group(
+                Codec.STRING.optionalFieldOf("group", "").forGetter(CompositeSmeltingRecipe::getGroup),
+                Ingredient.CODEC.fieldOf("primary_ingredient").forGetter(CompositeSmeltingRecipe::getPrimaryIngredient),
+                Ingredient.CODEC.fieldOf("secondary_ingredient").forGetter(CompositeSmeltingRecipe::getSecondaryIngredient),
+                ItemStack.CODEC.fieldOf("result").forGetter(CompositeSmeltingRecipe::getResult),
+                Codec.FLOAT.optionalFieldOf("experience", 0f).forGetter(CompositeSmeltingRecipe::getExp),
+                Codec.INT.optionalFieldOf("cookingtime", 200).forGetter(CompositeSmeltingRecipe::getCookingTime)
+        ).apply(i, CompositeSmeltingRecipe::new));
+        public static final StreamCodec<RegistryFriendlyByteBuf, CompositeSmeltingRecipe> STREAM_CODEC =
+                StreamCodec.composite(
+                        ByteBufCodecs.STRING_UTF8, CompositeSmeltingRecipe::getGroup,
+                        Ingredient.CONTENTS_STREAM_CODEC, CompositeSmeltingRecipe::getPrimaryIngredient,
+                        Ingredient.CONTENTS_STREAM_CODEC, CompositeSmeltingRecipe::getSecondaryIngredient,
+                        ItemStack.STREAM_CODEC, CompositeSmeltingRecipe::getResult,
+                        ByteBufCodecs.FLOAT, CompositeSmeltingRecipe::getExp,
+                        ByteBufCodecs.INT, CompositeSmeltingRecipe::getCookingTime,
+                        CompositeSmeltingRecipe::new
+                );
 
         @Override
-        public CompositeSmeltingRecipe fromJson(ResourceLocation pRecipeId, JsonObject pJson) {
-            if (!pJson.has("result"))
-                throw new JsonSyntaxException("Missing result, expected to find a string or object");
-
-            String group = GsonHelper.getAsString(pJson, "group", "");
-            Ingredient primaryIngredient = parseIngredient(pJson, "primary_ingredient");
-            Ingredient secondaryIngredient = parseIngredient(pJson, "secondary_ingredient");
-
-            ItemStack result;
-            if (pJson.get("result").isJsonObject()) result = ShapedRecipe.itemStackFromJson(GsonHelper.getAsJsonObject(pJson, "result"));
-            else {
-                String s1 = GsonHelper.getAsString(pJson, "result");
-                ResourceLocation resourcelocation = ResourceLocation.tryParse(s1);
-                result = new ItemStack(ForgeRegistries.ITEMS.getHolder(resourcelocation).orElseThrow(() -> new IllegalStateException("Item: " + s1 + " does not exist")));
-            }
-            float exp = GsonHelper.getAsFloat(pJson, "experience", 0.0F);
-            int cookingTime = GsonHelper.getAsInt(pJson, "cookingtime", defaultCookingTime);
-            return new CompositeSmeltingRecipe(pRecipeId, group, primaryIngredient, secondaryIngredient, result, exp, cookingTime);
-        }
-
-        @Nullable
-        @Override
-        public CompositeSmeltingRecipe fromNetwork(ResourceLocation pRecipeId, FriendlyByteBuf pBuffer) {
-            String group = pBuffer.readUtf();
-            Ingredient primary = Ingredient.fromNetwork(pBuffer);
-            Ingredient secondary = Ingredient.fromNetwork(pBuffer);
-            ItemStack result = pBuffer.readItem();
-            float exp = pBuffer.readFloat();
-            int cookingTime = pBuffer.readVarInt();
-            return new CompositeSmeltingRecipe(pRecipeId, group, primary, secondary, result, exp, cookingTime);
+        public MapCodec<CompositeSmeltingRecipe> codec() {
+            return CODEC;
         }
 
         @Override
-        public void toNetwork(FriendlyByteBuf pBuffer, CompositeSmeltingRecipe pRecipe) {
-            pBuffer.writeUtf(pRecipe.group);
-            pRecipe.primaryIngredient.toNetwork(pBuffer);
-            pRecipe.secondaryIngredient.toNetwork(pBuffer);
-            pBuffer.writeItem(pRecipe.result);
-            pBuffer.writeFloat(pRecipe.experience);
-            pBuffer.writeVarInt(pRecipe.cookingTime);
+        public StreamCodec<RegistryFriendlyByteBuf, CompositeSmeltingRecipe> streamCodec() {
+            return STREAM_CODEC;
         }
-
-        private static Ingredient parseIngredient(JsonObject json, String member){
-            JsonElement ingredientRaw = GsonHelper.isArrayNode(json, member) ? GsonHelper.getAsJsonArray(json, member) : GsonHelper.getAsJsonObject(json, member);
-            return Ingredient.fromJson(ingredientRaw);
-        }
-
     }
-
 }

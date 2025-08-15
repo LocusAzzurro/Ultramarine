@@ -1,5 +1,6 @@
 package com.voxelutopia.ultramarine.world.block;
 
+import com.mojang.serialization.MapCodec;
 import com.voxelutopia.ultramarine.data.registry.BlockEntityRegistry;
 import com.voxelutopia.ultramarine.world.block.entity.BottleGourdBlockEntity;
 import net.minecraft.core.BlockPos;
@@ -17,6 +18,7 @@ import net.minecraft.world.item.alchemy.PotionUtils;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.EntityBlock;
+import net.minecraft.world.level.block.HorizontalDirectionalBlock;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.BlockHitResult;
@@ -28,9 +30,8 @@ import java.util.List;
 import java.util.Optional;
 
 public class BottleGourd extends DecorativeBlock implements EntityBlock {
-
+    private static final MapCodec<BottleGourd> CODEC = simpleCodec(BottleGourd::new);
     public static final VoxelShape GOURD = Block.box(5.0D, 0.0D, 5.0D, 11.0D, 14.0D, 11.0D);
-
 
     public BottleGourd(Builder builder) {
         super(builder);
@@ -46,7 +47,7 @@ public class BottleGourd extends DecorativeBlock implements EntityBlock {
         else
             return InteractionResult.PASS;
 
-        if (item.is(Items.POTION)){
+        if (item.is(Items.POTION)) {
             Potion potion = PotionUtils.getPotion(item);
             if (blockEntity.addPotionCharge(potion)) {
                 if (!pLevel.isClientSide()) {
@@ -58,8 +59,7 @@ public class BottleGourd extends DecorativeBlock implements EntityBlock {
                 pLevel.playSound(null, pPos, SoundEvents.BREWING_STAND_BREW, SoundSource.PLAYERS, 1.0f, 1.0f);
                 return InteractionResult.sidedSuccess(pLevel.isClientSide);
             }
-        }
-        else if (blockEntity.hasCharges()){
+        } else if (blockEntity.hasCharges()) {
             Optional<Potion> potion1 = blockEntity.takePotionCharge();
             if (potion1.isPresent()) {
                 if (!pLevel.isClientSide()) {
@@ -73,15 +73,14 @@ public class BottleGourd extends DecorativeBlock implements EntityBlock {
                 }
                 pLevel.playSound(null, pPlayer, SoundEvents.GENERIC_DRINK, SoundSource.PLAYERS, 1.0f, 1.0f);
                 return InteractionResult.sidedSuccess(pLevel.isClientSide);
-            }
-            else return InteractionResult.PASS;
+            } else return InteractionResult.PASS;
         }
         return InteractionResult.PASS;
     }
 
     @Override
-    public void playerWillDestroy(Level pLevel, BlockPos pPos, BlockState pState, Player pPlayer) {
-        super.playerWillDestroy(pLevel, pPos, pState, pPlayer);
+    public BlockState playerWillDestroy(Level pLevel, BlockPos pPos, BlockState pState, Player pPlayer) {
+        BlockState state = super.playerWillDestroy(pLevel, pPos, pState, pPlayer);
         pLevel.getBlockEntity(pPos, BlockEntityRegistry.BOTTLE_GOURD.get()).ifPresent(entity -> {
             if (entity.hasCharges() && !pLevel.isClientSide()) {
                 int charges = entity.getCharges();
@@ -101,11 +100,17 @@ public class BottleGourd extends DecorativeBlock implements EntityBlock {
                 }
             }
         });
+        return state;
     }
 
     @Nullable
     @Override
     public BlockEntity newBlockEntity(BlockPos pPos, BlockState pState) {
         return new BottleGourdBlockEntity(pPos, pState);
+    }
+
+    @Override
+    protected MapCodec<? extends HorizontalDirectionalBlock> codec() {
+        return null;
     }
 }

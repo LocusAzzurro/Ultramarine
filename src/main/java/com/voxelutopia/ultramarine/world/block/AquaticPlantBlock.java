@@ -10,8 +10,6 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.material.FluidState;
 import net.minecraft.world.level.material.Fluids;
-import net.minecraftforge.common.IPlantable;
-import net.minecraftforge.common.PlantType;
 
 public class AquaticPlantBlock extends DecorativeBlock implements IPlantable {
 

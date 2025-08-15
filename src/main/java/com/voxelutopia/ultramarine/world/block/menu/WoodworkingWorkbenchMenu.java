@@ -14,6 +14,8 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.*;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.crafting.RecipeHolder;
+import net.minecraft.world.item.crafting.SingleRecipeInput;
 import net.minecraft.world.level.Level;
 
 import java.util.List;
@@ -29,7 +31,7 @@ public class WoodworkingWorkbenchMenu extends AbstractContainerMenu {
     private final ContainerLevelAccess access;
     private final DataSlot selectedRecipeIndex = DataSlot.standalone();
     private final Level level;
-    private List<WoodworkingRecipe> recipes = Lists.newArrayList();
+    private List<RecipeHolder<WoodworkingRecipe>> recipes = Lists.newArrayList();
     private ItemStack input = ItemStack.EMPTY;
     final Slot inputSlot;
     final Slot resultSlot;
@@ -77,13 +79,13 @@ public class WoodworkingWorkbenchMenu extends AbstractContainerMenu {
             }
         });
 
-        for(int i = 0; i < 3; ++i) {
-            for(int j = 0; j < 9; ++j) {
+        for (int i = 0; i < 3; ++i) {
+            for (int j = 0; j < 9; ++j) {
                 this.addSlot(new Slot(inventory, j + i * 9 + 9, 8 + j * 18, 84 + i * 18));
             }
         }
 
-        for(int k = 0; k < 9; ++k) {
+        for (int k = 0; k < 9; ++k) {
             this.addSlot(new Slot(inventory, k, 8 + k * 18, 142));
         }
 
@@ -94,7 +96,7 @@ public class WoodworkingWorkbenchMenu extends AbstractContainerMenu {
         return this.selectedRecipeIndex.get();
     }
 
-    public List<WoodworkingRecipe> getRecipes() {
+    public List<RecipeHolder<WoodworkingRecipe>> getRecipes() {
         return this.recipes;
     }
 
@@ -137,16 +139,16 @@ public class WoodworkingWorkbenchMenu extends AbstractContainerMenu {
         this.selectedRecipeIndex.set(-1);
         this.resultSlot.set(ItemStack.EMPTY);
         if (!pStack.isEmpty()) {
-            this.recipes = this.level.getRecipeManager().getRecipesFor(RecipeTypeRegistry.WOODWORKING.get(), pInventory, this.level);
+            this.recipes = this.level.getRecipeManager().getRecipesFor(RecipeTypeRegistry.WOODWORKING.get(), new SingleRecipeInput(pInventory.getItem(0)), this.level);
         }
 
     }
 
     void setupResultSlot() {
         if (!this.recipes.isEmpty() && this.isValidRecipeIndex(this.selectedRecipeIndex.get())) {
-            WoodworkingRecipe woodworkingRecipe = this.recipes.get(this.selectedRecipeIndex.get());
+            RecipeHolder<WoodworkingRecipe> woodworkingRecipe = this.recipes.get(this.selectedRecipeIndex.get());
             this.resultContainer.setRecipeUsed(woodworkingRecipe);
-            this.resultSlot.set(woodworkingRecipe.assemble(this.container, level.registryAccess()));
+            this.resultSlot.set(woodworkingRecipe.value().assemble(new SingleRecipeInput(this.container.getItem(0)), level.registryAccess()));
         } else {
             this.resultSlot.set(ItemStack.EMPTY);
         }
@@ -184,7 +186,7 @@ public class WoodworkingWorkbenchMenu extends AbstractContainerMenu {
                 if (!this.moveItemStackTo(slotItem, 2, 38, false)) {
                     return ItemStack.EMPTY;
                 }
-            } else if (this.level.getRecipeManager().getRecipeFor(RecipeTypeRegistry.WOODWORKING.get(), new SimpleContainer(slotItem), this.level).isPresent()) {
+            } else if (this.level.getRecipeManager().getRecipeFor(RecipeTypeRegistry.WOODWORKING.get(), new SingleRecipeInput(slotItem), this.level).isPresent()) {
                 if (!this.moveItemStackTo(slotItem, 0, 1, false)) {
                     return ItemStack.EMPTY;
                 }

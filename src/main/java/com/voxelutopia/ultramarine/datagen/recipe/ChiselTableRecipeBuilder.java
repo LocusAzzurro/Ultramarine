@@ -5,12 +5,14 @@ import com.google.gson.JsonObject;
 import com.voxelutopia.ultramarine.data.recipe.ChiselTableRecipe;
 import com.voxelutopia.ultramarine.data.registry.RecipeSerializerRegistry;
 import net.minecraft.advancements.Advancement;
+import net.minecraft.advancements.AdvancementHolder;
 import net.minecraft.advancements.AdvancementRewards;
-import net.minecraft.advancements.CriterionTriggerInstance;
+import net.minecraft.advancements.Criterion;
 import net.minecraft.advancements.RequirementsStrategy;
 import net.minecraft.advancements.critereon.RecipeUnlockedTrigger;
 import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.data.recipes.RecipeBuilder;
+import net.minecraft.data.recipes.RecipeOutput;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.crafting.Ingredient;
@@ -21,7 +23,6 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.Arrays;
 import java.util.List;
-import java.util.function.Consumer;
 
 public class ChiselTableRecipeBuilder implements RecipeBuilder {
 
@@ -30,23 +31,24 @@ public class ChiselTableRecipeBuilder implements RecipeBuilder {
     private final Ingredient template;
     protected final List<Ingredient> colors;
     private final Advancement.Builder advancementBuilder = Advancement.Builder.advancement();
-    @Nullable private String group;
+    @Nullable
+    private String group;
     private static final RecipeSerializer<ChiselTableRecipe> SERIALIZER = RecipeSerializerRegistry.CHISEL_TABLE_SERIALIZER.get();
 
-    public ChiselTableRecipeBuilder(ItemLike result, Ingredient material, Ingredient template, List<Ingredient> colors){
+    public ChiselTableRecipeBuilder(ItemLike result, Ingredient material, Ingredient template, List<Ingredient> colors) {
         this.result = result.asItem();
         this.material = material;
         this.template = template;
         this.colors = colors;
     }
 
-    public static ChiselTableRecipeBuilder chiselTableRecipe(Ingredient material, Ingredient template, Ingredient[] colors, ItemLike result){
+    public static ChiselTableRecipeBuilder chiselTableRecipe(Ingredient material, Ingredient template, Ingredient[] colors, ItemLike result) {
         List<Ingredient> colorList = Arrays.asList(colors).stream().filter(i -> !i.isEmpty()).toList();
         return new ChiselTableRecipeBuilder(result, material, template, colorList);
     }
 
     @Override
-    public RecipeBuilder unlockedBy(String pCriterionName, CriterionTriggerInstance pCriterionTrigger) {
+    public RecipeBuilder unlockedBy(String pCriterionName, Criterion<?> pCriterionTrigger) {
         this.advancementBuilder.addCriterion(pCriterionName, pCriterionTrigger);
         return this;
     }
@@ -63,15 +65,18 @@ public class ChiselTableRecipeBuilder implements RecipeBuilder {
     }
 
     @Override
-    public void save(Consumer<FinishedRecipe> pFinishedRecipeConsumer, ResourceLocation pRecipeId) {
+    public void save(RecipeOutput pFinishedRecipeConsumer, ResourceLocation pRecipeId) {
         this.advancementBuilder.parent(ResourceLocation.withDefaultNamespace("recipes/root"))
                 .addCriterion("has_the_recipe", RecipeUnlockedTrigger.unlocked(pRecipeId)).rewards(AdvancementRewards.Builder.recipe(pRecipeId)).requirements(RequirementsStrategy.OR);
-        pFinishedRecipeConsumer.accept(new Result(pRecipeId, this.group == null ? "" : this.group,
+        pFinishedRecipeConsumer.accept(pRecipeId,new AdvancementHolder(ResourceLocation.fromNamespaceAndPath(pRecipeId.getNamespace(), "recipes/" + pRecipeId.getPath()),this.advancementBuilder.save(pFinishedRecipeConsumer,pRecipeId))
+
+
+                pRecipeId, new Result(pRecipeId, this.group == null ? "" : this.group,
                 this.material, this.template, this.colors, this.result, this.advancementBuilder,
                 ResourceLocation.fromNamespaceAndPath(pRecipeId.getNamespace(), "recipes/" + pRecipeId.getPath())));
     }
 
-    private static class Result implements FinishedRecipe{
+    private static class Result implements FinishedRecipe {
         private final ResourceLocation id;
         private final String group;
         private final Item result;
@@ -82,7 +87,7 @@ public class ChiselTableRecipeBuilder implements RecipeBuilder {
         private final ResourceLocation advancementId;
 
         public Result(ResourceLocation pId, String pGroup, Ingredient material, Ingredient template, List<Ingredient> colors, Item result,
-                      Advancement.Builder pAdvancement, ResourceLocation pAdvancementId){
+                      Advancement.Builder pAdvancement, ResourceLocation pAdvancementId) {
             this.id = pId;
             this.group = pGroup;
             this.result = result;
@@ -101,7 +106,7 @@ public class ChiselTableRecipeBuilder implements RecipeBuilder {
             pJson.add("material", this.material.toJson());
             pJson.add("template", this.template.toJson());
             JsonArray colorsJson = new JsonArray();
-            for (Ingredient color: this.colors){
+            for (Ingredient color : this.colors) {
                 colorsJson.add(color.toJson());
             }
             pJson.add("colors", colorsJson);

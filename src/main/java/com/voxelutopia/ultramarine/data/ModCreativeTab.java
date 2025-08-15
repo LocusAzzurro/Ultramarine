@@ -2,7 +2,7 @@ package com.voxelutopia.ultramarine.data;
 
 import com.google.common.collect.ImmutableList;
 import net.minecraft.world.item.Item;
-import net.minecraftforge.registries.RegistryObject;
+import net.neoforged.neoforge.registries.DeferredHolder;
 
 import java.util.LinkedHashSet;
 import java.util.List;
@@ -19,7 +19,7 @@ public enum ModCreativeTab {
     PLANTS,
     LAMPS;
 
-    static final Map<ModCreativeTab, LinkedHashSet<RegistryObject<Item>>> itemSets = Map.of(
+    static final Map<ModCreativeTab, LinkedHashSet<DeferredHolder<Item, Item>>> itemSets = Map.of(
             MATERIALS, new LinkedHashSet<>(),
             TOOLS, new LinkedHashSet<>(),
             BUILDING_BLOCKS, new LinkedHashSet<>(),
@@ -31,11 +31,11 @@ public enum ModCreativeTab {
             LAMPS, new LinkedHashSet<>()
     );
 
-    public static void putItemInSet(RegistryObject<Item> item, ModCreativeTab tab){
+    public static void putItemInSet(DeferredHolder<Item, Item> item, ModCreativeTab tab) {
         itemSets.get(tab).add(item);
     }
 
-    public static List<RegistryObject<Item>> getItemsFromSet(ModCreativeTab tab){
+    public static List<DeferredHolder<Item, Item>> getItemsFromSet(ModCreativeTab tab) {
         return ImmutableList.copyOf(itemSets.get(tab));
     }
 
