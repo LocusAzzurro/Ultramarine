@@ -1,24 +1,17 @@
 package com.voxelutopia.ultramarine.datagen.recipe;
 
-import com.google.gson.JsonArray;
-import com.google.gson.JsonObject;
 import com.voxelutopia.ultramarine.data.recipe.ChiselTableRecipe;
-import com.voxelutopia.ultramarine.data.registry.RecipeSerializerRegistry;
 import net.minecraft.advancements.Advancement;
-import net.minecraft.advancements.AdvancementHolder;
+import net.minecraft.advancements.AdvancementRequirements;
 import net.minecraft.advancements.AdvancementRewards;
 import net.minecraft.advancements.Criterion;
-import net.minecraft.advancements.RequirementsStrategy;
 import net.minecraft.advancements.critereon.RecipeUnlockedTrigger;
-import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.data.recipes.RecipeBuilder;
 import net.minecraft.data.recipes.RecipeOutput;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.crafting.Ingredient;
-import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraft.world.level.ItemLike;
-import net.minecraftforge.registries.ForgeRegistries;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.Arrays;
@@ -33,7 +26,6 @@ public class ChiselTableRecipeBuilder implements RecipeBuilder {
     private final Advancement.Builder advancementBuilder = Advancement.Builder.advancement();
     @Nullable
     private String group;
-    private static final RecipeSerializer<ChiselTableRecipe> SERIALIZER = RecipeSerializerRegistry.CHISEL_TABLE_SERIALIZER.get();
 
     public ChiselTableRecipeBuilder(ItemLike result, Ingredient material, Ingredient template, List<Ingredient> colors) {
         this.result = result.asItem();
@@ -66,73 +58,10 @@ public class ChiselTableRecipeBuilder implements RecipeBuilder {
 
     @Override
     public void save(RecipeOutput pFinishedRecipeConsumer, ResourceLocation pRecipeId) {
-        this.advancementBuilder.parent(ResourceLocation.withDefaultNamespace("recipes/root"))
-                .addCriterion("has_the_recipe", RecipeUnlockedTrigger.unlocked(pRecipeId)).rewards(AdvancementRewards.Builder.recipe(pRecipeId)).requirements(RequirementsStrategy.OR);
-        pFinishedRecipeConsumer.accept(pRecipeId,new AdvancementHolder(ResourceLocation.fromNamespaceAndPath(pRecipeId.getNamespace(), "recipes/" + pRecipeId.getPath()),this.advancementBuilder.save(pFinishedRecipeConsumer,pRecipeId))
-
-
-                pRecipeId, new Result(pRecipeId, this.group == null ? "" : this.group,
-                this.material, this.template, this.colors, this.result, this.advancementBuilder,
-                ResourceLocation.fromNamespaceAndPath(pRecipeId.getNamespace(), "recipes/" + pRecipeId.getPath())));
-    }
-
-    private static class Result implements FinishedRecipe {
-        private final ResourceLocation id;
-        private final String group;
-        private final Item result;
-        private final Ingredient material;
-        private final Ingredient template;
-        protected final List<Ingredient> colors;
-        private final Advancement.Builder advancementBuilder;
-        private final ResourceLocation advancementId;
-
-        public Result(ResourceLocation pId, String pGroup, Ingredient material, Ingredient template, List<Ingredient> colors, Item result,
-                      Advancement.Builder pAdvancement, ResourceLocation pAdvancementId) {
-            this.id = pId;
-            this.group = pGroup;
-            this.result = result;
-            this.material = material;
-            this.template = template;
-            this.colors = colors;
-            this.advancementBuilder = pAdvancement;
-            this.advancementId = pAdvancementId;
-        }
-
-        @Override
-        public void serializeRecipeData(JsonObject pJson) {
-            if (!this.group.isEmpty()) {
-                pJson.addProperty("group", this.group);
-            }
-            pJson.add("material", this.material.toJson());
-            pJson.add("template", this.template.toJson());
-            JsonArray colorsJson = new JsonArray();
-            for (Ingredient color : this.colors) {
-                colorsJson.add(color.toJson());
-            }
-            pJson.add("colors", colorsJson);
-            pJson.addProperty("result", ForgeRegistries.ITEMS.getKey(this.result).toString());
-        }
-
-        @Override
-        public ResourceLocation getId() {
-            return this.id;
-        }
-
-        @Override
-        public RecipeSerializer<?> getType() {
-            return ChiselTableRecipeBuilder.SERIALIZER;
-        }
-
-        @Nullable
-        @Override
-        public JsonObject serializeAdvancement() {
-            return this.advancementBuilder.serializeToJson();
-        }
-
-        @Nullable
-        @Override
-        public ResourceLocation getAdvancementId() {
-            return this.advancementId;
-        }
+        Advancement.Builder builder = pFinishedRecipeConsumer.advancement()
+                .addCriterion("has_the_recipe", RecipeUnlockedTrigger.unlocked(pRecipeId))
+                .rewards(AdvancementRewards.Builder.recipe(pRecipeId))
+                .requirements(AdvancementRequirements.Strategy.OR);
+        pFinishedRecipeConsumer.accept(pRecipeId, new ChiselTableRecipe(this.group, this.material, this.template, this.colors, this.result.getDefaultInstance()), builder.build(ResourceLocation.fromNamespaceAndPath(pRecipeId.getNamespace(), "recipes/" + pRecipeId.getPath())));
     }
 }

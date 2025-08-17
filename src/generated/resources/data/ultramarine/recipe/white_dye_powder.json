@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "tag": "forge:dyes/white"
+    }
+  ],
+  "result": {
+    "count": 4,
+    "id": "ultramarine:white_dye_powder"
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    {
+      "item": "ultramarine:cyan_floor_tile"
+    },
+    {
+      "tag": "forge:dyes/white"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "ultramarine:light_cyan_floor_tile"
+  }
+}

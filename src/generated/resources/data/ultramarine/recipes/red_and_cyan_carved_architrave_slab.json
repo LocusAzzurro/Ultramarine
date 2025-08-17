@@ -1,8 +1,0 @@
-{
-  "type": "ultramarine:woodworking",
-  "count": 2,
-  "ingredient": {
-    "item": "ultramarine:red_and_cyan_carved_architrave"
-  },
-  "result": "ultramarine:red_and_cyan_carved_architrave_slab"
-}

@@ -1,8 +1,0 @@
-{
-  "type": "ultramarine:woodworking",
-  "count": 1,
-  "ingredient": {
-    "item": "ultramarine:red_carved_wood"
-  },
-  "result": "ultramarine:red_carved_wooden_stairs"
-}

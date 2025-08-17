@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "ultramarine:high_table_with_white_top"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_ultramarine:polished_birch_plank": {
+      "conditions": {
+        "items": [
+          {
+            "items": "ultramarine:polished_birch_plank"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_ultramarine:polished_birch_plank"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "ultramarine:high_table_with_white_top"
+    ]
+  }
+}

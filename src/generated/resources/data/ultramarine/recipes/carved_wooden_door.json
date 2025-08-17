@@ -1,8 +1,0 @@
-{
-  "type": "ultramarine:woodworking",
-  "count": 1,
-  "ingredient": {
-    "tag": "minecraft:logs"
-  },
-  "result": "ultramarine:carved_wooden_door"
-}

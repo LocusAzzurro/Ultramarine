@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "ultramarine:jade_parts"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_ultramarine:jade": {
+      "conditions": {
+        "items": [
+          {
+            "items": "ultramarine:jade"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_ultramarine:jade"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "ultramarine:jade_parts"
+    ]
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "E": {
+      "item": "ultramarine:wooden_parts"
+    },
+    "F": {
+      "item": "ultramarine:wooden_frame"
+    },
+    "P": {
+      "tag": "ultramarine:polished_planks"
+    },
+    "S": {
+      "item": "ultramarine:silk"
+    },
+    "W": {
+      "item": "minecraft:black_wool"
+    }
+  },
+  "pattern": [
+    "EWE",
+    "SPS",
+    "EFE"
+  ],
+  "result": {
+    "count": 1,
+    "id": "ultramarine:memorial_tablet"
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "C": {
+      "item": "ultramarine:red_curtain"
+    }
+  },
+  "pattern": [
+    "C ",
+    " C"
+  ],
+  "result": {
+    "count": 1,
+    "id": "ultramarine:red_curtain_corner"
+  }
+}

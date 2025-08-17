@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "tag": "forge:dyes/black"
+    }
+  ],
+  "result": {
+    "count": 4,
+    "id": "ultramarine:black_dye_powder"
+  }
+}

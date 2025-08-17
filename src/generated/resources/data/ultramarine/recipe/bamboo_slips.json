@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "B": {
+      "item": "minecraft:bamboo"
+    },
+    "S": {
+      "item": "minecraft:string"
+    }
+  },
+  "pattern": [
+    "BBS",
+    "BBS",
+    "BBS"
+  ],
+  "result": {
+    "count": 1,
+    "id": "ultramarine:bamboo_slips"
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "type": "ultramarine:chisel_table",
+  "colors": [
+    {
+      "tag": "forge:dyes/blue"
+    },
+    {
+      "tag": "forge:dyes/blue"
+    },
+    {
+      "tag": "forge:dyes/yellow"
+    },
+    {
+      "item": "ultramarine:gold_dye_powder"
+    }
+  ],
+  "material": {
+    "tag": "minecraft:logs"
+  },
+  "result": {
+    "count": 1,
+    "id": "ultramarine:blue_carved_tiger_eye_rafter"
+  },
+  "template": {
+    "item": "ultramarine:rafter_template"
+  }
+}

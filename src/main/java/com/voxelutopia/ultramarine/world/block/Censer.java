@@ -9,6 +9,7 @@ import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
+import net.minecraft.world.ItemInteractionResult;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.context.BlockPlaceContext;
@@ -33,16 +34,15 @@ public class Censer extends DecorativeBlock implements EntityBlock {
     }
 
     @Override
-    public InteractionResult use(BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, InteractionHand pHand, BlockHitResult pHit) {
-        ItemStack item = pPlayer.getItemInHand(pHand);
-        if (item.is(ItemRegistry.INCENSE.get())){
+    protected ItemInteractionResult useItemOn(ItemStack stack,BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, InteractionHand pHand, BlockHitResult pHit) {
+        if (stack.is(ItemRegistry.INCENSE.get())){
             if (!pPlayer.getAbilities().instabuild) {
-                item.shrink(1);
+                stack.shrink(1);
             }
             pLevel.getBlockEntity(pPos, BlockEntityRegistry.CENSER.get()).ifPresent(entity -> entity.lightIncense(pLevel, pPos, pState));
-            return InteractionResult.sidedSuccess(pLevel.isClientSide);
+            return ItemInteractionResult.sidedSuccess(pLevel.isClientSide);
         }
-        return InteractionResult.PASS;
+        return ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
     }
 
     @Nullable

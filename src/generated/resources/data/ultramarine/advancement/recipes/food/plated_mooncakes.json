@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "ultramarine:plated_mooncakes"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_ultramarine:mooncake": {
+      "conditions": {
+        "items": [
+          {
+            "items": "ultramarine:mooncake"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_ultramarine:mooncake"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "ultramarine:plated_mooncakes"
+    ]
+  }
+}

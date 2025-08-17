@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "ultramarine:horizontal_gilded_dark_oak_queti"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_ultramarine:gilded_dark_oak": {
+      "conditions": {
+        "items": [
+          {
+            "items": "ultramarine:gilded_dark_oak"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_ultramarine:gilded_dark_oak"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "ultramarine:horizontal_gilded_dark_oak_queti"
+    ]
+  }
+}

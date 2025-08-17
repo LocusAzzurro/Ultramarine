@@ -1,8 +1,0 @@
-{
-  "type": "ultramarine:woodworking",
-  "count": 1,
-  "ingredient": {
-    "item": "ultramarine:green_carved_wood"
-  },
-  "result": "ultramarine:qing_green_beam_head"
-}

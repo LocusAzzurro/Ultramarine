@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "key": {
+    "B": {
+      "item": "ultramarine:black_floor_tiles_little_mossy"
+    },
+    "D": {
+      "item": "minecraft:moss_block"
+    }
+  },
+  "pattern": [
+    "BBB",
+    "BDB",
+    "BBB"
+  ],
+  "result": {
+    "count": 8,
+    "id": "ultramarine:black_floor_tiles_moderate_mossy"
+  }
+}

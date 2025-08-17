@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "ultramarine:brush_tools"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_ultramarine:wooden_parts": {
+      "conditions": {
+        "items": [
+          {
+            "items": "ultramarine:wooden_parts"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_ultramarine:wooden_parts"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "ultramarine:brush_tools"
+    ]
+  }
+}

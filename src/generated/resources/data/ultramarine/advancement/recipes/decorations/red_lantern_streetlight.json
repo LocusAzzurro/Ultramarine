@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "ultramarine:red_lantern_streetlight"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_ultramarine:small_red_lantern": {
+      "conditions": {
+        "items": [
+          {
+            "items": "ultramarine:small_red_lantern"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_ultramarine:small_red_lantern"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "ultramarine:red_lantern_streetlight"
+    ]
+  }
+}

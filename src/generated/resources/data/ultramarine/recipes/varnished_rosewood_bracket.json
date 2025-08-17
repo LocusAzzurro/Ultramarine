@@ -1,8 +1,0 @@
-{
-  "type": "ultramarine:woodworking",
-  "count": 1,
-  "ingredient": {
-    "item": "ultramarine:varnished_rosewood"
-  },
-  "result": "ultramarine:varnished_rosewood_bracket"
-}

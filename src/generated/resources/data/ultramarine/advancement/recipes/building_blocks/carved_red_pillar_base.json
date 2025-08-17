@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "ultramarine:carved_red_pillar_base"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_ultramarine:carved_red_pillar": {
+      "conditions": {
+        "items": [
+          {
+            "items": "ultramarine:carved_red_pillar"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_ultramarine:carved_red_pillar"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "ultramarine:carved_red_pillar_base"
+    ]
+  }
+}

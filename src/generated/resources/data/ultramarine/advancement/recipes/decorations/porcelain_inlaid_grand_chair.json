@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "ultramarine:porcelain_inlaid_grand_chair"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_ultramarine:polished_rosewood_plank": {
+      "conditions": {
+        "items": [
+          {
+            "items": "ultramarine:polished_rosewood_plank"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_ultramarine:polished_rosewood_plank"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "ultramarine:porcelain_inlaid_grand_chair"
+    ]
+  }
+}

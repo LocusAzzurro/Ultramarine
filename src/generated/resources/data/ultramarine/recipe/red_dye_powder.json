@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "tag": "forge:dyes/red"
+    }
+  ],
+  "result": {
+    "count": 4,
+    "id": "ultramarine:red_dye_powder"
+  }
+}

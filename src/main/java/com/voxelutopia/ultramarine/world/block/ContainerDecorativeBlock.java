@@ -5,7 +5,6 @@ import com.voxelutopia.ultramarine.world.block.entity.ContainerDecorativeBlockEn
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.Container;
 import net.minecraft.world.Containers;
-import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
@@ -29,17 +28,15 @@ public class ContainerDecorativeBlock extends DecorativeBlock implements EntityB
         this.rowCount = builder.rowCount;
     }
 
-    public static Builder with(BaseBlockProperty property){
+    public static Builder with(BaseBlockProperty property) {
         return new Builder(property);
     }
 
     @Override
     public void setPlacedBy(Level worldIn, BlockPos posIn, BlockState stateIn, LivingEntity entityIn, ItemStack stackIn) {
-        if (stackIn.hasCustomHoverName()) {
-            BlockEntity blockEntity = worldIn.getBlockEntity(posIn);
-            if (blockEntity instanceof ContainerDecorativeBlockEntity containerBlockEntity) {
-                containerBlockEntity.setCustomName(stackIn.getHoverName());
-            }
+        BlockEntity blockEntity = worldIn.getBlockEntity(posIn);
+        if (blockEntity instanceof ContainerDecorativeBlockEntity containerBlockEntity) {
+            containerBlockEntity.applyComponentsFromItemStack(stackIn);
         }
     }
 
@@ -64,11 +61,10 @@ public class ContainerDecorativeBlock extends DecorativeBlock implements EntityB
     }
 
     @Override
-    public InteractionResult use(BlockState state, Level worldIn, BlockPos pos, Player player, InteractionHand hand, BlockHitResult rayIn) {
+    public InteractionResult useWithoutItem(BlockState state, Level worldIn, BlockPos pos, Player player, BlockHitResult rayIn) {
         if (worldIn.isClientSide) {
             return InteractionResult.SUCCESS;
-        }
-        else {
+        } else {
             BlockEntity blockEntity = worldIn.getBlockEntity(pos);
             if (blockEntity instanceof ContainerDecorativeBlockEntity container) {
                 player.openMenu(container);
@@ -89,11 +85,11 @@ public class ContainerDecorativeBlock extends DecorativeBlock implements EntityB
         }
     }
 
-    public ContainerType getContainerType(){
+    public ContainerType getContainerType() {
         return this.containerType;
     }
 
-    public static class Builder extends DecorativeBlock.Builder{
+    public static class Builder extends DecorativeBlock.Builder {
 
         private ContainerType containerType = ContainerType.COMMON_REGULAR;
         private int rowCount = 3;
@@ -102,13 +98,13 @@ public class ContainerDecorativeBlock extends DecorativeBlock implements EntityB
             super(property);
         }
 
-        public Builder content(ContainerType type){
+        public Builder content(ContainerType type) {
             this.containerType = type;
             this.rowCount = type.getRows();
             return this;
         }
 
-        public ContainerDecorativeBlock build(){
+        public ContainerDecorativeBlock build() {
             return new ContainerDecorativeBlock(this);
         }
     }

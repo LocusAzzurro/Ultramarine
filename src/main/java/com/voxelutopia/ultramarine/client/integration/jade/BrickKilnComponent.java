@@ -1,68 +1,66 @@
 package com.voxelutopia.ultramarine.client.integration.jade;
 
 import com.voxelutopia.ultramarine.Ultramarine;
-import com.voxelutopia.ultramarine.world.block.entity.BrickKilnBlockEntity;
-import net.minecraft.core.NonNullList;
-import net.minecraft.nbt.CompoundTag;
-import net.minecraft.nbt.ListTag;
+import net.minecraft.network.RegistryFriendlyByteBuf;
+import net.minecraft.network.codec.ByteBufCodecs;
+import net.minecraft.network.codec.StreamCodec;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
-import net.neoforged.neoforge.items.wrapper.CombinedInvWrapper;
-import snownee.jade.addon.vanilla.FurnaceProvider;
+import net.minecraft.world.level.block.entity.AbstractFurnaceBlockEntity;
+import net.minecraft.world.phys.Vec2;
 import snownee.jade.api.BlockAccessor;
 import snownee.jade.api.IBlockComponentProvider;
-import snownee.jade.api.IServerDataProvider;
 import snownee.jade.api.ITooltip;
+import snownee.jade.api.StreamServerDataProvider;
 import snownee.jade.api.config.IPluginConfig;
 import snownee.jade.api.ui.IElementHelper;
+import snownee.jade.mixin.AbstractFurnaceBlockEntityAccess;
 
-public enum BrickKilnComponent implements IBlockComponentProvider, IServerDataProvider<BlockAccessor> {
+import java.util.List;
+
+public enum BrickKilnComponent implements IBlockComponentProvider, StreamServerDataProvider<BlockAccessor, BrickKilnComponent.Data> {
     INSTANCE;
 
     public static final ResourceLocation BRICK_KILN = ResourceLocation.fromNamespaceAndPath(Ultramarine.MOD_ID, "brick_kiln");
 
     @Override
-    public void appendTooltip(ITooltip tooltip, BlockAccessor blockAccessor, IPluginConfig iPluginConfig) {
-        CompoundTag data = blockAccessor.getServerData();
-        if (data.contains("CookTime")) {
-            int progress = data.getInt("CookTime");
-            ListTag items = data.getList("Items", 10);
-            NonNullList<ItemStack> inventory = NonNullList.withSize(4, ItemStack.EMPTY);
-            for (int i = 0; i < items.size(); ++i) {
-                inventory.set(i, ItemStack.of(items.getCompound(i)));
-            }
+    public void appendTooltip(ITooltip tooltip, BlockAccessor accessor, IPluginConfig config) {
+        BrickKilnComponent.Data data = this.decodeFromData(accessor).orElse(null);
+        if (data != null) {
             IElementHelper helper = IElementHelper.get();
-            int total = data.getInt("CookTimeTotal");
-            tooltip.add(helper.item(inventory.get(0)));
-            tooltip.append(helper.item(inventory.get(1)));
-            tooltip.append(helper.item(inventory.get(2)));
-            tooltip.append(helper.progress((float) progress / (float) total));
-            tooltip.append(helper.item(inventory.get(3)));
+            tooltip.add(helper.item(data.inventory.get(0)));
+            tooltip.append(helper.item(data.inventory.get(1)));
+            tooltip.append(helper.spacer(4, 0));
+            tooltip.append(helper.progress((float) data.progress / (float) data.total).translate(new Vec2(-2.0F, 0.0F)));
+            tooltip.append(helper.item(data.inventory.get(2)));
         }
     }
 
     @Override
-    public void appendServerData(CompoundTag compoundTag, BlockAccessor blockAccessor) {
-        BrickKilnBlockEntity kiln = (BrickKilnBlockEntity) blockAccessor.getBlockEntity();
-        CombinedInvWrapper inv = kiln.wrapHandlers();
-        ItemStack primary = inv.getStackInSlot(BrickKilnBlockEntity.SLOT_INPUT_PRIMARY);
-        ItemStack secondary = inv.getStackInSlot(BrickKilnBlockEntity.SLOT_INPUT_SECONDARY);
-        ItemStack fuel = inv.getStackInSlot(BrickKilnBlockEntity.SLOT_FUEL);
-        ItemStack result = inv.getStackInSlot(BrickKilnBlockEntity.SLOT_RESULT);
-        if (primary.isEmpty() && secondary.isEmpty() && fuel.isEmpty() && result.isEmpty()) return;
-        ListTag items = new ListTag();
-        items.add(primary.save(new CompoundTag()));
-        items.add(secondary.save(new CompoundTag()));
-        items.add(fuel.save(new CompoundTag()));
-        items.add(result.save(new CompoundTag()));
-        compoundTag.put("Items", items);
-        CompoundTag kilnTag = kiln.saveWithoutMetadata();
-        compoundTag.putInt("CookTime", kilnTag.getInt("CookTime"));
-        compoundTag.putInt("CookTimeTotal", kilnTag.getInt("CookTimeTotal"));
+    public BrickKilnComponent.Data streamData(BlockAccessor accessor) {
+        AbstractFurnaceBlockEntityAccess access = (AbstractFurnaceBlockEntityAccess) accessor.getBlockEntity();
+        AbstractFurnaceBlockEntity furnace = (AbstractFurnaceBlockEntity) accessor.getBlockEntity();
+        return new Data(access.getCookingProgress(), access.getCookingTotalTime(), List.of(furnace.getItem(0), furnace.getItem(1), furnace.getItem(2)));
     }
 
     @Override
     public ResourceLocation getUid() {
         return BRICK_KILN;
+    }
+
+    @Override
+    public StreamCodec<RegistryFriendlyByteBuf, BrickKilnComponent.Data> streamCodec() {
+        return BrickKilnComponent.Data.STREAM_CODEC;
+    }
+
+    public record Data(int progress, int total, List<ItemStack> inventory) {
+        public static final StreamCodec<RegistryFriendlyByteBuf, BrickKilnComponent.Data> STREAM_CODEC;
+
+        static {
+            STREAM_CODEC = StreamCodec.composite(ByteBufCodecs.VAR_INT, BrickKilnComponent.Data::progress,
+                    ByteBufCodecs.VAR_INT, BrickKilnComponent.Data::total,
+                    ItemStack.OPTIONAL_LIST_STREAM_CODEC, BrickKilnComponent.Data::inventory,
+                    BrickKilnComponent.Data::new);
+        }
     }
 }

@@ -1,0 +1,24 @@
+{
+  "type": "ultramarine:chisel_table",
+  "colors": [
+    {
+      "tag": "forge:dyes/green"
+    },
+    {
+      "tag": "forge:dyes/green"
+    },
+    {
+      "item": "ultramarine:gold_dye_powder"
+    }
+  ],
+  "material": {
+    "tag": "minecraft:logs"
+  },
+  "result": {
+    "count": 1,
+    "id": "ultramarine:green_wanzi_rafter"
+  },
+  "template": {
+    "item": "ultramarine:rafter_template"
+  }
+}

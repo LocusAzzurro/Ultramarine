@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "B": {
+      "item": "minecraft:bamboo"
+    },
+    "P": {
+      "tag": "minecraft:planks"
+    },
+    "R": {
+      "item": "minecraft:red_dye"
+    },
+    "X": {
+      "item": "ultramarine:xuan_paper"
+    }
+  },
+  "pattern": [
+    "BRB",
+    "PXP",
+    "BPB"
+  ],
+  "result": {
+    "count": 1,
+    "id": "ultramarine:empty_bamboo_tea_basket"
+  }
+}

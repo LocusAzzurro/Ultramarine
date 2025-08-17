@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_minecraft:flower_pot": {
+      "conditions": {
+        "items": [
+          {
+            "items": "minecraft:flower_pot"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "ultramarine:red_plum_bonsai"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_minecraft:flower_pot"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "ultramarine:red_plum_bonsai"
+    ]
+  }
+}
