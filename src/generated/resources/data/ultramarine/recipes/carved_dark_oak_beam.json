@@ -1,8 +1,0 @@
-{
-  "type": "ultramarine:woodworking",
-  "count": 1,
-  "ingredient": {
-    "item": "minecraft:stripped_dark_oak_log"
-  },
-  "result": "ultramarine:carved_dark_oak_beam"
-}

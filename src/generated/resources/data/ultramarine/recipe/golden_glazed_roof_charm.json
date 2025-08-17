@@ -1,0 +1,30 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "D": {
+      "item": "ultramarine:gold_dye_powder"
+    },
+    "G": {
+      "item": "minecraft:yellow_glazed_terracotta"
+    },
+    "P": {
+      "item": "ultramarine:gold_parts"
+    },
+    "R": {
+      "item": "ultramarine:yellow_roof_ridge_connection"
+    },
+    "S": {
+      "item": "ultramarine:yellow_roof_tile_stairs"
+    }
+  },
+  "pattern": [
+    " SP",
+    "DGG",
+    "RGG"
+  ],
+  "result": {
+    "count": 1,
+    "id": "ultramarine:golden_glazed_roof_charm"
+  }
+}

@@ -1,8 +1,0 @@
-{
-  "type": "minecraft:stonecutting",
-  "count": 2,
-  "ingredient": {
-    "item": "ultramarine:blue_and_black_tile"
-  },
-  "result": "ultramarine:blue_and_black_tile_slab"
-}

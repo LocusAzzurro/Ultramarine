@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "ultramarine:pale_yellow_stone"
+  },
+  "result": {
+    "count": 2,
+    "id": "ultramarine:pale_yellow_stone_slab"
+  }
+}

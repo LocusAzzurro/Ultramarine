@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_painting": {
+      "conditions": {
+        "items": [
+          {
+            "items": "#ultramarine:painting_scroll_items"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "ultramarine:painted_screen"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_painting"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "ultramarine:painted_screen"
+    ]
+  }
+}

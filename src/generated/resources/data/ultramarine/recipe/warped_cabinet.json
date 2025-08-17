@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "C": {
+      "item": "minecraft:chest"
+    },
+    "F": {
+      "item": "ultramarine:wooden_frame"
+    },
+    "P": {
+      "item": "minecraft:warped_planks"
+    },
+    "W": {
+      "item": "ultramarine:polished_warped_plank"
+    }
+  },
+  "pattern": [
+    "WWW",
+    "WCW",
+    "PFP"
+  ],
+  "result": {
+    "count": 1,
+    "id": "ultramarine:warped_cabinet"
+  }
+}

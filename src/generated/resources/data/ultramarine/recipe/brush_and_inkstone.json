@@ -1,0 +1,30 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "F": {
+      "item": "ultramarine:fur"
+    },
+    "I": {
+      "item": "minecraft:ink_sac"
+    },
+    "P": {
+      "item": "ultramarine:xuan_paper"
+    },
+    "R": {
+      "item": "minecraft:stone_slab"
+    },
+    "S": {
+      "item": "minecraft:stick"
+    }
+  },
+  "pattern": [
+    "S ",
+    "FI",
+    "RP"
+  ],
+  "result": {
+    "count": 1,
+    "id": "ultramarine:brush_and_inkstone"
+  }
+}

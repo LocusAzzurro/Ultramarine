@@ -1,0 +1,21 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "ultramarine:ming_blue_gilded_jinzhuomo_shinianyu_xuanzi_fangxin_edge"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "ultramarine:ming_blue_gilded_jinzhuomo_shinianyu_xuanzi_fangxin_edge"
+    ]
+  }
+}

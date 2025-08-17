@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "ultramarine:red_curtain_corner"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_ultramarine:red_curtain": {
+      "conditions": {
+        "items": [
+          {
+            "items": "ultramarine:red_curtain"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_ultramarine:red_curtain"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "ultramarine:red_curtain_corner"
+    ]
+  }
+}

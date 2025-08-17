@@ -1,0 +1,21 @@
+{
+  "type": "ultramarine:chisel_table",
+  "colors": [
+    {
+      "tag": "forge:dyes/orange"
+    },
+    {
+      "tag": "forge:dyes/light_blue"
+    }
+  ],
+  "material": {
+    "tag": "minecraft:logs"
+  },
+  "result": {
+    "count": 1,
+    "id": "ultramarine:orange_and_blue_carved_wood"
+  },
+  "template": {
+    "item": "ultramarine:carved_wood_template"
+  }
+}

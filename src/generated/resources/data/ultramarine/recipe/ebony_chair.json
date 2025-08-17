@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "F": {
+      "item": "ultramarine:wooden_frame"
+    },
+    "S": {
+      "item": "minecraft:stick"
+    },
+    "W": {
+      "item": "ultramarine:polished_ebony_plank"
+    }
+  },
+  "pattern": [
+    "FW ",
+    "SFS"
+  ],
+  "result": {
+    "count": 1,
+    "id": "ultramarine:ebony_chair"
+  }
+}

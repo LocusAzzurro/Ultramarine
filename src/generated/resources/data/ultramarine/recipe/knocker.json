@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "I": {
+      "item": "ultramarine:bronze_ingot"
+    },
+    "P": {
+      "item": "ultramarine:bronze_parts"
+    }
+  },
+  "pattern": [
+    "IP"
+  ],
+  "result": {
+    "count": 1,
+    "id": "ultramarine:knocker"
+  }
+}

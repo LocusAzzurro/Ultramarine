@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "ultramarine:short_glazed_queti"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_ultramarine:green_glazed_tiles": {
+      "conditions": {
+        "items": [
+          {
+            "items": "ultramarine:green_glazed_tiles"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_ultramarine:green_glazed_tiles"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "ultramarine:short_glazed_queti"
+    ]
+  }
+}

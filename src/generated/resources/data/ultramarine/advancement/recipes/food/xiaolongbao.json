@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "ultramarine:xiaolongbao"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_ultramarine:baozi": {
+      "conditions": {
+        "items": [
+          {
+            "items": "ultramarine:baozi"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_ultramarine:baozi"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "ultramarine:xiaolongbao"
+    ]
+  }
+}

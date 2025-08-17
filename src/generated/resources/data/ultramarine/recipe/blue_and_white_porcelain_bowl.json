@@ -1,0 +1,14 @@
+{
+  "type": "ultramarine:composite_smelting",
+  "experience": 0.1,
+  "primary_ingredient": {
+    "item": "ultramarine:clay_bowl"
+  },
+  "result": {
+    "count": 1,
+    "id": "ultramarine:blue_and_white_porcelain_bowl"
+  },
+  "secondary_ingredient": {
+    "item": "ultramarine:blue_and_white_glaze_powder"
+  }
+}

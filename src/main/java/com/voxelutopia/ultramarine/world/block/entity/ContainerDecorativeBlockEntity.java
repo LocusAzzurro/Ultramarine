@@ -4,7 +4,9 @@ import com.voxelutopia.ultramarine.data.registry.BlockEntityRegistry;
 import com.voxelutopia.ultramarine.world.block.ContainerDecorativeBlock;
 import com.voxelutopia.ultramarine.world.block.menu.ContainerDecorativeBlockMenu;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.HolderLookup;
 import net.minecraft.core.NonNullList;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
@@ -15,7 +17,6 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.RandomizableContainerBlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraftforge.registries.ForgeRegistries;
 
 public class ContainerDecorativeBlockEntity extends RandomizableContainerBlockEntity {
 
@@ -26,6 +27,7 @@ public class ContainerDecorativeBlockEntity extends RandomizableContainerBlockEn
     public ContainerDecorativeBlockEntity(BlockPos pos, BlockState state) {
         super(BlockEntityRegistry.CONTAINER_DECORATIVE_BLOCK.get(), pos, state);
     }
+
     public ContainerDecorativeBlockEntity(BlockPos pos, BlockState state, int rows) {
         this(pos, state);
         block = state.getBlock();
@@ -45,12 +47,12 @@ public class ContainerDecorativeBlockEntity extends RandomizableContainerBlockEn
 
     @Override
     protected Component getDefaultName() {
-        return Component.translatable("container." +  ForgeRegistries.BLOCKS.getKey(block).getPath());
+        return Component.translatable("container." + BuiltInRegistries.BLOCK.getKey(block).getPath());
     }
 
     @Override
     protected AbstractContainerMenu createMenu(int pContainerId, Inventory pInventory) {
-        if (block instanceof ContainerDecorativeBlock container){
+        if (block instanceof ContainerDecorativeBlock container) {
             return container.getContainerType().createMenu(pContainerId, pInventory, this);
         }
         return ContainerDecorativeBlockMenu.genericThreeRows(pContainerId, pInventory, this);
@@ -62,23 +64,23 @@ public class ContainerDecorativeBlockEntity extends RandomizableContainerBlockEn
     }
 
     @Override
-    protected void saveAdditional(CompoundTag nbt) {
-        super.saveAdditional(nbt);
-        nbt.putString("Block", ForgeRegistries.BLOCKS.getKey(block).toString());
+    protected void saveAdditional(CompoundTag nbt, HolderLookup.Provider provider) {
+        super.saveAdditional(nbt, provider);
+        nbt.putString("Block", BuiltInRegistries.BLOCK.getKey(block).toString());
         nbt.putByte("Rows", (byte) rows);
         if (!this.trySaveLootTable(nbt)) {
-            ContainerHelper.saveAllItems(nbt, this.items);
+            ContainerHelper.saveAllItems(nbt, this.items, provider);
         }
     }
 
     @Override
-    public void load(CompoundTag nbt) {
-        super.load(nbt);
-        this.block = ForgeRegistries.BLOCKS.getValue(ResourceLocation.tryParse(nbt.getString("Block")));
+    public void loadAdditional(CompoundTag nbt, HolderLookup.Provider provider) {
+        super.loadAdditional(nbt, provider);
+        this.block = BuiltInRegistries.BLOCK.get(ResourceLocation.tryParse(nbt.getString("Block")));
         this.rows = nbt.getByte("Rows");
         this.items = NonNullList.withSize(this.getContainerSize(), ItemStack.EMPTY);
         if (!this.tryLoadLootTable(nbt)) {
-            ContainerHelper.loadAllItems(nbt, this.items);
+            ContainerHelper.loadAllItems(nbt, this.items, provider);
         }
     }
 }

@@ -2,7 +2,7 @@
   "type": "ultramarine:replace_to_single_item",
   "conditions": [
     {
-      "condition": "forge:loot_table_id",
+      "condition": "neoforge:loot_table_id",
       "loot_table_id": "minecraft:archaeology/trail_ruins_rare"
     },
     {

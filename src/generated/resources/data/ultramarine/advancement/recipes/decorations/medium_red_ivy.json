@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "ultramarine:medium_red_ivy"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_ultramarine:small_red_ivy": {
+      "conditions": {
+        "items": [
+          {
+            "items": "ultramarine:small_red_ivy"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_ultramarine:small_red_ivy"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "ultramarine:medium_red_ivy"
+    ]
+  }
+}

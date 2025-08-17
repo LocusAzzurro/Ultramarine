@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "tag": "forge:dyes/blue"
+    }
+  ],
+  "result": {
+    "count": 4,
+    "id": "ultramarine:blue_dye_powder"
+  }
+}

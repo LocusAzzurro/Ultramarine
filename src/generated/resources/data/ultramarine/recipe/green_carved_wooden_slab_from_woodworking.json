@@ -1,0 +1,10 @@
+{
+  "type": "ultramarine:woodworking",
+  "ingredient": {
+    "item": "ultramarine:green_carved_wood"
+  },
+  "result": {
+    "count": 2,
+    "id": "ultramarine:green_carved_wooden_slab"
+  }
+}

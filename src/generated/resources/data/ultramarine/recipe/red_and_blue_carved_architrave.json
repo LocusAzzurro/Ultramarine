@@ -1,0 +1,24 @@
+{
+  "type": "ultramarine:chisel_table",
+  "colors": [
+    {
+      "tag": "forge:dyes/red"
+    },
+    {
+      "item": "ultramarine:white_dye_powder"
+    },
+    {
+      "tag": "forge:dyes/blue"
+    }
+  ],
+  "material": {
+    "tag": "minecraft:logs"
+  },
+  "result": {
+    "count": 1,
+    "id": "ultramarine:red_and_blue_carved_architrave"
+  },
+  "template": {
+    "item": "ultramarine:architrave_template"
+  }
+}

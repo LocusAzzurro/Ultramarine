@@ -113,6 +113,10 @@ gradle-app.setting
 
 # Common working directory
 run/
+runs/
 
 # Avoid ignoring Gradle wrapper jar file (.jar files are usually ignored)
 !gradle-wrapper.jar
+
+# Datagen
+.cache

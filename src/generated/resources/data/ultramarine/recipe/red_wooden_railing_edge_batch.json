@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "B": {
+      "item": "ultramarine:wooden_railing"
+    },
+    "D": {
+      "tag": "forge:dyes/red"
+    }
+  },
+  "pattern": [
+    "BBB",
+    "BDB",
+    "BBB"
+  ],
+  "result": {
+    "count": 8,
+    "id": "ultramarine:red_wooden_railing_edge"
+  }
+}

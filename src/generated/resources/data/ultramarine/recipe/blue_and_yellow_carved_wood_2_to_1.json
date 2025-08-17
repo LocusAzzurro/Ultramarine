@@ -1,0 +1,10 @@
+{
+  "type": "ultramarine:woodworking",
+  "ingredient": {
+    "item": "ultramarine:blue_and_yellow_carved_wood_variant_2"
+  },
+  "result": {
+    "count": 1,
+    "id": "ultramarine:blue_and_yellow_carved_wood_variant_1"
+  }
+}

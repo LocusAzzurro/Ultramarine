@@ -5,21 +5,22 @@ import com.voxelutopia.ultramarine.data.registry.MenuTypeRegistry;
 import com.voxelutopia.ultramarine.data.registry.RecipeTypeRegistry;
 import com.voxelutopia.ultramarine.world.block.entity.BrickKilnBlockEntity;
 import net.minecraft.core.BlockPos;
-import net.minecraft.world.SimpleContainer;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.*;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.crafting.RecipeType;
+import net.minecraft.world.item.crafting.SingleRecipeInput;
 import net.minecraft.world.level.block.entity.BlockEntity;
-import net.minecraftforge.common.ForgeHooks;
-import net.minecraftforge.items.IItemHandler;
-import net.minecraftforge.items.ItemStackHandler;
-import net.minecraftforge.items.SlotItemHandler;
-import net.minecraftforge.items.wrapper.InvWrapper;
+import net.neoforged.neoforge.items.IItemHandler;
+import net.neoforged.neoforge.items.ItemStackHandler;
+import net.neoforged.neoforge.items.SlotItemHandler;
+import net.neoforged.neoforge.items.wrapper.InvWrapper;
+import net.neoforged.neoforge.registries.datamaps.builtin.FurnaceFuel;
+import net.neoforged.neoforge.registries.datamaps.builtin.NeoForgeDataMaps;
 import org.jetbrains.annotations.NotNull;
 
 import javax.annotation.Nonnull;
+import java.util.Optional;
 
 public class BrickKilnMenu extends AbstractContainerMenu {
 
@@ -41,7 +42,7 @@ public class BrickKilnMenu extends AbstractContainerMenu {
         this(pId, pos, inventory, new ItemStackHandler(4), new SimpleContainerData(4));
     }
 
-    public BrickKilnMenu(int id, BlockPos pos, Inventory inventory, IItemHandler container, ContainerData containerData){
+    public BrickKilnMenu(int id, BlockPos pos, Inventory inventory, IItemHandler container, ContainerData containerData) {
         super(MenuTypeRegistry.BRICK_KILN.get(), id);
         this.playerEntity = inventory.player;
         this.blockEntity = playerEntity.getCommandSenderWorld().getBlockEntity(pos);
@@ -54,13 +55,13 @@ public class BrickKilnMenu extends AbstractContainerMenu {
         this.addSlot(new FuelSlot(storage, SLOT_FUEL, 56, 53));
         this.addSlot(new OutputSlot(storage, SLOT_RESULT, 116, 35));
 
-        for(int r = 0; r < 3; ++r) {
-            for(int c = 0; c < 9; ++c) {
+        for (int r = 0; r < 3; ++r) {
+            for (int c = 0; c < 9; ++c) {
                 this.addSlot(new SlotItemHandler(this.inventory, c + r * 9 + 9, 8 + c * 18, 84 + r * 18));
             }
         }
 
-        for(int k = 0; k < 9; ++k) {
+        for (int k = 0; k < 9; ++k) {
             this.addSlot(new SlotItemHandler(this.inventory, k, 8 + k * 18, 142));
         }
 
@@ -117,7 +118,7 @@ public class BrickKilnMenu extends AbstractContainerMenu {
 
     protected boolean canProcess(ItemStack item) {
         return blockEntity.getLevel().getRecipeManager().getAllRecipesFor(RecipeTypeRegistry.COMPOSITE_SMELTING.get()).stream()
-                .anyMatch(recipe -> recipe.partialMatch(new SimpleContainer(item), blockEntity.getLevel()));
+                .anyMatch(recipe -> recipe.value().partialMatch(new SingleRecipeInput(item)));
     }
 
     @Override
@@ -173,8 +174,6 @@ public class BrickKilnMenu extends AbstractContainerMenu {
     }
 
     private static boolean isFuel(@NotNull ItemStack stack) {
-        return ForgeHooks.getBurnTime(stack, RecipeType.SMELTING) > 0;
+        return Optional.ofNullable(stack.getItemHolder().getData(NeoForgeDataMaps.FURNACE_FUELS)).map(FurnaceFuel::burnTime).orElse(0) > 0;
     }
-
-
 }

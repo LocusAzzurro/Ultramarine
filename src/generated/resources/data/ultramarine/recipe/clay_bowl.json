@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "o": {
+      "item": "minecraft:clay_ball"
+    }
+  },
+  "pattern": [
+    "o o",
+    " o "
+  ],
+  "result": {
+    "count": 1,
+    "id": "ultramarine:clay_bowl"
+  }
+}

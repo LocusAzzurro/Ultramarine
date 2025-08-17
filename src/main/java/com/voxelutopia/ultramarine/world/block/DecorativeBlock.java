@@ -1,5 +1,6 @@
 package com.voxelutopia.ultramarine.world.block;
 
+import com.mojang.serialization.MapCodec;
 import com.voxelutopia.ultramarine.data.shape.BlockShapes;
 import com.voxelutopia.ultramarine.data.shape.ShapeFunction;
 import com.voxelutopia.ultramarine.world.block.state.ModBlockStateProperties;
@@ -18,6 +19,7 @@ import net.minecraft.world.level.block.state.properties.DirectionProperty;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
+import org.jetbrains.annotations.ApiStatus;
 import org.jetbrains.annotations.NotNull;
 
 import javax.annotation.Nullable;
@@ -27,7 +29,7 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @MethodsReturnNonnullByDefault
 @SuppressWarnings("deprecation")
 public class DecorativeBlock extends HorizontalDirectionalBlock implements BaseBlockPropertyHolder, DiagonallyPlaceable {
-
+    private static final MapCodec<DecorativeBlock> CODEC = simpleCodec(DecorativeBlock::new);
     public static final DirectionProperty HORIZONTAL_FACING_SHIFT = ModBlockStateProperties.HORIZONTAL_FACING_SHIFT;
     public static final BooleanProperty LIT = BlockStateProperties.LIT;
 
@@ -70,6 +72,11 @@ public class DecorativeBlock extends HorizontalDirectionalBlock implements BaseB
     public DecorativeBlock(Builder builder) {
         this(builder.property, builder.shapeFunction, builder.directional, builder.diagonallyPlaceable,
                 builder.luminous, builder.noCollision, builder.noFenceConnect, builder.offset);
+    }
+
+    @ApiStatus.Internal
+    protected DecorativeBlock(Properties properties) {
+        this(new Builder(new BaseBlockProperty(properties, BaseBlockProperty.BlockMaterial.STONE)));
     }
 
     public static Builder with(BaseBlockProperty property) {
@@ -133,9 +140,14 @@ public class DecorativeBlock extends HorizontalDirectionalBlock implements BaseB
     }
 
     @Override
+    protected MapCodec<? extends HorizontalDirectionalBlock> codec() {
+        return CODEC;
+    }
+
+    @Override
     public BlockState rotate(BlockState pState, Rotation pRot) {
         BlockState newState = pState;
-        if (pState.getBlock() instanceof DecorativeBlock decorativeBlock && decorativeBlock.isDirectional()){
+        if (pState.getBlock() instanceof DecorativeBlock decorativeBlock && decorativeBlock.isDirectional()) {
             newState = pState.setValue(FACING, pRot.rotate(pState.getValue(FACING)));
             if (decorativeBlock.isDiagonallyPlaceable()) {
                 newState = newState.setValue(HORIZONTAL_FACING_SHIFT, pRot.rotate(pState.getValue(HORIZONTAL_FACING_SHIFT)));
@@ -147,7 +159,7 @@ public class DecorativeBlock extends HorizontalDirectionalBlock implements BaseB
     @Override
     public BlockState mirror(BlockState pState, Mirror pMirror) {
         BlockState newState = pState;
-        if (pState.getBlock() instanceof DecorativeBlock decorativeBlock && decorativeBlock.isDirectional()){
+        if (pState.getBlock() instanceof DecorativeBlock decorativeBlock && decorativeBlock.isDirectional()) {
             newState = pState.rotate(pMirror.getRotation(pState.getValue(FACING)));
             if (decorativeBlock.isDiagonallyPlaceable()) {
                 newState = newState.rotate(pMirror.getRotation(pState.getValue(HORIZONTAL_FACING_SHIFT)));
@@ -253,7 +265,7 @@ public class DecorativeBlock extends HorizontalDirectionalBlock implements BaseB
             return this;
         }
 
-        public Builder placeOffset(Direction direction){
+        public Builder placeOffset(Direction direction) {
             offset = direction;
             return this;
         }

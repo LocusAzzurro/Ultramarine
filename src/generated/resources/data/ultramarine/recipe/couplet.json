@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "I": {
+      "item": "minecraft:ink_sac"
+    },
+    "P": {
+      "item": "ultramarine:xuan_paper"
+    },
+    "R": {
+      "item": "ultramarine:red_dye_powder"
+    }
+  },
+  "pattern": [
+    "PRP",
+    "PIP",
+    "PRP"
+  ],
+  "result": {
+    "count": 2,
+    "id": "ultramarine:couplet"
+  }
+}

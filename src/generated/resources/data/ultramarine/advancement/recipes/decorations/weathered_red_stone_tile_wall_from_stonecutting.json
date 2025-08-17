@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "ultramarine:weathered_red_stone_tile_wall_from_stonecutting"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_weathered_red_stone_tile": {
+      "conditions": {
+        "items": [
+          {
+            "items": "ultramarine:weathered_red_stone_tile"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_weathered_red_stone_tile"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "ultramarine:weathered_red_stone_tile_wall_from_stonecutting"
+    ]
+  }
+}

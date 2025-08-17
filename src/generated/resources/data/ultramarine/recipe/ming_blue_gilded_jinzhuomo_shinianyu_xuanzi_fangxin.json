@@ -1,0 +1,27 @@
+{
+  "type": "ultramarine:chisel_table",
+  "colors": [
+    {
+      "tag": "forge:dyes/blue"
+    },
+    {
+      "tag": "forge:dyes/blue"
+    },
+    {
+      "item": "ultramarine:gold_dye_powder"
+    },
+    {
+      "item": "ultramarine:light_blue_dye_powder"
+    }
+  ],
+  "material": {
+    "tag": "minecraft:logs"
+  },
+  "result": {
+    "count": 1,
+    "id": "ultramarine:ming_blue_gilded_jinzhuomo_shinianyu_xuanzi_fangxin"
+  },
+  "template": {
+    "item": "ultramarine:fangxin_template"
+  }
+}

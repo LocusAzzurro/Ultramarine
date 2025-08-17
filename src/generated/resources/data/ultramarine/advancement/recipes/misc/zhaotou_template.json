@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_minecraft:polished_blackstone": {
+      "conditions": {
+        "items": [
+          {
+            "items": "minecraft:polished_blackstone"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "ultramarine:zhaotou_template"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_minecraft:polished_blackstone"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "ultramarine:zhaotou_template"
+    ]
+  }
+}

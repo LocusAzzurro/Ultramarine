@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "ultramarine:varnished_rosewood"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_ultramarine:rosewood_planks": {
+      "conditions": {
+        "items": [
+          {
+            "items": "ultramarine:rosewood_planks"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_ultramarine:rosewood_planks"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "ultramarine:varnished_rosewood"
+    ]
+  }
+}

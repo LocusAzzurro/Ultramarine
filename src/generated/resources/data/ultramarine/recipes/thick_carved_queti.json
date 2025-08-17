@@ -1,8 +1,0 @@
-{
-  "type": "minecraft:stonecutting",
-  "count": 2,
-  "ingredient": {
-    "item": "ultramarine:green_glazed_tiles"
-  },
-  "result": "ultramarine:thick_carved_queti"
-}

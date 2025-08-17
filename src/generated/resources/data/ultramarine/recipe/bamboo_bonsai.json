@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "C": {
+      "item": "minecraft:bamboo"
+    },
+    "D": {
+      "item": "minecraft:cyan_dye"
+    },
+    "P": {
+      "item": "minecraft:flower_pot"
+    }
+  },
+  "pattern": [
+    "C ",
+    "PD"
+  ],
+  "result": {
+    "count": 1,
+    "id": "ultramarine:bamboo_bonsai"
+  }
+}

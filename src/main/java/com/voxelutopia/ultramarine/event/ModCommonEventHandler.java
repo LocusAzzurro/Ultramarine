@@ -2,12 +2,11 @@ package com.voxelutopia.ultramarine.event;
 
 import com.voxelutopia.ultramarine.data.registry.EntityTypeRegistry;
 import com.voxelutopia.ultramarine.world.entity.TravellingMerchant;
-import net.minecraftforge.event.entity.EntityAttributeCreationEvent;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
+import net.neoforged.bus.api.SubscribeEvent;
+import net.neoforged.fml.common.EventBusSubscriber;
+import net.neoforged.neoforge.event.entity.EntityAttributeCreationEvent;
 
-@Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
+@EventBusSubscriber
 public class ModCommonEventHandler {
 
     @SubscribeEvent

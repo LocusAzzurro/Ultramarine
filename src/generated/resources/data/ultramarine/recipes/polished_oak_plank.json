@@ -1,8 +1,0 @@
-{
-  "type": "ultramarine:woodworking",
-  "count": 2,
-  "ingredient": {
-    "item": "minecraft:oak_planks"
-  },
-  "result": "ultramarine:polished_oak_plank"
-}

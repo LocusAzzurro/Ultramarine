@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "ultramarine:xumi_stone_monolith"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_ultramarine:stone_pillar_base": {
+      "conditions": {
+        "items": [
+          {
+            "items": "ultramarine:stone_pillar_base"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_ultramarine:stone_pillar_base"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "ultramarine:xumi_stone_monolith"
+    ]
+  }
+}

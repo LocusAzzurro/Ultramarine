@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "ultramarine:brick_kiln"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_ultramarine:cyan_brick": {
+      "conditions": {
+        "items": [
+          {
+            "items": "ultramarine:cyan_brick"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_ultramarine:cyan_brick"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "ultramarine:brick_kiln"
+    ]
+  }
+}

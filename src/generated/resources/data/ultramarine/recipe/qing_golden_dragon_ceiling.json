@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "B": {
+      "tag": "forge:dyes/blue"
+    },
+    "D": {
+      "item": "ultramarine:gold_dye_powder"
+    },
+    "G": {
+      "item": "ultramarine:green_carved_wood"
+    }
+  },
+  "pattern": [
+    "G",
+    "B",
+    "D"
+  ],
+  "result": {
+    "count": 1,
+    "id": "ultramarine:qing_golden_dragon_ceiling"
+  }
+}

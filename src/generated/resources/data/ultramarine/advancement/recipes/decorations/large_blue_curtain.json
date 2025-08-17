@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "ultramarine:large_blue_curtain"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_ultramarine:small_blue_curtain": {
+      "conditions": {
+        "items": [
+          {
+            "items": "ultramarine:small_blue_curtain"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_ultramarine:small_blue_curtain"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "ultramarine:large_blue_curtain"
+    ]
+  }
+}

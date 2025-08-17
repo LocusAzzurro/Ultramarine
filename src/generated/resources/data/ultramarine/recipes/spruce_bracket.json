@@ -1,8 +1,0 @@
-{
-  "type": "ultramarine:woodworking",
-  "count": 1,
-  "ingredient": {
-    "tag": "minecraft:spruce_logs"
-  },
-  "result": "ultramarine:spruce_bracket"
-}

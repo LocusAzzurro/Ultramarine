@@ -1,7 +1,10 @@
 package com.voxelutopia.ultramarine.datagen;
 
 import com.voxelutopia.ultramarine.data.registry.ItemRegistry;
+import net.minecraft.core.HolderLookup;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.data.loot.LootTableSubProvider;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.storage.loot.LootPool;
 import net.minecraft.world.level.storage.loot.LootTable;
@@ -14,11 +17,14 @@ import static com.voxelutopia.ultramarine.datagen.DataGenerators.MOD_ID;
 
 public class ModArchaeologyLootProvider implements LootTableSubProvider {
 
-    public static final ResourceLocation TRAIL_RUINS_COMMON = ResourceLocation.fromNamespaceAndPath(MOD_ID, "archaeology/trail_ruins_common");
-    public static final ResourceLocation TRAIL_RUINS_RARE = ResourceLocation.fromNamespaceAndPath(MOD_ID, "archaeology/trail_ruins_rare");
+    public static final ResourceKey<LootTable> TRAIL_RUINS_COMMON = ResourceKey.create(Registries.LOOT_TABLE, ResourceLocation.fromNamespaceAndPath(MOD_ID, "archaeology/trail_ruins_common"));
+    public static final ResourceKey<LootTable> TRAIL_RUINS_RARE = ResourceKey.create(Registries.LOOT_TABLE, ResourceLocation.fromNamespaceAndPath(MOD_ID, "archaeology/trail_ruins_rare"));
+
+    public ModArchaeologyLootProvider(HolderLookup.Provider provider) {
+    }
 
     @Override
-    public void generate(BiConsumer<ResourceLocation, LootTable.Builder> output) {
+    public void generate(BiConsumer<ResourceKey<LootTable>, LootTable.Builder> output) {
         output.accept(TRAIL_RUINS_COMMON, LootTable.lootTable().withPool(
                 LootPool.lootPool().setRolls(ConstantValue.exactly(1))
                         .add(LootItem.lootTableItem(ItemRegistry.CYAN_BRICK.get()).setWeight(8))

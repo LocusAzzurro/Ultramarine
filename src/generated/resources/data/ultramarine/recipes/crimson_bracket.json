@@ -1,8 +1,0 @@
-{
-  "type": "ultramarine:woodworking",
-  "count": 1,
-  "ingredient": {
-    "tag": "minecraft:crimson_stems"
-  },
-  "result": "ultramarine:crimson_bracket"
-}

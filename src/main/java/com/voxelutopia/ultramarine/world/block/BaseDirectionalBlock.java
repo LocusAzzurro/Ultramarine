@@ -1,5 +1,6 @@
 package com.voxelutopia.ultramarine.world.block;
 
+import com.mojang.serialization.MapCodec;
 import net.minecraft.core.Direction;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.block.Block;
@@ -10,17 +11,21 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 
 public class BaseDirectionalBlock extends DirectionalBlock implements BaseBlockPropertyHolder {
-
+    private static final MapCodec<BaseDirectionalBlock> CODEC = simpleCodec(BaseDirectionalBlock::new);
     protected final BaseBlockProperty property;
 
-    public BaseDirectionalBlock(BaseBlock block){
+    public BaseDirectionalBlock(BaseBlock block) {
         this(block.getProperty());
     }
 
-    public BaseDirectionalBlock(BaseBlockProperty property){
+    public BaseDirectionalBlock(BaseBlockProperty property) {
         super(property.properties);
         this.property = property;
         this.registerDefaultState(this.stateDefinition.any().setValue(FACING, Direction.UP));
+    }
+
+    private BaseDirectionalBlock(Properties properties) {
+        this(new BaseBlockProperty(properties, BaseBlockProperty.BlockMaterial.STONE));
     }
 
     public BlockState getStateForPlacement(BlockPlaceContext pContext) {
@@ -35,7 +40,7 @@ public class BaseDirectionalBlock extends DirectionalBlock implements BaseBlockP
     public BlockState rotate(BlockState pState, Rotation pRot) {
         BlockState newState = pState;
         Direction facing = pState.getValue(FACING);
-        if (facing.getAxis().isHorizontal()){
+        if (facing.getAxis().isHorizontal()) {
             newState = newState.setValue(FACING, pRot.rotate(facing));
         }
         return newState;
@@ -45,7 +50,7 @@ public class BaseDirectionalBlock extends DirectionalBlock implements BaseBlockP
     public BlockState mirror(BlockState pState, Mirror pMirror) {
         BlockState newState = pState;
         Direction facing = pState.getValue(FACING);
-        if (facing.getAxis().isHorizontal()){
+        if (facing.getAxis().isHorizontal()) {
             newState = newState.rotate(pMirror.getRotation(facing));
         }
         return newState;
@@ -54,5 +59,10 @@ public class BaseDirectionalBlock extends DirectionalBlock implements BaseBlockP
     @Override
     public BaseBlockProperty getProperty() {
         return property;
+    }
+
+    @Override
+    protected MapCodec<? extends DirectionalBlock> codec() {
+        return CODEC;
     }
 }

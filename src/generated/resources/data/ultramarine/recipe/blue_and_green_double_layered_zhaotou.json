@@ -1,0 +1,27 @@
+{
+  "type": "ultramarine:chisel_table",
+  "colors": [
+    {
+      "tag": "forge:dyes/blue"
+    },
+    {
+      "item": "ultramarine:white_dye_powder"
+    },
+    {
+      "tag": "forge:dyes/green"
+    },
+    {
+      "item": "ultramarine:light_blue_dye_powder"
+    }
+  ],
+  "material": {
+    "tag": "minecraft:logs"
+  },
+  "result": {
+    "count": 1,
+    "id": "ultramarine:blue_and_green_double_layered_zhaotou"
+  },
+  "template": {
+    "item": "ultramarine:zhaotou_template"
+  }
+}

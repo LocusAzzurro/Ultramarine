@@ -4,10 +4,7 @@ import com.voxelutopia.ultramarine.data.ModBlockTags;
 import com.voxelutopia.ultramarine.data.registry.SoundRegistry;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.TagKey;
-import net.minecraft.world.item.Item;
-import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;
@@ -137,31 +134,20 @@ public final class BaseBlockProperty {
     final BlockBehaviour.Properties properties;
     final BlockMaterial material;
 
-    BaseBlockProperty(final BlockBehaviour.Properties properties, final BlockMaterial material){
+    BaseBlockProperty(final BlockBehaviour.Properties properties, final BlockMaterial material) {
         this.properties = properties;
         this.material = material;
     }
 
-    public BlockMaterial getMaterial(){
+    public BlockMaterial getMaterial() {
         return material;
     }
 
-    public BaseBlockProperty copy(){
-        BlockBehaviour.Properties properties1 = BlockBehaviour.Properties.copy(new BlockBehaviour(this.properties) {
-            @Override
-            public Item asItem() {
-                return Items.AIR;
-            }
-
-            @Override
-            protected Block asBlock() {
-                return Blocks.AIR;
-            }
-        });
-        return new BaseBlockProperty(properties1, this.material);
+    public BaseBlockProperty copy() {
+        return new BaseBlockProperty(this.properties, this.material);
     }
 
-    public enum BlockMaterial{
+    public enum BlockMaterial {
         STONE(BlockTags.MINEABLE_WITH_PICKAXE),
         METAL(BlockTags.MINEABLE_WITH_PICKAXE),
         ICE(BlockTags.MINEABLE_WITH_PICKAXE),
@@ -174,10 +160,12 @@ public final class BaseBlockProperty {
         FLAX(BlockTags.MINEABLE_WITH_HOE);
 
         final TagKey<Block> tool;
-        public TagKey<Block> getTool(){
+
+        public TagKey<Block> getTool() {
             return tool;
         }
-        BlockMaterial(TagKey<Block> tool){
+
+        BlockMaterial(TagKey<Block> tool) {
             this.tool = tool;
         }
     }

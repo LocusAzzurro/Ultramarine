@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "ultramarine:plated_ham"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_ultramarine:cooked_meat": {
+      "conditions": {
+        "items": [
+          {
+            "items": "ultramarine:cooked_meat"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_ultramarine:cooked_meat"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "ultramarine:plated_ham"
+    ]
+  }
+}

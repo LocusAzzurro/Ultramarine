@@ -8,6 +8,8 @@ import net.minecraft.core.Direction;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.stats.Stats;
 import net.minecraft.world.InteractionResult;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.context.UseOnContext;
@@ -29,7 +31,7 @@ public class WoodenMallet extends Item {
     public InteractionResult useOn(UseOnContext pContext) {
         Level level = pContext.getLevel();
         ItemStack item = pContext.getItemInHand();
-        var player = Optional.ofNullable(pContext.getPlayer());
+        Optional<Player> player = Optional.ofNullable(pContext.getPlayer());
         BlockPos blockpos = pContext.getClickedPos();
         BlockState blockstate = level.getBlockState(blockpos);
         boolean success = false;
@@ -55,7 +57,7 @@ public class WoodenMallet extends Item {
         }
         if (success){
             player.ifPresent(player1 -> {
-                item.hurtAndBreak(1, player1, p -> p.broadcastBreakEvent(pContext.getHand()));
+                item.hurtAndBreak(1, player1, LivingEntity.getSlotForHand(pContext.getHand()));
                 player1.awardStat(Stats.ITEM_USED.get(item.getItem()));
                 level.playSound(player.get(),blockpos, SoundRegistry.WOOD_HAMMER.get(), SoundSource.BLOCKS,1,0.75f);
             });

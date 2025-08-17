@@ -1,8 +1,0 @@
-{
-  "type": "ultramarine:woodworking",
-  "count": 5,
-  "ingredient": {
-    "tag": "minecraft:leaves"
-  },
-  "result": "ultramarine:medium_leaf_pile"
-}

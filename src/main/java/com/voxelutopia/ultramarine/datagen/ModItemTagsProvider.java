@@ -10,8 +10,8 @@ import net.minecraft.data.tags.ItemTagsProvider;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
-import net.minecraftforge.common.data.ExistingFileHelper;
-import net.minecraftforge.registries.RegistryObject;
+import net.neoforged.neoforge.common.data.ExistingFileHelper;
+import net.neoforged.neoforge.registries.DeferredHolder;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
@@ -44,9 +44,9 @@ public class ModItemTagsProvider extends ItemTagsProvider {
                 .add(ItemRegistry.POLISHED_ROSEWOOD_PLANK.get())
                 .add(ItemRegistry.POLISHED_EBONY_PLANK.get());
         tag(ModItemTags.DYE_POWDER).add(ItemRegistry.ITEMS.getEntries().stream().filter(reg -> reg.get() instanceof DyePowder)
-                .map(RegistryObject::get).toList().toArray(new Item[0]));
+                .map(DeferredHolder::get).toList().toArray(new Item[0]));
         tag(ModItemTags.CHISEL_TEMPLATES).add(ItemRegistry.ITEMS.getEntries().stream().filter(reg -> reg.get() instanceof ChiselTemplate)
-                .map(RegistryObject::get).toList().toArray(new Item[0]));
+                .map(DeferredHolder::get).toList().toArray(new Item[0]));
         tag(ModItemTags.PARTS)
                 .add(ItemRegistry.WOODEN_PARTS.get())
                 .add(ItemRegistry.PORCELAIN_PARTS.get())
