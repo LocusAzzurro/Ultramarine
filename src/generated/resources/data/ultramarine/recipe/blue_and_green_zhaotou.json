@@ -2,10 +2,10 @@
   "type": "ultramarine:chisel_table",
   "colors": [
     {
-      "tag": "forge:dyes/blue"
+      "tag": "c:dyes/blue"
     },
     {
-      "tag": "forge:dyes/green"
+      "tag": "c:dyes/green"
     },
     {
       "item": "ultramarine:green_dye_powder"

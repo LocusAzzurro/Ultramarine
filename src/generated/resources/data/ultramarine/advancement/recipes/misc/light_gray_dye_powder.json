@@ -5,7 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": "#forge:dyes/light_gray"
+            "items": "#c:dyes/light_gray"
           }
         ]
       },

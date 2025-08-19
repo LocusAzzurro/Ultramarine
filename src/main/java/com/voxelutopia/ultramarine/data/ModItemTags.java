@@ -14,28 +14,29 @@ public class ModItemTags {
     public static final TagKey<Item> CHISEL_TEMPLATES = modTag("chisel_templates");
     public static final TagKey<Item> PAINTING_SCROLL_ITEMS = modTag("painting_scroll_items");
 
-    public static final TagKey<Item> FORGE_WHITE_DYE = forgeTag("dyes/white");
-    public static final TagKey<Item> FORGE_ORANGE_DYE = forgeTag("dyes/orange");
-    public static final TagKey<Item> FORGE_MAGENTA_DYE = forgeTag("dyes/magenta");
-    public static final TagKey<Item> FORGE_LIGHT_BLUE_DYE = forgeTag("dyes/light_blue");
-    public static final TagKey<Item> FORGE_YELLOW_DYE = forgeTag("dyes/yellow");
-    public static final TagKey<Item> FORGE_LIME_DYE = forgeTag("dyes/lime");
-    public static final TagKey<Item> FORGE_PINK_DYE = forgeTag("dyes/pink");
-    public static final TagKey<Item> FORGE_GRAY_DYE = forgeTag("dyes/gray");
-    public static final TagKey<Item> FORGE_LIGHT_GRAY_DYE = forgeTag("dyes/light_gray");
-    public static final TagKey<Item> FORGE_CYAN_DYE = forgeTag("dyes/cyan");
-    public static final TagKey<Item> FORGE_PURPLE_DYE = forgeTag("dyes/purple");
-    public static final TagKey<Item> FORGE_BLUE_DYE = forgeTag("dyes/blue");
-    public static final TagKey<Item> FORGE_BROWN_DYE = forgeTag("dyes/brown");
-    public static final TagKey<Item> FORGE_GREEN_DYE = forgeTag("dyes/green");
-    public static final TagKey<Item> FORGE_RED_DYE = forgeTag("dyes/red");
-    public static final TagKey<Item> FORGE_BLACK_DYE = forgeTag("dyes/black");
-    public static final TagKey<Item> FORGE_DYES = forgeTag("dyes");
+    public static final TagKey<Item> COMMON_WHITE_DYE = commonTag("dyes/white");
+    public static final TagKey<Item> COMMON_ORANGE_DYE = commonTag("dyes/orange");
+    public static final TagKey<Item> COMMON_MAGENTA_DYE = commonTag("dyes/magenta");
+    public static final TagKey<Item> COMMON_LIGHT_BLUE_DYE = commonTag("dyes/light_blue");
+    public static final TagKey<Item> COMMON_YELLOW_DYE = commonTag("dyes/yellow");
+    public static final TagKey<Item> COMMON_LIME_DYE = commonTag("dyes/lime");
+    public static final TagKey<Item> COMMON_PINK_DYE = commonTag("dyes/pink");
+    public static final TagKey<Item> COMMON_GRAY_DYE = commonTag("dyes/gray");
+    public static final TagKey<Item> COMMON_LIGHT_GRAY_DYE = commonTag("dyes/light_gray");
+    public static final TagKey<Item> COMMON_CYAN_DYE = commonTag("dyes/cyan");
+    public static final TagKey<Item> COMMON_PURPLE_DYE = commonTag("dyes/purple");
+    public static final TagKey<Item> COMMON_BLUE_DYE = commonTag("dyes/blue");
+    public static final TagKey<Item> COMMON_BROWN_DYE = commonTag("dyes/brown");
+    public static final TagKey<Item> COMMON_GREEN_DYE = commonTag("dyes/green");
+    public static final TagKey<Item> COMMON_RED_DYE = commonTag("dyes/red");
+    public static final TagKey<Item> COMMON_BLACK_DYE = commonTag("dyes/black");
+    public static final TagKey<Item> COMMON_DYES = commonTag("dyes");
 
-    private static TagKey<Item> forgeTag(String path){
-        return ItemTags.create(ResourceLocation.fromNamespaceAndPath("forge", path));
+    private static TagKey<Item> commonTag(String path) {
+        return ItemTags.create(ResourceLocation.fromNamespaceAndPath("c", path));
     }
-    private static TagKey<Item> modTag(String path){
+
+    private static TagKey<Item> modTag(String path) {
         return ItemTags.create(ResourceLocation.fromNamespaceAndPath(Ultramarine.MOD_ID, path));
     }
 }

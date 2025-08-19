@@ -8,10 +8,10 @@
       "item": "ultramarine:blue_dye_powder"
     },
     {
-      "tag": "forge:dyes/gray"
+      "tag": "c:dyes/gray"
     },
     {
-      "tag": "forge:dyes/gray"
+      "tag": "c:dyes/gray"
     }
   ],
   "material": {

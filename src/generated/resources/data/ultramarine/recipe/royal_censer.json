@@ -9,6 +9,6 @@
     "id": "ultramarine:royal_censer"
   },
   "secondary_ingredient": {
-    "tag": "forge:dyes/cyan"
+    "tag": "c:dyes/cyan"
   }
 }

@@ -19,6 +19,9 @@ import java.util.List;
 
 public class WoodworkingWorkbenchScreen extends AbstractContainerScreen<WoodworkingWorkbenchMenu> {
     private static final ResourceLocation BG_LOCATION = ResourceLocation.withDefaultNamespace("textures/gui/container/stonecutter.png");
+    private static final ResourceLocation RECIPE_SELECTED_SPRITE = ResourceLocation.withDefaultNamespace("container/stonecutter/recipe_selected");
+    private static final ResourceLocation RECIPE_HIGHLIGHTED_SPRITE = ResourceLocation.withDefaultNamespace("container/stonecutter/recipe_highlighted");
+    private static final ResourceLocation RECIPE_SPRITE = ResourceLocation.withDefaultNamespace("container/stonecutter/recipe");
     private static final int SCROLLER_WIDTH = 12;
     private static final int SCROLLER_HEIGHT = 15;
     private static final int RECIPES_COLUMNS = 4;
@@ -84,19 +87,21 @@ public class WoodworkingWorkbenchScreen extends AbstractContainerScreen<Woodwork
     }
 
     private void renderButtons(GuiGraphics guiGraphics, int pMouseX, int pMouseY, int pX, int pY, int pLastVisibleElementIndex) {
-        for (int i = this.startIndex; i < pLastVisibleElementIndex && i < this.menu.getNumRecipes(); ++i) {
+        for (int i = this.startIndex; i < pLastVisibleElementIndex && i < this.menu.getNumRecipes(); i++) {
             int j = i - this.startIndex;
             int k = pX + j % 4 * 16;
             int l = j / 4;
             int i1 = pY + l * 18 + 2;
-            int j1 = this.imageHeight;
+            ResourceLocation resourcelocation;
             if (i == this.menu.getSelectedRecipeIndex()) {
-                j1 += 18;
+                resourcelocation = RECIPE_SELECTED_SPRITE;
             } else if (pMouseX >= k && pMouseY >= i1 && pMouseX < k + 16 && pMouseY < i1 + 18) {
-                j1 += 36;
+                resourcelocation = RECIPE_HIGHLIGHTED_SPRITE;
+            } else {
+                resourcelocation = RECIPE_SPRITE;
             }
 
-            guiGraphics.blit(BG_LOCATION, k, i1 - 1, 0, j1, 16, 18);
+            guiGraphics.blitSprite(resourcelocation, k, i1 - 1, 16, 18);
         }
 
     }

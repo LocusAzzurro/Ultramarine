@@ -5,13 +5,13 @@
       "item": "ultramarine:green_dye_powder"
     },
     {
-      "tag": "forge:dyes/light_blue"
+      "tag": "c:dyes/light_blue"
     },
     {
-      "tag": "forge:dyes/green"
+      "tag": "c:dyes/green"
     },
     {
-      "tag": "forge:dyes/yellow"
+      "tag": "c:dyes/yellow"
     }
   ],
   "material": {

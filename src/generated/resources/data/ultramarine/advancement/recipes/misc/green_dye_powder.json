@@ -5,7 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": "#forge:dyes/green"
+            "items": "#c:dyes/green"
           }
         ]
       },

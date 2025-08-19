@@ -6,7 +6,7 @@
       "item": "minecraft:smooth_stone"
     },
     "D": {
-      "tag": "forge:dyes/cyan"
+      "tag": "c:dyes/cyan"
     }
   },
   "pattern": [

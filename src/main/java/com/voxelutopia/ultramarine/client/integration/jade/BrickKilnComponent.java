@@ -1,12 +1,12 @@
 package com.voxelutopia.ultramarine.client.integration.jade;
 
 import com.voxelutopia.ultramarine.Ultramarine;
+import com.voxelutopia.ultramarine.world.block.entity.BrickKilnBlockEntity;
 import net.minecraft.network.RegistryFriendlyByteBuf;
 import net.minecraft.network.codec.ByteBufCodecs;
 import net.minecraft.network.codec.StreamCodec;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.level.block.entity.AbstractFurnaceBlockEntity;
 import net.minecraft.world.phys.Vec2;
 import snownee.jade.api.BlockAccessor;
 import snownee.jade.api.IBlockComponentProvider;
@@ -14,7 +14,6 @@ import snownee.jade.api.ITooltip;
 import snownee.jade.api.StreamServerDataProvider;
 import snownee.jade.api.config.IPluginConfig;
 import snownee.jade.api.ui.IElementHelper;
-import snownee.jade.mixin.AbstractFurnaceBlockEntityAccess;
 
 import java.util.List;
 
@@ -38,9 +37,8 @@ public enum BrickKilnComponent implements IBlockComponentProvider, StreamServerD
 
     @Override
     public BrickKilnComponent.Data streamData(BlockAccessor accessor) {
-        AbstractFurnaceBlockEntityAccess access = (AbstractFurnaceBlockEntityAccess) accessor.getBlockEntity();
-        AbstractFurnaceBlockEntity furnace = (AbstractFurnaceBlockEntity) accessor.getBlockEntity();
-        return new Data(access.getCookingProgress(), access.getCookingTotalTime(), List.of(furnace.getItem(0), furnace.getItem(1), furnace.getItem(2)));
+        BrickKilnBlockEntity kiln = (BrickKilnBlockEntity) accessor.getBlockEntity();
+        return new Data(kiln.getCookingProgress(), kiln.getCookingTotalTime(), List.of(kiln.getItem(0), kiln.getItem(1), kiln.getItem(3)));
     }
 
     @Override

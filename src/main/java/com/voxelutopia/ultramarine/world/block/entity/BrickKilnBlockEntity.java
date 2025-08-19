@@ -328,7 +328,7 @@ public class BrickKilnBlockEntity extends BlockEntity implements MenuProvider {
         CompoundTag recipesTag = pTag.getCompound("RecipesUsed");
 
         for (String s : recipesTag.getAllKeys()) {
-            this.recipesUsed.put(ResourceLocation.withDefaultNamespace(s), recipesTag.getInt(s));
+            this.recipesUsed.put(ResourceLocation.tryParse(s), recipesTag.getInt(s));
         }
 
     }
@@ -347,16 +347,25 @@ public class BrickKilnBlockEntity extends BlockEntity implements MenuProvider {
             if (!item.isEmpty()) {
                 CompoundTag itemTag = new CompoundTag();
                 itemTag.putByte("Slot", (byte) i);
-                item.save(provider, itemTag);
+                itemTag = (CompoundTag) item.save(provider, itemTag);
                 itemListTag.add(itemTag);
             }
         }
-        if (!itemListTag.isEmpty()) {
-            pTag.put("Items", itemListTag);
-        }
-
+        if (!itemListTag.isEmpty()) pTag.put("Items", itemListTag);
         CompoundTag recipesTag = new CompoundTag();
         this.recipesUsed.forEach((resourceLocation, count) -> recipesTag.putInt(resourceLocation.toString(), count));
         pTag.put("RecipesUsed", recipesTag);
+    }
+
+    public int getCookingProgress() {
+        return this.cookingProgress;
+    }
+
+    public int getCookingTotalTime() {
+        return this.cookingTotalTime;
+    }
+
+    public ItemStack getItem(int slot) {
+        return this.wrapHandlers().getStackInSlot(slot);
     }
 }

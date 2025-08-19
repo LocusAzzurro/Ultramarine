@@ -42,7 +42,7 @@ public class ChiselTableMenu extends AbstractContainerMenu {
 
     private static final Predicate<ItemStack> IS_WOOD = i -> i.is(ItemTags.LOGS) || i.is(ModItemTags.POLISHED_PLANKS);
     private static final Predicate<ItemStack> IS_TEMPLATE = i -> i.is(ModItemTags.CHISEL_TEMPLATES);
-    private static final Predicate<ItemStack> IS_COLOR = i -> i.is(ModItemTags.FORGE_DYES) || i.is(ModItemTags.DYE_POWDER);
+    private static final Predicate<ItemStack> IS_COLOR = i -> i.is(ModItemTags.COMMON_DYES) || i.is(ModItemTags.DYE_POWDER);
 
     private final ContainerLevelAccess access;
     private final Player player;
