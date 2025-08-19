@@ -25,7 +25,6 @@ public class ContainerDecorativeBlockScreen extends AbstractContainerScreen<Cont
 
     @Override
     public void render(GuiGraphics guiGraphics, int pMouseX, int pMouseY, float pPartialTick) {
-        this.renderBackground(guiGraphics, pMouseX, pMouseY, pPartialTick);
         super.render(guiGraphics, pMouseX, pMouseY, pPartialTick);
         this.renderTooltip(guiGraphics, pMouseX, pMouseY);
     }
