@@ -17,8 +17,9 @@ import java.util.stream.Collectors;
 public class BlockEntityRegistry {
 
     static Set<DeferredHolder<Block, Block>> CONTAINER_BLOCKS = Set.of(
-            BlockRegistry.GUNNY_SACK, BlockRegistry.FRUIT_BOX, BlockRegistry.WOODEN_CRATE, BlockRegistry.FOOD_HAMPER,
-            BlockRegistry.OAK_CABINET, BlockRegistry.WARPED_CABINET, BlockRegistry.EBONY_CABINET);
+            BlockRegistry.SACK, BlockRegistry.GUNNY_SACK, BlockRegistry.FRUIT_BOX, BlockRegistry.WOODEN_CRATE, BlockRegistry.FOOD_HAMPER,
+            BlockRegistry.OAK_CABINET, BlockRegistry.WARPED_CABINET, BlockRegistry.EBONY_CABINET,
+            BlockRegistry.BAMBOO_TEA_BASKET, BlockRegistry.EMPTY_BAMBOO_TEA_BASKET);
     static Set<DeferredHolder<Block, Block>> CENSERS = Set.of(BlockRegistry.BRONZE_CENSER, BlockRegistry.ROYAL_CENSER);
     public static final DeferredRegister<BlockEntityType<?>> BLOCK_ENTITIES = DeferredRegister.create(Registries.BLOCK_ENTITY_TYPE, Ultramarine.MOD_ID);
 
