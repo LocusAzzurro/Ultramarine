@@ -232,6 +232,10 @@ public class ItemRegistry {
     public static final DeferredHolder<Item, Item> GILDED_DARK_OAK_STAIRS = fromBlock(BlockRegistry.GILDED_DARK_OAK_STAIRS, ModCreativeTab.DECORATIVE_BLOCKS);
     public static final DeferredHolder<Item, Item> GILDED_DARK_OAK_BRACKET = fromBlock(BlockRegistry.GILDED_DARK_OAK_BRACKET, ModCreativeTab.DECORATIVE_BLOCKS);
 
+    // CARVED CARPETS
+
+    public static final DeferredHolder<Item, Item> RED_CARVED_CARPET = fromBlock(BlockRegistry.RED_CARVED_CARPET, ModCreativeTab.DECORATIVE_BLOCKS);
+
     // PILLARS
 
     public static final DeferredHolder<Item, Item> CARVED_RED_PILLAR = fromBlock(BlockRegistry.CARVED_RED_PILLAR, ModCreativeTab.DECORATIVE_BLOCKS);

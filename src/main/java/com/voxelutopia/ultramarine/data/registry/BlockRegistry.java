@@ -229,6 +229,10 @@ public class BlockRegistry {
     public static final DeferredHolder<Block, Block> GILDED_DARK_OAK_STAIRS = BLOCKS.register("gilded_dark_oak_stairs", () -> new StraightStairBlock(BaseBlockProperty.WOOD));
     public static final DeferredHolder<Block, Block> GILDED_DARK_OAK_BRACKET = BLOCKS.register("gilded_dark_oak_bracket", () -> new Bracket(BaseBlockProperty.WOOD));
 
+    // CARVED CARPETS
+
+    public static final DeferredHolder<Block, Block> RED_CARVED_CARPET = BLOCKS.register("red_carved_carpet", () -> new CarvedCarpet(DyeColor.RED));
+
     // PILLARS
 
     public static final DeferredHolder<Block, Block> CARVED_RED_PILLAR = BLOCKS.register("carved_red_pillar", () -> new BaseBlock(BaseBlockProperty.TERRACOTTA));
