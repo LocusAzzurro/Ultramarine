@@ -846,6 +846,7 @@ public class ItemRegistry {
     // TEMPLATES
 
     public static final DeferredHolder<Item, Item> CARVED_WOOD_TEMPLATE = chiselTemplateItem("carved_wood_template");
+    public static final DeferredHolder<Item, Item> CARVED_WOOL_TEMPLATE = chiselTemplateItem("carved_wool_template");
     public static final DeferredHolder<Item, Item> FANGXIN_TEMPLATE = chiselTemplateItem("fangxin_template");
     public static final DeferredHolder<Item, Item> FANGXIN_EDGE_TEMPLATE = chiselTemplateItem("fangxin_edge_template");
     public static final DeferredHolder<Item, Item> ZHAOTOU_TEMPLATE = chiselTemplateItem("zhaotou_template");

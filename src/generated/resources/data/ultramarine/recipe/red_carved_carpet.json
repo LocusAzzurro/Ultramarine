@@ -1,0 +1,21 @@
+{
+  "type": "ultramarine:chisel_table",
+  "colors": [
+    {
+      "tag": "c:dyes/yellow"
+    },
+    {
+      "item": "ultramarine:gold_dye_powder"
+    }
+  ],
+  "material": {
+    "item": "minecraft:red_wool"
+  },
+  "result": {
+    "count": 1,
+    "id": "ultramarine:red_carved_carpet"
+  },
+  "template": {
+    "item": "ultramarine:carved_wool_template"
+  }
+}
