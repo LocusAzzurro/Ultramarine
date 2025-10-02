@@ -12,6 +12,7 @@ import net.minecraft.network.codec.StreamCodec;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.*;
 import net.minecraft.world.level.Level;
+import org.jetbrains.annotations.NotNull;
 
 public class WoodworkingRecipe extends SingleItemRecipe {
 
@@ -27,18 +28,13 @@ public class WoodworkingRecipe extends SingleItemRecipe {
     }
 
     @Override
-    public boolean matches(SingleRecipeInput pContainer, Level pLevel) {
+    public boolean matches(SingleRecipeInput pContainer, @NotNull Level pLevel) {
         return ingredient.test(pContainer.getItem(0));
     }
 
     @Override
-    public ItemStack assemble(SingleRecipeInput pContainer, HolderLookup.Provider provider) {
+    public @NotNull ItemStack assemble(@NotNull SingleRecipeInput pContainer, HolderLookup.@NotNull Provider provider) {
         return result.copy();
-    }
-
-    @Override
-    public boolean canCraftInDimensions(int pWidth, int pHeight) {
-        return true;
     }
 
     @Override
@@ -55,17 +51,17 @@ public class WoodworkingRecipe extends SingleItemRecipe {
     }
 
     @Override
-    public ItemStack getResultItem(HolderLookup.Provider provider) {
+    public @NotNull ItemStack getResultItem(HolderLookup.@NotNull Provider provider) {
         return result.copy();
     }
 
     @Override
-    public RecipeType<?> getType() {
+    public @NotNull RecipeType<?> getType() {
         return RecipeTypeRegistry.WOODWORKING.get();
     }
 
     @Override
-    public RecipeSerializer<?> getSerializer() {
+    public @NotNull RecipeSerializer<?> getSerializer() {
         return RecipeSerializerRegistry.WOODWORKING_SERIALIZER.get();
     }
 
@@ -85,12 +81,12 @@ public class WoodworkingRecipe extends SingleItemRecipe {
                 );
 
         @Override
-        public MapCodec<WoodworkingRecipe> codec() {
+        public @NotNull MapCodec<WoodworkingRecipe> codec() {
             return CODEC;
         }
 
         @Override
-        public StreamCodec<RegistryFriendlyByteBuf, WoodworkingRecipe> streamCodec() {
+        public @NotNull StreamCodec<RegistryFriendlyByteBuf, WoodworkingRecipe> streamCodec() {
             return STREAM_CODEC;
         }
     }

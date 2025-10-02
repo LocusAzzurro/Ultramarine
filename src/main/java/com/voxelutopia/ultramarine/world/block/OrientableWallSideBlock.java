@@ -1,6 +1,5 @@
 package com.voxelutopia.ultramarine.world.block;
 
-import com.mojang.math.OctahedralGroup;
 import com.voxelutopia.ultramarine.data.shape.RawVoxelShape;
 import com.voxelutopia.ultramarine.data.shape.ShapeFunction;
 import com.voxelutopia.ultramarine.world.block.state.ModBlockStateProperties;
@@ -72,11 +71,6 @@ public class OrientableWallSideBlock extends WallSideBlock implements SideBlock{
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> pBuilder) {
         super.createBlockStateDefinition(pBuilder);
         pBuilder.add(TYPE);
-    }
-
-    @Override
-    public BlockState rotate(BlockState pState, Rotation pRot) {
-        return pState.setValue(FACING, pRot.rotate(pState.getValue(FACING)));
     }
 
     @Override

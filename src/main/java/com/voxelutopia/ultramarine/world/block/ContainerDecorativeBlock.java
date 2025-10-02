@@ -17,6 +17,8 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.material.PushReaction;
 import net.minecraft.world.phys.BlockHitResult;
 
+import javax.annotation.Nullable;
+
 public class ContainerDecorativeBlock extends DecorativeBlock implements EntityBlock {
 
     protected final ContainerType containerType;
@@ -33,7 +35,7 @@ public class ContainerDecorativeBlock extends DecorativeBlock implements EntityB
     }
 
     @Override
-    public void setPlacedBy(Level worldIn, BlockPos posIn, BlockState stateIn, LivingEntity entityIn, ItemStack stackIn) {
+    public void setPlacedBy(Level worldIn, BlockPos posIn, BlockState stateIn, @Nullable LivingEntity entityIn, ItemStack stackIn) {
         BlockEntity blockEntity = worldIn.getBlockEntity(posIn);
         if (blockEntity instanceof ContainerDecorativeBlockEntity containerBlockEntity) {
             containerBlockEntity.applyComponentsFromItemStack(stackIn);

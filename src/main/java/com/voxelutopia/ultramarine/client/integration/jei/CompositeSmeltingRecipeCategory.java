@@ -17,6 +17,7 @@ import mezz.jei.library.util.RecipeUtil;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
+import org.jetbrains.annotations.NotNull;
 
 import static mezz.jei.api.recipe.RecipeIngredientRole.INPUT;
 import static mezz.jei.api.recipe.RecipeIngredientRole.OUTPUT;
@@ -55,7 +56,7 @@ public class CompositeSmeltingRecipeCategory implements IRecipeCategory<Composit
 
 
     @Override
-    public void createRecipeExtras(IRecipeExtrasBuilder builder, CompositeSmeltingRecipe recipe, IFocusGroup focuses) {
+    public void createRecipeExtras(@NotNull IRecipeExtrasBuilder builder, CompositeSmeltingRecipe recipe, @NotNull IFocusGroup focuses) {
         int cookTime = recipe.getCookingTime();
         if (cookTime <= 0) {
             cookTime = this.regularCookTime;
@@ -91,12 +92,12 @@ public class CompositeSmeltingRecipeCategory implements IRecipeCategory<Composit
     }
 
     @Override
-    public Component getTitle() {
+    public @NotNull Component getTitle() {
         return localizedName;
     }
 
     @Override
-    public void setRecipe(IRecipeLayoutBuilder builder, CompositeSmeltingRecipe recipe, IFocusGroup focuses) {
+    public void setRecipe(IRecipeLayoutBuilder builder, CompositeSmeltingRecipe recipe, @NotNull IFocusGroup focuses) {
         builder.addSlot(INPUT, 1, 1)
                 .addIngredients(recipe.getPrimaryIngredient());
 
@@ -108,7 +109,7 @@ public class CompositeSmeltingRecipeCategory implements IRecipeCategory<Composit
     }
 
     @Override
-    public RecipeType<CompositeSmeltingRecipe> getRecipeType() {
+    public @NotNull RecipeType<CompositeSmeltingRecipe> getRecipeType() {
         return COMPOSITE_SMELTING_RECIPE_TYPE;
     }
 }

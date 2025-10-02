@@ -2,6 +2,7 @@ package com.voxelutopia.ultramarine.world.item;
 
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import org.jetbrains.annotations.NotNull;
 
 public class ChiselTemplate extends Item {
 
@@ -10,12 +11,12 @@ public class ChiselTemplate extends Item {
     }
 
     @Override
-    public boolean hasCraftingRemainingItem(ItemStack stack) {
+    public boolean hasCraftingRemainingItem(@NotNull ItemStack stack) {
         return true;
     }
 
     @Override
-    public ItemStack getCraftingRemainingItem(ItemStack itemStack) {
+    public @NotNull ItemStack getCraftingRemainingItem(@NotNull ItemStack itemStack) {
         return itemStack;
     }
 }

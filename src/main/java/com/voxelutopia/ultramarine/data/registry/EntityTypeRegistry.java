@@ -20,7 +20,7 @@ public class EntityTypeRegistry {
                     .<SeatEntity>of(SeatEntity::new, MobCategory.MISC).sized(0.1f, 0.1f).build("seat"));
     public static final DeferredHolder<EntityType<?>, EntityType<TravellingMerchant>> TRAVELLING_MERCHANT =
             register("travelling_merchant", () -> EntityType.Builder
-                    .<TravellingMerchant>of(TravellingMerchant::new, MobCategory.CREATURE).sized(0.6f, 2.0f).build("travelling_merchant"));
+                    .of(TravellingMerchant::new, MobCategory.CREATURE).sized(0.6f, 2.0f).build("travelling_merchant"));
 
     private static <T extends Entity> DeferredHolder<EntityType<?>, EntityType<T>> register(String name, Supplier<EntityType<T>> type) {
         return ENTITIES.register(name, type);

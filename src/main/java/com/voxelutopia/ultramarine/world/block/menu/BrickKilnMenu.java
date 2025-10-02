@@ -69,7 +69,7 @@ public class BrickKilnMenu extends AbstractContainerMenu {
     }
 
     @Override
-    public ItemStack quickMoveStack(Player pPlayer, int pIndex) {
+    public @NotNull ItemStack quickMoveStack(@NotNull Player pPlayer, int pIndex) {
         ItemStack itemstack = ItemStack.EMPTY;
         Slot slot = this.slots.get(pIndex);
         if (slot.hasItem()) {
@@ -117,12 +117,14 @@ public class BrickKilnMenu extends AbstractContainerMenu {
     }
 
     protected boolean canProcess(ItemStack item) {
+        assert blockEntity.getLevel() != null;
         return blockEntity.getLevel().getRecipeManager().getAllRecipesFor(RecipeTypeRegistry.COMPOSITE_SMELTING.get()).stream()
                 .anyMatch(recipe -> recipe.value().partialMatch(new SingleRecipeInput(item)));
     }
 
     @Override
-    public boolean stillValid(Player pPlayer) {
+    public boolean stillValid(@NotNull Player pPlayer) {
+        assert blockEntity.getLevel() != null;
         return stillValid(ContainerLevelAccess.create(blockEntity.getLevel(), blockEntity.getBlockPos()), playerEntity, BlockRegistry.BRICK_KILN.get());
     }
 

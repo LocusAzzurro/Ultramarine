@@ -14,6 +14,7 @@ import net.neoforged.neoforge.registries.DeferredRegister;
 import java.util.Set;
 import java.util.stream.Collectors;
 
+@SuppressWarnings("DataFlowIssue")
 public class BlockEntityRegistry {
 
     static Set<DeferredHolder<Block, Block>> CONTAINER_BLOCKS = Set.of(

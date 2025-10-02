@@ -61,9 +61,4 @@ public class RafterEnd extends ShiftableBlock{
         return getShape(pState, pLevel, pPos, pContext);
     }
 
-    @Override
-    public RenderShape getRenderShape(BlockState pState) {
-        return RenderShape.MODEL;
-    }
-
 }

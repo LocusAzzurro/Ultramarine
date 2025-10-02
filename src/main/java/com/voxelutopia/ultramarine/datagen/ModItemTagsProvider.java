@@ -27,7 +27,7 @@ public class ModItemTagsProvider extends ItemTagsProvider {
     }
 
     @Override
-    protected void addTags(HolderLookup.Provider provider) {
+    protected void addTags(HolderLookup.@NotNull Provider provider) {
         tag(ItemTags.PLANKS)
                 .add(ItemRegistry.ROSEWOOD_PLANKS.get());
         tag(ModItemTags.POLISHED_PLANKS)

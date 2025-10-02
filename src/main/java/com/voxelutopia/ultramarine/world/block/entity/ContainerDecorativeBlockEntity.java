@@ -17,6 +17,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.RandomizableContainerBlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
+import org.jetbrains.annotations.NotNull;
 
 public class ContainerDecorativeBlockEntity extends RandomizableContainerBlockEntity {
 
@@ -36,22 +37,22 @@ public class ContainerDecorativeBlockEntity extends RandomizableContainerBlockEn
     }
 
     @Override
-    protected NonNullList<ItemStack> getItems() {
+    protected @NotNull NonNullList<ItemStack> getItems() {
         return this.items;
     }
 
     @Override
-    protected void setItems(NonNullList<ItemStack> pItemStacks) {
+    protected void setItems(@NotNull NonNullList<ItemStack> pItemStacks) {
         this.items = pItemStacks;
     }
 
     @Override
-    protected Component getDefaultName() {
+    protected @NotNull Component getDefaultName() {
         return Component.translatable("container." + BuiltInRegistries.BLOCK.getKey(block).getPath());
     }
 
     @Override
-    protected AbstractContainerMenu createMenu(int pContainerId, Inventory pInventory) {
+    protected @NotNull AbstractContainerMenu createMenu(int pContainerId, @NotNull Inventory pInventory) {
         if (block instanceof ContainerDecorativeBlock container) {
             return container.getContainerType().createMenu(pContainerId, pInventory, this);
         }
@@ -64,7 +65,7 @@ public class ContainerDecorativeBlockEntity extends RandomizableContainerBlockEn
     }
 
     @Override
-    protected void saveAdditional(CompoundTag nbt, HolderLookup.Provider provider) {
+    protected void saveAdditional(@NotNull CompoundTag nbt, HolderLookup.@NotNull Provider provider) {
         super.saveAdditional(nbt, provider);
         nbt.putString("Block", BuiltInRegistries.BLOCK.getKey(block).toString());
         nbt.putByte("Rows", (byte) rows);
@@ -74,7 +75,7 @@ public class ContainerDecorativeBlockEntity extends RandomizableContainerBlockEn
     }
 
     @Override
-    public void loadAdditional(CompoundTag nbt, HolderLookup.Provider provider) {
+    public void loadAdditional(@NotNull CompoundTag nbt, HolderLookup.@NotNull Provider provider) {
         super.loadAdditional(nbt, provider);
         this.block = BuiltInRegistries.BLOCK.get(ResourceLocation.tryParse(nbt.getString("Block")));
         this.rows = nbt.getByte("Rows");

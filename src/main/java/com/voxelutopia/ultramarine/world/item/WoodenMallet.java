@@ -4,7 +4,6 @@ import com.voxelutopia.ultramarine.data.registry.SoundRegistry;
 import com.voxelutopia.ultramarine.world.block.RailingBlock;
 import com.voxelutopia.ultramarine.world.block.state.ModBlockStateProperties;
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.Direction;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.stats.Stats;
 import net.minecraft.world.InteractionResult;

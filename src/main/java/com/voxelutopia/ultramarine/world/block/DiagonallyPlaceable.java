@@ -27,7 +27,6 @@ public interface DiagonallyPlaceable {
     default Pair<Direction, Direction> getMainAndShiftedDirections(BlockPlaceContext pContext){
         int rotation = getOctaRotationState(pContext);
         return switch (rotation) {
-            default -> Pair.of(Direction.NORTH, Direction.NORTH);
             case 1 -> Pair.of(Direction.NORTH, Direction.EAST);
             case 2 -> Pair.of(Direction.EAST, Direction.EAST);
             case 3 -> Pair.of(Direction.EAST, Direction.SOUTH);
@@ -35,6 +34,7 @@ public interface DiagonallyPlaceable {
             case 5 -> Pair.of(Direction.SOUTH, Direction.WEST);
             case 6 -> Pair.of(Direction.WEST, Direction.WEST);
             case 7 -> Pair.of(Direction.WEST, Direction.NORTH);
+            default -> Pair.of(Direction.NORTH, Direction.NORTH);
         };
     }
 

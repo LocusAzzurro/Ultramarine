@@ -13,6 +13,7 @@ import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.Vec3;
+import org.jetbrains.annotations.NotNull;
 
 public class SeatEntity extends Entity {
 
@@ -44,7 +45,7 @@ public class SeatEntity extends Entity {
     }
 
     @Override
-    protected boolean canRide(Entity entity) {
+    protected boolean canRide(@NotNull Entity entity) {
         return true;
     }
 
@@ -63,8 +64,4 @@ public class SeatEntity extends Entity {
         pCompound.putInt("Life", life);
     }
 
-    @Override
-    public Packet<ClientGamePacketListener> getAddEntityPacket(ServerEntity entity) {
-        return new ClientboundAddEntityPacket(this, entity);
-    }
 }

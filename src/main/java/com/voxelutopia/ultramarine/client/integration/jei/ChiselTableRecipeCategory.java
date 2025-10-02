@@ -17,6 +17,7 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Ingredient;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
 
@@ -43,7 +44,7 @@ public class ChiselTableRecipeCategory implements IRecipeCategory<ChiselTableRec
     }
 
     @Override
-    public void setRecipe(IRecipeLayoutBuilder builder, ChiselTableRecipe recipe, IFocusGroup focuses) {
+    public void setRecipe(IRecipeLayoutBuilder builder, ChiselTableRecipe recipe, @NotNull IFocusGroup focuses) {
         builder.addSlot(INPUT, 1, 1)
                 .addIngredients(recipe.getMaterial());
 
@@ -61,17 +62,17 @@ public class ChiselTableRecipeCategory implements IRecipeCategory<ChiselTableRec
     }
 
     @Override
-    public void draw(ChiselTableRecipe recipe, IRecipeSlotsView recipeSlotsView, GuiGraphics guiGraphics, double mouseX, double mouseY) {
+    public void draw(@NotNull ChiselTableRecipe recipe, @NotNull IRecipeSlotsView recipeSlotsView, @NotNull GuiGraphics guiGraphics, double mouseX, double mouseY) {
         IRecipeCategory.super.draw(recipe, recipeSlotsView, guiGraphics, mouseX, mouseY);
     }
 
     @Override
-    public RecipeType<ChiselTableRecipe> getRecipeType() {
+    public @NotNull RecipeType<ChiselTableRecipe> getRecipeType() {
         return CHISEL_TABLE_RECIPE_TYPE;
     }
 
     @Override
-    public Component getTitle() {
+    public @NotNull Component getTitle() {
         return localizedName;
     }
 

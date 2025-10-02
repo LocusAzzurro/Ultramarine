@@ -12,6 +12,7 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.AABB;
+import org.jetbrains.annotations.NotNull;
 
 import static com.voxelutopia.ultramarine.world.block.DecorativeBlock.LIT;
 
@@ -56,13 +57,13 @@ public class CenserBlockEntity extends BlockEntity {
     }
 
     @Override
-    public void loadAdditional(CompoundTag pTag, HolderLookup.Provider provider) {
+    public void loadAdditional(@NotNull CompoundTag pTag, HolderLookup.@NotNull Provider provider) {
         super.loadAdditional(pTag, provider);
         this.remainingTime = pTag.getInt("BurnTime");
     }
 
     @Override
-    protected void saveAdditional(CompoundTag pTag, HolderLookup.Provider provider) {
+    protected void saveAdditional(@NotNull CompoundTag pTag, HolderLookup.@NotNull Provider provider) {
         super.saveAdditional(pTag, provider);
         pTag.putInt("BurnTime", this.remainingTime);
     }

@@ -51,7 +51,8 @@ public enum BottleGourdComponent implements IBlockComponentProvider, IServerData
             int charges = gourd.getCharges();
             Potion potion = gourd.getPotion();
             compoundTag.putInt("Charges", charges);
-            compoundTag.putString("Potion", BuiltInRegistries.POTION.getKey(potion).toString());
+            ResourceLocation potionId = BuiltInRegistries.POTION.getKey(potion);
+            if (potionId != null) compoundTag.putString("Potion", potionId.toString());
         }
     }
 

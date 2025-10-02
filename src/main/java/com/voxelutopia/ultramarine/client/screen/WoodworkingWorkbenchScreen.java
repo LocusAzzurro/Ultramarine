@@ -14,6 +14,7 @@ import net.minecraft.sounds.SoundEvents;
 import net.minecraft.util.Mth;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.item.crafting.RecipeHolder;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
 
@@ -43,7 +44,7 @@ public class WoodworkingWorkbenchScreen extends AbstractContainerScreen<Woodwork
     }
 
     @Override
-    public void render(GuiGraphics guiGraphics, int pMouseX, int pMouseY, float pPartialTick) {
+    public void render(@NotNull GuiGraphics guiGraphics, int pMouseX, int pMouseY, float pPartialTick) {
         super.render(guiGraphics, pMouseX, pMouseY, pPartialTick);
         this.renderTooltip(guiGraphics, pMouseX, pMouseY);
     }
@@ -66,7 +67,7 @@ public class WoodworkingWorkbenchScreen extends AbstractContainerScreen<Woodwork
     }
 
     @Override
-    protected void renderTooltip(GuiGraphics guiGraphics, int pX, int pY) {
+    protected void renderTooltip(@NotNull GuiGraphics guiGraphics, int pX, int pY) {
         super.renderTooltip(guiGraphics, pX, pY);
         if (this.displayRecipes) {
             int i = this.leftPos + 52;

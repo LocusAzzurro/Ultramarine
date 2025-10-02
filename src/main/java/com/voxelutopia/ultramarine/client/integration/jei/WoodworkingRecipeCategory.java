@@ -15,6 +15,7 @@ import mezz.jei.library.util.RecipeUtil;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
+import org.jetbrains.annotations.NotNull;
 
 public class WoodworkingRecipeCategory extends AbstractRecipeCategory<WoodworkingRecipe> implements IRecipeCategory<WoodworkingRecipe>{
 
@@ -32,18 +33,18 @@ public class WoodworkingRecipeCategory extends AbstractRecipeCategory<Woodworkin
     }
 
     @Override
-    public void setRecipe(IRecipeLayoutBuilder builder, WoodworkingRecipe recipe, IFocusGroup focuses) {
+    public void setRecipe(IRecipeLayoutBuilder builder, WoodworkingRecipe recipe, @NotNull IFocusGroup focuses) {
         builder.addInputSlot(1, 9).setStandardSlotBackground().addIngredients(recipe.getIngredients().get(0));
         builder.addOutputSlot(61, 9).setOutputSlotBackground().addItemStack(RecipeUtil.getResultItem(recipe));
     }
 
     @Override
-    public void createRecipeExtras(IRecipeExtrasBuilder builder, WoodworkingRecipe recipe, IFocusGroup focuses) {
+    public void createRecipeExtras(IRecipeExtrasBuilder builder, @NotNull WoodworkingRecipe recipe, @NotNull IFocusGroup focuses) {
         builder.addRecipeArrow().setPosition(26, 9);
     }
 
     @Override
-    public void draw(WoodworkingRecipe recipe, IRecipeSlotsView recipeSlotsView, GuiGraphics stack, double mouseX, double mouseY) {
+    public void draw(@NotNull WoodworkingRecipe recipe, @NotNull IRecipeSlotsView recipeSlotsView, @NotNull GuiGraphics stack, double mouseX, double mouseY) {
         super.draw(recipe, recipeSlotsView, stack, mouseX, mouseY);
     }
 }

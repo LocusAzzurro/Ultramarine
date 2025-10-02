@@ -114,7 +114,7 @@ public class ChiselTableMenu extends AbstractContainerMenu {
     }
 
     @Override
-    public ItemStack quickMoveStack(Player pPlayer, int pIndex) {
+    public @NotNull ItemStack quickMoveStack(@NotNull Player pPlayer, int pIndex) {
         ItemStack itemstack = ItemStack.EMPTY;
         Slot slot = this.slots.get(pIndex);
 
@@ -166,11 +166,11 @@ public class ChiselTableMenu extends AbstractContainerMenu {
         return itemstack;
     }
 
-    public boolean canTakeItemForPickAll(ItemStack pStack, Slot pSlot) {
+    public boolean canTakeItemForPickAll(@NotNull ItemStack pStack, @NotNull Slot pSlot) {
         return ((SlotItemHandler) pSlot).getItemHandler() != this.result && super.canTakeItemForPickAll(pStack, pSlot);
     }
 
-    public void removed(Player pPlayer) {
+    public void removed(@NotNull Player pPlayer) {
         super.removed(pPlayer);
         this.access.execute((level, blockPos) -> this.clearContainer(pPlayer, this.wrapIngredients()));
     }
@@ -184,7 +184,7 @@ public class ChiselTableMenu extends AbstractContainerMenu {
     }
 
     @Override
-    public boolean stillValid(Player pPlayer) {
+    public boolean stillValid(@NotNull Player pPlayer) {
         return stillValid(this.access, pPlayer, BlockRegistry.CHISEL_TABLE.get());
     }
 
@@ -200,7 +200,7 @@ public class ChiselTableMenu extends AbstractContainerMenu {
         }
 
         @Override
-        public void onTake(Player pPlayer, ItemStack pStack) {
+        public void onTake(@NotNull Player pPlayer, @NotNull ItemStack pStack) {
             super.onTake(pPlayer, pStack);
             ChiselTableMenu.this.onTake(pPlayer, pStack, this);
         }
