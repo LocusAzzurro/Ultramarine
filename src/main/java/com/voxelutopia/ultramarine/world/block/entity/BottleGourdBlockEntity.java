@@ -10,6 +10,7 @@ import net.minecraft.world.item.alchemy.Potion;
 import net.minecraft.world.item.alchemy.Potions;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.Optional;
 
@@ -64,7 +65,7 @@ public class BottleGourdBlockEntity extends BlockEntity {
     }
 
     @Override
-    public void loadAdditional(CompoundTag pTag, HolderLookup.Provider provider) {
+    public void loadAdditional(@NotNull CompoundTag pTag, HolderLookup.@NotNull Provider provider) {
         super.loadAdditional(pTag, provider);
         this.potion = BuiltInRegistries.POTION.get(ResourceLocation.tryParse(pTag.getString("Potion")));
         this.charges = pTag.getInt("Charges");
@@ -72,11 +73,11 @@ public class BottleGourdBlockEntity extends BlockEntity {
     }
 
     @Override
-    protected void saveAdditional(CompoundTag pTag, HolderLookup.Provider provider) {
+    protected void saveAdditional(@NotNull CompoundTag pTag, HolderLookup.@NotNull Provider provider) {
         super.saveAdditional(pTag, provider);
-        pTag.putString("Potion", BuiltInRegistries.POTION.getKey(this.potion).toString());
+        ResourceLocation potionId = BuiltInRegistries.POTION.getKey(this.potion);
+        if (potionId != null) pTag.putString("Potion", potionId.toString());
         pTag.putInt("Charges", this.charges);
         pTag.putBoolean("Filled", this.filled);
     }
-
 }

@@ -38,6 +38,7 @@ import net.minecraft.world.level.storage.loot.providers.number.BinomialDistribut
 import net.minecraft.world.level.storage.loot.providers.number.ConstantValue;
 import net.minecraft.world.level.storage.loot.providers.number.UniformGenerator;
 import net.neoforged.neoforge.registries.DeferredHolder;
+import org.jetbrains.annotations.NotNull;
 import org.slf4j.Logger;
 
 import java.util.*;
@@ -161,31 +162,31 @@ public class ModBlockLootProvider extends BlockLootSubProvider {
     void porcelainPlate(DeferredHolder<Block, ? extends Block> block, DeferredHolder<Item, ? extends Item> piece) {
         if (block.get() instanceof ConsumableDecorativeBlock consumable)
             this.addLootTable(block.get(), createPorcelainDrop(block.getId().getPath(), consumable.getPlate().getItem(), piece.get()));
-        else LOGGER.warn("Porcelain plate loot table was not added for block " + block.get().getDescriptionId());
+        else LOGGER.warn("Porcelain plate loot table was not added for block {}", block.get().getDescriptionId());
     }
 
     void porcelainPlateWithShards(DeferredHolder<Block, ? extends Block> block, DeferredHolder<Item, ? extends Item> piece, DeferredHolder<Item, ? extends Item> shards) {
         if (block.get() instanceof ConsumableDecorativeBlock consumable)
             this.addLootTable(block.get(), createPorcelainDropWithShard(block.getId().getPath(), consumable.getPlate().getItem(), piece.get(), shards.get()));
-        else LOGGER.warn("Porcelain plate loot table was not added for block " + block.get().getDescriptionId());
+        else LOGGER.warn("Porcelain plate loot table was not added for block {}", block.get().getDescriptionId());
     }
 
     void slab(Block block, Item item) {
         if (block instanceof SlabBlock slab)
             this.addLootTable(block, this.createSlabDrop(name(block), slab, item));
-        else LOGGER.warn("Slab loot table was not added for block " + block.getDescriptionId());
+        else LOGGER.warn("Slab loot table was not added for block {}", block.getDescriptionId());
     }
 
     void stackableHalf(Block block, Item item) {
         if (block instanceof StackableHalfBlock stackable)
             this.addLootTable(block, this.createStackableHalfDrop(name(block), stackable, item));
-        else LOGGER.warn("Stackable loot table was not added for block " + block.getDescriptionId());
+        else LOGGER.warn("Stackable loot table was not added for block {}", block.getDescriptionId());
     }
 
     void plateDrop(DeferredHolder<Block, ? extends Block> block) {
         if (block.get() instanceof ConsumableDecorativeBlock consumable)
             this.addLootTable(block.get(), this.createSimpleTable(block.getId().getPath(), consumable.getPlate().getItem()));
-        else LOGGER.warn("Plate drop loot table was not added for block " + block.get().getDescriptionId());
+        else LOGGER.warn("Plate drop loot table was not added for block {}", block.get().getDescriptionId());
     }
 
     protected LootTable.Builder createSimpleTable(String name, ItemLike block) {
@@ -300,7 +301,7 @@ public class ModBlockLootProvider extends BlockLootSubProvider {
      */
     void addLootTable(Block block, LootTable.Builder builder) {
         if (this.lootTables.containsKey(block)) {
-            LOGGER.warn("Added duplicate loot table for block " + block.getDescriptionId());
+            LOGGER.warn("Added duplicate loot table for block {}", block.getDescriptionId());
         }
         this.lootTables.put(block, builder);
         this.add(block, builder);
@@ -311,7 +312,7 @@ public class ModBlockLootProvider extends BlockLootSubProvider {
     }
 
     @Override
-    protected Iterable<Block> getKnownBlocks() {
+    protected @NotNull Iterable<Block> getKnownBlocks() {
         return BlockRegistry.BLOCKS.getEntries().stream().map(x -> (Block) x.get())::iterator;
     }
 }

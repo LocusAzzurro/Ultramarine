@@ -1,6 +1,7 @@
 package com.voxelutopia.ultramarine.world.block.state;
 
 import net.minecraft.util.StringRepresentable;
+import org.jetbrains.annotations.NotNull;
 
 public enum ChiralBlockType implements StringRepresentable {
     LEFT("left", 1),
@@ -17,7 +18,7 @@ public enum ChiralBlockType implements StringRepresentable {
         this.opposite = opposite;
     }
 
-    public String getSerializedName() {
+    public @NotNull String getSerializedName() {
         return this.name;
     }
 

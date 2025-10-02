@@ -43,7 +43,7 @@ public class ReplaceToSingleItemLootModifier extends LootModifier {
 
     @Override
     @SuppressWarnings("deprecation")
-    protected @NotNull ObjectArrayList<ItemStack> doApply(ObjectArrayList<ItemStack> generatedLoot, LootContext context) {
+    protected @NotNull ObjectArrayList<ItemStack> doApply(@NotNull ObjectArrayList<ItemStack> generatedLoot, @NotNull LootContext context) {
         for (LootItemCondition condition : this.conditions) {
             if (!condition.test(context)) return generatedLoot;
         }
@@ -62,7 +62,7 @@ public class ReplaceToSingleItemLootModifier extends LootModifier {
     }
 
     @Override
-    public MapCodec<? extends IGlobalLootModifier> codec() {
+    public @NotNull MapCodec<? extends IGlobalLootModifier> codec() {
         return CODEC.get();
     }
 }

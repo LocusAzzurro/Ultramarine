@@ -6,6 +6,7 @@ import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.entity.EntityRenderer;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.resources.ResourceLocation;
+import org.jetbrains.annotations.NotNull;
 
 public class SeatEntityRenderer<T extends SeatEntity> extends EntityRenderer<T> {
 
@@ -14,11 +15,11 @@ public class SeatEntityRenderer<T extends SeatEntity> extends EntityRenderer<T> 
     }
 
     @Override
-    public ResourceLocation getTextureLocation(T pEntity) {
+    public @NotNull ResourceLocation getTextureLocation(@NotNull T pEntity) {
         return null;
     }
 
     @Override
-    public void render(T pEntity, float pEntityYaw, float pPartialTicks, PoseStack pMatrixStack, MultiBufferSource pBuffer, int pPackedLight) {
+    public void render(@NotNull T pEntity, float pEntityYaw, float pPartialTicks, @NotNull PoseStack pMatrixStack, @NotNull MultiBufferSource pBuffer, int pPackedLight) {
     }
 }

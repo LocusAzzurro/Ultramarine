@@ -14,6 +14,7 @@ import mezz.jei.api.recipe.category.IRecipeCategory;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
+import org.jetbrains.annotations.NotNull;
 
 public class TravellingMerchantCategory extends AbstractRecipeCategory<TravellingMerchantWrapper>  implements IRecipeCategory<TravellingMerchantWrapper> {
 
@@ -30,18 +31,18 @@ public class TravellingMerchantCategory extends AbstractRecipeCategory<Travellin
     }
 
     @Override
-    public void setRecipe(IRecipeLayoutBuilder builder, TravellingMerchantWrapper recipe, IFocusGroup focuses) {
+    public void setRecipe(IRecipeLayoutBuilder builder, TravellingMerchantWrapper recipe, @NotNull IFocusGroup focuses) {
         builder.addSlot(RecipeIngredientRole.INPUT, 1, 9).addItemStack(recipe.getInput());
         builder.addSlot(RecipeIngredientRole.OUTPUT, 61, 9).addItemStack(recipe.getOutput());
     }
 
     @Override
-    public void createRecipeExtras(IRecipeExtrasBuilder builder, TravellingMerchantWrapper recipe, IFocusGroup focuses) {
+    public void createRecipeExtras(IRecipeExtrasBuilder builder, @NotNull TravellingMerchantWrapper recipe, @NotNull IFocusGroup focuses) {
         builder.addRecipeArrow().setPosition(26, 9);
     }
 
     @Override
-    public void draw(TravellingMerchantWrapper recipe, IRecipeSlotsView recipeSlotsView, GuiGraphics stack, double mouseX, double mouseY) {
+    public void draw(@NotNull TravellingMerchantWrapper recipe, @NotNull IRecipeSlotsView recipeSlotsView, @NotNull GuiGraphics stack, double mouseX, double mouseY) {
         super.draw(recipe, recipeSlotsView, stack, mouseX, mouseY);
     }
 }

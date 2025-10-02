@@ -14,6 +14,7 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraft.world.level.ItemLike;
+import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 public class CompositeSmeltingRecipeBuilder implements RecipeBuilder {
@@ -41,24 +42,24 @@ public class CompositeSmeltingRecipeBuilder implements RecipeBuilder {
     }
 
     @Override
-    public RecipeBuilder unlockedBy(String pCriterionName, Criterion<?> pCriterionTrigger) {
+    public @NotNull RecipeBuilder unlockedBy(@NotNull String pCriterionName, @NotNull Criterion<?> pCriterionTrigger) {
         this.advancementBuilder.addCriterion(pCriterionName, pCriterionTrigger);
         return this;
     }
 
     @Override
-    public RecipeBuilder group(@Nullable String pGroupName) {
+    public @NotNull RecipeBuilder group(@Nullable String pGroupName) {
         this.group = pGroupName;
         return this;
     }
 
     @Override
-    public Item getResult() {
+    public @NotNull Item getResult() {
         return this.result;
     }
 
     @Override
-    public void save(RecipeOutput pFinishedRecipeConsumer, ResourceLocation pRecipeId) {
+    public void save(RecipeOutput pFinishedRecipeConsumer, @NotNull ResourceLocation pRecipeId) {
         Advancement.Builder builder = pFinishedRecipeConsumer.advancement()
                 .addCriterion("has_the_recipe", RecipeUnlockedTrigger.unlocked(pRecipeId))
                 .rewards(AdvancementRewards.Builder.recipe(pRecipeId))

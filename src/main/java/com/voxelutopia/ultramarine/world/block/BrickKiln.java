@@ -131,11 +131,6 @@ public class BrickKiln extends DecorativeBlock implements EntityBlock, BaseBlock
     }
 
     @Override
-    public RenderShape getRenderShape(BlockState pState) {
-        return RenderShape.MODEL;
-    }
-
-    @Override
     public BaseBlockProperty getProperty() {
         return BaseBlockProperty.STONE;
     }

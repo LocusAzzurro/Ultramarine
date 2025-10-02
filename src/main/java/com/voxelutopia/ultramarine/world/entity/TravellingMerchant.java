@@ -2,7 +2,6 @@ package com.voxelutopia.ultramarine.world.entity;
 
 import com.google.common.collect.ImmutableList;
 import com.voxelutopia.ultramarine.data.registry.ItemRegistry;
-import com.voxelutopia.ultramarine.event.CommonEventHandler;
 import net.minecraft.network.protocol.Packet;
 import net.minecraft.network.protocol.game.ClientGamePacketListener;
 import net.minecraft.network.protocol.game.ClientboundAddEntityPacket;
@@ -18,6 +17,7 @@ import net.minecraft.world.item.trading.ItemCost;
 import net.minecraft.world.item.trading.MerchantOffer;
 import net.minecraft.world.item.trading.MerchantOffers;
 import net.minecraft.world.level.Level;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -37,7 +37,7 @@ public class TravellingMerchant extends WanderingTrader {
     }
 
     @Override
-    public MerchantOffers getOffers() {
+    public @NotNull MerchantOffers getOffers() {
         return offers;
     }
 
@@ -50,11 +50,6 @@ public class TravellingMerchant extends WanderingTrader {
 
     public static List<MerchantOffer> getTradeOptions() {
         return ImmutableList.copyOf(TRADE_OPTIONS);
-    }
-
-    @Override
-    public Packet<ClientGamePacketListener> getAddEntityPacket(ServerEntity entity) {
-        return new ClientboundAddEntityPacket(this, entity);
     }
 
     static {

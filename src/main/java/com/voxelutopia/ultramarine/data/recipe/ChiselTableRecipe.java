@@ -13,6 +13,7 @@ import net.minecraft.network.codec.StreamCodec;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.*;
 import net.minecraft.world.level.Level;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -36,7 +37,7 @@ public class ChiselTableRecipe implements Recipe<RecipeInput> {
     }
 
     @Override
-    public boolean matches(RecipeInput pContainer, Level pLevel) {
+    public boolean matches(RecipeInput pContainer, @NotNull Level pLevel) {
         ItemStack usedMaterial = pContainer.getItem(ChiselTableMenu.SLOT_MATERIAL);
         ItemStack usedTemplate = pContainer.getItem(ChiselTableMenu.SLOT_TEMPLATE);
         List<ItemStack> usedColors = Arrays.asList(ItemStack.EMPTY, ItemStack.EMPTY, ItemStack.EMPTY, ItemStack.EMPTY);
@@ -48,7 +49,7 @@ public class ChiselTableRecipe implements Recipe<RecipeInput> {
     }
 
     @Override
-    public ItemStack assemble(RecipeInput pContainer, HolderLookup.Provider registryAccess) {
+    public @NotNull ItemStack assemble(@NotNull RecipeInput pContainer, HolderLookup.@NotNull Provider registryAccess) {
         return this.result.copy();
     }
 
@@ -58,7 +59,7 @@ public class ChiselTableRecipe implements Recipe<RecipeInput> {
     }
 
     @Override
-    public ItemStack getResultItem(HolderLookup.Provider registryAccess) {
+    public @NotNull ItemStack getResultItem(HolderLookup.@NotNull Provider registryAccess) {
         return result.copy();
     }
 
@@ -79,12 +80,12 @@ public class ChiselTableRecipe implements Recipe<RecipeInput> {
     }
 
     @Override
-    public RecipeSerializer<?> getSerializer() {
+    public @NotNull RecipeSerializer<?> getSerializer() {
         return RecipeSerializerRegistry.CHISEL_TABLE_SERIALIZER.get();
     }
 
     @Override
-    public RecipeType<?> getType() {
+    public @NotNull RecipeType<?> getType() {
         return RecipeTypeRegistry.CHISEL_TABLE.get();
     }
 
@@ -121,12 +122,12 @@ public class ChiselTableRecipe implements Recipe<RecipeInput> {
                 );
 
         @Override
-        public MapCodec<ChiselTableRecipe> codec() {
+        public @NotNull MapCodec<ChiselTableRecipe> codec() {
             return CODEC;
         }
 
         @Override
-        public StreamCodec<RegistryFriendlyByteBuf, ChiselTableRecipe> streamCodec() {
+        public @NotNull StreamCodec<RegistryFriendlyByteBuf, ChiselTableRecipe> streamCodec() {
             return STREAM_CODEC;
         }
     }

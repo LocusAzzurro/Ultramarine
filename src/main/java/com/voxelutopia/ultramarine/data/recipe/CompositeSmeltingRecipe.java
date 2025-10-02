@@ -13,6 +13,7 @@ import net.minecraft.network.codec.StreamCodec;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.*;
 import net.minecraft.world.level.Level;
+import org.jetbrains.annotations.NotNull;
 
 public class CompositeSmeltingRecipe implements Recipe<RecipeInput> {
     protected final String group;
@@ -32,7 +33,7 @@ public class CompositeSmeltingRecipe implements Recipe<RecipeInput> {
     }
 
     @Override
-    public boolean matches(RecipeInput pContainer, Level pLevel) {
+    public boolean matches(RecipeInput pContainer, @NotNull Level pLevel) {
         return this.primaryIngredient.test(pContainer.getItem(BrickKilnBlockEntity.SLOT_INPUT_PRIMARY)) &&
                 this.secondaryIngredient.test(pContainer.getItem(BrickKilnBlockEntity.SLOT_INPUT_SECONDARY));
     }
@@ -42,7 +43,7 @@ public class CompositeSmeltingRecipe implements Recipe<RecipeInput> {
     }
 
     @Override
-    public ItemStack assemble(RecipeInput pContainer, HolderLookup.Provider provider) {
+    public @NotNull ItemStack assemble(@NotNull RecipeInput pContainer, HolderLookup.@NotNull Provider provider) {
         return this.result.copy();
     }
 
@@ -64,17 +65,17 @@ public class CompositeSmeltingRecipe implements Recipe<RecipeInput> {
     }
 
     @Override
-    public ItemStack getResultItem(HolderLookup.Provider provider) {
+    public @NotNull ItemStack getResultItem(HolderLookup.@NotNull Provider provider) {
         return result.copy();
     }
 
     @Override
-    public RecipeSerializer<?> getSerializer() {
+    public @NotNull RecipeSerializer<?> getSerializer() {
         return RecipeSerializerRegistry.COMPOSITE_SMELTING_SERIALIZER.get();
     }
 
     @Override
-    public RecipeType<?> getType() {
+    public @NotNull RecipeType<?> getType() {
         return RecipeTypeRegistry.COMPOSITE_SMELTING.get();
     }
 
@@ -108,12 +109,12 @@ public class CompositeSmeltingRecipe implements Recipe<RecipeInput> {
                 );
 
         @Override
-        public MapCodec<CompositeSmeltingRecipe> codec() {
+        public @NotNull MapCodec<CompositeSmeltingRecipe> codec() {
             return CODEC;
         }
 
         @Override
-        public StreamCodec<RegistryFriendlyByteBuf, CompositeSmeltingRecipe> streamCodec() {
+        public @NotNull StreamCodec<RegistryFriendlyByteBuf, CompositeSmeltingRecipe> streamCodec() {
             return STREAM_CODEC;
         }
     }

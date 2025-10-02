@@ -195,7 +195,8 @@ public class BrickKilnBlockEntity extends BlockEntity implements MenuProvider {
 
     private boolean canBurn(@Nullable CompositeSmeltingRecipe pRecipe, ItemStack fuel, ItemStack primary, ItemStack secondary, ItemStack resultPrev, int maxStackSize) {
         if (!primary.isEmpty() && !secondary.isEmpty() && pRecipe != null) {
-            ItemStack result = (pRecipe.assemble(new RecipeWrapper(new InvWrapper(new SimpleContainer(primary, secondary))), this.level.registryAccess()));
+            assert this.level != null;
+            ItemStack result = pRecipe.assemble(new RecipeWrapper(new InvWrapper(new SimpleContainer(primary, secondary))), this.level.registryAccess());
             if (result.isEmpty()) {
                 return false;
             } else {
@@ -216,6 +217,7 @@ public class BrickKilnBlockEntity extends BlockEntity implements MenuProvider {
 
     private boolean burn(CompositeSmeltingRecipe pRecipe, BrickKilnBlockEntity entity, ItemStack fuel, ItemStack primary, ItemStack secondary, ItemStack resultPrev, int maxStackSize) {
         if (this.canBurn(pRecipe, fuel, primary, secondary, resultPrev, maxStackSize)) {
+            assert this.level != null;
             ItemStack newResult = (pRecipe.assemble(new RecipeWrapper(new InvWrapper(new SimpleContainer(primary, secondary))), level.registryAccess()));
             if (resultPrev.isEmpty()) {
                 entity.resultHandler.setStackInSlot(0, newResult.copy());

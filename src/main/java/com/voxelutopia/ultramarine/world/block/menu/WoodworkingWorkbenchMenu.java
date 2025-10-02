@@ -17,6 +17,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.RecipeHolder;
 import net.minecraft.world.item.crafting.SingleRecipeInput;
 import net.minecraft.world.level.Level;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
 
@@ -57,11 +58,11 @@ public class WoodworkingWorkbenchMenu extends AbstractContainerMenu {
         this.level = inventory.player.level();
         this.inputSlot = this.addSlot(new Slot(this.container, INPUT_SLOT, 20, 33));
         this.resultSlot = this.addSlot(new Slot(this.resultContainer, RESULT_SLOT, 143, 33) {
-            public boolean mayPlace(ItemStack itemStack) {
+            public boolean mayPlace(@NotNull ItemStack itemStack) {
                 return false;
             }
 
-            public void onTake(Player player, ItemStack itemStack) {
+            public void onTake(@NotNull Player player, @NotNull ItemStack itemStack) {
                 itemStack.onCraftedBy(player.level(), player, itemStack.getCount());
                 WoodworkingWorkbenchMenu.this.resultContainer.awardUsedRecipes(player, List.of(itemStack));
                 ItemStack itemstack = WoodworkingWorkbenchMenu.this.inputSlot.remove(1);
@@ -72,7 +73,7 @@ public class WoodworkingWorkbenchMenu extends AbstractContainerMenu {
                 levelAccess.execute((level, pos) -> {
                     long l = level.getGameTime();
                     if (WoodworkingWorkbenchMenu.this.lastSoundTime != l) {
-                        level.playSound((Player) null, pos, SoundRegistry.WOODWORK.get(), SoundSource.BLOCKS, 1.0F, 1.0F);
+                        level.playSound(null, pos, SoundRegistry.WOODWORK.get(), SoundSource.BLOCKS, 1.0F, 1.0F);
                         WoodworkingWorkbenchMenu.this.lastSoundTime = l;
                     }
                 });
@@ -108,11 +109,11 @@ public class WoodworkingWorkbenchMenu extends AbstractContainerMenu {
         return this.inputSlot.hasItem() && !this.recipes.isEmpty();
     }
 
-    public boolean stillValid(Player pPlayer) {
+    public boolean stillValid(@NotNull Player pPlayer) {
         return stillValid(this.access, pPlayer, BlockRegistry.WOODWORKING_WORKBENCH.get());
     }
 
-    public boolean clickMenuButton(Player pPlayer, int pId) {
+    public boolean clickMenuButton(@NotNull Player pPlayer, int pId) {
         if (this.isValidRecipeIndex(pId)) {
             this.selectedRecipeIndex.set(pId);
             this.setupResultSlot();
@@ -125,7 +126,7 @@ public class WoodworkingWorkbenchMenu extends AbstractContainerMenu {
         return p_40335_ >= 0 && p_40335_ < this.recipes.size();
     }
 
-    public void slotsChanged(Container pInventory) {
+    public void slotsChanged(@NotNull Container pInventory) {
         ItemStack itemstack = this.inputSlot.getItem();
         if (!itemstack.is(this.input.getItem())) {
             this.input = itemstack.copy();
@@ -156,7 +157,7 @@ public class WoodworkingWorkbenchMenu extends AbstractContainerMenu {
         this.broadcastChanges();
     }
 
-    public MenuType<?> getType() {
+    public @NotNull MenuType<?> getType() {
         return MenuTypeRegistry.WOODWORKING_WORKBENCH.get();
     }
 
@@ -164,11 +165,11 @@ public class WoodworkingWorkbenchMenu extends AbstractContainerMenu {
         this.slotUpdateListener = pListener;
     }
 
-    public boolean canTakeItemForPickAll(ItemStack pStack, Slot pSlot) {
+    public boolean canTakeItemForPickAll(@NotNull ItemStack pStack, Slot pSlot) {
         return pSlot.container != this.resultContainer && super.canTakeItemForPickAll(pStack, pSlot);
     }
 
-    public ItemStack quickMoveStack(Player pPlayer, int pIndex) {
+    public @NotNull ItemStack quickMoveStack(@NotNull Player pPlayer, int pIndex) {
         ItemStack itemstack = ItemStack.EMPTY;
         Slot slot = this.slots.get(pIndex);
         if (slot.hasItem()) {
@@ -214,7 +215,7 @@ public class WoodworkingWorkbenchMenu extends AbstractContainerMenu {
         return itemstack;
     }
 
-    public void removed(Player pPlayer) {
+    public void removed(@NotNull Player pPlayer) {
         super.removed(pPlayer);
         this.resultContainer.removeItemNoUpdate(1);
         this.access.execute((p_40313_, p_40314_) -> {
