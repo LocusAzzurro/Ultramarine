@@ -232,6 +232,10 @@ public class ItemRegistry {
     public static final DeferredHolder<Item, Item> GILDED_DARK_OAK_STAIRS = fromBlock(BlockRegistry.GILDED_DARK_OAK_STAIRS, ModCreativeTab.DECORATIVE_BLOCKS);
     public static final DeferredHolder<Item, Item> GILDED_DARK_OAK_BRACKET = fromBlock(BlockRegistry.GILDED_DARK_OAK_BRACKET, ModCreativeTab.DECORATIVE_BLOCKS);
 
+    // CARVED CARPETS
+
+    public static final DeferredHolder<Item, Item> RED_CARVED_CARPET = fromBlock(BlockRegistry.RED_CARVED_CARPET, ModCreativeTab.DECORATIVE_BLOCKS);
+
     // PILLARS
 
     public static final DeferredHolder<Item, Item> CARVED_RED_PILLAR = fromBlock(BlockRegistry.CARVED_RED_PILLAR, ModCreativeTab.DECORATIVE_BLOCKS);
@@ -842,6 +846,7 @@ public class ItemRegistry {
     // TEMPLATES
 
     public static final DeferredHolder<Item, Item> CARVED_WOOD_TEMPLATE = chiselTemplateItem("carved_wood_template");
+    public static final DeferredHolder<Item, Item> CARVED_WOOL_TEMPLATE = chiselTemplateItem("carved_wool_template");
     public static final DeferredHolder<Item, Item> FANGXIN_TEMPLATE = chiselTemplateItem("fangxin_template");
     public static final DeferredHolder<Item, Item> FANGXIN_EDGE_TEMPLATE = chiselTemplateItem("fangxin_edge_template");
     public static final DeferredHolder<Item, Item> ZHAOTOU_TEMPLATE = chiselTemplateItem("zhaotou_template");

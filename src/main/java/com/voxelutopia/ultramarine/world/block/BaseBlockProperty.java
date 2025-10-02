@@ -115,6 +115,12 @@ public final class BaseBlockProperty {
             .ignitedByLava()
             .instrument(NoteBlockInstrument.GUITAR),
             BlockMaterial.FABRIC);
+    public static BaseBlockProperty WOOL = new BaseBlockProperty(BlockBehaviour.Properties.of()
+            .sound(SoundType.WOOL)
+            .strength(1F, 2F)
+            .ignitedByLava()
+            .instrument(NoteBlockInstrument.GUITAR),
+            BlockMaterial.WOOL);
     public static BaseBlockProperty PAPER = new BaseBlockProperty(BlockBehaviour.Properties.of()
             .sound(SoundType.WOOL)
             .strength(1F, 2F)
@@ -155,6 +161,7 @@ public final class BaseBlockProperty {
         PORCELAIN(BlockTags.MINEABLE_WITH_PICKAXE),
         BAMBOO(BlockTags.MINEABLE_WITH_AXE),
         FABRIC(ModBlockTags.MINEABLE_WITH_SHEARS),
+        WOOL(ModBlockTags.MINEABLE_WITH_SHEARS),
         PAPER(ModBlockTags.MINEABLE_WITH_SHEARS),
         PLANT(BlockTags.MINEABLE_WITH_HOE),
         FLAX(BlockTags.MINEABLE_WITH_HOE);

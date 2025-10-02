@@ -294,6 +294,11 @@ public class ModRecipeProvider extends RecipeProvider {
         woodworking(RecipeCategory.BUILDING_BLOCKS, Ingredient.of(ItemRegistry.GILDED_DARK_OAK.get()), ItemRegistry.GILDED_DARK_OAK_BRACKET.get())
                 .unlockedBy(itemUnlockName(ItemRegistry.GILDED_DARK_OAK.get()), itemCriterion(ItemRegistry.GILDED_DARK_OAK.get())).save(recipeConsumer);
 
+        // CARVED WOOL
+
+        carvedWool(ItemRegistry.RED_CARVED_CARPET.get(), Items.RED_WOOL, new Ingredient[]{
+                Ingredient.of(ModItemTags.COMMON_YELLOW_DYE), Ingredient.of(ItemRegistry.GOLD_DYE_POWDER.get())}, recipeConsumer);
+
         // PILLARS
 
         carvedWood(ItemRegistry.CARVED_RED_PILLAR.get(), new Ingredient[]{
@@ -2078,6 +2083,7 @@ public class ModRecipeProvider extends RecipeProvider {
         // TEMPLATES
 
         simpleStonecutting(Items.POLISHED_BLACKSTONE, ItemRegistry.CARVED_WOOD_TEMPLATE.get(), RecipeCategory.MISC, recipeConsumer);
+        simpleStonecutting(Items.POLISHED_BLACKSTONE, ItemRegistry.CARVED_WOOL_TEMPLATE.get(), RecipeCategory.MISC, recipeConsumer);
         simpleStonecutting(Items.POLISHED_BLACKSTONE, ItemRegistry.FANGXIN_TEMPLATE.get(), RecipeCategory.MISC, recipeConsumer);
         simpleStonecutting(Items.POLISHED_BLACKSTONE, ItemRegistry.FANGXIN_EDGE_TEMPLATE.get(), RecipeCategory.MISC, recipeConsumer);
         simpleStonecutting(Items.POLISHED_BLACKSTONE, ItemRegistry.ZHAOTOU_TEMPLATE.get(), RecipeCategory.MISC, recipeConsumer);
@@ -2462,6 +2468,11 @@ public class ModRecipeProvider extends RecipeProvider {
     private static void carvedWood(Item result, Ingredient[] dye, RecipeOutput pFinishedRecipeConsumer) {
         ChiselTableRecipeBuilder.chiselTableRecipe(Ingredient.of(ItemTags.LOGS), Ingredient.of(ItemRegistry.CARVED_WOOD_TEMPLATE.get()), dye, result)
                 .unlockedBy(itemUnlockName(ItemRegistry.CARVED_WOOD_TEMPLATE.get()), itemCriterion(ItemRegistry.CARVED_WOOD_TEMPLATE.get())).save(pFinishedRecipeConsumer);
+    }
+
+    private static void carvedWool(Item result, Item baseWool, Ingredient[] dye, RecipeOutput pFinishedRecipeConsumer) {
+        ChiselTableRecipeBuilder.chiselTableRecipe(Ingredient.of(baseWool), Ingredient.of(ItemRegistry.CARVED_WOOL_TEMPLATE.get()), dye, result)
+                .unlockedBy(itemUnlockName(ItemRegistry.CARVED_WOOL_TEMPLATE.get()), itemCriterion(ItemRegistry.CARVED_WOOL_TEMPLATE.get())).save(pFinishedRecipeConsumer);
     }
 
     private static void fangxinWood(Item result, Ingredient[] dye, RecipeOutput pFinishedRecipeConsumer) {

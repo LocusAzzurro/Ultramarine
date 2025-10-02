@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "down": "minecraft:block/red_wool",
+    "east": "minecraft:block/red_wool",
+    "north": "minecraft:block/red_wool",
+    "particle": "minecraft:block/red_wool",
+    "south": "minecraft:block/red_wool",
+    "up": "ultramarine:block/red_carved_carpet_west",
+    "west": "minecraft:block/red_wool"
+  }
+}
