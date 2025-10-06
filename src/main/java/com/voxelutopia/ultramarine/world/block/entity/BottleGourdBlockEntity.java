@@ -12,48 +12,42 @@ import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import org.jetbrains.annotations.NotNull;
 
-import java.util.Optional;
-
 public class BottleGourdBlockEntity extends BlockEntity {
 
     public static final int MAX_CHARGE = 6;
 
     private Potion potion;
     private int charges;
-    private boolean filled;
 
     public BottleGourdBlockEntity(BlockPos pos, BlockState state) {
         super(BlockEntityRegistry.BOTTLE_GOURD.get(), pos, state);
     }
 
-    public boolean addPotionCharge(Potion potion) {
-        if (!filled) {
-            this.potion = potion;
-            this.charges = 1;
-            this.filled = true;
-            return true;
-        } else if (potion.equals(this.potion) && this.charges < MAX_CHARGE) {
-            this.charges++;
-            return true;
-        }
-        return false;
+    public void addCharge() {
+        this.charges += 1;
+        this.charges = Math.min(MAX_CHARGE, this.charges);
+        setChanged();
     }
 
-    public Optional<Potion> takePotionCharge() {
-        if (!filled || charges <= 0 || this.potion.equals(Potions.WATER.value())) return Optional.empty();
-        else {
-            Potion charge = this.potion;
-            this.charges--;
-            if (charges <= 0) {
-                filled = false;
-                this.potion = Potions.WATER.value();
-            }
-            return Optional.of(charge);
+    public void shrinkCharge() {
+        this.charges -= 1;
+        if (charges <= 0) {
+            this.charges = 0;
+            this.potion = Potions.WATER.value();
+        }
+        setChanged();
+    }
+
+    public boolean canAddCharge(Potion potion) {
+        if (hasCharges()) {
+            return potion.equals(this.potion) && this.charges < MAX_CHARGE;
+        } else {
+            return true;
         }
     }
 
     public boolean hasCharges() {
-        return (filled && charges > 0 && !potion.equals(Potions.WATER.value()));
+        return (charges > 0 && !potion.equals(Potions.WATER.value()));
     }
 
     public int getCharges() {
@@ -64,12 +58,15 @@ public class BottleGourdBlockEntity extends BlockEntity {
         return potion;
     }
 
+    public void setPotion(Potion potion) {
+        this.potion = potion;
+    }
+
     @Override
     public void loadAdditional(@NotNull CompoundTag pTag, HolderLookup.@NotNull Provider provider) {
         super.loadAdditional(pTag, provider);
         this.potion = BuiltInRegistries.POTION.get(ResourceLocation.tryParse(pTag.getString("Potion")));
         this.charges = pTag.getInt("Charges");
-        this.filled = pTag.getBoolean("Filled");
     }
 
     @Override
@@ -78,6 +75,5 @@ public class BottleGourdBlockEntity extends BlockEntity {
         ResourceLocation potionId = BuiltInRegistries.POTION.getKey(this.potion);
         if (potionId != null) pTag.putString("Potion", potionId.toString());
         pTag.putInt("Charges", this.charges);
-        pTag.putBoolean("Filled", this.filled);
     }
 }
