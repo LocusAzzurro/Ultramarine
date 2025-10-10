@@ -87,8 +87,10 @@ public class HangingLantern extends DecorativeBlock {
         int lanterns = pState.getValue(LANTERNS);
         if (stack.is(ItemRegistry.SMALL_RED_LANTERN.get()) && lanterns < 3){
             pLevel.setBlock(pPos, pState.setValue(LANTERNS, lanterns + 1), Block.UPDATE_ALL);
-            if (!pPlayer.isCreative()) stack.shrink(1);
-            return ItemInteractionResult.sidedSuccess(pLevel.isClientSide());
+            if (!pPlayer.isCreative()) {
+                stack.shrink(1);
+            }
+            return ItemInteractionResult.SUCCESS;
         }
         return ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
     }

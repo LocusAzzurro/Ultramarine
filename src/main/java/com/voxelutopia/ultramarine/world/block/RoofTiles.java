@@ -134,15 +134,17 @@ public class RoofTiles extends ShiftableBlock {
         ItemStack item = pPlayer.getItemInHand(pHand);
         if (item.is(Items.SNOWBALL)) {
             handleSnow(pState, pLevel, pPos);
-            if (!pPlayer.isCreative()) item.shrink(1);
-            return ItemInteractionResult.sidedSuccess(pLevel.isClientSide);
+            if (!pPlayer.isCreative()) {
+                item.shrink(1);
+            }
+            return ItemInteractionResult.SUCCESS;
         }
         if (item.getItem() instanceof ShovelItem) {
             removeSnow(pState, pLevel, pPos);
             if (!pPlayer.isCreative()) {
                 item.hurtAndBreak(1, pPlayer, LivingEntity.getSlotForHand(pHand));
             }
-            return ItemInteractionResult.sidedSuccess(pLevel.isClientSide);
+            return ItemInteractionResult.SUCCESS;
         }
         return ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
     }

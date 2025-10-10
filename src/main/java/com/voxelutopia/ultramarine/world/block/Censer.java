@@ -39,7 +39,7 @@ public class Censer extends DecorativeBlock implements EntityBlock {
                 stack.shrink(1);
             }
             pLevel.getBlockEntity(pPos, BlockEntityRegistry.CENSER.get()).ifPresent(entity -> entity.lightIncense(pLevel, pPos, pState));
-            return ItemInteractionResult.sidedSuccess(pLevel.isClientSide);
+            return ItemInteractionResult.SUCCESS;
         }
         return ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
     }
