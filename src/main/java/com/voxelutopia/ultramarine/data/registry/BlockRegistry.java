@@ -232,6 +232,7 @@ public class BlockRegistry {
     // CARVED CARPETS
 
     public static final DeferredHolder<Block, Block> RED_CARVED_CARPET = BLOCKS.register("red_carved_carpet", () -> new CarvedCarpet(DyeColor.RED));
+    public static final DeferredHolder<Block, Block> BLUE_CARVED_CARPET = BLOCKS.register("blue_carved_carpet", () -> new CarvedCarpet(DyeColor.BLUE));
 
     // PILLARS
 

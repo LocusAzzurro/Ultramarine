@@ -226,6 +226,7 @@ public class ModBlockModelProvider extends BlockStateProvider {
         horizontalBlockNoOffset(BlockRegistry.GILDED_DARK_OAK_BRACKET.get());
         // CARVED CARPET
         carvedCarpet(BlockRegistry.RED_CARVED_CARPET.get());
+        carvedCarpet(BlockRegistry.BLUE_CARVED_CARPET.get());
         // PILLARS
         simpleBlock(BlockRegistry.CARVED_RED_PILLAR.get());
         sideBottomTop(BlockRegistry.CARVED_RED_PILLAR_BASE.get());

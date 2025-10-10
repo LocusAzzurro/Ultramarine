@@ -1,0 +1,64 @@
+{
+  "variants": {
+    "facing=east,shape=inner_left": {
+      "model": "ultramarine:block/blue_carved_carpet_inner_northeast"
+    },
+    "facing=east,shape=inner_right": {
+      "model": "ultramarine:block/blue_carved_carpet_inner_southeast"
+    },
+    "facing=east,shape=outer_left": {
+      "model": "ultramarine:block/blue_carved_carpet_outer_northeast"
+    },
+    "facing=east,shape=outer_right": {
+      "model": "ultramarine:block/blue_carved_carpet_outer_southeast"
+    },
+    "facing=east,shape=straight": {
+      "model": "ultramarine:block/blue_carved_carpet_east"
+    },
+    "facing=north,shape=inner_left": {
+      "model": "ultramarine:block/blue_carved_carpet_inner_northwest"
+    },
+    "facing=north,shape=inner_right": {
+      "model": "ultramarine:block/blue_carved_carpet_inner_northeast"
+    },
+    "facing=north,shape=outer_left": {
+      "model": "ultramarine:block/blue_carved_carpet_outer_northwest"
+    },
+    "facing=north,shape=outer_right": {
+      "model": "ultramarine:block/blue_carved_carpet_outer_northeast"
+    },
+    "facing=north,shape=straight": {
+      "model": "ultramarine:block/blue_carved_carpet_north"
+    },
+    "facing=south,shape=inner_left": {
+      "model": "ultramarine:block/blue_carved_carpet_inner_southeast"
+    },
+    "facing=south,shape=inner_right": {
+      "model": "ultramarine:block/blue_carved_carpet_inner_southwest"
+    },
+    "facing=south,shape=outer_left": {
+      "model": "ultramarine:block/blue_carved_carpet_outer_southeast"
+    },
+    "facing=south,shape=outer_right": {
+      "model": "ultramarine:block/blue_carved_carpet_outer_southwest"
+    },
+    "facing=south,shape=straight": {
+      "model": "ultramarine:block/blue_carved_carpet_south"
+    },
+    "facing=west,shape=inner_left": {
+      "model": "ultramarine:block/blue_carved_carpet_inner_southwest"
+    },
+    "facing=west,shape=inner_right": {
+      "model": "ultramarine:block/blue_carved_carpet_inner_northwest"
+    },
+    "facing=west,shape=outer_left": {
+      "model": "ultramarine:block/blue_carved_carpet_outer_southwest"
+    },
+    "facing=west,shape=outer_right": {
+      "model": "ultramarine:block/blue_carved_carpet_outer_northwest"
+    },
+    "facing=west,shape=straight": {
+      "model": "ultramarine:block/blue_carved_carpet_west"
+    }
+  }
+}

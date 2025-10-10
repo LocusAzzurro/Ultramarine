@@ -298,6 +298,8 @@ public class ModRecipeProvider extends RecipeProvider {
 
         carvedWool(ItemRegistry.RED_CARVED_CARPET.get(), Items.RED_WOOL, new Ingredient[]{
                 Ingredient.of(ModItemTags.COMMON_YELLOW_DYE), Ingredient.of(ItemRegistry.GOLD_DYE_POWDER.get())}, recipeConsumer);
+        carvedWool(ItemRegistry.BLUE_CARVED_CARPET.get(), Items.BLUE_WOOL, new Ingredient[]{
+                Ingredient.of(ModItemTags.COMMON_WHITE_DYE), Ingredient.of(ItemRegistry.LIGHT_BLUE_DYE_POWDER.get())}, recipeConsumer);
 
         // PILLARS
 

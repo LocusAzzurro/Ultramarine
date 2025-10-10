@@ -235,6 +235,7 @@ public class ItemRegistry {
     // CARVED CARPETS
 
     public static final DeferredHolder<Item, Item> RED_CARVED_CARPET = fromBlock(BlockRegistry.RED_CARVED_CARPET, ModCreativeTab.DECORATIVE_BLOCKS);
+    public static final DeferredHolder<Item, Item> BLUE_CARVED_CARPET = fromBlock(BlockRegistry.BLUE_CARVED_CARPET, ModCreativeTab.DECORATIVE_BLOCKS);
 
     // PILLARS
 
