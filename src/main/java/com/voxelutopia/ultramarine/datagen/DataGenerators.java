@@ -30,6 +30,7 @@ public class DataGenerators {
         generator.addProvider(event.includeServer(), new ModItemTagsProvider(output, lookupProvider, blockTags.contentsGetter(), fh));
         generator.addProvider(event.includeServer(), new ModPoiTypeTagsProvider(output, lookupProvider, fh));
         generator.addProvider(event.includeServer(), new ModRecipeProvider(output, lookupProvider));
+        generator.addProvider(event.includeServer(), new ModDataMapProvider(output, lookupProvider));
         generator.addProvider(event.includeServer(), ModLootProvider.create(output, lookupProvider));
         generator.addProvider(event.includeServer(), new ModGlobalLootModifiersProvider(output, lookupProvider));
         generator.addProvider(event.includeServer(), new ModWorldGenProvider(output, lookupProvider));

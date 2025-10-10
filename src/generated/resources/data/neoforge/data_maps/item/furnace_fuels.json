@@ -1,0 +1,10 @@
+{
+  "values": {
+    "#ultramarine:polished_planks": {
+      "burn_time": 200
+    },
+    "ultramarine:wooden_frame": {
+      "burn_time": 200
+    }
+  }
+}
