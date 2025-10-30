@@ -1647,13 +1647,13 @@ public class ModRecipeProvider extends RecipeProvider {
 
     private static void categoryLamps(@NotNull RecipeOutput recipeConsumer) {
 
-        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, Items.WHITE_CANDLE, 1)
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, Items.CANDLE, 1)
                 .define('S', Items.STRING)
                 .define('G', ItemRegistry.GREASE.get())
                 .pattern("S")
                 .pattern("G")
                 .unlockedBy(itemUnlockName(ItemRegistry.GREASE.get()), itemCriterion(ItemRegistry.GREASE.get()))
-                .save(recipeConsumer);
+                .save(recipeConsumer, "ultramarine:candle_from_grease");
         ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ItemRegistry.OCTAGONAL_PALACE_LANTERN.get(), 1)
                 .define('F', ItemRegistry.WOODEN_FRAME.get())
                 .define('P', ModItemTags.POLISHED_PLANKS)
