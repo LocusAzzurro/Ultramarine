@@ -7,7 +7,7 @@
       },
       "trigger": "minecraft:recipe_unlocked"
     },
-    "has_ultramarine:wooden_parts": {
+    "has_wooden_parts": {
       "conditions": {
         "items": [
           {
@@ -21,7 +21,7 @@
   "requirements": [
     [
       "has_the_recipe",
-      "has_ultramarine:wooden_parts"
+      "has_wooden_parts"
     ]
   ],
   "rewards": {

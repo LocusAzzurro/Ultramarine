@@ -1,7 +1,7 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_minecraft:jungle_planks": {
+    "has_jungle_planks": {
       "conditions": {
         "items": [
           {
@@ -21,7 +21,7 @@
   "requirements": [
     [
       "has_the_recipe",
-      "has_minecraft:jungle_planks"
+      "has_jungle_planks"
     ]
   ],
   "rewards": {

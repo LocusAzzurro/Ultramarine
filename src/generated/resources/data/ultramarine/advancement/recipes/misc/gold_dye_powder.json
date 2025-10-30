@@ -1,7 +1,7 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_minecraft:gold_nugget": {
+    "has_gold_nugget": {
       "conditions": {
         "items": [
           {
@@ -21,7 +21,7 @@
   "requirements": [
     [
       "has_the_recipe",
-      "has_minecraft:gold_nugget"
+      "has_gold_nugget"
     ]
   ],
   "rewards": {

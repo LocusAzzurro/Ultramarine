@@ -7,7 +7,7 @@
       },
       "trigger": "minecraft:recipe_unlocked"
     },
-    "has_ultramarine:varnished_rosewood": {
+    "has_varnished_rosewood": {
       "conditions": {
         "items": [
           {
@@ -21,7 +21,7 @@
   "requirements": [
     [
       "has_the_recipe",
-      "has_ultramarine:varnished_rosewood"
+      "has_varnished_rosewood"
     ]
   ],
   "rewards": {

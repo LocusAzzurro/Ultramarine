@@ -1,13 +1,7 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_the_recipe": {
-      "conditions": {
-        "recipe": "ultramarine:small_dark_green_lotus_leaf"
-      },
-      "trigger": "minecraft:recipe_unlocked"
-    },
-    "has_ultramarine:small_lotus_leaf": {
+    "has_small_lotus_leaf": {
       "conditions": {
         "items": [
           {
@@ -16,12 +10,18 @@
         ]
       },
       "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "ultramarine:small_dark_green_lotus_leaf"
+      },
+      "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
       "has_the_recipe",
-      "has_ultramarine:small_lotus_leaf"
+      "has_small_lotus_leaf"
     ]
   ],
   "rewards": {

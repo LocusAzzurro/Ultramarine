@@ -1,7 +1,7 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_minecraft:spruce_planks": {
+    "has_spruce_planks": {
       "conditions": {
         "items": [
           {
@@ -21,7 +21,7 @@
   "requirements": [
     [
       "has_the_recipe",
-      "has_minecraft:spruce_planks"
+      "has_spruce_planks"
     ]
   ],
   "rewards": {

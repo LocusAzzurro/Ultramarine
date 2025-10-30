@@ -1,13 +1,7 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_the_recipe": {
-      "conditions": {
-        "recipe": "ultramarine:qing_golden_dragon_ceiling"
-      },
-      "trigger": "minecraft:recipe_unlocked"
-    },
-    "has_ultramarine:green_carved_wood": {
+    "has_green_carved_wood": {
       "conditions": {
         "items": [
           {
@@ -16,12 +10,18 @@
         ]
       },
       "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "ultramarine:qing_golden_dragon_ceiling"
+      },
+      "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
       "has_the_recipe",
-      "has_ultramarine:green_carved_wood"
+      "has_green_carved_wood"
     ]
   ],
   "rewards": {

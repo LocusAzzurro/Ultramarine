@@ -7,7 +7,7 @@
       },
       "trigger": "minecraft:recipe_unlocked"
     },
-    "has_ultramarine:unfired_brownish_red_stone_brick": {
+    "has_unfired_brownish_red_stone_brick": {
       "conditions": {
         "items": [
           {
@@ -21,7 +21,7 @@
   "requirements": [
     [
       "has_the_recipe",
-      "has_ultramarine:unfired_brownish_red_stone_brick"
+      "has_unfired_brownish_red_stone_brick"
     ]
   ],
   "rewards": {

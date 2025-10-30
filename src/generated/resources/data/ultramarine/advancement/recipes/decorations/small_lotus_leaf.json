@@ -1,7 +1,7 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_minecraft:big_dripleaf": {
+    "has_big_dripleaf": {
       "conditions": {
         "items": [
           {
@@ -24,7 +24,7 @@
   "requirements": [
     [
       "has_the_recipe",
-      "has_minecraft:big_dripleaf"
+      "has_big_dripleaf"
     ]
   ],
   "rewards": {

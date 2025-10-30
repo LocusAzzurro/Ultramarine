@@ -1,13 +1,7 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_the_recipe": {
-      "conditions": {
-        "recipe": "ultramarine:blue_and_yellow_carved_wood_2_to_3"
-      },
-      "trigger": "minecraft:recipe_unlocked"
-    },
-    "has_ultramarine:blue_and_yellow_carved_wood_variant_2": {
+    "has_blue_and_yellow_carved_wood_variant_2": {
       "conditions": {
         "items": [
           {
@@ -16,12 +10,18 @@
         ]
       },
       "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "ultramarine:blue_and_yellow_carved_wood_2_to_3"
+      },
+      "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
       "has_the_recipe",
-      "has_ultramarine:blue_and_yellow_carved_wood_variant_2"
+      "has_blue_and_yellow_carved_wood_variant_2"
     ]
   ],
   "rewards": {

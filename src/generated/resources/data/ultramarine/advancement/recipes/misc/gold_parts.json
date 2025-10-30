@@ -1,7 +1,7 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_minecraft:gold_ingot": {
+    "has_gold_ingot": {
       "conditions": {
         "items": [
           {
@@ -21,7 +21,7 @@
   "requirements": [
     [
       "has_the_recipe",
-      "has_minecraft:gold_ingot"
+      "has_gold_ingot"
     ]
   ],
   "rewards": {

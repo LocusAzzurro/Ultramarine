@@ -7,7 +7,7 @@
       },
       "trigger": "minecraft:recipe_unlocked"
     },
-    "has_ultramarine:yellow_main_roof_ridge_panel": {
+    "has_yellow_main_roof_ridge_panel": {
       "conditions": {
         "items": [
           {
@@ -21,7 +21,7 @@
   "requirements": [
     [
       "has_the_recipe",
-      "has_ultramarine:yellow_main_roof_ridge_panel"
+      "has_yellow_main_roof_ridge_panel"
     ]
   ],
   "rewards": {

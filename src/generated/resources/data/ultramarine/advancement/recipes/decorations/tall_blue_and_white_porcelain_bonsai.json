@@ -1,13 +1,7 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_the_recipe": {
-      "conditions": {
-        "recipe": "ultramarine:tall_blue_and_white_porcelain_bonsai"
-      },
-      "trigger": "minecraft:recipe_unlocked"
-    },
-    "has_ultramarine:tall_blue_and_white_porcelain_vase": {
+    "has_tall_blue_and_white_porcelain_vase": {
       "conditions": {
         "items": [
           {
@@ -16,12 +10,18 @@
         ]
       },
       "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "ultramarine:tall_blue_and_white_porcelain_bonsai"
+      },
+      "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
       "has_the_recipe",
-      "has_ultramarine:tall_blue_and_white_porcelain_vase"
+      "has_tall_blue_and_white_porcelain_vase"
     ]
   ],
   "rewards": {

@@ -1,7 +1,7 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_minecraft:stripped_dark_oak_wood": {
+    "has_stripped_dark_oak_wood": {
       "conditions": {
         "items": [
           {
@@ -21,7 +21,7 @@
   "requirements": [
     [
       "has_the_recipe",
-      "has_minecraft:stripped_dark_oak_wood"
+      "has_stripped_dark_oak_wood"
     ]
   ],
   "rewards": {
