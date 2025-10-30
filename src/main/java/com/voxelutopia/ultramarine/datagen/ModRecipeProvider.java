@@ -1919,7 +1919,7 @@ public class ModRecipeProvider extends RecipeProvider {
         brickMixture(ItemRegistry.UNFIRED_CLAY_BRICK.get(), 6, ItemRegistry.MAGNESITE_DUST.get(), ItemRegistry.UNFIRED_RAW_BROWNISH_RED_STONE_BRICK.get(), recipeConsumer);
         smeltingAndBlasting(ItemRegistry.UNFIRED_CLAY_BRICK.get(), ItemRegistry.FIRED_BRICK.get(), recipeConsumer);
         ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, Items.BRICK, 1).requires(ItemRegistry.FIRED_BRICK.get())
-                .unlockedBy("has_" + ItemRegistry.FIRED_BRICK.get(), InventoryChangeTrigger.TriggerInstance.hasItems(ItemRegistry.FIRED_BRICK.get())).save(recipeConsumer, "brick_from_fired_brick");
+                .unlockedBy("has_" + ItemRegistry.FIRED_BRICK.get(), InventoryChangeTrigger.TriggerInstance.hasItems(ItemRegistry.FIRED_BRICK.get())).save(recipeConsumer, "ultramarine:brick_from_fired_brick");
         dust(Items.PRISMARINE_SHARD, ItemRegistry.PRISMARINE_DUST.get(), recipeConsumer);
 
         //ORE PRODUCT
