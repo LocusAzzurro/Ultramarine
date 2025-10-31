@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:porcelain_parts_from_blue_and_white_porcelain_piece"
+        "recipe": "ultramarine:blue_and_white_porcelain_shovel"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:porcelain_parts_from_blue_and_white_porcelain_piece"
+      "ultramarine:blue_and_white_porcelain_shovel"
     ]
   }
 }

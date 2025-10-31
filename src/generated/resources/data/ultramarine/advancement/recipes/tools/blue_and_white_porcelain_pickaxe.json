@@ -1,11 +1,11 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_jade_block": {
+    "has_blue_and_white_porcelain_piece": {
       "conditions": {
         "items": [
           {
-            "items": "ultramarine:jade_block"
+            "items": "ultramarine:blue_and_white_porcelain_piece"
           }
         ]
       },
@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:jade"
+        "recipe": "ultramarine:blue_and_white_porcelain_pickaxe"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -21,12 +21,12 @@
   "requirements": [
     [
       "has_the_recipe",
-      "has_jade_block"
+      "has_blue_and_white_porcelain_piece"
     ]
   ],
   "rewards": {
     "recipes": [
-      "minecraft:jade"
+      "ultramarine:blue_and_white_porcelain_pickaxe"
     ]
   }
 }

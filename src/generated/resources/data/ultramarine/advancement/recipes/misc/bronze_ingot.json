@@ -1,11 +1,11 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_jade": {
+    "has_bronze_block": {
       "conditions": {
         "items": [
           {
-            "items": "ultramarine:jade"
+            "items": "ultramarine:bronze_block"
           }
         ]
       },
@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:jade_block"
+        "recipe": "ultramarine:bronze_ingot"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -21,12 +21,12 @@
   "requirements": [
     [
       "has_the_recipe",
-      "has_jade"
+      "has_bronze_block"
     ]
   ],
   "rewards": {
     "recipes": [
-      "minecraft:jade_block"
+      "ultramarine:bronze_ingot"
     ]
   }
 }

@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:blue_and_white_porcelain_sword"
+        "recipe": "ultramarine:blue_and_white_porcelain_piece_grinding"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:blue_and_white_porcelain_sword"
+      "ultramarine:blue_and_white_porcelain_piece_grinding"
     ]
   }
 }

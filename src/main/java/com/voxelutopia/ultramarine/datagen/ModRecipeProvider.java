@@ -1,5 +1,6 @@
 package com.voxelutopia.ultramarine.datagen;
 
+import com.voxelutopia.ultramarine.Ultramarine;
 import com.voxelutopia.ultramarine.data.ModItemTags;
 import com.voxelutopia.ultramarine.data.recipe.WoodworkingRecipe;
 import com.voxelutopia.ultramarine.data.registry.ItemRegistry;
@@ -1653,7 +1654,8 @@ public class ModRecipeProvider extends RecipeProvider {
                 .pattern("S")
                 .pattern("G")
                 .unlockedBy(getHasName(ItemRegistry.GREASE.get()), itemCriterion(ItemRegistry.GREASE.get()))
-                .save(recipeConsumer, "ultramarine:candle_from_grease");
+                .save(recipeConsumer, modRecipe("candle_from_grease"));
+
         ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ItemRegistry.OCTAGONAL_PALACE_LANTERN.get(), 1)
                 .define('F', ItemRegistry.WOODEN_FRAME.get())
                 .define('P', ModItemTags.POLISHED_PLANKS)
@@ -1919,7 +1921,7 @@ public class ModRecipeProvider extends RecipeProvider {
         brickMixture(ItemRegistry.UNFIRED_CLAY_BRICK.get(), 6, ItemRegistry.MAGNESITE_DUST.get(), ItemRegistry.UNFIRED_RAW_BROWNISH_RED_STONE_BRICK.get(), recipeConsumer);
         smeltingAndBlasting(ItemRegistry.UNFIRED_CLAY_BRICK.get(), ItemRegistry.FIRED_BRICK.get(), recipeConsumer);
         ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, Items.BRICK, 1).requires(ItemRegistry.FIRED_BRICK.get())
-                .unlockedBy("has_" + ItemRegistry.FIRED_BRICK.get(), InventoryChangeTrigger.TriggerInstance.hasItems(ItemRegistry.FIRED_BRICK.get())).save(recipeConsumer, "ultramarine:brick_from_fired_brick");
+                .unlockedBy("has_" + ItemRegistry.FIRED_BRICK.get(), InventoryChangeTrigger.TriggerInstance.hasItems(ItemRegistry.FIRED_BRICK.get())).save(recipeConsumer, modRecipe("brick_from_fired_brick"));
         dust(Items.PRISMARINE_SHARD, ItemRegistry.PRISMARINE_DUST.get(), recipeConsumer);
 
         //ORE PRODUCT
@@ -1930,8 +1932,10 @@ public class ModRecipeProvider extends RecipeProvider {
 
         //ORE BLOCKS
 
-        nineBlockStorageRecipes(recipeConsumer, RecipeCategory.MISC, ItemRegistry.JADE.get(), RecipeCategory.MISC, ItemRegistry.JADE_BLOCK.get());
-        nineBlockStorageRecipes(recipeConsumer, RecipeCategory.MISC, ItemRegistry.BRONZE_INGOT.get(), RecipeCategory.MISC, ItemRegistry.BRONZE_BLOCK.get());
+        nineBlockStorageRecipes(recipeConsumer, RecipeCategory.MISC, ItemRegistry.JADE.get(), RecipeCategory.MISC, ItemRegistry.JADE_BLOCK.get(),
+                modItemRecipePath(ItemRegistry.JADE_BLOCK.get()), null, modItemRecipePath(ItemRegistry.JADE.get()), null);
+        nineBlockStorageRecipes(recipeConsumer, RecipeCategory.MISC, ItemRegistry.BRONZE_INGOT.get(), RecipeCategory.MISC, ItemRegistry.BRONZE_BLOCK.get(),
+                modItemRecipePath(ItemRegistry.BRONZE_BLOCK.get()), null, modItemRecipePath(ItemRegistry.BRONZE_INGOT.get()), null);
 
         //ROOF TILE
 
@@ -2038,10 +2042,10 @@ public class ModRecipeProvider extends RecipeProvider {
 
         SingleItemRecipeBuilder.stonecutting(Ingredient.of(ItemRegistry.PORCELAIN_PIECE.get()), RecipeCategory.MISC, Items.CLAY_BALL)
                 .unlockedBy(getHasName(ItemRegistry.PORCELAIN_PIECE.get()), itemCriterion(ItemRegistry.PORCELAIN_PIECE.get()))
-                .save(recipeConsumer, "porcelain_piece_grinding");
+                .save(recipeConsumer, modRecipe("porcelain_piece_grinding"));
         SingleItemRecipeBuilder.stonecutting(Ingredient.of(ItemRegistry.BLUE_AND_WHITE_PORCELAIN_PIECE.get()), RecipeCategory.MISC, Items.CLAY_BALL)
                 .unlockedBy(getHasName(ItemRegistry.BLUE_AND_WHITE_PORCELAIN_PIECE.get()), itemCriterion(ItemRegistry.BLUE_AND_WHITE_PORCELAIN_PIECE.get()))
-                .save(recipeConsumer, "blue_and_white_porcelain_piece_grinding");
+                .save(recipeConsumer, modRecipe("blue_and_white_porcelain_piece_grinding"));
 
         // PARTS
 
@@ -2054,10 +2058,10 @@ public class ModRecipeProvider extends RecipeProvider {
                 .save(recipeConsumer);
         SingleItemRecipeBuilder.stonecutting(Ingredient.of(ItemRegistry.BLUE_AND_WHITE_PORCELAIN_PIECE.get()), RecipeCategory.MISC, ItemRegistry.PORCELAIN_PARTS.get())
                 .unlockedBy(getHasName(ItemRegistry.BLUE_AND_WHITE_PORCELAIN_PIECE.get()), itemCriterion(ItemRegistry.BLUE_AND_WHITE_PORCELAIN_PIECE.get()))
-                .save(recipeConsumer, "porcelain_parts_from_blue_and_white_porcelain_piece");
+                .save(recipeConsumer, modRecipe("porcelain_parts_from_blue_and_white_porcelain_piece"));
         SingleItemRecipeBuilder.stonecutting(Ingredient.of(ItemRegistry.PORCELAIN_PIECE.get()), RecipeCategory.MISC, ItemRegistry.PORCELAIN_PARTS.get())
                 .unlockedBy(getHasName(ItemRegistry.PORCELAIN_PIECE.get()), itemCriterion(ItemRegistry.PORCELAIN_PIECE.get()))
-                .save(recipeConsumer, "porcelain_parts_from_porcelain_piece");
+                .save(recipeConsumer, modRecipe("porcelain_parts_from_porcelain_piece"));
         SingleItemRecipeBuilder.stonecutting(Ingredient.of(ItemRegistry.BRONZE_INGOT.get()), RecipeCategory.MISC, ItemRegistry.BRONZE_PARTS.get(), 2)
                 .unlockedBy(getHasName(ItemRegistry.BRONZE_INGOT.get()), itemCriterion(ItemRegistry.BRONZE_INGOT.get()))
                 .save(recipeConsumer);
@@ -2535,7 +2539,7 @@ public class ModRecipeProvider extends RecipeProvider {
 
     private static void blueAndWhitePorcelainUpgrade(Item from, Item to, RecipeCategory category, RecipeOutput pFinishedRecipeConsumer) {
         SmithingTransformRecipeBuilder.smithing(Ingredient.of(ItemRegistry.BLUE_AND_WHITE_PORCELAIN_UPGRADE_SMITHING_TEMPLATE.get()), Ingredient.of(from), Ingredient.of(ItemRegistry.BLUE_AND_WHITE_PORCELAIN_PIECE.get()), category, to)
-                .unlocks(getHasName(ItemRegistry.BLUE_AND_WHITE_PORCELAIN_PIECE.get()), itemCriterion(ItemRegistry.BLUE_AND_WHITE_PORCELAIN_PIECE.get())).save(pFinishedRecipeConsumer, name(to));
+                .unlocks(getHasName(ItemRegistry.BLUE_AND_WHITE_PORCELAIN_PIECE.get()), itemCriterion(ItemRegistry.BLUE_AND_WHITE_PORCELAIN_PIECE.get())).save(pFinishedRecipeConsumer, modItemRecipePath(to));
     }
 
     private static Criterion<InventoryChangeTrigger.TriggerInstance> tagUnlock(TagKey<Item> tag) {
@@ -2544,6 +2548,14 @@ public class ModRecipeProvider extends RecipeProvider {
 
     private static String name(Item item) {
         return Objects.requireNonNull(BuiltInRegistries.ITEM.getKey(item)).getPath();
+    }
+
+    private static ResourceLocation modRecipe(String recipeName){
+        return ResourceLocation.fromNamespaceAndPath(Ultramarine.MOD_ID, recipeName);
+    }
+
+    private static String modItemRecipePath(ItemLike item){
+        return ResourceLocation.fromNamespaceAndPath(Ultramarine.MOD_ID, getItemName(item)).toString();
     }
 
 
