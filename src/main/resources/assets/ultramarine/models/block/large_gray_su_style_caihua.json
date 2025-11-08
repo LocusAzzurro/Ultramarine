@@ -1,6 +1,7 @@
 {
 	"credit": "Made with Blockbench",
 	"texture_size": [32, 32],
+	"render_type": "cutout",
 	"textures": {
 		"0": "ultramarine:block/large_gray_su_style_caihua",
 		"particle": "block/white_wool"
