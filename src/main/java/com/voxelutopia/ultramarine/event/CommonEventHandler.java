@@ -6,6 +6,7 @@ import com.voxelutopia.ultramarine.data.registry.*;
 import com.voxelutopia.ultramarine.world.block.DecorativeBlock;
 import com.voxelutopia.ultramarine.world.block.SnowRoofRidge;
 import com.voxelutopia.ultramarine.world.entity.TravellingMerchant;
+import com.voxelutopia.ultramarine.world.saveddata.TravellingMerchantSpawnData;
 import it.unimi.dsi.fastutil.ints.Int2ObjectMap;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
@@ -30,6 +31,7 @@ import net.minecraft.world.level.biome.Biomes;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.Heightmap;
+import net.minecraft.world.level.saveddata.SavedData;
 import net.minecraft.world.level.storage.ServerLevelData;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
@@ -104,16 +106,21 @@ public class CommonEventHandler {
 
     @SubscribeEvent
     public static void travellingMerchantSpawnAttempt(LevelTickEvent.Pre event) {
-        if (event.getLevel().isClientSide() || event.getLevel().dimension() != Level.OVERWORLD) return;
+        if (event.getLevel().isClientSide()) return;
         ServerLevel world = (ServerLevel) event.getLevel();
-        ServerLevelData levelData = (ServerLevelData) world.getLevelData();
+        if (event.getLevel().dimension() != Level.OVERWORLD || world.getDayTime() % 24000 != 0) return;
         if (!world.getGameRules().getBoolean(GameRules.RULE_DO_TRADER_SPAWNING) ||
                 !world.getGameRules().getBoolean(GameRules.RULE_DOMOBSPAWNING) ||
                 !world.getGameRules().getBoolean(GameRules.RULE_DAYLIGHT)) return;
-        int wanderingTraderSpawnChance = levelData.getWanderingTraderSpawnChance();
-        if (world.getDayTime() % 24000 == 0 && world.random.nextInt(100) < wanderingTraderSpawnChance) {
+
+        TravellingMerchantSpawnData spawnData = world.getDataStorage()
+                .computeIfAbsent(new SavedData.Factory<>(TravellingMerchantSpawnData::create, TravellingMerchantSpawnData::load), TravellingMerchantSpawnData.FILE_NAME);
+        int spawnRoll = world.random.nextInt(100);
+        if (spawnRoll < spawnData.getSpawnChance()){
             spawnTrader(world);
+            spawnData.resetSpawnChance();
         }
+        else spawnData.increaseSpawnChance();
     }
 
     @SuppressWarnings("ConstantConditions")
@@ -121,7 +128,7 @@ public class CommonEventHandler {
         ServerPlayer player = world.getRandomPlayer();
         if (player == null) return;
         BlockPos blockpos = player.blockPosition();
-        world.getPoiManager().find((poi) -> poi.is(PoiTypeRegistry.TRADE_POI.getKey()), (pos1) -> true, blockpos, 16, PoiManager.Occupancy.ANY).ifPresent(pos -> {
+        world.getPoiManager().find((poi) -> poi.is(PoiTypeRegistry.TRADE_POI.getKey()), (pos1) -> true, blockpos, 32, PoiManager.Occupancy.ANY).ifPresent(pos -> {
             BlockPos potentialSpawn = null;
             for (int i = 0; i < 10; ++i) {
                 int x = pos.getX() + world.random.nextInt(4 * 2) - 4;
