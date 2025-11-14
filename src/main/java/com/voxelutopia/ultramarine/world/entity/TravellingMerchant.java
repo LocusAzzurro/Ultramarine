@@ -2,10 +2,6 @@ package com.voxelutopia.ultramarine.world.entity;
 
 import com.google.common.collect.ImmutableList;
 import com.voxelutopia.ultramarine.data.registry.ItemRegistry;
-import net.minecraft.network.protocol.Packet;
-import net.minecraft.network.protocol.game.ClientGamePacketListener;
-import net.minecraft.network.protocol.game.ClientboundAddEntityPacket;
-import net.minecraft.server.level.ServerEntity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
@@ -20,19 +16,26 @@ import net.minecraft.world.level.Level;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class TravellingMerchant extends WanderingTrader {
 
-    private static final List<MerchantOffer> TRADE_OPTIONS = new ArrayList<>();
+    private static final List<MerchantOffer> TRADE_OPTIONS_SELL = new ArrayList<>();
+    private static final List<MerchantOffer> TRADE_OPTIONS_BUY = new ArrayList<>();
 
     public TravellingMerchant(EntityType<? extends TravellingMerchant> entityType, Level level) {
         super(entityType, level);
-        var trades = new ArrayList<>(TRADE_OPTIONS);
-        Collections.shuffle(trades);
+        var sell = new ArrayList<>(TRADE_OPTIONS_SELL);
+        Collections.shuffle(sell);
+        var buy = new ArrayList<>(TRADE_OPTIONS_BUY);
+        Collections.shuffle(buy);
         var offers = new MerchantOffers();
-        offers.addAll(trades.subList(0, 6));
+        offers.addAll(sell.subList(0, 4));
+        offers.addAll(buy.subList(0, 2));
         this.offers = offers;
     }
 
@@ -49,11 +52,11 @@ public class TravellingMerchant extends WanderingTrader {
     }
 
     public static List<MerchantOffer> getTradeOptions() {
-        return ImmutableList.copyOf(TRADE_OPTIONS);
+        return Stream.of(TRADE_OPTIONS_SELL, TRADE_OPTIONS_BUY).flatMap(Collection::stream).toList();
     }
 
     static {
-        TRADE_OPTIONS.addAll(List.of(
+        TRADE_OPTIONS_SELL.addAll(List.of(
                 new MerchantOffer(new ItemCost(ItemRegistry.COPPER_CASH_COIN.get(), 10), new ItemStack(ItemRegistry.INCENSE.get()), 8, 5, 0.05f),
                 new MerchantOffer(new ItemCost(ItemRegistry.COPPER_CASH_COIN.get(), 4), new ItemStack(ItemRegistry.XUAN_PAPER.get()), 20, 5, 0.05f),
                 new MerchantOffer(new ItemCost(ItemRegistry.COPPER_CASH_COIN.get(), 6), new ItemStack(ItemRegistry.SILK.get()), 20, 5, 0.05f),
@@ -65,7 +68,9 @@ public class TravellingMerchant extends WanderingTrader {
                 new MerchantOffer(new ItemCost(ItemRegistry.COPPER_CASH_COIN.get(), 20), new ItemStack(ItemRegistry.CLAY_DOLL_MALE.get()), 5, 5, 0.05f),
                 new MerchantOffer(new ItemCost(ItemRegistry.COPPER_CASH_COIN.get(), 20), new ItemStack(ItemRegistry.CLAY_DOLL_FEMALE.get()), 5, 5, 0.05f),
                 new MerchantOffer(new ItemCost(ItemRegistry.COPPER_CASH_COIN.get(), 30), new ItemStack(ItemRegistry.PAINTING_SCROLL.get()), 5, 5, 0.05f),
-                new MerchantOffer(new ItemCost(ItemRegistry.COPPER_CASH_COIN.get(), 10), new ItemStack(ItemRegistry.CHINESE_HERBS_BAG.get()), 5, 5, 0.05f),
+                new MerchantOffer(new ItemCost(ItemRegistry.COPPER_CASH_COIN.get(), 10), new ItemStack(ItemRegistry.CHINESE_HERBS_BAG.get()), 5, 5, 0.05f)
+        ));
+        TRADE_OPTIONS_BUY.addAll(List.of(
                 new MerchantOffer(new ItemCost(Items.AMETHYST_SHARD), new ItemStack(ItemRegistry.COPPER_CASH_COIN.get(), 6), 8, 5, 0.05f),
                 new MerchantOffer(new ItemCost(Items.ENDER_PEARL), new ItemStack(ItemRegistry.COPPER_CASH_COIN.get(), 3), 10, 5, 0.05f),
                 new MerchantOffer(new ItemCost(Items.BOOK), new ItemStack(ItemRegistry.COPPER_CASH_COIN.get(), 3), 5, 5, 0.05f),
