@@ -29,7 +29,15 @@ public class ModItemTagsProvider extends ItemTagsProvider {
     @Override
     protected void addTags(HolderLookup.@NotNull Provider provider) {
         tag(ItemTags.PLANKS)
-                .add(ItemRegistry.ROSEWOOD_PLANKS.get());
+                .add(ItemRegistry.ROSEWOOD_PLANKS.get())
+                .add(ItemRegistry.BAMBOO_MAT.get());
+        tag(ItemTags.WOODEN_FENCES)
+                .add(ItemRegistry.ROSEWOOD_FENCE.get());
+        tag(ItemTags.WOODEN_STAIRS)
+                .add(ItemRegistry.ROSEWOOD_STAIRS.get(), ItemRegistry.BAMBOO_MAT_STAIRS.get());
+        tag(ItemTags.WOODEN_SLABS)
+                .add(ItemRegistry.ROSEWOOD_SLAB.get(), ItemRegistry.BAMBOO_MAT_SLAB.get());
+
         tag(ModItemTags.POLISHED_PLANKS)
                 .add(ItemRegistry.POLISHED_OAK_PLANK.get())
                 .add(ItemRegistry.POLISHED_BIRCH_PLANK.get())

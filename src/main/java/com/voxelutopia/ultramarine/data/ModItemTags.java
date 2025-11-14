@@ -32,6 +32,8 @@ public class ModItemTags {
     public static final TagKey<Item> COMMON_BLACK_DYE = commonTag("dyes/black");
     public static final TagKey<Item> COMMON_DYES = commonTag("dyes");
 
+    public static final TagKey<Item> COMMON_BRONZE_INGOT = commonTag("ingots/bronze");
+
     private static TagKey<Item> commonTag(String path) {
         return ItemTags.create(ResourceLocation.fromNamespaceAndPath("c", path));
     }
