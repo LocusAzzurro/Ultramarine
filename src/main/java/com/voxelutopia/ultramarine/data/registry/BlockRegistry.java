@@ -249,7 +249,7 @@ public class BlockRegistry {
     public static final DeferredHolder<Block, Block> CYAN_AND_WHITE_PILLAR_BASE = BLOCKS.register("cyan_and_white_pillar_base", () -> new BaseDirectionalBlock(BaseBlockProperty.WOOD));
     public static final DeferredHolder<Block, Block> CYAN_AND_WHITE_DECORATED_PILLAR = BLOCKS.register("cyan_and_white_decorated_pillar", () -> new BaseDirectionalBlock(BaseBlockProperty.WOOD));
     public static final DeferredHolder<Block, Block> CYAN_AND_WHITE_PILLAR_HEAD = BLOCKS.register("cyan_and_white_pillar_head", () -> new BaseDirectionalBlock(BaseBlockProperty.WOOD));
-    public static final DeferredHolder<Block, Block> STONE_PILLAR_BASE = BLOCKS.register("stone_pillar_base", () -> new BaseBlock(BaseBlockProperty.WOOD));
+    public static final DeferredHolder<Block, Block> STONE_PILLAR_BASE = BLOCKS.register("stone_pillar_base", () -> new BaseBlock(BaseBlockProperty.STONE));
 
     // FANGXIN
 
