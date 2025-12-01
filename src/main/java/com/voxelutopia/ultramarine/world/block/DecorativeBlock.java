@@ -47,7 +47,7 @@ public class DecorativeBlock extends HorizontalDirectionalBlock implements BaseB
                            boolean directional, boolean diagonallyPlaceable,
                            boolean luminous, boolean noCollision, boolean noFenceConnect,
                            @Nullable Direction offset) {
-        super(property.properties);
+        super(property.properties());
         this.property = property;
         this.shapeFunction = shapeFunction;
         this.directional = directional;
@@ -223,7 +223,7 @@ public class DecorativeBlock extends HorizontalDirectionalBlock implements BaseB
         private Direction offset = null;
 
         public Builder(BaseBlockProperty property) {
-            this.property = property.copy();
+            this.property = property;
         }
 
         public Builder shaped(VoxelShape shape) {
@@ -256,7 +256,7 @@ public class DecorativeBlock extends HorizontalDirectionalBlock implements BaseB
         }
 
         public Builder noOcclusion() {
-            this.property.properties.noOcclusion();
+            this.property.properties().noOcclusion();
             return this;
         }
 

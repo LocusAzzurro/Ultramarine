@@ -18,7 +18,7 @@ public class ChiselTableMedium extends DecorativeBlock implements BaseBlockPrope
     private static final Component CONTAINER_TITLE = Component.translatable("container.chisel_table");
 
     public ChiselTableMedium() {
-        super(DecorativeBlock.with(BaseBlockProperty.PAPER).shaped(BlockShapes.S16_H4).directional().noCollision().noOcclusion());
+        super(DecorativeBlock.with(BaseBlockProperty.paper()).shaped(BlockShapes.S16_H4).directional().noCollision().noOcclusion());
     }
 
     @Override
@@ -39,6 +39,6 @@ public class ChiselTableMedium extends DecorativeBlock implements BaseBlockPrope
 
     @Override
     public BaseBlockProperty getProperty() {
-        return BaseBlockProperty.WOOD;
+        return BaseBlockProperty.wood();
     }
 }

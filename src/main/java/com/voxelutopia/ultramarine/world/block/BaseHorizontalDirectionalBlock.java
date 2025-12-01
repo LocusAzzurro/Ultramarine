@@ -20,7 +20,7 @@ public class BaseHorizontalDirectionalBlock extends HorizontalDirectionalBlock i
     }
 
     public BaseHorizontalDirectionalBlock(BaseBlockProperty property){
-        super(property.properties);
+        super(property.properties());
         this.property = property;
         this.registerDefaultState(this.stateDefinition.any().setValue(FACING, Direction.NORTH));
     }

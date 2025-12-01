@@ -56,7 +56,7 @@ public class LongTableBlock extends Block implements BaseBlockPropertyHolder {
     });
 
     public LongTableBlock(BaseBlockProperty property) {
-        super(property.properties);
+        super(property.properties());
         this.property = property;
 
         registerDefaultState(getStateDefinition().any()

@@ -41,7 +41,7 @@ public class HangingLantern extends DecorativeBlock {
     private final HangingLanternType type;
 
     public HangingLantern(HangingLanternType type) {
-        super(DecorativeBlock.with(BaseBlockProperty.WOOD).directional().luminous());
+        super(DecorativeBlock.with(BaseBlockProperty.wood()).directional().luminous());
         this.registerDefaultState(this.stateDefinition.any()
                 .setValue(LANTERNS, 1));
         this.type = type;

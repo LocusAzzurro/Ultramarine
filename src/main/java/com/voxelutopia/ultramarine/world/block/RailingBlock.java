@@ -67,7 +67,7 @@ public class RailingBlock extends Block implements BaseBlockPropertyHolder, Simp
             Direction.EAST, WOODEN_EAST_SIDE
     );
     public RailingBlock(BaseBlockProperty property, Map<Direction, VoxelShape> partShapes) {
-        super(property.properties.noOcclusion());
+        super(property.properties().noOcclusion());
         this.property = property;
         this.registerDefaultState(this.getStateDefinition().any()
                 .setValue(UP, true)

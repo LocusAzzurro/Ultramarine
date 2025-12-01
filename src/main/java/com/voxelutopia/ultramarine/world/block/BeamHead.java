@@ -29,7 +29,7 @@ public class BeamHead extends BaseHorizontalDirectionalBlock implements SimpleWa
             Block.box(6.0D, 6.0D, 4.0D, 8.0D, 14.0D, 12.0D));
 
     public BeamHead(BaseBlockProperty property) {
-        super(property.copy());
+        super(property);
         this.registerDefaultState(this.stateDefinition.any()
                 .setValue(FACING, Direction.NORTH)
                 .setValue(WATERLOGGED, Boolean.FALSE));
