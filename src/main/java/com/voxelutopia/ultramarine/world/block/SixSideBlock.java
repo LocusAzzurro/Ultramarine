@@ -30,7 +30,7 @@ public class SixSideBlock extends Block implements BaseBlockPropertyHolder, Simp
     public static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
 
     public SixSideBlock(BaseBlockProperty property, ShapeFunction shapeFunction, boolean hasCollision) {
-        super(property.copy().properties.noOcclusion().noCollission());
+        super(property.properties().noOcclusion().noCollission());
         this.property = property;
         this.registerDefaultState(this.getStateDefinition().any()
                 .setValue(FACING, Direction.NORTH)

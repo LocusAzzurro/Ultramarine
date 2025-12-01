@@ -19,7 +19,7 @@ public class BaseAxialBlock extends Block implements AxialBlock, BaseBlockProper
     }
 
     public BaseAxialBlock(BaseBlockProperty property){
-        super(property.properties);
+        super(property.properties());
         this.property = property;
         this.registerDefaultState(this.stateDefinition.any().setValue(AXIS, Direction.Axis.X));
     }

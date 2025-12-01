@@ -32,7 +32,7 @@ public class CentralAxialBlock extends Block implements AxialBlock, SimpleWaterl
     private final ShapeFunction shapeFunction;
 
     public CentralAxialBlock(BaseBlockProperty property, ShapeFunction shapeFunction, boolean hasCollision) {
-        super(property.properties);
+        super(property.properties());
         BlockState state = this.stateDefinition.any()
                 .setValue(WATERLOGGED, Boolean.FALSE)
                 .setValue(AXIS, Direction.Axis.X);

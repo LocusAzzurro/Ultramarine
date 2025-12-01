@@ -17,7 +17,7 @@ public class RoofRidge extends BaseBlock implements SnowRoofRidge{
     private final RoofRidgeType type;
 
     public RoofRidge(DyeColor color, RoofRidgeType type){
-        super(BaseBlockProperty.STONE);
+        super(BaseBlockProperty.stone());
         this.type = type;
         this.color = color;
         this.registerDefaultState(this.stateDefinition.any()

@@ -10,147 +10,202 @@ import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;
 import net.minecraft.world.level.material.PushReaction;
 
-public final class BaseBlockProperty {
-    public static BaseBlockProperty STONE = new BaseBlockProperty(BlockBehaviour.Properties.of()
-            .sound(SoundType.STONE)
-            .strength(1.5F, 6.0F)
-            .requiresCorrectToolForDrops()
-            .instrument(NoteBlockInstrument.BASEDRUM),
-            BlockMaterial.STONE);
-    public static BaseBlockProperty MARBLE = new BaseBlockProperty(BlockBehaviour.Properties.of()
-            .sound(SoundType.STONE)
-            .strength(1.8F, 7.0F)
-            .requiresCorrectToolForDrops()
-            .instrument(NoteBlockInstrument.BASEDRUM),
-            BlockMaterial.STONE);
-    public static BaseBlockProperty TERRACOTTA = new BaseBlockProperty(BlockBehaviour.Properties.of()
-            .sound(SoundType.STONE)
-            .strength(1.2F, 4.0F)
-            .requiresCorrectToolForDrops()
-            .instrument(NoteBlockInstrument.BASEDRUM),
-            BlockMaterial.STONE);
-    public static BaseBlockProperty IRON = new BaseBlockProperty(BlockBehaviour.Properties.of()
-            .sound(SoundType.METAL)
-            .strength(5.0F, 6.0F)
-            .requiresCorrectToolForDrops()
-            .instrument(NoteBlockInstrument.IRON_XYLOPHONE),
-            BlockMaterial.METAL);
-    public static BaseBlockProperty COPPER = new BaseBlockProperty(BlockBehaviour.Properties.of()
-            .sound(SoundType.METAL)
-            .strength(5.0F, 6.0F)
-            .requiresCorrectToolForDrops(),
-            BlockMaterial.METAL);
-    public static BaseBlockProperty BRONZE = new BaseBlockProperty(BlockBehaviour.Properties.of()
-            .sound(SoundType.METAL)
-            .strength(5.5F, 6.5F)
-            .requiresCorrectToolForDrops(),
-            BlockMaterial.METAL);
-    public static BaseBlockProperty TILE = new BaseBlockProperty(BlockBehaviour.Properties.of()
-            .sound(SoundType.BONE_BLOCK)
-            .strength(1.5F, 6.0F)
-            .requiresCorrectToolForDrops()
-            .instrument(NoteBlockInstrument.BASEDRUM),
-            BlockMaterial.STONE);
-    public static BaseBlockProperty PORCELAIN = new BaseBlockProperty(BlockBehaviour.Properties.of()
-            .sound(SoundRegistry.PORCELAIN)
-            .strength(1.0F, 1.0F)
-            .instrument(NoteBlockInstrument.HAT),
-            BlockMaterial.PORCELAIN);
-    public static BaseBlockProperty WOOD = new BaseBlockProperty(BlockBehaviour.Properties.of()
-            .sound(SoundType.WOOD)
-            .strength(2.0F, 3.0F)
-            .ignitedByLava()
-            .instrument(NoteBlockInstrument.BASS),
-            BlockMaterial.WOOD);
-    public static BaseBlockProperty BAMBOO_WOOD = new BaseBlockProperty(BlockBehaviour.Properties.of()
-            .sound(SoundRegistry.BAMBOO_WOOD)
-            .strength(2.0F, 3.0F)
-            .ignitedByLava()
-            .instrument(NoteBlockInstrument.BASS),
-            BlockMaterial.WOOD);
-    public static BaseBlockProperty BAMBOO = new BaseBlockProperty(BlockBehaviour.Properties.of()
-            .sound(SoundType.BAMBOO)
-            .ignitedByLava()
-            .instrument(NoteBlockInstrument.XYLOPHONE)
-            .strength(1.5F, 2.5F),
-            BlockMaterial.BAMBOO);
-    public static BaseBlockProperty GLAZED = new BaseBlockProperty(BlockBehaviour.Properties.of()
-            .sound(SoundType.GLASS)
-            .strength(1.5F, 6.0F)
-            .requiresCorrectToolForDrops()
-            .instrument(NoteBlockInstrument.HAT),
-            BlockMaterial.STONE);
-    public static BaseBlockProperty JADE = new BaseBlockProperty(BlockBehaviour.Properties.of()
-            .sound(SoundType.GLASS)
-            .strength(1.2F, 5.0F)
-            .requiresCorrectToolForDrops()
-            .instrument(NoteBlockInstrument.BELL),
-            BlockMaterial.STONE);
-    public static BaseBlockProperty FLAX = new BaseBlockProperty(BlockBehaviour.Properties.of()
-            .sound(SoundRegistry.FLAX)
-            .strength(1F, 2F)
-            .ignitedByLava()
-            .instrument(NoteBlockInstrument.BANJO),
-            BlockMaterial.FLAX);
-    public static BaseBlockProperty CROP = new BaseBlockProperty(BlockBehaviour.Properties.of()
-            .sound(SoundType.CROP)
-            .strength(1F, 1.5F)
-            .ignitedByLava()
-            .pushReaction(PushReaction.DESTROY),
-            BlockMaterial.PLANT);
-    public static BaseBlockProperty PLANT = new BaseBlockProperty(BlockBehaviour.Properties.of()
-            .sound(SoundType.CROP)
-            .strength(1F, 1.5F)
-            .ignitedByLava()
-            .pushReaction(PushReaction.DESTROY),
-            BlockMaterial.PLANT);
-    public static BaseBlockProperty LILY = new BaseBlockProperty(BlockBehaviour.Properties.of()
-            .sound(SoundType.LILY_PAD)
-            .strength(1F, 1.5F)
-            .instabreak(),
-            BlockMaterial.PLANT);
-    public static BaseBlockProperty SILK = new BaseBlockProperty(BlockBehaviour.Properties.of()
-            .sound(SoundType.WOOL)
-            .strength(1F, 2F)
-            .ignitedByLava()
-            .instrument(NoteBlockInstrument.GUITAR),
-            BlockMaterial.FABRIC);
-    public static BaseBlockProperty WOOL = new BaseBlockProperty(BlockBehaviour.Properties.of()
-            .sound(SoundType.WOOL)
-            .strength(1F, 2F)
-            .ignitedByLava()
-            .instrument(NoteBlockInstrument.GUITAR),
-            BlockMaterial.WOOL);
-    public static BaseBlockProperty PAPER = new BaseBlockProperty(BlockBehaviour.Properties.of()
-            .sound(SoundType.WOOL)
-            .strength(1F, 2F)
-            .ignitedByLava(),
-            BlockMaterial.PAPER);
-    public static BaseBlockProperty DYE = new BaseBlockProperty(BlockBehaviour.Properties.of()
-            .sound(SoundType.WOOL)
-            .strength(1F, 1F),
-            BlockMaterial.PAPER);
-    public static BaseBlockProperty ICE = new BaseBlockProperty(BlockBehaviour.Properties.of()
-            .sound(SoundType.CROP)
-            .strength(0.5F, 1.0F),
-            BlockMaterial.ICE);
+public record BaseBlockProperty(BlockBehaviour.Properties properties, BlockMaterial material)  {
+
+    public static BaseBlockProperty stone() {
+        return new BaseBlockProperty(BlockBehaviour.Properties.of()
+                .sound(SoundType.STONE)
+                .strength(1.5F, 6.0F)
+                .requiresCorrectToolForDrops()
+                .instrument(NoteBlockInstrument.BASEDRUM),
+                BlockMaterial.STONE);
+    }
+
+    public static BaseBlockProperty marble() {
+        return new BaseBlockProperty(BlockBehaviour.Properties.of()
+                .sound(SoundType.STONE)
+                .strength(1.8F, 7.0F)
+                .requiresCorrectToolForDrops()
+                .instrument(NoteBlockInstrument.BASEDRUM),
+                BlockMaterial.STONE);
+    }
+
+    public static BaseBlockProperty terracotta() {
+        return new BaseBlockProperty(BlockBehaviour.Properties.of()
+                .sound(SoundType.STONE)
+                .strength(1.2F, 4.0F)
+                .requiresCorrectToolForDrops()
+                .instrument(NoteBlockInstrument.BASEDRUM),
+                BlockMaterial.STONE);
+    }
+
+    public static BaseBlockProperty iron() {
+        return new BaseBlockProperty(BlockBehaviour.Properties.of()
+                .sound(SoundType.METAL)
+                .strength(5.0F, 6.0F)
+                .requiresCorrectToolForDrops()
+                .instrument(NoteBlockInstrument.IRON_XYLOPHONE),
+                BlockMaterial.METAL);
+    }
+
+    public static BaseBlockProperty copper() {
+        return new BaseBlockProperty(BlockBehaviour.Properties.of()
+                .sound(SoundType.METAL)
+                .strength(5.0F, 6.0F)
+                .requiresCorrectToolForDrops(),
+                BlockMaterial.METAL);
+    }
+
+    public static BaseBlockProperty bronze() {
+        return new BaseBlockProperty(BlockBehaviour.Properties.of()
+                .sound(SoundType.METAL)
+                .strength(5.5F, 6.5F)
+                .requiresCorrectToolForDrops(),
+                BlockMaterial.METAL);
+    }
+
+    public static BaseBlockProperty tile() {
+        return new BaseBlockProperty(BlockBehaviour.Properties.of()
+                .sound(SoundType.BONE_BLOCK)
+                .strength(1.5F, 6.0F)
+                .requiresCorrectToolForDrops()
+                .instrument(NoteBlockInstrument.BASEDRUM),
+                BlockMaterial.STONE);
+    }
+
+    public static BaseBlockProperty porcelain() {
+        return new BaseBlockProperty(BlockBehaviour.Properties.of()
+                .sound(SoundRegistry.PORCELAIN)
+                .strength(1.0F, 1.0F)
+                .instrument(NoteBlockInstrument.HAT),
+                BlockMaterial.PORCELAIN);
+    }
+
+    public static BaseBlockProperty wood() {
+        return new BaseBlockProperty(BlockBehaviour.Properties.of()
+                .sound(SoundType.WOOD)
+                .strength(2.0F, 3.0F)
+                .ignitedByLava()
+                .instrument(NoteBlockInstrument.BASS),
+                BlockMaterial.WOOD);
+    }
+
+    public static BaseBlockProperty bamboo_wood() {
+        return new BaseBlockProperty(BlockBehaviour.Properties.of()
+                .sound(SoundRegistry.BAMBOO_WOOD)
+                .strength(2.0F, 3.0F)
+                .ignitedByLava()
+                .instrument(NoteBlockInstrument.BASS),
+                BlockMaterial.WOOD);
+    }
+
+    public static BaseBlockProperty bamboo() {
+        return new BaseBlockProperty(BlockBehaviour.Properties.of()
+                .sound(SoundType.BAMBOO)
+                .ignitedByLava()
+                .instrument(NoteBlockInstrument.XYLOPHONE)
+                .strength(1.5F, 2.5F),
+                BlockMaterial.BAMBOO);
+    }
+
+    public static BaseBlockProperty glazed() {
+        return new BaseBlockProperty(BlockBehaviour.Properties.of()
+                .sound(SoundType.GLASS)
+                .strength(1.5F, 6.0F)
+                .requiresCorrectToolForDrops()
+                .instrument(NoteBlockInstrument.HAT),
+                BlockMaterial.STONE);
+    }
+
+    public static BaseBlockProperty jade() {
+        return new BaseBlockProperty(BlockBehaviour.Properties.of()
+                .sound(SoundType.GLASS)
+                .strength(1.2F, 5.0F)
+                .requiresCorrectToolForDrops()
+                .instrument(NoteBlockInstrument.BELL),
+                BlockMaterial.STONE);
+    }
+
+    public static BaseBlockProperty flax() {
+        return new BaseBlockProperty(BlockBehaviour.Properties.of()
+                .sound(SoundRegistry.FLAX)
+                .strength(1F, 2F)
+                .ignitedByLava()
+                .instrument(NoteBlockInstrument.BANJO),
+                BlockMaterial.FLAX);
+    }
+
+    public static BaseBlockProperty crop() {
+        return new BaseBlockProperty(BlockBehaviour.Properties.of()
+                .sound(SoundType.CROP)
+                .strength(1F, 1.5F)
+                .ignitedByLava()
+                .pushReaction(PushReaction.DESTROY),
+                BlockMaterial.PLANT);
+    }
+
+    public static BaseBlockProperty plant() {
+        return new BaseBlockProperty(BlockBehaviour.Properties.of()
+                .sound(SoundType.CROP)
+                .strength(1F, 1.5F)
+                .ignitedByLava()
+                .pushReaction(PushReaction.DESTROY),
+                BlockMaterial.PLANT);
+    }
+
+    public static BaseBlockProperty lily() {
+        return new BaseBlockProperty(BlockBehaviour.Properties.of()
+                .sound(SoundType.LILY_PAD)
+                .strength(1F, 1.5F)
+                .instabreak(),
+                BlockMaterial.PLANT);
+    }
+
+    public static BaseBlockProperty silk() {
+        return new BaseBlockProperty(BlockBehaviour.Properties.of()
+                .sound(SoundType.WOOL)
+                .strength(1F, 2F)
+                .ignitedByLava()
+                .instrument(NoteBlockInstrument.GUITAR),
+                BlockMaterial.FABRIC);
+    }
+
+    public static BaseBlockProperty wool() {
+        return new BaseBlockProperty(BlockBehaviour.Properties.of()
+                .sound(SoundType.WOOL)
+                .strength(1F, 2F)
+                .ignitedByLava()
+                .instrument(NoteBlockInstrument.GUITAR),
+                BlockMaterial.WOOL);
+    }
+
+    public static BaseBlockProperty paper() {
+        return new BaseBlockProperty(BlockBehaviour.Properties.of()
+                .sound(SoundType.WOOL)
+                .strength(1F, 2F)
+                .ignitedByLava(),
+                BlockMaterial.PAPER);
+    }
+
+    public static BaseBlockProperty dye() {
+        return new BaseBlockProperty(BlockBehaviour.Properties.of()
+                .sound(SoundType.WOOL)
+                .strength(1F, 1F),
+                BlockMaterial.PAPER);
+    }
+
+    public static BaseBlockProperty ice() {
+        return new BaseBlockProperty(BlockBehaviour.Properties.of()
+                .sound(SoundType.CROP)
+                .strength(0.5F, 1.0F),
+                BlockMaterial.ICE);
+    }
 
     //todo map colors
 
-    final BlockBehaviour.Properties properties;
-    final BlockMaterial material;
-
-    BaseBlockProperty(final BlockBehaviour.Properties properties, final BlockMaterial material) {
-        this.properties = properties;
-        this.material = material;
-    }
 
     public BlockMaterial getMaterial() {
         return material;
-    }
-
-    public BaseBlockProperty copy() {
-        return new BaseBlockProperty(this.properties, this.material);
     }
 
     public enum BlockMaterial {

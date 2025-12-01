@@ -19,7 +19,7 @@ public class BaseDirectionalBlock extends DirectionalBlock implements BaseBlockP
     }
 
     public BaseDirectionalBlock(BaseBlockProperty property) {
-        super(property.properties);
+        super(property.properties());
         this.property = property;
         this.registerDefaultState(this.stateDefinition.any().setValue(FACING, Direction.UP));
     }

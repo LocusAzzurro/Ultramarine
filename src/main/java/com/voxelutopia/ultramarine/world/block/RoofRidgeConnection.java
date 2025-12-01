@@ -17,7 +17,7 @@ public class RoofRidgeConnection extends BaseAxialBlock implements SnowRoofRidge
     private final RoofRidgeType type;
 
     public RoofRidgeConnection(DyeColor color, RoofRidgeType type) {
-        super(BaseBlockProperty.STONE);
+        super(BaseBlockProperty.stone());
         this.type = type;
         this.color = color;
         this.registerDefaultState(this.stateDefinition.any()

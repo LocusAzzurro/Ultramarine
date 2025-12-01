@@ -17,7 +17,7 @@ public class RoofMainRidgeConnection extends BaseHorizontalDirectionalBlock impl
     private final RoofRidgeType type;
 
     public RoofMainRidgeConnection(DyeColor color, RoofRidgeType type) {
-        super(BaseBlockProperty.STONE);
+        super(BaseBlockProperty.stone());
         this.type = type;
         this.color = color;
         this.registerDefaultState(this.stateDefinition.any()

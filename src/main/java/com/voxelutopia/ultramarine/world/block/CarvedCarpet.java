@@ -19,7 +19,7 @@ public class CarvedCarpet extends BaseBlock{
     private final DyeColor color;
 
     public CarvedCarpet(DyeColor color){
-        super(BaseBlockProperty.WOOL);
+        super(BaseBlockProperty.wool());
         this.color = color;
         this.registerDefaultState(this.stateDefinition.any()
                 .setValue(FACING, Direction.NORTH).setValue(SHAPE, StairsShape.STRAIGHT));

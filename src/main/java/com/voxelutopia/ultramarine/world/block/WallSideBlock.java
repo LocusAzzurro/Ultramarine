@@ -27,7 +27,7 @@ public class WallSideBlock extends Block implements BaseBlockPropertyHolder, Sim
     public static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
 
     public WallSideBlock(BaseBlockProperty property, ShapeFunction shapeFunction) {
-        super(property.copy().properties.noOcclusion().noCollission());
+        super(property.properties().noOcclusion().noCollission());
         this.property = property;
         this.registerDefaultState(this.getStateDefinition().any()
                 .setValue(FACING, Direction.NORTH)
