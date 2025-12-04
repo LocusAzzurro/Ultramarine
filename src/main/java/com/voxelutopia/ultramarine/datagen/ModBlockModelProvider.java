@@ -322,10 +322,21 @@ public class ModBlockModelProvider extends BlockStateProvider {
         directionalSideEnd(BlockRegistry.MING_YANZHUOMO_SHINIANYU_OUTER_GUTOU_EDGE.get(), sideLoc(BlockRegistry.MING_YANZHUOMO_SHINIANYU_OUTER_GUTOU_EDGE.get()), GREEN_WOOL);
         chiralWSMirror(BlockRegistry.YUAN_NIANYUZHUANG_GUTOU.get(), BLUE_WOOL);
         // RAFTERS
-        BlockRegistry.BLOCKS.getEntries().stream().filter(blockRegistryObject -> blockRegistryObject.get() instanceof Rafter)
-                .forEach(rafter -> shiftedAxisBlock(rafter.get()));
-        BlockRegistry.BLOCKS.getEntries().stream().filter(blockRegistryObject -> blockRegistryObject.get() instanceof RafterEnd)
-                .forEach(rafterEnd -> shiftedDirectionalBlock(rafterEnd.get(), 180));
+        shiftedAxisBlock(BlockRegistry.GILDED_DARK_OAK_RAFTER.get());
+        shiftedDirectionalBlock(BlockRegistry.GILDED_DARK_OAK_RAFTER_END.get(), 180);
+        shiftedAxisBlock(BlockRegistry.BLUE_TIGER_EYE_RAFTER.get());
+        shiftedDirectionalBlock(BlockRegistry.BLUE_TIGER_EYE_RAFTER_END.get(), 180);
+        shiftedAxisBlock(BlockRegistry.BLUE_CARVED_TIGER_EYE_RAFTER.get());
+        shiftedDirectionalBlock(BlockRegistry.BLUE_CARVED_TIGER_EYE_RAFTER_END.get(), 180);
+        shiftedAxisBlock(BlockRegistry.GREEN_TIGER_EYE_RAFTER.get());
+        shiftedDirectionalBlock(BlockRegistry.GREEN_TIGER_EYE_RAFTER_END.get(), 180);
+        shiftedAxisBlock(BlockRegistry.GREEN_WANZI_RAFTER.get());
+        shiftedDirectionalBlock(BlockRegistry.GREEN_WANZI_RAFTER_END.get(), 180);
+        shiftedAxisBlock(BlockRegistry.GREEN_CARVED_WANZI_RAFTER.get());
+        shiftedDirectionalBlock(BlockRegistry.GREEN_CARVED_WANZI_RAFTER_END.get(), 180);
+        woodenRafter(BlockRegistry.DARK_OAK_RAFTER.get(), "dark_oak", false);
+        woodenRafter(BlockRegistry.DARK_OAK_RAFTER_END.get(), "dark_oak", true);
+
         // BEAM HEAD
         horizontalBlockOffset(BlockRegistry.GILDED_DARK_OAK_BEAM_HEAD.get(), 180);
         // QING_GREEN_BEAM_HEAD -> WallSideBlock
@@ -712,6 +723,21 @@ public class ModBlockModelProvider extends BlockStateProvider {
         shiftedDirectionalBlock(block, 0);
     }
 
+    private void woodenRafter(Block block, String wood, boolean end) {
+        getVariantBuilder(block).forAllStates(blockState -> {
+            ResourceLocation log = ResourceLocation.withDefaultNamespace(BLOCK + "stripped_" + wood + "_log");
+            ResourceLocation top = ResourceLocation.withDefaultNamespace(BLOCK + "stripped_" + wood + "_log_top");
+            int modelRotation = end ? 180 : 0;
+            int blockRotation = (int) (end ? blockState.getValue(HORIZONTAL_FACING).toYRot() : (blockState.getValue(HORIZONTAL_AXIS) == Direction.Axis.X ? 90 : 0));
+            String blockName = wood + "_rafter" + (end ? "_end" : "");
+            String parentName = "wooden_rafter" + (end ? "_end" : "");
+            return ConfiguredModel.builder().modelFile(models().withExistingParent(
+                    blockLoc(block).getPath() + (blockState.getValue(SHIFTED) ? "_shifted" : ""), modLoc(parentName + (blockState.getValue(SHIFTED) ? "_shifted" : "")))
+                            .texture("1", log).texture("2", top).texture("particle", log))
+                    .rotationY(modelRotation + blockRotation).build();
+        });
+    }
+
     private void axisBlock(Block block) {
         getVariantBuilder(block).forAllStates(blockState -> {
             ConfiguredModel.Builder<?> builder;
@@ -735,6 +761,8 @@ public class ModBlockModelProvider extends BlockStateProvider {
             return builder.build();
         });
     }
+
+
 
     private void decorativeBlock(DecorativeBlock block) {
         decorativeBlock(block, 0);

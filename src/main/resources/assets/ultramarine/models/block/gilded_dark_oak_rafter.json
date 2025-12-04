@@ -1,5 +1,5 @@
 {
-  "parent": "ultramarine:block/rafter",
+  "parent": "ultramarine:block/decorated_rafter",
   "textures": {
     "1": "ultramarine:block/gilded_dark_oak_rafter",
     "particle": "ultramarine:block/gilded_dark_oak"

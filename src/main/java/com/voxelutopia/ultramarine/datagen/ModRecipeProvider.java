@@ -574,10 +574,10 @@ public class ModRecipeProvider extends RecipeProvider {
         rafterEnd(ItemRegistry.BLUE_CARVED_TIGER_EYE_RAFTER_END.get(), new Ingredient[]{
                 Ingredient.of(ModItemTags.COMMON_BLUE_DYE), Ingredient.of(ModItemTags.COMMON_BLUE_DYE), Ingredient.of(ModItemTags.COMMON_YELLOW_DYE), Ingredient.of(ItemRegistry.GOLD_DYE_POWDER.get())
         }, recipeConsumer);
-        rafter(ItemRegistry.GREEN_CARVED_TIGER_EYE_RAFTER.get(), new Ingredient[]{
+        rafter(ItemRegistry.GREEN_TIGER_EYE_RAFTER.get(), new Ingredient[]{
                 Ingredient.of(ModItemTags.COMMON_GREEN_DYE), Ingredient.of(ModItemTags.COMMON_GREEN_DYE), Ingredient.of(ItemRegistry.BLUE_DYE_POWDER.get()), Ingredient.of(ItemRegistry.GOLD_DYE_POWDER.get())
         }, recipeConsumer);
-        rafterEnd(ItemRegistry.GREEN_CARVED_TIGER_EYE_RAFTER_END.get(), new Ingredient[]{
+        rafterEnd(ItemRegistry.GREEN_TIGER_EYE_RAFTER_END.get(), new Ingredient[]{
                 Ingredient.of(ModItemTags.COMMON_GREEN_DYE), Ingredient.of(ModItemTags.COMMON_GREEN_DYE), Ingredient.of(ItemRegistry.BLUE_DYE_POWDER.get()), Ingredient.of(ItemRegistry.GOLD_DYE_POWDER.get())
         }, recipeConsumer);
         rafter(ItemRegistry.GREEN_WANZI_RAFTER.get(), new Ingredient[]{

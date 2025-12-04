@@ -337,8 +337,8 @@ public class ItemRegistry {
     public static final DeferredHolder<Item, Item> BLUE_TIGER_EYE_RAFTER_END = fromBlock(BlockRegistry.BLUE_TIGER_EYE_RAFTER_END, ModCreativeTab.DECORATIVE_BLOCKS);
     public static final DeferredHolder<Item, Item> BLUE_CARVED_TIGER_EYE_RAFTER = fromBlock(BlockRegistry.BLUE_CARVED_TIGER_EYE_RAFTER, ModCreativeTab.DECORATIVE_BLOCKS);
     public static final DeferredHolder<Item, Item> BLUE_CARVED_TIGER_EYE_RAFTER_END = fromBlock(BlockRegistry.BLUE_CARVED_TIGER_EYE_RAFTER_END, ModCreativeTab.DECORATIVE_BLOCKS);
-    public static final DeferredHolder<Item, Item> GREEN_CARVED_TIGER_EYE_RAFTER = fromBlock(BlockRegistry.GREEN_CARVED_TIGER_EYE_RAFTER, ModCreativeTab.DECORATIVE_BLOCKS);
-    public static final DeferredHolder<Item, Item> GREEN_CARVED_TIGER_EYE_RAFTER_END = fromBlock(BlockRegistry.GREEN_CARVED_TIGER_EYE_RAFTER_END, ModCreativeTab.DECORATIVE_BLOCKS);
+    public static final DeferredHolder<Item, Item> GREEN_TIGER_EYE_RAFTER = fromBlock(BlockRegistry.GREEN_TIGER_EYE_RAFTER, ModCreativeTab.DECORATIVE_BLOCKS);
+    public static final DeferredHolder<Item, Item> GREEN_TIGER_EYE_RAFTER_END = fromBlock(BlockRegistry.GREEN_TIGER_EYE_RAFTER_END, ModCreativeTab.DECORATIVE_BLOCKS);
     public static final DeferredHolder<Item, Item> GREEN_WANZI_RAFTER = fromBlock(BlockRegistry.GREEN_WANZI_RAFTER, ModCreativeTab.DECORATIVE_BLOCKS);
     public static final DeferredHolder<Item, Item> GREEN_WANZI_RAFTER_END = fromBlock(BlockRegistry.GREEN_WANZI_RAFTER_END, ModCreativeTab.DECORATIVE_BLOCKS);
     public static final DeferredHolder<Item, Item> GREEN_CARVED_WANZI_RAFTER = fromBlock(BlockRegistry.GREEN_CARVED_WANZI_RAFTER, ModCreativeTab.DECORATIVE_BLOCKS);
