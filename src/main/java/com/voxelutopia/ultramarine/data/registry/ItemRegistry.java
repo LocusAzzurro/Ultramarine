@@ -327,12 +327,33 @@ public class ItemRegistry {
     public static final DeferredHolder<Item, Item> MING_YANZHUOMO_SHINIANYU_OUTER_GUTOU_EDGE = fromBlock(BlockRegistry.MING_YANZHUOMO_SHINIANYU_OUTER_GUTOU_EDGE, ModCreativeTab.DECORATIVE_BLOCKS);
     public static final DeferredHolder<Item, Item> YUAN_NIANYUZHUANG_GUTOU = fromBlock(BlockRegistry.YUAN_NIANYUZHUANG_GUTOU, ModCreativeTab.DECORATIVE_BLOCKS);
 
-    // RAFTERS
+    // WOODEN RAFTERS
+
+    public static final DeferredHolder<Item, Item> OAK_RAFTER = fromBlock(BlockRegistry.OAK_RAFTER, ModCreativeTab.DECORATIVE_BLOCKS);
+    public static final DeferredHolder<Item, Item> OAK_RAFTER_END = fromBlock(BlockRegistry.OAK_RAFTER_END, ModCreativeTab.DECORATIVE_BLOCKS);
+    public static final DeferredHolder<Item, Item> SPRUCE_RAFTER = fromBlock(BlockRegistry.SPRUCE_RAFTER, ModCreativeTab.DECORATIVE_BLOCKS);
+    public static final DeferredHolder<Item, Item> SPRUCE_RAFTER_END = fromBlock(BlockRegistry.SPRUCE_RAFTER_END, ModCreativeTab.DECORATIVE_BLOCKS);
+    public static final DeferredHolder<Item, Item> BIRCH_RAFTER = fromBlock(BlockRegistry.BIRCH_RAFTER, ModCreativeTab.DECORATIVE_BLOCKS);
+    public static final DeferredHolder<Item, Item> BIRCH_RAFTER_END = fromBlock(BlockRegistry.BIRCH_RAFTER_END, ModCreativeTab.DECORATIVE_BLOCKS);
+    public static final DeferredHolder<Item, Item> JUNGLE_RAFTER = fromBlock(BlockRegistry.JUNGLE_RAFTER, ModCreativeTab.DECORATIVE_BLOCKS);
+    public static final DeferredHolder<Item, Item> JUNGLE_RAFTER_END = fromBlock(BlockRegistry.JUNGLE_RAFTER_END, ModCreativeTab.DECORATIVE_BLOCKS);
+    public static final DeferredHolder<Item, Item> ACACIA_RAFTER = fromBlock(BlockRegistry.ACACIA_RAFTER, ModCreativeTab.DECORATIVE_BLOCKS);
+    public static final DeferredHolder<Item, Item> ACACIA_RAFTER_END = fromBlock(BlockRegistry.ACACIA_RAFTER_END, ModCreativeTab.DECORATIVE_BLOCKS);
+    public static final DeferredHolder<Item, Item> DARK_OAK_RAFTER = fromBlock(BlockRegistry.DARK_OAK_RAFTER, ModCreativeTab.DECORATIVE_BLOCKS);
+    public static final DeferredHolder<Item, Item> DARK_OAK_RAFTER_END = fromBlock(BlockRegistry.DARK_OAK_RAFTER_END, ModCreativeTab.DECORATIVE_BLOCKS);
+    public static final DeferredHolder<Item, Item> CRIMSON_RAFTER = fromBlock(BlockRegistry.CRIMSON_RAFTER, ModCreativeTab.DECORATIVE_BLOCKS);
+    public static final DeferredHolder<Item, Item> CRIMSON_RAFTER_END = fromBlock(BlockRegistry.CRIMSON_RAFTER_END, ModCreativeTab.DECORATIVE_BLOCKS);
+    public static final DeferredHolder<Item, Item> WARPED_RAFTER = fromBlock(BlockRegistry.WARPED_RAFTER, ModCreativeTab.DECORATIVE_BLOCKS);
+    public static final DeferredHolder<Item, Item> WARPED_RAFTER_END = fromBlock(BlockRegistry.WARPED_RAFTER_END, ModCreativeTab.DECORATIVE_BLOCKS);
+    public static final DeferredHolder<Item, Item> MANGROVE_RAFTER = fromBlock(BlockRegistry.MANGROVE_RAFTER, ModCreativeTab.DECORATIVE_BLOCKS);
+    public static final DeferredHolder<Item, Item> MANGROVE_RAFTER_END = fromBlock(BlockRegistry.MANGROVE_RAFTER_END, ModCreativeTab.DECORATIVE_BLOCKS);
+    public static final DeferredHolder<Item, Item> CHERRY_RAFTER = fromBlock(BlockRegistry.CHERRY_RAFTER, ModCreativeTab.DECORATIVE_BLOCKS);
+    public static final DeferredHolder<Item, Item> CHERRY_RAFTER_END = fromBlock(BlockRegistry.CHERRY_RAFTER_END, ModCreativeTab.DECORATIVE_BLOCKS);
+
+    // DECORATED RAFTERS
 
     public static final DeferredHolder<Item, Item> GILDED_DARK_OAK_RAFTER = fromBlock(BlockRegistry.GILDED_DARK_OAK_RAFTER, ModCreativeTab.DECORATIVE_BLOCKS);
     public static final DeferredHolder<Item, Item> GILDED_DARK_OAK_RAFTER_END = fromBlock(BlockRegistry.GILDED_DARK_OAK_RAFTER_END, ModCreativeTab.DECORATIVE_BLOCKS);
-    public static final DeferredHolder<Item, Item> DARK_OAK_RAFTER = fromBlock(BlockRegistry.DARK_OAK_RAFTER, ModCreativeTab.DECORATIVE_BLOCKS);
-    public static final DeferredHolder<Item, Item> DARK_OAK_RAFTER_END = fromBlock(BlockRegistry.DARK_OAK_RAFTER_END, ModCreativeTab.DECORATIVE_BLOCKS);
     public static final DeferredHolder<Item, Item> BLUE_TIGER_EYE_RAFTER = fromBlock(BlockRegistry.BLUE_TIGER_EYE_RAFTER, ModCreativeTab.DECORATIVE_BLOCKS);
     public static final DeferredHolder<Item, Item> BLUE_TIGER_EYE_RAFTER_END = fromBlock(BlockRegistry.BLUE_TIGER_EYE_RAFTER_END, ModCreativeTab.DECORATIVE_BLOCKS);
     public static final DeferredHolder<Item, Item> BLUE_CARVED_TIGER_EYE_RAFTER = fromBlock(BlockRegistry.BLUE_CARVED_TIGER_EYE_RAFTER, ModCreativeTab.DECORATIVE_BLOCKS);

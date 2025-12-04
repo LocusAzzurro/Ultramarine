@@ -14,7 +14,6 @@ import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.*;
-import net.neoforged.neoforge.client.model.generators.BlockModelBuilder;
 import net.neoforged.neoforge.client.model.generators.BlockStateProvider;
 import net.neoforged.neoforge.client.model.generators.ConfiguredModel;
 import net.neoforged.neoforge.client.model.generators.ModelFile;
@@ -23,9 +22,7 @@ import net.neoforged.neoforge.registries.DeferredHolder;
 import org.apache.commons.lang3.tuple.Pair;
 import org.jetbrains.annotations.NotNull;
 
-import java.util.List;
-import java.util.Map;
-import java.util.Objects;
+import java.util.*;
 
 import static com.voxelutopia.ultramarine.world.block.state.ModBlockStateProperties.*;
 import static net.minecraft.world.level.block.state.properties.BlockStateProperties.*;
@@ -55,6 +52,8 @@ public class ModBlockModelProvider extends BlockStateProvider {
             BlockRegistry.BRICK_KILN,
             BlockRegistry.CHISEL_TABLE
     );
+    private final Set<String> WOOD_MATERIALS = Set.of("oak", "spruce", "birch", "jungle", "acacia", "dark_oak", "crimson", "warped", "mangrove", "cherry");
+    private final Set<String> STEM_TYPES = Set.of("crimson", "warped");
 
     public ModBlockModelProvider(PackOutput output, ExistingFileHelper existingFileHelper) {
         super(output, DataGenerators.MOD_ID, existingFileHelper);
@@ -334,8 +333,12 @@ public class ModBlockModelProvider extends BlockStateProvider {
         shiftedDirectionalBlock(BlockRegistry.GREEN_WANZI_RAFTER_END.get(), 180);
         shiftedAxisBlock(BlockRegistry.GREEN_CARVED_WANZI_RAFTER.get());
         shiftedDirectionalBlock(BlockRegistry.GREEN_CARVED_WANZI_RAFTER_END.get(), 180);
-        woodenRafter(BlockRegistry.DARK_OAK_RAFTER.get(), "dark_oak", false);
-        woodenRafter(BlockRegistry.DARK_OAK_RAFTER_END.get(), "dark_oak", true);
+        WOOD_MATERIALS.forEach(type -> {
+            var rafterBlock = BuiltInRegistries.BLOCK.get(modLoc(type + "_rafter"));
+            var rafterEndBlock = BuiltInRegistries.BLOCK.get(modLoc(type + "_rafter_end"));
+            woodenRafter(rafterBlock, type, false);
+            woodenRafter(rafterEndBlock, type, true);
+        });
 
         // BEAM HEAD
         horizontalBlockOffset(BlockRegistry.GILDED_DARK_OAK_BEAM_HEAD.get(), 180);
@@ -725,8 +728,9 @@ public class ModBlockModelProvider extends BlockStateProvider {
 
     private void woodenRafter(Block block, String wood, boolean end) {
         getVariantBuilder(block).forAllStates(blockState -> {
-            ResourceLocation log = ResourceLocation.withDefaultNamespace(BLOCK + "stripped_" + wood + "_log");
-            ResourceLocation top = ResourceLocation.withDefaultNamespace(BLOCK + "stripped_" + wood + "_log_top");
+            boolean isStem = STEM_TYPES.contains(wood);
+            ResourceLocation log = ResourceLocation.withDefaultNamespace(BLOCK + "stripped_" + wood + (isStem ? "_stem" : "_log"));
+            ResourceLocation top = ResourceLocation.withDefaultNamespace(BLOCK + "stripped_" + wood + (isStem ? "_stem" : "_log") + "_top");
             int modelRotation = end ? 180 : 0;
             int blockRotation = (int) (end ? blockState.getValue(HORIZONTAL_FACING).toYRot() : (blockState.getValue(HORIZONTAL_AXIS) == Direction.Axis.X ? 90 : 0));
             String blockName = wood + "_rafter" + (end ? "_end" : "");

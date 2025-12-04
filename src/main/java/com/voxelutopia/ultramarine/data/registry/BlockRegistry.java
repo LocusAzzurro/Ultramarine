@@ -166,7 +166,7 @@ public class BlockRegistry {
      * DECORATIVE BLOCKS
      */
 
-    // SIMPLE WOODEN
+    // SIMPLE WOODEN BRACKETS
 
     public static final DeferredHolder<Block, Block> OAK_BRACKET = BLOCKS.register("oak_bracket", () -> new Bracket(BaseBlockProperty.wood()));
     public static final DeferredHolder<Block, Block> SPRUCE_BRACKET = BLOCKS.register("spruce_bracket", () -> new Bracket(BaseBlockProperty.wood()));
@@ -329,12 +329,34 @@ public class BlockRegistry {
     public static final DeferredHolder<Block, Block> MING_YANZHUOMO_SHINIANYU_OUTER_GUTOU_EDGE = BLOCKS.register("ming_yanzhuomo_shinianyu_outer_gutou_edge", () -> new BaseDirectionalBlock(BaseBlockProperty.wood()));
     public static final DeferredHolder<Block, Block> YUAN_NIANYUZHUANG_GUTOU = BLOCKS.register("yuan_nianyuzhuang_gutou", () -> new ChiralDirectionalBlock(BaseBlockProperty.wood()));
 
-    // RAFTERS
+    // WOODEN RAFTERS
+
+    public static final DeferredHolder<Block, Block> OAK_RAFTER = BLOCKS.register("oak_rafter", () -> new Rafter(BaseBlockProperty.wood()));
+    public static final DeferredHolder<Block, Block> OAK_RAFTER_END = BLOCKS.register("oak_rafter_end", () -> new RafterEnd(BaseBlockProperty.wood()));
+    public static final DeferredHolder<Block, Block> SPRUCE_RAFTER = BLOCKS.register("spruce_rafter", () -> new Rafter(BaseBlockProperty.wood()));
+    public static final DeferredHolder<Block, Block> SPRUCE_RAFTER_END = BLOCKS.register("spruce_rafter_end", () -> new RafterEnd(BaseBlockProperty.wood()));
+    public static final DeferredHolder<Block, Block> BIRCH_RAFTER = BLOCKS.register("birch_rafter", () -> new Rafter(BaseBlockProperty.wood()));
+    public static final DeferredHolder<Block, Block> BIRCH_RAFTER_END = BLOCKS.register("birch_rafter_end", () -> new RafterEnd(BaseBlockProperty.wood()));
+    public static final DeferredHolder<Block, Block> JUNGLE_RAFTER = BLOCKS.register("jungle_rafter", () -> new Rafter(BaseBlockProperty.wood()));
+    public static final DeferredHolder<Block, Block> JUNGLE_RAFTER_END = BLOCKS.register("jungle_rafter_end", () -> new RafterEnd(BaseBlockProperty.wood()));
+    public static final DeferredHolder<Block, Block> ACACIA_RAFTER = BLOCKS.register("acacia_rafter", () -> new Rafter(BaseBlockProperty.wood()));
+    public static final DeferredHolder<Block, Block> ACACIA_RAFTER_END = BLOCKS.register("acacia_rafter_end", () -> new RafterEnd(BaseBlockProperty.wood()));
+    public static final DeferredHolder<Block, Block> DARK_OAK_RAFTER = BLOCKS.register("dark_oak_rafter", () -> new Rafter(BaseBlockProperty.wood()));
+    public static final DeferredHolder<Block, Block> DARK_OAK_RAFTER_END = BLOCKS.register("dark_oak_rafter_end", () -> new RafterEnd(BaseBlockProperty.wood()));
+    public static final DeferredHolder<Block, Block> CRIMSON_RAFTER = BLOCKS.register("crimson_rafter", () -> new Rafter(BaseBlockProperty.wood()));
+    public static final DeferredHolder<Block, Block> CRIMSON_RAFTER_END = BLOCKS.register("crimson_rafter_end", () -> new RafterEnd(BaseBlockProperty.wood()));
+    public static final DeferredHolder<Block, Block> WARPED_RAFTER = BLOCKS.register("warped_rafter", () -> new Rafter(BaseBlockProperty.wood()));
+    public static final DeferredHolder<Block, Block> WARPED_RAFTER_END = BLOCKS.register("warped_rafter_end", () -> new RafterEnd(BaseBlockProperty.wood()));
+    public static final DeferredHolder<Block, Block> MANGROVE_RAFTER = BLOCKS.register("mangrove_rafter", () -> new Rafter(BaseBlockProperty.wood()));
+    public static final DeferredHolder<Block, Block> MANGROVE_RAFTER_END = BLOCKS.register("mangrove_rafter_end", () -> new RafterEnd(BaseBlockProperty.wood()));
+    public static final DeferredHolder<Block, Block> CHERRY_RAFTER = BLOCKS.register("cherry_rafter", () -> new Rafter(BaseBlockProperty.wood()));
+    public static final DeferredHolder<Block, Block> CHERRY_RAFTER_END = BLOCKS.register("cherry_rafter_end", () -> new RafterEnd(BaseBlockProperty.wood()));
+    //todo varnished wood
+
+    // DECORATED RAFTERS
 
     public static final DeferredHolder<Block, Block> GILDED_DARK_OAK_RAFTER = BLOCKS.register("gilded_dark_oak_rafter", () -> new Rafter(BaseBlockProperty.wood()));
     public static final DeferredHolder<Block, Block> GILDED_DARK_OAK_RAFTER_END = BLOCKS.register("gilded_dark_oak_rafter_end", () -> new RafterEnd(BaseBlockProperty.wood()));
-    public static final DeferredHolder<Block, Block> DARK_OAK_RAFTER = BLOCKS.register("dark_oak_rafter", () -> new Rafter(BaseBlockProperty.wood()));
-    public static final DeferredHolder<Block, Block> DARK_OAK_RAFTER_END = BLOCKS.register("dark_oak_rafter_end", () -> new RafterEnd(BaseBlockProperty.wood()));
     public static final DeferredHolder<Block, Block> BLUE_TIGER_EYE_RAFTER = BLOCKS.register("blue_tiger_eye_rafter", () -> new Rafter(BaseBlockProperty.wood()));
     public static final DeferredHolder<Block, Block> BLUE_TIGER_EYE_RAFTER_END = BLOCKS.register("blue_tiger_eye_rafter_end", () -> new RafterEnd(BaseBlockProperty.wood()));
     public static final DeferredHolder<Block, Block> BLUE_CARVED_TIGER_EYE_RAFTER = BLOCKS.register("blue_carved_tiger_eye_rafter", () -> new Rafter(BaseBlockProperty.wood()));
