@@ -1,10 +1,10 @@
 {
   "type": "ultramarine:woodworking",
   "ingredient": {
-    "tag": "minecraft:dark_oak_logs"
+    "tag": "minecraft:mangrove_logs"
   },
   "result": {
     "count": 1,
-    "id": "ultramarine:dark_oak_rafter_end"
+    "id": "ultramarine:mangrove_rafter_end"
   }
 }

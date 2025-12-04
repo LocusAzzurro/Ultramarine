@@ -178,7 +178,7 @@ public class ModRecipeProvider extends RecipeProvider {
 
     private static void categoryDecorativeBlocks(@NotNull RecipeOutput recipeConsumer) {
 
-        // SIMPLE WOODEN
+        // SIMPLE WOODEN BRACKET
 
         woodworking(RecipeCategory.BUILDING_BLOCKS, Ingredient.of(ItemTags.OAK_LOGS), ItemRegistry.OAK_BRACKET.get()).unlockedBy("has_wood", tagUnlock(ItemTags.OAK_LOGS)).save(recipeConsumer);
         woodworking(RecipeCategory.BUILDING_BLOCKS, Ingredient.of(ItemTags.SPRUCE_LOGS), ItemRegistry.SPRUCE_BRACKET.get()).unlockedBy("has_wood", tagUnlock(ItemTags.SPRUCE_LOGS)).save(recipeConsumer);
@@ -550,12 +550,51 @@ public class ModRecipeProvider extends RecipeProvider {
                         Ingredient.of(ModItemTags.COMMON_BLUE_DYE), Ingredient.of(ModItemTags.COMMON_GREEN_DYE), Ingredient.of(ModItemTags.COMMON_BROWN_DYE), Ingredient.of(ModItemTags.COMMON_BLUE_DYE)},
                 recipeConsumer);
 
-        // RAFTERS
+        // WOODEN RAFTERS
 
-        woodworking(RecipeCategory.DECORATIONS, Ingredient.of(Items.STRIPPED_DARK_OAK_LOG), ItemRegistry.DARK_OAK_RAFTER.get())
-                .unlockedBy(getHasName(Items.STRIPPED_DARK_OAK_LOG), itemCriterion(Items.STRIPPED_DARK_OAK_LOG)).save(recipeConsumer);
-        woodworking(RecipeCategory.DECORATIONS, Ingredient.of(Items.STRIPPED_DARK_OAK_LOG), ItemRegistry.DARK_OAK_RAFTER_END.get())
-                .unlockedBy(getHasName(Items.STRIPPED_DARK_OAK_LOG), itemCriterion(Items.STRIPPED_DARK_OAK_LOG)).save(recipeConsumer);
+        woodworking(RecipeCategory.DECORATIONS, Ingredient.of(ItemTags.OAK_LOGS), ItemRegistry.OAK_RAFTER.get())
+                .unlockedBy("has_wood", tagUnlock(ItemTags.OAK_LOGS)).save(recipeConsumer);
+        woodworking(RecipeCategory.DECORATIONS, Ingredient.of(ItemTags.OAK_LOGS), ItemRegistry.OAK_RAFTER_END.get())
+                .unlockedBy("has_wood", tagUnlock(ItemTags.OAK_LOGS)).save(recipeConsumer);
+        woodworking(RecipeCategory.DECORATIONS, Ingredient.of(ItemTags.SPRUCE_LOGS), ItemRegistry.SPRUCE_RAFTER.get())
+                .unlockedBy("has_wood", tagUnlock(ItemTags.SPRUCE_LOGS)).save(recipeConsumer);
+        woodworking(RecipeCategory.DECORATIONS, Ingredient.of(ItemTags.SPRUCE_LOGS), ItemRegistry.SPRUCE_RAFTER_END.get())
+                .unlockedBy("has_wood", tagUnlock(ItemTags.SPRUCE_LOGS)).save(recipeConsumer);
+        woodworking(RecipeCategory.DECORATIONS, Ingredient.of(ItemTags.BIRCH_LOGS), ItemRegistry.BIRCH_RAFTER.get())
+                .unlockedBy("has_wood", tagUnlock(ItemTags.BIRCH_LOGS)).save(recipeConsumer);
+        woodworking(RecipeCategory.DECORATIONS, Ingredient.of(ItemTags.BIRCH_LOGS), ItemRegistry.BIRCH_RAFTER_END.get())
+                .unlockedBy("has_wood", tagUnlock(ItemTags.BIRCH_LOGS)).save(recipeConsumer);
+        woodworking(RecipeCategory.DECORATIONS, Ingredient.of(ItemTags.JUNGLE_LOGS), ItemRegistry.JUNGLE_RAFTER.get())
+                .unlockedBy("has_wood", tagUnlock(ItemTags.JUNGLE_LOGS)).save(recipeConsumer);
+        woodworking(RecipeCategory.DECORATIONS, Ingredient.of(ItemTags.JUNGLE_LOGS), ItemRegistry.JUNGLE_RAFTER_END.get())
+                .unlockedBy("has_wood", tagUnlock(ItemTags.JUNGLE_LOGS)).save(recipeConsumer);
+        woodworking(RecipeCategory.DECORATIONS, Ingredient.of(ItemTags.ACACIA_LOGS), ItemRegistry.ACACIA_RAFTER.get())
+                .unlockedBy("has_wood", tagUnlock(ItemTags.ACACIA_LOGS)).save(recipeConsumer);
+        woodworking(RecipeCategory.DECORATIONS, Ingredient.of(ItemTags.ACACIA_LOGS), ItemRegistry.ACACIA_RAFTER_END.get())
+                .unlockedBy("has_wood", tagUnlock(ItemTags.ACACIA_LOGS)).save(recipeConsumer);
+        woodworking(RecipeCategory.DECORATIONS, Ingredient.of(ItemTags.DARK_OAK_LOGS), ItemRegistry.DARK_OAK_RAFTER.get())
+                .unlockedBy("has_wood", tagUnlock(ItemTags.DARK_OAK_LOGS)).save(recipeConsumer);
+        woodworking(RecipeCategory.DECORATIONS, Ingredient.of(ItemTags.DARK_OAK_LOGS), ItemRegistry.DARK_OAK_RAFTER_END.get())
+                .unlockedBy("has_wood", tagUnlock(ItemTags.DARK_OAK_LOGS)).save(recipeConsumer);
+        woodworking(RecipeCategory.DECORATIONS, Ingredient.of(ItemTags.CRIMSON_STEMS), ItemRegistry.CRIMSON_RAFTER.get())
+                .unlockedBy("has_wood", tagUnlock(ItemTags.CRIMSON_STEMS)).save(recipeConsumer);
+        woodworking(RecipeCategory.DECORATIONS, Ingredient.of(ItemTags.CRIMSON_STEMS), ItemRegistry.CRIMSON_RAFTER_END.get())
+                .unlockedBy("has_wood", tagUnlock(ItemTags.CRIMSON_STEMS)).save(recipeConsumer);
+        woodworking(RecipeCategory.DECORATIONS, Ingredient.of(ItemTags.WARPED_STEMS), ItemRegistry.WARPED_RAFTER.get())
+                .unlockedBy("has_wood", tagUnlock(ItemTags.WARPED_STEMS)).save(recipeConsumer);
+        woodworking(RecipeCategory.DECORATIONS, Ingredient.of(ItemTags.WARPED_STEMS), ItemRegistry.WARPED_RAFTER_END.get())
+                .unlockedBy("has_wood", tagUnlock(ItemTags.WARPED_STEMS)).save(recipeConsumer);
+        woodworking(RecipeCategory.DECORATIONS, Ingredient.of(ItemTags.MANGROVE_LOGS), ItemRegistry.MANGROVE_RAFTER.get())
+                .unlockedBy("has_wood", tagUnlock(ItemTags.MANGROVE_LOGS)).save(recipeConsumer);
+        woodworking(RecipeCategory.DECORATIONS, Ingredient.of(ItemTags.MANGROVE_LOGS), ItemRegistry.MANGROVE_RAFTER_END.get())
+                .unlockedBy("has_wood", tagUnlock(ItemTags.MANGROVE_LOGS)).save(recipeConsumer);
+        woodworking(RecipeCategory.DECORATIONS, Ingredient.of(ItemTags.CHERRY_LOGS), ItemRegistry.CHERRY_RAFTER.get())
+                .unlockedBy("has_wood", tagUnlock(ItemTags.CHERRY_LOGS)).save(recipeConsumer);
+        woodworking(RecipeCategory.DECORATIONS, Ingredient.of(ItemTags.CHERRY_LOGS), ItemRegistry.CHERRY_RAFTER_END.get())
+                .unlockedBy("has_wood", tagUnlock(ItemTags.CHERRY_LOGS)).save(recipeConsumer);
+
+        // DECORATED RAFTERS
+
         ShapelessRecipeBuilder.shapeless(RecipeCategory.DECORATIONS, ItemRegistry.GILDED_DARK_OAK_RAFTER.get())
                 .requires(ItemRegistry.DARK_OAK_RAFTER.get()).requires(ItemRegistry.GOLD_PARTS.get())
                 .unlockedBy(getHasName(ItemRegistry.DARK_OAK_RAFTER.get()), itemCriterion(ItemRegistry.DARK_OAK_RAFTER.get())).save(recipeConsumer);

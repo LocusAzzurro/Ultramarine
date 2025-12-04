@@ -3,7 +3,7 @@
   "criteria": {
     "has_the_recipe": {
       "conditions": {
-        "recipe": "ultramarine:dark_oak_rafter"
+        "recipe": "ultramarine:birch_rafter"
       },
       "trigger": "minecraft:recipe_unlocked"
     },
@@ -11,7 +11,7 @@
       "conditions": {
         "items": [
           {
-            "items": "#minecraft:dark_oak_logs"
+            "items": "#minecraft:birch_logs"
           }
         ]
       },
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "ultramarine:dark_oak_rafter"
+      "ultramarine:birch_rafter"
     ]
   }
 }
