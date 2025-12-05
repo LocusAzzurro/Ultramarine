@@ -21,6 +21,7 @@ import net.minecraft.world.level.block.BaseEntityBlock;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.EntityBlock;
 import net.minecraft.world.level.block.HorizontalDirectionalBlock;
+import net.minecraft.world.level.block.entity.AbstractFurnaceBlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityTicker;
 import net.minecraft.world.level.block.entity.BlockEntityType;
@@ -78,23 +79,23 @@ public class BrickKiln extends DecorativeBlock implements EntityBlock, BaseBlock
     }
 
     @Override
-    public void onRemove(BlockState pState, Level pLevel, BlockPos pPos, BlockState pNewState, boolean pIsMoving) {
-        if (!pState.is(pNewState.getBlock())) {
-            BlockEntity blockentity = pLevel.getBlockEntity(pPos);
+    protected void onRemove(BlockState state, Level level, BlockPos pos, BlockState newState, boolean isMoving) {
+        if (!state.is(newState.getBlock())) {
+            BlockEntity blockentity = level.getBlockEntity(pos);
             if (blockentity instanceof BrickKilnBlockEntity furnace) {
-                if (pLevel instanceof ServerLevel) {
+                if (level instanceof ServerLevel) {
                     IItemHandler handler = furnace.wrapHandlers();
                     for (int i = 0; i < handler.getSlots(); i++)
-                        Containers.dropItemStack(pLevel, pPos.getX(), pPos.getY(), pPos.getZ(), handler.getStackInSlot(i));
-                    furnace.getRecipesToAwardAndPopExperience((ServerLevel) pLevel, Vec3.atCenterOf(pPos));
+                        Containers.dropItemStack(level, pos.getX(), pos.getY(), pos.getZ(), handler.getStackInSlot(i));
+                    furnace.getRecipesToAwardAndPopExperience((ServerLevel) level, Vec3.atCenterOf(pos));
                 }
-                pLevel.updateNeighbourForOutputSignal(pPos, this);
+                super.onRemove(state, level, pos, newState, isMoving);
+                level.updateNeighbourForOutputSignal(pos, this);
+            } else {
+                super.onRemove(state, level, pos, newState, isMoving);
             }
         }
-        super.onRemove(pState, pLevel, pPos, pNewState, pIsMoving);
     }
-
-    
 
     @Override
     public void animateTick(BlockState pState, Level pLevel, BlockPos pPos, RandomSource pRand) {

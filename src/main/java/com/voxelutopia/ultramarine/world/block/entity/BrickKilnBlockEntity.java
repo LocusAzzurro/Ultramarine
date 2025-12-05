@@ -270,9 +270,9 @@ public class BrickKilnBlockEntity extends BlockEntity implements MenuProvider {
         List<RecipeHolder<?>> list = Lists.newArrayList();
 
         for (Object2IntMap.Entry<ResourceLocation> entry : this.recipesUsed.object2IntEntrySet()) {
-            pLevel.getRecipeManager().byKey(entry.getKey()).ifPresent((p_155023_) -> {
-                list.add(p_155023_);
-                createExperience(pLevel, pos, entry.getIntValue(), ((AbstractCookingRecipe) p_155023_.value()).getExperience());
+            pLevel.getRecipeManager().byKey(entry.getKey()).ifPresent((recipe) -> {
+                list.add(recipe);
+                createExperience(pLevel, pos, entry.getIntValue(), ((CompositeSmeltingRecipe) recipe.value()).getExp());
             });
         }
 
