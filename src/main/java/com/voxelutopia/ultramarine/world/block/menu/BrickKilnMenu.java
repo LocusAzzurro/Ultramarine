@@ -5,12 +5,15 @@ import com.voxelutopia.ultramarine.data.registry.MenuTypeRegistry;
 import com.voxelutopia.ultramarine.data.registry.RecipeTypeRegistry;
 import com.voxelutopia.ultramarine.world.block.entity.BrickKilnBlockEntity;
 import net.minecraft.core.BlockPos;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.*;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.SingleRecipeInput;
+import net.minecraft.world.level.block.entity.AbstractFurnaceBlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntity;
+import net.neoforged.neoforge.event.EventHooks;
 import net.neoforged.neoforge.items.IItemHandler;
 import net.neoforged.neoforge.items.ItemStackHandler;
 import net.neoforged.neoforge.items.SlotItemHandler;
@@ -53,7 +56,7 @@ public class BrickKilnMenu extends AbstractContainerMenu {
         this.addSlot(new IngredientSlot(storage, SLOT_INPUT_PRIMARY, 46, 17));
         this.addSlot(new IngredientSlot(storage, SLOT_INPUT_SECONDARY, 66, 17));
         this.addSlot(new FuelSlot(storage, SLOT_FUEL, 56, 53));
-        this.addSlot(new OutputSlot(storage, SLOT_RESULT, 116, 35));
+        this.addSlot(new OutputSlot(playerEntity, storage, blockEntity, SLOT_RESULT, 116, 35));
 
         for (int r = 0; r < 3; ++r) {
             for (int c = 0; c < 9; ++c) {
@@ -148,13 +151,49 @@ public class BrickKilnMenu extends AbstractContainerMenu {
     }
 
     static class OutputSlot extends SlotItemHandler {
-        public OutputSlot(IItemHandler itemHandler, int index, int xPosition, int yPosition) {
+
+        private final Player player;
+        private final BlockEntity blockEntity;
+        private int removeCount;
+
+        public OutputSlot(Player player, IItemHandler itemHandler, BlockEntity blockEntity, int index, int xPosition, int yPosition) {
             super(itemHandler, index, xPosition, yPosition);
+            this.player = player;
+            this.blockEntity = blockEntity;
         }
 
         @Override
         public boolean mayPlace(@Nonnull ItemStack stack) {
             return false;
+        }
+
+        @Override
+        public ItemStack remove(int amount) {
+            if (this.hasItem()) {
+                this.removeCount = this.removeCount + Math.min(amount, this.getItem().getCount());
+            }
+            return super.remove(amount);
+        }
+
+        @Override
+        public void onTake(Player player, ItemStack stack) {
+            this.checkTakeAchievements(stack);
+            super.onTake(player, stack);
+        }
+
+        @Override
+        protected void onQuickCraft(ItemStack stack, int amount) {
+            this.removeCount += amount;
+            this.checkTakeAchievements(stack);
+        }
+
+        @Override
+        protected void checkTakeAchievements(ItemStack stack) {
+            stack.onCraftedBy(this.player.level(), this.player, this.removeCount);
+            if (this.player instanceof ServerPlayer serverplayer && blockEntity instanceof BrickKilnBlockEntity kiln) {
+                kiln.awardUsedRecipesAndPopExperience(serverplayer);
+            }
+            this.removeCount = 0;
         }
     }
 
