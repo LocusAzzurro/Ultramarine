@@ -1,5 +1,6 @@
 package com.voxelutopia.ultramarine.world.block;
 
+import com.mojang.serialization.MapCodec;
 import com.voxelutopia.ultramarine.data.registry.BlockEntityRegistry;
 import com.voxelutopia.ultramarine.world.block.entity.BlockEntityHelper;
 import com.voxelutopia.ultramarine.world.block.entity.BrickKilnBlockEntity;
@@ -16,6 +17,7 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.BaseEntityBlock;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.EntityBlock;
 import net.minecraft.world.level.block.HorizontalDirectionalBlock;
@@ -41,6 +43,11 @@ public class BrickKiln extends DecorativeBlock implements EntityBlock, BaseBlock
         super(DecorativeBlock.with(BaseBlockProperty.stone())
                 .shaped(Block.box(0, 0, 0, 16, 15, 16)).directional().luminous().noOcclusion());
         this.registerDefaultState(this.stateDefinition.any().setValue(FACING, Direction.NORTH).setValue(LIT, Boolean.FALSE));
+    }
+
+    @Override
+    protected MapCodec<? extends BrickKiln> codec() {
+        return simpleCodec(properties -> new BrickKiln());
     }
 
     @Nullable
@@ -81,13 +88,13 @@ public class BrickKiln extends DecorativeBlock implements EntityBlock, BaseBlock
                         Containers.dropItemStack(pLevel, pPos.getX(), pPos.getY(), pPos.getZ(), handler.getStackInSlot(i));
                     furnace.getRecipesToAwardAndPopExperience((ServerLevel) pLevel, Vec3.atCenterOf(pPos));
                 }
-
                 pLevel.updateNeighbourForOutputSignal(pPos, this);
             }
-
-            super.onRemove(pState, pLevel, pPos, pNewState, pIsMoving);
         }
+        super.onRemove(pState, pLevel, pPos, pNewState, pIsMoving);
     }
+
+    
 
     @Override
     public void animateTick(BlockState pState, Level pLevel, BlockPos pPos, RandomSource pRand) {
