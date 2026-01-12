@@ -493,15 +493,15 @@ public class BlockRegistry {
     // STUDY
 
     public static final DeferredHolder<Block, Block> ABACUS = BLOCKS.register("abacus",
-            () -> DecorativeBlock.with(BaseBlockProperty.wood()).shaped(ShapeFunction.eightRotations(new RawVoxelShape(-1, 0, 3.5, 17, 1.5, 12.5))).directional().diagonallyPlaceable().noCollision().build());
+            () -> DecorativeBlock.with(BaseBlockProperty.wood()).shaped(ShapeFunction.eightRotations(new RawVoxelShape(-1, 0, 3.5, 17, 1.5, 12.5))).directional().diagonallyPlaceable().noOcclusion().noCollision().build());
     public static final DeferredHolder<Block, Block> BRUSH_TOOLS = BLOCKS.register("brush_tools",
             () -> DecorativeBlock.with(BaseBlockProperty.wood()).shaped(ShapeFunction.eightRotations(new RawVoxelShape(0.5, 0, 4, 15.5, 13, 10))).directional().diagonallyPlaceable().noCollision().build());
     public static final DeferredHolder<Block, Block> BRUSH_AND_INKSTONE = BLOCKS.register("brush_and_inkstone",
             () -> DecorativeBlock.with(BaseBlockProperty.paper()).shaped(BlockShapes.S16_H4).directional().noCollision().noOcclusion().build());
     public static final DeferredHolder<Block, Block> RULER = BLOCKS.register("ruler",
-            () -> DecorativeBlock.with(BaseBlockProperty.wood()).shaped(BlockShapes.S16_H1).directional().diagonallyPlaceable().noCollision().build());
+            () -> DecorativeBlock.with(BaseBlockProperty.wood()).shaped(BlockShapes.S16_H1).directional().diagonallyPlaceable().noOcclusion().noCollision().build());
     public static final DeferredHolder<Block, Block> PAINTING_SCROLL = BLOCKS.register("painting_scroll",
-            () -> DecorativeBlock.with(BaseBlockProperty.paper()).shaped(BlockShapes.S16_H4).directional().diagonallyPlaceable().noCollision().noOcclusion().build());
+            () -> DecorativeBlock.with(BaseBlockProperty.paper()).shaped(BlockShapes.S16_H4).directional().diagonallyPlaceable().noOcclusion().noCollision().build());
     public static final DeferredHolder<Block, Block> BOOK_STACK = BLOCKS.register("book_stack",
             () -> DecorativeBlock.with(BaseBlockProperty.paper()).shaped(BlockShapes.S16_H4).directional().noOcclusion().build());
     public static final DeferredHolder<Block, Block> PAPER = BLOCKS.register("paper",
@@ -711,12 +711,12 @@ public class BlockRegistry {
     public static final DeferredHolder<Block, Block> EBONY_CABINET = BLOCKS.register("ebony_cabinet",
             () -> ContainerDecorativeBlock.with(BaseBlockProperty.wood()).content(ContainerType.COMMON_LARGE).shaped(
                             ShapeFunction.or(ShapeFunction.cardinalRotations(new RawVoxelShape(-6, 0, 0, 22, 30, 16)), ShapeFunction.cardinalRotations(new RawVoxelShape(-7, 30, -1, 23, 32, 17))))
-                    .directional().noFenceConnect().build());
+                    .directional().noOcclusion().noFenceConnect().build());
 
     // TABLE
 
     public static final DeferredHolder<Block, Block> LARGE_TEA_TABLE = BLOCKS.register("large_tea_table",
-            () -> DecorativeBlock.with(BaseBlockProperty.wood()).shaped(ShapeFunction.cardinalRotations(new RawVoxelShape(-12, 0, -3, 28, 8, 19))).directional().build());
+            () -> DecorativeBlock.with(BaseBlockProperty.wood()).shaped(ShapeFunction.cardinalRotations(new RawVoxelShape(-12, 0, -3, 28, 8, 19))).directional().noOcclusion().build());
     public static final DeferredHolder<Block, Block> CHESS_TABLE = BLOCKS.register("chess_table",
             () -> DecorativeBlock.with(BaseBlockProperty.wood()).shaped(ShapeFunction.centeredSquare(32, 4)).directional().diagonallyPlaceable().build());
     public static final DeferredHolder<Block, Block> HIGH_TABLE_WITH_WHITE_TOP = BLOCKS.register("high_table_with_white_top",
@@ -726,13 +726,13 @@ public class BlockRegistry {
                             ShapeFunction.diagonal(new RawVoxelShape(4, 0, 4, 12, 2, 12)), ShapeFunction.diagonal(new RawVoxelShape(2, 2, 2, 14, 28, 14)), ShapeFunction.diagonal(new RawVoxelShape(3, 28, 3, 13, 32, 13))))
                     .directional().diagonallyPlaceable().build());
     public static final DeferredHolder<Block, Block> PORCELAIN_INLAID_TABLE = BLOCKS.register("porcelain_inlaid_table",
-            () -> DecorativeBlock.with(BaseBlockProperty.wood()).shaped(BlockShapes.S16_H16).directional().noFenceConnect().build());
+            () -> DecorativeBlock.with(BaseBlockProperty.wood()).shaped(BlockShapes.S16_H16).directional().noOcclusion().noFenceConnect().build());
     public static final DeferredHolder<Block, Block> SMALL_TABLE = BLOCKS.register("small_table",
             () -> DecorativeBlock.with(BaseBlockProperty.wood()).shaped(ShapeFunction.diagonalSquare(11, 16)).directional().diagonallyPlaceable().build());
     public static final DeferredHolder<Block, Block> SMALL_EBONY_TABLE = BLOCKS.register("small_ebony_table",
             () -> DecorativeBlock.with(BaseBlockProperty.wood()).shaped(ShapeFunction.centeredSquare(13, 16)).directional().build());
     public static final DeferredHolder<Block, Block> LARGE_TABLE = BLOCKS.register("large_table",
-            () -> DecorativeBlock.with(BaseBlockProperty.wood()).shaped(ShapeFunction.centeredSquare(48, 16)).directional().build());
+            () -> DecorativeBlock.with(BaseBlockProperty.wood()).shaped(ShapeFunction.centeredSquare(48, 16)).directional().noOcclusion().build());
     public static final DeferredHolder<Block, Block> LONG_TABLE = BLOCKS.register("long_table",
             () -> new LongTableBlock(BaseBlockProperty.wood()));
 
@@ -745,13 +745,13 @@ public class BlockRegistry {
     public static final DeferredHolder<Block, Block> PAINTED_CHAIR = BLOCKS.register("painted_chair",
             () -> SeatDecorativeBlock.with(BaseBlockProperty.wood()).seatOffset(new Vec3(0.0f, -0.1f, 0.0f)).shaped(ShapeFunction.centeredSquare(18, 10)).directional().build());
     public static final DeferredHolder<Block, Block> WOODEN_STOOL = BLOCKS.register("wooden_stool",
-            () -> SeatDecorativeBlock.with(BaseBlockProperty.wood()).seatOffset(new Vec3(0.0f, -0.1f, 0.0f)).shaped(ShapeFunction.centeredSquare(16, 12)).directional().build());
+            () -> SeatDecorativeBlock.with(BaseBlockProperty.wood()).seatOffset(new Vec3(0.0f, -0.1f, 0.0f)).shaped(ShapeFunction.centeredSquare(16, 12)).directional().noOcclusion().build());
     public static final DeferredHolder<Block, Block> PORCELAIN_INLAID_GRAND_CHAIR = BLOCKS.register("porcelain_inlaid_grand_chair",
-            () -> SeatDecorativeBlock.with(BaseBlockProperty.wood()).seatOffset(new Vec3(0.0f, -0.1f, 0.0f)).shaped(ShapeFunction.centeredSquare(16, 12)).directional().build());
+            () -> SeatDecorativeBlock.with(BaseBlockProperty.wood()).seatOffset(new Vec3(0.0f, -0.1f, 0.0f)).shaped(ShapeFunction.centeredSquare(16, 12)).directional().noOcclusion().build());
     public static final DeferredHolder<Block, Block> YELLOW_CUSHION = BLOCKS.register("yellow_cushion",
             () -> SeatDecorativeBlock.with(BaseBlockProperty.silk()).seatOffset(new Vec3(0.0f, -0.5f, 0.0f)).shaped(ShapeFunction.eightRotations(new RawVoxelShape(2, 0, 1.5, 14, 4, 13.5))).directional().diagonallyPlaceable().noOcclusion().build());
     public static final DeferredHolder<Block, Block> OAK_BED = BLOCKS.register("oak_bed",
-            () -> SeatDecorativeBlock.with(BaseBlockProperty.wood()).seatOffset(new Vec3(0.0f, -0.1f, 0.0f)).shaped(ShapeFunction.cardinalRotations(new RawVoxelShape(-8, 0, 0, 24, 8, 16))).directional().build());
+            () -> SeatDecorativeBlock.with(BaseBlockProperty.wood()).seatOffset(new Vec3(0.0f, -0.1f, 0.0f)).shaped(ShapeFunction.cardinalRotations(new RawVoxelShape(-8, 0, 0, 24, 8, 16))).directional().noOcclusion().build());
     public static final DeferredHolder<Block, Block> EBONY_BED = BLOCKS.register("ebony_bed",
             () -> SeatDecorativeBlock.with(BaseBlockProperty.wood()).seatOffset(new Vec3(0.0f, 0.1f, 0.0f)).shaped(ShapeFunction.cardinalRotations(new RawVoxelShape(-15, 0, -1, 31, 13, 17))).directional().build());
 
@@ -933,11 +933,11 @@ public class BlockRegistry {
     public static final DeferredHolder<Block, Block> SMALL_RED_LANTERN = BLOCKS.register("small_red_lantern",
             () -> DecorativeBlock.with(BaseBlockProperty.wood()).shaped(ShapeFunction.diagonalSquare(10, 10)).diagonallyPlaceable().luminous().build());
     public static final DeferredHolder<Block, Block> WHITE_SKY_LANTERN = BLOCKS.register("white_sky_lantern",
-            () -> DecorativeBlock.with(BaseBlockProperty.bamboo()).shaped(ShapeFunction.centeredSquare(16, 24)).luminous().build());
+            () -> DecorativeBlock.with(BaseBlockProperty.bamboo()).shaped(ShapeFunction.centeredSquare(16, 24)).luminous().noOcclusion().build());
     public static final DeferredHolder<Block, Block> RED_SKY_LANTERN = BLOCKS.register("red_sky_lantern",
-            () -> DecorativeBlock.with(BaseBlockProperty.bamboo()).shaped(ShapeFunction.centeredSquare(16, 24)).luminous().build());
+            () -> DecorativeBlock.with(BaseBlockProperty.bamboo()).shaped(ShapeFunction.centeredSquare(16, 24)).luminous().noOcclusion().build());
     public static final DeferredHolder<Block, Block> YELLOW_SKY_LANTERN = BLOCKS.register("yellow_sky_lantern",
-            () -> DecorativeBlock.with(BaseBlockProperty.bamboo()).shaped(ShapeFunction.centeredSquare(16, 24)).luminous().build());
+            () -> DecorativeBlock.with(BaseBlockProperty.bamboo()).shaped(ShapeFunction.centeredSquare(16, 24)).luminous().noOcclusion().build());
 
     // LAMP
 
