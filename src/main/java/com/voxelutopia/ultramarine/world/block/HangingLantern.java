@@ -27,7 +27,7 @@ public class HangingLantern extends DecorativeBlock {
     public static final IntegerProperty LANTERNS = ModBlockStateProperties.LANTERNS;
     private static final RawVoxelShape POLE_NORTH_RAW = new RawVoxelShape(7, -16, 1, 9, 32, 3);
     private static final RawVoxelShape POLE_HANGING_X_RAW = new RawVoxelShape(0, 28, 7, 16, 30, 9);
-    private static final VoxelShape HANGING_INTERACTION = Block.box(4, -8, 4, 12, 24, 12);
+    private static final VoxelShape HANGING_INTERACTION = Block.box(4.5, -8, 4.5, 11.5, 30, 11.5);
     private static final VoxelShape POLE_NORTH = POLE_NORTH_RAW.copy().toVoxelShape();
     private static final VoxelShape POLE_WEST = POLE_NORTH_RAW.copy().rotateY(90).toVoxelShape();
     private static final VoxelShape POLE_SOUTH = POLE_NORTH_RAW.copy().rotateY(180).toVoxelShape();
@@ -60,8 +60,8 @@ public class HangingLantern extends DecorativeBlock {
             }
             case HANGING -> {
                 return switch (pState.getValue(FACING)){
-                    case DOWN, UP, NORTH, SOUTH -> POLE_HANGING_X;
-                    case EAST, WEST -> POLE_HANGING_Z;
+                    case DOWN, UP, NORTH, SOUTH -> HANGING_INTERACTION_X;
+                    case EAST, WEST -> HANGING_INTERACTION_Z;
                 };
             }
         }
@@ -69,17 +69,24 @@ public class HangingLantern extends DecorativeBlock {
     }
 
     @Override
-    public VoxelShape getInteractionShape(BlockState pState, BlockGetter pLevel, BlockPos pPos) {
+    public VoxelShape getCollisionShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
         switch (this.type){
-            case POLE -> getShape(pState, pLevel, pPos, CollisionContext.empty());
+            case POLE -> {
+                return switch (pState.getValue(FACING)){
+                    case DOWN, UP, NORTH -> POLE_NORTH;
+                    case SOUTH -> POLE_SOUTH;
+                    case WEST -> POLE_WEST;
+                    case EAST -> POLE_EAST;
+                };
+            }
             case HANGING -> {
                 return switch (pState.getValue(FACING)){
-                    case DOWN, UP, NORTH, SOUTH -> HANGING_INTERACTION_X;
-                    case EAST, WEST -> HANGING_INTERACTION_Z;
+                    case DOWN, UP, NORTH, SOUTH -> POLE_HANGING_X;
+                    case EAST, WEST -> POLE_HANGING_Z;
                 };
             }
         }
-        return super.getInteractionShape(pState, pLevel, pPos);
+        return Shapes.empty();
     }
 
     @Override
