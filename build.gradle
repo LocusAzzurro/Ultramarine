@@ -135,6 +135,7 @@ tasks.withType(ProcessResources).configureEach {
             minecraft_version      : minecraft_version,
             minecraft_version_range: minecraft_version_range,
             neo_version            : neo_version,
+            neo_version_range      : neo_version_range,
             loader_version_range   : loader_version_range,
             mod_icon               : mod_icon,
             mod_credits            : mod_credits,
