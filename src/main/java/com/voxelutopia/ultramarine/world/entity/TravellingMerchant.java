@@ -34,8 +34,8 @@ public class TravellingMerchant extends WanderingTrader {
         var buy = new ArrayList<>(TRADE_OPTIONS_BUY);
         Collections.shuffle(buy);
         var offers = new MerchantOffers();
-        offers.addAll(sell.subList(0, 4));
-        offers.addAll(buy.subList(0, 2));
+        offers.addAll(sell.subList(0, 4).stream().map(MerchantOffer::copy).toList());
+        offers.addAll(buy.subList(0, 2).stream().map(MerchantOffer::copy).toList());
         this.offers = offers;
     }
 
