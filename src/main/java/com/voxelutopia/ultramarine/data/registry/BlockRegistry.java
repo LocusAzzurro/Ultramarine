@@ -739,7 +739,7 @@ public class BlockRegistry {
     // CHAIR
 
     public static final DeferredHolder<Block, Block> EBONY_CHAIR = BLOCKS.register("ebony_chair",
-            () -> SeatDecorativeBlock.with(BaseBlockProperty.wood()).seatOffset(new Vec3(0.0f, -0.1f, 0.0f)).shaped(ShapeFunction.diagonalSquare(12, 9)).directional().diagonallyPlaceable().build());
+            () -> SeatDecorativeBlock.with(BaseBlockProperty.wood()).seatOffset(new Vec3(0.0f, -0.1f, 0.0f)).shaped(ShapeFunction.diagonalSquare(12, 9)).directional().noOcclusion().diagonallyPlaceable().build());
     public static final DeferredHolder<Block, Block> CHAIR_WITH_YELLOW_CUSHION = BLOCKS.register("chair_with_yellow_cushion",
             () -> SeatDecorativeBlock.with(BaseBlockProperty.wood()).seatOffset(new Vec3(0.0f, -0.1f, 0.0f)).shaped(ShapeFunction.centeredSquare(13, 8)).directional().build());
     public static final DeferredHolder<Block, Block> PAINTED_CHAIR = BLOCKS.register("painted_chair",

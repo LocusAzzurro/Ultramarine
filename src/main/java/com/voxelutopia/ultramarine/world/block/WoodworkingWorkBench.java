@@ -25,7 +25,7 @@ public class WoodworkingWorkBench extends Block {
     public static final DirectionProperty FACING = HorizontalDirectionalBlock.FACING;
 
     public WoodworkingWorkBench() {
-        super(BaseBlockProperty.wood().properties());
+        super(BaseBlockProperty.wood().properties().noOcclusion());
         this.registerDefaultState(this.stateDefinition.any().setValue(FACING, Direction.NORTH));
     }
 
