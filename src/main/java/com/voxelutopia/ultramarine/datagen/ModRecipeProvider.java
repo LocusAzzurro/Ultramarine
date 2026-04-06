@@ -46,9 +46,6 @@ public class ModRecipeProvider extends RecipeProvider {
         categoryMaterials(recipeConsumer);
         categoryTools(recipeConsumer);
 
-        //TESTS
-        CompositeSmeltingRecipeBuilder.compositeSmelting(Ingredient.of(ItemRegistry.UNFIRED_CLAY_BRICK.get()), Ingredient.of(ItemRegistry.PRISMARINE_DUST.get()), ItemRegistry.CYAN_BRICK.get(), 0.1f, 40)
-                .unlockedBy(getHasName(ItemRegistry.UNFIRED_CLAY_BRICK.get()), itemCriterion(ItemRegistry.UNFIRED_CLAY_BRICK.get())).save(recipeConsumer);
     }
 
     private static void categoryBuildingBlocks(@NotNull RecipeOutput recipeConsumer) {
@@ -664,6 +661,14 @@ public class ModRecipeProvider extends RecipeProvider {
         architrave(ItemRegistry.WHITE_AND_RED_SLAB.get(), new Ingredient[]{
                 Ingredient.of(ItemRegistry.WHITE_DYE_POWDER.get()), Ingredient.of(ModItemTags.COMMON_RED_DYE), Ingredient.of(ModItemTags.COMMON_RED_DYE), Ingredient.of(ItemRegistry.WHITE_DYE_POWDER.get())
         }, recipeConsumer);
+
+        // TOP LAYER EAVES
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ItemRegistry.YELLOW_GREEN_GLAZED_TOP_LAYER_EAVES.get(), 4)
+                .define('G', ItemRegistry.GREEN_GLAZED_TILES.get())
+                .define('Y', ItemRegistry.YELLOW_ROOF_RIDGE_UPPER_SLAB.get())
+                .pattern("GG").pattern("YY")
+                .unlockedBy(getHasName(ItemRegistry.GREEN_GLAZED_TILES.get()), itemCriterion(ItemRegistry.GREEN_GLAZED_TILES.get())).save(recipeConsumer);
 
         // QUETI
 
@@ -1948,6 +1953,8 @@ public class ModRecipeProvider extends RecipeProvider {
         smeltingAndBlasting(ItemRegistry.UNFIRED_RAW_CYAN_BRICK.get(), ItemRegistry.CYAN_BRICK.get(), recipeConsumer);
         smeltingAndBlasting(ItemRegistry.UNFIRED_BLACK_BRICK.get(), ItemRegistry.BLACK_BRICK.get(), recipeConsumer);
         smeltingAndBlasting(ItemRegistry.UNFIRED_RAW_BROWNISH_RED_STONE_BRICK.get(), ItemRegistry.BROWNISH_RED_STONE_BRICK.get(), recipeConsumer);
+        CompositeSmeltingRecipeBuilder.compositeSmelting(Ingredient.of(ItemRegistry.UNFIRED_CLAY_BRICK.get()), Ingredient.of(ItemRegistry.PRISMARINE_DUST.get()), ItemRegistry.CYAN_BRICK.get(), 0.1f, 40)
+                .unlockedBy(getHasName(ItemRegistry.UNFIRED_CLAY_BRICK.get()), itemCriterion(ItemRegistry.UNFIRED_CLAY_BRICK.get())).save(recipeConsumer);
 
         //BRICK MATERIAL
 

@@ -382,6 +382,10 @@ public class ItemRegistry {
     public static final DeferredHolder<Item, Item> RED_CARVED_ARCHITRAVE = fromBlock(BlockRegistry.RED_CARVED_ARCHITRAVE, ModCreativeTab.DECORATIVE_BLOCKS);
     public static final DeferredHolder<Item, Item> WHITE_AND_RED_SLAB = fromBlock(BlockRegistry.WHITE_AND_RED_SLAB, ModCreativeTab.DECORATIVE_BLOCKS);
 
+    // TOP LAYER EAVES
+
+    public static final DeferredHolder<Item, Item> YELLOW_GREEN_GLAZED_TOP_LAYER_EAVES = fromBlock(BlockRegistry.YELLOW_GREEN_GLAZED_TOP_LAYER_EAVES, ModCreativeTab.DECORATIVE_BLOCKS);
+
     // QUETI
 
     public static final DeferredHolder<Item, Item> LONG_GILDED_DARK_OAK_QUETI = fromBlock(BlockRegistry.LONG_GILDED_DARK_OAK_QUETI, ModCreativeTab.DECORATIVE_BLOCKS);

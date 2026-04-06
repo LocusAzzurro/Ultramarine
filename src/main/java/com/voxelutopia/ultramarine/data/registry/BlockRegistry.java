@@ -385,6 +385,11 @@ public class BlockRegistry {
     public static final DeferredHolder<Block, Block> RED_CARVED_ARCHITRAVE = BLOCKS.register("red_carved_architrave", () -> new BaseSlab(BaseBlockProperty.wood()));
     public static final DeferredHolder<Block, Block> WHITE_AND_RED_SLAB = BLOCKS.register("white_and_red_slab", () -> new BaseSlab(BaseBlockProperty.wood()));
 
+    // TOP LAYER EAVES
+
+    public static final DeferredHolder<Block, Block> YELLOW_GREEN_GLAZED_TOP_LAYER_EAVES = BLOCKS.register("yellow_green_glazed_top_layer_eaves",
+            () -> new WallSideBlock(BaseBlockProperty.glazed(), ShapeFunction.cardinalRotations(new RawVoxelShape(0, 0, 12, 16, 16, 16))));
+
     // QUETI
 
     public static final DeferredHolder<Block, Block> LONG_GILDED_DARK_OAK_QUETI = BLOCKS.register("long_gilded_dark_oak_queti", () -> new WallSideBlock(BaseBlockProperty.wood(), ShapeFunction.cardinalRotations(new RawVoxelShape(0, 4, 13, 16, 16, 15))));
