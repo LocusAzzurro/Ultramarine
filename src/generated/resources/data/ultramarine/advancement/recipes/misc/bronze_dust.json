@@ -1,11 +1,11 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_bronze_ingot": {
+    "has_bronze": {
       "conditions": {
         "items": [
           {
-            "items": "ultramarine:bronze_ingot"
+            "items": "#c:ingots/bronze"
           }
         ]
       },
@@ -21,7 +21,7 @@
   "requirements": [
     [
       "has_the_recipe",
-      "has_bronze_ingot"
+      "has_bronze"
     ]
   ],
   "rewards": {

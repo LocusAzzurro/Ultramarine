@@ -996,7 +996,7 @@ public class ModRecipeProvider extends RecipeProvider {
         compositeSmelting(ItemRegistry.TALL_BLUE_AND_WHITE_PORCELAIN_POT.get(), ItemRegistry.TALL_CLAY_POT.get(), ItemRegistry.BLUE_AND_WHITE_GLAZE_POWDER.get(), 0.1f, 200, recipeConsumer);
         compositeSmelting(ItemRegistry.BLUE_AND_WHITE_PORCELAIN_BOWL.get(), ItemRegistry.CLAY_BOWL.get(), ItemRegistry.BLUE_AND_WHITE_GLAZE_POWDER.get(), 0.1f, 200, recipeConsumer);
         ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ItemRegistry.BRONZE_MIRROR.get())
-                .define('I', ItemRegistry.BRONZE_INGOT.get())
+                .define('I', ModItemTags.COMMON_BRONZE_INGOT)
                 .define('P', ItemRegistry.BRONZE_PARTS.get())
                 .define('C', Items.COPPER_INGOT)
                 .pattern("PIP")
@@ -1015,7 +1015,7 @@ public class ModRecipeProvider extends RecipeProvider {
                 .unlockedBy("has_polished_plank", tagUnlock(ModItemTags.POLISHED_PLANKS))
                 .save(recipeConsumer);
         ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ItemRegistry.BRONZE_CENSER.get())
-                .define('I', ItemRegistry.BRONZE_INGOT.get())
+                .define('I', ModItemTags.COMMON_BRONZE_INGOT)
                 .define('P', ItemRegistry.BRONZE_PARTS.get())
                 .pattern("PIP")
                 .pattern("III")
@@ -1063,7 +1063,7 @@ public class ModRecipeProvider extends RecipeProvider {
                 .save(recipeConsumer);
         ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ItemRegistry.WIND_CHIME.get())
                 .define('C', Items.CHAIN)
-                .define('B', ItemRegistry.BRONZE_INGOT.get())
+                .define('B', ModItemTags.COMMON_BRONZE_INGOT)
                 .define('P', ItemRegistry.BRONZE_PARTS.get())
                 .pattern("C")
                 .pattern("B")
@@ -1862,7 +1862,7 @@ public class ModRecipeProvider extends RecipeProvider {
         // DOOR DECO
 
         ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ItemRegistry.KNOCKER.get())
-                .define('I', ItemRegistry.BRONZE_INGOT.get())
+                .define('I', ModItemTags.COMMON_BRONZE_INGOT)
                 .define('P', ItemRegistry.BRONZE_PARTS.get())
                 .pattern("IP")
                 .unlockedBy(getHasName(ItemRegistry.BRONZE_INGOT.get()), itemCriterion(ItemRegistry.BRONZE_INGOT.get()))
@@ -2101,7 +2101,7 @@ public class ModRecipeProvider extends RecipeProvider {
         SingleItemRecipeBuilder.stonecutting(Ingredient.of(ItemRegistry.PORCELAIN_PIECE.get()), RecipeCategory.MISC, ItemRegistry.PORCELAIN_PARTS.get())
                 .unlockedBy(getHasName(ItemRegistry.PORCELAIN_PIECE.get()), itemCriterion(ItemRegistry.PORCELAIN_PIECE.get()))
                 .save(recipeConsumer, modRecipe("porcelain_parts_from_porcelain_piece"));
-        SingleItemRecipeBuilder.stonecutting(Ingredient.of(ItemRegistry.BRONZE_INGOT.get()), RecipeCategory.MISC, ItemRegistry.BRONZE_PARTS.get(), 2)
+        SingleItemRecipeBuilder.stonecutting(Ingredient.of(ModItemTags.COMMON_BRONZE_INGOT), RecipeCategory.MISC, ItemRegistry.BRONZE_PARTS.get(), 2)
                 .unlockedBy(getHasName(ItemRegistry.BRONZE_INGOT.get()), itemCriterion(ItemRegistry.BRONZE_INGOT.get()))
                 .save(recipeConsumer);
 
@@ -2140,7 +2140,8 @@ public class ModRecipeProvider extends RecipeProvider {
 
         // MATERIALS
 
-        dust(ItemRegistry.BRONZE_INGOT.get(), ItemRegistry.BRONZE_DUST.get(), recipeConsumer);
+        SingleItemRecipeBuilder.stonecutting(Ingredient.of(ModItemTags.COMMON_BRONZE_INGOT), RecipeCategory.MISC, ItemRegistry.BRONZE_DUST.get())
+                .unlockedBy("has_bronze", tagUnlock(ModItemTags.COMMON_BRONZE_INGOT)).save(recipeConsumer);
 
         // FOOD
 

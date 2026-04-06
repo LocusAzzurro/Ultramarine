@@ -79,6 +79,9 @@ public class ModItemTagsProvider extends ItemTagsProvider {
                 .add(ItemRegistry.PORTRAIT.get())
                 .add(ItemRegistry.SINCERE_CALLIGRAPHY.get());
 
+        tag(ModItemTags.COMMON_BRONZE_INGOT)
+                .add(ItemRegistry.BRONZE_INGOT.get());
+
 
     }
     @NotNull

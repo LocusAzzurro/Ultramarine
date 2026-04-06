@@ -6,7 +6,7 @@
       "item": "minecraft:copper_ingot"
     },
     "I": {
-      "item": "ultramarine:bronze_ingot"
+      "tag": "c:ingots/bronze"
     },
     "P": {
       "item": "ultramarine:bronze_parts"

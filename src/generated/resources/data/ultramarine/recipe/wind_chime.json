@@ -3,7 +3,7 @@
   "category": "misc",
   "key": {
     "B": {
-      "item": "ultramarine:bronze_ingot"
+      "tag": "c:ingots/bronze"
     },
     "C": {
       "item": "minecraft:chain"
