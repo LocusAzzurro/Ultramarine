@@ -14,6 +14,8 @@ public abstract class ModLootProvider {
     public static LootTableProvider create(PackOutput output, CompletableFuture<HolderLookup.Provider> lookupProvider) {
         return new LootTableProvider(output, Set.of(), List.of(
                 new LootTableProvider.SubProviderEntry(ModBlockLootProvider::new, LootContextParamSets.BLOCK),
+                new LootTableProvider.SubProviderEntry(ModEntityLootProvider::new, LootContextParamSets.ENTITY),
+                new LootTableProvider.SubProviderEntry(ModEntityExtraLootProvider::new, LootContextParamSets.ENTITY),
                 new LootTableProvider.SubProviderEntry(ModArchaeologyLootProvider::new, LootContextParamSets.ARCHAEOLOGY)
         ), lookupProvider);
     }

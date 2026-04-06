@@ -3,10 +3,13 @@ package com.voxelutopia.ultramarine.datagen;
 import com.voxelutopia.ultramarine.data.loot.ReplaceToSingleItemLootModifier;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.level.storage.loot.BuiltInLootTables;
 import net.minecraft.world.level.storage.loot.predicates.LootItemCondition;
 import net.minecraft.world.level.storage.loot.predicates.LootItemRandomChanceCondition;
 import net.neoforged.neoforge.common.data.GlobalLootModifierProvider;
+import net.neoforged.neoforge.common.loot.AddTableLootModifier;
 import net.neoforged.neoforge.common.loot.LootTableIdCondition;
 
 import java.util.concurrent.CompletableFuture;
@@ -33,5 +36,26 @@ public class ModGlobalLootModifiersProvider extends GlobalLootModifierProvider {
                         LootItemRandomChanceCondition.randomChance(0.1f).build()
                 }, ModArchaeologyLootProvider.TRAIL_RUINS_RARE.location()
         ));
+
+        add("goat_fur_drop_modifier", new AddTableLootModifier(
+                new LootItemCondition[]{
+                        LootTableIdCondition.builder(vanillaEntityTable(EntityType.GOAT)).build()
+                }, ModEntityExtraLootProvider.GOAT_EXTRA_DROP
+        ));
+        add("fox_fur_drop_modifier", new AddTableLootModifier(
+                new LootItemCondition[]{
+                        LootTableIdCondition.builder(vanillaEntityTable(EntityType.FOX)).build()
+                }, ModEntityExtraLootProvider.FOX_EXTRA_DROP
+        ));
+        add("rabbit_fur_drop_modifier", new AddTableLootModifier(
+                new LootItemCondition[]{
+                        LootTableIdCondition.builder(vanillaEntityTable(EntityType.RABBIT)).build()
+                }, ModEntityExtraLootProvider.RABBIT_EXTRA_DROP
+        ));
     }
+
+    private ResourceLocation vanillaEntityTable(EntityType<?> entityType){
+        return entityType.getDefaultLootTable().location();
+    }
+
 }
