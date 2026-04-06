@@ -4,7 +4,9 @@
     "ultramarine:archy_trail_ruins_rare_modifier",
     "ultramarine:goat_fur_drop_modifier",
     "ultramarine:fox_fur_drop_modifier",
-    "ultramarine:rabbit_fur_drop_modifier"
+    "ultramarine:rabbit_fur_drop_modifier",
+    "ultramarine:hoglin_raw_meat_drop_modifier",
+    "ultramarine:ravager_raw_meat_drop_modifier"
   ],
   "replace": false
 }

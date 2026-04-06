@@ -52,10 +52,20 @@ public class ModGlobalLootModifiersProvider extends GlobalLootModifierProvider {
                         LootTableIdCondition.builder(vanillaEntityTable(EntityType.RABBIT)).build()
                 }, ModEntityExtraLootProvider.RABBIT_EXTRA_DROP
         ));
+
+        add("hoglin_raw_meat_drop_modifier", new AddTableLootModifier(
+                new LootItemCondition[]{
+                        LootTableIdCondition.builder(vanillaEntityTable(EntityType.HOGLIN)).build()
+                }, ModEntityExtraLootProvider.HOGLIN_EXTRA_DROP
+        ));
+        add("ravager_raw_meat_drop_modifier", new AddTableLootModifier(
+                new LootItemCondition[]{
+                        LootTableIdCondition.builder(vanillaEntityTable(EntityType.RAVAGER)).build()
+                }, ModEntityExtraLootProvider.RAVAGER_EXTRA_DROP
+        ));
     }
 
-    private ResourceLocation vanillaEntityTable(EntityType<?> entityType){
+    static ResourceLocation vanillaEntityTable(EntityType<?> entityType){
         return entityType.getDefaultLootTable().location();
     }
-
 }

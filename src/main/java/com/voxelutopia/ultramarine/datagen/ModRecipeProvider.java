@@ -2142,6 +2142,10 @@ public class ModRecipeProvider extends RecipeProvider {
 
         dust(ItemRegistry.BRONZE_INGOT.get(), ItemRegistry.BRONZE_DUST.get(), recipeConsumer);
 
+        // FOOD
+
+        smeltingAndSmoking(ItemRegistry.RAW_MEAT.get(), ItemRegistry.COOKED_MEAT.get(), 0.05f, recipeConsumer);
+
     }
 
     private static void categoryTools(@NotNull RecipeOutput recipeConsumer) {
@@ -2276,6 +2280,13 @@ public class ModRecipeProvider extends RecipeProvider {
                 .unlockedBy(getHasName(input), itemCriterion(input)).save(pFinishedRecipeConsumer, ResourceLocation.fromNamespaceAndPath(DataGenerators.MOD_ID, name(output) + "_from_smelting"));
         SimpleCookingRecipeBuilder.blasting(Ingredient.of(input), RecipeCategory.MISC, output, exp / 2, 100)
                 .unlockedBy(getHasName(input), itemCriterion(input)).save(pFinishedRecipeConsumer, ResourceLocation.fromNamespaceAndPath(DataGenerators.MOD_ID, name(output) + "_from_blasting"));
+    }
+
+    private static void smeltingAndSmoking(Item input, Item output, float exp, RecipeOutput pFinishedRecipeConsumer) {
+        SimpleCookingRecipeBuilder.smelting(Ingredient.of(input), RecipeCategory.MISC, output, exp, 200)
+                .unlockedBy(getHasName(input), itemCriterion(input)).save(pFinishedRecipeConsumer, ResourceLocation.fromNamespaceAndPath(DataGenerators.MOD_ID, name(output) + "_from_smelting"));
+        SimpleCookingRecipeBuilder.smoking(Ingredient.of(input), RecipeCategory.MISC, output, exp / 2, 100)
+                .unlockedBy(getHasName(input), itemCriterion(input)).save(pFinishedRecipeConsumer, ResourceLocation.fromNamespaceAndPath(DataGenerators.MOD_ID, name(output) + "_from_smoking"));
     }
 
     private static void stoneSlabAndStairsRecipe(Item baseBlock, Item slabBlock, Item stairBlock, RecipeOutput pFinishedRecipeConsumer) {
