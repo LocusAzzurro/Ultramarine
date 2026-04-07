@@ -2,15 +2,12 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "C": {
-      "item": "ultramarine:long_gilded_dark_oak_queti"
-    }
+    "C": "ultramarine:long_gilded_dark_oak_queti"
   },
   "pattern": [
     "CC"
   ],
   "result": {
-    "count": 1,
     "id": "ultramarine:long_gilded_dark_oak_queti_edge"
   }
 }

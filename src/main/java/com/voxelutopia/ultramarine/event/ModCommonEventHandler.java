@@ -22,7 +22,7 @@ public class ModCommonEventHandler {
     @SubscribeEvent
     public static void registerCapabilities(RegisterCapabilitiesEvent event) {
         event.registerBlockEntity(
-                Capabilities.ItemHandler.BLOCK,
+                Capabilities.Item.BLOCK,
                 BlockEntityRegistry.BRICK_KILN.get(),
                 BrickKilnBlockEntity::getCapabilities
         );

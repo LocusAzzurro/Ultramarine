@@ -1,21 +1,12 @@
 {
   "type": "ultramarine:chisel_table",
   "colors": [
-    {
-      "tag": "c:dyes/white"
-    },
-    {
-      "item": "ultramarine:light_blue_dye_powder"
-    }
+    "#c:dyes/white",
+    "ultramarine:light_blue_dye_powder"
   ],
-  "material": {
-    "item": "minecraft:blue_wool"
-  },
+  "material": "minecraft:blue_wool",
   "result": {
-    "count": 1,
     "id": "ultramarine:blue_carved_carpet"
   },
-  "template": {
-    "item": "ultramarine:carved_wool_template"
-  }
+  "template": "ultramarine:carved_wool_template"
 }

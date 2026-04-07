@@ -2,9 +2,7 @@
   "type": "minecraft:crafting_shaped",
   "category": "building",
   "key": {
-    "B": {
-      "item": "ultramarine:black_main_roof_ridge_connection"
-    }
+    "B": "ultramarine:black_main_roof_ridge_connection"
   },
   "pattern": [
     "B  ",

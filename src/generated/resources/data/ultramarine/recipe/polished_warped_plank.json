@@ -1,8 +1,6 @@
 {
   "type": "ultramarine:woodworking",
-  "ingredient": {
-    "item": "minecraft:warped_planks"
-  },
+  "ingredient": "minecraft:warped_planks",
   "result": {
     "count": 2,
     "id": "ultramarine:polished_warped_plank"

@@ -1,62 +1,61 @@
 package com.voxelutopia.ultramarine.world.block.entity;
 
 import com.google.common.collect.Lists;
-import com.voxelutopia.ultramarine.Ultramarine;
 import com.voxelutopia.ultramarine.data.recipe.CompositeSmeltingRecipe;
 import com.voxelutopia.ultramarine.data.registry.BlockEntityRegistry;
 import com.voxelutopia.ultramarine.data.registry.RecipeTypeRegistry;
 import com.voxelutopia.ultramarine.world.block.menu.BrickKilnMenu;
 import it.unimi.dsi.fastutil.objects.Object2IntMap;
 import it.unimi.dsi.fastutil.objects.Object2IntOpenHashMap;
-import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.HolderLookup;
+import net.minecraft.core.NonNullList;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.nbt.CompoundTag;
-import net.minecraft.nbt.ListTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.protocol.Packet;
 import net.minecraft.network.protocol.game.ClientGamePacketListener;
 import net.minecraft.network.protocol.game.ClientboundBlockEntityDataPacket;
-import net.minecraft.network.protocol.game.ClientboundBlockUpdatePacket;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.util.Mth;
+import net.minecraft.world.ContainerHelper;
 import net.minecraft.world.MenuProvider;
-import net.minecraft.world.SimpleContainer;
+import net.minecraft.world.WorldlyContainer;
 import net.minecraft.world.entity.ExperienceOrb;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.inventory.ContainerData;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.crafting.AbstractCookingRecipe;
+import net.minecraft.world.item.crafting.Recipe;
 import net.minecraft.world.item.crafting.RecipeHolder;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.AbstractFurnaceBlock;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.Vec3;
-import net.neoforged.neoforge.capabilities.BlockCapability;
-import net.neoforged.neoforge.items.IItemHandler;
-import net.neoforged.neoforge.items.ItemStackHandler;
-import net.neoforged.neoforge.items.wrapper.CombinedInvWrapper;
-import net.neoforged.neoforge.items.wrapper.InvWrapper;
-import net.neoforged.neoforge.items.wrapper.RecipeWrapper;
+import net.minecraft.world.level.storage.ValueInput;
+import net.minecraft.world.level.storage.ValueOutput;
 import net.neoforged.neoforge.registries.datamaps.builtin.FurnaceFuel;
 import net.neoforged.neoforge.registries.datamaps.builtin.NeoForgeDataMaps;
-import org.jetbrains.annotations.NotNull;
+import net.neoforged.neoforge.transfer.ResourceHandler;
+import net.neoforged.neoforge.transfer.item.ItemResource;
+import net.neoforged.neoforge.transfer.item.WorldlyContainerWrapper;
 import org.jetbrains.annotations.Nullable;
+import org.jspecify.annotations.NullMarked;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.List;
 import java.util.Optional;
 
-@MethodsReturnNonnullByDefault
+@NullMarked
 @ParametersAreNonnullByDefault
 @SuppressWarnings("unused")
-public class BrickKilnBlockEntity extends BlockEntity implements MenuProvider {
+public class BrickKilnBlockEntity extends BlockEntity implements MenuProvider, WorldlyContainer {
 
     public static final int SLOT_INPUT_PRIMARY = 0;
     public static final int SLOT_INPUT_SECONDARY = 1;
@@ -78,38 +77,9 @@ public class BrickKilnBlockEntity extends BlockEntity implements MenuProvider {
     int cookingProgress;
     int cookingTotalTime;
 
-    private final ItemStackHandler ingredientsHandler = new ItemStackHandler(2) {
-        @Override
-        protected void onContentsChanged(int slot) {
-            setChanged();
-        }
-    };
+    private final NonNullList<ItemStack> items = NonNullList.withSize(NUM_SLOTS, ItemStack.EMPTY);
 
-    private final ItemStackHandler fuelHandler = new ItemStackHandler(1) {
-        @Override
-        protected void onContentsChanged(int slot) {
-            setChanged();
-        }
-
-        @Override
-        public boolean isItemValid(int slot, @NotNull ItemStack stack) {
-            return Optional.ofNullable(stack.getItemHolder().getData(NeoForgeDataMaps.FURNACE_FUELS)).map(FurnaceFuel::burnTime).orElse(0) > 0;
-        }
-    };
-
-    private final ItemStackHandler resultHandler = new ItemStackHandler(1) {
-        @Override
-        protected void onContentsChanged(int slot) {
-            setChanged();
-        }
-
-        @Override
-        public boolean isItemValid(int slot, @NotNull ItemStack stack) {
-            return false;
-        }
-    };
-
-    protected final ContainerData dataAccess = new ContainerData() {
+    public final ContainerData dataAccess = new ContainerData() {
         public int get(int key) {
             return switch (key) {
                 case DATA_LIT_TIME -> BrickKilnBlockEntity.this.litTime;
@@ -134,7 +104,15 @@ public class BrickKilnBlockEntity extends BlockEntity implements MenuProvider {
         }
     };
 
-    private final Object2IntOpenHashMap<ResourceLocation> recipesUsed = new Object2IntOpenHashMap<>();
+    private final Object2IntOpenHashMap<ResourceKey<Recipe<?>>> recipesUsed = new Object2IntOpenHashMap<>();
+
+    private static int getFuelBurnTime(ItemStack fuelStack) {
+        if (fuelStack.isEmpty()) {
+            return 0;
+        }
+        FurnaceFuel fuel = fuelStack.getItem().builtInRegistryHolder().getData(NeoForgeDataMaps.FURNACE_FUELS);
+        return fuel != null ? fuel.burnTime() : 0;
+    }
 
     public BrickKilnBlockEntity(BlockPos blockPos, BlockState blockState) {
         super(BlockEntityRegistry.BRICK_KILN.get(), blockPos, blockState);
@@ -144,11 +122,12 @@ public class BrickKilnBlockEntity extends BlockEntity implements MenuProvider {
         boolean lit = pBlockEntity.isLit();
         boolean changed = false;
 
-        ItemStack fuelItem = pBlockEntity.fuelHandler.getStackInSlot(0);
-        ItemStack primaryItem = pBlockEntity.ingredientsHandler.getStackInSlot(0);
-        ItemStack secondaryItem = pBlockEntity.ingredientsHandler.getStackInSlot(1);
-        ItemStack resultItem = pBlockEntity.resultHandler.getStackInSlot(0);
-        RecipeHolder<CompositeSmeltingRecipe> recipe = pLevel.getRecipeManager().getRecipeFor(RecipeTypeRegistry.COMPOSITE_SMELTING.get(), wrapRecipe(pBlockEntity), pLevel).orElse(null);
+        ItemStack fuelItem = pBlockEntity.getItem(SLOT_FUEL);
+        ItemStack primaryItem = pBlockEntity.getItem(SLOT_INPUT_PRIMARY);
+        ItemStack secondaryItem = pBlockEntity.getItem(SLOT_INPUT_SECONDARY);
+        ItemStack resultItem = pBlockEntity.getItem(SLOT_RESULT);
+        var input = new CompositeSmeltingRecipe.CompositeSmeltingRecipeInput(primaryItem, secondaryItem);
+        RecipeHolder<CompositeSmeltingRecipe> recipe = ((ServerLevel) pLevel).recipeAccess().getRecipeFor(RecipeTypeRegistry.COMPOSITE_SMELTING.get(), input, pLevel).orElse(null);
 
         if (pBlockEntity.isLit()) {
             --pBlockEntity.litTime;
@@ -162,12 +141,12 @@ public class BrickKilnBlockEntity extends BlockEntity implements MenuProvider {
 
             int maxStack = 64;
             if (!pBlockEntity.isLit() && recipe != null && pBlockEntity.canBurn(recipe.value(), fuelItem, primaryItem, secondaryItem, resultItem, maxStack)) {
-                pBlockEntity.litTime = Optional.ofNullable(fuelItem.getItemHolder().getData(NeoForgeDataMaps.FURNACE_FUELS)).map(FurnaceFuel::burnTime).orElse(0);
+                pBlockEntity.litTime = getFuelBurnTime(fuelItem);
                 pBlockEntity.litDuration = pBlockEntity.litTime;
                 if (pBlockEntity.isLit()) {
                     changed = true;
                     fuelItem.shrink(1);
-                    pBlockEntity.fuelHandler.setStackInSlot(0, fuelItem);
+                    pBlockEntity.setItem(SLOT_FUEL, fuelItem);
                     //no lava buckets
                 }
             }
@@ -203,8 +182,7 @@ public class BrickKilnBlockEntity extends BlockEntity implements MenuProvider {
 
     private boolean canBurn(@Nullable CompositeSmeltingRecipe pRecipe, ItemStack fuel, ItemStack primary, ItemStack secondary, ItemStack resultPrev, int maxStackSize) {
         if (!primary.isEmpty() && !secondary.isEmpty() && pRecipe != null) {
-            assert this.level != null;
-            ItemStack result = pRecipe.assemble(new RecipeWrapper(new InvWrapper(new SimpleContainer(primary, secondary))), this.level.registryAccess());
+            ItemStack result = pRecipe.assemble(new CompositeSmeltingRecipe.CompositeSmeltingRecipeInput(primary, secondary));
             if (result.isEmpty()) {
                 return false;
             } else {
@@ -225,18 +203,18 @@ public class BrickKilnBlockEntity extends BlockEntity implements MenuProvider {
 
     private boolean burn(CompositeSmeltingRecipe pRecipe, BrickKilnBlockEntity entity, ItemStack fuel, ItemStack primary, ItemStack secondary, ItemStack resultPrev, int maxStackSize) {
         if (this.canBurn(pRecipe, fuel, primary, secondary, resultPrev, maxStackSize)) {
-            assert this.level != null;
-            ItemStack newResult = (pRecipe.assemble(new RecipeWrapper(new InvWrapper(new SimpleContainer(primary, secondary))), level.registryAccess()));
+            ItemStack newResult = pRecipe.assemble(new CompositeSmeltingRecipe.CompositeSmeltingRecipeInput(primary, secondary));
             if (resultPrev.isEmpty()) {
-                entity.resultHandler.setStackInSlot(0, newResult.copy());
+                entity.setItem(SLOT_RESULT, newResult.copy());
             } else if (resultPrev.is(newResult.getItem())) {
                 resultPrev.grow(newResult.getCount());
+                entity.setItem(SLOT_RESULT, resultPrev);
             }
 
             primary.shrink(1);
             secondary.shrink(1);
-            entity.ingredientsHandler.setStackInSlot(0, primary);
-            entity.ingredientsHandler.setStackInSlot(1, secondary);
+            entity.setItem(SLOT_INPUT_PRIMARY, primary);
+            entity.setItem(SLOT_INPUT_SECONDARY, secondary);
             return true;
         } else {
             return false;
@@ -244,13 +222,18 @@ public class BrickKilnBlockEntity extends BlockEntity implements MenuProvider {
     }
 
     private static int getTotalCookTime(Level pLevel, BrickKilnBlockEntity entity) {
-        return pLevel.getRecipeManager().getRecipeFor(RecipeTypeRegistry.COMPOSITE_SMELTING.get(), wrapRecipe(entity), pLevel).map(RecipeHolder::value).map(CompositeSmeltingRecipe::getCookingTime).orElse(200);
+        var input = new CompositeSmeltingRecipe.CompositeSmeltingRecipeInput(entity.getItem(SLOT_INPUT_PRIMARY), entity.getItem(SLOT_INPUT_SECONDARY));
+        return ((ServerLevel) pLevel).recipeAccess()
+                .getRecipeFor(RecipeTypeRegistry.COMPOSITE_SMELTING.get(), input, pLevel)
+                .map(RecipeHolder::value)
+                .map(CompositeSmeltingRecipe::getCookingTime)
+                .orElse(200);
     }
 
     public void setRecipeUsed(@Nullable RecipeHolder<?> pRecipe) {
         if (pRecipe != null) {
-            ResourceLocation resourcelocation = pRecipe.id();
-            this.recipesUsed.addTo(resourcelocation, 1);
+            ResourceKey<net.minecraft.world.item.crafting.Recipe<?>> recipeKey = pRecipe.id();
+            this.recipesUsed.addTo(recipeKey, 1);
         }
 
     }
@@ -260,7 +243,7 @@ public class BrickKilnBlockEntity extends BlockEntity implements MenuProvider {
 
     public void awardUsedRecipesAndPopExperience(ServerPlayer pPlayer) {
         if (!pPlayer.level().isClientSide()) {
-            List<RecipeHolder<?>> list = this.getRecipesToAwardAndPopExperience((ServerLevel) pPlayer.level(), pPlayer.position());
+            List<RecipeHolder<?>> list = this.getRecipesToAwardAndPopExperience(pPlayer.level(), pPlayer.position());
             pPlayer.awardRecipes(list);
             this.recipesUsed.clear();
         }
@@ -269,8 +252,8 @@ public class BrickKilnBlockEntity extends BlockEntity implements MenuProvider {
     public List<RecipeHolder<?>> getRecipesToAwardAndPopExperience(ServerLevel pLevel, Vec3 pos) {
         List<RecipeHolder<?>> list = Lists.newArrayList();
 
-        for (Object2IntMap.Entry<ResourceLocation> entry : this.recipesUsed.object2IntEntrySet()) {
-            pLevel.getRecipeManager().byKey(entry.getKey()).ifPresent((recipe) -> {
+        for (Object2IntMap.Entry<ResourceKey<Recipe<?>>> entry : this.recipesUsed.object2IntEntrySet()) {
+            pLevel.recipeAccess().byKey(entry.getKey()).ifPresent((recipe) -> {
                 list.add(recipe);
                 createExperience(pLevel, pos, entry.getIntValue(), ((CompositeSmeltingRecipe) recipe.value()).getExp());
             });
@@ -301,25 +284,11 @@ public class BrickKilnBlockEntity extends BlockEntity implements MenuProvider {
     @Nullable
     @Override
     public AbstractContainerMenu createMenu(int pContainerId, Inventory pInventory, Player pPlayer) {
-        return new BrickKilnMenu(pContainerId, this.worldPosition, pInventory, this.wrapHandlers(), this.dataAccess);
+        return new BrickKilnMenu(pContainerId, this.worldPosition, pInventory, this, this.dataAccess);
     }
 
-    public CombinedInvWrapper wrapHandlers() {
-        return new CombinedInvWrapper(this.ingredientsHandler, this.fuelHandler, this.resultHandler);
-    }
-
-    private static RecipeWrapper wrapRecipe(BrickKilnBlockEntity entity) {
-        return new RecipeWrapper(entity.ingredientsHandler);
-    }
-
-    @Nullable
-    public static IItemHandler getCapabilities(BrickKilnBlockEntity be, @Nullable Direction direction){
-        return switch (direction) {
-            case UP -> be.fuelHandler;
-            case NORTH, SOUTH, WEST, EAST -> be.ingredientsHandler;
-            case DOWN -> be.resultHandler;
-            case null -> null;
-        };
+    public static ResourceHandler<ItemResource> getCapabilities(BrickKilnBlockEntity be, @Nullable Direction direction) {
+        return new WorldlyContainerWrapper(be, direction);
     }
 
     @Override
@@ -333,58 +302,42 @@ public class BrickKilnBlockEntity extends BlockEntity implements MenuProvider {
     }
 
     @Override
-    public void loadAdditional(CompoundTag pTag, HolderLookup.Provider provider) {
-        super.loadAdditional(pTag, provider);
-        this.litTime = pTag.getInt("BurnTime");
-        this.cookingProgress = pTag.getInt("CookTime");
-        this.cookingTotalTime = pTag.getInt("CookTimeTotal");
+    protected void loadAdditional(ValueInput input) {
+        super.loadAdditional(input);
+        this.litTime = input.getIntOr("BurnTime", 0);
+        this.cookingProgress = input.getIntOr("CookTime", 0);
+        this.cookingTotalTime = input.getIntOr("CookTimeTotal", 0);
 
-        ListTag itemListTag = pTag.getList("Items", 10);
-        for (int i = 0; i < itemListTag.size(); ++i) {
-            CompoundTag itemTag = itemListTag.getCompound(i);
-            int j = itemTag.getByte("Slot") & 255;
-            switch (j) {
-                case SLOT_INPUT_PRIMARY ->
-                        this.ingredientsHandler.setStackInSlot(0, ItemStack.parseOptional(provider, itemTag));
-                case SLOT_INPUT_SECONDARY ->
-                        this.ingredientsHandler.setStackInSlot(1, ItemStack.parseOptional(provider, itemTag));
-                case SLOT_FUEL -> this.fuelHandler.setStackInSlot(0, ItemStack.parseOptional(provider, itemTag));
-                case SLOT_RESULT -> this.resultHandler.setStackInSlot(0, ItemStack.parseOptional(provider, itemTag));
+        ContainerHelper.loadAllItems(input, this.items);
+        this.litDuration = getFuelBurnTime(this.getItem(SLOT_FUEL));
+
+        this.recipesUsed.clear();
+        input.read("RecipesUsed", CompoundTag.CODEC).ifPresent(recipesUsedTag -> {
+            for (String key : recipesUsedTag.keySet()) {
+                Identifier identifier = Identifier.tryParse(key);
+                if (identifier != null) {
+                    this.recipesUsed.put(
+                        ResourceKey.create(Registries.RECIPE, identifier),
+                        recipesUsedTag.getIntOr(key, 0)
+                    );
+                }
             }
-        }
-
-        this.litDuration = Optional.ofNullable(this.fuelHandler.getStackInSlot(0).getItemHolder().getData(NeoForgeDataMaps.FURNACE_FUELS)).map(FurnaceFuel::burnTime).orElse(0);
-
-        CompoundTag recipesTag = pTag.getCompound("RecipesUsed");
-
-        for (String s : recipesTag.getAllKeys()) {
-            this.recipesUsed.put(ResourceLocation.tryParse(s), recipesTag.getInt(s));
-        }
-
+        });
     }
 
     @Override
-    protected void saveAdditional(CompoundTag pTag, HolderLookup.Provider provider) {
-        super.saveAdditional(pTag, provider);
-        pTag.putInt("BurnTime", this.litTime);
-        pTag.putInt("CookTime", this.cookingProgress);
-        pTag.putInt("CookTimeTotal", this.cookingTotalTime);
+    protected void saveAdditional(ValueOutput output) {
+        super.saveAdditional(output);
+        output.putInt("BurnTime", this.litTime);
+        output.putInt("CookTime", this.cookingProgress);
+        output.putInt("CookTimeTotal", this.cookingTotalTime);
 
-        ListTag itemListTag = new ListTag();
-        CombinedInvWrapper items = this.wrapHandlers();
-        for (int i = 0; i < items.getSlots(); i++) {
-            ItemStack item = items.getStackInSlot(i);
-            if (!item.isEmpty()) {
-                CompoundTag itemTag = new CompoundTag();
-                itemTag.putByte("Slot", (byte) i);
-                itemTag = (CompoundTag) item.save(provider, itemTag);
-                itemListTag.add(itemTag);
-            }
+        ContainerHelper.saveAllItems(output, this.items, false);
+
+        if (!this.recipesUsed.isEmpty()) {
+            ValueOutput recipesTag = output.child("RecipesUsed");
+            this.recipesUsed.forEach((recipeKey, count) -> recipesTag.putInt(recipeKey.identifier().toString(), count));
         }
-        if (!itemListTag.isEmpty()) pTag.put("Items", itemListTag);
-        CompoundTag recipesTag = new CompoundTag();
-        this.recipesUsed.forEach((resourceLocation, count) -> recipesTag.putInt(resourceLocation.toString(), count));
-        pTag.put("RecipesUsed", recipesTag);
     }
 
     public int getCookingProgress() {
@@ -395,7 +348,90 @@ public class BrickKilnBlockEntity extends BlockEntity implements MenuProvider {
         return this.cookingTotalTime;
     }
 
+    @Override
+    public int getContainerSize() {
+        return this.items.size();
+    }
+
+    @Override
+    public boolean isEmpty() {
+        for (ItemStack stack : this.items) {
+            if (!stack.isEmpty()) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    @Override
     public ItemStack getItem(int slot) {
-        return this.wrapHandlers().getStackInSlot(slot);
+        return slot >= 0 && slot < this.items.size() ? this.items.get(slot) : ItemStack.EMPTY;
+    }
+
+    @Override
+    public ItemStack removeItem(int slot, int amount) {
+        ItemStack removed = ContainerHelper.removeItem(this.items, slot, amount);
+        if (!removed.isEmpty()) {
+            this.setChanged();
+        }
+        return removed;
+    }
+
+    @Override
+    public ItemStack removeItemNoUpdate(int slot) {
+        return ContainerHelper.takeItem(this.items, slot);
+    }
+
+    @Override
+    public void setItem(int slot, ItemStack stack) {
+        if (slot >= 0 && slot < this.items.size()) {
+            this.items.set(slot, stack);
+            this.setChanged();
+        }
+    }
+
+    @Override
+    public int getMaxStackSize() {
+        return 64;
+    }
+
+    @Override
+    public boolean stillValid(Player player) {
+        return true;
+    }
+
+    @Override
+    public void clearContent() {
+        this.items.replaceAll(ignored -> ItemStack.EMPTY);
+    }
+
+    @Override
+    public boolean canPlaceItem(int slot, ItemStack stack) {
+        if (slot == SLOT_RESULT) {
+            return false;
+        }
+        if (slot == SLOT_FUEL) {
+            return getFuelBurnTime(stack) > 0;
+        }
+        return true;
+    }
+
+    @Override
+    public int[] getSlotsForFace(Direction side) {
+        return switch (side) {
+            case UP -> new int[]{SLOT_FUEL};
+            case DOWN -> new int[]{SLOT_RESULT};
+            default -> new int[]{SLOT_INPUT_PRIMARY, SLOT_INPUT_SECONDARY};
+        };
+    }
+
+    @Override
+    public boolean canPlaceItemThroughFace(int slot, ItemStack stack, @Nullable Direction side) {
+        return this.canPlaceItem(slot, stack);
+    }
+
+    @Override
+    public boolean canTakeItemThroughFace(int slot, ItemStack stack, Direction side) {
+        return true;
     }
 }

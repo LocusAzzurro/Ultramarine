@@ -2,12 +2,8 @@
   "type": "minecraft:crafting_shapeless",
   "category": "building",
   "ingredients": [
-    {
-      "item": "minecraft:stone"
-    },
-    {
-      "item": "minecraft:gravel"
-    }
+    "minecraft:stone",
+    "minecraft:gravel"
   ],
   "result": {
     "count": 2,

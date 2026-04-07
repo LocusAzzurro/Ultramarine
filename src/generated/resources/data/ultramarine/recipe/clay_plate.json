@@ -2,18 +2,13 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "O": {
-      "item": "minecraft:clay"
-    },
-    "o": {
-      "item": "minecraft:clay_ball"
-    }
+    "O": "minecraft:clay",
+    "o": "minecraft:clay_ball"
   },
   "pattern": [
     "oOo"
   ],
   "result": {
-    "count": 1,
     "id": "ultramarine:clay_plate"
   }
 }

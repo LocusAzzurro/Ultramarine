@@ -2,14 +2,9 @@
   "type": "ultramarine:composite_smelting",
   "cookingtime": 40,
   "experience": 0.1,
-  "primary_ingredient": {
-    "item": "ultramarine:unfired_clay_brick"
-  },
+  "primary_ingredient": "ultramarine:unfired_clay_brick",
   "result": {
-    "count": 1,
     "id": "ultramarine:cyan_brick"
   },
-  "secondary_ingredient": {
-    "item": "ultramarine:prismarine_dust"
-  }
+  "secondary_ingredient": "ultramarine:prismarine_dust"
 }

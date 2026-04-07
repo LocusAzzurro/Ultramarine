@@ -2,15 +2,9 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "D": {
-      "item": "ultramarine:red_dye_powder"
-    },
-    "G": {
-      "item": "ultramarine:gold_parts"
-    },
-    "S": {
-      "item": "ultramarine:silk"
-    }
+    "D": "ultramarine:red_dye_powder",
+    "G": "ultramarine:gold_parts",
+    "S": "ultramarine:silk"
   },
   "pattern": [
     "SSS",
@@ -18,7 +12,6 @@
     " G "
   ],
   "result": {
-    "count": 1,
     "id": "ultramarine:red_curtain"
   }
 }

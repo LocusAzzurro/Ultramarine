@@ -2,19 +2,14 @@
   "type": "minecraft:crafting_shaped",
   "category": "equipment",
   "key": {
-    "C": {
-      "item": "minecraft:crafting_table"
-    },
-    "P": {
-      "tag": "minecraft:planks"
-    }
+    "C": "minecraft:crafting_table",
+    "P": "#minecraft:planks"
   },
   "pattern": [
     "P",
     "C"
   ],
   "result": {
-    "count": 1,
     "id": "ultramarine:woodworking_workbench"
   }
 }

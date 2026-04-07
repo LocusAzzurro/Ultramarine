@@ -2,15 +2,9 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "G": {
-      "item": "minecraft:enchanted_golden_apple"
-    },
-    "J": {
-      "item": "ultramarine:jade"
-    },
-    "P": {
-      "item": "ultramarine:gold_parts"
-    }
+    "G": "minecraft:enchanted_golden_apple",
+    "J": "ultramarine:jade",
+    "P": "ultramarine:gold_parts"
   },
   "pattern": [
     "PG",
@@ -18,7 +12,6 @@
     "JJ"
   ],
   "result": {
-    "count": 1,
     "id": "ultramarine:imperial_jade_seal"
   }
 }

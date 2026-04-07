@@ -2,22 +2,15 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "A": {
-      "item": "minecraft:apple"
-    },
-    "F": {
-      "item": "ultramarine:wooden_frame"
-    },
-    "P": {
-      "tag": "ultramarine:polished_planks"
-    }
+    "A": "minecraft:apple",
+    "F": "ultramarine:wooden_frame",
+    "P": "#ultramarine:polished_planks"
   },
   "pattern": [
     "PAP",
     "PFP"
   ],
   "result": {
-    "count": 1,
     "id": "ultramarine:fruit_box"
   }
 }

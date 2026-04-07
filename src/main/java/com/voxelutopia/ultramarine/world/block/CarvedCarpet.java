@@ -2,10 +2,13 @@ package com.voxelutopia.ultramarine.world.block;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.LevelAccessor;
+import net.minecraft.world.level.LevelReader;
+import net.minecraft.world.level.ScheduledTickAccess;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
@@ -13,7 +16,7 @@ import net.minecraft.world.level.block.state.properties.*;
 
 public class CarvedCarpet extends BaseBlock{
 
-    public static final DirectionProperty FACING = HorizontalDirectionalBlock.FACING;
+    public static final EnumProperty<Direction> FACING = HorizontalDirectionalBlock.FACING;
     public static final EnumProperty<StairsShape> SHAPE = BlockStateProperties.STAIRS_SHAPE;
 
     private final DyeColor color;
@@ -40,10 +43,10 @@ public class CarvedCarpet extends BaseBlock{
     }
 
     @Override
-    protected BlockState updateShape(BlockState state, Direction facing, BlockState facingState, LevelAccessor level, BlockPos currentPos, BlockPos facingPos) {
-        return facing.getAxis().isHorizontal()
-                ? state.setValue(SHAPE, getStairsShape(state, level, currentPos))
-                : super.updateShape(state, facing, facingState, level, currentPos, facingPos);
+    protected BlockState updateShape(BlockState state, LevelReader level, ScheduledTickAccess ticks, BlockPos pos, Direction directionToNeighbour, BlockPos neighbourPos, BlockState neighbourState, RandomSource random) {
+        return directionToNeighbour.getAxis().isHorizontal()
+                ? state.setValue(SHAPE, getStairsShape(state, level, pos))
+                : super.updateShape(state, level, ticks, pos, directionToNeighbour, neighbourPos, neighbourState, random);
     }
 
     private static StairsShape getStairsShape(BlockState state, BlockGetter level, BlockPos pos) {

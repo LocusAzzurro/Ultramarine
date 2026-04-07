@@ -2,12 +2,8 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "B": {
-      "item": "ultramarine:rosewood_planks"
-    },
-    "S": {
-      "item": "minecraft:stick"
-    }
+    "B": "ultramarine:rosewood_planks",
+    "S": "minecraft:stick"
   },
   "pattern": [
     "BSB",

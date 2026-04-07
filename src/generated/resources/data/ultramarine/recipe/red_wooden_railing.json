@@ -2,9 +2,7 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "C": {
-      "item": "ultramarine:red_wooden_railing_edge"
-    }
+    "C": "ultramarine:red_wooden_railing_edge"
   },
   "pattern": [
     "CC"

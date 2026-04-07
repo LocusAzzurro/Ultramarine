@@ -2,15 +2,12 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "C": {
-      "item": "ultramarine:carved_stone_panel"
-    }
+    "C": "ultramarine:carved_stone_panel"
   },
   "pattern": [
     "CCC"
   ],
   "result": {
-    "count": 1,
     "id": "ultramarine:carved_stone_beam"
   }
 }

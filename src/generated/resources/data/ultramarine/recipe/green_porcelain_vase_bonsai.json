@@ -2,19 +2,14 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "S": {
-      "tag": "minecraft:saplings"
-    },
-    "V": {
-      "item": "ultramarine:medium_green_porcelain_vase"
-    }
+    "S": "#minecraft:saplings",
+    "V": "ultramarine:medium_green_porcelain_vase"
   },
   "pattern": [
     "S",
     "V"
   ],
   "result": {
-    "count": 1,
     "id": "ultramarine:green_porcelain_vase_bonsai"
   }
 }

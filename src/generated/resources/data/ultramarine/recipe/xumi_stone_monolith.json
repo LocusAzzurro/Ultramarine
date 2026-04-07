@@ -2,18 +2,10 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "B": {
-      "item": "ultramarine:stone_pillar_base"
-    },
-    "C": {
-      "item": "minecraft:chiseled_stone_bricks"
-    },
-    "H": {
-      "item": "minecraft:stone_slab"
-    },
-    "S": {
-      "item": "minecraft:stone"
-    }
+    "B": "ultramarine:stone_pillar_base",
+    "C": "minecraft:chiseled_stone_bricks",
+    "H": "minecraft:stone_slab",
+    "S": "minecraft:stone"
   },
   "pattern": [
     "HHH",
@@ -21,7 +13,6 @@
     "BBB"
   ],
   "result": {
-    "count": 1,
     "id": "ultramarine:xumi_stone_monolith"
   }
 }

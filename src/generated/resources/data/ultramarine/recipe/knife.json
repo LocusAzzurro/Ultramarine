@@ -2,19 +2,14 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "B": {
-      "item": "ultramarine:bronze_parts"
-    },
-    "S": {
-      "item": "minecraft:iron_sword"
-    }
+    "B": "ultramarine:bronze_parts",
+    "S": "minecraft:iron_sword"
   },
   "pattern": [
     "S ",
     " B"
   ],
   "result": {
-    "count": 1,
     "id": "ultramarine:knife"
   }
 }

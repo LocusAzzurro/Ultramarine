@@ -1,0 +1,12 @@
+{
+  "gives": {
+    "id": "ultramarine:jade"
+  },
+  "max_uses": 6,
+  "reputation_discount": 0.05,
+  "wants": {
+    "count": 10,
+    "id": "minecraft:emerald"
+  },
+  "xp": 20
+}

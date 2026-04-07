@@ -6,6 +6,7 @@ import com.voxelutopia.ultramarine.data.recipe.ChiselTableRecipe;
 import com.voxelutopia.ultramarine.data.registry.BlockRegistry;
 import com.voxelutopia.ultramarine.data.registry.MenuTypeRegistry;
 import com.voxelutopia.ultramarine.data.registry.RecipeTypeRegistry;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.world.Container;
 import net.minecraft.world.SimpleContainer;
@@ -17,14 +18,8 @@ import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.RecipeHolder;
 import net.minecraft.world.level.Level;
-import net.neoforged.neoforge.items.IItemHandler;
-import net.neoforged.neoforge.items.ItemStackHandler;
-import net.neoforged.neoforge.items.SlotItemHandler;
-import net.neoforged.neoforge.items.wrapper.InvWrapper;
-import net.neoforged.neoforge.items.wrapper.RecipeWrapper;
 import org.jetbrains.annotations.NotNull;
 
-import javax.annotation.Nonnull;
 import java.util.List;
 import java.util.function.Predicate;
 
@@ -46,9 +41,15 @@ public class ChiselTableMenu extends AbstractContainerMenu {
 
     private final ContainerLevelAccess access;
     private final Player player;
-    private final ItemStackHandler crafting = new ItemStackHandler(6);
-    private final ItemStackHandler result = new ItemStackHandler(1);
-    private final IItemHandler inventory;
+    private final SimpleContainer crafting = new SimpleContainer(6) {
+        @Override
+        public void setChanged() {
+            super.setChanged();
+            ChiselTableMenu.this.slotsChanged();
+        }
+    };
+    private final SimpleContainer result = new SimpleContainer(1);
+    private final Inventory inventory;
 
     public ChiselTableMenu(int id, Inventory inventory) {
         this(id, inventory, ContainerLevelAccess.NULL);
@@ -56,7 +57,7 @@ public class ChiselTableMenu extends AbstractContainerMenu {
 
     public ChiselTableMenu(int id, Inventory inventory, ContainerLevelAccess access) {
         super(MenuTypeRegistry.CHISEL_TABLE.get(), id);
-        this.inventory = new InvWrapper(inventory);
+        this.inventory = inventory;
         this.access = access;
         this.player = inventory.player;
 
@@ -69,48 +70,59 @@ public class ChiselTableMenu extends AbstractContainerMenu {
 
         for (int r = 0; r < 3; ++r) {
             for (int c = 0; c < 9; ++c) {
-                this.addSlot(new SlotItemHandler(this.inventory, c + r * 9 + 9, 8 + c * 18, 84 + r * 18));
+                this.addSlot(new Slot(this.inventory, c + r * 9 + 9, 8 + c * 18, 84 + r * 18));
             }
         }
 
         for (int k = 0; k < 9; ++k) {
-            this.addSlot(new SlotItemHandler(this.inventory, k, 8 + k * 18, 142));
+            this.addSlot(new Slot(this.inventory, k, 8 + k * 18, 142));
         }
+
+        this.createResult();
     }
 
-    public void slotsChanged(SlotItemHandler slot) {
+    private void slotsChanged() {
         this.broadcastChanges();
-        if (slot.getSlotIndex() <= SLOT_RESULT) {
-            this.createResult();
-        }
+        this.createResult();
     }
 
     public void createResult() {
         Level level = player.level();
-        Container ingredients = this.wrapIngredients();
-        RecipeWrapper wrapper = new RecipeWrapper(new InvWrapper(ingredients));
-        List<RecipeHolder<ChiselTableRecipe>> list = level.getRecipeManager().getRecipesFor(RecipeTypeRegistry.CHISEL_TABLE.get(), wrapper, level);
-        if (list.size() > 1) {
-            Ultramarine.getLogger().warn("Duplicate chisel table recipe: ");
-            list.forEach(recipe -> Ultramarine.getLogger().warn(recipe.id().toString()));
+        if (!(level instanceof ServerLevel serverLevel)) {
+            return;
         }
-        if (list.isEmpty()) {
-            this.result.setStackInSlot(0, ItemStack.EMPTY);
+
+        var input = new ChiselTableRecipe.ChiselTableRecipeInput(this.crafting);
+        var recipeManager = serverLevel.recipeAccess();
+        @SuppressWarnings("unchecked")
+        List<RecipeHolder<ChiselTableRecipe>> matchingRecipes = recipeManager.getRecipes().stream()
+                .filter(holder -> holder.value().getType() == RecipeTypeRegistry.CHISEL_TABLE.get())
+                .map(holder -> (RecipeHolder<ChiselTableRecipe>) holder)
+                .filter(holder -> holder.value().matches(input, serverLevel))
+                .toList();
+
+        if (matchingRecipes.size() > 1) {
+            Ultramarine.getLogger().warn("Duplicate chisel table recipe: ");
+            matchingRecipes.forEach(recipe -> Ultramarine.getLogger().warn(recipe.id().toString()));
+        }
+        if (matchingRecipes.isEmpty()) {
+            this.result.setItem(0, ItemStack.EMPTY);
         } else {
-            ChiselTableRecipe recipe = list.getFirst().value();
-            ItemStack resultItemStack = recipe.assemble(wrapper, level.registryAccess());
-            this.result.setStackInSlot(0, resultItemStack);
+            ChiselTableRecipe recipe = matchingRecipes.getFirst().value();
+            ItemStack resultItemStack = recipe.assemble(input);
+            this.result.setItem(0, resultItemStack);
         }
     }
 
-    protected void onTake(Player player, ItemStack itemStack, SlotItemHandler slot) {
+    protected void onTake(Player player, ItemStack itemStack, Slot slot) {
         for (int i = 0; i < SLOT_COLOR_END; i++) {
-            ItemStack item = crafting.getStackInSlot(i);
-            crafting.setStackInSlot(i, item);
-            if (i != SLOT_TEMPLATE)
+            ItemStack item = crafting.getItem(i);
+            if (i != SLOT_TEMPLATE) {
                 item.shrink(1);
+            }
+            crafting.setItem(i, item);
         }
-        this.slotsChanged(slot);
+        this.slotsChanged();
     }
 
     @Override
@@ -122,7 +134,7 @@ public class ChiselTableMenu extends AbstractContainerMenu {
             ItemStack slotItem = slot.getItem();
             itemstack = slotItem.copy();
             if (pIndex == SLOT_RESULT) {
-                slotItem.getItem().onCraftedBy(slotItem, pPlayer.level(), pPlayer);
+                slotItem.getItem().onCraftedBy(slotItem, pPlayer);
                 if (!this.moveItemStackTo(slotItem, INV_SLOT_START, USE_ROW_SLOT_END, true)) {
                     return ItemStack.EMPTY;
                 }
@@ -167,20 +179,12 @@ public class ChiselTableMenu extends AbstractContainerMenu {
     }
 
     public boolean canTakeItemForPickAll(@NotNull ItemStack pStack, @NotNull Slot pSlot) {
-        return ((SlotItemHandler) pSlot).getItemHandler() != this.result && super.canTakeItemForPickAll(pStack, pSlot);
+        return pSlot.container != this.result && super.canTakeItemForPickAll(pStack, pSlot);
     }
 
     public void removed(@NotNull Player pPlayer) {
         super.removed(pPlayer);
-        this.access.execute((level, blockPos) -> this.clearContainer(pPlayer, this.wrapIngredients()));
-    }
-
-    private Container wrapIngredients() {
-        var container = new SimpleContainer(6);
-        for (int i = 0; i < 6; i++) {
-            container.setItem(i, this.crafting.getStackInSlot(i));
-        }
-        return container;
+        this.access.execute((_, _) -> this.clearContainer(pPlayer, this.crafting));
     }
 
     @Override
@@ -188,14 +192,14 @@ public class ChiselTableMenu extends AbstractContainerMenu {
         return stillValid(this.access, pPlayer, BlockRegistry.CHISEL_TABLE.get());
     }
 
-    class OutputSlot extends SlotItemHandler {
+    class OutputSlot extends Slot {
 
-        public OutputSlot(IItemHandler itemHandler, int index, int xPosition, int yPosition) {
-            super(itemHandler, index, xPosition, yPosition);
+        public OutputSlot(Container container, int index, int xPosition, int yPosition) {
+            super(container, index, xPosition, yPosition);
         }
 
         @Override
-        public boolean mayPlace(@Nonnull ItemStack stack) {
+        public boolean mayPlace(@NotNull ItemStack stack) {
             return false;
         }
 
@@ -208,7 +212,7 @@ public class ChiselTableMenu extends AbstractContainerMenu {
         @Override
         public void setChanged() {
             super.setChanged();
-            ChiselTableMenu.this.slotsChanged(this);
+            ChiselTableMenu.this.slotsChanged();
         }
 
         @Override
@@ -220,27 +224,27 @@ public class ChiselTableMenu extends AbstractContainerMenu {
         }
     }
 
-    class IngredientSlot extends SlotItemHandler {
+    class IngredientSlot extends Slot {
 
-        public IngredientSlot(IItemHandler itemHandler, int index, int xPosition, int yPosition) {
-            super(itemHandler, index, xPosition, yPosition);
+        public IngredientSlot(Container container, int index, int xPosition, int yPosition) {
+            super(container, index, xPosition, yPosition);
         }
 
         @Override
         public void setChanged() {
             super.setChanged();
-            ChiselTableMenu.this.slotsChanged(this);
+            ChiselTableMenu.this.slotsChanged();
         }
     }
 
     class TemplateSlot extends IngredientSlot {
 
-        public TemplateSlot(IItemHandler itemHandler, int index, int xPosition, int yPosition) {
-            super(itemHandler, index, xPosition, yPosition);
+        public TemplateSlot(Container container, int index, int xPosition, int yPosition) {
+            super(container, index, xPosition, yPosition);
         }
 
         @Override
-        public boolean mayPlace(@Nonnull ItemStack stack) {
+        public boolean mayPlace(@NotNull ItemStack stack) {
             return IS_TEMPLATE.test(stack);
         }
 
@@ -249,12 +253,12 @@ public class ChiselTableMenu extends AbstractContainerMenu {
 
     class MaterialSlot extends IngredientSlot {
 
-        public MaterialSlot(IItemHandler itemHandler, int index, int xPosition, int yPosition) {
-            super(itemHandler, index, xPosition, yPosition);
+        public MaterialSlot(Container container, int index, int xPosition, int yPosition) {
+            super(container, index, xPosition, yPosition);
         }
 
         @Override
-        public boolean mayPlace(@Nonnull ItemStack stack) {
+        public boolean mayPlace(@NotNull ItemStack stack) {
             return IS_MATERIAL.test(stack);
         }
 
@@ -262,12 +266,12 @@ public class ChiselTableMenu extends AbstractContainerMenu {
 
     class DyeSlot extends IngredientSlot {
 
-        public DyeSlot(IItemHandler itemHandler, int index, int xPosition, int yPosition) {
-            super(itemHandler, index, xPosition, yPosition);
+        public DyeSlot(Container container, int index, int xPosition, int yPosition) {
+            super(container, index, xPosition, yPosition);
         }
 
         @Override
-        public boolean mayPlace(@Nonnull ItemStack stack) {
+        public boolean mayPlace(@NotNull ItemStack stack) {
             return IS_COLOR.test(stack);
         }
 

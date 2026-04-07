@@ -7,8 +7,8 @@ import com.voxelutopia.ultramarine.data.registry.ItemRegistry;
 import com.voxelutopia.ultramarine.world.block.*;
 import com.voxelutopia.ultramarine.world.block.state.ModBlockStateProperties;
 import com.voxelutopia.ultramarine.world.block.state.StackableBlockType;
-import net.minecraft.advancements.critereon.ItemPredicate;
-import net.minecraft.advancements.critereon.StatePropertiesPredicate;
+import net.minecraft.advancements.criterion.ItemPredicate;
+import net.minecraft.advancements.criterion.StatePropertiesPredicate;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
@@ -47,15 +47,16 @@ import java.util.stream.Stream;
 public class ModBlockLootProvider extends BlockLootSubProvider {
 
     static final Logger LOGGER = Ultramarine.getLogger();
-    static final LootItemCondition.Builder HAS_SHEARS = MatchTool.toolMatches(ItemPredicate.Builder.item().of(Items.SHEARS));
     static final Set<Item> EXPLOSION_RESISTANT = Stream.of(Blocks.BEDROCK).map(ItemLike::asItem).collect(ImmutableSet.toImmutableSet());
 
     protected final Map<Block, LootTable.Builder> lootTables = new HashMap<>();
     protected final HolderLookup.Provider registries;
+    private final LootItemCondition.Builder hasShears;
 
     public ModBlockLootProvider(HolderLookup.Provider provider) {
         super(Set.of(), FeatureFlags.REGISTRY.allFlags(), provider);
         this.registries = provider;
+        this.hasShears = MatchTool.toolMatches(ItemPredicate.Builder.item().of(this.registries.lookupOrThrow(Registries.ITEM), Items.SHEARS));
     }
 
     private static final List<DeferredHolder<Block, Block>> NON_SIMPLE_BLOCKS = new ArrayList<>();
@@ -125,7 +126,7 @@ public class ModBlockLootProvider extends BlockLootSubProvider {
 
         this.addLootTable(BlockRegistry.PAINTING_SCROLL.get(), LootTable.lootTable()
                 .withPool(LootPool.lootPool().name("painting_scroll").setRolls(ConstantValue.exactly(1.0F))
-                        .add(LootItem.lootTableItem(ItemRegistry.PAINTING_SCROLL.get()).when(HAS_SHEARS.invert())
+                        .add(LootItem.lootTableItem(ItemRegistry.PAINTING_SCROLL.get()).when(this.hasShears.invert())
                                 .otherwise(LootItem.lootTableItem(Items.DIAMOND)
                                         .append(LootItem.lootTableItem(ItemRegistry.LONG_HANGING_PAINTING.get()))
                                         .append(LootItem.lootTableItem(ItemRegistry.WHITE_LANDSCAPE_PAINTING.get()))

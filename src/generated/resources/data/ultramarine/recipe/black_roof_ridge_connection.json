@@ -2,16 +2,13 @@
   "type": "minecraft:crafting_shaped",
   "category": "building",
   "key": {
-    "T": {
-      "item": "ultramarine:black_roof_tile"
-    }
+    "T": "ultramarine:black_roof_tile"
   },
   "pattern": [
     "TTT",
     "TTT"
   ],
   "result": {
-    "count": 1,
     "id": "ultramarine:black_roof_ridge_connection"
   }
 }

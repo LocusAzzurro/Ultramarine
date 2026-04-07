@@ -2,19 +2,14 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "P": {
-      "tag": "minecraft:planks"
-    },
-    "R": {
-      "item": "ultramarine:small_red_lantern"
-    }
+    "P": "#minecraft:planks",
+    "R": "ultramarine:small_red_lantern"
   },
   "pattern": [
     "PPP",
     " R "
   ],
   "result": {
-    "count": 1,
     "id": "ultramarine:hanging_red_lantern_streetlight"
   }
 }

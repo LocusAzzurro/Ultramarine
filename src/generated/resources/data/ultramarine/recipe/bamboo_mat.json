@@ -1,10 +1,7 @@
 {
   "type": "ultramarine:woodworking",
-  "ingredient": {
-    "item": "minecraft:bamboo_mosaic"
-  },
+  "ingredient": "minecraft:bamboo_mosaic",
   "result": {
-    "count": 1,
     "id": "ultramarine:bamboo_mat"
   }
 }

@@ -2,22 +2,15 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "D": {
-      "item": "minecraft:black_dye"
-    },
-    "I": {
-      "item": "minecraft:iron_ingot"
-    },
-    "P": {
-      "item": "minecraft:flower_pot"
-    }
+    "D": "minecraft:black_dye",
+    "I": "minecraft:iron_ingot",
+    "P": "minecraft:flower_pot"
   },
   "pattern": [
     "IDI",
     "IPI"
   ],
   "result": {
-    "count": 1,
     "id": "ultramarine:black_iron_flowerpot"
   }
 }

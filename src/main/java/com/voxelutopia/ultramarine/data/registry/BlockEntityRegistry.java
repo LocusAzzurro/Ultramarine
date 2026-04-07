@@ -14,7 +14,6 @@ import net.neoforged.neoforge.registries.DeferredRegister;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-@SuppressWarnings("DataFlowIssue")
 public class BlockEntityRegistry {
 
     static Set<DeferredHolder<Block, Block>> CONTAINER_BLOCKS = Set.of(
@@ -26,19 +25,25 @@ public class BlockEntityRegistry {
 
     public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<ContainerDecorativeBlockEntity>>
             CONTAINER_DECORATIVE_BLOCK = BLOCK_ENTITIES.register(
-            "container_decorative_block_entity", () -> BlockEntityType.Builder
-                    .of(ContainerDecorativeBlockEntity::new, CONTAINER_BLOCKS.stream().map(DeferredHolder::get).collect(Collectors.toSet()).toArray(new Block[0])).build(null));
+            "container_decorative_block_entity",
+            () -> new BlockEntityType<>(ContainerDecorativeBlockEntity::new, Set.of(getBlocks(CONTAINER_BLOCKS))));
+
     public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<CenserBlockEntity>>
             CENSER = BLOCK_ENTITIES.register(
-            "censer_block_entity", () -> BlockEntityType.Builder
-                    .of(CenserBlockEntity::new, CENSERS.stream().map(DeferredHolder::get).collect(Collectors.toSet()).toArray(new Block[0])).build(null));
+            "censer_block_entity",
+            () -> new BlockEntityType<>(CenserBlockEntity::new, Set.of(getBlocks(CENSERS))));
+
     public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<BottleGourdBlockEntity>>
             BOTTLE_GOURD = BLOCK_ENTITIES.register(
-            "bottle_gourd_entity", () -> BlockEntityType.Builder
-                    .of(BottleGourdBlockEntity::new, BlockRegistry.BOTTLE_GOURD.get()).build(null));
+            "bottle_gourd_entity",
+            () -> new BlockEntityType<>(BottleGourdBlockEntity::new, Set.of(BlockRegistry.BOTTLE_GOURD.get())));
+
     public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<BrickKilnBlockEntity>>
             BRICK_KILN = BLOCK_ENTITIES.register(
-            "brick_kiln_block_entity", () -> BlockEntityType.Builder
-                    .of(BrickKilnBlockEntity::new, BlockRegistry.BRICK_KILN.get()).build(null));
+            "brick_kiln_block_entity",
+            () -> new BlockEntityType<>(BrickKilnBlockEntity::new, Set.of(BlockRegistry.BRICK_KILN.get())));
 
+    private static Block[] getBlocks(Set<DeferredHolder<Block, Block>> holders) {
+        return holders.stream().map(DeferredHolder::get).toArray(Block[]::new);
+    }
 }

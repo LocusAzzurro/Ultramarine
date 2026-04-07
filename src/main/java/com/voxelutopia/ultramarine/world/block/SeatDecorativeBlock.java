@@ -26,13 +26,16 @@ public class SeatDecorativeBlock extends DecorativeBlock {
     @Override
     public InteractionResult useWithoutItem(BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, BlockHitResult pHit) {
         if (pState.is(this) && pLevel.getEntitiesOfClass(SeatEntity.class, new AABB(pPos)).isEmpty()) {
+            if (pLevel.isClientSide()) {
+                return InteractionResult.SUCCESS;
+            }
             boolean ridingSuccess = false;
             if (!pLevel.isClientSide()) {
                 SeatEntity seat = new SeatEntity(pLevel, Vec3.atCenterOf(pPos).add(seatOffset));
                 pLevel.addFreshEntity(seat);
                 ridingSuccess = pPlayer.startRiding(seat);
             }
-            return ridingSuccess ? InteractionResult.sidedSuccess(pLevel.isClientSide()) : InteractionResult.PASS;
+            return ridingSuccess ? InteractionResult.SUCCESS_SERVER : InteractionResult.PASS;
         }
         return super.useWithoutItem(pState, pLevel, pPos, pPlayer, pHit);
     }

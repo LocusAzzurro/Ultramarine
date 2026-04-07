@@ -1,10 +1,7 @@
 {
   "type": "ultramarine:woodworking",
-  "ingredient": {
-    "item": "ultramarine:gilded_dark_oak"
-  },
+  "ingredient": "ultramarine:gilded_dark_oak",
   "result": {
-    "count": 1,
     "id": "ultramarine:gilded_dark_oak_pillar_head_variant_4"
   }
 }

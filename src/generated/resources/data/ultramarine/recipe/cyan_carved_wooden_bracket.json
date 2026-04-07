@@ -2,12 +2,8 @@
   "type": "minecraft:crafting_shaped",
   "category": "building",
   "key": {
-    "B": {
-      "item": "ultramarine:red_carved_wooden_stairs"
-    },
-    "T": {
-      "item": "ultramarine:cyan_carved_wooden_slab"
-    }
+    "B": "ultramarine:red_carved_wooden_stairs",
+    "T": "ultramarine:cyan_carved_wooden_slab"
   },
   "pattern": [
     "T",

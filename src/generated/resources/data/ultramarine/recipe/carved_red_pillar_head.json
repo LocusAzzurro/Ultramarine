@@ -1,27 +1,14 @@
 {
   "type": "ultramarine:chisel_table",
   "colors": [
-    {
-      "item": "ultramarine:gold_dye_powder"
-    },
-    {
-      "tag": "c:dyes/red"
-    },
-    {
-      "tag": "c:dyes/white"
-    },
-    {
-      "tag": "c:dyes/blue"
-    }
+    "ultramarine:gold_dye_powder",
+    "#c:dyes/red",
+    "#c:dyes/white",
+    "#c:dyes/blue"
   ],
-  "material": {
-    "tag": "minecraft:logs"
-  },
+  "material": "#minecraft:logs",
   "result": {
-    "count": 1,
     "id": "ultramarine:carved_red_pillar_head"
   },
-  "template": {
-    "item": "ultramarine:zhaotou_template"
-  }
+  "template": "ultramarine:zhaotou_template"
 }

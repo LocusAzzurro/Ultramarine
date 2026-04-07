@@ -2,12 +2,8 @@
   "type": "minecraft:crafting_shaped",
   "category": "building",
   "key": {
-    "B": {
-      "item": "ultramarine:polished_weathered_stone"
-    },
-    "D": {
-      "tag": "c:dyes/red"
-    }
+    "B": "ultramarine:polished_weathered_stone",
+    "D": "#c:dyes/red"
   },
   "pattern": [
     "BBB",

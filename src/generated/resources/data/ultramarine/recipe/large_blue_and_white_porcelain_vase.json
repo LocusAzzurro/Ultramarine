@@ -1,14 +1,9 @@
 {
   "type": "ultramarine:composite_smelting",
   "experience": 0.1,
-  "primary_ingredient": {
-    "item": "ultramarine:large_clay_vase"
-  },
+  "primary_ingredient": "ultramarine:large_clay_vase",
   "result": {
-    "count": 1,
     "id": "ultramarine:large_blue_and_white_porcelain_vase"
   },
-  "secondary_ingredient": {
-    "item": "ultramarine:blue_and_white_glaze_powder"
-  }
+  "secondary_ingredient": "ultramarine:blue_and_white_glaze_powder"
 }

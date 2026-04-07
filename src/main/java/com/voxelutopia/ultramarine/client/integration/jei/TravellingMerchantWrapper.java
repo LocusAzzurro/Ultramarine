@@ -4,10 +4,10 @@ import mezz.jei.api.recipe.category.extensions.IRecipeCategoryExtension;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.trading.MerchantOffer;
 
-public class TravellingMerchantWrapper implements IRecipeCategoryExtension<Object> {
+public class TravellingMerchantWrapper implements IRecipeCategoryExtension<TravellingMerchantWrapper> {
 
-    private ItemStack input;
-    private ItemStack output;
+    private final ItemStack input;
+    private final ItemStack output;
 
     public TravellingMerchantWrapper(MerchantOffer offer) {
         this.input = offer.getBaseCostA();

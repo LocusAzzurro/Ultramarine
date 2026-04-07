@@ -2,12 +2,8 @@
   "type": "minecraft:crafting_shapeless",
   "category": "misc",
   "ingredients": [
-    {
-      "item": "minecraft:lily_pad"
-    },
-    {
-      "item": "minecraft:big_dripleaf"
-    }
+    "minecraft:lily_pad",
+    "minecraft:big_dripleaf"
   ],
   "result": {
     "count": 2,

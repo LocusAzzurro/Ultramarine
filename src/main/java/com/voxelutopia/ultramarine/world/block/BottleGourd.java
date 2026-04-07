@@ -4,11 +4,11 @@ import com.voxelutopia.ultramarine.data.registry.BlockEntityRegistry;
 import com.voxelutopia.ultramarine.world.block.entity.BottleGourdBlockEntity;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.component.DataComponents;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
-import net.minecraft.world.ItemInteractionResult;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.AreaEffectCloud;
 import net.minecraft.world.entity.player.Player;
@@ -23,7 +23,6 @@ import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.VoxelShape;
-import net.neoforged.neoforge.items.ItemHandlerHelper;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
@@ -49,14 +48,16 @@ public class BottleGourd extends DecorativeBlock implements EntityBlock {
             if (!level.isClientSide()) {
                 for (var effectInstance : blockEntity.getPotion().getEffects()) {
                     if (effectInstance.getEffect().value().isInstantenous()) {
-                        effectInstance.getEffect().value().applyInstantenousEffect(player, player, player, effectInstance.getAmplifier(), 1.0D);
+                        if (level instanceof ServerLevel serverLevel) {
+                            effectInstance.getEffect().value().applyInstantenousEffect(serverLevel, player, player, player, effectInstance.getAmplifier(), 1.0D);
+                        }
                     } else {
                         player.addEffect(new MobEffectInstance(effectInstance));
                     }
                 }
                 blockEntity.shrinkCharge();
             } else {
-                level.playSound(null, player, SoundEvents.GENERIC_DRINK, SoundSource.PLAYERS, 1.0f, 1.0f);
+                level.playSound(null, player.getX(), player.getY(), player.getZ(), SoundEvents.GENERIC_DRINK, SoundSource.PLAYERS, 1.0f, 1.0f);
             }
             return InteractionResult.SUCCESS;
         }
@@ -65,11 +66,11 @@ public class BottleGourd extends DecorativeBlock implements EntityBlock {
     }
 
     @Override
-    protected ItemInteractionResult useItemOn(ItemStack stack, BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hitResult) {
+    protected InteractionResult useItemOn(ItemStack stack, BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hitResult) {
         var optionalBlockEntity = level.getBlockEntity(pos, BlockEntityRegistry.BOTTLE_GOURD.get());
         if (optionalBlockEntity.isEmpty()) {
             // It shouldn't happen!
-            return ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
+            return InteractionResult.TRY_WITH_EMPTY_HAND;
         }
 
         var blockEntity = optionalBlockEntity.get();
@@ -79,16 +80,16 @@ public class BottleGourd extends DecorativeBlock implements EntityBlock {
                 if (!level.isClientSide()) {
                     if (!player.getAbilities().instabuild) {
                         stack.shrink(1);
-                        ItemHandlerHelper.giveItemToPlayer(player, new ItemStack(Items.GLASS_BOTTLE));
+                        player.getInventory().placeItemBackInInventory(new ItemStack(Items.GLASS_BOTTLE));
                     }
                     blockEntity.setPotion(potion);
                     blockEntity.addCharge();
                 } else {
                     level.playSound(null, pos, SoundEvents.BREWING_STAND_BREW, SoundSource.PLAYERS, 1.0f, 1.0f);
                 }
-                return ItemInteractionResult.SUCCESS;
+                return level.isClientSide() ? InteractionResult.SUCCESS : InteractionResult.SUCCESS_SERVER;
             } else {
-                return ItemInteractionResult.FAIL;
+                return InteractionResult.FAIL;
             }
         }
 

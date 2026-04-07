@@ -23,15 +23,15 @@ public class ModGlobalLootModifiersProvider extends GlobalLootModifierProvider {
     protected void start() {
         add("archy_trail_ruins_common_modifier", new ReplaceToSingleItemLootModifier(
                 new LootItemCondition[]{
-                        LootTableIdCondition.builder(BuiltInLootTables.TRAIL_RUINS_ARCHAEOLOGY_COMMON.location()).build(),
+                        LootTableIdCondition.builder(BuiltInLootTables.TRAIL_RUINS_ARCHAEOLOGY_COMMON.identifier()).build(),
                         LootItemRandomChanceCondition.randomChance(0.2f).build()
-                }, ModArchaeologyLootProvider.TRAIL_RUINS_COMMON.location()
+                }, ModArchaeologyLootProvider.TRAIL_RUINS_COMMON.identifier()
         ));
         add("archy_trail_ruins_rare_modifier", new ReplaceToSingleItemLootModifier(
                 new LootItemCondition[]{
-                        LootTableIdCondition.builder(BuiltInLootTables.TRAIL_RUINS_ARCHAEOLOGY_RARE.location()).build(),
+                        LootTableIdCondition.builder(BuiltInLootTables.TRAIL_RUINS_ARCHAEOLOGY_RARE.identifier()).build(),
                         LootItemRandomChanceCondition.randomChance(0.1f).build()
-                }, ModArchaeologyLootProvider.TRAIL_RUINS_RARE.location()
+                }, ModArchaeologyLootProvider.TRAIL_RUINS_RARE.identifier()
         ));
     }
 }

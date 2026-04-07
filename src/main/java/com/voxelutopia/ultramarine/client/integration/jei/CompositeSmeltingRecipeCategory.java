@@ -6,16 +6,17 @@ import com.voxelutopia.ultramarine.data.registry.BlockRegistry;
 import mezz.jei.api.constants.VanillaTypes;
 import mezz.jei.api.gui.builder.IRecipeLayoutBuilder;
 import mezz.jei.api.gui.drawable.IDrawable;
+import mezz.jei.api.gui.ingredient.IRecipeSlotsView;
 import mezz.jei.api.gui.placement.HorizontalAlignment;
 import mezz.jei.api.gui.placement.VerticalAlignment;
 import mezz.jei.api.gui.widgets.IRecipeExtrasBuilder;
 import mezz.jei.api.helpers.IGuiHelper;
 import mezz.jei.api.recipe.IFocusGroup;
-import mezz.jei.api.recipe.RecipeType;
 import mezz.jei.api.recipe.category.IRecipeCategory;
-import mezz.jei.library.util.RecipeUtil;
+import mezz.jei.api.recipe.types.IRecipeType;
+import net.minecraft.client.gui.GuiGraphicsExtractor;
 import net.minecraft.network.chat.Component;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.item.ItemStack;
 import org.jetbrains.annotations.NotNull;
 
@@ -24,12 +25,12 @@ import static mezz.jei.api.recipe.RecipeIngredientRole.OUTPUT;
 
 public class CompositeSmeltingRecipeCategory implements IRecipeCategory<CompositeSmeltingRecipe> {
 
-    public static final ResourceLocation UID = ResourceLocation.fromNamespaceAndPath(Ultramarine.MOD_ID, "composite_smelting");
+    public static final Identifier UID = Identifier.fromNamespaceAndPath(Ultramarine.MOD_ID, "composite_smelting");
 
-    public static final RecipeType<CompositeSmeltingRecipe> COMPOSITE_SMELTING_RECIPE_TYPE =
-            new RecipeType<>(UID, CompositeSmeltingRecipe.class);
+    public static final IRecipeType<CompositeSmeltingRecipe> COMPOSITE_SMELTING_RECIPE_TYPE =
+            IRecipeType.create(UID, CompositeSmeltingRecipe.class);
 
-    public static final ResourceLocation TEXTURE_GUI = ResourceLocation.fromNamespaceAndPath(Ultramarine.MOD_ID, "textures/gui/brick_kiln.png");
+    public static final Identifier TEXTURE_GUI = Identifier.fromNamespaceAndPath(Ultramarine.MOD_ID, "textures/gui/brick_kiln.png");
 
     private final IDrawable background;
     private final int regularCookTime;
@@ -44,14 +45,23 @@ public class CompositeSmeltingRecipeCategory implements IRecipeCategory<Composit
     }
 
     @Override
-    @SuppressWarnings("removal")
-    public IDrawable getBackground() {
-        return background;
+    public IDrawable getIcon() {
+        return icon;
     }
 
     @Override
-    public IDrawable getIcon() {
-        return icon;
+    public int getWidth() {
+        return background.getWidth();
+    }
+
+    @Override
+    public int getHeight() {
+        return background.getHeight();
+    }
+
+    @Override
+    public void draw(CompositeSmeltingRecipe recipe, IRecipeSlotsView recipeSlotsView, GuiGraphicsExtractor guiGraphics, double mouseX, double mouseY) {
+        background.draw(guiGraphics);
     }
 
 
@@ -99,17 +109,17 @@ public class CompositeSmeltingRecipeCategory implements IRecipeCategory<Composit
     @Override
     public void setRecipe(IRecipeLayoutBuilder builder, CompositeSmeltingRecipe recipe, @NotNull IFocusGroup focuses) {
         builder.addSlot(INPUT, 1, 1)
-                .addIngredients(recipe.getPrimaryIngredient());
+                .add(recipe.getPrimaryIngredient());
 
         builder.addSlot(INPUT, 21, 1)
-                .addIngredients(recipe.getSecondaryIngredient());
+                .add(recipe.getSecondaryIngredient());
 
         builder.addSlot(OUTPUT, 71, 19)
-                .addItemStack(RecipeUtil.getResultItem(recipe));
+                .add(recipe.getResultItem());
     }
 
     @Override
-    public @NotNull RecipeType<CompositeSmeltingRecipe> getRecipeType() {
+    public @NotNull IRecipeType<CompositeSmeltingRecipe> getRecipeType() {
         return COMPOSITE_SMELTING_RECIPE_TYPE;
     }
 }

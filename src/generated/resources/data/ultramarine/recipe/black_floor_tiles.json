@@ -2,12 +2,8 @@
   "type": "minecraft:crafting_shapeless",
   "category": "building",
   "ingredients": [
-    {
-      "item": "minecraft:cobbled_deepslate"
-    },
-    {
-      "item": "ultramarine:black_bricks"
-    }
+    "minecraft:cobbled_deepslate",
+    "ultramarine:black_bricks"
   ],
   "result": {
     "count": 2,

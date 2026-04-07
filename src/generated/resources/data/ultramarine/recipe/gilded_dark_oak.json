@@ -2,12 +2,8 @@
   "type": "minecraft:crafting_shaped",
   "category": "building",
   "key": {
-    "G": {
-      "item": "ultramarine:gold_parts"
-    },
-    "O": {
-      "item": "minecraft:stripped_dark_oak_wood"
-    }
+    "G": "ultramarine:gold_parts",
+    "O": "minecraft:stripped_dark_oak_wood"
   },
   "pattern": [
     " G ",
@@ -15,7 +11,6 @@
     " G "
   ],
   "result": {
-    "count": 1,
     "id": "ultramarine:gilded_dark_oak"
   }
 }

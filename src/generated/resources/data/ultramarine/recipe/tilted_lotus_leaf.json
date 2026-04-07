@@ -2,12 +2,9 @@
   "type": "minecraft:crafting_shapeless",
   "category": "misc",
   "ingredients": [
-    {
-      "item": "ultramarine:large_lotus_leaf"
-    }
+    "ultramarine:large_lotus_leaf"
   ],
   "result": {
-    "count": 1,
     "id": "ultramarine:tilted_lotus_leaf"
   }
 }

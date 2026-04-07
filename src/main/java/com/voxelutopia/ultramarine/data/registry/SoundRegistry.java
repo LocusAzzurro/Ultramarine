@@ -2,7 +2,7 @@ package com.voxelutopia.ultramarine.data.registry;
 
 import com.voxelutopia.ultramarine.Ultramarine;
 import net.minecraft.core.registries.Registries;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.neoforged.neoforge.common.util.DeferredSoundType;
@@ -14,7 +14,7 @@ public class SoundRegistry {
             DeferredRegister.create(Registries.SOUND_EVENT, Ultramarine.MOD_ID);
 
     private static DeferredHolder<SoundEvent, SoundEvent> register(String name) {
-        return SOUND_EVENT.register(name, () -> SoundEvent.createVariableRangeEvent(ResourceLocation.fromNamespaceAndPath(Ultramarine.MOD_ID, name)));
+        return SOUND_EVENT.register(name, () -> SoundEvent.createVariableRangeEvent(Identifier.fromNamespaceAndPath(Ultramarine.MOD_ID, name)));
     }
 
     public static DeferredHolder<SoundEvent,SoundEvent> BAMBOO_WOOD_HIT = register("bamboo_wood_hit");

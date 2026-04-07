@@ -7,8 +7,8 @@ public class DyePowder extends Item {
 
     private final DyeColor color;
 
-    public DyePowder(DyeColor color) {
-        super(new Properties());
+    public DyePowder(Item.Properties properties, DyeColor color) {
+        super(properties);
         this.color = color;
     }
 

@@ -2,18 +2,13 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "C": {
-      "item": "ultramarine:carved_stone_panel_center"
-    },
-    "E": {
-      "item": "ultramarine:carved_stone_panel_edge"
-    }
+    "C": "ultramarine:carved_stone_panel_center",
+    "E": "ultramarine:carved_stone_panel_edge"
   },
   "pattern": [
     "EC"
   ],
   "result": {
-    "count": 1,
     "id": "ultramarine:carved_stone_queti_part"
   }
 }

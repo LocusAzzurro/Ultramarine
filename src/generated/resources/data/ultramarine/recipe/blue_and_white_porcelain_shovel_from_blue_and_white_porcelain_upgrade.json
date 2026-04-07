@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": "ultramarine:blue_and_white_porcelain_piece",
+  "base": "minecraft:golden_shovel",
+  "result": {
+    "id": "ultramarine:blue_and_white_porcelain_shovel"
+  },
+  "template": "ultramarine:blue_and_white_porcelain_upgrade_smithing_template"
+}

@@ -18,6 +18,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.*;
 import net.minecraft.world.level.gameevent.GameEvent;
+import net.minecraft.world.level.redstone.Orientation;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.phys.shapes.CollisionContext;
@@ -28,7 +29,7 @@ import javax.annotation.Nullable;
 
 public class OpeningBlock extends DecorativeBlock {
 
-    public static final DirectionProperty FACING = HorizontalDirectionalBlock.FACING;
+    public static final EnumProperty<Direction> FACING = HorizontalDirectionalBlock.FACING;
     public static final BooleanProperty OPEN = BlockStateProperties.OPEN;
     public static final EnumProperty<DoorHingeSide> HINGE = BlockStateProperties.DOOR_HINGE;
     public static final BooleanProperty POWERED = BlockStateProperties.POWERED;
@@ -44,7 +45,7 @@ public class OpeningBlock extends DecorativeBlock {
         this.playSound(pPlayer, pLevel, pPos, pState.getValue(OPEN));
         pLevel.levelEvent(pPlayer, pState.getValue(OPEN) ? 1006 : 1012, pPos, 0);
         pLevel.gameEvent(pPlayer, this.isOpen(pState) ? GameEvent.BLOCK_OPEN : GameEvent.BLOCK_CLOSE, pPos);
-        return InteractionResult.sidedSuccess(pLevel.isClientSide);
+        return pLevel.isClientSide() ? InteractionResult.SUCCESS : InteractionResult.SUCCESS_SERVER;
     }
 
     public boolean isOpen(BlockState pState) {
@@ -52,19 +53,19 @@ public class OpeningBlock extends DecorativeBlock {
     }
 
     @Override
-    public void neighborChanged(BlockState pState, Level pLevel, BlockPos pPos, Block pBlock, BlockPos pFromPos, boolean pIsMoving) {
+    public void neighborChanged(BlockState pState, Level pLevel, BlockPos pPos, Block pBlock, @Nullable Orientation orientation, boolean pIsMoving) {
         boolean signal = pLevel.hasNeighborSignal(pPos);
         if (!this.defaultBlockState().is(pBlock) && signal != pState.getValue(POWERED)) {
             if (signal != pState.getValue(OPEN)) {
                 this.playSound(null, pLevel, pPos, signal);
-                pLevel.gameEvent(signal ? GameEvent.BLOCK_OPEN : GameEvent.BLOCK_CLOSE, pPos, GameEvent.Context.of(pState));
+                pLevel.gameEvent(null, signal ? GameEvent.BLOCK_OPEN : GameEvent.BLOCK_CLOSE, pPos);
             }
             pLevel.setBlock(pPos, pState.setValue(POWERED, signal).setValue(OPEN, signal), 2);
         }
-
     }
 
-    private void playSound(@Nullable Entity pSource, Level pLevel, BlockPos pPos, boolean pIsOpening) {
+
+        private void playSound(@Nullable Entity pSource, Level pLevel, BlockPos pPos, boolean pIsOpening) {
         pLevel.playSound(pSource, pPos, pIsOpening ? SoundEvents.WOODEN_DOOR_OPEN : SoundEvents.WOODEN_DOOR_CLOSE, SoundSource.BLOCKS, 1.0F, pLevel.getRandom().nextFloat() * 0.1F + 0.9F);
     }
 

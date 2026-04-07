@@ -2,12 +2,8 @@
   "type": "minecraft:crafting_shaped",
   "category": "building",
   "key": {
-    "V": {
-      "item": "ultramarine:variegated_rocks"
-    },
-    "Y": {
-      "item": "ultramarine:pale_yellow_stone"
-    }
+    "V": "ultramarine:variegated_rocks",
+    "Y": "ultramarine:pale_yellow_stone"
   },
   "pattern": [
     "VY",

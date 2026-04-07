@@ -2,12 +2,8 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "D": {
-      "item": "ultramarine:blue_dye_powder"
-    },
-    "S": {
-      "item": "ultramarine:silk"
-    }
+    "D": "ultramarine:blue_dye_powder",
+    "S": "ultramarine:silk"
   },
   "pattern": [
     "SSS",

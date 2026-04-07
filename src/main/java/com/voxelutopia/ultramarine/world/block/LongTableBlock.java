@@ -2,9 +2,9 @@ package com.voxelutopia.ultramarine.world.block;
 
 import com.voxelutopia.ultramarine.data.shape.RawVoxelShape;
 import com.voxelutopia.ultramarine.world.block.state.ModBlockStateProperties;
-import net.minecraft.Util;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.util.Util;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
@@ -15,6 +15,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.level.block.state.properties.EnumProperty;
+import net.minecraft.world.level.redstone.Orientation;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
@@ -82,8 +83,8 @@ public class LongTableBlock extends Block implements BaseBlockPropertyHolder {
     }
 
     @Override
-    public void neighborChanged(BlockState pState, Level pLevel, BlockPos pPos, Block pBlock, BlockPos pFromPos, boolean pIsMoving) {
-        super.neighborChanged(pState, pLevel, pPos, pBlock, pFromPos, pIsMoving);
+    public void neighborChanged(BlockState pState, Level pLevel, BlockPos pPos, Block pBlock, @Nullable Orientation orientation, boolean pIsMoving) {
+        super.neighborChanged(pState, pLevel, pPos, pBlock, orientation, pIsMoving);
         update(pLevel, pPos, new HashSet<>());
     }
 

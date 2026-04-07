@@ -2,18 +2,10 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "B": {
-      "item": "minecraft:bread"
-    },
-    "C": {
-      "item": "minecraft:chest"
-    },
-    "F": {
-      "item": "ultramarine:wooden_frame"
-    },
-    "P": {
-      "tag": "ultramarine:polished_planks"
-    }
+    "B": "minecraft:bread",
+    "C": "minecraft:chest",
+    "F": "ultramarine:wooden_frame",
+    "P": "#ultramarine:polished_planks"
   },
   "pattern": [
     "FBF",
@@ -21,7 +13,6 @@
     "PCP"
   ],
   "result": {
-    "count": 1,
     "id": "ultramarine:food_hamper"
   }
 }

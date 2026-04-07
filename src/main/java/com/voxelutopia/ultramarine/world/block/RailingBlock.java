@@ -4,10 +4,12 @@ import com.google.common.collect.ImmutableMap;
 import com.voxelutopia.ultramarine.world.block.state.ModBlockStateProperties;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.LevelReader;
+import net.minecraft.world.level.ScheduledTickAccess;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.RenderShape;
 import net.minecraft.world.level.block.SimpleWaterloggedBlock;
@@ -107,33 +109,32 @@ public class RailingBlock extends Block implements BaseBlockPropertyHolder, Simp
     }
 
     @Override
-    @SuppressWarnings("deprecation")
-    public BlockState updateShape(BlockState pState, Direction pFacing, BlockState pFacingState, LevelAccessor pLevel, BlockPos pCurrentPos, BlockPos pFacingPos) {
-        boolean north = pState.getValue(NORTH);
-        boolean south = pState.getValue(SOUTH);
-        boolean east = pState.getValue(EAST);
-        boolean west = pState.getValue(WEST);
-        boolean shifted = pState.getValue(SHIFTED);
-        if (pState.getValue(WATERLOGGED)) {
-            pLevel.scheduleTick(pCurrentPos, Fluids.WATER, Fluids.WATER.getTickDelay(pLevel));
+    protected BlockState updateShape(BlockState state, LevelReader level, ScheduledTickAccess ticks, BlockPos pos, Direction directionToNeighbour, BlockPos neighbourPos, BlockState neighbourState, RandomSource random) {
+        boolean north = state.getValue(NORTH);
+        boolean south = state.getValue(SOUTH);
+        boolean east = state.getValue(EAST);
+        boolean west = state.getValue(WEST);
+        boolean shifted = state.getValue(SHIFTED);
+        if (state.getValue(WATERLOGGED)) {
+            ticks.scheduleTick(pos, Fluids.WATER, Fluids.WATER.getTickDelay(level));
         }
-        if (pFacing == Direction.DOWN || pFacing == Direction.UP) {
-            return super.updateShape(pState, pFacing, pFacingState, pLevel, pCurrentPos, pFacingPos);
+        if (directionToNeighbour == Direction.DOWN || directionToNeighbour == Direction.UP) {
+            return super.updateShape(state, level, ticks, pos, directionToNeighbour, neighbourPos, neighbourState, random);
         }
-        if (pFacing == Direction.NORTH) {
-            north = connectsTo(Direction.NORTH, shifted, pFacingPos, pFacingState, pLevel);
+        if (directionToNeighbour == Direction.NORTH) {
+            north = connectsTo(Direction.NORTH, shifted, neighbourPos, neighbourState, level);
         }
-        if (pFacing == Direction.SOUTH) {
-            south = connectsTo(Direction.SOUTH, shifted, pFacingPos, pFacingState, pLevel);
+        if (directionToNeighbour == Direction.SOUTH) {
+            south = connectsTo(Direction.SOUTH, shifted, neighbourPos, neighbourState, level);
         }
-        if (pFacing == Direction.EAST) {
-            east = connectsTo(Direction.EAST, shifted, pFacingPos, pFacingState, pLevel);
+        if (directionToNeighbour == Direction.EAST) {
+            east = connectsTo(Direction.EAST, shifted, neighbourPos, neighbourState, level);
         }
-        if (pFacing == Direction.WEST) {
-            west = connectsTo(Direction.WEST, shifted, pFacingPos, pFacingState, pLevel);
+        if (directionToNeighbour == Direction.WEST) {
+            west = connectsTo(Direction.WEST, shifted, neighbourPos, neighbourState, level);
         }
-        boolean up = pState.getValue(POLE_LOCKED) || !((east && west && !north && !south) || (!east && !west && north && south));
-        return pState.setValue(NORTH, north).setValue(SOUTH, south).setValue(EAST, east).setValue(WEST, west).setValue(UP, up);
+        boolean up = state.getValue(POLE_LOCKED) || !((east && west && !north && !south) || (!east && !west && north && south));
+        return state.setValue(NORTH, north).setValue(SOUTH, south).setValue(EAST, east).setValue(WEST, west).setValue(UP, up);
     }
 
     public BlockState updatePole(BlockState state){
@@ -243,9 +244,10 @@ public class RailingBlock extends Block implements BaseBlockPropertyHolder, Simp
     }
 
     @Override
-    public boolean propagatesSkylightDown(BlockState pState, BlockGetter pReader, BlockPos pPos) {
-        return !pState.getValue(WATERLOGGED);
+    protected boolean propagatesSkylightDown(BlockState state) {
+        return !state.getValue(WATERLOGGED);
     }
+
     @Override
     public BaseBlockProperty getProperty() {
         return this.property;

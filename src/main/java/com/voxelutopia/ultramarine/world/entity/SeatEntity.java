@@ -9,9 +9,13 @@ import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.server.level.ServerEntity;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.storage.ValueInput;
+import net.minecraft.world.level.storage.ValueOutput;
 import net.minecraft.world.phys.Vec3;
 import org.jetbrains.annotations.NotNull;
 
@@ -29,14 +33,14 @@ public class SeatEntity extends Entity {
 
     public SeatEntity(Level level, Vec3 pos) {
         this(EntityTypeRegistry.SEAT.get(), level);
-        this.moveTo(pos);
+        this.setPos(pos);
     }
 
     @Override
     public void tick() {
         super.tick();
 
-        if (!this.level().isClientSide) {
+        if (!this.level().isClientSide()) {
             if (this.getPassengers().isEmpty() || this.level().isEmptyBlock(this.blockPosition())) {
                 this.life++;
             }
@@ -55,13 +59,23 @@ public class SeatEntity extends Entity {
     }
 
     @Override
-    protected void readAdditionalSaveData(CompoundTag pCompound) {
-        pCompound.getInt("Life");
+    protected void readAdditionalSaveData(ValueInput input) {
+        this.life = input.getIntOr("Life", 0);
     }
 
     @Override
-    protected void addAdditionalSaveData(CompoundTag pCompound) {
-        pCompound.putInt("Life", life);
+    protected void addAdditionalSaveData(ValueOutput output) {
+        output.putInt("Life", life);
+    }
+
+    @Override
+    public Packet<ClientGamePacketListener> getAddEntityPacket(ServerEntity serverEntity) {
+        return new ClientboundAddEntityPacket(this, serverEntity);
+    }
+
+    @Override
+    public boolean hurtServer(ServerLevel serverLevel, DamageSource damageSource, float amount) {
+        return false;
     }
 
 }

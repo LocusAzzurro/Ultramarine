@@ -2,12 +2,9 @@
   "type": "minecraft:crafting_shapeless",
   "category": "misc",
   "ingredients": [
-    {
-      "item": "ultramarine:small_lotus_leaf"
-    }
+    "ultramarine:small_lotus_leaf"
   ],
   "result": {
-    "count": 1,
     "id": "ultramarine:small_dark_green_lotus_leaf"
   }
 }

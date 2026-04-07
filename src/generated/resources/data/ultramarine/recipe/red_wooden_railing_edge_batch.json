@@ -2,12 +2,8 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "B": {
-      "item": "ultramarine:wooden_railing"
-    },
-    "D": {
-      "tag": "c:dyes/red"
-    }
+    "B": "ultramarine:wooden_railing",
+    "D": "#c:dyes/red"
   },
   "pattern": [
     "BBB",

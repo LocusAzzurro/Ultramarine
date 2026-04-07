@@ -2,9 +2,7 @@
   "type": "minecraft:crafting_shaped",
   "category": "building",
   "key": {
-    "S": {
-      "item": "ultramarine:green_weathered_stone"
-    }
+    "S": "ultramarine:green_weathered_stone"
   },
   "pattern": [
     "SS",

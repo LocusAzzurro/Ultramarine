@@ -2,9 +2,7 @@
   "type": "minecraft:crafting_shaped",
   "category": "building",
   "key": {
-    "B": {
-      "item": "ultramarine:blue_and_black_tile"
-    }
+    "B": "ultramarine:blue_and_black_tile"
   },
   "pattern": [
     "B  ",

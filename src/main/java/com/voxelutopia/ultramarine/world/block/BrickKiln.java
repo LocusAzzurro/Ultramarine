@@ -17,11 +17,9 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.block.BaseEntityBlock;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.EntityBlock;
 import net.minecraft.world.level.block.HorizontalDirectionalBlock;
-import net.minecraft.world.level.block.entity.AbstractFurnaceBlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityTicker;
 import net.minecraft.world.level.block.entity.BlockEntityType;
@@ -29,15 +27,14 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
-import net.minecraft.world.level.block.state.properties.DirectionProperty;
+import net.minecraft.world.level.block.state.properties.EnumProperty;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.Vec3;
-import net.neoforged.neoforge.items.IItemHandler;
 import org.jetbrains.annotations.Nullable;
 
 public class BrickKiln extends DecorativeBlock implements EntityBlock, BaseBlockPropertyHolder {
 
-    public static final DirectionProperty FACING = HorizontalDirectionalBlock.FACING;
+    public static final EnumProperty<Direction> FACING = HorizontalDirectionalBlock.FACING;
     public static final BooleanProperty LIT = BlockStateProperties.LIT;
 
     public BrickKiln() {
@@ -60,13 +57,13 @@ public class BrickKiln extends DecorativeBlock implements EntityBlock, BaseBlock
     @Nullable
     @Override
     public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level pLevel, BlockState pState, BlockEntityType<T> pBlockEntityType) {
-        return pLevel.isClientSide ? null :
+        return pLevel.isClientSide() ? null :
                 BlockEntityHelper.createTickerHelper(pBlockEntityType, (BlockEntityType<? extends BrickKilnBlockEntity>) BlockEntityRegistry.BRICK_KILN.get(), BrickKilnBlockEntity::serverTick);
     }
 
     @Override
     public InteractionResult useWithoutItem(BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, BlockHitResult pHit) {
-        if (pLevel.isClientSide) {
+        if (pLevel.isClientSide()) {
             return InteractionResult.SUCCESS;
         } else {
             BlockEntity blockentity = pLevel.getBlockEntity(pPos);
@@ -79,23 +76,21 @@ public class BrickKiln extends DecorativeBlock implements EntityBlock, BaseBlock
     }
 
     @Override
-    protected void onRemove(BlockState state, Level level, BlockPos pos, BlockState newState, boolean isMoving) {
-        if (!state.is(newState.getBlock())) {
+    protected void affectNeighborsAfterRemoval(BlockState state, ServerLevel level, BlockPos pos, boolean movedByPiston) {
             BlockEntity blockentity = level.getBlockEntity(pos);
             if (blockentity instanceof BrickKilnBlockEntity furnace) {
                 if (level instanceof ServerLevel) {
-                    IItemHandler handler = furnace.wrapHandlers();
-                    for (int i = 0; i < handler.getSlots(); i++)
-                        Containers.dropItemStack(level, pos.getX(), pos.getY(), pos.getZ(), handler.getStackInSlot(i));
-                    furnace.getRecipesToAwardAndPopExperience((ServerLevel) level, Vec3.atCenterOf(pos));
+                    for (int i = 0; i < furnace.getContainerSize(); i++) {
+                        Containers.dropItemStack(level, pos.getX(), pos.getY(), pos.getZ(), furnace.getItem(i));
+                    }
+                    furnace.getRecipesToAwardAndPopExperience(level, Vec3.atCenterOf(pos));
                 }
-                super.onRemove(state, level, pos, newState, isMoving);
+                super.affectNeighborsAfterRemoval(state, level, pos, movedByPiston);
                 level.updateNeighbourForOutputSignal(pos, this);
             } else {
-                super.onRemove(state, level, pos, newState, isMoving);
+                super.affectNeighborsAfterRemoval(state, level, pos, movedByPiston);
             }
         }
-    }
 
     @Override
     public void animateTick(BlockState pState, Level pLevel, BlockPos pPos, RandomSource pRand) {

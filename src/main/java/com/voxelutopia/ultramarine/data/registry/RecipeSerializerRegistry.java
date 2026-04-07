@@ -15,13 +15,13 @@ public class RecipeSerializerRegistry {
             DeferredRegister.create(Registries.RECIPE_SERIALIZER, Ultramarine.MOD_ID);
 
     public static final DeferredHolder<RecipeSerializer<?>, RecipeSerializer<WoodworkingRecipe>> WOODWORKING_SERIALIZER =
-            RECIPE_SERIALIZERS.register("woodworking", () -> WoodworkingRecipe.Serializer.INSTANCE);
+            RECIPE_SERIALIZERS.register("woodworking", () -> WoodworkingRecipe.SERIALIZER);
 
     public static final DeferredHolder<RecipeSerializer<?>, RecipeSerializer<CompositeSmeltingRecipe>> COMPOSITE_SMELTING_SERIALIZER =
-            RECIPE_SERIALIZERS.register("composite_smelting", () -> CompositeSmeltingRecipe.Serializer.INSTANCE);
+            RECIPE_SERIALIZERS.register("composite_smelting", () -> CompositeSmeltingRecipe.SERIALIZER);
 
     public static final DeferredHolder<RecipeSerializer<?>, RecipeSerializer<ChiselTableRecipe>> CHISEL_TABLE_SERIALIZER =
-            RECIPE_SERIALIZERS.register("chisel_table", () -> ChiselTableRecipe.Serializer.INSTANCE);
+            RECIPE_SERIALIZERS.register("chisel_table", () -> ChiselTableRecipe.SERIALIZER);
 
 
 }

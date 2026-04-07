@@ -2,12 +2,8 @@
   "type": "minecraft:crafting_shaped",
   "category": "building",
   "key": {
-    "B": {
-      "item": "ultramarine:cyan_floor_tile"
-    },
-    "D": {
-      "tag": "c:dyes/white"
-    }
+    "B": "ultramarine:cyan_floor_tile",
+    "D": "#c:dyes/white"
   },
   "pattern": [
     "BBB",

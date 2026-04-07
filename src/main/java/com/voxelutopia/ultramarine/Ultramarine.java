@@ -1,5 +1,6 @@
 package com.voxelutopia.ultramarine;
 
+import com.voxelutopia.ultramarine.data.ModFoods;
 import com.voxelutopia.ultramarine.data.loot.ModLootModifiers;
 import com.voxelutopia.ultramarine.data.registry.*;
 import net.neoforged.bus.api.IEventBus;
@@ -18,6 +19,7 @@ public class Ultramarine {
     public Ultramarine(IEventBus bus, ModContainer container) {
         BlockRegistry.BLOCKS.register(bus);
         ItemRegistry.ITEMS.register(bus);
+        ModFoods.registerModFoods();
         CreativeTabRegistry.CREATIVE_TABS.register(bus);
         BlockEntityRegistry.BLOCK_ENTITIES.register(bus);
         EntityTypeRegistry.ENTITIES.register(bus);

@@ -2,9 +2,7 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "S": {
-      "item": "ultramarine:silk"
-    }
+    "S": "ultramarine:silk"
   },
   "pattern": [
     "S S",
@@ -12,7 +10,6 @@
     "SSS"
   ],
   "result": {
-    "count": 1,
     "id": "ultramarine:gunny_sack"
   }
 }

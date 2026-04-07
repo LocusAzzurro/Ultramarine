@@ -1,24 +1,13 @@
 {
   "type": "ultramarine:chisel_table",
   "colors": [
-    {
-      "tag": "c:dyes/yellow"
-    },
-    {
-      "tag": "c:dyes/yellow"
-    },
-    {
-      "item": "ultramarine:yellow_dye_powder"
-    }
+    "#c:dyes/yellow",
+    "#c:dyes/yellow",
+    "ultramarine:yellow_dye_powder"
   ],
-  "material": {
-    "tag": "ultramarine:polished_planks"
-  },
+  "material": "#ultramarine:polished_planks",
   "result": {
-    "count": 1,
     "id": "ultramarine:long_yellow_carved_zhaotou_pattern"
   },
-  "template": {
-    "item": "ultramarine:zhaotou_template"
-  }
+  "template": "ultramarine:zhaotou_template"
 }

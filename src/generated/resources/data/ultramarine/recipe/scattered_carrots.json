@@ -2,18 +2,11 @@
   "type": "minecraft:crafting_shapeless",
   "category": "misc",
   "ingredients": [
-    {
-      "item": "ultramarine:polished_oak_plank"
-    },
-    {
-      "item": "minecraft:carrot"
-    },
-    {
-      "item": "minecraft:carrot"
-    }
+    "ultramarine:polished_oak_plank",
+    "minecraft:carrot",
+    "minecraft:carrot"
   ],
   "result": {
-    "count": 1,
     "id": "ultramarine:scattered_carrots"
   }
 }

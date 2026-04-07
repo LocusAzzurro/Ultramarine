@@ -8,7 +8,7 @@ import it.unimi.dsi.fastutil.objects.ObjectArrayList;
 import net.minecraft.core.Holder;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.storage.loot.LootContext;
 import net.minecraft.world.level.storage.loot.LootTable;
@@ -30,15 +30,15 @@ public class ReplaceToSingleItemLootModifier extends LootModifier {
                     .apply(inst, ReplaceToSingleItemLootModifier::new)
             ));
 
-    private final ResourceLocation lootTable;
+    private final Identifier lootTable;
 
-    public ReplaceToSingleItemLootModifier(LootItemCondition[] conditionsIn, ResourceLocation lootTable) {
+    public ReplaceToSingleItemLootModifier(LootItemCondition[] conditionsIn, Identifier lootTable) {
         super(conditionsIn);
         this.lootTable = lootTable;
     }
 
     private ReplaceToSingleItemLootModifier(LootItemCondition[] conditionsIn, String lootTablePath) {
-        this(conditionsIn, ResourceLocation.tryParse(lootTablePath));
+        this(conditionsIn, Identifier.tryParse(lootTablePath));
     }
 
     @Override
@@ -48,7 +48,7 @@ public class ReplaceToSingleItemLootModifier extends LootModifier {
             if (!condition.test(context)) return generatedLoot;
         }
 
-        Optional<Holder.Reference<LootTable>> lootTable1 = context.getResolver().get(Registries.LOOT_TABLE, ResourceKey.create(Registries.LOOT_TABLE, this.lootTable));
+        Optional<Holder.Reference<LootTable>> lootTable1 = context.getResolver().get(ResourceKey.create(Registries.LOOT_TABLE, this.lootTable));
         List<ItemStack> newLoot = new ArrayList<>();
         // Using the 'Raw' version so that the GLM will NOT be applied
         lootTable1.ifPresent(lootTableReference -> lootTableReference.value().getRandomItemsRaw(context, newLoot::add));

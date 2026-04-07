@@ -2,15 +2,9 @@
   "type": "minecraft:crafting_shaped",
   "category": "building",
   "key": {
-    "B": {
-      "item": "ultramarine:rosewood_planks"
-    },
-    "D": {
-      "tag": "c:dyes/red"
-    },
-    "P": {
-      "item": "ultramarine:polished_rosewood_plank"
-    }
+    "B": "ultramarine:rosewood_planks",
+    "D": "#c:dyes/red",
+    "P": "ultramarine:polished_rosewood_plank"
   },
   "pattern": [
     "DPD",
@@ -18,7 +12,6 @@
     "DPD"
   ],
   "result": {
-    "count": 1,
     "id": "ultramarine:varnished_rosewood"
   }
 }

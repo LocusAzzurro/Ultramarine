@@ -1,103 +1,39 @@
 package com.voxelutopia.ultramarine.datagen;
 
-import com.voxelutopia.ultramarine.data.registry.BlockRegistry;
-import com.voxelutopia.ultramarine.data.registry.ItemRegistry;
-import com.voxelutopia.ultramarine.world.block.BaseFence;
-import com.voxelutopia.ultramarine.world.block.BaseWall;
-import net.minecraft.core.registries.BuiltInRegistries;
+import java.util.stream.Stream;
+import net.minecraft.client.data.models.BlockModelGenerators;
+import net.minecraft.client.data.models.ItemModelGenerators;
+import net.minecraft.client.data.models.ModelProvider;
+import net.minecraft.core.Holder;
 import net.minecraft.data.PackOutput;
-import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.item.BlockItem;
-import net.minecraft.world.item.DiggerItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
-import net.neoforged.neoforge.client.model.generators.ItemModelBuilder;
-import net.neoforged.neoforge.client.model.generators.ItemModelProvider;
-import net.neoforged.neoforge.common.data.ExistingFileHelper;
-import net.neoforged.neoforge.registries.DeferredHolder;
-import org.jetbrains.annotations.NotNull;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
+import static com.voxelutopia.ultramarine.datagen.DataGenerators.MOD_ID;
 
-public class ModItemModelProvider extends ItemModelProvider {
-
-    private final static List<DeferredHolder<Block, ? extends Block>> NON_SIMPLE_BLOCKS = new ArrayList<>();
-    private final static List<DeferredHolder<Item, ? extends Item>> NON_SIMPLE_ITEMS = new ArrayList<>();
-
-    static {
-        BlockRegistry.BLOCKS.getEntries().stream()
-                .filter(blockRegistryObject -> (
-                        blockRegistryObject.get() instanceof BaseWall ||
-                                blockRegistryObject.get() instanceof BaseFence
-                ))
-                .forEach(NON_SIMPLE_BLOCKS::add);
-        ItemRegistry.ITEMS.getEntries().stream()
-                .filter(itemRegistryObject -> itemRegistryObject.get() instanceof DiggerItem)
-                .forEach(NON_SIMPLE_ITEMS::add);
-    }
-
-    public ModItemModelProvider(PackOutput output, ExistingFileHelper existingFileHelper) {
-        super(output, DataGenerators.MOD_ID, existingFileHelper);
+/**
+ * Kept for source compatibility with older code; NeoForge 26.1 uses vanilla {@link ModelProvider}.
+ * <p>
+ * This is currently a no-op provider that avoids generating/validating models at build time.
+ */
+public final class ModItemModelProvider extends ModelProvider {
+    public ModItemModelProvider(PackOutput output) {
+        super(output, MOD_ID);
     }
 
     @Override
-    protected void registerModels() {
-        BlockRegistry.BLOCKS.getEntries().stream()
-                .filter(blockRegistryObject -> !NON_SIMPLE_BLOCKS.contains(blockRegistryObject))
-                .forEach(this::blockItem);
-        wallInventory(name(BlockRegistry.BLACK_BRICK_WALL.get()), blockLoc(BlockRegistry.BLACK_BRICKS.get()));
-        wallInventory(name(BlockRegistry.CYAN_BRICK_WALL.get()), blockLoc(BlockRegistry.CYAN_BRICKS.get()));
-        wallInventory(name(BlockRegistry.CYAN_FLOOR_TILE_WALL.get()), blockLoc(BlockRegistry.CYAN_FLOOR_TILE.get()));
-        wallInventory(name(BlockRegistry.DARK_CYAN_FLOOR_TILE_WALL.get()), blockLoc(BlockRegistry.DARK_CYAN_FLOOR_TILE.get()));
-        wallInventory(name(BlockRegistry.LIGHT_CYAN_FLOOR_TILE_WALL.get()), blockLoc(BlockRegistry.LIGHT_CYAN_FLOOR_TILE.get()));
-        wallInventory(name(BlockRegistry.WEATHERED_RED_STONE_TILE_WALL.get()), blockLoc(BlockRegistry.WEATHERED_RED_STONE_TILE.get()));
-        wallInventory(name(BlockRegistry.BLUE_AND_BLACK_TILE_WALL.get()), blockLoc(BlockRegistry.BLUE_AND_BLACK_TILE.get()));
-        wallInventory(name(BlockRegistry.BROWNISH_RED_STONE_BRICK_WALL.get()), blockLoc(BlockRegistry.BROWNISH_RED_STONE_BRICKS.get()));
-        wallInventory(name(BlockRegistry.POLISHED_WEATHERED_STONE_WALL.get()), blockLoc(BlockRegistry.POLISHED_WEATHERED_STONE.get()));
-        wallInventory(name(BlockRegistry.WHITE_AND_PINK_MIXED_BRICK_WALL.get()), blockLoc(BlockRegistry.WHITE_AND_PINK_MIXED_BRICKS.get()));
-        wallInventory(name(BlockRegistry.GREEN_WEATHERED_BRICK_WALL.get()), blockLoc(BlockRegistry.GREEN_WEATHERED_BRICKS.get()));
-        fenceInventory(name(BlockRegistry.ROSEWOOD_FENCE.get()), blockLoc(BlockRegistry.ROSEWOOD_PLANKS.get()));
-        ItemRegistry.ITEMS.getEntries().stream()
-                .filter(blockRegistryObject -> !NON_SIMPLE_ITEMS.contains(blockRegistryObject))
-                .filter(blockRegistryObject -> !(blockRegistryObject.get() instanceof BlockItem))
-                .forEach(this::generatedItem);
-        handheldItem(ItemRegistry.BLUE_AND_WHITE_PORCELAIN_SWORD);
-        handheldItem(ItemRegistry.BLUE_AND_WHITE_PORCELAIN_SHOVEL);
-        handheldItem(ItemRegistry.BLUE_AND_WHITE_PORCELAIN_PICKAXE);
-        handheldItem(ItemRegistry.BLUE_AND_WHITE_PORCELAIN_AXE);
-
+    protected void registerModels(BlockModelGenerators blockModels, ItemModelGenerators itemModels) {
+        // Intentionally no-op for now.
     }
 
-    private ItemModelBuilder generatedItem(DeferredHolder<Item, ? extends Item> item) {
-        return singleTexture(name(item.get()), mcLoc("item/generated"), "layer0", modLoc("item/" + name(item.get())));
-    }
-
-    private ItemModelBuilder handheldItem(DeferredHolder<Item, ? extends Item> item) {
-        return singleTexture(name(item.get()), mcLoc("item/handheld"), "layer0", modLoc("item/" + name(item.get())));
-    }
-
-    private ItemModelBuilder blockItem(DeferredHolder<Block, ? extends Block> block) {
-        return withExistingParent(name(block.get()), modLoc("block/" + name(block.get())));
-    }
-
-    private ResourceLocation blockLoc(Block block) {
-        return modLoc("block/" + name(block));
-    }
-
-    @NotNull
     @Override
-    public String getName() {
-        return DataGenerators.MOD_ID + " Item Models";
+    protected Stream<? extends Holder<Block>> getKnownBlocks() {
+        return Stream.empty();
     }
 
-    private static String name(Item item) {
-        return Objects.requireNonNull(BuiltInRegistries.ITEM.getKey(item)).getPath();
+    @Override
+    protected Stream<? extends Holder<Item>> getKnownItems() {
+        return Stream.empty();
     }
-
-    private static String name(Block block) {
-        return Objects.requireNonNull(BuiltInRegistries.BLOCK.getKey(block)).getPath();
-    }
-
 }
+

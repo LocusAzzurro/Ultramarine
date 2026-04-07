@@ -2,15 +2,9 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "F": {
-      "item": "ultramarine:wooden_frame"
-    },
-    "P": {
-      "tag": "minecraft:planks"
-    },
-    "S": {
-      "item": "minecraft:stick"
-    }
+    "F": "ultramarine:wooden_frame",
+    "P": "#minecraft:planks",
+    "S": "minecraft:stick"
   },
   "pattern": [
     "PPP",
@@ -18,7 +12,6 @@
     "SFS"
   ],
   "result": {
-    "count": 1,
     "id": "ultramarine:large_table"
   }
 }
