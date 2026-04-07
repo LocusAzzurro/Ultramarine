@@ -1975,6 +1975,8 @@ public class ModRecipeProvider extends RecipeProvider {
         dust(ItemRegistry.RAW_HEMATITE.get(), ItemRegistry.HEMATITE_DUST.get(), recipeConsumer);
         dust(ItemRegistry.MAGNESITE.get(), ItemRegistry.MAGNESITE_DUST.get(), recipeConsumer);
         dust(ItemRegistry.RAW_COBALT.get(), ItemRegistry.COBALT_DUST.get(), recipeConsumer);
+        SingleItemRecipeBuilder.stonecutting(Ingredient.of(ModItemTags.COMMON_COBALT_INGOT), RecipeCategory.MISC, ItemRegistry.COBALT_DUST.get())
+                .unlockedBy("has_cobalt", tagUnlock(ModItemTags.COMMON_COBALT_INGOT)).save(recipeConsumer, modRecipe("cobalt_dust_compat"));
 
         //ORE BLOCKS
 
