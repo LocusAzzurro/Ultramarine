@@ -85,6 +85,14 @@ public class ModItemTagsProvider extends ItemTagsProvider {
                 .addOptional(ResourceLocation.fromNamespaceAndPath("sinobrush", "xuan_paper"));
         tag(ModItemTags.SILK)
                 .add(ItemRegistry.SILK.get());
+        tag(ModItemTags.BAOZI)
+                .add(ItemRegistry.BAOZI.get())
+                .addOptional(ResourceLocation.fromNamespaceAndPath("farmersdelight", "dumplings"))
+                .addOptional(ResourceLocation.fromNamespaceAndPath("kaleidoscope_cookery", "baozi"))
+                .addOptional(ResourceLocation.fromNamespaceAndPath("youkaishomecoming", "bun"));
+        tag(ModItemTags.HAM)
+                .add(ItemRegistry.COOKED_MEAT.get())
+                .addOptional(ResourceLocation.fromNamespaceAndPath("farmersdelight", "ham"));
 
         tag(ModItemTags.COMMON_BRONZE_INGOT)
                 .add(ItemRegistry.BRONZE_INGOT.get());

@@ -1230,8 +1230,8 @@ public class ModRecipeProvider extends RecipeProvider {
                 .save(recipeConsumer);
         ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, ItemRegistry.PLATED_HAM.get())
                 .requires(ItemRegistry.POLISHED_OAK_PLANK.get())
-                .requires(ItemRegistry.COOKED_MEAT.get(), 4)
-                .unlockedBy(getHasName(ItemRegistry.COOKED_MEAT.get()), itemCriterion(ItemRegistry.COOKED_MEAT.get()))
+                .requires(ModItemTags.HAM)
+                .unlockedBy(tagHasName(ModItemTags.HAM), tagUnlock(ModItemTags.HAM))
                 .save(recipeConsumer);
         ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, ItemRegistry.PLATED_FISH.get())
                 .requires(ItemRegistry.POLISHED_OAK_PLANK.get())
@@ -1245,8 +1245,8 @@ public class ModRecipeProvider extends RecipeProvider {
                 .save(recipeConsumer);
         ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, ItemRegistry.XIAOLONGBAO.get())
                 .requires(ItemRegistry.BAMBOO_MAT_SLAB.get())
-                .requires(ItemRegistry.BAOZI.get(), 8)
-                .unlockedBy(getHasName(ItemRegistry.BAOZI.get()), itemCriterion(ItemRegistry.BAOZI.get()))
+                .requires(Ingredient.of(ModItemTags.BAOZI), 8)
+                .unlockedBy(tagHasName(ModItemTags.BAOZI), tagUnlock(ModItemTags.BAOZI))
                 .save(recipeConsumer);
 
         // ICE
@@ -2604,6 +2604,10 @@ public class ModRecipeProvider extends RecipeProvider {
 
     private static Criterion<InventoryChangeTrigger.TriggerInstance> tagUnlock(TagKey<Item> tag) {
         return InventoryChangeTrigger.TriggerInstance.hasItems(ItemPredicate.Builder.item().of(tag));
+    }
+
+    private static String tagHasName(TagKey<Item> tag) {
+        return "has_" + tag.location().getPath().replace('/', '_');
     }
 
     private static String name(Item item) {

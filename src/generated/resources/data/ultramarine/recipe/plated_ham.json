@@ -6,16 +6,7 @@
       "item": "ultramarine:polished_oak_plank"
     },
     {
-      "item": "ultramarine:cooked_meat"
-    },
-    {
-      "item": "ultramarine:cooked_meat"
-    },
-    {
-      "item": "ultramarine:cooked_meat"
-    },
-    {
-      "item": "ultramarine:cooked_meat"
+      "tag": "ultramarine:ham"
     }
   ],
   "result": {
