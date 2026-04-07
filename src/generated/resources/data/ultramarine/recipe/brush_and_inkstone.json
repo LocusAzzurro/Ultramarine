@@ -9,7 +9,7 @@
       "item": "minecraft:ink_sac"
     },
     "P": {
-      "item": "ultramarine:xuan_paper"
+      "tag": "ultramarine:xuan_paper"
     },
     "R": {
       "item": "minecraft:stone_slab"
