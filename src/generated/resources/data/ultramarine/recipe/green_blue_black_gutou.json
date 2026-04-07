@@ -1,27 +1,14 @@
 {
   "type": "ultramarine:chisel_table",
   "colors": [
-    {
-      "tag": "c:dyes/green"
-    },
-    {
-      "item": "ultramarine:yellow_dye_powder"
-    },
-    {
-      "item": "ultramarine:light_blue_dye_powder"
-    },
-    {
-      "item": "ultramarine:black_dye_powder"
-    }
+    "#c:dyes/green",
+    "ultramarine:yellow_dye_powder",
+    "ultramarine:light_blue_dye_powder",
+    "ultramarine:black_dye_powder"
   ],
-  "material": {
-    "tag": "minecraft:logs"
-  },
+  "material": "#minecraft:logs",
   "result": {
-    "count": 1,
     "id": "ultramarine:green_blue_black_gutou"
   },
-  "template": {
-    "item": "ultramarine:gutou_template"
-  }
+  "template": "ultramarine:gutou_template"
 }

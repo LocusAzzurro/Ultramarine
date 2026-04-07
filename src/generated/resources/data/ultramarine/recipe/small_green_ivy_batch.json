@@ -2,12 +2,8 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "B": {
-      "item": "minecraft:vine"
-    },
-    "D": {
-      "tag": "c:dyes/green"
-    }
+    "B": "minecraft:vine",
+    "D": "#c:dyes/green"
   },
   "pattern": [
     "BBB",

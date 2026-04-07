@@ -1,5 +1,6 @@
 package com.voxelutopia.ultramarine.world.block;
 
+import com.voxelutopia.ultramarine.util.RegistryIdContext;
 import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.level.block.DropExperienceBlock;
 import net.minecraft.world.level.block.state.BlockBehaviour;
@@ -11,7 +12,7 @@ public class BaseOreBlock extends DropExperienceBlock {
             .requiresCorrectToolForDrops().strength(3.0F, 3.0F);
 
     public BaseOreBlock(UniformInt xpRange) {
-        super(xpRange, PROPERTIES);
+        super(xpRange, RegistryIdContext.applyCurrentBlockId(PROPERTIES));
         this.xpRange = xpRange;
     }
 

@@ -3,6 +3,7 @@ package com.voxelutopia.ultramarine.world.block;
 import com.voxelutopia.ultramarine.data.ContainerType;
 import com.voxelutopia.ultramarine.world.block.entity.ContainerDecorativeBlockEntity;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
 import net.minecraft.world.Container;
 import net.minecraft.world.Containers;
 import net.minecraft.world.InteractionResult;
@@ -53,7 +54,7 @@ public class ContainerDecorativeBlock extends DecorativeBlock implements EntityB
     }
 
     @Override
-    public int getAnalogOutputSignal(BlockState pState, Level pLevel, BlockPos pPos) {
+    public int getAnalogOutputSignal(BlockState pState, Level pLevel, BlockPos pPos, Direction pDirection) {
         return AbstractContainerMenu.getRedstoneSignalFromBlockEntity(pLevel.getBlockEntity(pPos));
     }
 
@@ -64,7 +65,7 @@ public class ContainerDecorativeBlock extends DecorativeBlock implements EntityB
 
     @Override
     public InteractionResult useWithoutItem(BlockState state, Level worldIn, BlockPos pos, Player player, BlockHitResult rayIn) {
-        if (worldIn.isClientSide) {
+        if (worldIn.isClientSide()) {
             return InteractionResult.SUCCESS;
         } else {
             BlockEntity blockEntity = worldIn.getBlockEntity(pos);
@@ -76,15 +77,14 @@ public class ContainerDecorativeBlock extends DecorativeBlock implements EntityB
     }
 
     @Override
-    public void onRemove(BlockState pState, Level levelIn, BlockPos pos, BlockState pNewState, boolean pIsMoving) {
-        if (!pState.is(pNewState.getBlock())) {
-            BlockEntity blockEntity = levelIn.getBlockEntity(pos);
-            if (blockEntity instanceof Container) {
-                Containers.dropContents(levelIn, pos, (Container) blockEntity);
-                levelIn.updateNeighbourForOutputSignal(pos, this);
-            }
-            super.onRemove(pState, levelIn, pos, pNewState, pIsMoving);
+    protected void affectNeighborsAfterRemoval(BlockState state, net.minecraft.server.level.ServerLevel level, BlockPos pos, boolean movedByPiston) {
+        BlockEntity blockEntity = level.getBlockEntity(pos);
+        if (blockEntity instanceof Container container) {
+            Containers.dropContents(level, pos, container);
+            level.updateNeighbourForOutputSignal(pos, this);
         }
+
+        super.affectNeighborsAfterRemoval(state, level, pos, movedByPiston);
     }
 
     public ContainerType getContainerType() {

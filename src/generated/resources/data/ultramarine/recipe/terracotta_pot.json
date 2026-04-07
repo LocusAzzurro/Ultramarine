@@ -2,16 +2,13 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "T": {
-      "item": "minecraft:cyan_terracotta"
-    }
+    "T": "minecraft:cyan_terracotta"
   },
   "pattern": [
     "T T",
     "TTT"
   ],
   "result": {
-    "count": 1,
     "id": "ultramarine:terracotta_pot"
   }
 }

@@ -2,9 +2,7 @@
   "type": "minecraft:crafting_shaped",
   "category": "building",
   "key": {
-    "B": {
-      "item": "ultramarine:green_glazed_tiles"
-    }
+    "B": "ultramarine:green_glazed_tiles"
   },
   "pattern": [
     "B  ",

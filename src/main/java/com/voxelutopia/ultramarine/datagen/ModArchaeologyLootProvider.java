@@ -5,7 +5,7 @@ import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.loot.LootTableSubProvider;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.level.storage.loot.LootPool;
 import net.minecraft.world.level.storage.loot.LootTable;
 import net.minecraft.world.level.storage.loot.entries.LootItem;
@@ -17,8 +17,8 @@ import static com.voxelutopia.ultramarine.datagen.DataGenerators.MOD_ID;
 
 public class ModArchaeologyLootProvider implements LootTableSubProvider {
 
-    public static final ResourceKey<LootTable> TRAIL_RUINS_COMMON = ResourceKey.create(Registries.LOOT_TABLE, ResourceLocation.fromNamespaceAndPath(MOD_ID, "archaeology/trail_ruins_common"));
-    public static final ResourceKey<LootTable> TRAIL_RUINS_RARE = ResourceKey.create(Registries.LOOT_TABLE, ResourceLocation.fromNamespaceAndPath(MOD_ID, "archaeology/trail_ruins_rare"));
+    public static final ResourceKey<LootTable> TRAIL_RUINS_COMMON = ResourceKey.create(Registries.LOOT_TABLE, Identifier.fromNamespaceAndPath(MOD_ID, "archaeology/trail_ruins_common"));
+    public static final ResourceKey<LootTable> TRAIL_RUINS_RARE = ResourceKey.create(Registries.LOOT_TABLE, Identifier.fromNamespaceAndPath(MOD_ID, "archaeology/trail_ruins_rare"));
 
     public ModArchaeologyLootProvider(HolderLookup.Provider provider) {
     }

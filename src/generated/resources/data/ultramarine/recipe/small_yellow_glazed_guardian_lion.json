@@ -2,18 +2,10 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "D": {
-      "item": "ultramarine:gold_dye_powder"
-    },
-    "G": {
-      "item": "minecraft:yellow_glazed_terracotta"
-    },
-    "L": {
-      "item": "ultramarine:small_stone_guardian_lion"
-    },
-    "P": {
-      "item": "ultramarine:gold_parts"
-    }
+    "D": "ultramarine:gold_dye_powder",
+    "G": "minecraft:yellow_glazed_terracotta",
+    "L": "ultramarine:small_stone_guardian_lion",
+    "P": "ultramarine:gold_parts"
   },
   "pattern": [
     "DGD",
@@ -21,7 +13,6 @@
     "PGP"
   ],
   "result": {
-    "count": 1,
     "id": "ultramarine:small_yellow_glazed_guardian_lion"
   }
 }

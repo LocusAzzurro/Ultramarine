@@ -2,15 +2,9 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "G": {
-      "item": "ultramarine:green_glazed_tiles"
-    },
-    "L": {
-      "item": "ultramarine:small_stone_guardian_lion"
-    },
-    "P": {
-      "item": "ultramarine:porcelain_parts"
-    }
+    "G": "ultramarine:green_glazed_tiles",
+    "L": "ultramarine:small_stone_guardian_lion",
+    "P": "ultramarine:porcelain_parts"
   },
   "pattern": [
     "PGP",
@@ -18,7 +12,6 @@
     "PGP"
   ],
   "result": {
-    "count": 1,
     "id": "ultramarine:small_green_glazed_guardian_lion"
   }
 }

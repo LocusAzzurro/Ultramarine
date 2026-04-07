@@ -1,10 +1,14 @@
 package com.voxelutopia.ultramarine.world.block;
 
+import com.voxelutopia.ultramarine.util.RegistryIdContext;
 import com.voxelutopia.ultramarine.world.block.state.ModBlockStateProperties;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.LevelAccessor;
+import net.minecraft.world.level.LevelReader;
+import net.minecraft.world.level.ScheduledTickAccess;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.RenderShape;
 import net.minecraft.world.level.block.SimpleWaterloggedBlock;
@@ -20,7 +24,7 @@ public abstract class ShiftableBlock extends Block implements SimpleWaterloggedB
     public static final BooleanProperty SHIFTED = ModBlockStateProperties.SHIFTED;
     public static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
     public ShiftableBlock(Properties properties) {
-        super(properties.noOcclusion());
+        super(RegistryIdContext.applyCurrentBlockId(properties.noOcclusion()));
     }
 
     public BlockState getStateForPlacement(BlockPlaceContext pContext) {
@@ -33,13 +37,14 @@ public abstract class ShiftableBlock extends Block implements SimpleWaterloggedB
         pBuilder.add(SHIFTED, WATERLOGGED);
     }
 
-    public BlockState updateShape(BlockState pState, Direction pFacing, BlockState pFacingState, LevelAccessor pLevel, BlockPos pCurrentPos, BlockPos pFacingPos) {
-        if (pState.getValue(WATERLOGGED)) {
-            pLevel.scheduleTick(pCurrentPos, Fluids.WATER, Fluids.WATER.getTickDelay(pLevel));
+    @Override
+    protected BlockState updateShape(BlockState state, LevelReader level, ScheduledTickAccess ticks, BlockPos pos, Direction directionToNeighbour, BlockPos neighbourPos, BlockState neighbourState, RandomSource random) {
+        if (state.getValue(WATERLOGGED)) {
+            ticks.scheduleTick(pos, Fluids.WATER, Fluids.WATER.getTickDelay(level));
         }
-        return super.updateShape(pState, pFacing, pFacingState, pLevel, pCurrentPos, pFacingPos);
+        return super.updateShape(state, level, ticks, pos, directionToNeighbour, neighbourPos, neighbourState, random);
     }
-    @SuppressWarnings("deprecation")
+
     public FluidState getFluidState(BlockState pState) {
         return pState.getValue(WATERLOGGED) ? Fluids.WATER.getSource(false) : super.getFluidState(pState);
     }

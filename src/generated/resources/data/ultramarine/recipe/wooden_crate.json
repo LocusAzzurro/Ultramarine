@@ -2,12 +2,8 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "F": {
-      "item": "ultramarine:wooden_frame"
-    },
-    "P": {
-      "tag": "ultramarine:polished_planks"
-    }
+    "F": "ultramarine:wooden_frame",
+    "P": "#ultramarine:polished_planks"
   },
   "pattern": [
     "PPP",
@@ -15,7 +11,6 @@
     "PPP"
   ],
   "result": {
-    "count": 1,
     "id": "ultramarine:wooden_crate"
   }
 }

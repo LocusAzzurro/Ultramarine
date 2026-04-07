@@ -2,21 +2,11 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "A": {
-      "item": "ultramarine:wooden_parts"
-    },
-    "B": {
-      "item": "ultramarine:rosewood_planks"
-    },
-    "F": {
-      "item": "ultramarine:wooden_frame"
-    },
-    "P": {
-      "tag": "ultramarine:painting_scroll_items"
-    },
-    "W": {
-      "item": "ultramarine:polished_rosewood_plank"
-    }
+    "A": "ultramarine:wooden_parts",
+    "B": "ultramarine:rosewood_planks",
+    "F": "ultramarine:wooden_frame",
+    "P": "#ultramarine:painting_scroll_items",
+    "W": "ultramarine:polished_rosewood_plank"
   },
   "pattern": [
     "AWA",
@@ -24,7 +14,6 @@
     "WBW"
   ],
   "result": {
-    "count": 1,
     "id": "ultramarine:painted_screen"
   }
 }

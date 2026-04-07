@@ -10,15 +10,15 @@ import net.minecraft.world.level.block.Rotation;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
-import net.minecraft.world.level.block.state.properties.DirectionProperty;
+import net.minecraft.world.level.block.state.properties.EnumProperty;
 import net.minecraft.world.level.material.Fluids;
 
 import java.util.Arrays;
 
 public class OrientableSixSideBlock extends SixSideBlock implements SideBlock{
 
-    public static final DirectionProperty FACING = BlockStateProperties.FACING;
-    public static final DirectionProperty DIRECTION = ModBlockStateProperties.ON_FACE_DIRECTION;
+    public static final EnumProperty<Direction> FACING = BlockStateProperties.FACING;
+    public static final EnumProperty<Direction> DIRECTION = ModBlockStateProperties.ON_FACE_DIRECTION;
 
     public OrientableSixSideBlock(BaseBlockProperty property, ShapeFunction shapeFunction) {
         super(property, shapeFunction);

@@ -1,8 +1,6 @@
 {
   "type": "ultramarine:woodworking",
-  "ingredient": {
-    "item": "minecraft:spruce_planks"
-  },
+  "ingredient": "minecraft:spruce_planks",
   "result": {
     "count": 2,
     "id": "ultramarine:polished_spruce_plank"

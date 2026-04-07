@@ -2,18 +2,14 @@ package com.voxelutopia.ultramarine.datagen;
 
 import com.voxelutopia.ultramarine.data.ModItemTags;
 import com.voxelutopia.ultramarine.data.registry.ItemRegistry;
-import com.voxelutopia.ultramarine.world.item.ChiselTemplate;
 import com.voxelutopia.ultramarine.world.item.DyePowder;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
-import net.minecraft.data.tags.ItemTagsProvider;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.level.block.Block;
-import net.neoforged.neoforge.common.data.ExistingFileHelper;
+import net.neoforged.neoforge.common.data.ItemTagsProvider;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 
 import java.util.concurrent.CompletableFuture;
 
@@ -22,8 +18,8 @@ import static com.voxelutopia.ultramarine.datagen.DataGenerators.MOD_ID;
 public class ModItemTagsProvider extends ItemTagsProvider {
 
 
-    public ModItemTagsProvider(PackOutput output, CompletableFuture<HolderLookup.Provider> lookup, CompletableFuture<TagLookup<Block>> blockTags, @Nullable ExistingFileHelper existingFileHelper) {
-        super(output, lookup, blockTags, MOD_ID, existingFileHelper);
+    public ModItemTagsProvider(PackOutput output, CompletableFuture<HolderLookup.Provider> lookup) {
+        super(output, lookup, MOD_ID);
     }
 
     @Override
@@ -52,8 +48,6 @@ public class ModItemTagsProvider extends ItemTagsProvider {
                 .add(ItemRegistry.POLISHED_ROSEWOOD_PLANK.get())
                 .add(ItemRegistry.POLISHED_EBONY_PLANK.get());
         tag(ModItemTags.DYE_POWDER).add(ItemRegistry.ITEMS.getEntries().stream().filter(reg -> reg.get() instanceof DyePowder)
-                .map(DeferredHolder::get).toList().toArray(new Item[0]));
-        tag(ModItemTags.CHISEL_TEMPLATES).add(ItemRegistry.ITEMS.getEntries().stream().filter(reg -> reg.get() instanceof ChiselTemplate)
                 .map(DeferredHolder::get).toList().toArray(new Item[0]));
         tag(ModItemTags.PARTS)
                 .add(ItemRegistry.WOODEN_PARTS.get())

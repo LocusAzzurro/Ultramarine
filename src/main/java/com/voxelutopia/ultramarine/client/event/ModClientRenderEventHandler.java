@@ -1,6 +1,5 @@
 package com.voxelutopia.ultramarine.client.event;
 
-import com.voxelutopia.ultramarine.client.render.SeatEntityRenderer;
 import com.voxelutopia.ultramarine.client.screen.BrickKilnScreen;
 import com.voxelutopia.ultramarine.client.screen.ChiselTableScreen;
 import com.voxelutopia.ultramarine.client.screen.ContainerDecorativeBlockScreen;
@@ -8,6 +7,7 @@ import com.voxelutopia.ultramarine.client.screen.WoodworkingWorkbenchScreen;
 import com.voxelutopia.ultramarine.data.registry.EntityTypeRegistry;
 import com.voxelutopia.ultramarine.data.registry.MenuTypeRegistry;
 import net.minecraft.client.renderer.entity.EntityRenderers;
+import net.minecraft.client.renderer.entity.NoopRenderer;
 import net.minecraft.client.renderer.entity.WanderingTraderRenderer;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.SubscribeEvent;
@@ -20,7 +20,7 @@ public class ModClientRenderEventHandler {
     @SubscribeEvent
     public static void onClientSetup(FMLClientSetupEvent e) {
         e.enqueueWork(() -> {
-            EntityRenderers.register(EntityTypeRegistry.SEAT.get(), SeatEntityRenderer::new);
+            EntityRenderers.register(EntityTypeRegistry.SEAT.get(), NoopRenderer::new);
             EntityRenderers.register(EntityTypeRegistry.TRAVELLING_MERCHANT.get(), WanderingTraderRenderer::new);
         });
     }

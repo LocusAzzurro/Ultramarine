@@ -2,9 +2,7 @@
   "type": "minecraft:crafting_shapeless",
   "category": "misc",
   "ingredients": [
-    {
-      "tag": "c:dyes/cyan"
-    }
+    "#c:dyes/cyan"
   ],
   "result": {
     "count": 4,

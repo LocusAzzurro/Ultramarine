@@ -1,0 +1,12 @@
+{
+  "gives": {
+    "id": "ultramarine:porcelain_teapot"
+  },
+  "max_uses": 2,
+  "reputation_discount": 0.05,
+  "wants": {
+    "count": 30,
+    "id": "minecraft:emerald"
+  },
+  "xp": 20
+}

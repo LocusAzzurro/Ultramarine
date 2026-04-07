@@ -2,19 +2,14 @@
   "type": "minecraft:crafting_shaped",
   "category": "building",
   "key": {
-    "P": {
-      "item": "minecraft:stripped_dark_oak_log"
-    },
-    "S": {
-      "item": "minecraft:smooth_stone_slab"
-    }
+    "P": "minecraft:stripped_dark_oak_log",
+    "S": "minecraft:smooth_stone_slab"
   },
   "pattern": [
     "P",
     "S"
   ],
   "result": {
-    "count": 1,
     "id": "ultramarine:stripped_dark_oak_pillar_base"
   }
 }

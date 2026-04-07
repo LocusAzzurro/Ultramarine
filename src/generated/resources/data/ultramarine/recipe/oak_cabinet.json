@@ -2,15 +2,9 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "C": {
-      "item": "minecraft:chest"
-    },
-    "F": {
-      "item": "ultramarine:wooden_frame"
-    },
-    "W": {
-      "item": "ultramarine:polished_oak_plank"
-    }
+    "C": "minecraft:chest",
+    "F": "ultramarine:wooden_frame",
+    "W": "ultramarine:polished_oak_plank"
   },
   "pattern": [
     "WWW",
@@ -18,7 +12,6 @@
     "WFW"
   ],
   "result": {
-    "count": 1,
     "id": "ultramarine:oak_cabinet"
   }
 }

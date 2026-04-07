@@ -2,9 +2,7 @@
   "type": "minecraft:crafting_shaped",
   "category": "building",
   "key": {
-    "B": {
-      "item": "ultramarine:white_and_pink_mixed_bricks"
-    }
+    "B": "ultramarine:white_and_pink_mixed_bricks"
   },
   "pattern": [
     "B  ",

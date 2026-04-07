@@ -6,12 +6,15 @@ import net.minecraft.advancements.Advancement;
 import net.minecraft.advancements.AdvancementRequirements;
 import net.minecraft.advancements.AdvancementRewards;
 import net.minecraft.advancements.Criterion;
-import net.minecraft.advancements.critereon.RecipeUnlockedTrigger;
+import net.minecraft.advancements.criterion.RecipeUnlockedTrigger;
 import net.minecraft.data.recipes.RecipeBuilder;
 import net.minecraft.data.recipes.RecipeOutput;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStackTemplate;
 import net.minecraft.world.item.crafting.Ingredient;
+import net.minecraft.world.item.crafting.Recipe;
 import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraft.world.level.ItemLike;
 import org.jetbrains.annotations.NotNull;
@@ -19,7 +22,7 @@ import org.jetbrains.annotations.Nullable;
 
 public class CompositeSmeltingRecipeBuilder implements RecipeBuilder {
 
-    private final Item result;
+    private final ItemStackTemplate result;
     private final Ingredient primaryIngredient;
     private final Ingredient secondaryIngredient;
     private final float experience;
@@ -30,7 +33,7 @@ public class CompositeSmeltingRecipeBuilder implements RecipeBuilder {
     private static final RecipeSerializer<CompositeSmeltingRecipe> SERIALIZER = RecipeSerializerRegistry.COMPOSITE_SMELTING_SERIALIZER.get();
 
     public CompositeSmeltingRecipeBuilder(ItemLike result, Ingredient primaryIngredient, Ingredient secondaryIngredient, float experience, int cookingTime) {
-        this.result = result.asItem();
+        this.result = new ItemStackTemplate(result.asItem());
         this.primaryIngredient = primaryIngredient;
         this.secondaryIngredient = secondaryIngredient;
         this.experience = experience;
@@ -54,16 +57,22 @@ public class CompositeSmeltingRecipeBuilder implements RecipeBuilder {
     }
 
     @Override
-    public @NotNull Item getResult() {
-        return this.result;
+    public ResourceKey<Recipe<?>> defaultId() {
+        return RecipeBuilder.getDefaultRecipeId(this.result);
     }
 
     @Override
-    public void save(RecipeOutput pFinishedRecipeConsumer, @NotNull ResourceLocation pRecipeId) {
-        Advancement.Builder builder = pFinishedRecipeConsumer.advancement()
-                .addCriterion("has_the_recipe", RecipeUnlockedTrigger.unlocked(pRecipeId))
-                .rewards(AdvancementRewards.Builder.recipe(pRecipeId))
+    public void save(RecipeOutput output, @NotNull ResourceKey<Recipe<?>> id) {
+        Advancement.Builder builder = output.advancement()
+                .addCriterion("has_the_recipe", RecipeUnlockedTrigger.unlocked(id))
+                .rewards(AdvancementRewards.Builder.recipe(id))
                 .requirements(AdvancementRequirements.Strategy.OR);
-        pFinishedRecipeConsumer.accept(pRecipeId, new CompositeSmeltingRecipe(this.group, this.primaryIngredient, this.secondaryIngredient, this.result.getDefaultInstance(), this.experience, this.cookingTime), builder.build(ResourceLocation.fromNamespaceAndPath(pRecipeId.getNamespace(), "recipes/" + pRecipeId.getPath())));
+        Identifier recipeId = id.identifier();
+        String safeGroup = this.group == null ? "" : this.group;
+        output.accept(
+                id,
+                new CompositeSmeltingRecipe(safeGroup, this.primaryIngredient, this.secondaryIngredient, this.result, this.experience, this.cookingTime),
+                builder.build(Identifier.fromNamespaceAndPath(recipeId.getNamespace(), "recipes/" + recipeId.getPath()))
+        );
     }
 }

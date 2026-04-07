@@ -21,8 +21,8 @@ import java.util.Optional;
 
 public class WoodenMallet extends Item {
 
-    public WoodenMallet() {
-        super(new Item.Properties().durability(100));
+    public WoodenMallet(Item.Properties properties) {
+        super(properties.durability(100));
     }
 
     @NotNull
@@ -30,37 +30,36 @@ public class WoodenMallet extends Item {
     public InteractionResult useOn(UseOnContext pContext) {
         Level level = pContext.getLevel();
         ItemStack item = pContext.getItemInHand();
-        Optional<Player> player = Optional.ofNullable(pContext.getPlayer());
+        var player = Optional.ofNullable(pContext.getPlayer());
         BlockPos blockpos = pContext.getClickedPos();
         BlockState blockstate = level.getBlockState(blockpos);
         boolean success = false;
-        if (blockstate.hasProperty(ModBlockStateProperties.SHIFTED)){
-            BlockState pNewState = blockstate.setValue(ModBlockStateProperties.SHIFTED,
-                    !blockstate.getValue(ModBlockStateProperties.SHIFTED));
-            level.setBlock(blockpos, pNewState, Block.UPDATE_ALL);
+        if (blockstate.hasProperty(ModBlockStateProperties.SHIFTED)) {
+            level.setBlock(blockpos, blockstate.setValue(ModBlockStateProperties.SHIFTED,
+                    !blockstate.getValue(ModBlockStateProperties.SHIFTED)), Block.UPDATE_ALL);
             success = true;
         }
-        if (blockstate.hasProperty(ModBlockStateProperties.CHIRAL_BLOCK_TYPE)){
+        if (blockstate.hasProperty(ModBlockStateProperties.CHIRAL_BLOCK_TYPE)) {
             level.setBlock(blockpos, blockstate.setValue(ModBlockStateProperties.CHIRAL_BLOCK_TYPE,
                     blockstate.getValue(ModBlockStateProperties.CHIRAL_BLOCK_TYPE).getOpposite()), Block.UPDATE_ALL);
             success = true;
         }
-        if (blockstate.hasProperty(ModBlockStateProperties.LOCKED) && player.isPresent() && player.get().isCrouching()){
+        if (blockstate.hasProperty(ModBlockStateProperties.LOCKED) && player.isPresent() && player.get().isCrouching()) {
             blockstate = blockstate.setValue(ModBlockStateProperties.LOCKED,
                     !blockstate.getValue(ModBlockStateProperties.LOCKED));
-            if (blockstate.getBlock() instanceof RailingBlock railingBlock){
+            if (blockstate.getBlock() instanceof RailingBlock railingBlock) {
                 blockstate = railingBlock.updatePole(blockstate);
             }
             level.setBlock(blockpos, blockstate, Block.UPDATE_ALL);
             success = true;
         }
-        if (success){
+        if (success) {
             player.ifPresent(player1 -> {
-                item.hurtAndBreak(1, player1, LivingEntity.getSlotForHand(pContext.getHand()));
+                item.hurtAndBreak(1, player1, pContext.getHand());
                 player1.awardStat(Stats.ITEM_USED.get(item.getItem()));
-                level.playSound(player.get(),blockpos, SoundRegistry.WOOD_HAMMER.get(), SoundSource.BLOCKS,1,0.75f);
+                level.playSound(player.get(), blockpos, SoundRegistry.WOOD_HAMMER.get(), SoundSource.BLOCKS, 1, 0.75f);
             });
-            return InteractionResult.sidedSuccess(level.isClientSide());
+            return level.isClientSide() ? InteractionResult.SUCCESS : InteractionResult.SUCCESS_SERVER;
         }
         return super.useOn(pContext);
     }

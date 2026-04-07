@@ -1,27 +1,14 @@
 {
   "type": "ultramarine:chisel_table",
   "colors": [
-    {
-      "tag": "c:dyes/blue"
-    },
-    {
-      "tag": "c:dyes/blue"
-    },
-    {
-      "tag": "c:dyes/yellow"
-    },
-    {
-      "item": "ultramarine:gold_dye_powder"
-    }
+    "#c:dyes/blue",
+    "#c:dyes/blue",
+    "#c:dyes/yellow",
+    "ultramarine:gold_dye_powder"
   ],
-  "material": {
-    "tag": "minecraft:logs"
-  },
+  "material": "#minecraft:logs",
   "result": {
-    "count": 1,
     "id": "ultramarine:blue_carved_tiger_eye_rafter"
   },
-  "template": {
-    "item": "ultramarine:rafter_template"
-  }
+  "template": "ultramarine:rafter_template"
 }

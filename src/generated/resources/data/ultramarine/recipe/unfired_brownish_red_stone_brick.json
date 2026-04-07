@@ -2,27 +2,13 @@
   "type": "minecraft:crafting_shapeless",
   "category": "misc",
   "ingredients": [
-    {
-      "item": "ultramarine:unfired_clay_brick"
-    },
-    {
-      "item": "ultramarine:unfired_clay_brick"
-    },
-    {
-      "item": "ultramarine:unfired_clay_brick"
-    },
-    {
-      "item": "ultramarine:unfired_clay_brick"
-    },
-    {
-      "item": "ultramarine:unfired_clay_brick"
-    },
-    {
-      "item": "ultramarine:unfired_clay_brick"
-    },
-    {
-      "item": "ultramarine:magnesite_dust"
-    }
+    "ultramarine:unfired_clay_brick",
+    "ultramarine:unfired_clay_brick",
+    "ultramarine:unfired_clay_brick",
+    "ultramarine:unfired_clay_brick",
+    "ultramarine:unfired_clay_brick",
+    "ultramarine:unfired_clay_brick",
+    "ultramarine:magnesite_dust"
   ],
   "result": {
     "count": 6,

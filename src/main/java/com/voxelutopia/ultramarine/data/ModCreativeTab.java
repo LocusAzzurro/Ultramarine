@@ -19,7 +19,7 @@ public enum ModCreativeTab {
     PLANTS,
     LAMPS;
 
-    static final Map<ModCreativeTab, LinkedHashSet<DeferredHolder<Item, Item>>> itemSets = Map.of(
+    static final Map<ModCreativeTab, LinkedHashSet<DeferredHolder<Item, ? extends Item>>> itemSets = Map.of(
             MATERIALS, new LinkedHashSet<>(),
             TOOLS, new LinkedHashSet<>(),
             BUILDING_BLOCKS, new LinkedHashSet<>(),
@@ -31,11 +31,11 @@ public enum ModCreativeTab {
             LAMPS, new LinkedHashSet<>()
     );
 
-    public static void putItemInSet(DeferredHolder<Item, Item> item, ModCreativeTab tab) {
+    public static void putItemInSet(DeferredHolder<Item, ? extends Item> item, ModCreativeTab tab) {
         itemSets.get(tab).add(item);
     }
 
-    public static List<DeferredHolder<Item, Item>> getItemsFromSet(ModCreativeTab tab) {
+    public static List<DeferredHolder<Item, ? extends Item>> getItemsFromSet(ModCreativeTab tab) {
         return ImmutableList.copyOf(itemSets.get(tab));
     }
 

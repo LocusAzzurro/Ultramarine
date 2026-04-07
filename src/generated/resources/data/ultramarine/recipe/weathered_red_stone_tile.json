@@ -2,15 +2,10 @@
   "type": "minecraft:crafting_shapeless",
   "category": "building",
   "ingredients": [
-    {
-      "item": "ultramarine:polished_weathered_stone"
-    },
-    {
-      "tag": "c:dyes/red"
-    }
+    "ultramarine:polished_weathered_stone",
+    "#c:dyes/red"
   ],
   "result": {
-    "count": 1,
     "id": "ultramarine:weathered_red_stone_tile"
   }
 }

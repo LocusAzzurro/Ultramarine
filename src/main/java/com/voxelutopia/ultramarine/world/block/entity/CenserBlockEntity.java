@@ -1,9 +1,8 @@
 package com.voxelutopia.ultramarine.world.block.entity;
 
 import com.voxelutopia.ultramarine.data.registry.BlockEntityRegistry;
+import com.voxelutopia.ultramarine.world.block.DecorativeBlock;
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.HolderLookup;
-import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.LivingEntity;
@@ -11,8 +10,9 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.storage.ValueInput;
+import net.minecraft.world.level.storage.ValueOutput;
 import net.minecraft.world.phys.AABB;
-import org.jetbrains.annotations.NotNull;
 
 import static com.voxelutopia.ultramarine.world.block.DecorativeBlock.LIT;
 
@@ -57,14 +57,24 @@ public class CenserBlockEntity extends BlockEntity {
     }
 
     @Override
-    public void loadAdditional(@NotNull CompoundTag pTag, HolderLookup.@NotNull Provider provider) {
-        super.loadAdditional(pTag, provider);
-        this.remainingTime = pTag.getInt("BurnTime");
+    protected void loadAdditional(ValueInput input) {
+        super.loadAdditional(input);
+        this.remainingTime = input.getIntOr("BurnTime", 0);
+        this.lit = input.getBooleanOr("Lit", false);
+
+        BlockState state = this.getBlockState();
+        if (state.hasProperty(DecorativeBlock.LIT) && state.getValue(DecorativeBlock.LIT) != this.lit) {
+            Level level = this.getLevel();
+            if (level != null && !level.isClientSide()) {
+                level.setBlock(this.getBlockPos(), state.setValue(DecorativeBlock.LIT, this.lit), Block.UPDATE_ALL);
+            }
+        }
     }
 
     @Override
-    protected void saveAdditional(@NotNull CompoundTag pTag, HolderLookup.@NotNull Provider provider) {
-        super.saveAdditional(pTag, provider);
-        pTag.putInt("BurnTime", this.remainingTime);
+    protected void saveAdditional(ValueOutput output) {
+        super.saveAdditional(output);
+        output.putInt("BurnTime", remainingTime);
+        output.putBoolean("Lit", lit);
     }
 }

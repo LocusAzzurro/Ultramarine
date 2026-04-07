@@ -2,22 +2,15 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "F": {
-      "item": "ultramarine:wooden_frame"
-    },
-    "S": {
-      "item": "minecraft:stick"
-    },
-    "W": {
-      "tag": "ultramarine:polished_planks"
-    }
+    "F": "ultramarine:wooden_frame",
+    "S": "minecraft:stick",
+    "W": "#ultramarine:polished_planks"
   },
   "pattern": [
     " W ",
     "SFS"
   ],
   "result": {
-    "count": 1,
     "id": "ultramarine:small_table"
   }
 }

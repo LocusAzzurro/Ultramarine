@@ -1,10 +1,7 @@
 {
   "type": "minecraft:stonecutting",
-  "ingredient": {
-    "item": "ultramarine:variegated_rocks"
-  },
+  "ingredient": "ultramarine:variegated_rocks",
   "result": {
-    "count": 1,
     "id": "ultramarine:variegated_rock_stairs"
   }
 }

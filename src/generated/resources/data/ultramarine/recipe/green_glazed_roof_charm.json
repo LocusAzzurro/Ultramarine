@@ -2,18 +2,10 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "G": {
-      "item": "minecraft:green_glazed_terracotta"
-    },
-    "P": {
-      "item": "ultramarine:gold_parts"
-    },
-    "R": {
-      "item": "ultramarine:black_roof_ridge_connection"
-    },
-    "S": {
-      "item": "ultramarine:gray_roof_tile_stairs"
-    }
+    "G": "minecraft:green_glazed_terracotta",
+    "P": "ultramarine:gold_parts",
+    "R": "ultramarine:black_roof_ridge_connection",
+    "S": "ultramarine:gray_roof_tile_stairs"
   },
   "pattern": [
     " SP",
@@ -21,7 +13,6 @@
     "RRG"
   ],
   "result": {
-    "count": 1,
     "id": "ultramarine:green_glazed_roof_charm"
   }
 }

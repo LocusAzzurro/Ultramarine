@@ -2,9 +2,7 @@
   "type": "minecraft:crafting_shapeless",
   "category": "misc",
   "ingredients": [
-    {
-      "tag": "c:dyes/light_blue"
-    }
+    "#c:dyes/light_blue"
   ],
   "result": {
     "count": 4,

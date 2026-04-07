@@ -3,11 +3,8 @@
   "category": "food",
   "cookingtime": 400,
   "experience": 0.1,
-  "ingredient": {
-    "item": "ultramarine:horizontal_landscape_painting"
-  },
+  "ingredient": "ultramarine:horizontal_landscape_painting",
   "result": {
-    "count": 1,
     "id": "ultramarine:damaged_landscape_painting"
   }
 }

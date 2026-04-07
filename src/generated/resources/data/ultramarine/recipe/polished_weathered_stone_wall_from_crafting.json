@@ -2,9 +2,7 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "B": {
-      "item": "ultramarine:polished_weathered_stone"
-    }
+    "B": "ultramarine:polished_weathered_stone"
   },
   "pattern": [
     "BBB",

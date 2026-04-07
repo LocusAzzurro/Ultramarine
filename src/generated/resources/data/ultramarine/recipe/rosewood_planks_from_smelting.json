@@ -1,13 +1,10 @@
 {
   "type": "minecraft:smelting",
-  "category": "blocks",
+  "category": "misc",
   "cookingtime": 200,
   "experience": 0.1,
-  "ingredient": {
-    "item": "minecraft:mangrove_planks"
-  },
+  "ingredient": "minecraft:mangrove_planks",
   "result": {
-    "count": 1,
     "id": "ultramarine:rosewood_planks"
   }
 }

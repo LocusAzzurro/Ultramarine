@@ -2,16 +2,13 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "O": {
-      "item": "minecraft:clay"
-    }
+    "O": "minecraft:clay"
   },
   "pattern": [
     "O",
     "O"
   ],
   "result": {
-    "count": 1,
     "id": "ultramarine:large_clay_vase"
   }
 }

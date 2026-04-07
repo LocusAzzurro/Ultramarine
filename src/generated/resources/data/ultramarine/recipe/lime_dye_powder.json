@@ -2,9 +2,7 @@
   "type": "minecraft:crafting_shapeless",
   "category": "misc",
   "ingredients": [
-    {
-      "tag": "c:dyes/lime"
-    }
+    "#c:dyes/lime"
   ],
   "result": {
     "count": 4,

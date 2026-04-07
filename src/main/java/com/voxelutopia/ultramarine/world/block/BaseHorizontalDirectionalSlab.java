@@ -14,7 +14,7 @@ import net.minecraft.world.level.material.Fluids;
 public class BaseHorizontalDirectionalSlab extends BaseSlab implements SimpleWaterloggedBlock {
 
     protected final BaseBlockProperty property;
-    public static final DirectionProperty FACING = BlockStateProperties.HORIZONTAL_FACING;
+    public static final EnumProperty<Direction> FACING = BlockStateProperties.HORIZONTAL_FACING;
     public static final EnumProperty<SlabType> TYPE = BlockStateProperties.SLAB_TYPE;
     public static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
 

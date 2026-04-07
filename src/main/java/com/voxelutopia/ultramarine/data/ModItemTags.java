@@ -1,7 +1,7 @@
 package com.voxelutopia.ultramarine.data;
 
 import com.voxelutopia.ultramarine.Ultramarine;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
@@ -13,6 +13,7 @@ public class ModItemTags {
     public static final TagKey<Item> PARTS = modTag("parts");
     public static final TagKey<Item> CHISEL_TEMPLATES = modTag("chisel_templates");
     public static final TagKey<Item> PAINTING_SCROLL_ITEMS = modTag("painting_scroll_items");
+    public static final TagKey<Item> BLUE_AND_WHITE_PORCELAIN_REPAIR_MATERIALS = modTag("blue_and_white_porcelain_repair_materials");
 
     public static final TagKey<Item> COMMON_WHITE_DYE = commonTag("dyes/white");
     public static final TagKey<Item> COMMON_ORANGE_DYE = commonTag("dyes/orange");
@@ -35,10 +36,10 @@ public class ModItemTags {
     public static final TagKey<Item> COMMON_BRONZE_INGOT = commonTag("ingots/bronze");
 
     private static TagKey<Item> commonTag(String path) {
-        return ItemTags.create(ResourceLocation.fromNamespaceAndPath("c", path));
+        return ItemTags.create(Identifier.fromNamespaceAndPath("c", path));
     }
 
     private static TagKey<Item> modTag(String path) {
-        return ItemTags.create(ResourceLocation.fromNamespaceAndPath(Ultramarine.MOD_ID, path));
+        return ItemTags.create(Identifier.fromNamespaceAndPath(Ultramarine.MOD_ID, path));
     }
 }

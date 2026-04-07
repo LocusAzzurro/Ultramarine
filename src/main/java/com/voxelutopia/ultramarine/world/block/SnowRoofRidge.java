@@ -6,6 +6,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.util.StringRepresentable;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
+import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.DyeColor;
@@ -64,16 +65,16 @@ public interface SnowRoofRidge {
         if (item.is(Items.SNOWBALL)) {
             handleSnow(pState, pLevel, pPos);
             if (!pPlayer.isCreative()) item.shrink(1);
-            return InteractionResult.sidedSuccess(pLevel.isClientSide);
+            return pLevel.isClientSide() ? InteractionResult.SUCCESS : InteractionResult.SUCCESS_SERVER;
         }
         if (item.getItem() instanceof ShovelItem) {
             removeSnow(pState, pLevel, pPos);
             if (!pPlayer.isCreative()) {
-                item.hurtAndBreak(1, pPlayer, LivingEntity.getSlotForHand(pHand));
+                item.hurtAndBreak(1, pPlayer, pHand == InteractionHand.MAIN_HAND ? EquipmentSlot.MAINHAND : EquipmentSlot.OFFHAND);
             }
-            return InteractionResult.sidedSuccess(pLevel.isClientSide);
+            return pLevel.isClientSide() ? InteractionResult.SUCCESS : InteractionResult.SUCCESS_SERVER;
         }
-        return InteractionResult.PASS;
+        return InteractionResult.TRY_WITH_EMPTY_HAND;
     }
 
     DyeColor getColor();

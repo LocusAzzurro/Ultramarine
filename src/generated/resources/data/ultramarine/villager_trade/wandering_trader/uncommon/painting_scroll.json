@@ -1,0 +1,12 @@
+{
+  "gives": {
+    "id": "ultramarine:painting_scroll"
+  },
+  "max_uses": 1,
+  "reputation_discount": 0.05,
+  "wants": {
+    "count": 12,
+    "id": "minecraft:emerald"
+  },
+  "xp": 30
+}

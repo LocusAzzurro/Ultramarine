@@ -2,12 +2,8 @@
   "type": "minecraft:crafting_shaped",
   "category": "building",
   "key": {
-    "B": {
-      "item": "minecraft:smooth_stone"
-    },
-    "D": {
-      "tag": "c:dyes/cyan"
-    }
+    "B": "minecraft:smooth_stone",
+    "D": "#c:dyes/cyan"
   },
   "pattern": [
     "BBB",

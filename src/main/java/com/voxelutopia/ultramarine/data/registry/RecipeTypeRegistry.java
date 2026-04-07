@@ -5,7 +5,7 @@ import com.voxelutopia.ultramarine.data.recipe.ChiselTableRecipe;
 import com.voxelutopia.ultramarine.data.recipe.CompositeSmeltingRecipe;
 import com.voxelutopia.ultramarine.data.recipe.WoodworkingRecipe;
 import net.minecraft.core.registries.Registries;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.item.crafting.Recipe;
 import net.minecraft.world.item.crafting.RecipeType;
 import net.neoforged.neoforge.registries.DeferredHolder;
@@ -23,7 +23,7 @@ public class RecipeTypeRegistry {
         return RECIPE_TYPES.register(name, () -> new RecipeType<>() {
             @Override
             public String toString() {
-                return ResourceLocation.fromNamespaceAndPath(Ultramarine.MOD_ID, name).toString();
+                return Identifier.fromNamespaceAndPath(Ultramarine.MOD_ID, name).toString();
             }
         });
     }

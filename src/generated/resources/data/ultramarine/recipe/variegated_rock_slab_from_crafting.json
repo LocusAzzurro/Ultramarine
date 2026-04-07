@@ -2,9 +2,7 @@
   "type": "minecraft:crafting_shaped",
   "category": "building",
   "key": {
-    "B": {
-      "item": "ultramarine:variegated_rocks"
-    }
+    "B": "ultramarine:variegated_rocks"
   },
   "pattern": [
     "BBB"

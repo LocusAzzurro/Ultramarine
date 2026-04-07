@@ -2,19 +2,14 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "P": {
-      "item": "minecraft:flower_pot"
-    },
-    "T": {
-      "item": "minecraft:terracotta"
-    }
+    "P": "minecraft:flower_pot",
+    "T": "minecraft:terracotta"
   },
   "pattern": [
     "T T",
     "TPT"
   ],
   "result": {
-    "count": 1,
     "id": "ultramarine:terracotta_flowerpot"
   }
 }

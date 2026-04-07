@@ -2,62 +2,60 @@ package com.voxelutopia.ultramarine.client.integration.jade;
 
 import com.voxelutopia.ultramarine.Ultramarine;
 import com.voxelutopia.ultramarine.world.block.entity.BottleGourdBlockEntity;
-import net.minecraft.core.Holder;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
-import net.minecraft.world.item.alchemy.Potion;
 import net.minecraft.world.item.alchemy.PotionContents;
-import net.minecraft.world.phys.Vec2;
 import snownee.jade.api.BlockAccessor;
 import snownee.jade.api.IBlockComponentProvider;
-import snownee.jade.api.IServerDataProvider;
 import snownee.jade.api.ITooltip;
 import snownee.jade.api.config.IPluginConfig;
-import snownee.jade.api.ui.IElementHelper;
+import snownee.jade.api.theme.IThemeHelper;
+import snownee.jade.api.ui.JadeUI;
 
-import java.util.Optional;
-
-public enum BottleGourdComponent implements IBlockComponentProvider, IServerDataProvider<BlockAccessor> {
+public enum BottleGourdComponent implements IBlockComponentProvider {
     INSTANCE;
 
-    public static final ResourceLocation BOTTLE_GOURD = ResourceLocation.fromNamespaceAndPath(Ultramarine.MOD_ID, "bottle_gourd");
+    public static final Identifier BOTTLE_GOURD = Identifier.fromNamespaceAndPath(Ultramarine.MOD_ID, "bottle_gourd");
 
     @Override
-    public void appendTooltip(ITooltip tooltip, BlockAccessor blockAccessor, IPluginConfig iPluginConfig) {
+    public void appendTooltip(ITooltip tooltip, BlockAccessor blockAccessor, IPluginConfig config) {
+
         CompoundTag data = blockAccessor.getServerData();
-        if (data.contains("Potion")) {
-            int charges = data.getInt("Charges");
-            ResourceLocation location = ResourceLocation.tryParse(data.getString("Potion"));
-            if (location == null) return;
-            Optional<Holder.Reference<Potion>> potion = BuiltInRegistries.POTION.getHolder(location);
-            if (potion.isEmpty()) return;
-            IElementHelper helper = IElementHelper.get();
-            ItemStack stack = new ItemStack(Items.POTION);
-            stack.set(DataComponents.POTION_CONTENTS, new PotionContents(potion.get()));
-            tooltip.add(helper.item(stack, 0.6f).translate(new Vec2(-2, -2.5f)));
-            tooltip.append(Component.literal("× " + charges));
+        if (data.contains("BottleGourd")) {
+            data.getCompound("BottleGourd").ifPresent(tag -> {
+                int charges = tag.getInt("Charges").orElse(0);
+                String potionString = tag.getString("Potion").orElse("");
+                if (potionString.isEmpty()) {
+                    return;
+                }
+                Identifier potionId = Identifier.parse(potionString);
+
+                ItemStack potionStack = new ItemStack(Items.POTION);
+                var potionHolder = BuiltInRegistries.POTION.get(potionId).orElseThrow();
+
+                potionStack.set(DataComponents.POTION_CONTENTS,
+                        new PotionContents(potionHolder));
+
+                Component potionName = potionStack.getHoverName();
+
+                IThemeHelper themeHelper = IThemeHelper.get();
+
+                tooltip.add(JadeUI.smallItem(potionStack));
+
+                tooltip.append(potionName);
+                tooltip.append(JadeUI.spacer(5, 0));
+                tooltip.append(themeHelper.info(charges + "/" + BottleGourdBlockEntity.MAX_CHARGE));
+            });
         }
     }
 
     @Override
-    public void appendServerData(CompoundTag compoundTag, BlockAccessor blockAccessor) {
-        BottleGourdBlockEntity gourd = (BottleGourdBlockEntity) blockAccessor.getBlockEntity();
-        if (gourd.hasCharges()) {
-            int charges = gourd.getCharges();
-            Potion potion = gourd.getPotion();
-            compoundTag.putInt("Charges", charges);
-            ResourceLocation potionId = BuiltInRegistries.POTION.getKey(potion);
-            if (potionId != null) compoundTag.putString("Potion", potionId.toString());
-        }
-    }
-
-    @Override
-    public ResourceLocation getUid() {
+    public Identifier getUid() {
         return BOTTLE_GOURD;
     }
 }

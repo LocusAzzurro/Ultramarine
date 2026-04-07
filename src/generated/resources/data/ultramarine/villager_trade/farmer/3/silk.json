@@ -1,0 +1,13 @@
+{
+  "gives": {
+    "count": 4,
+    "id": "ultramarine:silk"
+  },
+  "max_uses": 4,
+  "reputation_discount": 0.05,
+  "wants": {
+    "count": 30,
+    "id": "minecraft:emerald"
+  },
+  "xp": 10
+}

@@ -2,18 +2,10 @@
   "type": "minecraft:crafting_shaped",
   "category": "equipment",
   "key": {
-    "D": {
-      "item": "ultramarine:blue_and_white_glaze_powder"
-    },
-    "P": {
-      "item": "ultramarine:porcelain_parts"
-    },
-    "S": {
-      "item": "ultramarine:blue_and_white_porcelain_shards"
-    },
-    "W": {
-      "item": "ultramarine:porcelain_piece"
-    }
+    "D": "ultramarine:blue_and_white_glaze_powder",
+    "P": "ultramarine:porcelain_parts",
+    "S": "ultramarine:blue_and_white_porcelain_shards",
+    "W": "ultramarine:porcelain_piece"
   },
   "pattern": [
     "PSP",
@@ -21,7 +13,6 @@
     "WWW"
   ],
   "result": {
-    "count": 1,
     "id": "ultramarine:blue_and_white_porcelain_upgrade_smithing_template"
   }
 }

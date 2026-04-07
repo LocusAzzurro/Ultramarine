@@ -2,9 +2,7 @@
   "type": "minecraft:crafting_shaped",
   "category": "building",
   "key": {
-    "B": {
-      "item": "ultramarine:pale_yellow_stone"
-    }
+    "B": "ultramarine:pale_yellow_stone"
   },
   "pattern": [
     "BBB"

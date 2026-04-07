@@ -23,7 +23,7 @@ public class ChiselTableMedium extends DecorativeBlock implements BaseBlockPrope
 
     @Override
     public InteractionResult useWithoutItem(BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, BlockHitResult pHit) {
-        if (pLevel.isClientSide) {
+        if (pLevel.isClientSide()) {
             return InteractionResult.SUCCESS;
         } else {
             pPlayer.openMenu(this.getMenuProvider(pState, pLevel, pPos), pPos);

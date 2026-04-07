@@ -2,18 +2,10 @@
   "type": "minecraft:crafting_shapeless",
   "category": "building",
   "ingredients": [
-    {
-      "item": "minecraft:cobblestone"
-    },
-    {
-      "item": "minecraft:granite"
-    },
-    {
-      "item": "minecraft:diorite"
-    },
-    {
-      "item": "minecraft:andesite"
-    }
+    "minecraft:cobblestone",
+    "minecraft:granite",
+    "minecraft:diorite",
+    "minecraft:andesite"
   ],
   "result": {
     "count": 4,

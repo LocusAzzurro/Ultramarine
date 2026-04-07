@@ -4,7 +4,7 @@
 	"render_type": "cutout",
 	"textures": {
 		"1": "ultramarine:block/wind_chime",
-		"particle": "minecraft:block/chain"
+		"particle": "minecraft:block/iron_chain"
 	},
 	"elements": [
 		{

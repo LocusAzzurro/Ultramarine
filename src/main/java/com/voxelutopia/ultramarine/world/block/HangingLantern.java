@@ -6,7 +6,7 @@ import com.voxelutopia.ultramarine.data.shape.ShapeFunction;
 import com.voxelutopia.ultramarine.world.block.state.ModBlockStateProperties;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.InteractionHand;
-import net.minecraft.world.ItemInteractionResult;
+import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.context.BlockPlaceContext;
@@ -90,14 +90,15 @@ public class HangingLantern extends DecorativeBlock {
     }
 
     @Override
-    protected ItemInteractionResult useItemOn(ItemStack stack, BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, InteractionHand pHand, BlockHitResult pHit) {
+    public InteractionResult useItemOn(ItemStack itemStack, BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, InteractionHand pHand, BlockHitResult pHit) {
+        ItemStack item = pPlayer.getItemInHand(pHand);
         int lanterns = pState.getValue(LANTERNS);
-        if (stack.is(ItemRegistry.SMALL_RED_LANTERN.get()) && lanterns < 3){
+        if (item.is(ItemRegistry.SMALL_RED_LANTERN.get()) && lanterns < 3) {
             pLevel.setBlock(pPos, pState.setValue(LANTERNS, lanterns + 1), Block.UPDATE_ALL);
-            if (!pPlayer.isCreative()) stack.shrink(1);
-            return ItemInteractionResult.sidedSuccess(pLevel.isClientSide());
+            if (!pPlayer.isCreative()) item.shrink(1);
+            return pLevel.isClientSide() ? InteractionResult.SUCCESS : InteractionResult.SUCCESS_SERVER;
         }
-        return ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
+        return InteractionResult.TRY_WITH_EMPTY_HAND;
     }
 
     @Override

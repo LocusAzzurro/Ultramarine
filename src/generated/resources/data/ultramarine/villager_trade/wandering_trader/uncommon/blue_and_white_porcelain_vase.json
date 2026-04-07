@@ -1,0 +1,12 @@
+{
+  "gives": {
+    "id": "ultramarine:blue_and_white_porcelain_vase"
+  },
+  "max_uses": 1,
+  "reputation_discount": 0.05,
+  "wants": {
+    "count": 20,
+    "id": "minecraft:emerald"
+  },
+  "xp": 30
+}

@@ -1,10 +1,7 @@
 {
   "type": "minecraft:stonecutting",
-  "ingredient": {
-    "item": "minecraft:quartz_block"
-  },
+  "ingredient": "minecraft:quartz_block",
   "result": {
-    "count": 1,
     "id": "ultramarine:white_marble_railing"
   }
 }

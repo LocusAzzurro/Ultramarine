@@ -3,7 +3,13 @@
   "package": "com.voxelutopia.ultramarine.mixin",
   "compatibilityLevel": "JAVA_17",
   "refmap": "ultramarine.refmap.json",
-  "mixins": [],
-  "client": [],
+  "mixins": [
+    "PlayerListMixin",
+    "RecipeAccessMixin",
+    "RecipeManagerMixin"
+  ],
+  "client": [
+    "ClientRecipeContainerMixin"
+  ],
   "minVersion": "0.8.5"
 }

@@ -2,9 +2,7 @@
   "type": "minecraft:crafting_shaped",
   "category": "building",
   "key": {
-    "B": {
-      "item": "ultramarine:brownish_red_stone_bricks"
-    }
+    "B": "ultramarine:brownish_red_stone_bricks"
   },
   "pattern": [
     "BBB"

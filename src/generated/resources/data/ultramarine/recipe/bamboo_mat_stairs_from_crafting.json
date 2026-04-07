@@ -2,9 +2,7 @@
   "type": "minecraft:crafting_shaped",
   "category": "building",
   "key": {
-    "B": {
-      "item": "ultramarine:bamboo_mat"
-    }
+    "B": "ultramarine:bamboo_mat"
   },
   "pattern": [
     "B  ",

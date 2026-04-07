@@ -1,29 +1,24 @@
 package com.voxelutopia.ultramarine.world.block.menu;
 
+import com.voxelutopia.ultramarine.data.recipe.CompositeSmeltingRecipe;
 import com.voxelutopia.ultramarine.data.registry.BlockRegistry;
 import com.voxelutopia.ultramarine.data.registry.MenuTypeRegistry;
 import com.voxelutopia.ultramarine.data.registry.RecipeTypeRegistry;
 import com.voxelutopia.ultramarine.world.block.entity.BrickKilnBlockEntity;
 import net.minecraft.core.BlockPos;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.world.Container;
+import net.minecraft.world.SimpleContainer;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.*;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.SingleRecipeInput;
-import net.minecraft.world.level.block.entity.AbstractFurnaceBlockEntity;
+import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
-import net.neoforged.neoforge.event.EventHooks;
-import net.neoforged.neoforge.items.IItemHandler;
-import net.neoforged.neoforge.items.ItemStackHandler;
-import net.neoforged.neoforge.items.SlotItemHandler;
-import net.neoforged.neoforge.items.wrapper.InvWrapper;
-import net.neoforged.neoforge.registries.datamaps.builtin.FurnaceFuel;
-import net.neoforged.neoforge.registries.datamaps.builtin.NeoForgeDataMaps;
 import org.jetbrains.annotations.NotNull;
 
-import javax.annotation.Nonnull;
-import java.util.Optional;
 
 public class BrickKilnMenu extends AbstractContainerMenu {
 
@@ -35,37 +30,36 @@ public class BrickKilnMenu extends AbstractContainerMenu {
     private static final int INV_SLOT_END = 31;
     private static final int USE_ROW_SLOT_START = 31;
     private static final int USE_ROW_SLOT_END = 40;
-    private final BlockEntity blockEntity;
-    private final Player playerEntity;
-    private final IItemHandler storage;
-    private final IItemHandler inventory;
+
+    private final ContainerLevelAccess access;
+    private final Player player;
+    private final Container storage;
     private final ContainerData data;
 
     public BrickKilnMenu(int pId, BlockPos pos, Inventory inventory) {
-        this(pId, pos, inventory, new ItemStackHandler(4), new SimpleContainerData(4));
+        this(pId, pos, inventory, getStorage(inventory.player.level(), pos), new SimpleContainerData(4));
     }
 
-    public BrickKilnMenu(int id, BlockPos pos, Inventory inventory, IItemHandler container, ContainerData containerData) {
+    public BrickKilnMenu(int id, BlockPos pos, Inventory inventory, Container container, ContainerData containerData) {
         super(MenuTypeRegistry.BRICK_KILN.get(), id);
-        this.playerEntity = inventory.player;
-        this.blockEntity = playerEntity.getCommandSenderWorld().getBlockEntity(pos);
+        this.player = inventory.player;
+        this.access = ContainerLevelAccess.create(this.player.level(), pos);
         this.storage = container;
-        this.inventory = new InvWrapper(inventory);
         this.data = containerData;
 
         this.addSlot(new IngredientSlot(storage, SLOT_INPUT_PRIMARY, 46, 17));
         this.addSlot(new IngredientSlot(storage, SLOT_INPUT_SECONDARY, 66, 17));
-        this.addSlot(new FuelSlot(storage, SLOT_FUEL, 56, 53));
-        this.addSlot(new OutputSlot(playerEntity, storage, blockEntity, SLOT_RESULT, 116, 35));
+        this.addSlot(new FuelSlot(storage, SLOT_FUEL, 56, 53, this.player.level()));
+        this.addSlot(new OutputSlot(this.player, storage, SLOT_RESULT, 116, 35));
 
         for (int r = 0; r < 3; ++r) {
             for (int c = 0; c < 9; ++c) {
-                this.addSlot(new SlotItemHandler(this.inventory, c + r * 9 + 9, 8 + c * 18, 84 + r * 18));
+                this.addSlot(new Slot(inventory, c + r * 9 + 9, 8 + c * 18, 84 + r * 18));
             }
         }
 
         for (int k = 0; k < 9; ++k) {
-            this.addSlot(new SlotItemHandler(this.inventory, k, 8 + k * 18, 142));
+            this.addSlot(new Slot(inventory, k, 8 + k * 18, 142));
         }
 
         this.addDataSlots(this.data);
@@ -88,7 +82,7 @@ public class BrickKilnMenu extends AbstractContainerMenu {
                     if (!this.moveItemStackTo(slotItem, SLOT_INPUT_PRIMARY, SLOT_INPUT_SECONDARY + 1, false)) {
                         return ItemStack.EMPTY;
                     }
-                } else if (isFuel(slotItem)) {
+                } else if (isFuel(slotItem, pPlayer.level())) {
                     if (!this.moveItemStackTo(slotItem, SLOT_FUEL, SLOT_FUEL + 1, false)) {
                         return ItemStack.EMPTY;
                     }
@@ -104,7 +98,7 @@ public class BrickKilnMenu extends AbstractContainerMenu {
             }
 
             if (slotItem.isEmpty()) {
-                slot.set(ItemStack.EMPTY);
+                slot.setByPlayer(ItemStack.EMPTY);
             } else {
                 slot.setChanged();
             }
@@ -120,15 +114,18 @@ public class BrickKilnMenu extends AbstractContainerMenu {
     }
 
     protected boolean canProcess(ItemStack item) {
-        assert blockEntity.getLevel() != null;
-        return blockEntity.getLevel().getRecipeManager().getAllRecipesFor(RecipeTypeRegistry.COMPOSITE_SMELTING.get()).stream()
-                .anyMatch(recipe -> recipe.value().partialMatch(new SingleRecipeInput(item)));
+        if (!(this.player.level() instanceof ServerLevel serverLevel)) {
+            return false;
+        }
+        var recipeManager = serverLevel.recipeAccess();
+        return recipeManager.getRecipes().stream()
+                .filter(holder -> holder.value().getType() == RecipeTypeRegistry.COMPOSITE_SMELTING.get())
+                .anyMatch(holder -> ((CompositeSmeltingRecipe) holder.value()).partialMatch(new SingleRecipeInput(item)));
     }
 
     @Override
     public boolean stillValid(@NotNull Player pPlayer) {
-        assert blockEntity.getLevel() != null;
-        return stillValid(ContainerLevelAccess.create(blockEntity.getLevel(), blockEntity.getBlockPos()), playerEntity, BlockRegistry.BRICK_KILN.get());
+        return stillValid(this.access, pPlayer, BlockRegistry.BRICK_KILN.get());
     }
 
     public boolean isLit() {
@@ -150,20 +147,18 @@ public class BrickKilnMenu extends AbstractContainerMenu {
         return this.data.get(BrickKilnBlockEntity.DATA_LIT_TIME) * 13 / i;
     }
 
-    static class OutputSlot extends SlotItemHandler {
+    static class OutputSlot extends Slot {
 
         private final Player player;
-        private final BlockEntity blockEntity;
         private int removeCount;
 
-        public OutputSlot(Player player, IItemHandler itemHandler, BlockEntity blockEntity, int index, int xPosition, int yPosition) {
-            super(itemHandler, index, xPosition, yPosition);
+        public OutputSlot(Player player, Container container, int index, int xPosition, int yPosition) {
+            super(container, index, xPosition, yPosition);
             this.player = player;
-            this.blockEntity = blockEntity;
         }
 
         @Override
-        public boolean mayPlace(@Nonnull ItemStack stack) {
+        public boolean mayPlace(@NotNull ItemStack stack) {
             return false;
         }
 
@@ -189,32 +184,43 @@ public class BrickKilnMenu extends AbstractContainerMenu {
 
         @Override
         protected void checkTakeAchievements(ItemStack stack) {
-            stack.onCraftedBy(this.player.level(), this.player, this.removeCount);
-            if (this.player instanceof ServerPlayer serverplayer && blockEntity instanceof BrickKilnBlockEntity kiln) {
+            stack.onCraftedBy(this.player, this.removeCount);
+            if (this.player instanceof ServerPlayer serverplayer && this.container instanceof BrickKilnBlockEntity kiln) {
                 kiln.awardUsedRecipesAndPopExperience(serverplayer);
             }
             this.removeCount = 0;
         }
     }
 
-    static class IngredientSlot extends SlotItemHandler {
-        public IngredientSlot(IItemHandler itemHandler, int index, int xPosition, int yPosition) {
-            super(itemHandler, index, xPosition, yPosition);
+    static class IngredientSlot extends Slot {
+        public IngredientSlot(Container container, int index, int xPosition, int yPosition) {
+            super(container, index, xPosition, yPosition);
         }
     }
 
-    static class FuelSlot extends SlotItemHandler {
-        public FuelSlot(IItemHandler itemHandler, int index, int xPosition, int yPosition) {
-            super(itemHandler, index, xPosition, yPosition);
+    static class FuelSlot extends Slot {
+        private final Level level;
+
+        public FuelSlot(Container container, int index, int xPosition, int yPosition, Level level) {
+            super(container, index, xPosition, yPosition);
+            this.level = level;
         }
 
         @Override
-        public boolean mayPlace(@Nonnull ItemStack stack) {
-            return isFuel(stack);
+        public boolean mayPlace(@NotNull ItemStack stack) {
+            return BrickKilnMenu.isFuel(stack, this.level);
         }
     }
 
-    private static boolean isFuel(@NotNull ItemStack stack) {
-        return Optional.ofNullable(stack.getItemHolder().getData(NeoForgeDataMaps.FURNACE_FUELS)).map(FurnaceFuel::burnTime).orElse(0) > 0;
+    private static boolean isFuel(ItemStack stack, Level level) {
+        return level.fuelValues().isFuel(stack);
+    }
+
+    private static Container getStorage(Level level, BlockPos pos) {
+        BlockEntity be = level.getBlockEntity(pos);
+        if (be instanceof Container container) {
+            return container;
+        }
+        return new SimpleContainer(BrickKilnBlockEntity.NUM_SLOTS);
     }
 }

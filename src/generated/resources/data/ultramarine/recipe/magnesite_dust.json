@@ -1,10 +1,7 @@
 {
   "type": "minecraft:stonecutting",
-  "ingredient": {
-    "item": "ultramarine:magnesite"
-  },
+  "ingredient": "ultramarine:magnesite",
   "result": {
-    "count": 1,
     "id": "ultramarine:magnesite_dust"
   }
 }

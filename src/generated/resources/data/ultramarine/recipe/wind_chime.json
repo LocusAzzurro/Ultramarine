@@ -2,15 +2,9 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "B": {
-      "item": "ultramarine:bronze_ingot"
-    },
-    "C": {
-      "item": "minecraft:chain"
-    },
-    "P": {
-      "item": "ultramarine:bronze_parts"
-    }
+    "B": "ultramarine:bronze_ingot",
+    "C": "minecraft:iron_chain",
+    "P": "ultramarine:bronze_parts"
   },
   "pattern": [
     "C",
@@ -18,7 +12,6 @@
     "P"
   ],
   "result": {
-    "count": 1,
     "id": "ultramarine:wind_chime"
   }
 }

@@ -1,24 +1,13 @@
 {
   "type": "ultramarine:chisel_table",
   "colors": [
-    {
-      "tag": "c:dyes/cyan"
-    },
-    {
-      "tag": "c:dyes/red"
-    },
-    {
-      "tag": "c:dyes/cyan"
-    }
+    "#c:dyes/cyan",
+    "#c:dyes/red",
+    "#c:dyes/cyan"
   ],
-  "material": {
-    "tag": "minecraft:logs"
-  },
+  "material": "#minecraft:logs",
   "result": {
-    "count": 1,
     "id": "ultramarine:cyan_and_red_zhaotou"
   },
-  "template": {
-    "item": "ultramarine:zhaotou_template"
-  }
+  "template": "ultramarine:zhaotou_template"
 }

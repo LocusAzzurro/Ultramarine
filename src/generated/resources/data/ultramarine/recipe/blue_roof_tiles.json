@@ -2,15 +2,12 @@
   "type": "minecraft:crafting_shaped",
   "category": "building",
   "key": {
-    "T": {
-      "item": "ultramarine:blue_roof_tile"
-    }
+    "T": "ultramarine:blue_roof_tile"
   },
   "pattern": [
     "TTT"
   ],
   "result": {
-    "count": 1,
     "id": "ultramarine:blue_roof_tiles"
   }
 }

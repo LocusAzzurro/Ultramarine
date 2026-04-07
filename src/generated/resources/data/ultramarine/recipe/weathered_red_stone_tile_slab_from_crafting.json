@@ -2,9 +2,7 @@
   "type": "minecraft:crafting_shaped",
   "category": "building",
   "key": {
-    "B": {
-      "item": "ultramarine:weathered_red_stone_tile"
-    }
+    "B": "ultramarine:weathered_red_stone_tile"
   },
   "pattern": [
     "BBB"

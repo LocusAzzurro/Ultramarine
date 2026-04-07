@@ -2,9 +2,7 @@
   "type": "minecraft:crafting_shaped",
   "category": "building",
   "key": {
-    "B": {
-      "item": "ultramarine:green_weathered_bricks"
-    }
+    "B": "ultramarine:green_weathered_bricks"
   },
   "pattern": [
     "B  ",

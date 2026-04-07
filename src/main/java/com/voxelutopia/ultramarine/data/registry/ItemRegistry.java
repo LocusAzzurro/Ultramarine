@@ -3,21 +3,24 @@ package com.voxelutopia.ultramarine.data.registry;
 import com.voxelutopia.ultramarine.Ultramarine;
 import com.voxelutopia.ultramarine.data.ModCreativeTab;
 import com.voxelutopia.ultramarine.data.ModFoods;
-import com.voxelutopia.ultramarine.data.ModTiers;
+import com.voxelutopia.ultramarine.data.ModToolMaterials;
 import com.voxelutopia.ultramarine.world.item.*;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.*;
+import net.minecraft.world.item.component.Consumable;
 import net.minecraft.world.level.block.Block;
 import net.neoforged.neoforge.registries.DeferredHolder;
+import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
+import java.util.function.Function;
 import java.util.function.Supplier;
 
 @SuppressWarnings("unused")
 public class ItemRegistry {
 
-    public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(Registries.ITEM, Ultramarine.MOD_ID);
+    public static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(Ultramarine.MOD_ID);
 
     /**
      * BUILDING BLOCKS
@@ -872,45 +875,51 @@ public class ItemRegistry {
 
     // FOOD
 
-    public static final DeferredHolder<Item, Item> MOONCAKE = foodItem("mooncake", ModFoods.MOONCAKE);
-    public static final DeferredHolder<Item, Item> MUNG_BEAN_CAKE = foodItem("mung_bean_cake", ModFoods.MUNG_BEAN_CAKE);
-    public static final DeferredHolder<Item, Item> RAW_MEAT = foodItem("raw_meat", ModFoods.RAW_MEAT);
-    public static final DeferredHolder<Item, Item> COOKED_MEAT = foodItem("cooked_meat", ModFoods.COOKED_MEAT);
-    public static final DeferredHolder<Item, Item> BAOZI = foodItem("baozi", ModFoods.BAOZI);
+    public static final DeferredHolder<Item, Item> MOONCAKE = foodItem("mooncake", () -> ModFoods.MOONCAKE);
+    public static final DeferredHolder<Item, Item> MUNG_BEAN_CAKE = foodItem("mung_bean_cake", () -> ModFoods.MUNG_BEAN_CAKE);
+    public static final DeferredHolder<Item, Item> RAW_MEAT = foodItem("raw_meat", () -> ModFoods.RAW_MEAT, () -> ModFoods.RAW_MEAT_CONSUMABLE);
+    public static final DeferredHolder<Item, Item> COOKED_MEAT = foodItem("cooked_meat", () -> ModFoods.COOKED_MEAT);
+    public static final DeferredHolder<Item, Item> BAOZI = foodItem("baozi", () -> ModFoods.BAOZI);
 
     /**
      * TOOLS
      */
 
-    public static final DeferredHolder<Item, Item> WOODEN_MALLET = register("wooden_mallet", WoodenMallet::new, ModCreativeTab.TOOLS);
+    public static final DeferredHolder<Item, Item> WOODEN_MALLET = toolItem("wooden_mallet", WoodenMallet::new);
     public static final DeferredHolder<Item, Item> BLUE_AND_WHITE_PORCELAIN_SWORD = toolItem("blue_and_white_porcelain_sword",
-            () -> new SwordItem(ModTiers.BLUE_AND_WHITE_PORCELAIN, new Item.Properties().attributes(SwordItem.createAttributes(ModTiers.BLUE_AND_WHITE_PORCELAIN, 3, -2.4F))));
+            properties -> new Item(properties.sword(ModToolMaterials.BLUE_AND_WHITE_PORCELAIN, 3.0F, -2.4F)));
     public static final DeferredHolder<Item, Item> BLUE_AND_WHITE_PORCELAIN_SHOVEL = toolItem("blue_and_white_porcelain_shovel",
-            () -> new ShovelItem(ModTiers.BLUE_AND_WHITE_PORCELAIN, new Item.Properties().attributes(SwordItem.createAttributes(ModTiers.BLUE_AND_WHITE_PORCELAIN, 1.5F, -3.0F))));
+            properties -> new ShovelItem(ModToolMaterials.BLUE_AND_WHITE_PORCELAIN, 1.5F, -3.0F, properties));
     public static final DeferredHolder<Item, Item> BLUE_AND_WHITE_PORCELAIN_PICKAXE = toolItem("blue_and_white_porcelain_pickaxe",
-            () -> new PickaxeItem(ModTiers.BLUE_AND_WHITE_PORCELAIN, new Item.Properties().attributes(SwordItem.createAttributes(ModTiers.BLUE_AND_WHITE_PORCELAIN, 1, -2.8F))));
+            properties -> new Item(properties.pickaxe(ModToolMaterials.BLUE_AND_WHITE_PORCELAIN, 1.0F, -2.8F)));
     public static final DeferredHolder<Item, Item> BLUE_AND_WHITE_PORCELAIN_AXE = toolItem("blue_and_white_porcelain_axe",
-            () -> new AxeItem(ModTiers.BLUE_AND_WHITE_PORCELAIN, new Item.Properties().attributes(SwordItem.createAttributes(ModTiers.BLUE_AND_WHITE_PORCELAIN, 6.0F, -3.0F))));
-    public static final DeferredHolder<Item, Item> BLUE_AND_WHITE_PORCELAIN_UPGRADE_SMITHING_TEMPLATE = register("blue_and_white_porcelain_upgrade_smithing_template",
-            BlueAndWhitePorcelainUpgradeSmithingTemplate::new, ModCreativeTab.TOOLS);
+            properties -> new AxeItem(ModToolMaterials.BLUE_AND_WHITE_PORCELAIN, 6.0F, -3.0F, properties));
+    public static final DeferredHolder<Item, Item> BLUE_AND_WHITE_PORCELAIN_UPGRADE_SMITHING_TEMPLATE = toolItem("blue_and_white_porcelain_upgrade_smithing_template",
+            BlueAndWhitePorcelainUpgradeSmithingTemplate::new);
     public static final DeferredHolder<Item, Item> WOODWORKING_WORKBENCH = fromBlock(BlockRegistry.WOODWORKING_WORKBENCH, ModCreativeTab.TOOLS);
     public static final DeferredHolder<Item, Item> BRICK_KILN = fromBlock(BlockRegistry.BRICK_KILN, ModCreativeTab.TOOLS);
     public static final DeferredHolder<Item, Item> CHISEL_TABLE = fromBlock(BlockRegistry.CHISEL_TABLE, ModCreativeTab.TOOLS);
 
-    private static DeferredHolder<Item, Item> register(String name, Supplier<Item> itemSupplier, ModCreativeTab tab) {
-        DeferredHolder<Item, Item> registryObject = ITEMS.register(name, itemSupplier);
+    private static <T extends Item> DeferredItem<T> register(String name, Function<Item.Properties, T> factory, ModCreativeTab tab) {
+        DeferredItem<T> registryObject = ITEMS.registerItem(name, factory);
         ModCreativeTab.putItemInSet(registryObject, tab);
         return registryObject;
     }
 
-    private static <B extends Block> DeferredHolder<Item, Item> fromBlock(DeferredHolder<Block, B> block, ModCreativeTab tabDef) {
-        DeferredHolder<Item, Item> registryObject = ITEMS.register(block.getId().getPath(), () -> new BlockItem(block.get(), new Item.Properties()));
+    private static <T extends Item> DeferredItem<T> registerItem(String name, Function<Item.Properties, T> factory) {
+        return ITEMS.registerItem(name, factory);
+    }
+
+    private static <B extends Block> DeferredItem<Item> fromBlock(DeferredHolder<Block, B> block, ModCreativeTab tabDef) {
+        DeferredItem<Item> registryObject = registerItem(block.getId().getPath(),
+                properties -> new BlockItem(block.get(), properties));
         ModCreativeTab.putItemInSet(registryObject, tabDef);
         return registryObject;
     }
 
-    private static <B extends Block> DeferredHolder<Item, Item> aquaticPlantItem(DeferredHolder<Block, B> block, ModCreativeTab tabDef) {
-        DeferredHolder<Item, Item> registryObject = ITEMS.register(block.getId().getPath(), () -> new AquaticPlantBlockItem(block.get(), new Item.Properties()));
+    private static <B extends Block> DeferredItem<Item> aquaticPlantItem(DeferredHolder<Block, B> block, ModCreativeTab tabDef) {
+        DeferredItem<Item> registryObject = registerItem(block.getId().getPath(),
+                properties -> new AquaticPlantBlockItem(block.get(), properties));
         ModCreativeTab.putItemInSet(registryObject, tabDef);
         return registryObject;
     }
@@ -921,32 +930,41 @@ public class ItemRegistry {
         return registryObject;
     }
 
-    private static DeferredHolder<Item, Item> simpleItem(String name, ModCreativeTab tabDef) {
-        DeferredHolder<Item, Item> registryObject = ITEMS.register(name, () -> new Item(new Item.Properties()));
+    private static DeferredItem<Item> simpleItem(String name, ModCreativeTab tabDef) {
+        DeferredItem<Item> registryObject = registerItem(name, Item::new);
         ModCreativeTab.putItemInSet(registryObject, tabDef);
         return registryObject;
     }
 
-    private static DeferredHolder<Item, Item> foodItem(String name, FoodProperties food) {
-        DeferredHolder<Item, Item> registryObject = ITEMS.register(name, () -> new BaseFood(food));
+    private static DeferredItem<Item> foodItem(String name, Supplier<FoodProperties> food, Supplier<Consumable> consumable) {
+        DeferredItem<Item> registryObject = registerItem(name,
+                properties -> new BaseFood(properties, food.get(), consumable.get()));
         ModCreativeTab.putItemInSet(registryObject, ModCreativeTab.MATERIALS);
         return registryObject;
     }
 
-    private static DeferredHolder<Item, Item> toolItem(String name, Supplier<Item> toolItemSupplier) {
-        DeferredHolder<Item, Item> registryObject = ITEMS.register(name, toolItemSupplier);
-        ModCreativeTab.putItemInSet(registryObject, ModCreativeTab.TOOLS);
-        return registryObject;
-    }
-
-    private static DeferredHolder<Item, Item> dyePowderItem(String name, DyeColor color) {
-        DeferredHolder<Item, Item> registryObject = ITEMS.register(name, () -> new DyePowder(color));
+    private static DeferredItem<Item> foodItem(String name, Supplier<FoodProperties> food) {
+        DeferredItem<Item> registryObject = registerItem(name,
+                properties -> new BaseFood(properties, food.get()));
         ModCreativeTab.putItemInSet(registryObject, ModCreativeTab.MATERIALS);
         return registryObject;
     }
 
-    private static DeferredHolder<Item, Item> chiselTemplateItem(String name) {
-        DeferredHolder<Item, Item> registryObject = ITEMS.register(name, ChiselTemplate::new);
+    private static DeferredItem<Item> toolItem(String name, Function<Item.Properties, Item> toolItemFactory) {
+        DeferredItem<Item> item = registerItem(name, toolItemFactory);
+        ModCreativeTab.putItemInSet(item, ModCreativeTab.TOOLS);
+        return item;
+    }
+
+    private static DeferredItem<Item> dyePowderItem(String name, DyeColor color) {
+        DeferredItem<Item> registryObject = registerItem(name,
+                properties -> new DyePowder(properties, color));
+        ModCreativeTab.putItemInSet(registryObject, ModCreativeTab.MATERIALS);
+        return registryObject;
+    }
+
+    private static DeferredItem<Item> chiselTemplateItem(String name) {
+        DeferredItem<Item> registryObject = registerItem(name, Item::new);
         ModCreativeTab.putItemInSet(registryObject, ModCreativeTab.MATERIALS);
         return registryObject;
     }

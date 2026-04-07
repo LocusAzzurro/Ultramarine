@@ -2,19 +2,14 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "S": {
-      "item": "ultramarine:silk"
-    },
-    "T": {
-      "item": "minecraft:string"
-    }
+    "S": "ultramarine:silk",
+    "T": "minecraft:string"
   },
   "pattern": [
     " T ",
     "SSS"
   ],
   "result": {
-    "count": 1,
     "id": "ultramarine:sack"
   }
 }

@@ -2,9 +2,7 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "I": {
-      "item": "ultramarine:small_red_ivy"
-    }
+    "I": "ultramarine:small_red_ivy"
   },
   "pattern": [
     "I",
@@ -12,7 +10,6 @@
     "I"
   ],
   "result": {
-    "count": 1,
     "id": "ultramarine:large_green_ivy"
   }
 }

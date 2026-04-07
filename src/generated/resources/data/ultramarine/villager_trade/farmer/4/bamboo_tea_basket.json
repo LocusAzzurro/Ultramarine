@@ -1,0 +1,15 @@
+{
+  "additional_wants": {
+    "id": "ultramarine:empty_bamboo_tea_basket"
+  },
+  "gives": {
+    "id": "ultramarine:bamboo_tea_basket"
+  },
+  "max_uses": 4,
+  "reputation_discount": 0.05,
+  "wants": {
+    "count": 20,
+    "id": "minecraft:emerald"
+  },
+  "xp": 10
+}

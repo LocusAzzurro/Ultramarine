@@ -2,15 +2,9 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "B": {
-      "item": "minecraft:dark_prismarine"
-    },
-    "H": {
-      "item": "minecraft:dark_prismarine_slab"
-    },
-    "S": {
-      "item": "minecraft:dark_prismarine_stairs"
-    }
+    "B": "minecraft:dark_prismarine",
+    "H": "minecraft:dark_prismarine_slab",
+    "S": "minecraft:dark_prismarine_stairs"
   },
   "pattern": [
     "HS",
@@ -18,7 +12,6 @@
     "BB"
   ],
   "result": {
-    "count": 1,
     "id": "ultramarine:dark_prismarine_chiwei"
   }
 }
