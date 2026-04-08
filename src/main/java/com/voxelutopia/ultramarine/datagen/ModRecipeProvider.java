@@ -784,6 +784,10 @@ public class ModRecipeProvider extends RecipeProvider {
         caihua(ItemRegistry.LARGE_GRAY_SU_STYLE_CAIHUA.get(), new Ingredient[]{
                 Ingredient.of(ItemRegistry.YELLOW_DYE_POWDER.get()), Ingredient.of(ItemRegistry.BLUE_DYE_POWDER.get()), Ingredient.of(ModItemTags.COMMON_GRAY_DYE), Ingredient.of(ModItemTags.COMMON_GRAY_DYE)
         }, recipeConsumer);
+        caihua(ItemRegistry.LOONG_TUANHUA.get(), new Ingredient[]{
+                Ingredient.of(ItemRegistry.GOLD_DYE_POWDER.get()), Ingredient.of(ModItemTags.COMMON_YELLOW_DYE), Ingredient.of(ModItemTags.COMMON_YELLOW_DYE), Ingredient.of(ItemRegistry.GOLD_DYE_POWDER.get())
+        }, recipeConsumer);
+
 
         // CHUIHUA
 

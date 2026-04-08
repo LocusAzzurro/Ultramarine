@@ -447,6 +447,9 @@ public class BlockRegistry {
     public static final DeferredHolder<Block, Block> LARGE_GREEN_SU_STYLE_CAIHUA = BLOCKS.register("large_green_su_style_caihua", () -> new WallSideBlock(BaseBlockProperty.dye(), ShapeFunction.cardinalRotations(new RawVoxelShape(-16, 0, 15, 32, 32, 16))));
     public static final DeferredHolder<Block, Block> LARGE_GRAY_SU_STYLE_CAIHUA = BLOCKS.register("large_gray_su_style_caihua", () -> new WallSideBlock(BaseBlockProperty.dye(), ShapeFunction.cardinalRotations(new RawVoxelShape(-16, 0, 15, 32, 32, 16))));
 
+    public static final DeferredHolder<Block, Block> LOONG_TUANHUA = BLOCKS.register("loong_tuanhua", () -> new ChiralOrientableSixSideBlock(BaseBlockProperty.dye(),
+            ShapeFunction.sixSideShape(new RawVoxelShape(-16, -16, 15, 32, 32, 16), new RawVoxelShape(-16, 0, -16, 32, 1, 32))));
+
     // CHUIHUA
 
     public static final DeferredHolder<Block, Block> BLUE_AND_GREEN_CHUIHUA = BLOCKS.register("blue_and_green_chuihua",

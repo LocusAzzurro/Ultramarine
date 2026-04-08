@@ -416,7 +416,9 @@ public class ModBlockModelProvider extends BlockStateProvider {
                         else wallSideBlock(wallSideBlock);
                     } else if (block instanceof SixSideBlock sixSideBlock) {
                         if (block instanceof OrientableSixSideBlock orientableSixFaceBlock)
-                            orientableSixSideBlock(orientableSixFaceBlock);
+                            if (block instanceof ChiralOrientableSixSideBlock chiralOrientableSixSideBlock)
+                                chiralOrientableSixSideBlock(chiralOrientableSixSideBlock);
+                            else orientableSixSideBlock(orientableSixFaceBlock);
                         else sixSideBlock(sixSideBlock);
                     }
                 });
@@ -535,6 +537,39 @@ public class ModBlockModelProvider extends BlockStateProvider {
                     if (direction == faceDir.getClockWise()) suffix.append("_left");
                     else if (direction == faceDir.getCounterClockWise()) suffix.append("_right");
                     else suffix.append("_up");
+                }
+                modelBuilder.modelFile(models().getExistingFile(modLoc(BLOCK + name(block) + suffix)));
+                modelBuilder.rotationY((int) faceDir.toYRot());
+            }
+            return modelBuilder.build();
+        });
+    }
+
+    private void chiralOrientableSixSideBlock(Block block) {
+        getVariantBuilder(block).forAllStates(blockState -> {
+            ConfiguredModel.Builder<?> modelBuilder = ConfiguredModel.builder();
+            Direction faceDir = blockState.getValue(FACING);
+            Direction direction = blockState.getValue(ON_FACE_DIRECTION);
+            ChiralBlockType type = blockState.getValue(CHIRAL_BLOCK_TYPE);
+            if (faceDir.getAxis().isVertical()) { //top or bottom
+                StringBuilder suffix = new StringBuilder("_top");
+                if (type == ChiralBlockType.RIGHT) suffix.append("_right");
+                else suffix.append("_left");
+                modelBuilder.modelFile(models().getExistingFile(modLoc(BLOCK + name(block) + suffix)));
+                if (faceDir == Direction.DOWN)
+                    modelBuilder.rotationY((int) direction.toYRot() + 180);
+                else if (faceDir == Direction.UP)
+                    modelBuilder.rotationX(180).rotationY((int) direction.toYRot());
+            }
+            else { //horizontal
+                StringBuilder suffix = new StringBuilder("_side");
+                if (direction.getAxis().isVertical())
+                    suffix.append("_left");
+                else {
+                    //left = CCW right = CW
+                    if (direction == faceDir.getClockWise()) suffix.append("_left");
+                    else if (direction == faceDir.getCounterClockWise()) suffix.append("_right");
+                    else suffix.append("_left");
                 }
                 modelBuilder.modelFile(models().getExistingFile(modLoc(BLOCK + name(block) + suffix)));
                 modelBuilder.rotationY((int) faceDir.toYRot());
