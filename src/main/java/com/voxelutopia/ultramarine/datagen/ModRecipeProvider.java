@@ -1458,6 +1458,14 @@ public class ModRecipeProvider extends RecipeProvider {
                 .pattern("BPB")
                 .pattern(" B ")
                 .unlockedBy(getHasName(Items.FLOWER_POT), itemCriterion(Items.FLOWER_POT)).save(recipeConsumer);
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ItemRegistry.LOTUS_LEAVES_BOWL.get(), 1)
+                .define('A', Items.ANDESITE)
+                .define('I', Items.IRON_INGOT)
+                .define('L', Ingredient.of(ItemRegistry.SMALL_LOTUS_LEAF.get(), ItemRegistry.SMALL_DARK_GREEN_LOTUS_LEAF.get()))
+                .pattern("ALA")
+                .pattern("AAA")
+                .pattern(" I ")
+                .unlockedBy(getHasName(Items.FLOWER_POT), itemCriterion(Items.FLOWER_POT)).save(recipeConsumer);
 
     }
 

@@ -1,0 +1,56 @@
+{
+	"format_version": "1.21.11",
+	"credit": "Made with Blockbench",
+	"texture_size": [128, 128],
+	"render_type": "translucent",
+	"ambientocclusion": false,
+	"textures": {
+		"1": "ultramarine:block/lotus_leaves_bowl",
+		"particle": "block/andesite"
+	},
+	"elements": [
+		{
+			"from": [2, 8, 2],
+			"to": [14, 8, 14],
+			"faces": {
+				"north": {"uv": [0, 0, 1.5, 0], "texture": "#1"},
+				"east": {"uv": [0, 0, 1.5, 0], "texture": "#1"},
+				"south": {"uv": [0, 0, 1.5, 0], "texture": "#1"},
+				"west": {"uv": [0, 0, 1.5, 0], "texture": "#1"},
+				"up": {"uv": [3.5, 4.5, 2, 3], "texture": "#1"},
+				"down": {"uv": [5, 0, 3.5, 1.5], "texture": "#1"}
+			}
+		}
+	],
+	"display": {
+		"thirdperson_righthand": {
+			"rotation": [90, 0, 0],
+			"translation": [-6, -2, -4]
+		},
+		"thirdperson_lefthand": {
+			"scale": [0.2, 0.2, 0.2]
+		},
+		"firstperson_righthand": {
+			"scale": [0.5, 0.5, 0.5]
+		},
+		"firstperson_lefthand": {
+			"scale": [0.5, 0.5, 0.5]
+		},
+		"ground": {
+			"scale": [0.2, 0.2, 0.2]
+		},
+		"gui": {
+			"rotation": [-159, 21.25, -180],
+			"scale": [0.5, 0.5, 0.5]
+		}
+	},
+	"groups": [
+		{
+			"name": "group",
+			"origin": [8, 8, 8],
+			"scope": 0,
+			"color": 0,
+			"children": [0]
+		}
+	]
+}

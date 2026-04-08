@@ -27,7 +27,7 @@ import java.util.*;
 import static com.voxelutopia.ultramarine.world.block.state.ModBlockStateProperties.*;
 import static net.minecraft.world.level.block.state.properties.BlockStateProperties.*;
 
-@SuppressWarnings("unused")
+@SuppressWarnings({"unused", "SameParameterValue"})
 public class ModBlockModelProvider extends BlockStateProvider {
 
     public static final String BLOCK = "block/";
@@ -50,7 +50,8 @@ public class ModBlockModelProvider extends BlockStateProvider {
     );
     private final List<DeferredHolder<Block, Block>> SKIP_DECO = List.of(
             BlockRegistry.BRICK_KILN,
-            BlockRegistry.CHISEL_TABLE
+            BlockRegistry.CHISEL_TABLE,
+            BlockRegistry.LOTUS_LEAVES_BOWL
     );
     private final Set<String> WOOD_MATERIALS = Set.of("oak", "spruce", "birch", "jungle", "acacia", "dark_oak", "crimson", "warped", "mangrove", "cherry");
     private final Set<String> STEM_TYPES = Set.of("crimson", "warped");
@@ -404,6 +405,9 @@ public class ModBlockModelProvider extends BlockStateProvider {
                     else if (block instanceof HangingLantern lantern) hangingLantern(lantern);
                     else decorativeBlock(block);
                 });
+        // SPECIAL DECO
+        waterContainerBlock(BlockRegistry.LOTUS_LEAVES_BOWL.get());
+
         // > SIDE BLOCKS
         BlockRegistry.BLOCKS.getEntries().stream().filter(blockRegistryObject -> blockRegistryObject.get() instanceof SideBlock)
                 .forEach(sideBlock -> {
@@ -632,6 +636,7 @@ public class ModBlockModelProvider extends BlockStateProvider {
         });
     }
 
+    @SuppressWarnings("ConstantConditions")
     private void roofRidgeSideBottomTop(Block block, ResourceLocation side, ResourceLocation bottom, ResourceLocation top) {
         if (!(block instanceof SnowRoofRidge)) return;
         if (block instanceof RoofRidge ridge) {
@@ -668,6 +673,7 @@ public class ModBlockModelProvider extends BlockStateProvider {
         }
     }
 
+    @SuppressWarnings("ConstantConditions")
     private void roofRidgeFrontSideBottomTop(Block block, ResourceLocation front, ResourceLocation side, ResourceLocation bottom, ResourceLocation top) {
         if (!(block instanceof SnowRoofRidge)) return;
         if (block instanceof RoofRidgeConnection ridge) {
@@ -709,6 +715,7 @@ public class ModBlockModelProvider extends BlockStateProvider {
         }
     }
 
+    @SuppressWarnings("ConstantConditions")
     private void roofHorizontalRidgeFrontSideBottomTop(Block block, ResourceLocation front, ResourceLocation side, ResourceLocation bottom, ResourceLocation top) {
         if (!(block instanceof SnowRoofRidge)) return;
         if (block instanceof RoofMainRidgeConnection ridge) {
@@ -1231,6 +1238,40 @@ public class ModBlockModelProvider extends BlockStateProvider {
                 .condition(RailingBlock.SOUTH, true)
                 .end()
         ;
+    }
+
+    private void waterContainerBlock(Block block){
+        ModelFile.ExistingModelFile emptyModel = models().getExistingFile(modLoc(BLOCK + name(block) + "_empty"));
+        ModelFile.ExistingModelFile waterModel = models().getExistingFile(modLoc(BLOCK + name(block) + "_water"));
+        ModelFile.ExistingModelFile insideModel = models().getExistingFile(modLoc(BLOCK + name(block) + "_inside"));
+        getMultipartBuilder(block)
+                .part().modelFile(emptyModel)
+                .rotationY(0).addModel().condition(HORIZONTAL_FACING, Direction.NORTH)
+                .end()
+                .part().modelFile(emptyModel)
+                .rotationY(90).addModel().condition(HORIZONTAL_FACING, Direction.EAST)
+                .end()
+                .part().modelFile(emptyModel)
+                .rotationY(180).addModel().condition(HORIZONTAL_FACING, Direction.SOUTH)
+                .end()
+                .part().modelFile(emptyModel)
+                .rotationY(270).addModel().condition(HORIZONTAL_FACING, Direction.WEST)
+                .end()
+                .part().modelFile(waterModel)
+                .uvLock(true).addModel().condition(FILLED, true)
+                .end()
+                .part().modelFile(insideModel)
+                .rotationY(0).addModel().condition(HORIZONTAL_FACING, Direction.NORTH).condition(FILLED, true)
+                .end()
+                .part().modelFile(insideModel)
+                .rotationY(90).addModel().condition(HORIZONTAL_FACING, Direction.EAST).condition(FILLED, true)
+                .end()
+                .part().modelFile(insideModel)
+                .rotationY(180).addModel().condition(HORIZONTAL_FACING, Direction.SOUTH).condition(FILLED, true)
+                .end()
+                .part().modelFile(insideModel)
+                .rotationY(270).addModel().condition(HORIZONTAL_FACING, Direction.WEST).condition(FILLED, true)
+                .end();
     }
 
     private ConfiguredModel[] getDecorativeBlockConfiguredModels(DecorativeBlock block, BlockState blockState, String blockPath, ConfiguredModel.Builder<?> modelFile, int rotation) {

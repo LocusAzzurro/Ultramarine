@@ -946,6 +946,9 @@ public class BlockRegistry {
             () -> DecorativeBlock.with(BaseBlockProperty.terracotta()).shaped(ShapeFunction.or(ShapeFunction.diagonal(new RawVoxelShape(5, 0, 5, 11, 6, 11)), ShapeFunction.diagonal(new RawVoxelShape(4, 6, 4, 12, 12, 12)))).directional().diagonallyPlaceable().noOcclusion().build());
     public static final DeferredHolder<Block, Block> LARGE_BONSAI = BLOCKS.register("large_bonsai",
             () -> DecorativeBlock.with(BaseBlockProperty.terracotta()).shaped(ShapeFunction.or(ShapeFunction.diagonal(new RawVoxelShape(4, 0, 4, 12, 8, 12)), ShapeFunction.diagonal(new RawVoxelShape(3, 8, 3, 13, 15, 13)))).directional().diagonallyPlaceable().noOcclusion().build());
+    public static final DeferredHolder<Block, Block> LOTUS_LEAVES_BOWL = BLOCKS.register("lotus_leaves_bowl",
+            () -> new WaterContainerDecorativeBlock(DecorativeBlock.with(BaseBlockProperty.stone()).directional().noOcclusion()
+                    .shaped(ShapeFunction.or(ShapeFunction.centeredSquare(10, 3), ShapeFunction.raisedCenteredSquare(8, 1, 3), ShapeFunction.raisedCenteredSquare(12, 1, 4), ShapeFunction.raisedCenteredSquare(16, 6, 5)))));
 
     /**
      * LAMPS

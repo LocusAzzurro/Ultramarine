@@ -717,6 +717,7 @@ public class ItemRegistry {
     public static final DeferredHolder<Item, Item> TALL_BLUE_AND_WHITE_PORCELAIN_BONSAI = fromBlock(BlockRegistry.TALL_BLUE_AND_WHITE_PORCELAIN_BONSAI, ModCreativeTab.PLANTS);
     public static final DeferredHolder<Item, Item> MEDIUM_BONSAI = fromBlock(BlockRegistry.MEDIUM_BONSAI, ModCreativeTab.PLANTS);
     public static final DeferredHolder<Item, Item> LARGE_BONSAI = fromBlock(BlockRegistry.LARGE_BONSAI, ModCreativeTab.PLANTS);
+    public static final DeferredHolder<Item, Item> LOTUS_LEAVES_BOWL = fromBlock(BlockRegistry.LOTUS_LEAVES_BOWL, ModCreativeTab.PLANTS);
 
     /**
      * LAMPS
