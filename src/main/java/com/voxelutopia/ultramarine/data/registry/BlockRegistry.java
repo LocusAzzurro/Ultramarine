@@ -786,7 +786,7 @@ public class BlockRegistry {
     public static final DeferredHolder<Block, Block> OAK_BED = BLOCKS.register("oak_bed",
             () -> SeatDecorativeBlock.with(BaseBlockProperty.wood()).seatOffset(new Vec3(0.0f, -0.1f, 0.0f)).shaped(ShapeFunction.cardinalRotations(new RawVoxelShape(-8, 0, 0, 24, 8, 16))).directional().noOcclusion().build());
     public static final DeferredHolder<Block, Block> EBONY_BED = BLOCKS.register("ebony_bed",
-            () -> SeatDecorativeBlock.with(BaseBlockProperty.wood()).seatOffset(new Vec3(0.0f, 0.1f, 0.0f)).shaped(ShapeFunction.cardinalRotations(new RawVoxelShape(-15, 0, -1, 31, 13, 17))).directional().build());
+            () -> SeatDecorativeBlock.with(BaseBlockProperty.wood()).seatOffset(new Vec3(0.0f, 0.1f, 0.0f)).shaped(ShapeFunction.cardinalRotations(new RawVoxelShape(-15, 0, -1, 31, 13, 17))).directional().noOcclusion().build());
 
     // SCREEN
 
