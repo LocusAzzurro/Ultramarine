@@ -448,6 +448,8 @@ public class BlockRegistry {
     public static final DeferredHolder<Block, Block> LARGE_GRAY_SU_STYLE_CAIHUA = BLOCKS.register("large_gray_su_style_caihua", () -> new WallSideBlock(BaseBlockProperty.dye(), ShapeFunction.cardinalRotations(new RawVoxelShape(-16, 0, 15, 32, 32, 16))));
     public static final DeferredHolder<Block, Block> LOONG_TUANHUA = BLOCKS.register("loong_tuanhua", () -> new ChiralOrientableSixSideBlock(BaseBlockProperty.dye(),
             ShapeFunction.sixSideShape(new RawVoxelShape(-16, -16, 15, 32, 32, 16), new RawVoxelShape(-16, 0, -16, 32, 1, 32))));
+    public static final DeferredHolder<Block, Block> GLAZED_CENTRAL_WALL_PATTERN = BLOCKS.register("glazed_central_wall_pattern", () -> new ChiralOrientableSixSideBlock(BaseBlockProperty.dye(),
+            ShapeFunction.sixSideShape(new RawVoxelShape(-16, -16, 15, 32, 32, 16), new RawVoxelShape(-16, 0, -16, 32, 1, 32))));
     public static final DeferredHolder<Block, Block> GRASS_LUCKY_MOTIF_1 = BLOCKS.register("grass_lucky_motif_1", () -> new OrientableWallSideBlock(BaseBlockProperty.dye(), ShapeFunction.sideShape(1)));
     public static final DeferredHolder<Block, Block> GRASS_LUCKY_MOTIF_2 = BLOCKS.register("grass_lucky_motif_2", () -> new OrientableWallSideBlock(BaseBlockProperty.dye(), ShapeFunction.sideShape(1)));
     public static final DeferredHolder<Block, Block> GRASS_LUCKY_MOTIF_3 = BLOCKS.register("grass_lucky_motif_3", () -> new OrientableWallSideBlock(BaseBlockProperty.dye(), ShapeFunction.sideShape(1)));

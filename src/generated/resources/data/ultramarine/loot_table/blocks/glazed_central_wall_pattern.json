@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "bonus_rolls": 0.0,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "ultramarine:glazed_central_wall_pattern"
+        }
+      ],
+      "name": "glazed_central_wall_pattern",
+      "rolls": 1.0
+    }
+  ],
+  "random_sequence": "ultramarine:blocks/glazed_central_wall_pattern"
+}

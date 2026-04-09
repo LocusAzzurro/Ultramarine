@@ -435,6 +435,7 @@ public class ItemRegistry {
     public static final DeferredHolder<Item, Item> LARGE_GREEN_SU_STYLE_CAIHUA = fromBlock(BlockRegistry.LARGE_GREEN_SU_STYLE_CAIHUA, ModCreativeTab.DECORATIVE_BLOCKS);
     public static final DeferredHolder<Item, Item> LARGE_GRAY_SU_STYLE_CAIHUA = fromBlock(BlockRegistry.LARGE_GRAY_SU_STYLE_CAIHUA, ModCreativeTab.DECORATIVE_BLOCKS);
     public static final DeferredHolder<Item, Item> LOONG_TUANHUA = fromBlock(BlockRegistry.LOONG_TUANHUA, ModCreativeTab.DECORATIVE_BLOCKS);
+    public static final DeferredHolder<Item, Item> GLAZED_CENTRAL_WALL_PATTERN = fromBlock(BlockRegistry.GLAZED_CENTRAL_WALL_PATTERN, ModCreativeTab.DECORATIVE_BLOCKS);
     public static final DeferredHolder<Item, Item> GRASS_LUCKY_MOTIF_1 = fromBlock(BlockRegistry.GRASS_LUCKY_MOTIF_1, ModCreativeTab.DECORATIVE_BLOCKS);
     public static final DeferredHolder<Item, Item> GRASS_LUCKY_MOTIF_2 = fromBlock(BlockRegistry.GRASS_LUCKY_MOTIF_2, ModCreativeTab.DECORATIVE_BLOCKS);
     public static final DeferredHolder<Item, Item> GRASS_LUCKY_MOTIF_3 = fromBlock(BlockRegistry.GRASS_LUCKY_MOTIF_3, ModCreativeTab.DECORATIVE_BLOCKS);
