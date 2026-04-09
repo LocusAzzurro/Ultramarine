@@ -99,6 +99,11 @@ public class ItemRegistry {
     public static final DeferredHolder<Item, Item> WEATHERED_RED_STONE_TILE_STAIRS = fromBlock(BlockRegistry.WEATHERED_RED_STONE_TILE_STAIRS, ModCreativeTab.BUILDING_BLOCKS);
     public static final DeferredHolder<Item, Item> WEATHERED_RED_STONE_TILE_WALL = fromBlock(BlockRegistry.WEATHERED_RED_STONE_TILE_WALL, ModCreativeTab.BUILDING_BLOCKS);
 
+    public static final DeferredHolder<Item, Item> RED_FLOOR_TILE = fromBlock(BlockRegistry.RED_FLOOR_TILE, ModCreativeTab.BUILDING_BLOCKS);
+    public static final DeferredHolder<Item, Item> RED_FLOOR_TILE_SLAB = fromBlock(BlockRegistry.RED_FLOOR_TILE_SLAB, ModCreativeTab.BUILDING_BLOCKS);
+    public static final DeferredHolder<Item, Item> RED_FLOOR_TILE_STAIRS = fromBlock(BlockRegistry.RED_FLOOR_TILE_STAIRS, ModCreativeTab.BUILDING_BLOCKS);
+    public static final DeferredHolder<Item, Item> RED_FLOOR_TILE_WALL = fromBlock(BlockRegistry.RED_FLOOR_TILE_WALL, ModCreativeTab.BUILDING_BLOCKS);
+
     public static final DeferredHolder<Item, Item> BLUE_AND_BLACK_TILE = fromBlock(BlockRegistry.BLUE_AND_BLACK_TILE, ModCreativeTab.BUILDING_BLOCKS);
     public static final DeferredHolder<Item, Item> BLUE_AND_BLACK_TILE_SLAB = fromBlock(BlockRegistry.BLUE_AND_BLACK_TILE_SLAB, ModCreativeTab.BUILDING_BLOCKS);
     public static final DeferredHolder<Item, Item> BLUE_AND_BLACK_TILE_STAIRS = fromBlock(BlockRegistry.BLUE_AND_BLACK_TILE_STAIRS, ModCreativeTab.BUILDING_BLOCKS);

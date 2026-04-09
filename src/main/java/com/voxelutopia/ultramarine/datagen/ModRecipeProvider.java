@@ -122,6 +122,10 @@ public class ModRecipeProvider extends RecipeProvider {
         stoneSlabAndStairsRecipe(ItemRegistry.WEATHERED_RED_STONE_TILE.get(), ItemRegistry.WEATHERED_RED_STONE_TILE_SLAB.get(), ItemRegistry.WEATHERED_RED_STONE_TILE_STAIRS.get(), recipeConsumer);
         wallRecipe(ItemRegistry.WEATHERED_RED_STONE_TILE.get(), ItemRegistry.WEATHERED_RED_STONE_TILE_WALL.get(), recipeConsumer);
 
+        stonePolishing(ItemRegistry.WEATHERED_RED_STONE_TILE.get(), ItemRegistry.RED_FLOOR_TILE.get(), recipeConsumer);
+        stoneSlabAndStairsRecipe(ItemRegistry.RED_FLOOR_TILE.get(), ItemRegistry.RED_FLOOR_TILE_SLAB.get(), ItemRegistry.RED_FLOOR_TILE_STAIRS.get(), recipeConsumer);
+        wallRecipe(ItemRegistry.RED_FLOOR_TILE.get(), ItemRegistry.RED_FLOOR_TILE_WALL.get(), recipeConsumer);
+
         blockTransform(ItemRegistry.DARK_CYAN_FLOOR_TILE.get(), ModItemTags.COMMON_BLUE_DYE, ItemRegistry.BLUE_AND_BLACK_TILE.get(), RecipeCategory.BUILDING_BLOCKS, recipeConsumer);
         stoneSlabAndStairsRecipe(ItemRegistry.BLUE_AND_BLACK_TILE.get(), ItemRegistry.BLUE_AND_BLACK_TILE_SLAB.get(), ItemRegistry.BLUE_AND_BLACK_TILE_STAIRS.get(), recipeConsumer);
         wallRecipe(ItemRegistry.BLUE_AND_BLACK_TILE.get(), ItemRegistry.BLUE_AND_BLACK_TILE_WALL.get(), recipeConsumer);

@@ -109,6 +109,9 @@ public class ModBlockModelProvider extends BlockStateProvider {
         simpleBlock(BlockRegistry.WEATHERED_RED_STONE_TILE.get());
         slabAndStairs(BlockRegistry.WEATHERED_RED_STONE_TILE.get(), BlockRegistry.WEATHERED_RED_STONE_TILE_SLAB.get(), BlockRegistry.WEATHERED_RED_STONE_TILE_STAIRS.get());
         wall(BlockRegistry.WEATHERED_RED_STONE_TILE.get(), BlockRegistry.WEATHERED_RED_STONE_TILE_WALL.get());
+        simpleBlock(BlockRegistry.RED_FLOOR_TILE.get());
+        slabAndStairs(BlockRegistry.RED_FLOOR_TILE.get(), BlockRegistry.RED_FLOOR_TILE_SLAB.get(), BlockRegistry.RED_FLOOR_TILE_STAIRS.get());
+        wall(BlockRegistry.RED_FLOOR_TILE.get(), BlockRegistry.RED_FLOOR_TILE_WALL.get());
         simpleBlock(BlockRegistry.BLUE_AND_BLACK_TILE.get());
         slabAndStairs(BlockRegistry.BLUE_AND_BLACK_TILE.get(), BlockRegistry.BLUE_AND_BLACK_TILE_SLAB.get(), BlockRegistry.BLUE_AND_BLACK_TILE_STAIRS.get());
         wall(BlockRegistry.BLUE_AND_BLACK_TILE.get(), BlockRegistry.BLUE_AND_BLACK_TILE_WALL.get());

@@ -53,6 +53,7 @@ public class ModItemModelProvider extends ItemModelProvider {
         wallInventory(name(BlockRegistry.DARK_CYAN_FLOOR_TILE_WALL.get()), blockLoc(BlockRegistry.DARK_CYAN_FLOOR_TILE.get()));
         wallInventory(name(BlockRegistry.LIGHT_CYAN_FLOOR_TILE_WALL.get()), blockLoc(BlockRegistry.LIGHT_CYAN_FLOOR_TILE.get()));
         wallInventory(name(BlockRegistry.WEATHERED_RED_STONE_TILE_WALL.get()), blockLoc(BlockRegistry.WEATHERED_RED_STONE_TILE.get()));
+        wallInventory(name(BlockRegistry.RED_FLOOR_TILE_WALL.get()), blockLoc(BlockRegistry.RED_FLOOR_TILE.get()));
         wallInventory(name(BlockRegistry.BLUE_AND_BLACK_TILE_WALL.get()), blockLoc(BlockRegistry.BLUE_AND_BLACK_TILE.get()));
         wallInventory(name(BlockRegistry.BROWNISH_RED_STONE_BRICK_WALL.get()), blockLoc(BlockRegistry.BROWNISH_RED_STONE_BRICKS.get()));
         wallInventory(name(BlockRegistry.POLISHED_WEATHERED_STONE_WALL.get()), blockLoc(BlockRegistry.POLISHED_WEATHERED_STONE.get()));
