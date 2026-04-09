@@ -108,6 +108,15 @@ public class ShapeFunction implements Function<BlockState, VoxelShape> {
         return centeredSquare((float)side, (float)height);
     }
 
+    public static ShapeFunction raisedCenteredSquare(float side, float height, float startHeight){
+        float d = (16f - side) / 2f;
+        return simpleShape(Block.box(d, startHeight, d, 16 - d, startHeight + height, 16 - d));
+    }
+
+    public static ShapeFunction raisedCenteredSquare(int side, int height, int startHeight){
+        return raisedCenteredSquare((float)side, (float)height, (float)startHeight);
+    }
+
     public static ShapeFunction diagonalSquare(float side, float height){
         return new ShapeFunction(
                 state -> {

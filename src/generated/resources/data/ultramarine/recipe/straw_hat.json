@@ -6,7 +6,7 @@
       "item": "ultramarine:red_dye_powder"
     },
     "S": {
-      "item": "ultramarine:silk"
+      "tag": "ultramarine:silk"
     },
     "W": {
       "item": "minecraft:wheat"

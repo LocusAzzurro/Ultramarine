@@ -14,7 +14,6 @@ import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.*;
-import net.neoforged.neoforge.client.model.generators.BlockModelBuilder;
 import net.neoforged.neoforge.client.model.generators.BlockStateProvider;
 import net.neoforged.neoforge.client.model.generators.ConfiguredModel;
 import net.neoforged.neoforge.client.model.generators.ModelFile;
@@ -23,14 +22,12 @@ import net.neoforged.neoforge.registries.DeferredHolder;
 import org.apache.commons.lang3.tuple.Pair;
 import org.jetbrains.annotations.NotNull;
 
-import java.util.List;
-import java.util.Map;
-import java.util.Objects;
+import java.util.*;
 
 import static com.voxelutopia.ultramarine.world.block.state.ModBlockStateProperties.*;
 import static net.minecraft.world.level.block.state.properties.BlockStateProperties.*;
 
-@SuppressWarnings("unused")
+@SuppressWarnings({"unused", "SameParameterValue"})
 public class ModBlockModelProvider extends BlockStateProvider {
 
     public static final String BLOCK = "block/";
@@ -53,8 +50,11 @@ public class ModBlockModelProvider extends BlockStateProvider {
     );
     private final List<DeferredHolder<Block, Block>> SKIP_DECO = List.of(
             BlockRegistry.BRICK_KILN,
-            BlockRegistry.CHISEL_TABLE
+            BlockRegistry.CHISEL_TABLE,
+            BlockRegistry.LOTUS_LEAVES_BOWL
     );
+    private final Set<String> WOOD_MATERIALS = Set.of("oak", "spruce", "birch", "jungle", "acacia", "dark_oak", "crimson", "warped", "mangrove", "cherry");
+    private final Set<String> STEM_TYPES = Set.of("crimson", "warped");
 
     public ModBlockModelProvider(PackOutput output, ExistingFileHelper existingFileHelper) {
         super(output, DataGenerators.MOD_ID, existingFileHelper);
@@ -322,10 +322,25 @@ public class ModBlockModelProvider extends BlockStateProvider {
         directionalSideEnd(BlockRegistry.MING_YANZHUOMO_SHINIANYU_OUTER_GUTOU_EDGE.get(), sideLoc(BlockRegistry.MING_YANZHUOMO_SHINIANYU_OUTER_GUTOU_EDGE.get()), GREEN_WOOL);
         chiralWSMirror(BlockRegistry.YUAN_NIANYUZHUANG_GUTOU.get(), BLUE_WOOL);
         // RAFTERS
-        BlockRegistry.BLOCKS.getEntries().stream().filter(blockRegistryObject -> blockRegistryObject.get() instanceof Rafter)
-                .forEach(rafter -> shiftedAxisBlock(rafter.get()));
-        BlockRegistry.BLOCKS.getEntries().stream().filter(blockRegistryObject -> blockRegistryObject.get() instanceof RafterEnd)
-                .forEach(rafterEnd -> shiftedDirectionalBlock(rafterEnd.get(), 180));
+        shiftedAxisBlock(BlockRegistry.GILDED_DARK_OAK_RAFTER.get());
+        shiftedDirectionalBlock(BlockRegistry.GILDED_DARK_OAK_RAFTER_END.get(), 180);
+        shiftedAxisBlock(BlockRegistry.BLUE_TIGER_EYE_RAFTER.get());
+        shiftedDirectionalBlock(BlockRegistry.BLUE_TIGER_EYE_RAFTER_END.get(), 180);
+        shiftedAxisBlock(BlockRegistry.BLUE_CARVED_TIGER_EYE_RAFTER.get());
+        shiftedDirectionalBlock(BlockRegistry.BLUE_CARVED_TIGER_EYE_RAFTER_END.get(), 180);
+        shiftedAxisBlock(BlockRegistry.GREEN_TIGER_EYE_RAFTER.get());
+        shiftedDirectionalBlock(BlockRegistry.GREEN_TIGER_EYE_RAFTER_END.get(), 180);
+        shiftedAxisBlock(BlockRegistry.GREEN_WANZI_RAFTER.get());
+        shiftedDirectionalBlock(BlockRegistry.GREEN_WANZI_RAFTER_END.get(), 180);
+        shiftedAxisBlock(BlockRegistry.GREEN_CARVED_WANZI_RAFTER.get());
+        shiftedDirectionalBlock(BlockRegistry.GREEN_CARVED_WANZI_RAFTER_END.get(), 180);
+        WOOD_MATERIALS.forEach(type -> {
+            var rafterBlock = BuiltInRegistries.BLOCK.get(modLoc(type + "_rafter"));
+            var rafterEndBlock = BuiltInRegistries.BLOCK.get(modLoc(type + "_rafter_end"));
+            woodenRafter(rafterBlock, type, false);
+            woodenRafter(rafterEndBlock, type, true);
+        });
+
         // BEAM HEAD
         horizontalBlockOffset(BlockRegistry.GILDED_DARK_OAK_BEAM_HEAD.get(), 180);
         // QING_GREEN_BEAM_HEAD -> WallSideBlock
@@ -390,6 +405,9 @@ public class ModBlockModelProvider extends BlockStateProvider {
                     else if (block instanceof HangingLantern lantern) hangingLantern(lantern);
                     else decorativeBlock(block);
                 });
+        // SPECIAL DECO
+        waterContainerBlock(BlockRegistry.LOTUS_LEAVES_BOWL.get());
+
         // > SIDE BLOCKS
         BlockRegistry.BLOCKS.getEntries().stream().filter(blockRegistryObject -> blockRegistryObject.get() instanceof SideBlock)
                 .forEach(sideBlock -> {
@@ -402,7 +420,9 @@ public class ModBlockModelProvider extends BlockStateProvider {
                         else wallSideBlock(wallSideBlock);
                     } else if (block instanceof SixSideBlock sixSideBlock) {
                         if (block instanceof OrientableSixSideBlock orientableSixFaceBlock)
-                            orientableSixSideBlock(orientableSixFaceBlock);
+                            if (block instanceof ChiralOrientableSixSideBlock chiralOrientableSixSideBlock)
+                                chiralOrientableSixSideBlock(chiralOrientableSixSideBlock);
+                            else orientableSixSideBlock(orientableSixFaceBlock);
                         else sixSideBlock(sixSideBlock);
                     }
                 });
@@ -529,6 +549,39 @@ public class ModBlockModelProvider extends BlockStateProvider {
         });
     }
 
+    private void chiralOrientableSixSideBlock(Block block) {
+        getVariantBuilder(block).forAllStates(blockState -> {
+            ConfiguredModel.Builder<?> modelBuilder = ConfiguredModel.builder();
+            Direction faceDir = blockState.getValue(FACING);
+            Direction direction = blockState.getValue(ON_FACE_DIRECTION);
+            ChiralBlockType type = blockState.getValue(CHIRAL_BLOCK_TYPE);
+            if (faceDir.getAxis().isVertical()) { //top or bottom
+                StringBuilder suffix = new StringBuilder("_top");
+                if (type == ChiralBlockType.RIGHT) suffix.append("_right");
+                else suffix.append("_left");
+                modelBuilder.modelFile(models().getExistingFile(modLoc(BLOCK + name(block) + suffix)));
+                if (faceDir == Direction.DOWN)
+                    modelBuilder.rotationY((int) direction.toYRot() + 180);
+                else if (faceDir == Direction.UP)
+                    modelBuilder.rotationX(180).rotationY((int) direction.toYRot());
+            }
+            else { //horizontal
+                StringBuilder suffix = new StringBuilder("_side");
+                if (direction.getAxis().isVertical())
+                    suffix.append("_left");
+                else {
+                    //left = CCW right = CW
+                    if (direction == faceDir.getClockWise()) suffix.append("_left");
+                    else if (direction == faceDir.getCounterClockWise()) suffix.append("_right");
+                    else suffix.append("_left");
+                }
+                modelBuilder.modelFile(models().getExistingFile(modLoc(BLOCK + name(block) + suffix)));
+                modelBuilder.rotationY((int) faceDir.toYRot());
+            }
+            return modelBuilder.build();
+        });
+    }
+
     private void roofTiles(Block block) {
         if (!(block instanceof RoofTiles tile)) return;
         String color = tile.getColor().toString();
@@ -583,6 +636,7 @@ public class ModBlockModelProvider extends BlockStateProvider {
         });
     }
 
+    @SuppressWarnings("ConstantConditions")
     private void roofRidgeSideBottomTop(Block block, ResourceLocation side, ResourceLocation bottom, ResourceLocation top) {
         if (!(block instanceof SnowRoofRidge)) return;
         if (block instanceof RoofRidge ridge) {
@@ -619,6 +673,7 @@ public class ModBlockModelProvider extends BlockStateProvider {
         }
     }
 
+    @SuppressWarnings("ConstantConditions")
     private void roofRidgeFrontSideBottomTop(Block block, ResourceLocation front, ResourceLocation side, ResourceLocation bottom, ResourceLocation top) {
         if (!(block instanceof SnowRoofRidge)) return;
         if (block instanceof RoofRidgeConnection ridge) {
@@ -660,6 +715,7 @@ public class ModBlockModelProvider extends BlockStateProvider {
         }
     }
 
+    @SuppressWarnings("ConstantConditions")
     private void roofHorizontalRidgeFrontSideBottomTop(Block block, ResourceLocation front, ResourceLocation side, ResourceLocation bottom, ResourceLocation top) {
         if (!(block instanceof SnowRoofRidge)) return;
         if (block instanceof RoofMainRidgeConnection ridge) {
@@ -712,6 +768,22 @@ public class ModBlockModelProvider extends BlockStateProvider {
         shiftedDirectionalBlock(block, 0);
     }
 
+    private void woodenRafter(Block block, String wood, boolean end) {
+        getVariantBuilder(block).forAllStates(blockState -> {
+            boolean isStem = STEM_TYPES.contains(wood);
+            ResourceLocation log = ResourceLocation.withDefaultNamespace(BLOCK + "stripped_" + wood + (isStem ? "_stem" : "_log"));
+            ResourceLocation top = ResourceLocation.withDefaultNamespace(BLOCK + "stripped_" + wood + (isStem ? "_stem" : "_log") + "_top");
+            int modelRotation = end ? 180 : 0;
+            int blockRotation = (int) (end ? blockState.getValue(HORIZONTAL_FACING).toYRot() : (blockState.getValue(HORIZONTAL_AXIS) == Direction.Axis.X ? 90 : 0));
+            String blockName = wood + "_rafter" + (end ? "_end" : "");
+            String parentName = "wooden_rafter" + (end ? "_end" : "");
+            return ConfiguredModel.builder().modelFile(models().withExistingParent(
+                    blockLoc(block).getPath() + (blockState.getValue(SHIFTED) ? "_shifted" : ""), modLoc(parentName + (blockState.getValue(SHIFTED) ? "_shifted" : "")))
+                            .texture("1", log).texture("2", top).texture("particle", log))
+                    .rotationY(modelRotation + blockRotation).build();
+        });
+    }
+
     private void axisBlock(Block block) {
         getVariantBuilder(block).forAllStates(blockState -> {
             ConfiguredModel.Builder<?> builder;
@@ -735,6 +807,8 @@ public class ModBlockModelProvider extends BlockStateProvider {
             return builder.build();
         });
     }
+
+
 
     private void decorativeBlock(DecorativeBlock block) {
         decorativeBlock(block, 0);
@@ -1164,6 +1238,40 @@ public class ModBlockModelProvider extends BlockStateProvider {
                 .condition(RailingBlock.SOUTH, true)
                 .end()
         ;
+    }
+
+    private void waterContainerBlock(Block block){
+        ModelFile.ExistingModelFile emptyModel = models().getExistingFile(modLoc(BLOCK + name(block) + "_empty"));
+        ModelFile.ExistingModelFile waterModel = models().getExistingFile(modLoc(BLOCK + name(block) + "_water"));
+        ModelFile.ExistingModelFile insideModel = models().getExistingFile(modLoc(BLOCK + name(block) + "_inside"));
+        getMultipartBuilder(block)
+                .part().modelFile(emptyModel)
+                .rotationY(0).addModel().condition(HORIZONTAL_FACING, Direction.NORTH)
+                .end()
+                .part().modelFile(emptyModel)
+                .rotationY(90).addModel().condition(HORIZONTAL_FACING, Direction.EAST)
+                .end()
+                .part().modelFile(emptyModel)
+                .rotationY(180).addModel().condition(HORIZONTAL_FACING, Direction.SOUTH)
+                .end()
+                .part().modelFile(emptyModel)
+                .rotationY(270).addModel().condition(HORIZONTAL_FACING, Direction.WEST)
+                .end()
+                .part().modelFile(waterModel)
+                .uvLock(true).addModel().condition(FILLED, true)
+                .end()
+                .part().modelFile(insideModel)
+                .rotationY(0).addModel().condition(HORIZONTAL_FACING, Direction.NORTH).condition(FILLED, true)
+                .end()
+                .part().modelFile(insideModel)
+                .rotationY(90).addModel().condition(HORIZONTAL_FACING, Direction.EAST).condition(FILLED, true)
+                .end()
+                .part().modelFile(insideModel)
+                .rotationY(180).addModel().condition(HORIZONTAL_FACING, Direction.SOUTH).condition(FILLED, true)
+                .end()
+                .part().modelFile(insideModel)
+                .rotationY(270).addModel().condition(HORIZONTAL_FACING, Direction.WEST).condition(FILLED, true)
+                .end();
     }
 
     private ConfiguredModel[] getDecorativeBlockConfiguredModels(DecorativeBlock block, BlockState blockState, String blockPath, ConfiguredModel.Builder<?> modelFile, int rotation) {

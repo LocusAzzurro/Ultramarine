@@ -9,7 +9,7 @@
       "item": "ultramarine:gold_parts"
     },
     "S": {
-      "item": "ultramarine:silk"
+      "tag": "ultramarine:silk"
     }
   },
   "pattern": [

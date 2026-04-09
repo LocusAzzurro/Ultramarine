@@ -8,11 +8,22 @@ import net.minecraft.world.item.Item;
 
 public class ModItemTags {
 
+    // INTERNAL
+
     public static final TagKey<Item> POLISHED_PLANKS = modTag("polished_planks");
     public static final TagKey<Item> DYE_POWDER = modTag("dye_powder");
     public static final TagKey<Item> PARTS = modTag("parts");
     public static final TagKey<Item> CHISEL_TEMPLATES = modTag("chisel_templates");
     public static final TagKey<Item> PAINTING_SCROLL_ITEMS = modTag("painting_scroll_items");
+
+    // COMPAT
+
+    public static final TagKey<Item> XUAN_PAPER = modTag("xuan_paper");
+    public static final TagKey<Item> SILK = modTag("silk");
+    public static final TagKey<Item> BAOZI = modTag("baozi");
+    public static final TagKey<Item> HAM = modTag("ham");
+
+    // COMMON
 
     public static final TagKey<Item> COMMON_WHITE_DYE = commonTag("dyes/white");
     public static final TagKey<Item> COMMON_ORANGE_DYE = commonTag("dyes/orange");
@@ -33,6 +44,7 @@ public class ModItemTags {
     public static final TagKey<Item> COMMON_DYES = commonTag("dyes");
 
     public static final TagKey<Item> COMMON_BRONZE_INGOT = commonTag("ingots/bronze");
+    public static final TagKey<Item> COMMON_COBALT_INGOT = commonTag("ingots/cobalt");
 
     private static TagKey<Item> commonTag(String path) {
         return ItemTags.create(ResourceLocation.fromNamespaceAndPath("c", path));

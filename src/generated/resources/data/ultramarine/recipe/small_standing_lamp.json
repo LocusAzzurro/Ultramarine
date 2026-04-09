@@ -15,7 +15,7 @@
       "item": "minecraft:stick"
     },
     "X": {
-      "item": "ultramarine:xuan_paper"
+      "tag": "ultramarine:xuan_paper"
     }
   },
   "pattern": [

@@ -166,7 +166,7 @@ public class BlockRegistry {
      * DECORATIVE BLOCKS
      */
 
-    // SIMPLE WOODEN
+    // SIMPLE WOODEN BRACKETS
 
     public static final DeferredHolder<Block, Block> OAK_BRACKET = BLOCKS.register("oak_bracket", () -> new Bracket(BaseBlockProperty.wood()));
     public static final DeferredHolder<Block, Block> SPRUCE_BRACKET = BLOCKS.register("spruce_bracket", () -> new Bracket(BaseBlockProperty.wood()));
@@ -329,18 +329,40 @@ public class BlockRegistry {
     public static final DeferredHolder<Block, Block> MING_YANZHUOMO_SHINIANYU_OUTER_GUTOU_EDGE = BLOCKS.register("ming_yanzhuomo_shinianyu_outer_gutou_edge", () -> new BaseDirectionalBlock(BaseBlockProperty.wood()));
     public static final DeferredHolder<Block, Block> YUAN_NIANYUZHUANG_GUTOU = BLOCKS.register("yuan_nianyuzhuang_gutou", () -> new ChiralDirectionalBlock(BaseBlockProperty.wood()));
 
-    // RAFTERS
+    // WOODEN RAFTERS
+
+    public static final DeferredHolder<Block, Block> OAK_RAFTER = BLOCKS.register("oak_rafter", () -> new Rafter(BaseBlockProperty.wood()));
+    public static final DeferredHolder<Block, Block> OAK_RAFTER_END = BLOCKS.register("oak_rafter_end", () -> new RafterEnd(BaseBlockProperty.wood()));
+    public static final DeferredHolder<Block, Block> SPRUCE_RAFTER = BLOCKS.register("spruce_rafter", () -> new Rafter(BaseBlockProperty.wood()));
+    public static final DeferredHolder<Block, Block> SPRUCE_RAFTER_END = BLOCKS.register("spruce_rafter_end", () -> new RafterEnd(BaseBlockProperty.wood()));
+    public static final DeferredHolder<Block, Block> BIRCH_RAFTER = BLOCKS.register("birch_rafter", () -> new Rafter(BaseBlockProperty.wood()));
+    public static final DeferredHolder<Block, Block> BIRCH_RAFTER_END = BLOCKS.register("birch_rafter_end", () -> new RafterEnd(BaseBlockProperty.wood()));
+    public static final DeferredHolder<Block, Block> JUNGLE_RAFTER = BLOCKS.register("jungle_rafter", () -> new Rafter(BaseBlockProperty.wood()));
+    public static final DeferredHolder<Block, Block> JUNGLE_RAFTER_END = BLOCKS.register("jungle_rafter_end", () -> new RafterEnd(BaseBlockProperty.wood()));
+    public static final DeferredHolder<Block, Block> ACACIA_RAFTER = BLOCKS.register("acacia_rafter", () -> new Rafter(BaseBlockProperty.wood()));
+    public static final DeferredHolder<Block, Block> ACACIA_RAFTER_END = BLOCKS.register("acacia_rafter_end", () -> new RafterEnd(BaseBlockProperty.wood()));
+    public static final DeferredHolder<Block, Block> DARK_OAK_RAFTER = BLOCKS.register("dark_oak_rafter", () -> new Rafter(BaseBlockProperty.wood()));
+    public static final DeferredHolder<Block, Block> DARK_OAK_RAFTER_END = BLOCKS.register("dark_oak_rafter_end", () -> new RafterEnd(BaseBlockProperty.wood()));
+    public static final DeferredHolder<Block, Block> CRIMSON_RAFTER = BLOCKS.register("crimson_rafter", () -> new Rafter(BaseBlockProperty.wood()));
+    public static final DeferredHolder<Block, Block> CRIMSON_RAFTER_END = BLOCKS.register("crimson_rafter_end", () -> new RafterEnd(BaseBlockProperty.wood()));
+    public static final DeferredHolder<Block, Block> WARPED_RAFTER = BLOCKS.register("warped_rafter", () -> new Rafter(BaseBlockProperty.wood()));
+    public static final DeferredHolder<Block, Block> WARPED_RAFTER_END = BLOCKS.register("warped_rafter_end", () -> new RafterEnd(BaseBlockProperty.wood()));
+    public static final DeferredHolder<Block, Block> MANGROVE_RAFTER = BLOCKS.register("mangrove_rafter", () -> new Rafter(BaseBlockProperty.wood()));
+    public static final DeferredHolder<Block, Block> MANGROVE_RAFTER_END = BLOCKS.register("mangrove_rafter_end", () -> new RafterEnd(BaseBlockProperty.wood()));
+    public static final DeferredHolder<Block, Block> CHERRY_RAFTER = BLOCKS.register("cherry_rafter", () -> new Rafter(BaseBlockProperty.wood()));
+    public static final DeferredHolder<Block, Block> CHERRY_RAFTER_END = BLOCKS.register("cherry_rafter_end", () -> new RafterEnd(BaseBlockProperty.wood()));
+    //todo varnished wood
+
+    // DECORATED RAFTERS
 
     public static final DeferredHolder<Block, Block> GILDED_DARK_OAK_RAFTER = BLOCKS.register("gilded_dark_oak_rafter", () -> new Rafter(BaseBlockProperty.wood()));
     public static final DeferredHolder<Block, Block> GILDED_DARK_OAK_RAFTER_END = BLOCKS.register("gilded_dark_oak_rafter_end", () -> new RafterEnd(BaseBlockProperty.wood()));
-    public static final DeferredHolder<Block, Block> DARK_OAK_RAFTER = BLOCKS.register("dark_oak_rafter", () -> new Rafter(BaseBlockProperty.wood()));
-    public static final DeferredHolder<Block, Block> DARK_OAK_RAFTER_END = BLOCKS.register("dark_oak_rafter_end", () -> new RafterEnd(BaseBlockProperty.wood()));
     public static final DeferredHolder<Block, Block> BLUE_TIGER_EYE_RAFTER = BLOCKS.register("blue_tiger_eye_rafter", () -> new Rafter(BaseBlockProperty.wood()));
     public static final DeferredHolder<Block, Block> BLUE_TIGER_EYE_RAFTER_END = BLOCKS.register("blue_tiger_eye_rafter_end", () -> new RafterEnd(BaseBlockProperty.wood()));
     public static final DeferredHolder<Block, Block> BLUE_CARVED_TIGER_EYE_RAFTER = BLOCKS.register("blue_carved_tiger_eye_rafter", () -> new Rafter(BaseBlockProperty.wood()));
     public static final DeferredHolder<Block, Block> BLUE_CARVED_TIGER_EYE_RAFTER_END = BLOCKS.register("blue_carved_tiger_eye_rafter_end", () -> new RafterEnd(BaseBlockProperty.wood()));
-    public static final DeferredHolder<Block, Block> GREEN_CARVED_TIGER_EYE_RAFTER = BLOCKS.register("green_tiger_eye_rafter", () -> new Rafter(BaseBlockProperty.wood()));
-    public static final DeferredHolder<Block, Block> GREEN_CARVED_TIGER_EYE_RAFTER_END = BLOCKS.register("green_tiger_eye_rafter_end", () -> new RafterEnd(BaseBlockProperty.wood()));
+    public static final DeferredHolder<Block, Block> GREEN_TIGER_EYE_RAFTER = BLOCKS.register("green_tiger_eye_rafter", () -> new Rafter(BaseBlockProperty.wood()));
+    public static final DeferredHolder<Block, Block> GREEN_TIGER_EYE_RAFTER_END = BLOCKS.register("green_tiger_eye_rafter_end", () -> new RafterEnd(BaseBlockProperty.wood()));
     public static final DeferredHolder<Block, Block> GREEN_WANZI_RAFTER = BLOCKS.register("green_wanzi_rafter", () -> new Rafter(BaseBlockProperty.wood()));
     public static final DeferredHolder<Block, Block> GREEN_WANZI_RAFTER_END = BLOCKS.register("green_wanzi_rafter_end", () -> new RafterEnd(BaseBlockProperty.wood()));
     public static final DeferredHolder<Block, Block> GREEN_CARVED_WANZI_RAFTER = BLOCKS.register("green_carved_wanzi_rafter", () -> new Rafter(BaseBlockProperty.wood()));
@@ -362,6 +384,11 @@ public class BlockRegistry {
     public static final DeferredHolder<Block, Block> RED_AND_CYAN_TUANHUA_SLAB = BLOCKS.register("red_and_cyan_tuanhua_slab", () -> new BaseSlab(BaseBlockProperty.wood()));
     public static final DeferredHolder<Block, Block> RED_CARVED_ARCHITRAVE = BLOCKS.register("red_carved_architrave", () -> new BaseSlab(BaseBlockProperty.wood()));
     public static final DeferredHolder<Block, Block> WHITE_AND_RED_SLAB = BLOCKS.register("white_and_red_slab", () -> new BaseSlab(BaseBlockProperty.wood()));
+
+    // TOP LAYER EAVES
+
+    public static final DeferredHolder<Block, Block> YELLOW_GREEN_GLAZED_TOP_LAYER_EAVES = BLOCKS.register("yellow_green_glazed_top_layer_eaves",
+            () -> new WallSideBlock(BaseBlockProperty.glazed(), ShapeFunction.cardinalRotations(new RawVoxelShape(0, 0, 12, 16, 16, 16))));
 
     // QUETI
 
@@ -419,6 +446,12 @@ public class BlockRegistry {
     public static final DeferredHolder<Block, Block> LARGE_WHITE_SU_STYLE_CAIHUA = BLOCKS.register("large_white_su_style_caihua", () -> new WallSideBlock(BaseBlockProperty.dye(), ShapeFunction.cardinalRotations(new RawVoxelShape(-16, 0, 15, 32, 32, 16))));
     public static final DeferredHolder<Block, Block> LARGE_GREEN_SU_STYLE_CAIHUA = BLOCKS.register("large_green_su_style_caihua", () -> new WallSideBlock(BaseBlockProperty.dye(), ShapeFunction.cardinalRotations(new RawVoxelShape(-16, 0, 15, 32, 32, 16))));
     public static final DeferredHolder<Block, Block> LARGE_GRAY_SU_STYLE_CAIHUA = BLOCKS.register("large_gray_su_style_caihua", () -> new WallSideBlock(BaseBlockProperty.dye(), ShapeFunction.cardinalRotations(new RawVoxelShape(-16, 0, 15, 32, 32, 16))));
+    public static final DeferredHolder<Block, Block> LOONG_TUANHUA = BLOCKS.register("loong_tuanhua", () -> new ChiralOrientableSixSideBlock(BaseBlockProperty.dye(),
+            ShapeFunction.sixSideShape(new RawVoxelShape(-16, -16, 15, 32, 32, 16), new RawVoxelShape(-16, 0, -16, 32, 1, 32))));
+    public static final DeferredHolder<Block, Block> GRASS_LUCKY_MOTIF_1 = BLOCKS.register("grass_lucky_motif_1", () -> new OrientableWallSideBlock(BaseBlockProperty.dye(), ShapeFunction.sideShape(1)));
+    public static final DeferredHolder<Block, Block> GRASS_LUCKY_MOTIF_2 = BLOCKS.register("grass_lucky_motif_2", () -> new OrientableWallSideBlock(BaseBlockProperty.dye(), ShapeFunction.sideShape(1)));
+    public static final DeferredHolder<Block, Block> GRASS_LUCKY_MOTIF_3 = BLOCKS.register("grass_lucky_motif_3", () -> new OrientableWallSideBlock(BaseBlockProperty.dye(), ShapeFunction.sideShape(1)));
+
 
     // CHUIHUA
 
@@ -753,11 +786,11 @@ public class BlockRegistry {
     public static final DeferredHolder<Block, Block> OAK_BED = BLOCKS.register("oak_bed",
             () -> SeatDecorativeBlock.with(BaseBlockProperty.wood()).seatOffset(new Vec3(0.0f, -0.1f, 0.0f)).shaped(ShapeFunction.cardinalRotations(new RawVoxelShape(-8, 0, 0, 24, 8, 16))).directional().noOcclusion().build());
     public static final DeferredHolder<Block, Block> EBONY_BED = BLOCKS.register("ebony_bed",
-            () -> SeatDecorativeBlock.with(BaseBlockProperty.wood()).seatOffset(new Vec3(0.0f, 0.1f, 0.0f)).shaped(ShapeFunction.cardinalRotations(new RawVoxelShape(-15, 0, -1, 31, 13, 17))).directional().build());
+            () -> SeatDecorativeBlock.with(BaseBlockProperty.wood()).seatOffset(new Vec3(0.0f, 0.1f, 0.0f)).shaped(ShapeFunction.cardinalRotations(new RawVoxelShape(-15, 0, -1, 31, 13, 17))).directional().noOcclusion().build());
 
     // SCREEN
 
-    public static final DeferredHolder<Block, Block> LARGE_LANDSCAPE_PAINTING_SCREEN = BLOCKS.register("large_landscape_painting_screen", //todo texture uv cleanup
+    public static final DeferredHolder<Block, Block> LARGE_LANDSCAPE_PAINTING_SCREEN = BLOCKS.register("large_landscape_painting_screen",
             () -> DecorativeBlock.with(BaseBlockProperty.wood()).shaped(
                             ShapeFunction.or(ShapeFunction.cardinalRotations(new RawVoxelShape(-16, -16, 6, 32, -9, 10)), ShapeFunction.cardinalRotations(new RawVoxelShape(-13, -16, 3, -9, -9, 13)), ShapeFunction.cardinalRotations(new RawVoxelShape(25, -16, 3, 29, -9, 13)),
                                     ShapeFunction.cardinalRotations(new RawVoxelShape(-12, -9, 7, 28, 13, 9)), ShapeFunction.cardinalRotations(new RawVoxelShape(-15, 13, 7, 31, 19, 9)), ShapeFunction.cardinalRotations(new RawVoxelShape(-10, 19, 7, 26, 26, 9))))
@@ -887,7 +920,7 @@ public class BlockRegistry {
             () -> DecorativeBlock.with(BaseBlockProperty.terracotta()).shaped(ShapeFunction.cardinalRotations(new RawVoxelShape(3, 0, 4, 13, 3, 12))).directional().build());
     public static final DeferredHolder<Block, Block> MEDIUM_GREETING_PINE_BONSAI = BLOCKS.register("medium_greeting_pine_bonsai",
             () -> DecorativeBlock.with(BaseBlockProperty.terracotta()).shaped(ShapeFunction.centeredSquare(10, 4)).directional().noOcclusion().build());
-    public static final DeferredHolder<Block, Block> LARGE_GREETING_PINE_BONSAI = BLOCKS.register("large_greeting_pine_bonsai", //todo model z-fighting
+    public static final DeferredHolder<Block, Block> LARGE_GREETING_PINE_BONSAI = BLOCKS.register("large_greeting_pine_bonsai",
             () -> DecorativeBlock.with(BaseBlockProperty.terracotta()).shaped(ShapeFunction.cardinalRotations(new RawVoxelShape(4, -16, 5, 12, 11, 13))).directional().placeOffset(Direction.UP).noOcclusion().build());
     public static final DeferredHolder<Block, Block> SMALL_WHITE_PORCELAIN_VASE_BONSAI = BLOCKS.register("small_white_porcelain_vase_bonsai",
             () -> DecorativeBlock.with(BaseBlockProperty.porcelain()).shaped(ShapeFunction.diagonalSquare(6, 5)).directional().diagonallyPlaceable().build());
@@ -904,7 +937,7 @@ public class BlockRegistry {
     public static final DeferredHolder<Block, Block> RED_PLUM_BONSAI = BLOCKS.register("red_plum_bonsai",
             () -> DecorativeBlock.with(BaseBlockProperty.terracotta()).shaped(ShapeFunction.cardinalRotations(new RawVoxelShape(3, 0, 4, 13, 2, 12))).directional().build());
     public static final DeferredHolder<Block, Block> BAMBOO_BONSAI = BLOCKS.register("bamboo_bonsai",
-            () -> DecorativeBlock.with(BaseBlockProperty.terracotta()).shaped(ShapeFunction.cardinalRotations(new RawVoxelShape(2, 0, 4, 14, 3, 12))).directional().noOcclusion().build()); //todo fix z-fighting
+            () -> DecorativeBlock.with(BaseBlockProperty.terracotta()).shaped(ShapeFunction.cardinalRotations(new RawVoxelShape(2, 0, 4, 14, 3, 12))).directional().noOcclusion().build());
     public static final DeferredHolder<Block, Block> TALL_BLUE_VASE_BONSAI = BLOCKS.register("tall_blue_vase_bonsai",
             () -> DecorativeBlock.with(BaseBlockProperty.porcelain()).shaped(
                             ShapeFunction.or(ShapeFunction.diagonal(new RawVoxelShape(4, -16, 4, 12, -13, 12)), ShapeFunction.diagonal(new RawVoxelShape(5.5, -16, 5.5, 10.5, 5, 10.5)),
@@ -916,6 +949,9 @@ public class BlockRegistry {
             () -> DecorativeBlock.with(BaseBlockProperty.terracotta()).shaped(ShapeFunction.or(ShapeFunction.diagonal(new RawVoxelShape(5, 0, 5, 11, 6, 11)), ShapeFunction.diagonal(new RawVoxelShape(4, 6, 4, 12, 12, 12)))).directional().diagonallyPlaceable().noOcclusion().build());
     public static final DeferredHolder<Block, Block> LARGE_BONSAI = BLOCKS.register("large_bonsai",
             () -> DecorativeBlock.with(BaseBlockProperty.terracotta()).shaped(ShapeFunction.or(ShapeFunction.diagonal(new RawVoxelShape(4, 0, 4, 12, 8, 12)), ShapeFunction.diagonal(new RawVoxelShape(3, 8, 3, 13, 15, 13)))).directional().diagonallyPlaceable().noOcclusion().build());
+    public static final DeferredHolder<Block, Block> LOTUS_LEAVES_BOWL = BLOCKS.register("lotus_leaves_bowl",
+            () -> new WaterContainerDecorativeBlock(DecorativeBlock.with(BaseBlockProperty.stone()).directional().noOcclusion()
+                    .shaped(ShapeFunction.or(ShapeFunction.centeredSquare(10, 3), ShapeFunction.raisedCenteredSquare(8, 1, 3), ShapeFunction.raisedCenteredSquare(12, 1, 4), ShapeFunction.raisedCenteredSquare(16, 6, 5)))));
 
     /**
      * LAMPS
@@ -953,7 +989,7 @@ public class BlockRegistry {
                                     ShapeFunction.simpleShape(new RawVoxelShape(4, 9, 4, 12, 16, 12)), ShapeFunction.simpleShape(new RawVoxelShape(0, 16, 0, 16, 21.5, 16))))
                     .luminous().build());
 
-    // STREETLIGHT //todo rewrite collision logic
+    // STREETLIGHT
 
     public static final DeferredHolder<Block, Block> RED_LANTERN_STREETLIGHT = BLOCKS.register("red_lantern_streetlight",
             () -> new HangingLantern(HangingLantern.HangingLanternType.POLE));

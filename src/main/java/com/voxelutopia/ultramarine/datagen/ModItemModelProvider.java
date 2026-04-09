@@ -68,6 +68,8 @@ public class ModItemModelProvider extends ItemModelProvider {
         handheldItem(ItemRegistry.BLUE_AND_WHITE_PORCELAIN_PICKAXE);
         handheldItem(ItemRegistry.BLUE_AND_WHITE_PORCELAIN_AXE);
 
+        singleTexture("tiangong_kaiwu", mcLoc("item/generated"), "layer0", modLoc("item/tiangong_kaiwu"));
+
     }
 
     private ItemModelBuilder generatedItem(DeferredHolder<Item, ? extends Item> item) {

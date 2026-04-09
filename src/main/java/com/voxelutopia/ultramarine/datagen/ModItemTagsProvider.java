@@ -7,6 +7,7 @@ import com.voxelutopia.ultramarine.world.item.DyePowder;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.tags.ItemTagsProvider;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
@@ -78,6 +79,23 @@ public class ModItemTagsProvider extends ItemTagsProvider {
                 .add(ItemRegistry.LONG_YELLOW_HANGING_PAINTING.get())
                 .add(ItemRegistry.PORTRAIT.get())
                 .add(ItemRegistry.SINCERE_CALLIGRAPHY.get());
+
+        tag(ModItemTags.XUAN_PAPER)
+                .add(ItemRegistry.XUAN_PAPER.get())
+                .addOptional(ResourceLocation.fromNamespaceAndPath("sinobrush", "xuan_paper"));
+        tag(ModItemTags.SILK)
+                .add(ItemRegistry.SILK.get());
+        tag(ModItemTags.BAOZI)
+                .add(ItemRegistry.BAOZI.get())
+                .addOptional(ResourceLocation.fromNamespaceAndPath("farmersdelight", "dumplings"))
+                .addOptional(ResourceLocation.fromNamespaceAndPath("kaleidoscope_cookery", "baozi"))
+                .addOptional(ResourceLocation.fromNamespaceAndPath("youkaishomecoming", "bun"));
+        tag(ModItemTags.HAM)
+                .add(ItemRegistry.COOKED_MEAT.get())
+                .addOptional(ResourceLocation.fromNamespaceAndPath("farmersdelight", "ham"));
+
+        tag(ModItemTags.COMMON_BRONZE_INGOT)
+                .add(ItemRegistry.BRONZE_INGOT.get());
 
 
     }

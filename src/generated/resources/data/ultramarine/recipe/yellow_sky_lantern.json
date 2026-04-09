@@ -12,7 +12,7 @@
       "item": "ultramarine:wooden_frame"
     },
     "X": {
-      "item": "ultramarine:xuan_paper"
+      "tag": "ultramarine:xuan_paper"
     }
   },
   "pattern": [

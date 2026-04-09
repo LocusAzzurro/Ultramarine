@@ -6,7 +6,7 @@
       "item": "minecraft:red_wool"
     },
     "S": {
-      "item": "ultramarine:silk"
+      "tag": "ultramarine:silk"
     },
     "Y": {
       "item": "minecraft:yellow_wool"
