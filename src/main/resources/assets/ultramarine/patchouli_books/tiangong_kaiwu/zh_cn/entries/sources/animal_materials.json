@@ -1,0 +1,23 @@
+{
+  "name": "生物材料掉落",
+  "icon": "ultramarine:fur",
+  "category": "ultramarine:sources",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "某些生物在被打倒后会掉落额外材料。"
+    },
+    {
+      "type": "patchouli:spotlight",
+      "title": "毛发",
+      "item": "ultramarine:fur",
+      "text": "在打倒$(thing)狐狸$()、$(thing)兔子$()或$(thing)山羊$()时可能会掉落$(item)毛发$()。"
+    },
+    {
+      "type": "patchouli:spotlight",
+      "title": "生肉",
+      "item": "ultramarine:raw_meat",
+      "text": "在打倒$(thing)疣猪兽$()或$(thing)劫掠兽$()时可能会掉落$(item)生肉$()。"
+    }
+  ]
+}

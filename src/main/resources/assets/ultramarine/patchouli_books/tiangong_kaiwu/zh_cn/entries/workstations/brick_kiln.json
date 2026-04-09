@@ -23,6 +23,12 @@
       "type": "patchouli:text",
       "title": "使用砖窑",
       "text": "$(item)砖窑$()的使用方式与熔炉类似，但使用两种原材料。在JEI中可以查询配方。"
+    },
+    {
+      "type": "patchouli:spotlight",
+      "title": "砖窑物流",
+      "item": "minecraft:hopper",
+      "text": "$(item)砖窑$()一定程度支持物品物流，可通过$(item)漏斗$()或其他方式与其中物品交互。上方为燃料输入，侧面为材料输入，下方为成品输出。"
     }
   ]
 }

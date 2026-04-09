@@ -1,0 +1,17 @@
+{
+  "name": "水容器方块",
+  "icon": "ultramarine:lotus_leaves_bowl",
+  "category": "ultramarine:blocks",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "一些方块可以储水，根据其中是否有水，方块状态会改变。"
+    },
+    {
+      "type": "patchouli:spotlight",
+      "title": "水容器",
+      "item": "ultramarine:lotus_leaves_bowl",
+      "text": "用$(item)水桶$()和$(item)桶$()可以向容器内倒水或从容器中取水。"
+    }
+  ]
+}

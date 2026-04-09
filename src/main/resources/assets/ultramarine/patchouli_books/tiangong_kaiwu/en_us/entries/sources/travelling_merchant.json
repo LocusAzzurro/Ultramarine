@@ -15,7 +15,7 @@
     {
       "type": "patchouli:spotlight",
       "item": "ultramarine:teahouse_flag",
-      "text": "$(thing)Travelling Merchant$() will spawn by the $(item)Teahouse Flag$() when there are players in the vicinity of the flag. They will usually spawn along with $(thing)Wandering Traders$() as their spawning times are linked."
+      "text": "Everyday at sunrise, $(thing)Travelling Merchant$() might spawn by the $(item)Teahouse Flag$() when there are players in the vicinity of the flag. Their spawn chance and spawning mechanic are similar to that of $(thing)Wandering Traders$()."
     },
     {
       "type": "patchouli:relations",

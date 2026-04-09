@@ -1,0 +1,17 @@
+{
+  "name": "Water Container Blocks",
+  "icon": "ultramarine:lotus_leaves_bowl",
+  "category": "ultramarine:blocks",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "Some blocks can be filled with water and have different model based on filled state."
+    },
+    {
+      "type": "patchouli:spotlight",
+      "title": "Water Containers",
+      "item": "ultramarine:lotus_leaves_bowl",
+      "text": "$(item)Buckets of Water$() and empty $(item)Buckets$() can be used to fill and empty water container blocks."
+    }
+  ]
+}
