@@ -790,7 +790,7 @@ public class BlockRegistry {
 
     // SCREEN
 
-    public static final DeferredHolder<Block, Block> LARGE_LANDSCAPE_PAINTING_SCREEN = BLOCKS.register("large_landscape_painting_screen", //todo texture uv cleanup
+    public static final DeferredHolder<Block, Block> LARGE_LANDSCAPE_PAINTING_SCREEN = BLOCKS.register("large_landscape_painting_screen",
             () -> DecorativeBlock.with(BaseBlockProperty.wood()).shaped(
                             ShapeFunction.or(ShapeFunction.cardinalRotations(new RawVoxelShape(-16, -16, 6, 32, -9, 10)), ShapeFunction.cardinalRotations(new RawVoxelShape(-13, -16, 3, -9, -9, 13)), ShapeFunction.cardinalRotations(new RawVoxelShape(25, -16, 3, 29, -9, 13)),
                                     ShapeFunction.cardinalRotations(new RawVoxelShape(-12, -9, 7, 28, 13, 9)), ShapeFunction.cardinalRotations(new RawVoxelShape(-15, 13, 7, 31, 19, 9)), ShapeFunction.cardinalRotations(new RawVoxelShape(-10, 19, 7, 26, 26, 9))))
@@ -920,7 +920,7 @@ public class BlockRegistry {
             () -> DecorativeBlock.with(BaseBlockProperty.terracotta()).shaped(ShapeFunction.cardinalRotations(new RawVoxelShape(3, 0, 4, 13, 3, 12))).directional().build());
     public static final DeferredHolder<Block, Block> MEDIUM_GREETING_PINE_BONSAI = BLOCKS.register("medium_greeting_pine_bonsai",
             () -> DecorativeBlock.with(BaseBlockProperty.terracotta()).shaped(ShapeFunction.centeredSquare(10, 4)).directional().noOcclusion().build());
-    public static final DeferredHolder<Block, Block> LARGE_GREETING_PINE_BONSAI = BLOCKS.register("large_greeting_pine_bonsai", //todo model z-fighting
+    public static final DeferredHolder<Block, Block> LARGE_GREETING_PINE_BONSAI = BLOCKS.register("large_greeting_pine_bonsai",
             () -> DecorativeBlock.with(BaseBlockProperty.terracotta()).shaped(ShapeFunction.cardinalRotations(new RawVoxelShape(4, -16, 5, 12, 11, 13))).directional().placeOffset(Direction.UP).noOcclusion().build());
     public static final DeferredHolder<Block, Block> SMALL_WHITE_PORCELAIN_VASE_BONSAI = BLOCKS.register("small_white_porcelain_vase_bonsai",
             () -> DecorativeBlock.with(BaseBlockProperty.porcelain()).shaped(ShapeFunction.diagonalSquare(6, 5)).directional().diagonallyPlaceable().build());
@@ -937,7 +937,7 @@ public class BlockRegistry {
     public static final DeferredHolder<Block, Block> RED_PLUM_BONSAI = BLOCKS.register("red_plum_bonsai",
             () -> DecorativeBlock.with(BaseBlockProperty.terracotta()).shaped(ShapeFunction.cardinalRotations(new RawVoxelShape(3, 0, 4, 13, 2, 12))).directional().build());
     public static final DeferredHolder<Block, Block> BAMBOO_BONSAI = BLOCKS.register("bamboo_bonsai",
-            () -> DecorativeBlock.with(BaseBlockProperty.terracotta()).shaped(ShapeFunction.cardinalRotations(new RawVoxelShape(2, 0, 4, 14, 3, 12))).directional().noOcclusion().build()); //todo fix z-fighting
+            () -> DecorativeBlock.with(BaseBlockProperty.terracotta()).shaped(ShapeFunction.cardinalRotations(new RawVoxelShape(2, 0, 4, 14, 3, 12))).directional().noOcclusion().build());
     public static final DeferredHolder<Block, Block> TALL_BLUE_VASE_BONSAI = BLOCKS.register("tall_blue_vase_bonsai",
             () -> DecorativeBlock.with(BaseBlockProperty.porcelain()).shaped(
                             ShapeFunction.or(ShapeFunction.diagonal(new RawVoxelShape(4, -16, 4, 12, -13, 12)), ShapeFunction.diagonal(new RawVoxelShape(5.5, -16, 5.5, 10.5, 5, 10.5)),
@@ -989,7 +989,7 @@ public class BlockRegistry {
                                     ShapeFunction.simpleShape(new RawVoxelShape(4, 9, 4, 12, 16, 12)), ShapeFunction.simpleShape(new RawVoxelShape(0, 16, 0, 16, 21.5, 16))))
                     .luminous().build());
 
-    // STREETLIGHT //todo rewrite collision logic
+    // STREETLIGHT
 
     public static final DeferredHolder<Block, Block> RED_LANTERN_STREETLIGHT = BLOCKS.register("red_lantern_streetlight",
             () -> new HangingLantern(HangingLantern.HangingLanternType.POLE));
