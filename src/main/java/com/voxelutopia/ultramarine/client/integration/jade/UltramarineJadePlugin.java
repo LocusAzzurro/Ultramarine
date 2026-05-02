@@ -25,6 +25,7 @@ public class UltramarineJadePlugin implements IWailaPlugin {
 
         registration.registerBlockComponent(MalletToggleableComponentProvider.INSTANCE, ShiftableBlock.class);
         registration.registerBlockComponent(MalletToggleableComponentProvider.INSTANCE, ChiralDirectionalBlock.class);
+        registration.registerBlockComponent(MalletToggleableComponentProvider.INSTANCE, ChiralOrientableSixSideBlock.class);
         registration.registerBlockComponent(MalletToggleableComponentProvider.INSTANCE, RailingBlock.class);
         registration.registerBlockComponent(CenserComponent.INSTANCE, Censer.class);
         registration.registerBlockComponent(BrickKilnComponent.INSTANCE, BrickKiln.class);
