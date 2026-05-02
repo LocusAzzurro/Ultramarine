@@ -5,7 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": "ultramarine:baozi"
+            "items": "#ultramarine:baozi"
           }
         ]
       },

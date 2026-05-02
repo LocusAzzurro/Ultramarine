@@ -1,0 +1,9 @@
+{
+  "values": [
+    "ultramarine:cooked_meat",
+    {
+      "id": "farmersdelight:ham",
+      "required": false
+    }
+  ]
+}
