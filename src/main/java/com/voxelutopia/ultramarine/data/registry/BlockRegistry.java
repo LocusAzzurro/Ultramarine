@@ -101,6 +101,10 @@ public class BlockRegistry {
     public static final DeferredHolder<Block, Block> WEATHERED_RED_STONE_TILE_SLAB = register("weathered_red_stone_tile_slab", () -> new BaseSlab(DARK_CYAN_FLOOR_TILE.get()));
     public static final DeferredHolder<Block, Block> WEATHERED_RED_STONE_TILE_STAIRS = register("weathered_red_stone_tile_stairs", () -> new BaseStairs(DARK_CYAN_FLOOR_TILE.get()));
     public static final DeferredHolder<Block, Block> WEATHERED_RED_STONE_TILE_WALL = register("weathered_red_stone_tile_wall", () -> new BaseWall(DARK_CYAN_FLOOR_TILE.get()));
+    public static final DeferredHolder<Block, BaseBlock> RED_FLOOR_TILE = register("red_floor_tile", () -> new BaseBlock(BaseBlockProperty.tile()));
+    public static final DeferredHolder<Block, Block> RED_FLOOR_TILE_SLAB = register("red_floor_tile_slab", () -> new BaseSlab(RED_FLOOR_TILE.get()));
+    public static final DeferredHolder<Block, Block> RED_FLOOR_TILE_STAIRS = register("red_floor_tile_stairs", () -> new BaseStairs(RED_FLOOR_TILE.get()));
+    public static final DeferredHolder<Block, Block> RED_FLOOR_TILE_WALL = register("red_floor_tile_wall", () -> new BaseWall(RED_FLOOR_TILE.get()));
     public static final DeferredHolder<Block, Block> BLUE_AND_BLACK_TILE = register("blue_and_black_tile", () -> new BaseBlock(BaseBlockProperty.stone()));
     public static final DeferredHolder<Block, Block> BLUE_AND_BLACK_TILE_SLAB = register("blue_and_black_tile_slab", () -> new BaseSlab(DARK_CYAN_FLOOR_TILE.get()));
     public static final DeferredHolder<Block, Block> BLUE_AND_BLACK_TILE_STAIRS = register("blue_and_black_tile_stairs", () -> new BaseStairs(DARK_CYAN_FLOOR_TILE.get()));
