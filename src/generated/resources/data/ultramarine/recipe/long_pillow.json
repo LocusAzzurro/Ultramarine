@@ -3,7 +3,7 @@
   "category": "misc",
   "key": {
     "R": "minecraft:red_wool",
-    "S": "ultramarine:silk",
+    "S": "#ultramarine:silk",
     "Y": "minecraft:yellow_wool"
   },
   "pattern": [

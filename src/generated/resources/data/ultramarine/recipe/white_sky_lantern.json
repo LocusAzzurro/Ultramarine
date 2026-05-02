@@ -5,7 +5,7 @@
     "C": "#minecraft:candles",
     "D": "minecraft:white_dye",
     "F": "ultramarine:wooden_frame",
-    "X": "ultramarine:xuan_paper"
+    "X": "#ultramarine:xuan_paper"
   },
   "pattern": [
     "XDX",

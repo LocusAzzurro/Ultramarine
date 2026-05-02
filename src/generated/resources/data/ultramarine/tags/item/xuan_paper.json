@@ -1,0 +1,9 @@
+{
+  "values": [
+    "ultramarine:xuan_paper",
+    {
+      "id": "sinobrush:xuan_paper",
+      "required": false
+    }
+  ]
+}

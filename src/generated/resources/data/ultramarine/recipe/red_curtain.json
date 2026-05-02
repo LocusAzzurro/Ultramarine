@@ -4,7 +4,7 @@
   "key": {
     "D": "ultramarine:red_dye_powder",
     "G": "ultramarine:gold_parts",
-    "S": "ultramarine:silk"
+    "S": "#ultramarine:silk"
   },
   "pattern": [
     "SSS",

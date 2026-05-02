@@ -4,7 +4,7 @@
   "key": {
     "F": "ultramarine:fur",
     "I": "minecraft:ink_sac",
-    "P": "ultramarine:xuan_paper",
+    "P": "#ultramarine:xuan_paper",
     "R": "minecraft:stone_slab",
     "S": "minecraft:stick"
   },
