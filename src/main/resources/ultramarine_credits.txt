@@ -10,19 +10,20 @@ SKinsark
 76823999
 AnzSama
 
-= GitHub协力 =
+= 协力 / Credits =
 
 Zoshsgahdnkc(海参)
 秋雨落
 IAFEnvoy
 Flechazo098
+暗夜Elen
 
-= 社区版本维护 =
+= 社区版本维护 / Ports =
 
 北斗余晖
 cnlimiter
 
-= 爱发电支持者 =
+= 爱发电支持者 / Afdian Supporters =
 
 - 天青 -
 
