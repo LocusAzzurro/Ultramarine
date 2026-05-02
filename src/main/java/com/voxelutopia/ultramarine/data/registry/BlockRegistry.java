@@ -432,6 +432,10 @@ public class BlockRegistry {
 
     public static final DeferredHolder<Block, Block> LOONG_TUANHUA = register("loong_tuanhua", () -> new ChiralOrientableSixSideBlock(BaseBlockProperty.dye(),
             ShapeFunction.sixSideShape(new RawVoxelShape(-16, -16, 15, 32, 32, 16), new RawVoxelShape(-16, 0, -16, 32, 1, 32))));
+    public static final DeferredHolder<Block, Block> GRASS_LUCKY_MOTIF_1 = register("grass_lucky_motif_1", () -> new OrientableWallSideBlock(BaseBlockProperty.dye(), ShapeFunction.sideShape(1)));
+    public static final DeferredHolder<Block, Block> GRASS_LUCKY_MOTIF_2 = register("grass_lucky_motif_2", () -> new OrientableWallSideBlock(BaseBlockProperty.dye(), ShapeFunction.sideShape(1)));
+    public static final DeferredHolder<Block, Block> GRASS_LUCKY_MOTIF_3 = register("grass_lucky_motif_3", () -> new OrientableWallSideBlock(BaseBlockProperty.dye(), ShapeFunction.sideShape(1)));
+
 
     // CHUIHUA
 
