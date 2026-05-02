@@ -3,7 +3,7 @@
   "category": "misc",
   "key": {
     "C": "minecraft:copper_ingot",
-    "I": "ultramarine:bronze_ingot",
+    "I": "#c:ingots/bronze",
     "P": "ultramarine:bronze_parts"
   },
   "pattern": [

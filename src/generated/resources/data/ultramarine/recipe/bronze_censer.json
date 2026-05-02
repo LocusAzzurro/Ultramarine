@@ -2,7 +2,7 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "I": "ultramarine:bronze_ingot",
+    "I": "#c:ingots/bronze",
     "P": "ultramarine:bronze_parts"
   },
   "pattern": [
