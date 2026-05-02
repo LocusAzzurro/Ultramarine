@@ -11,6 +11,7 @@ public class ModBlockStateProperties {
     public static final BooleanProperty DIAGONAL = BooleanProperty.create("diagonal");
     public static final BooleanProperty SHIFTED = BooleanProperty.create("shifted");
     public static final BooleanProperty LOCKED = BooleanProperty.create("locked");
+    public static final BooleanProperty FILLED = BooleanProperty.create("filled");
     public static final EnumProperty<Direction> HORIZONTAL_FACING_SHIFT = EnumProperty.create("facing_shift", Direction.class, Direction.Plane.HORIZONTAL);
     public static final EnumProperty<Direction> ON_FACE_DIRECTION = EnumProperty.create("direction", Direction.class);
     public static final IntegerProperty BITES = IntegerProperty.create("bites", 0, 8);

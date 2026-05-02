@@ -1,0 +1,87 @@
+{
+  "multipart": [
+    {
+      "apply": {
+        "model": "ultramarine:block/lotus_leaves_bowl_empty"
+      },
+      "when": {
+        "facing": "north"
+      }
+    },
+    {
+      "apply": {
+        "model": "ultramarine:block/lotus_leaves_bowl_empty",
+        "y": 90
+      },
+      "when": {
+        "facing": "east"
+      }
+    },
+    {
+      "apply": {
+        "model": "ultramarine:block/lotus_leaves_bowl_empty",
+        "y": 180
+      },
+      "when": {
+        "facing": "south"
+      }
+    },
+    {
+      "apply": {
+        "model": "ultramarine:block/lotus_leaves_bowl_empty",
+        "y": 270
+      },
+      "when": {
+        "facing": "west"
+      }
+    },
+    {
+      "apply": {
+        "model": "ultramarine:block/lotus_leaves_bowl_water",
+        "uvlock": true
+      },
+      "when": {
+        "filled": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "ultramarine:block/lotus_leaves_bowl_inside"
+      },
+      "when": {
+        "facing": "north",
+        "filled": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "ultramarine:block/lotus_leaves_bowl_inside",
+        "y": 90
+      },
+      "when": {
+        "facing": "east",
+        "filled": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "ultramarine:block/lotus_leaves_bowl_inside",
+        "y": 180
+      },
+      "when": {
+        "facing": "south",
+        "filled": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "ultramarine:block/lotus_leaves_bowl_inside",
+        "y": 270
+      },
+      "when": {
+        "facing": "west",
+        "filled": "true"
+      }
+    }
+  ]
+}
