@@ -23,6 +23,12 @@
       "type": "patchouli:text",
       "title": "Using Brick Kiln",
       "text": "The $(item)Brick Kiln$() is similar to a furnace, but 2 input items are needed instead of one. Recipes can be looked up in JEI."
+    },
+    {
+      "type": "patchouli:spotlight",
+      "title": "Kiln Automation",
+      "item": "minecraft:hopper",
+      "text": "The $(item)Brick Kiln$() supports item logistics to some degree, $(item)Hoppers$() or other inventory handlers can be used to interact with it. Top is for fuel input, side faces are for ingredient input, bottom is for output."
     }
   ]
 }

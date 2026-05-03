@@ -15,7 +15,7 @@
     {
       "type": "patchouli:spotlight",
       "item": "ultramarine:teahouse_flag",
-      "text": "当有玩家在$(item)茶馆旗帜$()附近时，$(thing)行商$()便有可能在附近生成。他们一般会和$(thing)流浪商人$()同时出现，因为他们的生成与商人的生成挂钩。"
+      "text": "每天日出时，当有玩家在$(item)茶馆旗帜$()附近时，$(thing)行商$()便有可能在附近生成。他们的生成频率与机制与$(thing)流浪商人$()相似。"
     },
     {
       "type": "patchouli:relations",

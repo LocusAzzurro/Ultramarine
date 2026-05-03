@@ -1,0 +1,23 @@
+{
+  "name": "Animal Materials",
+  "icon": "ultramarine:fur",
+  "category": "ultramarine:sources",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "Some materials can be acquired from certain animals and mobs."
+    },
+    {
+      "type": "patchouli:spotlight",
+      "title": "Fur",
+      "item": "ultramarine:fur",
+      "text": "$(item)Fur$() might drop when defeating $(thing)Fox$(), $(thing)Rabbit$() or $(thing)Goat$()."
+    },
+    {
+      "type": "patchouli:spotlight",
+      "title": "Raw Meat",
+      "item": "ultramarine:raw_meat",
+      "text": "$(item)Raw Meat$() might drop when defeating $(thing)Hoglin$() or $(thing)Ravager$()."
+    }
+  ]
+}
