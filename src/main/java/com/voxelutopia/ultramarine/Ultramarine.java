@@ -40,6 +40,7 @@ public class Ultramarine {
 
     private void setup(final FMLCommonSetupEvent event) {
         LOGGER.info("Ultramarine Mod Loading...");
+        LOGGER.warn("This is a test version different from scheduled release versions and subject to changes.");
     }
 
 }
