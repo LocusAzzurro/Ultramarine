@@ -20,8 +20,6 @@ import snownee.jade.api.ui.JadeUI;
 public enum BottleGourdComponent implements IBlockComponentProvider {
     INSTANCE;
 
-    public static final Identifier BOTTLE_GOURD = Identifier.fromNamespaceAndPath(Ultramarine.MOD_ID, "bottle_gourd");
-
     @Override
     public void appendTooltip(ITooltip tooltip, BlockAccessor blockAccessor, IPluginConfig config) {
 
@@ -56,6 +54,6 @@ public enum BottleGourdComponent implements IBlockComponentProvider {
 
     @Override
     public Identifier getUid() {
-        return BOTTLE_GOURD;
+        return ComponentUIDs.BOTTLE_GOURD;
     }
 }

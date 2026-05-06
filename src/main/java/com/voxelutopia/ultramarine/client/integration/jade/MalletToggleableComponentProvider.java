@@ -13,8 +13,6 @@ import snownee.jade.api.ui.JadeUI;
 public enum MalletToggleableComponentProvider implements IBlockComponentProvider {
     INSTANCE;
 
-    public static final Identifier MALLET_TOGGLEABLE = Identifier.fromNamespaceAndPath(Ultramarine.MOD_ID, "mallet_toggleable");
-
     @Override
     public void appendTooltip(ITooltip tooltip, BlockAccessor blockAccessor, IPluginConfig iPluginConfig) {
         tooltip.add(JadeUI.item(ItemRegistry.WOODEN_MALLET.get().getDefaultInstance()));
@@ -23,6 +21,6 @@ public enum MalletToggleableComponentProvider implements IBlockComponentProvider
 
     @Override
     public Identifier getUid() {
-        return MALLET_TOGGLEABLE;
+        return ComponentUIDs.MALLET_TOGGLEABLE;
     }
 }

@@ -11,8 +11,6 @@ import snownee.jade.api.config.IPluginConfig;
 public enum CenserComponent implements IBlockComponentProvider {
     INSTANCE;
 
-    public static final Identifier CENSER_BURN_TIME = Identifier.fromNamespaceAndPath(Ultramarine.MOD_ID, "censer_burn_time");
-
     @Override
     public void appendTooltip(ITooltip tooltip, BlockAccessor blockAccessor, IPluginConfig iPluginConfig) {
         if (blockAccessor.getServerData().contains("BurnTime")) {
@@ -25,6 +23,6 @@ public enum CenserComponent implements IBlockComponentProvider {
 
     @Override
     public Identifier getUid() {
-        return CENSER_BURN_TIME;
+        return ComponentUIDs.CENSER_BURN_TIME;
     }
 }

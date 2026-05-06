@@ -33,10 +33,10 @@ public class UltramarineJadePlugin implements IWailaPlugin {
 
         Component block = Component.translatable("config.jade.plugin_ultramarine.block");
 
-        registration.setConfigCategoryOverride(MalletToggleableComponentProvider.MALLET_TOGGLEABLE, block);
-        registration.setConfigCategoryOverride(CenserComponent.CENSER_BURN_TIME, block);
-        registration.setConfigCategoryOverride(BrickKilnComponent.BRICK_KILN, block);
-        registration.setConfigCategoryOverride(BottleGourdComponent.BOTTLE_GOURD, block);
+        registration.setConfigCategoryOverride(ComponentUIDs.MALLET_TOGGLEABLE, block);
+        registration.setConfigCategoryOverride(ComponentUIDs.CENSER_BURN_TIME, block);
+        registration.setConfigCategoryOverride(ComponentUIDs.BRICK_KILN, block);
+        registration.setConfigCategoryOverride(ComponentUIDs.BOTTLE_GOURD, block);
     }
 }
 

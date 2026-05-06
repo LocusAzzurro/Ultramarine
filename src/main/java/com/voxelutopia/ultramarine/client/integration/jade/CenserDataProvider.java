@@ -18,7 +18,7 @@ public enum CenserDataProvider implements IServerDataProvider<BlockAccessor> {
 
     @Override
     public Identifier getUid() {
-        return CenserComponent.CENSER_BURN_TIME;
+        return ComponentUIDs.CENSER_BURN_TIME;
     }
 }
 

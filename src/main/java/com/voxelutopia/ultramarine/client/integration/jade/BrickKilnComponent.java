@@ -17,8 +17,6 @@ public enum BrickKilnComponent implements IBlockComponentProvider {
 
     INSTANCE;
 
-    public static final Identifier BRICK_KILN = Identifier.fromNamespaceAndPath(Ultramarine.MOD_ID, "brick_kiln");
-
     @Override
     public void appendTooltip(ITooltip tooltip, BlockAccessor accessor, IPluginConfig config) {
         CompoundTag data = accessor.getServerData();
@@ -54,6 +52,6 @@ public enum BrickKilnComponent implements IBlockComponentProvider {
 
     @Override
     public Identifier getUid() {
-        return BRICK_KILN;
+        return ComponentUIDs.BRICK_KILN;
     }
 }

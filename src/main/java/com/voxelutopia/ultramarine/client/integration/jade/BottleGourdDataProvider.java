@@ -1,5 +1,6 @@
 package com.voxelutopia.ultramarine.client.integration.jade;
 
+import com.voxelutopia.ultramarine.Ultramarine;
 import com.voxelutopia.ultramarine.world.block.entity.BottleGourdBlockEntity;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.nbt.CompoundTag;
@@ -9,6 +10,8 @@ import snownee.jade.api.IServerDataProvider;
 
 public enum BottleGourdDataProvider implements IServerDataProvider<BlockAccessor> {
     INSTANCE;
+
+    public static final Identifier BOTTLE_GOURD = Identifier.fromNamespaceAndPath(Ultramarine.MOD_ID, "bottle_gourd");
 
     @Override
     public void appendServerData(CompoundTag tag, BlockAccessor blockAccessor) {
@@ -29,7 +32,7 @@ public enum BottleGourdDataProvider implements IServerDataProvider<BlockAccessor
 
     @Override
     public Identifier getUid() {
-        return BottleGourdComponent.BOTTLE_GOURD;
+        return ComponentUIDs.BOTTLE_GOURD;
     }
 }
 

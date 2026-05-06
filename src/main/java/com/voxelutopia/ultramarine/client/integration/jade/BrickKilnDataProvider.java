@@ -40,7 +40,7 @@ public enum BrickKilnDataProvider implements IServerDataProvider<BlockAccessor> 
 
     @Override
     public net.minecraft.resources.Identifier getUid() {
-        return BrickKilnComponent.BRICK_KILN;
+        return ComponentUIDs.BRICK_KILN;
     }
 }
 
