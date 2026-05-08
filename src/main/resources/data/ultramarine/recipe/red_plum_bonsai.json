@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "C": {
+      "tag": "minecraft:saplings"
+    },
+    "D": {
+      "item": "minecraft:cyan_dye"
+    },
+    "P": {
+      "item": "minecraft:flower_pot"
+    }
+  },
+  "pattern": [
+    "C ",
+    "PD"
+  ],
+  "result": {
+    "count": 1,
+    "id": "ultramarine:red_plum_bonsai"
+  }
+}

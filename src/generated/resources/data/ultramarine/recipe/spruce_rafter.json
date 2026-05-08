@@ -1,0 +1,7 @@
+{
+  "type": "ultramarine:woodworking",
+  "ingredient": "#minecraft:spruce_logs",
+  "result": {
+    "id": "ultramarine:spruce_rafter"
+  }
+}

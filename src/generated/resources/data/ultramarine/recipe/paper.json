@@ -2,7 +2,7 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "P": "#ultramarine:xuan_paper"
+    "P": "ultramarine:xuan_paper"
   },
   "pattern": [
     "PP"

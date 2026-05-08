@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "B": {
+      "item": "minecraft:brick"
+    },
+    "P": {
+      "item": "minecraft:flower_pot"
+    },
+    "S": {
+      "tag": "minecraft:saplings"
+    }
+  },
+  "pattern": [
+    " S ",
+    "BPB",
+    " B "
+  ],
+  "result": {
+    "count": 1,
+    "id": "ultramarine:large_bonsai"
+  }
+}

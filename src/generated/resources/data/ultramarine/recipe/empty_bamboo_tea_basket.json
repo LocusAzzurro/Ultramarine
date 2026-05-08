@@ -5,7 +5,7 @@
     "B": "minecraft:bamboo",
     "P": "#minecraft:planks",
     "R": "minecraft:red_dye",
-    "X": "#ultramarine:xuan_paper"
+    "X": "ultramarine:xuan_paper"
   },
   "pattern": [
     "BRB",

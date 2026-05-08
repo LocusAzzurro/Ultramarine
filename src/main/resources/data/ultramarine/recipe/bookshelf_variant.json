@@ -1,0 +1,10 @@
+{
+  "type": "ultramarine:woodworking",
+  "ingredient": {
+    "item": "minecraft:bookshelf"
+  },
+  "result": {
+    "count": 1,
+    "id": "ultramarine:bookshelf_variant"
+  }
+}

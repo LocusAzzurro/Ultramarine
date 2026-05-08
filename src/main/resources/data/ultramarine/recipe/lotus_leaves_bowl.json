@@ -1,0 +1,29 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": {
+      "item": "minecraft:andesite"
+    },
+    "I": {
+      "item": "minecraft:iron_ingot"
+    },
+    "L": [
+      {
+        "item": "ultramarine:small_lotus_leaf"
+      },
+      {
+        "item": "ultramarine:small_dark_green_lotus_leaf"
+      }
+    ]
+  },
+  "pattern": [
+    "ALA",
+    "AAA",
+    " I "
+  ],
+  "result": {
+    "count": 1,
+    "id": "ultramarine:lotus_leaves_bowl"
+  }
+}

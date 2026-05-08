@@ -1,11 +1,11 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_ham": {
+    "has_cooked_meat": {
       "conditions": {
         "items": [
           {
-            "items": "#ultramarine:ham"
+            "items": "ultramarine:cooked_meat"
           }
         ]
       },
@@ -21,7 +21,7 @@
   "requirements": [
     [
       "has_the_recipe",
-      "has_ham"
+      "has_cooked_meat"
     ]
   ],
   "rewards": {

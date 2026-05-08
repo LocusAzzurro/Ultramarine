@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_shards": {
+      "conditions": {
+        "items": [
+          {
+            "items": "ultramarine:blue_and_white_porcelain_shards"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "ultramarine:blue_and_white_porcelain_upgrade_smithing_template"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_shards"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "ultramarine:blue_and_white_porcelain_upgrade_smithing_template"
+    ]
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "type": "ultramarine:woodworking",
+  "ingredient": {
+    "tag": "minecraft:planks"
+  },
+  "result": {
+    "count": 1,
+    "id": "ultramarine:carved_wooden_door_panel"
+  }
+}

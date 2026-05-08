@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:blasting",
+  "category": "misc",
+  "cookingtime": 100,
+  "experience": 0.05,
+  "ingredient": {
+    "item": "ultramarine:unfired_clay_brick"
+  },
+  "result": {
+    "count": 1,
+    "id": "ultramarine:fired_brick"
+  }
+}

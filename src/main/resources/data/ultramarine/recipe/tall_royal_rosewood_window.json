@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "W": {
+      "item": "ultramarine:royal_rosewood_window"
+    }
+  },
+  "pattern": [
+    "W",
+    "W"
+  ],
+  "result": {
+    "count": 1,
+    "id": "ultramarine:tall_royal_rosewood_window"
+  }
+}

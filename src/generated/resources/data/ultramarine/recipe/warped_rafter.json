@@ -1,0 +1,7 @@
+{
+  "type": "ultramarine:woodworking",
+  "ingredient": "#minecraft:warped_stems",
+  "result": {
+    "id": "ultramarine:warped_rafter"
+  }
+}

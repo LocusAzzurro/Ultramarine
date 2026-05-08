@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "F": {
+      "item": "ultramarine:wooden_frame"
+    },
+    "S": {
+      "item": "minecraft:stick"
+    },
+    "W": {
+      "item": "ultramarine:polished_birch_plank"
+    }
+  },
+  "pattern": [
+    " W ",
+    "SFS",
+    "S S"
+  ],
+  "result": {
+    "count": 1,
+    "id": "ultramarine:high_table_with_white_top"
+  }
+}

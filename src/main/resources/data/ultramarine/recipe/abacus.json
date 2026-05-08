@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "F": {
+      "item": "ultramarine:wooden_frame"
+    },
+    "P": {
+      "item": "ultramarine:wooden_parts"
+    },
+    "S": {
+      "item": "minecraft:stick"
+    }
+  },
+  "pattern": [
+    "PFP",
+    "SSS",
+    "PFP"
+  ],
+  "result": {
+    "count": 1,
+    "id": "ultramarine:abacus"
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_raw_hematite": {
+      "conditions": {
+        "items": [
+          {
+            "items": "ultramarine:raw_hematite"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "ultramarine:hematite_dust"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_raw_hematite"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "ultramarine:hematite_dust"
+    ]
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "parent": "ultramarine:block/wooden_rafter",
+  "textures": {
+    "1": "minecraft:block/stripped_birch_log",
+    "2": "minecraft:block/stripped_birch_log_top",
+    "particle": "minecraft:block/stripped_birch_log"
+  }
+}

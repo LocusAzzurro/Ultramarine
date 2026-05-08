@@ -1,6 +1,6 @@
 {
   "type": "ultramarine:woodworking",
-  "ingredient": "minecraft:stripped_dark_oak_log",
+  "ingredient": "#minecraft:dark_oak_logs",
   "result": {
     "id": "ultramarine:dark_oak_rafter_end"
   }

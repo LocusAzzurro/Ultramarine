@@ -1,0 +1,30 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": {
+      "item": "ultramarine:wooden_parts"
+    },
+    "B": {
+      "tag": "minecraft:planks"
+    },
+    "F": {
+      "item": "ultramarine:wooden_frame"
+    },
+    "P": {
+      "tag": "ultramarine:painting_scroll_items"
+    },
+    "W": {
+      "tag": "ultramarine:polished_planks"
+    }
+  },
+  "pattern": [
+    "AFA",
+    "PPP",
+    "WBW"
+  ],
+  "result": {
+    "count": 1,
+    "id": "ultramarine:large_landscape_painting_screen"
+  }
+}

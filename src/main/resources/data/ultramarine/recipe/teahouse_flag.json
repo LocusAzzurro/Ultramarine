@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "B": {
+      "tag": "minecraft:banners"
+    },
+    "F": {
+      "tag": "minecraft:wooden_fences"
+    },
+    "P": {
+      "item": "ultramarine:wooden_parts"
+    }
+  },
+  "pattern": [
+    "PFP",
+    " B ",
+    " F "
+  ],
+  "result": {
+    "count": 1,
+    "id": "ultramarine:teahouse_flag"
+  }
+}

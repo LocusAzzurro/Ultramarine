@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "key": {
+    "T": {
+      "item": "ultramarine:cyan_roof_tile"
+    }
+  },
+  "pattern": [
+    "T  ",
+    "TTT"
+  ],
+  "result": {
+    "count": 1,
+    "id": "ultramarine:cyan_roof_tile_edge"
+  }
+}

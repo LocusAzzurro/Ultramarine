@@ -1,0 +1,7 @@
+{
+  "type": "ultramarine:woodworking",
+  "ingredient": "#minecraft:oak_logs",
+  "result": {
+    "id": "ultramarine:oak_rafter_end"
+  }
+}

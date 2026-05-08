@@ -5,7 +5,7 @@
     "E": "ultramarine:wooden_parts",
     "F": "ultramarine:wooden_frame",
     "P": "#ultramarine:polished_planks",
-    "S": "#ultramarine:silk",
+    "S": "ultramarine:silk",
     "W": "minecraft:black_wool"
   },
   "pattern": [

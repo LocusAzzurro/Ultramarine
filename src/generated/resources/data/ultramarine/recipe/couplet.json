@@ -3,7 +3,7 @@
   "category": "misc",
   "key": {
     "I": "minecraft:ink_sac",
-    "P": "#ultramarine:xuan_paper",
+    "P": "ultramarine:xuan_paper",
     "R": "ultramarine:red_dye_powder"
   },
   "pattern": [

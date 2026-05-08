@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "G": {
+      "item": "ultramarine:green_glazed_tiles"
+    },
+    "Y": {
+      "item": "ultramarine:yellow_roof_ridge_upper_slab"
+    }
+  },
+  "pattern": [
+    "GG",
+    "YY"
+  ],
+  "result": {
+    "count": 4,
+    "id": "ultramarine:yellow_green_glazed_top_layer_eaves"
+  }
+}

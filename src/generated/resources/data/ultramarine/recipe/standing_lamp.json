@@ -6,7 +6,7 @@
     "F": "ultramarine:wooden_frame",
     "P": "ultramarine:wooden_parts",
     "W": "#minecraft:planks",
-    "X": "#ultramarine:xuan_paper"
+    "X": "ultramarine:xuan_paper"
   },
   "pattern": [
     "XCX",

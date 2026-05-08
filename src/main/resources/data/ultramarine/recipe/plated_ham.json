@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "ultramarine:polished_oak_plank"
+    },
+    {
+      "tag": "ultramarine:ham"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "ultramarine:plated_ham"
+  }
+}

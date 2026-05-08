@@ -1,0 +1,37 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "ultramarine:bamboo_mat_slab"
+    },
+    {
+      "tag": "ultramarine:baozi"
+    },
+    {
+      "tag": "ultramarine:baozi"
+    },
+    {
+      "tag": "ultramarine:baozi"
+    },
+    {
+      "tag": "ultramarine:baozi"
+    },
+    {
+      "tag": "ultramarine:baozi"
+    },
+    {
+      "tag": "ultramarine:baozi"
+    },
+    {
+      "tag": "ultramarine:baozi"
+    },
+    {
+      "tag": "ultramarine:baozi"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "ultramarine:xiaolongbao"
+  }
+}

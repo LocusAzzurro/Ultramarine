@@ -1,0 +1,7 @@
+{
+  "type": "ultramarine:woodworking",
+  "ingredient": "#minecraft:crimson_stems",
+  "result": {
+    "id": "ultramarine:crimson_rafter_end"
+  }
+}

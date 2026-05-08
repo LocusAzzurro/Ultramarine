@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "P": {
+      "tag": "ultramarine:xuan_paper"
+    }
+  },
+  "pattern": [
+    "PP"
+  ],
+  "result": {
+    "count": 2,
+    "id": "ultramarine:paper"
+  }
+}

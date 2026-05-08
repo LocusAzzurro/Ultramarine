@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "bonus_rolls": 0.0,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "ultramarine:spruce_rafter"
+        }
+      ],
+      "name": "spruce_rafter",
+      "rolls": 1.0
+    }
+  ],
+  "random_sequence": "ultramarine:blocks/spruce_rafter"
+}

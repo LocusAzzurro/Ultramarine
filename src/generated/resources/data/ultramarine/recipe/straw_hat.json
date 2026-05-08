@@ -3,7 +3,7 @@
   "category": "misc",
   "key": {
     "R": "ultramarine:red_dye_powder",
-    "S": "#ultramarine:silk",
+    "S": "ultramarine:silk",
     "W": "minecraft:wheat"
   },
   "pattern": [

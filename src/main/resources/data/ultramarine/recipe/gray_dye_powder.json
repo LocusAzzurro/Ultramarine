@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "tag": "c:dyes/gray"
+    }
+  ],
+  "result": {
+    "count": 4,
+    "id": "ultramarine:gray_dye_powder"
+  }
+}

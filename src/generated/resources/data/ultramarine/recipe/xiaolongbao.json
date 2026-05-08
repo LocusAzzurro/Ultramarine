@@ -3,14 +3,14 @@
   "category": "misc",
   "ingredients": [
     "ultramarine:bamboo_mat_slab",
-    "#ultramarine:baozi",
-    "#ultramarine:baozi",
-    "#ultramarine:baozi",
-    "#ultramarine:baozi",
-    "#ultramarine:baozi",
-    "#ultramarine:baozi",
-    "#ultramarine:baozi",
-    "#ultramarine:baozi"
+    "ultramarine:baozi",
+    "ultramarine:baozi",
+    "ultramarine:baozi",
+    "ultramarine:baozi",
+    "ultramarine:baozi",
+    "ultramarine:baozi",
+    "ultramarine:baozi",
+    "ultramarine:baozi"
   ],
   "result": {
     "id": "ultramarine:xiaolongbao"

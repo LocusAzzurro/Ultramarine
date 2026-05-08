@@ -4,7 +4,7 @@
   "key": {
     "F": "ultramarine:wooden_frame",
     "G": "ultramarine:gilded_dark_oak",
-    "S": "#ultramarine:silk",
+    "S": "ultramarine:silk",
     "W": "ultramarine:polished_oak_plank"
   },
   "pattern": [

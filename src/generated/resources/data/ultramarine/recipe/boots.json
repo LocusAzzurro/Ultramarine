@@ -4,7 +4,7 @@
   "key": {
     "B": "minecraft:leather_boots",
     "D": "ultramarine:black_dye_powder",
-    "S": "#ultramarine:silk"
+    "S": "ultramarine:silk"
   },
   "pattern": [
     "D D",

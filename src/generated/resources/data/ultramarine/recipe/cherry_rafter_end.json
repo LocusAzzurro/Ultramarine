@@ -1,0 +1,7 @@
+{
+  "type": "ultramarine:woodworking",
+  "ingredient": "#minecraft:cherry_logs",
+  "result": {
+    "id": "ultramarine:cherry_rafter_end"
+  }
+}

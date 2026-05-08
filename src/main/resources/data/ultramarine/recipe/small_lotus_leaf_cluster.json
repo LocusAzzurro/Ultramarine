@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "L": {
+      "item": "ultramarine:small_lotus_leaf"
+    }
+  },
+  "pattern": [
+    "L ",
+    " L"
+  ],
+  "result": {
+    "count": 2,
+    "id": "ultramarine:small_lotus_leaf_cluster"
+  }
+}

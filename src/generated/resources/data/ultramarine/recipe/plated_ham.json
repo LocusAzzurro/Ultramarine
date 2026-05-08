@@ -3,7 +3,10 @@
   "category": "misc",
   "ingredients": [
     "ultramarine:polished_oak_plank",
-    "#ultramarine:ham"
+    "ultramarine:cooked_meat",
+    "ultramarine:cooked_meat",
+    "ultramarine:cooked_meat",
+    "ultramarine:cooked_meat"
   ],
   "result": {
     "id": "ultramarine:plated_ham"
