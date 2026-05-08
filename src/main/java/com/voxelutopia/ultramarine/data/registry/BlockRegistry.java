@@ -16,7 +16,6 @@ import net.minecraft.world.food.Foods;
 import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.gameevent.GameEvent;
 import net.minecraft.world.phys.Vec3;
 import net.neoforged.neoforge.registries.DeferredBlock;
@@ -348,8 +347,8 @@ public class BlockRegistry {
     public static final DeferredHolder<Block, Block> BLUE_TIGER_EYE_RAFTER_END = register("blue_tiger_eye_rafter_end", () -> new RafterEnd(BaseBlockProperty.wood()));
     public static final DeferredHolder<Block, Block> BLUE_CARVED_TIGER_EYE_RAFTER = register("blue_carved_tiger_eye_rafter", () -> new Rafter(BaseBlockProperty.wood()));
     public static final DeferredHolder<Block, Block> BLUE_CARVED_TIGER_EYE_RAFTER_END = register("blue_carved_tiger_eye_rafter_end", () -> new RafterEnd(BaseBlockProperty.wood()));
-    public static final DeferredHolder<Block, Block> GREEN_CARVED_TIGER_EYE_RAFTER = register("green_tiger_eye_rafter", () -> new Rafter(BaseBlockProperty.wood()));
-    public static final DeferredHolder<Block, Block> GREEN_CARVED_TIGER_EYE_RAFTER_END = register("green_tiger_eye_rafter_end", () -> new RafterEnd(BaseBlockProperty.wood()));
+    public static final DeferredHolder<Block, Block> GREEN_TIGER_EYE_RAFTER = register("green_tiger_eye_rafter", () -> new Rafter(BaseBlockProperty.wood()));
+    public static final DeferredHolder<Block, Block> GREEN_TIGER_EYE_RAFTER_END = register("green_tiger_eye_rafter_end", () -> new RafterEnd(BaseBlockProperty.wood()));
     public static final DeferredHolder<Block, Block> GREEN_WANZI_RAFTER = register("green_wanzi_rafter", () -> new Rafter(BaseBlockProperty.wood()));
     public static final DeferredHolder<Block, Block> GREEN_WANZI_RAFTER_END = register("green_wanzi_rafter_end", () -> new RafterEnd(BaseBlockProperty.wood()));
     public static final DeferredHolder<Block, Block> GREEN_CARVED_WANZI_RAFTER = register("green_carved_wanzi_rafter", () -> new Rafter(BaseBlockProperty.wood()));

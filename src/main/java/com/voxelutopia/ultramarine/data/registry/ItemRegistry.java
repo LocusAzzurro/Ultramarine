@@ -5,7 +5,6 @@ import com.voxelutopia.ultramarine.data.ModCreativeTab;
 import com.voxelutopia.ultramarine.data.ModFoods;
 import com.voxelutopia.ultramarine.data.ModToolMaterials;
 import com.voxelutopia.ultramarine.world.item.*;
-import net.minecraft.core.registries.Registries;
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.*;
 import net.minecraft.world.item.component.Consumable;
@@ -14,10 +13,12 @@ import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
+import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.function.Function;
 import java.util.function.Supplier;
 
 @SuppressWarnings("unused")
+@ParametersAreNonnullByDefault
 public class ItemRegistry {
 
     public static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(Ultramarine.MOD_ID);
@@ -345,8 +346,8 @@ public class ItemRegistry {
     public static final DeferredHolder<Item, Item> BLUE_TIGER_EYE_RAFTER_END = fromBlock(BlockRegistry.BLUE_TIGER_EYE_RAFTER_END, ModCreativeTab.DECORATIVE_BLOCKS);
     public static final DeferredHolder<Item, Item> BLUE_CARVED_TIGER_EYE_RAFTER = fromBlock(BlockRegistry.BLUE_CARVED_TIGER_EYE_RAFTER, ModCreativeTab.DECORATIVE_BLOCKS);
     public static final DeferredHolder<Item, Item> BLUE_CARVED_TIGER_EYE_RAFTER_END = fromBlock(BlockRegistry.BLUE_CARVED_TIGER_EYE_RAFTER_END, ModCreativeTab.DECORATIVE_BLOCKS);
-    public static final DeferredHolder<Item, Item> GREEN_CARVED_TIGER_EYE_RAFTER = fromBlock(BlockRegistry.GREEN_CARVED_TIGER_EYE_RAFTER, ModCreativeTab.DECORATIVE_BLOCKS);
-    public static final DeferredHolder<Item, Item> GREEN_CARVED_TIGER_EYE_RAFTER_END = fromBlock(BlockRegistry.GREEN_CARVED_TIGER_EYE_RAFTER_END, ModCreativeTab.DECORATIVE_BLOCKS);
+    public static final DeferredHolder<Item, Item> GREEN_TIGER_EYE_RAFTER = fromBlock(BlockRegistry.GREEN_TIGER_EYE_RAFTER, ModCreativeTab.DECORATIVE_BLOCKS);
+    public static final DeferredHolder<Item, Item> GREEN_TIGER_EYE_RAFTER_END = fromBlock(BlockRegistry.GREEN_TIGER_EYE_RAFTER_END, ModCreativeTab.DECORATIVE_BLOCKS);
     public static final DeferredHolder<Item, Item> GREEN_WANZI_RAFTER = fromBlock(BlockRegistry.GREEN_WANZI_RAFTER, ModCreativeTab.DECORATIVE_BLOCKS);
     public static final DeferredHolder<Item, Item> GREEN_WANZI_RAFTER_END = fromBlock(BlockRegistry.GREEN_WANZI_RAFTER_END, ModCreativeTab.DECORATIVE_BLOCKS);
     public static final DeferredHolder<Item, Item> GREEN_CARVED_WANZI_RAFTER = fromBlock(BlockRegistry.GREEN_CARVED_WANZI_RAFTER, ModCreativeTab.DECORATIVE_BLOCKS);

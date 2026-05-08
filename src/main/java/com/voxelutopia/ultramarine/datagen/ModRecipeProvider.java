@@ -26,7 +26,6 @@ import net.minecraft.world.item.crafting.CookingBookCategory;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.ItemLike;
 import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 
 import java.util.Objects;
 import java.util.Optional;
@@ -603,10 +602,10 @@ public class ModRecipeProvider extends RecipeProvider {
         rafterEnd(ItemRegistry.BLUE_CARVED_TIGER_EYE_RAFTER_END.get(), new Ingredient[]{
                 ingredientFromTag(ModItemTags.COMMON_BLUE_DYE), ingredientFromTag(ModItemTags.COMMON_BLUE_DYE), ingredientFromTag(ModItemTags.COMMON_YELLOW_DYE), Ingredient.of(ItemRegistry.GOLD_DYE_POWDER.get())
         }, recipeConsumer);
-        rafter(ItemRegistry.GREEN_CARVED_TIGER_EYE_RAFTER.get(), new Ingredient[]{
+        rafter(ItemRegistry.GREEN_TIGER_EYE_RAFTER.get(), new Ingredient[]{
                 ingredientFromTag(ModItemTags.COMMON_GREEN_DYE), ingredientFromTag(ModItemTags.COMMON_GREEN_DYE), Ingredient.of(ItemRegistry.BLUE_DYE_POWDER.get()), Ingredient.of(ItemRegistry.GOLD_DYE_POWDER.get())
         }, recipeConsumer);
-        rafterEnd(ItemRegistry.GREEN_CARVED_TIGER_EYE_RAFTER_END.get(), new Ingredient[]{
+        rafterEnd(ItemRegistry.GREEN_TIGER_EYE_RAFTER_END.get(), new Ingredient[]{
                 ingredientFromTag(ModItemTags.COMMON_GREEN_DYE), ingredientFromTag(ModItemTags.COMMON_GREEN_DYE), Ingredient.of(ItemRegistry.BLUE_DYE_POWDER.get()), Ingredient.of(ItemRegistry.GOLD_DYE_POWDER.get())
         }, recipeConsumer);
         rafter(ItemRegistry.GREEN_WANZI_RAFTER.get(), new Ingredient[]{
