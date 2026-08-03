@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "bonus_rolls": 0.0,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "ultramarine:qing_golden_dragon_ceiling"
+        }
+      ],
+      "name": "qing_golden_dragon_ceiling",
+      "rolls": 1.0
+    }
+  ],
+  "random_sequence": "ultramarine:blocks/qing_golden_dragon_ceiling"
+}

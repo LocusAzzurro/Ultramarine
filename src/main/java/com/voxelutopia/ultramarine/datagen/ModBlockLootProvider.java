@@ -162,13 +162,13 @@ public class ModBlockLootProvider extends BlockLootSubProvider {
 
     void porcelainPlate(DeferredHolder<Block, ? extends Block> block, DeferredHolder<Item, ? extends Item> piece) {
         if (block.get() instanceof ConsumableDecorativeBlock consumable)
-            this.addLootTable(block.get(), createPorcelainDrop(block.getId().getPath(), consumable.getPlate().getItem(), piece.get()));
+            this.addLootTable(block.get(), createPorcelainDrop(block.getId().getPath(), consumable.getPlateItem(), piece.get()));
         else LOGGER.warn("Porcelain plate loot table was not added for block {}", block.get().getDescriptionId());
     }
 
     void porcelainPlateWithShards(DeferredHolder<Block, ? extends Block> block, DeferredHolder<Item, ? extends Item> piece, DeferredHolder<Item, ? extends Item> shards) {
         if (block.get() instanceof ConsumableDecorativeBlock consumable)
-            this.addLootTable(block.get(), createPorcelainDropWithShard(block.getId().getPath(), consumable.getPlate().getItem(), piece.get(), shards.get()));
+            this.addLootTable(block.get(), createPorcelainDropWithShard(block.getId().getPath(), consumable.getPlateItem(), piece.get(), shards.get()));
         else LOGGER.warn("Porcelain plate loot table was not added for block {}", block.get().getDescriptionId());
     }
 
@@ -186,7 +186,7 @@ public class ModBlockLootProvider extends BlockLootSubProvider {
 
     void plateDrop(DeferredHolder<Block, ? extends Block> block) {
         if (block.get() instanceof ConsumableDecorativeBlock consumable)
-            this.addLootTable(block.get(), this.createSimpleTable(block.getId().getPath(), consumable.getPlate().getItem()));
+            this.addLootTable(block.get(), this.createSimpleTable(block.getId().getPath(), consumable.getPlateItem()));
         else LOGGER.warn("Plate drop loot table was not added for block {}", block.get().getDescriptionId());
     }
 

@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "bonus_rolls": 0.0,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "ultramarine:small_dark_green_lotus_leaf"
+        }
+      ],
+      "name": "small_dark_green_lotus_leaf",
+      "rolls": 1.0
+    }
+  ],
+  "random_sequence": "ultramarine:blocks/small_dark_green_lotus_leaf"
+}

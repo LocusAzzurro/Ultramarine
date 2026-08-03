@@ -1,0 +1,59 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "bonus_rolls": 0.0,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "conditions": [
+            {
+              "block": "ultramarine:white_and_red_slab",
+              "condition": "minecraft:block_state_property",
+              "properties": {
+                "type": "top"
+              }
+            }
+          ],
+          "name": "ultramarine:white_and_red_slab"
+        },
+        {
+          "type": "minecraft:item",
+          "conditions": [
+            {
+              "block": "ultramarine:white_and_red_slab",
+              "condition": "minecraft:block_state_property",
+              "properties": {
+                "type": "bottom"
+              }
+            }
+          ],
+          "name": "ultramarine:white_and_red_slab"
+        },
+        {
+          "type": "minecraft:item",
+          "conditions": [
+            {
+              "block": "ultramarine:white_and_red_slab",
+              "condition": "minecraft:block_state_property",
+              "properties": {
+                "type": "double"
+              }
+            }
+          ],
+          "functions": [
+            {
+              "add": false,
+              "count": 2.0,
+              "function": "minecraft:set_count"
+            }
+          ],
+          "name": "ultramarine:white_and_red_slab"
+        }
+      ],
+      "name": "white_and_red_slab",
+      "rolls": 1.0
+    }
+  ],
+  "random_sequence": "ultramarine:blocks/white_and_red_slab"
+}

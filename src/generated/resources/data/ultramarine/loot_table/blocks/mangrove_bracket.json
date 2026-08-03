@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "bonus_rolls": 0.0,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "ultramarine:mangrove_bracket"
+        }
+      ],
+      "name": "mangrove_bracket",
+      "rolls": 1.0
+    }
+  ],
+  "random_sequence": "ultramarine:blocks/mangrove_bracket"
+}

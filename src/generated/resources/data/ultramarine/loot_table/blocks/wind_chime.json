@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "bonus_rolls": 0.0,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "ultramarine:wind_chime"
+        }
+      ],
+      "name": "wind_chime",
+      "rolls": 1.0
+    }
+  ],
+  "random_sequence": "ultramarine:blocks/wind_chime"
+}

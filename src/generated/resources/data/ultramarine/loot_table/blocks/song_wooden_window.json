@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "bonus_rolls": 0.0,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "ultramarine:song_wooden_window"
+        }
+      ],
+      "name": "song_wooden_window",
+      "rolls": 1.0
+    }
+  ],
+  "random_sequence": "ultramarine:blocks/song_wooden_window"
+}

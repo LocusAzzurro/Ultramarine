@@ -1,0 +1,59 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "bonus_rolls": 0.0,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "conditions": [
+            {
+              "block": "ultramarine:red_carved_architrave",
+              "condition": "minecraft:block_state_property",
+              "properties": {
+                "type": "top"
+              }
+            }
+          ],
+          "name": "ultramarine:red_carved_architrave"
+        },
+        {
+          "type": "minecraft:item",
+          "conditions": [
+            {
+              "block": "ultramarine:red_carved_architrave",
+              "condition": "minecraft:block_state_property",
+              "properties": {
+                "type": "bottom"
+              }
+            }
+          ],
+          "name": "ultramarine:red_carved_architrave"
+        },
+        {
+          "type": "minecraft:item",
+          "conditions": [
+            {
+              "block": "ultramarine:red_carved_architrave",
+              "condition": "minecraft:block_state_property",
+              "properties": {
+                "type": "double"
+              }
+            }
+          ],
+          "functions": [
+            {
+              "add": false,
+              "count": 2.0,
+              "function": "minecraft:set_count"
+            }
+          ],
+          "name": "ultramarine:red_carved_architrave"
+        }
+      ],
+      "name": "red_carved_architrave",
+      "rolls": 1.0
+    }
+  ],
+  "random_sequence": "ultramarine:blocks/red_carved_architrave"
+}

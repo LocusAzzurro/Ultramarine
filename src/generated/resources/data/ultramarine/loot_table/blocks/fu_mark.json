@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "bonus_rolls": 0.0,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "ultramarine:fu_mark"
+        }
+      ],
+      "name": "fu_mark",
+      "rolls": 1.0
+    }
+  ],
+  "random_sequence": "ultramarine:blocks/fu_mark"
+}
