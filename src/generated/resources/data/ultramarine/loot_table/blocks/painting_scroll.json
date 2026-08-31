@@ -1,0 +1,78 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "bonus_rolls": 0.0,
+      "entries": [
+        {
+          "type": "minecraft:alternatives",
+          "children": [
+            {
+              "type": "minecraft:item",
+              "conditions": [
+                {
+                  "condition": "minecraft:inverted",
+                  "term": {
+                    "condition": "minecraft:match_tool",
+                    "predicate": {
+                      "items": "minecraft:shears"
+                    }
+                  }
+                }
+              ],
+              "name": "ultramarine:painting_scroll"
+            },
+            {
+              "type": "minecraft:group",
+              "children": [
+                {
+                  "type": "minecraft:item",
+                  "name": "minecraft:diamond"
+                },
+                {
+                  "type": "minecraft:item",
+                  "name": "ultramarine:long_hanging_painting"
+                },
+                {
+                  "type": "minecraft:item",
+                  "name": "ultramarine:white_landscape_painting"
+                },
+                {
+                  "type": "minecraft:item",
+                  "name": "ultramarine:horizontal_old_landscape_painting"
+                },
+                {
+                  "type": "minecraft:item",
+                  "name": "ultramarine:horizontal_calligraphy"
+                },
+                {
+                  "type": "minecraft:item",
+                  "name": "ultramarine:horizontal_landscape_painting"
+                },
+                {
+                  "type": "minecraft:item",
+                  "name": "ultramarine:long_yellow_hanging_painting"
+                },
+                {
+                  "type": "minecraft:item",
+                  "name": "ultramarine:portrait"
+                },
+                {
+                  "type": "minecraft:item",
+                  "name": "ultramarine:hanging_painting_fan"
+                },
+                {
+                  "type": "minecraft:item",
+                  "name": "ultramarine:sincere_calligraphy"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "name": "painting_scroll",
+      "rolls": 1.0
+    }
+  ],
+  "random_sequence": "ultramarine:blocks/painting_scroll"
+}

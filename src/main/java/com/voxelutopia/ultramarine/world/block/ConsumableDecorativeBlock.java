@@ -32,7 +32,7 @@ public class ConsumableDecorativeBlock extends DecorativeBlock {
     private final int bites;
     private final ConsumeAction finishedAction;
     private final ConsumeAction eatAction;
-    private final Supplier<ItemStack> plate;
+    private final Supplier<Item> plate;
     private final FoodProperties food;
     private final Consumable consumable;
 
@@ -106,6 +106,10 @@ public class ConsumableDecorativeBlock extends DecorativeBlock {
     }
 
     public ItemStack getPlate() {
+        return new ItemStack(getPlateItem());
+    }
+
+    public Item getPlateItem() {
         return plate.get();
     }
 
@@ -128,7 +132,7 @@ public class ConsumableDecorativeBlock extends DecorativeBlock {
         private static final FoodProperties DEFAULT_FOOD = new FoodProperties.Builder().nutrition(2).saturationModifier(0.2f).build();
         private static final Consumable DEFAULT_CONSUMABLE = Consumables.DEFAULT_FOOD;
         private int bites = 4;
-        private Supplier<ItemStack> plate = () -> new ItemStack(Blocks.STONE_SLAB);
+        private Supplier<Item> plate = Blocks.STONE_SLAB::asItem;
         private ConsumeAction eatAction = DEFAULT_EAT_ACTION;
         private ConsumeAction finishedAction = DEFAULT_FINISH_ACTION;
         private FoodProperties food = DEFAULT_FOOD;
@@ -155,17 +159,17 @@ public class ConsumableDecorativeBlock extends DecorativeBlock {
         }
 
         public Builder platedWith(ItemStack plate) {
-            this.plate = () -> plate;
+            this.plate = plate::getItem;
             return this;
         }
 
         public Builder platedWith(Block plate) {
-            this.plate = () -> new ItemStack(plate);
+            this.plate = plate::asItem;
             return this;
         }
 
         public Builder platedWith(Supplier<Item> plate) {
-            this.plate = () -> new ItemStack(plate.get());
+            this.plate = plate;
             return this;
         }
 

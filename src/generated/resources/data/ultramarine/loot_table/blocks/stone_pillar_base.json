@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "bonus_rolls": 0.0,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "ultramarine:stone_pillar_base"
+        }
+      ],
+      "name": "stone_pillar_base",
+      "rolls": 1.0
+    }
+  ],
+  "random_sequence": "ultramarine:blocks/stone_pillar_base"
+}

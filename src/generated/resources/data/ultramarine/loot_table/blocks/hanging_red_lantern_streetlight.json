@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "bonus_rolls": 0.0,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "ultramarine:hanging_red_lantern_streetlight"
+        }
+      ],
+      "name": "hanging_red_lantern_streetlight",
+      "rolls": 1.0
+    }
+  ],
+  "random_sequence": "ultramarine:blocks/hanging_red_lantern_streetlight"
+}

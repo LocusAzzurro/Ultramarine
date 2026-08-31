@@ -49,6 +49,19 @@ public class ModItemTagsProvider extends ItemTagsProvider {
                 .add(ItemRegistry.POLISHED_EBONY_PLANK.get());
         tag(ModItemTags.DYE_POWDER).add(ItemRegistry.ITEMS.getEntries().stream().filter(reg -> reg.get() instanceof DyePowder)
                 .map(DeferredHolder::get).toList().toArray(new Item[0]));
+        tag(ModItemTags.BLUE_AND_WHITE_PORCELAIN_REPAIR_MATERIALS)
+                .add(ItemRegistry.BLUE_AND_WHITE_PORCELAIN_PIECE.get());
+        tag(ModItemTags.CHISEL_TEMPLATES)
+                .add(ItemRegistry.CARVED_WOOD_TEMPLATE.get())
+                .add(ItemRegistry.CARVED_WOOL_TEMPLATE.get())
+                .add(ItemRegistry.FANGXIN_TEMPLATE.get())
+                .add(ItemRegistry.FANGXIN_EDGE_TEMPLATE.get())
+                .add(ItemRegistry.ZHAOTOU_TEMPLATE.get())
+                .add(ItemRegistry.GUTOU_TEMPLATE.get())
+                .add(ItemRegistry.RAFTER_TEMPLATE.get())
+                .add(ItemRegistry.RAFTER_END_TEMPLATE.get())
+                .add(ItemRegistry.ARCHITRAVE_TEMPLATE.get())
+                .add(ItemRegistry.CAIHUA_TEMPLATE.get());
         tag(ModItemTags.PARTS)
                 .add(ItemRegistry.WOODEN_PARTS.get())
                 .add(ItemRegistry.PORCELAIN_PARTS.get())
@@ -63,17 +76,6 @@ public class ModItemTagsProvider extends ItemTagsProvider {
                 .add(ItemRegistry.LONG_YELLOW_HANGING_PAINTING.get())
                 .add(ItemRegistry.PORTRAIT.get())
                 .add(ItemRegistry.SINCERE_CALLIGRAPHY.get());
-        tag(ModItemTags.PAINTING_SCROLL_ITEMS)
-                .add(ItemRegistry.LONG_HANGING_PAINTING.get())
-                .add(ItemRegistry.WHITE_LANDSCAPE_PAINTING.get())
-                .add(ItemRegistry.HORIZONTAL_OLD_LANDSCAPE_PAINTING.get())
-                .add(ItemRegistry.HORIZONTAL_CALLIGRAPHY.get())
-                .add(ItemRegistry.HORIZONTAL_LANDSCAPE_PAINTING.get())
-                .add(ItemRegistry.LONG_YELLOW_HANGING_PAINTING.get())
-                .add(ItemRegistry.PORTRAIT.get())
-                .add(ItemRegistry.SINCERE_CALLIGRAPHY.get());
-
-
     }
     @NotNull
     @Override

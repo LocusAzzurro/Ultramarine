@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "bonus_rolls": 0.0,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "ultramarine:small_stone_guardian_lion"
+        }
+      ],
+      "name": "small_stone_guardian_lion",
+      "rolls": 1.0
+    }
+  ],
+  "random_sequence": "ultramarine:blocks/small_stone_guardian_lion"
+}

@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "bonus_rolls": 0.0,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "ultramarine:yellow_carved_fangxin_edge_pattern"
+        }
+      ],
+      "name": "yellow_carved_fangxin_edge_pattern",
+      "rolls": 1.0
+    }
+  ],
+  "random_sequence": "ultramarine:blocks/yellow_carved_fangxin_edge_pattern"
+}

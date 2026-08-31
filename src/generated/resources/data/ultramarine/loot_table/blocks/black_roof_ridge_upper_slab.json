@@ -1,0 +1,59 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "bonus_rolls": 0.0,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "conditions": [
+            {
+              "block": "ultramarine:black_roof_ridge_upper_slab",
+              "condition": "minecraft:block_state_property",
+              "properties": {
+                "type": "top"
+              }
+            }
+          ],
+          "name": "ultramarine:black_roof_ridge_upper_slab"
+        },
+        {
+          "type": "minecraft:item",
+          "conditions": [
+            {
+              "block": "ultramarine:black_roof_ridge_upper_slab",
+              "condition": "minecraft:block_state_property",
+              "properties": {
+                "type": "bottom"
+              }
+            }
+          ],
+          "name": "ultramarine:black_roof_ridge_upper_slab"
+        },
+        {
+          "type": "minecraft:item",
+          "conditions": [
+            {
+              "block": "ultramarine:black_roof_ridge_upper_slab",
+              "condition": "minecraft:block_state_property",
+              "properties": {
+                "type": "double"
+              }
+            }
+          ],
+          "functions": [
+            {
+              "add": false,
+              "count": 2.0,
+              "function": "minecraft:set_count"
+            }
+          ],
+          "name": "ultramarine:black_roof_ridge_upper_slab"
+        }
+      ],
+      "name": "black_roof_ridge_upper_slab",
+      "rolls": 1.0
+    }
+  ],
+  "random_sequence": "ultramarine:blocks/black_roof_ridge_upper_slab"
+}

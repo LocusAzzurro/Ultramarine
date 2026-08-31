@@ -1,0 +1,125 @@
+{
+  "type": "minecraft:archaeology",
+  "pools": [
+    {
+      "bonus_rolls": 0.0,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "ultramarine:cyan_brick",
+          "weight": 8
+        },
+        {
+          "type": "minecraft:item",
+          "name": "ultramarine:black_brick",
+          "weight": 8
+        },
+        {
+          "type": "minecraft:item",
+          "name": "ultramarine:brownish_red_stone_brick",
+          "weight": 8
+        },
+        {
+          "type": "minecraft:item",
+          "name": "ultramarine:polished_rosewood_plank",
+          "weight": 8
+        },
+        {
+          "type": "minecraft:item",
+          "name": "ultramarine:polished_ebony_plank",
+          "weight": 8
+        },
+        {
+          "type": "minecraft:item",
+          "name": "ultramarine:gray_roof_tile",
+          "weight": 4
+        },
+        {
+          "type": "minecraft:item",
+          "name": "ultramarine:yellow_roof_tile",
+          "weight": 4
+        },
+        {
+          "type": "minecraft:item",
+          "name": "ultramarine:green_roof_tile",
+          "weight": 4
+        },
+        {
+          "type": "minecraft:item",
+          "name": "ultramarine:blue_roof_tile",
+          "weight": 4
+        },
+        {
+          "type": "minecraft:item",
+          "name": "ultramarine:cyan_roof_tile",
+          "weight": 4
+        },
+        {
+          "type": "minecraft:item",
+          "name": "ultramarine:black_roof_tile",
+          "weight": 4
+        },
+        {
+          "type": "minecraft:item",
+          "name": "ultramarine:bronze_ingot",
+          "weight": 2
+        },
+        {
+          "type": "minecraft:item",
+          "name": "ultramarine:copper_cash_coin",
+          "weight": 2
+        },
+        {
+          "type": "minecraft:item",
+          "name": "ultramarine:silk",
+          "weight": 2
+        },
+        {
+          "type": "minecraft:item",
+          "name": "ultramarine:magnesite",
+          "weight": 2
+        },
+        {
+          "type": "minecraft:item",
+          "name": "ultramarine:blue_and_white_porcelain_shards",
+          "weight": 2
+        },
+        {
+          "type": "minecraft:item",
+          "name": "ultramarine:porcelain_piece",
+          "weight": 2
+        },
+        {
+          "type": "minecraft:item",
+          "name": "ultramarine:small_white_porcelain_vase"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "ultramarine:medium_white_porcelain_vase"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "ultramarine:large_white_porcelain_vase"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "ultramarine:small_green_porcelain_vase"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "ultramarine:medium_green_porcelain_vase"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "ultramarine:tall_blue_porcelain_vase"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "ultramarine:black_porcelain_plate"
+        }
+      ],
+      "rolls": 1.0
+    }
+  ],
+  "random_sequence": "ultramarine:archaeology/trail_ruins_common"
+}

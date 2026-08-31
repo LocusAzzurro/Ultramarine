@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "bonus_rolls": 0.0,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "ultramarine:chiseled_cyan_floor_tile"
+        }
+      ],
+      "name": "chiseled_cyan_floor_tile",
+      "rolls": 1.0
+    }
+  ],
+  "random_sequence": "ultramarine:blocks/chiseled_cyan_floor_tile"
+}

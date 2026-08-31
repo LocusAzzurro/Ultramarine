@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "bonus_rolls": 0.0,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "ultramarine:large_red_ivy"
+        }
+      ],
+      "name": "large_red_ivy",
+      "rolls": 1.0
+    }
+  ],
+  "random_sequence": "ultramarine:blocks/large_red_ivy"
+}
